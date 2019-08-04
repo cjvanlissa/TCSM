@@ -1,0 +1,12 @@
+--- 
+title: "Theory Construction and Statistical Modeling"
+author: "Caspar J. van Lissa"
+date: "`r Sys.Date()`"
+site: "bookdown::bookdown_site"
+output:
+  bookdown::gitbook: default
+documentclass: book
+biblio-style: apalike
+link-citations: yes
+output_dir: "docs"
+---
