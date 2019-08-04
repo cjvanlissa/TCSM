@@ -1,0 +1,5 @@
+# Preface {-}
+
+In this course you will learn how to translate a social scientific theory into a statistical model, how to analyze your data with these models, and how to interpret and report your results following APA standards.
+
+The analyses will be executed using the statistical programming environment R, and in particular using the structural equation modeling package lavaan.
