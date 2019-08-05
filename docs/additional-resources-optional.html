@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Theory Construction and Statistical Modeling</title>
+  <title>1.3 Additional resources (optional) | Theory Construction and Statistical Modeling</title>
   <meta name="description" content="This is a guide for the elective course TCSM." />
   <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Theory Construction and Statistical Modeling" />
+  <meta property="og:title" content="1.3 Additional resources (optional) | Theory Construction and Statistical Modeling" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Theory Construction and Statistical Modeling" />
+  <meta name="twitter:title" content="1.3 Additional resources (optional) | Theory Construction and Statistical Modeling" />
   
   <meta name="twitter:description" content="This is a guide for the elective course TCSM." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="preparing-for-the-course.html">
+<link rel="prev" href="starting-a-new-project-in-rstudio.html">
+<link rel="next" href="getting-your-data-into-r.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,6 +50,68 @@
 <script src="libs/pagedtable-1.1/js/pagedtable.js"></script>
 
 
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 <link rel="stylesheet" href="font-awesome.min.css" type="text/css" />
@@ -65,7 +127,7 @@
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./index.html">TCSM</a></li>
+<li><a href="./">TCSM</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Course</a></li>
@@ -149,25 +211,50 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Theory Construction and Statistical Modeling</h1>
-<h2 class="subtitle"><em>A guide to structural equation modeling in R</em></h2>
-<p class="author"><em>Caspar J. van Lissa¹</em></p>
-<p class="date"><em>¹Utrecht University, Methodology &amp; Statistics</em></p>
-</div>
-<div id="course" class="section level1 unnumbered">
-<h1>Course</h1>
-<p>In this course you will learn how to translate a social scientific theory into a statistical model, how to analyze your data with these models, and how to interpret and report your results following APA standards.</p>
-<p>The analyses will be executed using the statistical programming environment R, and in particular using the structural equation modeling package lavaan.</p>
+<div id="additional-resources-optional" class="section level2">
+<h2><span class="header-section-number">1.3</span> Additional resources (optional)</h2>
+<p>In order to get the most out of this guide, it’s helpful (but not essential) if you have some programming experience already. If you’ve never programmed before, you might find <strong><em>Hands-On Programming with R</em></strong> <span class="citation">(Grolemund <a href="#ref-grolemund2014hands">2014</a>)</span> to be a useful primer. Andy Field is also available for R.</p>
+<p>There are three things you need to run the code: <strong>R</strong>, <strong>RStudio</strong>, and collection of <strong>R packages</strong>. Packages are the fundamental units of reproducible R code. They include reusable functions, the documentation that describes how to use them, and sample data.</p>
+<p>Gladly, once you’ve reached this point successfully, these three things are set already. Nevertheless, we will have to install and load a few new packages at some place in this guide, for which you can use the <code>install.packages()</code> the same way as you did before.</p>
+<p>Throughout the guide, a consistent set of conventions is used to refer to code:</p>
+<ul>
+<li>Functions are in a code font and followed by parentheses, like
+<code>sum()</code> or <code>mean()</code>.</li>
+<li>Other R objects (like data or function arguments) are in a code
+font, without parentheses, like <code>seTE</code> or <code>method.tau</code>.</li>
+<li>Sometimes, we’ll use the package name followed by two colons, like
+<code>lavaan::sem()</code>. This is valid R code and will run. The <code>lavaan::</code> part indicates that the function <code>sem()</code> comes from the package <code>lavaan</code>.</li>
+</ul>
+<div id="getting-help" class="section level3">
+<h3><span class="header-section-number">1.3.1</span> Getting Help</h3>
+<p>As you start to apply the techniques described in this guide to your data you will soon find questions that the guide does not answer. This section describes a few tips on how to get help.</p>
+<ul>
+<li>If you get stuck, start with <strong>Google</strong>. Typically, adding “R” to a search is enough to restrict it to relevant results: if the search isn’t useful, it often means that there aren’t any R-specific results available. Google is particularly useful for error messages. If you get an error message and you have no idea what it means, try googling it. Chances are that someone else has been confused by it in the past, and there will
+be help somewhere on the web. (If the error message isn’t in English,
+run <code>Sys.setenv(LANGUAGE = &quot;en&quot;)</code> and re-run the code; you’re
+more likely to find help for English error messages.)</li>
+<li>If Google doesn’t help, try <a href="https://stackoverflow.com">stackoverflow</a>. Start by spending a little time searching for an existing answer; including [R] restricts your search to questions and answers that use R.</li>
+<li>Lastly, if you stumble upon an error (or typos!) in this guide’s text or R syntax, feel free to contact <strong>Caspar van Lissa</strong> at <strong><a href="mailto:c.j.vanlissa@uu.nl">c.j.vanlissa@uu.nl</a></strong>.</li>
+</ul>
+<p><br><br></p>
+<hr />
 
+</div>
+</div>
+<!-- </div> -->
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-grolemund2014hands">
+<p>Grolemund, Garrett. 2014. <em>Hands-on Programming with R: Write Your Own Functions and Simulations</em>. O’Reilly.</p>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="preparing-for-the-course.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="starting-a-new-project-in-rstudio.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="getting-your-data-into-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -213,6 +300,19 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

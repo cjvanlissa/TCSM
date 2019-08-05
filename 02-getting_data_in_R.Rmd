@@ -1,0 +1,177 @@
+# Getting your data into R
+
+
+```{block,type='rmdinfo'}
+This optional chapter will tell you about how you can **import** data in RStudio. We will also show you a few commands to **manipulate data** directly in R.
+
+```
+
+## Using R projects
+
+One advantage of using an **R project** is that the project directory is automatically set as the working directory. Just copy your data file to the folder that contains the *".Rproj"* file, and you will be able to load files by name.
+
+## Importing Excel Files
+
+One way to get Excel files directly into R is by using the `XLConnect` package. Install the package, and try using the readWorksheetFromFile() function to load the data, and assign it to an object called `df`:
+
+```{r, eval = FALSE}
+# Run this only once, to download and install the package:
+install.packages("XLConnect")
+# Load the package:
+library(XLConnect)
+# Read an Excel file into 'df':
+df <- readWorksheetFromFile("your_file.xlsx",
+                            sheet = 1)
+```
+
+```{r, echo=FALSE, results = "hide", message=FALSE, eval = FALSE}
+library(XLConnect)
+df <- readWorksheetFromFile("happy.xlsx",
+                            sheet = 1)
+```
+
+### Inspect the data
+
+R does not work with a single spreadsheet (SPSS or Excel). Instead, it can keep many objects in memory. The object `df` is a `data.frame`; an object that behaves similar to a spreadsheet. To see a description of the object, look at the *Environment* tab in the top right of Rstudio, and click the arrow next to `df`.
+
+```{r, echo=FALSE}
+library(png)
+library(grid)
+img <- readPNG("environment.PNG")
+grid.raster(img)
+```
+
+As you can see, the on the top-right pane **Environment**, your file is now listed as a data set in your RStudio environment.
+
+You can make a quick copy of this data set by assigning the `df` object to a new object. This way, you can edit one, and leave the other unchanged. Assign the object `df` to a new object called `df_backup`:
+
+
+```{r}
+df_backup <- df
+```
+
+You can also have a look at the contents of `df` by **clicking** the object in the Environment panel, or running the command `head(df)`.
+
+<br><br>
+
+---
+
+
+## Importing SPSS Files
+
+SPSS files can be loaded using the `foreign` package. All SPSS files for this course are available on Blackboard.
+
+<!--[here](https://github.com/cjvanlissa/Doing-Meta-Analysis-in-R/blob/master/Problem2.sav?raw=true).-->
+
+```{r, eval = FALSE}
+# Install the package, run this only once
+install.packages("foreign")
+
+# Load the `foreign` library
+library(foreign)
+
+# Read the SPSS data
+df <- read.spss("sesam2.sav",
+                     to.data.frame = TRUE)
+```
+```{r, echo = FALSE}
+library(foreign)
+
+# Read the SPSS data
+df <- read.spss("sesam2.sav",
+                     to.data.frame = TRUE)
+```
+
+
+## Data manipulation (optional)
+
+Now that we have the Meta-Analysis data in RStudio, let's do a **few manipulations with the data**. These functions might come in handy when were conducting analyses later on.
+
+
+Going back to the output of the `str()` function, we see that this also gives us details on the type of column data we have stored in our data. There a different abbreviations signifying different types of data.
+
+```{r,echo=FALSE}
+library(kableExtra)
+Package<-c("num","chr","log","factor")
+type<-c("Numerical","Character","Logical","Factor")
+Description<-c("This is all data stored as numbers (e.g. 1.02)","This is all data stored as words","These are variables which are binary, meaning that they signify that a condition is either TRUE or FALSE","Factors are stored as numbers, with each number signifying a different level of a variable. A possible factor of a variable might be 1 = low, 2 = medium, 3 = high")
+m<-data.frame(Package,type,Description)
+names<-c("Abbreviation", "Type","Description")
+colnames(m)<-names
+kable(m)
+```
+
+### Converting to factors {#convertfactors}
+
+Let's look at the variable `df$VIEWCAT`. This is a categorical variable, coded as a numerical one. We can have a look at this variable by typing the name of our dataset, then adding the selector `$` and then adding the variable we want to have a look at.
+This variable is currently a numeric vector. We want it to be a factor: That's a categorical variable.
+
+To convert this to a **factor** variable now, we use the `factor()` function.
+
+```{r, results = "hide"}
+df$VIEWCAT <- factor(df$VIEWCAT)
+```
+We now see that the variable has been **converted to a factor with the levels "1", "2", "3", and "4"**. We can assign different value labels as follows:
+
+```{r, results = "hide"}
+df$VIEWCAT <- factor(df$VIEWCAT, labels = c("Rarely", "Sometimes", "Regularly", "Often"))
+```
+
+
+### Selecting specific cases {#select}
+
+It may often come in handy to **select certain cases for further analyses**, or to **exclude some studies in further analyses** (e.g., if they are outliers).
+
+To do this, we can use the `[]` operator to index our data.
+
+Let's say we want to get only the first 5 cases. We can select them like so:
+
+```{r}
+df[1:5, ]
+```
+
+Or let's say we only want the children younger than 36 months in the dataset. In this case, we can use **boolean indexing**: We create a TRUE / FALSE statement, and select the cases that are TRUE:
+
+```{r}
+df[df$AGE < 36, ]
+```
+
+Note that this approach can be used for any other type of data and variable. We can also use it to e.g., only select studies where VIEWCAT was equal to "Often" "typical":
+
+```{r, eval = FALSE}
+df[df$VIEWCAT == "Often", ]
+```
+```{r, echo = FALSE}
+df[df$VIEWCAT == "Often", ][1:5, ]
+```
+
+### Changing cell values
+
+Sometimes, even when preparing your data in EXCEL, you might want to **change values in RStudio once you have imported your data**. 
+
+To do this, we have to select a cell in our data frame in RStudio. This can be done by adding `[x,y]` to our dataset name, where **x** signifies the number of the **row** we want to select, and **y** signifies the number of the **column**.
+
+To see how this works, let's select a variable using this command first:
+
+```{r}
+df[8,1]
+```
+
+We now see the **8th study** in our dataframe, and the value of this study for **Column 1 (participant ID)** is displayed. Let's say we had a typo in this name and want to have it changed. In this case, we have to give this exact cell a new value.
+
+```{r}
+df[8,1] <- 1001
+```
+
+Let's check if the value has changed.
+
+```{r}
+df[8,1]
+```
+
+You can also use this function to change any other type of data, including numericals and logicals. Only for characters, you have to put the values you want to insert in `""`.
+
+<br><br>
+
+---
+

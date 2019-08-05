@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 3 Week 1 - Class | Theory Construction and Statistical Modeling</title>
+  <title>2.4 Data manipulation (optional) | Theory Construction and Statistical Modeling</title>
   <meta name="description" content="This is a guide for the elective course TCSM." />
   <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 3 Week 1 - Class | Theory Construction and Statistical Modeling" />
+  <meta property="og:title" content="2.4 Data manipulation (optional) | Theory Construction and Statistical Modeling" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 3 Week 1 - Class | Theory Construction and Statistical Modeling" />
+  <meta name="twitter:title" content="2.4 Data manipulation (optional) | Theory Construction and Statistical Modeling" />
   
   <meta name="twitter:description" content="This is a guide for the elective course TCSM." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="data-manipulation-optional.html">
-<link rel="next" href="loading-data.html">
+<link rel="prev" href="importing-spss-files.html">
+<link rel="next" href="week-1-class.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -211,21 +211,132 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="week-1---class" class="section level1">
-<h1><span class="header-section-number">Chapter 3</span> Week 1 - Class</h1>
-<p>During the practical you will work on some exercises about ANOVA and ANCOVA using regression and path modeling. Note that ANOVA and ANCOVA are special cases of regression, as discussed during MTS3 or a similar course. How to perform an ANOVA/ANCOVA as a regression analysis is prerequisite knowledge.</p>
-<p>This practical we will work on these topics (ANOVA, ANCOVA, regression and how they are related). If you need to refresh your knowledge you could use the internet to find information or you could look it up in a book on statistics, for example:</p>
-<p><em>Field (2009), the chapters on ANOVA (10.2.3), Factorial ANOVA (12.8) and ANCOVA (11.6)</em> or
-<em>Field (2013), the chapters on ANOVA (11.2), Factorial ANOVA (13.2.2) and ANCOVA (12.2.1.2)</em>.</p>
-<p>We start with two exercises in which you have to explore your data and perform a regression analysis, ANOVA and an ANCOVA. You will also practice with performing an ANCOVA as a regression analysis in exercise 3 today.</p> 
+<div id="data-manipulation-optional" class="section level2">
+<h2><span class="header-section-number">2.4</span> Data manipulation (optional)</h2>
+<p>Now that we have the Meta-Analysis data in RStudio, let’s do a <strong>few manipulations with the data</strong>. These functions might come in handy when were conducting analyses later on.</p>
+<p>Going back to the output of the <code>str()</code> function, we see that this also gives us details on the type of column data we have stored in our data. There a different abbreviations signifying different types of data.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+Abbreviation
+</th>
+<th style="text-align:left;">
+Type
+</th>
+<th style="text-align:left;">
+Description
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+num
+</td>
+<td style="text-align:left;">
+Numerical
+</td>
+<td style="text-align:left;">
+This is all data stored as numbers (e.g. 1.02)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+chr
+</td>
+<td style="text-align:left;">
+Character
+</td>
+<td style="text-align:left;">
+This is all data stored as words
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+log
+</td>
+<td style="text-align:left;">
+Logical
+</td>
+<td style="text-align:left;">
+These are variables which are binary, meaning that they signify that a condition is either TRUE or FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+factor
+</td>
+<td style="text-align:left;">
+Factor
+</td>
+<td style="text-align:left;">
+Factors are stored as numbers, with each number signifying a different level of a variable. A possible factor of a variable might be 1 = low, 2 = medium, 3 = high
+</td>
+</tr>
+</tbody>
+</table>
+<div id="convertfactors" class="section level3">
+<h3><span class="header-section-number">2.4.1</span> Converting to factors</h3>
+<p>Let’s look at the variable <code>df$VIEWCAT</code>. This is a categorical variable, coded as a numerical one. We can have a look at this variable by typing the name of our dataset, then adding the selector <code>$</code> and then adding the variable we want to have a look at.
+This variable is currently a numeric vector. We want it to be a factor: That’s a categorical variable.</p>
+<p>To convert this to a <strong>factor</strong> variable now, we use the <code>factor()</code> function.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">df<span class="op">$</span>VIEWCAT &lt;-<span class="st"> </span><span class="kw">factor</span>(df<span class="op">$</span>VIEWCAT)</a></code></pre></div>
+<p>We now see that the variable has been <strong>converted to a factor with the levels “1”, “2”, “3”, and “4”</strong>. We can assign different value labels as follows:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">df<span class="op">$</span>VIEWCAT &lt;-<span class="st"> </span><span class="kw">factor</span>(df<span class="op">$</span>VIEWCAT, <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;Rarely&quot;</span>, <span class="st">&quot;Sometimes&quot;</span>, <span class="st">&quot;Regularly&quot;</span>, <span class="st">&quot;Often&quot;</span>))</a></code></pre></div>
 </div>
+<div id="select" class="section level3">
+<h3><span class="header-section-number">2.4.2</span> Selecting specific cases</h3>
+<p>It may often come in handy to <strong>select certain cases for further analyses</strong>, or to <strong>exclude some studies in further analyses</strong> (e.g., if they are outliers).</p>
+<p>To do this, we can use the <code>[]</code> operator to index our data.</p>
+<p>Let’s say we want to get only the first 5 cases. We can select them like so:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">df[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, ]</a></code></pre></div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["ID"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["SITE"],"name":[2],"type":["fctr"],"align":["left"]},{"label":["SEX"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["AGE"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["VIEWCAT"],"name":[5],"type":["fctr"],"align":["left"]},{"label":["SETTING"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["VIEWENC"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["PREBODY"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["PRELET"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["PREFORM"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["PRENUMB"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["PRERELAT"],"name":[12],"type":["dbl"],"align":["right"]},{"label":["PRECLAS"],"name":[13],"type":["dbl"],"align":["right"]},{"label":["POSTBODY"],"name":[14],"type":["dbl"],"align":["right"]},{"label":["POSTLET"],"name":[15],"type":["dbl"],"align":["right"]},{"label":["POSTFORM"],"name":[16],"type":["dbl"],"align":["right"]},{"label":["POSTNUMB"],"name":[17],"type":["dbl"],"align":["right"]},{"label":["POSTREL"],"name":[18],"type":["dbl"],"align":["right"]},{"label":["POSTCLAS"],"name":[19],"type":["dbl"],"align":["right"]},{"label":["PEABODY"],"name":[20],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"DIC","3":"1","4":"66","5":"Rarely","6":"2","7":"1","8":"16","9":"23","10":"12","11":"40","12":"14","13":"20","14":"18","15":"30","16":"14","17":"44","18":"14","19":"23","20":"62","_rn_":"1"},{"1":"2","2":"DIC","3":"2","4":"67","5":"Regularly","6":"2","7":"1","8":"30","9":"26","10":"9","11":"39","12":"16","13":"22","14":"30","15":"37","16":"17","17":"39","18":"14","19":"22","20":"80","_rn_":"2"},{"1":"3","2":"DIC","3":"1","4":"56","5":"Regularly","6":"2","7":"2","8":"22","9":"14","10":"9","11":"9","12":"9","13":"8","14":"21","15":"46","16":"15","17":"40","18":"9","19":"19","20":"32","_rn_":"3"},{"1":"4","2":"DIC","3":"1","4":"49","5":"Rarely","6":"2","7":"2","8":"23","9":"11","10":"10","11":"14","12":"9","13":"13","14":"21","15":"14","16":"13","17":"19","18":"8","19":"15","20":"27","_rn_":"4"},{"1":"5","2":"DIC","3":"1","4":"69","5":"Often","6":"2","7":"2","8":"32","9":"47","10":"15","11":"51","12":"17","13":"22","14":"32","15":"53","16":"18","17":"54","18":"14","19":"21","20":"71","_rn_":"5"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<p>Or let’s say we only want the children younger than 36 months in the dataset. In this case, we can use <strong>boolean indexing</strong>: We create a TRUE / FALSE statement, and select the cases that are TRUE:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1">df[df<span class="op">$</span>AGE <span class="op">&lt;</span><span class="st"> </span><span class="dv">36</span>, ]</a></code></pre></div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["ID"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["SITE"],"name":[2],"type":["fctr"],"align":["left"]},{"label":["SEX"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["AGE"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["VIEWCAT"],"name":[5],"type":["fctr"],"align":["left"]},{"label":["SETTING"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["VIEWENC"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["PREBODY"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["PRELET"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["PREFORM"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["PRENUMB"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["PRERELAT"],"name":[12],"type":["dbl"],"align":["right"]},{"label":["PRECLAS"],"name":[13],"type":["dbl"],"align":["right"]},{"label":["POSTBODY"],"name":[14],"type":["dbl"],"align":["right"]},{"label":["POSTLET"],"name":[15],"type":["dbl"],"align":["right"]},{"label":["POSTFORM"],"name":[16],"type":["dbl"],"align":["right"]},{"label":["POSTNUMB"],"name":[17],"type":["dbl"],"align":["right"]},{"label":["POSTREL"],"name":[18],"type":["dbl"],"align":["right"]},{"label":["POSTCLAS"],"name":[19],"type":["dbl"],"align":["right"]},{"label":["PEABODY"],"name":[20],"type":["dbl"],"align":["right"]}],"data":[{"1":"24","2":"DIC","3":"1","4":"35","5":"Often","6":"1","7":"1","8":"11","9":"6","10":"8","11":"16","12":"8","13":"9","14":"22","15":"27","16":"16","17":"20","18":"14","19":"15","20":"40","_rn_":"24"},{"1":"28","2":"DIC","3":"2","4":"34","5":"Often","6":"1","7":"1","8":"17","9":"13","10":"7","11":"10","12":"5","13":"11","14":"21","15":"17","16":"13","17":"13","18":"10","19":"15","20":"42","_rn_":"28"},{"1":"43","2":"DIC","3":"2","4":"35","5":"Regularly","6":"1","7":"2","8":"23","9":"12","10":"8","11":"9","12":"5","13":"5","14":"29","15":"11","16":"8","17":"9","18":"11","19":"11","20":"32","_rn_":"43"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<p>Note that this approach can be used for any other type of data and variable. We can also use it to e.g., only select studies where VIEWCAT was equal to “Often” “typical”:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1">df[df<span class="op">$</span>VIEWCAT <span class="op">==</span><span class="st"> &quot;Often&quot;</span>, ]</a></code></pre></div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["ID"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["SITE"],"name":[2],"type":["fctr"],"align":["left"]},{"label":["SEX"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["AGE"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["VIEWCAT"],"name":[5],"type":["fctr"],"align":["left"]},{"label":["SETTING"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["VIEWENC"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["PREBODY"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["PRELET"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["PREFORM"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["PRENUMB"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["PRERELAT"],"name":[12],"type":["dbl"],"align":["right"]},{"label":["PRECLAS"],"name":[13],"type":["dbl"],"align":["right"]},{"label":["POSTBODY"],"name":[14],"type":["dbl"],"align":["right"]},{"label":["POSTLET"],"name":[15],"type":["dbl"],"align":["right"]},{"label":["POSTFORM"],"name":[16],"type":["dbl"],"align":["right"]},{"label":["POSTNUMB"],"name":[17],"type":["dbl"],"align":["right"]},{"label":["POSTREL"],"name":[18],"type":["dbl"],"align":["right"]},{"label":["POSTCLAS"],"name":[19],"type":["dbl"],"align":["right"]},{"label":["PEABODY"],"name":[20],"type":["dbl"],"align":["right"]}],"data":[{"1":"5","2":"DIC","3":"1","4":"69","5":"Often","6":"2","7":"2","8":"32","9":"47","10":"15","11":"51","12":"17","13":"22","14":"32","15":"53","16":"18","17":"54","18":"14","19":"21","20":"71","_rn_":"5"},{"1":"9","2":"DIC","3":"1","4":"69","5":"Often","6":"2","7":"1","8":"27","9":"44","10":"18","11":"42","12":"15","13":"20","14":"32","15":"50","16":"17","17":"48","18":"14","19":"24","20":"49","_rn_":"9"},{"1":"12","2":"DIC","3":"2","4":"58","5":"Often","6":"2","7":"2","8":"21","9":"25","10":"13","11":"29","12":"16","13":"21","14":"27","15":"29","16":"15","17":"40","18":"13","19":"19","20":"58","_rn_":"12"},{"1":"18","2":"DIC","3":"1","4":"45","5":"Often","6":"2","7":"1","8":"16","9":"12","10":"8","11":"11","12":"6","13":"3","14":"25","15":"16","16":"11","17":"17","18":"9","19":"9","20":"29","_rn_":"18"},{"1":"21","2":"DIC","3":"2","4":"65","5":"Often","6":"2","7":"1","8":"29","9":"24","10":"14","11":"41","12":"10","13":"23","14":"29","15":"48","16":"20","17":"51","18":"15","19":"24","20":"55","_rn_":"21"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<div id="changing-cell-values" class="section level3">
+<h3><span class="header-section-number">2.4.3</span> Changing cell values</h3>
+<p>Sometimes, even when preparing your data in EXCEL, you might want to <strong>change values in RStudio once you have imported your data</strong>.</p>
+<p>To do this, we have to select a cell in our data frame in RStudio. This can be done by adding <code>[x,y]</code> to our dataset name, where <strong>x</strong> signifies the number of the <strong>row</strong> we want to select, and <strong>y</strong> signifies the number of the <strong>column</strong>.</p>
+<p>To see how this works, let’s select a variable using this command first:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1">df[<span class="dv">8</span>,<span class="dv">1</span>]</a></code></pre></div>
+<pre><code>## [1] 8</code></pre>
+<p>We now see the <strong>8th study</strong> in our dataframe, and the value of this study for <strong>Column 1 (participant ID)</strong> is displayed. Let’s say we had a typo in this name and want to have it changed. In this case, we have to give this exact cell a new value.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1">df[<span class="dv">8</span>,<span class="dv">1</span>] &lt;-<span class="st"> </span><span class="dv">1001</span></a></code></pre></div>
+<p>Let’s check if the value has changed.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1">df[<span class="dv">8</span>,<span class="dv">1</span>]</a></code></pre></div>
+<pre><code>## [1] 1001</code></pre>
+<p>You can also use this function to change any other type of data, including numericals and logicals. Only for characters, you have to put the values you want to insert in <code>&quot;&quot;</code>.</p>
+<p><br><br></p>
+<hr />
+
+</div>
+</div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="data-manipulation-optional.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="loading-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="importing-spss-files.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="week-1-class.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

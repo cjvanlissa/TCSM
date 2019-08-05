@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 3 Week 1 - Class | Theory Construction and Statistical Modeling</title>
+  <title>3.2 Section 1 | Theory Construction and Statistical Modeling</title>
   <meta name="description" content="This is a guide for the elective course TCSM." />
   <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 3 Week 1 - Class | Theory Construction and Statistical Modeling" />
+  <meta property="og:title" content="3.2 Section 1 | Theory Construction and Statistical Modeling" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 3 Week 1 - Class | Theory Construction and Statistical Modeling" />
+  <meta name="twitter:title" content="3.2 Section 1 | Theory Construction and Statistical Modeling" />
   
   <meta name="twitter:description" content="This is a guide for the elective course TCSM." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="data-manipulation-optional.html">
-<link rel="next" href="loading-data.html">
+<link rel="prev" href="loading-data.html">
+<link rel="next" href="section-2.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -211,21 +211,145 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="week-1---class" class="section level1">
-<h1><span class="header-section-number">Chapter 3</span> Week 1 - Class</h1>
-<p>During the practical you will work on some exercises about ANOVA and ANCOVA using regression and path modeling. Note that ANOVA and ANCOVA are special cases of regression, as discussed during MTS3 or a similar course. How to perform an ANOVA/ANCOVA as a regression analysis is prerequisite knowledge.</p>
-<p>This practical we will work on these topics (ANOVA, ANCOVA, regression and how they are related). If you need to refresh your knowledge you could use the internet to find information or you could look it up in a book on statistics, for example:</p>
-<p><em>Field (2009), the chapters on ANOVA (10.2.3), Factorial ANOVA (12.8) and ANCOVA (11.6)</em> or
-<em>Field (2013), the chapters on ANOVA (11.2), Factorial ANOVA (13.2.2) and ANCOVA (12.2.1.2)</em>.</p>
-<p>We start with two exercises in which you have to explore your data and perform a regression analysis, ANOVA and an ANCOVA. You will also practice with performing an ANCOVA as a regression analysis in exercise 3 today.</p> 
+<div id="section-1" class="section level2">
+<h2><span class="header-section-number">3.2</span> Section 1</h2>
+<div id="question-1.a" class="section level3">
+<h3><span class="header-section-number">3.2.1</span> Question 1.a</h3>
+<p>What is the level of measurement of each of the variables?</p>
+<details>
+<p><summary>Click for explanation</summary>
+In the ‘Environment’ panel in the top right corner of the screen, click the arrow in the next to the object called ‘data’. Alternatively, run the rode: <code>head(data)</code>.</p>
+<img src="measurement_level.png" width="228" />
+</details>
+</div>
+<div id="question-1.b" class="section level3">
+<h3><span class="header-section-number">3.2.2</span> Question 1.b</h3>
+<p>What is the average age in the sample? And the range (youngest and oldest child)?</p>
+<p><em>Hint: Use install.packages(“psych”); library(psych); describe()</em></p>
+<details>
+<p><summary>Click for explanation</summary>
+The package <code>psych</code> contains many functions for exploring data. Install and load the package, then use the <code>describe()</code> function to describe the data:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&quot;psych&quot;</span>)</a>
+<a class="sourceLine" id="cb16-2" data-line-number="2"><span class="kw">library</span>(psych)</a>
+<a class="sourceLine" id="cb16-3" data-line-number="3"><span class="kw">describe</span>(data)</a></code></pre></div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["vars"],"name":[1],"type":["int"],"align":["right"]},{"label":["n"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["mean"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["sd"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["median"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["trimmed"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["mad"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["min"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["max"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["range"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["skew"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["kurtosis"],"name":[12],"type":["dbl"],"align":["right"]},{"label":["se"],"name":[13],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"240","3":"120.500000","4":"69.426220","5":"120.5","6":"120.500000","7":"88.9560","8":"1","9":"240","10":"239","11":"0.000000000","12":"-1.21501007","13":"4.4814432","_rn_":"id"},{"1":"2","2":"240","3":"51.525000","4":"6.281356","5":"52.0","6":"51.744792","7":"5.9304","8":"34","9":"69","10":"35","11":"-0.233536030","12":"0.31130095","13":"0.4054598","_rn_":"age"},{"1":"3","2":"240","3":"15.937500","4":"8.536425","5":"14.0","6":"14.619792","7":"4.4478","8":"1","9":"55","10":"54","11":"1.969433485","12":"4.76701118","13":"0.5510239","_rn_":"prelet"},{"1":"4","2":"240","3":"20.895833","4":"10.685382","5":"19.0","6":"19.963542","7":"8.8956","8":"1","9":"52","10":"51","11":"0.729616854","12":"0.07849738","13":"0.6897384","_rn_":"prenumb"},{"1":"5","2":"240","3":"9.937500","4":"3.073753","5":"10.0","6":"10.010417","7":"2.9652","8":"2","9":"17","10":"15","11":"-0.177273429","12":"-0.47484928","13":"0.1984099","_rn_":"prerelat"},{"1":"6","2":"240","3":"46.775000","4":"15.986900","5":"42.0","6":"44.833333","7":"14.8260","8":"27","9":"99","10":"72","11":"1.026881773","12":"0.46567388","13":"1.0319499","_rn_":"peabody"},{"1":"7","2":"240","3":"30.054167","4":"12.845769","5":"29.0","6":"30.057292","7":"16.3086","8":"0","9":"54","10":"54","11":"0.002760256","12":"-1.10201172","13":"0.8291908","_rn_":"postnumb"},{"1":"8","2":"240","3":"9.158333","4":"9.682401","5":"9.0","6":"9.166667","7":"8.8956","8":"-35","9":"33","10":"68","11":"-0.393891365","12":"1.87658414","13":"0.6249963","_rn_":"gain"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<p>&lt;&gt;</p>
+</div>
+<div id="question-1.c" class="section level3">
+<h3><span class="header-section-number">3.2.3</span> Question 1.c</h3>
+<p>What is the average gain in knowledge of numbers? Provide both the mean and the standard deviation.</p>
+<p><em>Hint: Use the &lt;- operator to assign to a new variable in data. Functions mean() and sd().</em></p>
+<details>
+<p><summary>Click for explanation</summary>
+Create a new variable that represents the difference between pre- and post-test scores:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1">data<span class="op">$</span>dif &lt;-<span class="st"> </span>data<span class="op">$</span>postnumb <span class="op">-</span><span class="st"> </span>data<span class="op">$</span>prenumb</a></code></pre></div>
+<p>There are specialized functions to obtain the mean and sd:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" data-line-number="1"><span class="kw">mean</span>(data<span class="op">$</span>dif)</a></code></pre></div>
+<pre><code>## [1] 9.158333</code></pre>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" data-line-number="1"><span class="kw">sd</span>(data<span class="op">$</span>dif)</a></code></pre></div>
+<pre><code>## [1] 9.682401</code></pre>
+<p>&lt;&gt;</p>
+</div>
+<div id="question-1.d" class="section level3">
+<h3><span class="header-section-number">3.2.4</span> Question 1.d</h3>
+<p>Choose an appropriate graph to present the gain scores. What did you choose and why?</p>
+<p><em>Hint: Several useful plotting functions for univariate distributions are:</em> <code>hist(); plot(density()); boxplot()</code></p>
+<details>
+<p><summary>Click for explanation</summary></p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" data-line-number="1"><span class="kw">plot</span>(<span class="kw">density</span>(data<span class="op">$</span>dif))</a></code></pre></div>
+<p><img src="TCSM_files/figure-html/unnamed-chunk-29-1.png" width="672" />
+&lt;&gt;</p>
+</div>
+<div id="question-1.e" class="section level3">
+<h3><span class="header-section-number">3.2.5</span> Question 1.e</h3>
+<p>Can you think of a graph based on two variables (i.e. the difference variable and another variable) that is informative? What is it and how is it informative?</p>
+<p><em>Hint: A useful plotting function for a bivariate distribution is the scatterplot:</em> <code>plot(data$x, data$y)</code></p>
+<details>
+<p><summary>Click for explanation</summary></p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" data-line-number="1"><span class="kw">plot</span>(data<span class="op">$</span>prenumb, data<span class="op">$</span>postnumb)</a></code></pre></div>
+<p><img src="TCSM_files/figure-html/unnamed-chunk-30-1.png" width="672" />
+&lt;&gt;</p>
+</div>
+<div id="question-1.f" class="section level3">
+<h3><span class="header-section-number">3.2.6</span> Question 1.f</h3>
+<p>Which of the variables age, prelet, prenumb, prerelat and peabody are significantly related to postnumb? Use Pearson’s correlations (<code>cor()</code>). You don’t need to check assumptions.</p>
+<details>
+<p><summary>Click for explanation</summary>
+<em>Hint: The function</em> <code>cor()</code> <em>provides Pearson’s correlations. Select variables by name from a data.frame object (like</em> <code>data</code>*) using the following syntax:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" data-line-number="1"><span class="kw">cor</span>(data[, <span class="kw">c</span>(<span class="st">&quot;age&quot;</span>, <span class="st">&quot;prelet&quot;</span>, <span class="st">&quot;prenumb&quot;</span>, <span class="st">&quot;prerelat&quot;</span>, <span class="st">&quot;peabody&quot;</span>, <span class="st">&quot;postnumb&quot;</span>)])</a></code></pre></div>
+<pre><code>##                age    prelet   prenumb  prerelat   peabody  postnumb
+## age      1.0000000 0.3278806 0.4328262 0.4422787 0.2939283 0.3410578
+## prelet   0.3278806 1.0000000 0.7173013 0.4712200 0.3958917 0.5038464
+## prenumb  0.4328262 0.7173013 1.0000000 0.7175289 0.6141059 0.6755051
+## prerelat 0.4422787 0.4712200 0.7175289 1.0000000 0.5551258 0.5433818
+## peabody  0.2939283 0.3958917 0.6141059 0.5551258 1.0000000 0.5201280
+## postnumb 0.3410578 0.5038464 0.6755051 0.5433818 0.5201280 1.0000000</code></pre>
+<p>The use of <code>data[,]</code> follows the conventions of matrix indexation: You can select rows like this, <code>data[i, ]</code>, and columns like this, <code>data[ ,j]</code>, where i are the rows and j are the columns you want to select.
+&lt;&gt;</p>
+</div>
+<div id="question-1.g" class="section level3">
+<h3><span class="header-section-number">3.2.7</span> Question 1.g</h3>
+<p>Can age and prenumb be used to predict postnumb? If so, discuss the substantial importance of the model and the significance and substantial importance of the separate predictors.</p>
+<p><em>Hint: The function</em> <code>lm()</code> <em>(short for linear model) conducts linear regression. The functions</em> <code>summary()</code> <em>provides relevant summary statistics for the model. It can be helpful to store the results of your analysis in an object, too.</em></p>
+<details>
+<p><summary>Click for explanation</summary></p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" data-line-number="1">results &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="dt">formula =</span> postnumb <span class="op">~</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>prenumb, </a>
+<a class="sourceLine" id="cb26-2" data-line-number="2">              <span class="dt">data =</span> data)</a>
+<a class="sourceLine" id="cb26-3" data-line-number="3"><span class="kw">summary</span>(results)</a></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = postnumb ~ age + prenumb, data = data)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -38.130  -6.456  -0.456   5.435  22.568 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)   7.4242     5.1854   1.432    0.154    
+## age           0.1225     0.1084   1.131    0.259    
+## prenumb       0.7809     0.0637  12.259   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 9.486 on 237 degrees of freedom
+## Multiple R-squared:  0.4592, Adjusted R-squared:  0.4547 
+## F-statistic: 100.6 on 2 and 237 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>&lt;&gt;</p>
+</div>
+<div id="question-1.h" class="section level3">
+<h3><span class="header-section-number">3.2.8</span> Question 1.h</h3>
+<p>Provide the null hypotheses and the alternative hypotheses of the model in 1.g.</p>
+<details>
+<p><summary>Click for explanation</summary>
+The null-hypotheses of the <strong>model</strong> pertain to the variance explained: <span class="math inline">\(\Rho^2\)</span>.</p>
+<p><span class="math inline">\(H_0: P^2 = 0\)</span></p>
+<p><span class="math inline">\(H_a: P^2 &gt; 0\)</span>
+&lt;&gt;</p>
+</div>
+<div id="question-1.i" class="section level3">
+<h3><span class="header-section-number">3.2.9</span> Question 1.i</h3>
+<p>Consider the path model below. How many regression coefficients are estimated in this model? And how many variances? And how many covariances? How many degrees of freedom does this model have? (<span class="math inline">\(df = N_{obs} – N_{par}\)</span>, see slides Lecture 1).</p>
+<p><img src="1_path_model.png" width="572" /></p>
+</div>
+<div id="question-1.j" class="section level3">
+<h3><span class="header-section-number">3.2.10</span> Question 1.j</h3>
+<p>Consider a multiple regression analysis with three continuous independent variables, tests in language, history and logic, and one continuous dependent variable, a score on a math test. We want to know whether the various tests can predict the math score. Sketch a path model for this analysis (there are examples in the lecture slides of week 1).</p>
+<p>How many regression parameters are there? How many variances could you estimate?
+How many covariances could you estimate? How many degrees of freedom does this model have?</p>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="data-manipulation-optional.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="loading-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="loading-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="section-2.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

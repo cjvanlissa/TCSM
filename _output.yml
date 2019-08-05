@@ -1,0 +1,7 @@
+bookdown::gitbook:
+  css: [style.css, font-awesome.min.css]
+  config:
+    toc:
+      before: |
+        <li><a href="./index.html">TCSM</a></li>
+    download: ["pdf"]

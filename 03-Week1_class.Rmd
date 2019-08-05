@@ -7,10 +7,7 @@ show_answers <- TRUE
 
 During the practical you will work on some exercises about ANOVA and ANCOVA using regression and path modeling. Note that ANOVA and ANCOVA are special cases of regression, as discussed during MTS3 or a similar course. How to perform an ANOVA/ANCOVA as a regression analysis is prerequisite knowledge. 
 
-This practical we will work on these topics (ANOVA, ANCOVA, regression and how they are related). If you need to refresh your knowledge you could use the internet to find information or you could look it up in a book on statistics, for example:
-
-*Field (2009), the chapters on ANOVA (10.2.3), Factorial ANOVA (12.8) and ANCOVA (11.6)* or
-*Field (2013), the chapters on ANOVA (11.2), Factorial ANOVA (13.2.2) and ANCOVA (12.2.1.2)*.
+This practical we will work on these topics (ANOVA, ANCOVA, regression and how they are related). If you need to refresh your knowledge you could use the internet to find information or you could look it up in a book on statistics, for example @field2012discovering (*The chapters on ANOVA, Factorial ANOVA, and ANCOVA (11.6)*).
 
 We start with two exercises in which you have to explore your data and perform a regression analysis, ANOVA and an ANCOVA. You will also practice with performing an ANCOVA as a regression analysis in exercise 3 today.
 
@@ -158,7 +155,7 @@ Provide the null hypotheses and the alternative hypotheses of the model in 1.g.
 
 <details>
   <summary>Click for explanation</summary>
-The null-hypotheses of the **model** pertain to the variance explained: $\Rho^2$.
+The null-hypotheses of the **model** pertain to the variance explained: $P^2$ (that's Greek letter rho, for the population value of $R^2$).
 
 $H_0: P^2 = 0$
 

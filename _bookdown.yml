@@ -1,12 +1,7 @@
---- 
-title: "Theory Construction and Statistical Modeling"
-author: "Caspar J. van Lissa"
-date: "`r Sys.Date()`"
-site: "bookdown::bookdown_site"
-output:
-  bookdown::gitbook: default
-documentclass: book
-biblio-style: apalike
-link-citations: yes
+book_filename: "TCSM"
+rmd_files: ["index.Rmd", "01-rstudio_and_basics.Rmd", "02-getting_data_in_R.Rmd", "03-Week1_class.Rmd"]
+language:
+  ui:
+    chapter_name: "Chapter "
+delete_merged_file: true
 output_dir: "docs"
----

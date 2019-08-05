@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 3 Week 1 - Class | Theory Construction and Statistical Modeling</title>
+  <title>3.4 Section 3 | Theory Construction and Statistical Modeling</title>
   <meta name="description" content="This is a guide for the elective course TCSM." />
   <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 3 Week 1 - Class | Theory Construction and Statistical Modeling" />
+  <meta property="og:title" content="3.4 Section 3 | Theory Construction and Statistical Modeling" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 3 Week 1 - Class | Theory Construction and Statistical Modeling" />
+  <meta name="twitter:title" content="3.4 Section 3 | Theory Construction and Statistical Modeling" />
   
   <meta name="twitter:description" content="This is a guide for the elective course TCSM." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="data-manipulation-optional.html">
-<link rel="next" href="loading-data.html">
+<link rel="prev" href="section-2.html">
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -211,21 +211,212 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="week-1---class" class="section level1">
-<h1><span class="header-section-number">Chapter 3</span> Week 1 - Class</h1>
-<p>During the practical you will work on some exercises about ANOVA and ANCOVA using regression and path modeling. Note that ANOVA and ANCOVA are special cases of regression, as discussed during MTS3 or a similar course. How to perform an ANOVA/ANCOVA as a regression analysis is prerequisite knowledge.</p>
-<p>This practical we will work on these topics (ANOVA, ANCOVA, regression and how they are related). If you need to refresh your knowledge you could use the internet to find information or you could look it up in a book on statistics, for example:</p>
-<p><em>Field (2009), the chapters on ANOVA (10.2.3), Factorial ANOVA (12.8) and ANCOVA (11.6)</em> or
-<em>Field (2013), the chapters on ANOVA (11.2), Factorial ANOVA (13.2.2) and ANCOVA (12.2.1.2)</em>.</p>
-<p>We start with two exercises in which you have to explore your data and perform a regression analysis, ANOVA and an ANCOVA. You will also practice with performing an ANCOVA as a regression analysis in exercise 3 today.</p> 
+<div id="section-3" class="section level2">
+<h2><span class="header-section-number">3.4</span> Section 3</h2>
+<p>Open the file Sesam2.sav.</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb52-1" data-line-number="1"><span class="co"># Load the data and put them in the object called &quot;data&quot;</span></a>
+<a class="sourceLine" id="cb52-2" data-line-number="2">data &lt;-<span class="st"> </span><span class="kw">read.spss</span>(<span class="st">&quot;sesam2.sav&quot;</span>, <span class="dt">to.data.frame =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<p>Use postnumb as the dependent variable in all the following analyses.</p>
+<div id="question-3.a" class="section level3">
+<h3><span class="header-section-number">3.4.1</span> Question 3.a</h3>
+<p>Viewcat is a factor variable, but is not coded as such in the data. Turn it into a factor. Afterwards, make sure that viewcat=1 is the reference group in the contrasts, i.e., the group that is identified by zero scores on all the associated dummy variables.</p>
+<p><em>Hint: Use</em> <code>&lt;- factor()</code> <em>and</em> <code>contrasts()</code>.</p>
+<details>
+<p><summary>Click for explanation</summary></p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb53-1" data-line-number="1">data<span class="op">$</span>VIEWCAT &lt;-<span class="st"> </span><span class="kw">factor</span>(data<span class="op">$</span>VIEWCAT)</a>
+<a class="sourceLine" id="cb53-2" data-line-number="2"><span class="kw">contrasts</span>(data<span class="op">$</span>VIEWCAT)</a></code></pre></div>
+<pre><code>##   2 3 4
+## 1 0 0 0
+## 2 1 0 0
+## 3 0 1 0
+## 4 0 0 1</code></pre>
+<p>&lt;&gt;</p>
 </div>
+<div id="question-3.b" class="section level3">
+<h3><span class="header-section-number">3.4.2</span> Question 3.b</h3>
+<p>Perform a multiple regression analysis with just the viewcat dummies as predictors.</p>
+<details>
+<p><summary>Click for explanation</summary></p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb55-1" data-line-number="1">results &lt;-<span class="st"> </span><span class="kw">lm</span>(POSTNUMB <span class="op">~</span><span class="st"> </span>VIEWCAT, data)</a>
+<a class="sourceLine" id="cb55-2" data-line-number="2"><span class="kw">summary</span>(results)</a></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = POSTNUMB ~ VIEWCAT, data = data)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -25.474  -7.942   0.240   8.526  25.240 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)   18.760      2.316   8.102 8.95e-14 ***
+## VIEWCAT2       9.331      2.900   3.218  0.00154 ** 
+## VIEWCAT3      14.714      2.777   5.298 3.49e-07 ***
+## VIEWCAT4      18.032      2.809   6.419 1.24e-09 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 11.58 on 175 degrees of freedom
+## Multiple R-squared:  0.2102, Adjusted R-squared:  0.1967 
+## F-statistic: 15.53 on 3 and 175 DF,  p-value: 5.337e-09</code></pre>
+<p>&lt;&gt;</p>
+</div>
+<div id="question-3.c" class="section level3">
+<h3><span class="header-section-number">3.4.3</span> Question 3.c</h3>
+<p>What do the regression coefficients represent? How can you determine the average postnumb score for each of the viewcat categories, based on the regression parameters?</p>
+</div>
+<div id="question-3.d" class="section level3">
+<h3><span class="header-section-number">3.4.4</span> Question 3.d</h3>
+<p>Make a coloured scatter plot with age on the x-axis and postnumb on the y-axis. Colour the dots according to the their ‘viewcat’ category. Double click the plot and add a linear fit line for each of the four viewcat scores separately. How do you interpret the differences in slopes of these four fit lines?</p>
+<p><em>Hint: Use</em> <code>ggplot(); geom_point(); geom_smooth()</code></p>
+<details>
+<p><summary>Click for explanation</summary>
+We will use ggplot again:</p>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb57-1" data-line-number="1"><span class="kw">ggplot</span>(data, <span class="kw">aes</span>(<span class="dt">x =</span> AGE, <span class="dt">y =</span> POSTNUMB, <span class="dt">colour =</span> VIEWCAT)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb57-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span><span class="co"># For scatterplot</span></a>
+<a class="sourceLine" id="cb57-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>) <span class="op">+</span><span class="st"> </span><span class="co"># For regression lines</span></a>
+<a class="sourceLine" id="cb57-4" data-line-number="4"><span class="st">  </span><span class="kw">theme_bw</span>() <span class="co"># For a pretty theme</span></a></code></pre></div>
+<p><img src="TCSM_files/figure-html/unnamed-chunk-52-1.png" width="672" />
+&lt;&gt;</p>
+</div>
+<div id="question-3.e" class="section level3">
+<h3><span class="header-section-number">3.4.5</span> Question 3.e</h3>
+<p>Add an interaction between age and viewcat.</p>
+<p><em>Hint: An interaction is created by multiplying two variables. You can multiply with * in the formula of</em> <code>lm()</code>.</p>
+<details>
+<p><summary>Click for explanation</summary></p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb58-1" data-line-number="1">results_interaction &lt;-<span class="st"> </span><span class="kw">lm</span>(POSTNUMB <span class="op">~</span><span class="st"> </span>VIEWCAT<span class="op">*</span>AGE, data)</a>
+<a class="sourceLine" id="cb58-2" data-line-number="2"><span class="kw">summary</span>(results_interaction)</a></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = POSTNUMB ~ VIEWCAT * AGE, data = data)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -23.8371  -8.2387   0.6158   8.7988  22.5611 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(&gt;|t|)  
+## (Intercept)  -18.7211    15.5883  -1.201   0.2314  
+## VIEWCAT2       9.9741    20.6227   0.484   0.6293  
+## VIEWCAT3      23.5825    19.3591   1.218   0.2248  
+## VIEWCAT4      34.3969    19.3600   1.777   0.0774 .
+## AGE            0.7466     0.3074   2.429   0.0162 *
+## VIEWCAT2:AGE  -0.0175     0.4060  -0.043   0.9657  
+## VIEWCAT3:AGE  -0.1930     0.3782  -0.510   0.6104  
+## VIEWCAT4:AGE  -0.3416     0.3770  -0.906   0.3663  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 10.99 on 171 degrees of freedom
+## Multiple R-squared:  0.3046, Adjusted R-squared:  0.2762 
+## F-statistic:  10.7 on 7 and 171 DF,  p-value: 3.79e-11</code></pre>
+<p>&lt;&gt;</p>
+</div>
+<div id="question-3.f" class="section level3">
+<h3><span class="header-section-number">3.4.6</span> Question 3.f</h3>
+<p>Perform a sequential multiple regression. Include age and viewcat as the predictors in the first analysis. Add the interaction term in the second analysis. Make sure to obtain information about the change in R-square!</p>
+<p><em>Hint: Use</em> <code>anova()</code> <em>to compare two regression models.</em></p>
+<details>
+<p><summary>Click for explanation</summary></p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb60-1" data-line-number="1">results_main &lt;-<span class="st"> </span><span class="kw">lm</span>(POSTNUMB <span class="op">~</span><span class="st"> </span>VIEWCAT <span class="op">+</span><span class="st"> </span>AGE, data)</a>
+<a class="sourceLine" id="cb60-2" data-line-number="2"><span class="kw">anova</span>(results_main, results_interaction)</a></code></pre></div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Res.Df"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["RSS"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Df"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Sum of Sq"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["F"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["Pr(>F)"],"name":[6],"type":["dbl"],"align":["right"]}],"data":[{"1":"174","2":"20806.26","3":"NA","4":"NA","5":"NA","6":"NA","_rn_":"1"},{"1":"171","2":"20653.50","3":"3","4":"152.7625","5":"0.4215975","6":"0.7377438","_rn_":"2"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<p>&lt;&gt;</p>
+</div>
+<div id="question-3.g" class="section level3">
+<h3><span class="header-section-number">3.4.7</span> Question 3.g</h3>
+<p>Sketch path models of both steps of the regression analysis (on paper).</p>
+</div>
+<div id="question-3.h" class="section level3">
+<h3><span class="header-section-number">3.4.8</span> Question 3.h</h3>
+<p>Write down the regression equations of both steps of the sequential analysis.</p>
+<details>
+<p><summary>Click for explanation</summary>
+<span class="math inline">\(Postnumb_i = b_0 + b_1D_{view2i} + b_2D_{view3i} + b_3D_{view4i} + b_4Age_i + \epsilon_i\)</span></p>
+<p><span class="math inline">\(Postnumb_i = b_0 + b_1D_{view2i} + b_2D_{view3i} + b_3D_{view4i} + b_4Age_i + b_5D_{view2i}Age_i + b_6D_{view3i}Age_i + b_7D_{view4i}Age_i + \epsilon_i\)</span></p>
+<p>&lt;&gt;</p>
+</div>
+<div id="question-3.i" class="section level3">
+<h3><span class="header-section-number">3.4.9</span> Question 3.i</h3>
+<p>Write down the null hypothesis that is tested to determine whether there is an interaction between age and viewcat.</p>
+<details>
+<p><summary>Click for explanation</summary>
+<span class="math inline">\(H_0: \DeltaP^2 = 0\)</span>
+&lt;&gt;</p>
+</div>
+<div id="question-3.j" class="section level3">
+<h3><span class="header-section-number">3.4.10</span> Question 3.j</h3>
+<p>Indicate for each parameter in the second regression model what it means. Also write down the regression equation for each of the four categories of viewcat separately.</p>
+</div>
+<div id="question-3.k" class="section level3">
+<h3><span class="header-section-number">3.4.11</span> Question 3.k</h3>
+<p>What do you conclude about the interaction between age and viewcat?</p>
+</div>
+<div id="question-3.l" class="section level3">
+<h3><span class="header-section-number">3.4.12</span> Question 3.l</h3>
+<p>Note that you can also look at this problem as an ANCOVA. What are the research question and null hypothesis in this case?</p>
+<details>
+<p><summary>Click for explanation</summary>
+RQ: Is there a significant difference between the marginal means of postnumb by viewcat, after controlling for age?
+&lt;&gt;</p>
+</div>
+<div id="question-3.m" class="section level3">
+<h3><span class="header-section-number">3.4.13</span> Question 3.m</h3>
+<p>Perform this analysis as an ANCOVA.</p>
+<em>Hint: Add</em> <code>-1</code> <em>to a formula to drop the intercept.</em>
+<details>
+<p><summary>Click for explanation</summary>
+To drop the intercept from the analysis, and estimate the marginal means for all viewcat categories, we can add <code>-1</code> (minus the intercept) to the formula:</p>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb61-1" data-line-number="1">results_ancov &lt;-<span class="st"> </span><span class="kw">aov</span>(POSTNUMB<span class="op">~</span>AGE<span class="op">+</span>VIEWCAT<span class="dv">-1</span>, data)</a></code></pre></div>
+<p>&lt;&gt;</p>
+<p>Examine the parameter estimates of the ANCOVA. What do the parameter estimates represent?</p>
+<details>
+<p><summary>Click for explanation</summary>
+We use summary.lm() again to obtain the parameter estimates:</p>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb62-1" data-line-number="1"><span class="kw">summary.lm</span>(results_ancov)</a></code></pre></div>
+<pre><code>## 
+## Call:
+## aov(formula = POSTNUMB ~ AGE + VIEWCAT - 1, data = data)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -23.680  -8.003  -0.070   8.464  22.635 
+## 
+## Coefficients:
+##          Estimate Std. Error t value Pr(&gt;|t|)    
+## AGE        0.5750     0.1221   4.708 5.08e-06 ***
+## VIEWCAT1 -10.1056     6.5091  -1.553    0.122    
+## VIEWCAT2  -0.9603     6.3865  -0.150    0.881    
+## VIEWCAT3   3.7546     6.4760   0.580    0.563    
+## VIEWCAT4   6.8159     6.5414   1.042    0.299    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 10.94 on 174 degrees of freedom
+## Multiple R-squared:  0.8973, Adjusted R-squared:  0.8943 
+## F-statistic:   304 on 5 and 174 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>&lt;&gt;</p>
+
+<div id="refs" class="references">
+<div>
+<p>Grolemund, Garrett. 2014. <em>Hands-on Programming with R: Write Your Own Functions and Simulations</em>. O’Reilly.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="data-manipulation-optional.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="loading-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="section-2.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -1,4 +1,27 @@
-# Preface {-}
+--- 
+title: "Theory Construction and Statistical Modeling"
+subtitle: "A guide to structural equation modeling in R"
+author: "Caspar J. van Lissa¹"
+date: "¹Utrecht University, Methodology & Statistics"
+site: bookdown::bookdown_site
+output: 
+  bookdown::gitbook:
+    config: 
+      toc:
+       collapse: section
+      search: yes
+      fontsettings:
+        size: 2
+    split_by: section
+    df_print: paged
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+description: "This is a guide for the elective course TCSM."
+---
+
+# Course {-}
 
 In this course you will learn how to translate a social scientific theory into a statistical model, how to analyze your data with these models, and how to interpret and report your results following APA standards.
 
