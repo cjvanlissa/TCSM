@@ -1,5 +1,4 @@
 book_filename: "TCSM"
-rmd_files: ["index.Rmd", "01-rstudio_and_basics.Rmd", "02-getting_data_in_R.Rmd", "03-Week1_class.Rmd"]
 language:
   ui:
     chapter_name: "Chapter "

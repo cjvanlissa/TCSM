@@ -1,0 +1,86 @@
+# Week 1 - Home
+
+Open the data file LifeSat.sav. 
+
+```{r, message=FALSE}
+library(foreign)
+data <- read.spss("LifeSat.sav", to.data.frame = TRUE)
+```
+
+### Question 1.a
+
+Make a descriptives table for the variables: LifSat, educ, ChildSup, SpouSup, and age. 
+
+What is the average age in the sample? And the range (youngest and oldest child)? 
+
+*Hint: Use* `library(psych); describe(); []`
+
+<details>
+  <summary>Click for explanation</summary>
+The package `psych` contains many functions for exploring data. Install and load the package, then use the `describe()` function to describe the data:
+
+```{r}
+library(psych)
+describe(data[, c("LifSat", "educ", "ChildSup", "SpouSup", "age")])
+```
+<\details>
+
+
+### Question 1.b
+
+Perform a simple regression with LifeSat as the dependent variable and educ as the independent variable.
+
+<details>
+  <summary>Click for explanation</summary>
+
+```{r}
+results <- lm(LifSat ~ educ, data)
+summary(results)
+```
+<\details>
+
+### Question 1.c.
+
+Do the same with age as the independent variable. 
+
+<details>
+  <summary>Click for explanation</summary>
+
+```{r}
+results <- lm(LifSat ~ age, data)
+summary(results)
+```
+<\details>
+
+
+### Question 1.d. 
+
+Again with ChildSup as the independent variable. 
+
+<details>
+  <summary>Click for explanation</summary>
+
+```{r}
+results <- lm(LifSat ~ ChildSup, data)
+summary(results)
+```
+<\details>
+
+
+### Question 1.e.
+
+Perform a multiple regression with LifeSat as the dependent variable and educ, age and ChildSup as the independent variables. 
+
+<details>
+  <summary>Click for explanation</summary>
+
+```{r}
+results <- lm(LifSat ~ educ + age + ChildSup, data)
+summary(results)
+```
+<\details>
+
+
+### Question 1.f. 
+
+Compare the results under 1.e with those obtained under 1.b-1.d. What do you notice when you compare the regression parameter for each of the three predictors in the multiple regression with the corresponding regression parameters obtained in the simple regressions? 

@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>2.3 Importing SPSS Files | Theory Construction and Statistical Modeling</title>
+  <title>Chapter 3 Week 1 - Home | Theory Construction and Statistical Modeling</title>
   <meta name="description" content="This is a guide for the elective course TCSM." />
   <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="2.3 Importing SPSS Files | Theory Construction and Statistical Modeling" />
+  <meta property="og:title" content="Chapter 3 Week 1 - Home | Theory Construction and Statistical Modeling" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="2.3 Importing SPSS Files | Theory Construction and Statistical Modeling" />
+  <meta name="twitter:title" content="Chapter 3 Week 1 - Home | Theory Construction and Statistical Modeling" />
   
   <meta name="twitter:description" content="This is a guide for the elective course TCSM." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="importing-excel-files.html">
-<link rel="next" href="data-manipulation-optional.html">
+<link rel="prev" href="data-manipulation-optional.html">
+<link rel="next" href="week-1-class.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -233,27 +233,151 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="importing-spss-files" class="section level2">
-<h2><span class="header-section-number">2.3</span> Importing SPSS Files</h2>
-<p>SPSS files can be loaded using the <code>foreign</code> package. All SPSS files for this course are available on Blackboard.</p>
-<!--[here](https://github.com/cjvanlissa/Doing-Meta-Analysis-in-R/blob/master/Problem2.sav?raw=true).-->
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co"># Install the package, run this only once</span></a>
-<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="kw">install.packages</span>(<span class="st">&quot;foreign&quot;</span>)</a>
-<a class="sourceLine" id="cb4-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="co"># Load the `foreign` library</span></a>
-<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="kw">library</span>(foreign)</a>
-<a class="sourceLine" id="cb4-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="co"># Read the SPSS data</span></a>
-<a class="sourceLine" id="cb4-8" data-line-number="8">df &lt;-<span class="st"> </span><span class="kw">read.spss</span>(<span class="st">&quot;sesam2.sav&quot;</span>,</a>
-<a class="sourceLine" id="cb4-9" data-line-number="9">                     <span class="dt">to.data.frame =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<div id="week-1---home" class="section level1">
+<h1><span class="header-section-number">Chapter 3</span> Week 1 - Home</h1>
+<p>Open the data file LifeSat.sav.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="kw">library</span>(foreign)</a>
+<a class="sourceLine" id="cb15-2" data-line-number="2">data &lt;-<span class="st"> </span><span class="kw">read.spss</span>(<span class="st">&quot;LifeSat.sav&quot;</span>, <span class="dt">to.data.frame =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<div id="question-1.a" class="section level3">
+<h3><span class="header-section-number">3.0.1</span> Question 1.a</h3>
+<p>Make a descriptives table for the variables: LifSat, educ, ChildSup, SpouSup, and age.</p>
+<p>What is the average age in the sample? And the range (youngest and oldest child)?</p>
+<p><em>Hint: Use</em> <code>library(psych); describe(); []</code></p>
+<details>
+<p><summary>Click for explanation</summary>
+The package <code>psych</code> contains many functions for exploring data. Install and load the package, then use the <code>describe()</code> function to describe the data:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1"><span class="kw">library</span>(psych)</a>
+<a class="sourceLine" id="cb16-2" data-line-number="2"><span class="kw">describe</span>(data[, <span class="kw">c</span>(<span class="st">&quot;LifSat&quot;</span>, <span class="st">&quot;educ&quot;</span>, <span class="st">&quot;ChildSup&quot;</span>, <span class="st">&quot;SpouSup&quot;</span>, <span class="st">&quot;age&quot;</span>)])</a></code></pre></div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["vars"],"name":[1],"type":["int"],"align":["right"]},{"label":["n"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["mean"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["sd"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["median"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["trimmed"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["mad"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["min"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["max"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["range"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["skew"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["kurtosis"],"name":[12],"type":["dbl"],"align":["right"]},{"label":["se"],"name":[13],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"98","3":"57.857143","4":"18.330303","5":"58","6":"58.2250","7":"17.7912","8":"13","9":"100","10":"87","11":"-0.18014791","12":"-0.3821327","13":"1.8516402","_rn_":"LifSat"},{"1":"2","2":"98","3":"6.540816","4":"1.527537","5":"6","6":"6.3500","7":"1.4826","8":"4","9":"12","10":"8","11":"1.44367529","12":"2.9270980","13":"0.1543045","_rn_":"educ"},{"1":"3","2":"98","3":"6.857143","4":"1.526400","5":"7","6":"6.8875","7":"1.4826","8":"3","9":"10","10":"7","11":"-0.29512318","12":"-0.4106227","13":"0.1541897","_rn_":"ChildSup"},{"1":"4","2":"98","3":"6.061224","4":"1.751679","5":"6","6":"6.1000","7":"1.4826","8":"2","9":"10","10":"8","11":"-0.10382843","12":"-0.7058851","13":"0.1769463","_rn_":"SpouSup"},{"1":"5","2":"98","3":"70.255102","4":"2.429676","5":"70","6":"70.2625","7":"2.9652","8":"64","9":"75","10":"11","11":"-0.09451875","12":"-0.4635443","13":"0.2454343","_rn_":"age"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<p>&lt;&gt;</p>
+</div>
+<div id="question-1.b" class="section level3">
+<h3><span class="header-section-number">3.0.2</span> Question 1.b</h3>
+<p>Perform a simple regression with LifeSat as the dependent variable and educ as the independent variable.</p>
+<details>
+<p><summary>Click for explanation</summary></p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1">results &lt;-<span class="st"> </span><span class="kw">lm</span>(LifSat <span class="op">~</span><span class="st"> </span>educ, data)</a>
+<a class="sourceLine" id="cb17-2" data-line-number="2"><span class="kw">summary</span>(results)</a></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = LifSat ~ educ, data = data)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -43.781 -11.866   2.018  12.418  43.018 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)   35.184      7.874   4.469 2.15e-05 ***
+## educ           3.466      1.173   2.956  0.00392 ** 
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 17.64 on 96 degrees of freedom
+## Multiple R-squared:  0.08344,    Adjusted R-squared:  0.0739 
+## F-statistic:  8.74 on 1 and 96 DF,  p-value: 0.003918</code></pre>
+<p>&lt;&gt;</p>
+</div>
+<div id="question-1.c." class="section level3">
+<h3><span class="header-section-number">3.0.3</span> Question 1.c.</h3>
+<p>Do the same with age as the independent variable.</p>
+<details>
+<p><summary>Click for explanation</summary></p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" data-line-number="1">results &lt;-<span class="st"> </span><span class="kw">lm</span>(LifSat <span class="op">~</span><span class="st"> </span>age, data)</a>
+<a class="sourceLine" id="cb19-2" data-line-number="2"><span class="kw">summary</span>(results)</a></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = LifSat ~ age, data = data)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -35.321 -14.184   3.192  13.593  40.626 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 200.2302    52.1385   3.840  0.00022 ***
+## age          -2.0265     0.7417  -2.732  0.00749 ** 
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 17.75 on 96 degrees of freedom
+## Multiple R-squared:  0.07215,    Adjusted R-squared:  0.06249 
+## F-statistic: 7.465 on 1 and 96 DF,  p-value: 0.007487</code></pre>
+<p>&lt;&gt;</p>
+</div>
+<div id="question-1.d." class="section level3">
+<h3><span class="header-section-number">3.0.4</span> Question 1.d.</h3>
+<p>Again with ChildSup as the independent variable.</p>
+<details>
+<p><summary>Click for explanation</summary></p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" data-line-number="1">results &lt;-<span class="st"> </span><span class="kw">lm</span>(LifSat <span class="op">~</span><span class="st"> </span>ChildSup, data)</a>
+<a class="sourceLine" id="cb21-2" data-line-number="2"><span class="kw">summary</span>(results)</a></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = LifSat ~ ChildSup, data = data)
+## 
+## Residuals:
+##    Min     1Q Median     3Q    Max 
+## -37.32 -12.14   0.66  12.41  44.68 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)   37.559      8.342   4.502 1.89e-05 ***
+## ChildSup       2.960      1.188   2.492   0.0144 *  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 17.86 on 96 degrees of freedom
+## Multiple R-squared:  0.06076,    Adjusted R-squared:  0.05098 
+## F-statistic: 6.211 on 1 and 96 DF,  p-value: 0.01441</code></pre>
+<p>&lt;&gt;</p>
+</div>
+<div id="question-1.e." class="section level3">
+<h3><span class="header-section-number">3.0.5</span> Question 1.e.</h3>
+<p>Perform a multiple regression with LifeSat as the dependent variable and educ, age and ChildSup as the independent variables.</p>
+<details>
+<p><summary>Click for explanation</summary></p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" data-line-number="1">results &lt;-<span class="st"> </span><span class="kw">lm</span>(LifSat <span class="op">~</span><span class="st"> </span>educ <span class="op">+</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>ChildSup, data)</a>
+<a class="sourceLine" id="cb23-2" data-line-number="2"><span class="kw">summary</span>(results)</a></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = LifSat ~ educ + age + ChildSup, data = data)
+## 
+## Residuals:
+##    Min     1Q Median     3Q    Max 
+## -32.98 -12.56   2.68  11.03  41.91 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)  
+## (Intercept) 134.9801    53.2798   2.533   0.0130 *
+## educ          2.8171     1.1436   2.463   0.0156 *
+## age          -1.5952     0.7188  -2.219   0.0289 *
+## ChildSup      2.4092     1.1361   2.121   0.0366 *
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 16.92 on 94 degrees of freedom
+## Multiple R-squared:  0.1741, Adjusted R-squared:  0.1477 
+## F-statistic: 6.603 on 3 and 94 DF,  p-value: 0.0004254</code></pre>
+<p>&lt;&gt;</p>
+</div>
+<div id="question-1.f." class="section level3">
+<h3><span class="header-section-number">3.0.6</span> Question 1.f.</h3>
+<p>Compare the results under 1.e with those obtained under 1.b-1.d. What do you notice when you compare the regression parameter for each of the three predictors in the multiple regression with the corresponding regression parameters obtained in the simple regressions?</p>
+
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="importing-excel-files.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="data-manipulation-optional.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="data-manipulation-optional.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="week-1-class.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

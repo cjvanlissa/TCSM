@@ -1,0 +1,224 @@
+# Week 2 - Home
+
+This exercise is based on Kestilä, Elina (2006) Is There Demand for Radical Right 
+Populism in the Finnish Electorate? Scandinavian Political Studies 29(3),169-191 
+ 
+You have read and answered questions about the article in the reading questions. In this 
+exercise, as well as in the second class practical, we will analyze these data ourselves. 
+
+The data for this practical stem from the first round of the European Social Survey (ESS). 
+This is a repeated cross-sectional survey across 32 European countries. The first round 
+was held in 2002, and since then, subsequent rounds of data-collection are held bi-
+anually. More info, as well as access to all data -> www.europeansocialsurvey.org. 
+
+The raw, first round data can also be found on blackboard. The file is called ESSround1-
+a.sav. This file contains data for all respondents, but only those variables are included 
+that you will need in this exercise. 
+
+### Question 1.a
+
+Download the file, and import it in R. Inspect the file (no. of cases and no. of variables) to see if the file opened well. 
+
+```{r, message=FALSE, warning=FALSE}
+library(foreign)
+data <- read.spss("ESSround1-a.sav", to.data.frame = TRUE)
+```
+
+<details>
+  <summary><b>For a description of all variables in the dataset, click here!</b></summary>
+```{r, results = "asis", echo = FALSE}
+desc <- c("Title of dataset",
+"ESS round",
+"Edition",
+"Production date",
+"Country",
+"Respondent's identification number",
+"Trust in the legal system",
+"Trust in the police",
+"Trust in the United Nations",
+"Trust in the European Parliament",
+"Trust in country's parliament",
+"State of health services in country nowadays",
+"State of education in country nowadays",
+"How satisfied with present state of economy in country",
+"How satisfied with the national government",
+"How satisfied with the way democracy works in country",
+"Politicians interested in votes rather than peoples opinions",
+"Politicians in general care what people like respondent think",
+"Trust in politicians",
+"Allow many/few immigrants of same race/ethnic group as majority",
+"Allow many/few immigrants of different race/ethnic group from majority",
+"Allow many/few immigrants from richer countries in Europe",
+"Allow many/few immigrants from poorer countries in Europe",
+"Allow many/few immigrants from richer countries outside Europe",
+"Allow many/few immigrants from poorer countries outside Europe",
+"Qualification for immigration: christian background",
+"Qualification for immigration: be white",
+"Average wages/salaries generally brought down by immigrants",
+"Immigrants harm economic prospects of the poor more than the rich",
+"Immigrants take jobs away in country or create new jobs",
+"Taxes and services: immigrants take out more than they put in or less",
+"Immigration bad or good for country's economy",
+"Country's cultural life undermined or enriched by immigrants",
+"Immigrants make country worse or better place to live",
+"Immigrants make country's crime problems worse or better",
+"Richer countries should be responsible for accepting people from poorer countries",
+"Better for a country if almost everyone share customs and traditions",
+"Better for a country if a variety of different religions",
+"Country has more than its fair share of people applying refugee status",
+"People applying refugee status allowed to work while cases considered",
+"Government should be generous judging applications for refugee status",
+"Most refugee applicants not in real fear of persecution own countries",
+"Financial support to refugee applicants while cases considered",
+"Granted refugees should be entitled to bring close family members",
+"Gender",
+"Year of birth",
+"Highest level of education",
+"Years of full-time education completed",
+"How interested in politics",
+"Placement on left right scale")
+
+library(kableExtra)
+
+kable(data.frame(Variable = names(data), Description = desc)) %>%
+  kable_styling(bootstrap_options = c("striped", "hover"))
+
+```
+
+### Question 1.b
+
+The ESS-file contains much more information than we need to re-analyze the paper by 
+Kestilä. We need to reduce the number of cases, in order to make the file more 
+manageable, and make sure our results pertain to our target population.  
+
+Kestilä only uses data from ten countries: `c("Austria", "Belgium", "Denmark", "Finland", "France", "Germany", "Italy", "Netherlands", "Norway", "Sweden")`.
+
+Select data from these countries by means of boolean indexing, using the `%in%` function.
+
+*Hint: Use* `[]; %in%`
+
+<details>
+  <summary>Click for explanation</summary>
+```{r}
+df <- data[data$cntry %in% c("Austria", "Belgium", "Denmark", "Finland", "France", "Germany", "Italy", "Netherlands", "Norway", "Sweden"), ]
+```
+<\details>
+
+
+### Question 1.c
+
+Inspect the data file again to see whether step 1b went ok.
+
+### Question 1.d 
+
+Before we can start the analyses, we first need to screen the 
+data. What are the things we need to watch for? (think about your earlier 
+statistics-courses)?
+
+<details>
+  <summary>Click for explanation</summary>
+  This question is open to interpretation. One thing you might notice is that all variables the authors used are currently coded as factor variables (e.g., "Factor w/ 11 levels"):
+
+```{r}
+levels(df$trstlgl)
+```
+
+In keeping with conventions, we could treat ordinal Likert scales with >5 levels as continuous. We can either re-code the data, or prevent `read.spss()` from coding these variables as factors when it reads the data. Here is code for both approaches.
+
+#### Re-coding factors to numeric
+
+Data.frames like `df` are (secretly) lists, where each column is an element of the list. That means we can index a data.frame as a list, not just as a matrix. We can also use the incredibly powerful `lapply()` function, short for list apply, which takes each list element (column), and applies a function to it. In this case, that function is `as.numeric()`, which turns factors into numbers: 
+
+```{r}
+df[7:44] <- lapply(df[7:44], as.numeric)
+table(df[,7])
+```
+
+#### Reading data without coding factors
+
+```{r, eval = FALSE}
+# The option use.value.labels = FALSE stops the function from coding factors:
+data <- read.spss("ESSround1-a.sav", to.data.frame = TRUE, use.value.labels = FALSE)
+# Then, re-select the subset of data. The countries are now also unlabeled, so
+# we select them by number:
+df <- data[data$cntry %in% c(21,18,17,15,9,8,6,5,2,1), ]
+```
+
+<\details>
+
+### Question 1.e
+
+Screen all your variables univariately (one by one) by making frequency tables for 
+every variable. Again, unsure how to do this? Review Field. Pay particular 
+attention to the measurement scales of each variable. 
+
+*Hint: Use* `table(); lapply(); psych::describe()`
+
+<details>
+  <summary>Click for explanation</summary>
+  We can use the `lapply()` function from the previous question to get frequency tables for all relevant variables:
+
+```{r, eval = FALSE}
+lapply(df[7:44], table)
+```
+
+```{r, echo = FALSE}
+lapply(df[7:8], table)
+```
+
+This is probably a bit too much detail, so we can just use the `psych::describe()` fuction again:
+
+```{r, eval = FALSE}
+psych::describe(df[7:44])
+```
+
+```{r, echo = FALSE}
+psych::describe(df[7:16])
+```
+<\details>
+
+### Question 1.f
+
+Are there any incorrectly coded missing value labels, or other inexplicable values?
+
+### Question 1.g
+
+The first step in re-analyzing data is replicating the results from the paper by 
+Kestilä. Run a Principal Component Analysis using `psych::principal()`, and 
+choose the exact same specification as Kestilä concerning estimation method, 
+rotation etc. Do two analyses: one for trust in politics, and one for attitudes towards immigration. Extract the PCA factor scores from the results objects, and add them to the data.frame.
+
+*Hint: Use* `psych::principal(); $; cbind()`
+
+<details>
+  <summary>Click for explanation</summary>
+  There's a convenient function for PCA in the `psych` package, although base R also has the function `princomp()`.
+For attitude towards immigration, Kestilä extracted five components, with VARIMAX rotation. When we print the results, we can hide all factor loadings smaller than the smallest one in their table, to make it easier to read:
+
+#### Trust in politics
+
+Kestilä extracted three components, with VARIMAX rotation:
+  
+```{r}
+library(psych)
+results_pca <- principal(df[, 7:19], nfactors = 3, rotate = "varimax")
+print(results_pca, cut = .3, digits =3)
+```
+
+Kestilä extracted three components, with VARIMAX rotation:
+  
+```{r}
+library(psych)
+results_pca <- principal(df[, 20:44], nfactors = 5, rotate = "varimax")
+print(results_pca, cut = .3)
+```
+
+<\details>
+
+
+
+9) Are you able to replicate her results? 
+10)  Rename the PCA scores so that you understand what they summarize. 
+Save your syntax and output on your U:\ drive or usb stick. Bring your data,  
+output and syntax to the practical on Thursday. 
+
