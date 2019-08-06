@@ -102,7 +102,7 @@ Select data from these countries by means of boolean indexing, using the `%in%` 
 ```{r}
 df <- data[data$cntry %in% c("Austria", "Belgium", "Denmark", "Finland", "France", "Germany", "Italy", "Netherlands", "Norway", "Sweden"), ]
 ```
-<\details>
+\details
 
 
 ### Question 1.c
@@ -136,6 +136,8 @@ table(df[,7])
 
 #### Reading data without coding factors
 
+An alternative solution is to stop the function `read.spss()` from using value labels to code variables as factors. However, we're not going to use this right now, so the information below is merely illustrative:
+
 ```{r, eval = FALSE}
 # The option use.value.labels = FALSE stops the function from coding factors:
 data <- read.spss("ESSround1-a.sav", to.data.frame = TRUE, use.value.labels = FALSE)
@@ -144,7 +146,7 @@ data <- read.spss("ESSround1-a.sav", to.data.frame = TRUE, use.value.labels = FA
 df <- data[data$cntry %in% c(21,18,17,15,9,8,6,5,2,1), ]
 ```
 
-<\details>
+\details
 
 ### Question 1.e
 
@@ -175,7 +177,7 @@ psych::describe(df[7:44])
 ```{r, echo = FALSE}
 psych::describe(df[7:16])
 ```
-<\details>
+\details
 
 ### Question 1.f
 
@@ -186,39 +188,77 @@ Are there any incorrectly coded missing value labels, or other inexplicable valu
 The first step in re-analyzing data is replicating the results from the paper by 
 Kestilä. Run a Principal Component Analysis using `psych::principal()`, and 
 choose the exact same specification as Kestilä concerning estimation method, 
-rotation etc. Do two analyses: one for trust in politics, and one for attitudes towards immigration. Extract the PCA factor scores from the results objects, and add them to the data.frame.
+rotation etc. Do two analyses: one for trust in politics, and one for attitudes towards immigration. 
 
-*Hint: Use* `psych::principal(); $; cbind()`
+*Hint: Use* `psych::principal()`
 
 <details>
   <summary>Click for explanation</summary>
   There's a convenient function for PCA in the `psych` package, although base R also has the function `princomp()`.
-For attitude towards immigration, Kestilä extracted five components, with VARIMAX rotation. When we print the results, we can hide all factor loadings smaller than the smallest one in their table, to make it easier to read:
+
 
 #### Trust in politics
 
-Kestilä extracted three components, with VARIMAX rotation:
+Kestilä extracted three components, with VARIMAX rotation. When we print the results, we can hide all factor loadings smaller than the smallest one in their table, to make it easier to read:
   
 ```{r}
 library(psych)
-results_pca <- principal(df[, 7:19], nfactors = 3, rotate = "varimax")
-print(results_pca, cut = .3, digits =3)
+pca_trust <- principal(df[, 7:19], nfactors = 3, rotate = "varimax")
+print(pca_trust, cut = .3, digits =3)
 ```
 
-Kestilä extracted three components, with VARIMAX rotation:
+For attitude towards immigration, Kestilä extracted five components, with VARIMAX rotation:
   
 ```{r}
 library(psych)
-results_pca <- principal(df[, 20:44], nfactors = 5, rotate = "varimax")
-print(results_pca, cut = .3)
+pca_att <- principal(df[, 20:44], nfactors = 5, rotate = "varimax")
+print(pca_att, cut = .3)
+```
+</details>
+
+### Question 1.h
+
+Extract the PCA factor scores from the results objects, and add them to the data.frame. Give the PCA scores informative names, based on your interpretation of the factor loadings, so that you understand what they summarize. 
+
+*Hint: Use* `$; colnames(); cbind()`
+
+<details>
+  <summary>Click for explanation</summary>
+Extracting factor scores
+
+The factor scores are INSIDE of the results objects. Use the `$` operator to access them:
+
+```{r}
+head(pca_att$scores)
 ```
 
-<\details>
+We're going to give these factor scores some informative names, and add them to our data.frame. **You should give them different, informative names based on the meaning of the factors!**
+
+```{r}
+# Print names
+colnames(pca_att$scores)
+# Change names
+colnames(pca_att$scores) <- c("Att1", "Att2", "Att3", "Att4", "Att5")
+colnames(pca_trust$scores) <- c("Trust1", "Trust2", "Trust3")
+# Add columns
+df <- cbind(df, pca_trust$scores, pca_att$scores)
+```
+
+\details
 
 
+### Question 1.i
 
-9) Are you able to replicate her results? 
-10)  Rename the PCA scores so that you understand what they summarize. 
-Save your syntax and output on your U:\ drive or usb stick. Bring your data,  
-output and syntax to the practical on Thursday. 
+Are you able to replicate her results? 
+
+<details>
+  <summary>Click for explanation</summary>
+  No, probably not. 
+
+\details
+
+
+### Question 1.j
+
+Save your syntax and bring your data and syntax to the practical on Thursday.
 

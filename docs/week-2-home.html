@@ -215,6 +215,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.0.5" data-path="week-2-home.html"><a href="week-2-home.html#question-1.e-1"><i class="fa fa-check"></i><b>5.0.5</b> Question 1.e</a></li>
 <li class="chapter" data-level="5.0.6" data-path="week-2-home.html"><a href="week-2-home.html#question-1.f-1"><i class="fa fa-check"></i><b>5.0.6</b> Question 1.f</a></li>
 <li class="chapter" data-level="5.0.7" data-path="week-2-home.html"><a href="week-2-home.html#question-1.g-1"><i class="fa fa-check"></i><b>5.0.7</b> Question 1.g</a></li>
+<li class="chapter" data-level="5.0.8" data-path="week-2-home.html"><a href="week-2-home.html#question-1.h-1"><i class="fa fa-check"></i><b>5.0.8</b> Question 1.h</a></li>
+<li class="chapter" data-level="5.0.9" data-path="week-2-home.html"><a href="week-2-home.html#question-1.i-1"><i class="fa fa-check"></i><b>5.0.9</b> Question 1.i</a></li>
+<li class="chapter" data-level="5.0.10" data-path="week-2-home.html"><a href="week-2-home.html#question-1.j-1"><i class="fa fa-check"></i><b>5.0.10</b> Question 1.j</a></li>
 </ul></li>
 </ul>
 
@@ -679,7 +682,7 @@ manageable, and make sure our results pertain to our target population.</p>
 <details>
 <p><summary>Click for explanation</summary></p>
 <div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb75-1" data-line-number="1">df &lt;-<span class="st"> </span>data[data<span class="op">$</span>cntry <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Austria&quot;</span>, <span class="st">&quot;Belgium&quot;</span>, <span class="st">&quot;Denmark&quot;</span>, <span class="st">&quot;Finland&quot;</span>, <span class="st">&quot;France&quot;</span>, <span class="st">&quot;Germany&quot;</span>, <span class="st">&quot;Italy&quot;</span>, <span class="st">&quot;Netherlands&quot;</span>, <span class="st">&quot;Norway&quot;</span>, <span class="st">&quot;Sweden&quot;</span>), ]</a></code></pre></div>
-<p>&lt;&gt;</p>
+
 </div>
 <div id="question-1.c-1" class="section level3">
 <h3><span class="header-section-number">5.0.3</span> Question 1.c</h3>
@@ -710,12 +713,13 @@ This question is open to interpretation. One thing you might notice is that all 
 </div>
 <div id="reading-data-without-coding-factors" class="section level4">
 <h4><span class="header-section-number">5.0.4.2</span> Reading data without coding factors</h4>
+<p>An alternative solution is to stop the function <code>read.spss()</code> from using value labels to code variables as factors. However, we’re not going to use this right now, so the information below is merely illustrative:</p>
 <div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb80-1" data-line-number="1"><span class="co"># The option use.value.labels = FALSE stops the function from coding factors:</span></a>
 <a class="sourceLine" id="cb80-2" data-line-number="2">data &lt;-<span class="st"> </span><span class="kw">read.spss</span>(<span class="st">&quot;ESSround1-a.sav&quot;</span>, <span class="dt">to.data.frame =</span> <span class="ot">TRUE</span>, <span class="dt">use.value.labels =</span> <span class="ot">FALSE</span>)</a>
 <a class="sourceLine" id="cb80-3" data-line-number="3"><span class="co"># Then, re-select the subset of data. The countries are now also unlabeled, so</span></a>
 <a class="sourceLine" id="cb80-4" data-line-number="4"><span class="co"># we select them by number:</span></a>
 <a class="sourceLine" id="cb80-5" data-line-number="5">df &lt;-<span class="st"> </span>data[data<span class="op">$</span>cntry <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">21</span>,<span class="dv">18</span>,<span class="dv">17</span>,<span class="dv">15</span>,<span class="dv">9</span>,<span class="dv">8</span>,<span class="dv">6</span>,<span class="dv">5</span>,<span class="dv">2</span>,<span class="dv">1</span>), ]</a></code></pre></div>
-<p>&lt;&gt;</p>
+
 </div>
 </div>
 <div id="question-1.e-1" class="section level3">
@@ -744,7 +748,7 @@ We can use the <code>lapply()</code> function from the previous question to get 
 {"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["vars"],"name":[1],"type":["int"],"align":["right"]},{"label":["n"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["mean"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["sd"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["median"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["trimmed"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["mad"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["min"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["max"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["range"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["skew"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["kurtosis"],"name":[12],"type":["dbl"],"align":["right"]},{"label":["se"],"name":[13],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"19380","3":"6.801393","4":"2.433242","5":"7","6":"6.949819","7":"2.9652","8":"1","9":"11","10":"10","11":"-0.4907617","12":"-0.3375783","13":"0.01747867","_rn_":"trstlgl"},{"1":"2","2":"19560","3":"7.642076","4":"2.240844","5":"8","6":"7.840746","7":"1.4826","8":"1","9":"11","10":"10","11":"-0.7864882","12":"0.3513587","13":"0.01602238","_rn_":"trstplc"},{"1":"3","2":"18450","3":"6.647317","4":"2.397920","5":"7","6":"6.795257","7":"2.9652","8":"1","9":"11","10":"10","11":"-0.5062681","12":"-0.2291440","13":"0.01765373","_rn_":"trstun"},{"1":"4","2":"17825","3":"5.608752","4":"2.261533","5":"6","6":"5.691677","7":"1.4826","8":"1","9":"11","10":"10","11":"-0.2625531","12":"-0.3570397","13":"0.01693902","_rn_":"trstep"},{"1":"5","2":"19228","3":"6.220824","4":"2.315635","5":"6","6":"6.333008","7":"2.9652","8":"1","9":"11","10":"10","11":"-0.3508295","12":"-0.2570184","13":"0.01669949","_rn_":"trstprl"},{"1":"6","2":"19481","3":"6.782763","4":"2.295615","5":"7","6":"6.889252","7":"2.9652","8":"1","9":"11","10":"10","11":"-0.4173666","12":"-0.4099507","13":"0.01644726","_rn_":"stfhlth"},{"1":"7","2":"18844","3":"6.910635","4":"2.269479","5":"7","6":"7.019767","7":"2.9652","8":"1","9":"11","10":"10","11":"-0.4664746","12":"-0.2915328","13":"0.01653254","_rn_":"stfedu"},{"1":"8","2":"19211","3":"6.000989","4":"2.370289","5":"6","6":"6.095061","7":"2.9652","8":"1","9":"11","10":"10","11":"-0.2687520","12":"-0.5384041","13":"0.01710119","_rn_":"stfeco"},{"1":"9","2":"19106","3":"5.484350","4":"2.308386","5":"6","6":"5.542065","7":"2.9652","8":"1","9":"11","10":"10","11":"-0.1633392","12":"-0.5939664","13":"0.01670028","_rn_":"stfgov"},{"1":"10","2":"19106","3":"6.747619","4":"2.262480","5":"7","6":"6.884339","7":"2.9652","8":"1","9":"11","10":"10","11":"-0.5077121","12":"-0.1484795","13":"0.01636816","_rn_":"stfdem"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
-<p>&lt;&gt;</p>
+
 </div>
 <div id="question-1.f-1" class="section level3">
 <h3><span class="header-section-number">5.0.6</span> Question 1.f</h3>
@@ -755,18 +759,17 @@ We can use the <code>lapply()</code> function from the previous question to get 
 <p>The first step in re-analyzing data is replicating the results from the paper by
 Kestilä. Run a Principal Component Analysis using <code>psych::principal()</code>, and
 choose the exact same specification as Kestilä concerning estimation method,
-rotation etc. Do two analyses: one for trust in politics, and one for attitudes towards immigration. Extract the PCA factor scores from the results objects, and add them to the data.frame.</p>
-<p><em>Hint: Use</em> <code>psych::principal(); $; cbind()</code></p>
+rotation etc. Do two analyses: one for trust in politics, and one for attitudes towards immigration.</p>
+<p><em>Hint: Use</em> <code>psych::principal()</code></p>
 <details>
 <p><summary>Click for explanation</summary>
-There’s a convenient function for PCA in the <code>psych</code> package, although base R also has the function <code>princomp()</code>.
-For attitude towards immigration, Kestilä extracted five components, with VARIMAX rotation. When we print the results, we can hide all factor loadings smaller than the smallest one in their table, to make it easier to read:</p>
+There’s a convenient function for PCA in the <code>psych</code> package, although base R also has the function <code>princomp()</code>.</p>
 <div id="trust-in-politics" class="section level4">
 <h4><span class="header-section-number">5.0.7.1</span> Trust in politics</h4>
-<p>Kestilä extracted three components, with VARIMAX rotation:</p>
+<p>Kestilä extracted three components, with VARIMAX rotation. When we print the results, we can hide all factor loadings smaller than the smallest one in their table, to make it easier to read:</p>
 <div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb84-1" data-line-number="1"><span class="kw">library</span>(psych)</a>
-<a class="sourceLine" id="cb84-2" data-line-number="2">results_pca &lt;-<span class="st"> </span><span class="kw">principal</span>(df[, <span class="dv">7</span><span class="op">:</span><span class="dv">19</span>], <span class="dt">nfactors =</span> <span class="dv">3</span>, <span class="dt">rotate =</span> <span class="st">&quot;varimax&quot;</span>)</a>
-<a class="sourceLine" id="cb84-3" data-line-number="3"><span class="kw">print</span>(results_pca, <span class="dt">cut =</span> <span class="fl">.3</span>, <span class="dt">digits =</span><span class="dv">3</span>)</a></code></pre></div>
+<a class="sourceLine" id="cb84-2" data-line-number="2">pca_trust &lt;-<span class="st"> </span><span class="kw">principal</span>(df[, <span class="dv">7</span><span class="op">:</span><span class="dv">19</span>], <span class="dt">nfactors =</span> <span class="dv">3</span>, <span class="dt">rotate =</span> <span class="st">&quot;varimax&quot;</span>)</a>
+<a class="sourceLine" id="cb84-3" data-line-number="3"><span class="kw">print</span>(pca_trust, <span class="dt">cut =</span> <span class="fl">.3</span>, <span class="dt">digits =</span><span class="dv">3</span>)</a></code></pre></div>
 <pre><code>## Principal Components Analysis
 ## Call: principal(r = df[, 7:19], nfactors = 3, rotate = &quot;varimax&quot;)
 ## Standardized loadings (pattern matrix) based upon correlation matrix
@@ -799,10 +802,10 @@ For attitude towards immigration, Kestilä extracted five components, with VARIM
 ##  with the empirical chi square  15240.94  with prob &lt;  0 
 ## 
 ## Fit based upon off diagonal values = 0.967</code></pre>
-<p>Kestilä extracted three components, with VARIMAX rotation:</p>
+<p>For attitude towards immigration, Kestilä extracted five components, with VARIMAX rotation:</p>
 <div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb86-1" data-line-number="1"><span class="kw">library</span>(psych)</a>
-<a class="sourceLine" id="cb86-2" data-line-number="2">results_pca &lt;-<span class="st"> </span><span class="kw">principal</span>(df[, <span class="dv">20</span><span class="op">:</span><span class="dv">44</span>], <span class="dt">nfactors =</span> <span class="dv">5</span>, <span class="dt">rotate =</span> <span class="st">&quot;varimax&quot;</span>)</a>
-<a class="sourceLine" id="cb86-3" data-line-number="3"><span class="kw">print</span>(results_pca, <span class="dt">cut =</span> <span class="fl">.3</span>)</a></code></pre></div>
+<a class="sourceLine" id="cb86-2" data-line-number="2">pca_att &lt;-<span class="st"> </span><span class="kw">principal</span>(df[, <span class="dv">20</span><span class="op">:</span><span class="dv">44</span>], <span class="dt">nfactors =</span> <span class="dv">5</span>, <span class="dt">rotate =</span> <span class="st">&quot;varimax&quot;</span>)</a>
+<a class="sourceLine" id="cb86-3" data-line-number="3"><span class="kw">print</span>(pca_att, <span class="dt">cut =</span> <span class="fl">.3</span>)</a></code></pre></div>
 <pre><code>## Principal Components Analysis
 ## Call: principal(r = df[, 20:44], nfactors = 5, rotate = &quot;varimax&quot;)
 ## Standardized loadings (pattern matrix) based upon correlation matrix
@@ -847,18 +850,51 @@ For attitude towards immigration, Kestilä extracted five components, with VARIM
 ##  with the empirical chi square  29520.06  with prob &lt;  0 
 ## 
 ## Fit based upon off diagonal values = 0.98</code></pre>
-<p>&lt;&gt;</p>
-<ol start="9" style="list-style-type: decimal">
-<li>Are you able to replicate her results?</li>
-<li>Rename the PCA scores so that you understand what they summarize.
-Save your syntax and output on your U: drive or usb stick. Bring your data,<br />
-output and syntax to the practical on Thursday.</li>
-</ol>
+</details>
+</div>
+</div>
+<div id="question-1.h-1" class="section level3">
+<h3><span class="header-section-number">5.0.8</span> Question 1.h</h3>
+<p>Extract the PCA factor scores from the results objects, and add them to the data.frame. Give the PCA scores informative names, based on your interpretation of the factor loadings, so that you understand what they summarize.</p>
+<p><em>Hint: Use</em> <code>$; colnames(); cbind()</code></p>
+<details>
+<p><summary>Click for explanation</summary>
+Extracting factor scores</p>
+<p>The factor scores are INSIDE of the results objects. Use the <code>$</code> operator to access them:</p>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb88-1" data-line-number="1"><span class="kw">head</span>(pca_att<span class="op">$</span>scores)</a></code></pre></div>
+<pre><code>##           RC2        RC1        RC5         RC3         RC4
+## 1   1.9920289  1.3140238 -0.8305392 -0.06329775 -0.08837693
+## 4   0.1708174 -1.2167781 -0.4974957 -0.23766146  0.67364069
+## 7  -0.3580985  0.3236336 -1.5094405 -0.53052720 -2.20637993
+## 14         NA         NA         NA          NA          NA
+## 17 -0.1136716 -0.7869911 -1.4664715 -0.07112144  0.41078167
+## 20 -0.9188606  2.8264230 -0.3477484 -0.73788338 -1.32089442</code></pre>
+<p>We’re going to give these factor scores some informative names, and add them to our data.frame. <strong>You should give them different, informative names based on the meaning of the factors!</strong></p>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb90-1" data-line-number="1"><span class="co"># Print names</span></a>
+<a class="sourceLine" id="cb90-2" data-line-number="2"><span class="kw">colnames</span>(pca_att<span class="op">$</span>scores)</a></code></pre></div>
+<pre><code>## [1] &quot;RC2&quot; &quot;RC1&quot; &quot;RC5&quot; &quot;RC3&quot; &quot;RC4&quot;</code></pre>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb92-1" data-line-number="1"><span class="co"># Change names</span></a>
+<a class="sourceLine" id="cb92-2" data-line-number="2"><span class="kw">colnames</span>(pca_att<span class="op">$</span>scores) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Att1&quot;</span>, <span class="st">&quot;Att2&quot;</span>, <span class="st">&quot;Att3&quot;</span>, <span class="st">&quot;Att4&quot;</span>, <span class="st">&quot;Att5&quot;</span>)</a>
+<a class="sourceLine" id="cb92-3" data-line-number="3"><span class="kw">colnames</span>(pca_trust<span class="op">$</span>scores) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Trust1&quot;</span>, <span class="st">&quot;Trust2&quot;</span>, <span class="st">&quot;Trust3&quot;</span>)</a>
+<a class="sourceLine" id="cb92-4" data-line-number="4"><span class="co"># Add columns</span></a>
+<a class="sourceLine" id="cb92-5" data-line-number="5">df &lt;-<span class="st"> </span><span class="kw">cbind</span>(df, pca_trust<span class="op">$</span>scores, pca_att<span class="op">$</span>scores)</a></code></pre></div>
+
+</div>
+<div id="question-1.i-1" class="section level3">
+<h3><span class="header-section-number">5.0.9</span> Question 1.i</h3>
+<p>Are you able to replicate her results?</p>
+<details>
+<p><summary>Click for explanation</summary>
+No, probably not.</p>
+
+</div>
+<div id="question-1.j-1" class="section level3">
+<h3><span class="header-section-number">5.0.10</span> Question 1.j</h3>
+<p>Save your syntax and bring your data and syntax to the practical on Thursday.</p>
 
 <div id="refs" class="references">
 <div>
 <p>Field, Andy, Jeremy Miles, and Zoë Field. 2012. <em>Discovering Statistics Using R</em>. Sage publications.</p>
-</div>
 </div>
 </div>
 </div>
