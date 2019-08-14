@@ -7,3 +7,6 @@ _book
 _bookdown_files
 rsconnect
 *.sav
+*.xls
+*.xlsx
+*.pdf

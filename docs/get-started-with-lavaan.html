@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>4.1 Loading data | Theory Construction and Statistical Modeling</title>
+  <title>6.1 Get started with lavaan | Theory Construction and Statistical Modeling</title>
   <meta name="description" content="This is a guide for the elective course TCSM." />
   <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="4.1 Loading data | Theory Construction and Statistical Modeling" />
+  <meta property="og:title" content="6.1 Get started with lavaan | Theory Construction and Statistical Modeling" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="4.1 Loading data | Theory Construction and Statistical Modeling" />
+  <meta name="twitter:title" content="6.1 Get started with lavaan | Theory Construction and Statistical Modeling" />
   
   <meta name="twitter:description" content="This is a guide for the elective course TCSM." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="week-1-class.html">
-<link rel="next" href="section-1.html">
+<link rel="prev" href="week-3-home.html">
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -48,7 +48,6 @@
 
 <link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
 <script src="libs/pagedtable-1.1/js/pagedtable.js"></script>
-<script src="libs/kePrint-0.0.1/kePrint.js"></script>
 
 
 <style type="text/css">
@@ -220,13 +219,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.0.10" data-path="week-2-home.html"><a href="week-2-home.html#question-1.j-1"><i class="fa fa-check"></i><b>5.0.10</b> Question 1.j</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="week-3-home.html"><a href="week-3-home.html"><i class="fa fa-check"></i><b>6</b> Week 3 - Home</a><ul>
-<li class="chapter" data-level="6.0.1" data-path="week-3-home.html"><a href="week-3-home.html#get-started-with-lavaan"><i class="fa fa-check"></i><b>6.0.1</b> Get started with lavaan</a></li>
-<li class="chapter" data-level="6.0.2" data-path="week-3-home.html"><a href="week-3-home.html#regression-models-in-lavaan"><i class="fa fa-check"></i><b>6.0.2</b> Regression models in lavaan</a></li>
-<li class="chapter" data-level="6.0.3" data-path="week-3-home.html"><a href="week-3-home.html#conceptual-model"><i class="fa fa-check"></i><b>6.0.3</b> Conceptual model</a></li>
-<li class="chapter" data-level="6.0.4" data-path="week-3-home.html"><a href="week-3-home.html#lavaan-syntax"><i class="fa fa-check"></i><b>6.0.4</b> Lavaan syntax</a></li>
-<li class="chapter" data-level="6.0.5" data-path="week-3-home.html"><a href="week-3-home.html#performing-the-analysis"><i class="fa fa-check"></i><b>6.0.5</b> Performing the analysis</a></li>
-<li class="chapter" data-level="6.0.6" data-path="week-3-home.html"><a href="week-3-home.html#viewing-the-output"><i class="fa fa-check"></i><b>6.0.6</b> Viewing the output</a></li>
-<li class="chapter" data-level="6.0.7" data-path="week-3-home.html"><a href="week-3-home.html#plotting-the-output"><i class="fa fa-check"></i><b>6.0.7</b> Plotting the output</a></li>
+<li class="chapter" data-level="6.1" data-path="get-started-with-lavaan.html"><a href="get-started-with-lavaan.html"><i class="fa fa-check"></i><b>6.1</b> Get started with lavaan</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="get-started-with-lavaan.html"><a href="get-started-with-lavaan.html#official-lavaan-tutorial"><i class="fa fa-check"></i><b>6.1.1</b> Official lavaan tutorial</a></li>
+</ul></li>
 </ul></li>
 </ul>
 
@@ -245,31 +240,42 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="loading-data" class="section level2">
-<h2><span class="header-section-number">4.1</span> Loading data</h2>
-<p>Open the file Sesam.sav:</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" data-line-number="1"><span class="co"># Library for reading SPSS files:</span></a>
-<a class="sourceLine" id="cb25-2" data-line-number="2"><span class="kw">library</span>(foreign)</a>
-<a class="sourceLine" id="cb25-3" data-line-number="3"><span class="co"># Load the data and put them in the object called &quot;data&quot;</span></a>
-<a class="sourceLine" id="cb25-4" data-line-number="4">data &lt;-<span class="st"> </span><span class="kw">read.spss</span>(<span class="st">&quot;sesam.sav&quot;</span>, <span class="dt">to.data.frame =</span> <span class="ot">TRUE</span>, <span class="dt">use.value.labels =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
-<p>This file is part of a larger dataset that evaluates the impact of the first year of the Sesame Street television series. Sesame Street is mainly concerned with teaching preschool related skills to children in the 3-5 year age range.</p>
-<p>The following variables will be used in this exercise:</p>
+<div id="get-started-with-lavaan" class="section level2">
+<h2><span class="header-section-number">6.1</span> Get started with lavaan</h2>
+<p>Last week, you have worked on the data used by Kestilä in a paper that discussed two possible
+reasons why there is no Radical Right party in Finland. You have attempted to 1) replicate her
+study by doing a Principal Component Analysis and 2) a factor analysis (exploratory) of the same
+data.</p>
+<p>This week you also learned that it is possible to do Confirmatory Factor Analysis within the structural
+equation modeling (SEM) framework. We use the R-package <code>lavaan</code> to fit these kinds of models.
+Before we will analyze the Kestilä data, you first need to learn some of the basic principles of doing
+analyses using <code>lavaan</code>. Using syntax, you need to tell <code>lavaan</code> exactly
+what kind of model you want it to estimate This opens up many more possibilities to do Theory Construction and then
+subsequently test your theory using Statistical Modeling.</p>
+<p>As a preparation for the next practical, work your way through this tutorial (part of which consists of the official <code>lavaan</code> tutorial). You will find that <code>lavaan</code> is a very user-friendly software package.</p>
+<div id="official-lavaan-tutorial" class="section level3">
+<h3><span class="header-section-number">6.1.1</span> Official lavaan tutorial</h3>
+<p>To get started with lavaan, read and run the following two chapters of the official <code>lavaan</code> tutorial:</p>
 <ul>
-<li><strong>age</strong> measured in months</li>
-<li><strong>prelet</strong> knowledge of letters before watching Sesame Street (range 0-58)</li>
-<li><strong>prenumb</strong> knowledge of numbers before watching Sesame Street (range 0-54)</li>
-<li><strong>prerelat</strong> knowledge of relations before watching Sesame Street (range 0-17)</li>
-<li><strong>peabody</strong> vocabulary maturity before watching Sesame Street (range 20-120)</li>
-<li><strong>postnumb</strong> knowledge of numbers after a year of Sesame Street (range 0-54)</li>
+<li><a href="Installing%20lavaan">http://lavaan.ugent.be/tutorial/install.html</a></li>
+<li><a href="Lavaan%20syntax">http://lavaan.ugent.be/tutorial/syntax1.html</a> (you just have to read this one)</li>
 </ul>
+<p><em>Hint: Use</em> <code>[]; %in%</code></p>
+<details>
+<p><summary>Click for explanation</summary></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">#df &lt;- data[data$cntry %in% c(&quot;Austria&quot;, &quot;Belgium&quot;, &quot;Denmark&quot;, &quot;Finland&quot;, &quot;France&quot;, &quot;Germany&quot;, &quot;Italy&quot;, &quot;Netherlands&quot;, &quot;Norway&quot;, &quot;Sweden&quot;), ]</span></a></code></pre></div>
+
+
 </div>
+</div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="week-1-class.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="section-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="week-3-home.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -315,19 +321,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>
