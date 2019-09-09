@@ -28,7 +28,7 @@ describe(data[, c("LifSat", "educ", "ChildSup", "SpouSup", "age")])
 
 ### Question 1.b
 
-Perform a simple regression with LifeSat as the dependent variable and educ as the independent variable.
+Perform a simple regression with LifSat as the dependent variable and educ as the independent variable.
 
 <details>
   <summary>Click for explanation</summary>
@@ -69,7 +69,7 @@ summary(results)
 
 ### Question 1.e.
 
-Perform a multiple regression with LifeSat as the dependent variable and educ, age and ChildSup as the independent variables. 
+Perform a multiple regression with LifSat as the dependent variable and educ, age and ChildSup as the independent variables. 
 
 <details>
   <summary>Click for explanation</summary>
