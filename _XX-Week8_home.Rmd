@@ -1,0 +1,168 @@
+# Week 8 - Home
+
+*Putting it all together*
+
+**Path analysis on Theory of Reasoned Action data (file: toradata.sav)**
+
+A popular theory in psychology to explain social behavior is the Theory of Reasoned Action (TORA) of Ajzen and Fishbein (sometimes called the Ajzen-Fishbein model). This states that behavior is predicted by behavioral intention, which is in turn predicted by the attitude toward the behavior and the subjective norm about the behavior. Ajzen and Fisbein originally proposed a complex way to measure attitude and norm, but in practice researchers usually measure the attitude by including a number of attitude questions, and the norm by including a number of questions about the perceived social norms (e.g., how many of your friends would do). The intention is usually measured by a single question on a 7 or 9-point scale and the behavior is either a dichotomous outcome (yes/no) or a frequency (how often do you). Later, a third determinant was added, perceived behavioral control. If people feel they have little control over their behavior, this will also influence their behavior.
+
+The TORA data are an artificial data set following results found by Reinecke (1998). The behavior under investigation is condom use by 16-24 year adolescents. The dependent variable ‘condom use’ is measured on a 5-point frequency scale (How often do you), and the behavioral intention on a similar 5-point scale (In general do you intend to). There are three attitude items about condom use (e.g., using a condom is awkward), three normative items (e.g., I think most of my friends would use), and three control items (e.g., I know well how to use a condom), all measured on a 5-point Likert-type scale.
+
+
+### Question 1
+
+We have 3 indicators for attitude, norm and control, plus the variables intention and behavior. Carry out a factor analysis for the latent variables attitude, norm and control, and interpret the factor loadings of the indicators for each factor.
+
+<!--*Hint: Use* `[]; %in%`-->
+
+<details>
+  <summary>Click for explanation</summary>
+```{r}
+library(foreign)
+df <- read.spss("toradata.sav", use.value.labels = FALSE, to.data.frame = TRUE)
+library(lavaan)
+TORA_cfa <- 'attit =~ attit1 + attit2 + attit3
+             norm =~ norm1 + norm2 + norm3
+             control =~ control1 + control2 + control3'
+
+fit <- cfa(TORA_cfa, data = df)
+
+summary(fit, fit.measures=TRUE)
+```
+\details
+
+### Question 2
+
+Set up a TORA model with attitude and norms as latent variables, both predicting behavorial intention and behavior. Analyze it. Interpret the model fit. If you find the model to fit, look at the results. How much variance does the model explain?
+
+<details>
+  <summary>Click for explanation</summary>
+```{r}
+TORA_sem <- 'attit =~ attit1 + attit2 + attit3
+             norm =~ norm1 + norm2 + norm3
+             
+             intent ~ attit + norm
+             behavior ~ intent'
+
+fit <- sem(TORA_sem, data = df)
+
+summary(fit, fit.measures = TRUE, rsquare = TRUE)
+```
+\details
+
+### Question 3
+
+Add control as a latent variable. Assume control has an effect on intention. Analyze this model and interpret the results. How much variance does the model explain?
+
+<details>
+  <summary>Click for explanation</summary>
+  
+The option `rsquare = TRUE` tells us how much variance is explained in each dependent variable:
+
+```{r}
+TORA_sem <- 'attit =~ attit1 + attit2 + attit3
+             norm =~ norm1 + norm2 + norm3
+             control =~ control1 + control2 + control3
+             
+             intent ~ attit + norm + control
+             behavior ~ intent'
+
+fit <- sem(TORA_sem, data = df)
+
+summary(fit, fit.measures = TRUE, rsquare = TRUE)
+```
+\details
+
+### Question 4
+
+The TORA model forbids direct paths between attitude and norm and actual
+behavior; the effect should be mediated totally by the behavioral intention. The effect of
+control can be either direct or indirect; the TORA does not specify which. Test a model with both a direct and indirect effect of control on TORA and decide whether you want to keep or remove them. Decide which model you accept as the best model for these data, and explain how you decided to keep this model.
+
+<details>
+  <summary>Click for explanation</summary>
+```{r}
+TORA_dir <- 'attit =~ attit1 + attit2 + attit3
+             norm =~ norm1 + norm2 + norm3
+             control =~ control1 + control2 + control3
+             
+             intent ~ attit + norm + control
+             behavior ~ intent'
+
+TORA_ind <- 'attit =~ attit1 + attit2 + attit3
+             norm =~ norm1 + norm2 + norm3
+             control =~ control1 + control2 + control3
+             
+             intent ~ attit + norm + control
+             behavior ~ intent + control'
+
+fit_dir <- sem(TORA_dir, data = df)
+fit_ind <- sem(TORA_ind, data = df)
+
+```
+
+To compare the models, we can use a $\chi^2$-difference test, ironically using the `ANOVA()` function:
+
+```{r}
+anova(fit_dir, fit_ind)
+```
+
+We can also make a table of both models' fit indices. Because that table is very large, I will select a few common fit indices by name:
+
+```{r}
+fit_table <- rbind(Direct = inspect(fit_dir, what = "fit.measures"),
+                   Indirect = inspect(fit_ind, what = "fit.measures"))
+fit_table[, c("chisq", "df", "pvalue", "cfi", "tli", "rmsea")]
+```
+\details
+
+### Question 5
+
+Use `semPlot::semPaths()` to plot both models, and check whether the picture corresponds with theory and with the way you intended to specify the model.
+
+<details>
+  <summary>Click for explanation</summary>
+```{r}
+library(semPlot)
+semPaths(fit_dir, whatLabels = "est")
+semPaths(fit_ind, whatLabels = "est")
+```
+\details
+
+### Question 6
+
+Before you learned about latent variables, you might have analyzed these data by computing sum or mean scores for attitude, norms, and control, and using these as observed variables in a path model. Set up a TORA model using the sum or mean scores of the variables, and compare the results with the previous analysis. Which model would you prefer, and why? 
+
+*Hint: Use* `$; <-, [, rowMeans(), sum()`
+
+<details>
+  <summary>Click for explanation</summary>
+```{r}
+df$attit <- rowMeans(df[, c("attit1", "attit2", "attit3")])
+# Or: df$norm <- rowSums(df[, c("attit1", "attit2", "attit3")])
+df$norm <- rowMeans(df[, c("norm1", "norm2", "norm3")])
+df$control <- rowMeans(df[, c("control1", "control2", "control3")])
+
+TORA_obs <- 'intent ~ attit + norm + control
+             behavior ~ intent'
+fit_obs <- sem(TORA_obs, df)
+```
+
+The fit of this new model is worse than the model that included latent variables; unacceptably worse according to RMSEA:
+
+```{r}
+fit_table <- rbind(Latent   = inspect(fit_dir, what = "fit.measures"),
+                   Observed = inspect(fit_obs, what = "fit.measures"))
+fit_table[, c("chisq", "df", "pvalue", "cfi", "tli", "rmsea")]
+
+```
+
+We can also inspect the regression coefficients in both models:
+
+```{r}
+parameters_latent <- partable(fit_dir)
+parameters_observed <- partable(fit_obs)
+cbind(parameters_latent[parameters_latent$op == "~", c("lhs", "op", "rhs", "est")],
+      est_obs = parameters_observed[parameters_observed$op == "~", c("est")])
+```
+\details

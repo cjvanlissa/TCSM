@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>2.3 Importing SPSS Files | Theory Construction and Statistical Modeling</title>
+  <title>Chapter 8  | Theory Construction and Statistical Modeling</title>
   <meta name="description" content="This is a guide for the elective course TCSM." />
   <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="2.3 Importing SPSS Files | Theory Construction and Statistical Modeling" />
+  <meta property="og:title" content="Chapter 8  | Theory Construction and Statistical Modeling" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="2.3 Importing SPSS Files | Theory Construction and Statistical Modeling" />
+  <meta name="twitter:title" content="Chapter 8  | Theory Construction and Statistical Modeling" />
   
   <meta name="twitter:description" content="This is a guide for the elective course TCSM." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="importing-excel-files.html">
-<link rel="next" href="data-manipulation-optional.html">
+<link rel="prev" href="section.html">
+<link rel="next" href="week-3-home.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -263,27 +263,79 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="importing-spss-files" class="section level2">
-<h2><span class="header-section-number">2.3</span> Importing SPSS Files</h2>
-<p>SPSS files can be loaded using the <code>foreign</code> package. All SPSS files for this course are available on Blackboard.</p>
-<!--[here](https://github.com/cjvanlissa/Doing-Meta-Analysis-in-R/blob/master/Problem2.sav?raw=true).-->
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co"># Install the package, run this only once</span></a>
-<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="kw">install.packages</span>(<span class="st">&quot;foreign&quot;</span>)</a>
-<a class="sourceLine" id="cb4-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="co"># Load the `foreign` library</span></a>
-<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="kw">library</span>(foreign)</a>
-<a class="sourceLine" id="cb4-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="co"># Read the SPSS data</span></a>
-<a class="sourceLine" id="cb4-8" data-line-number="8">df &lt;-<span class="st"> </span><span class="kw">read.spss</span>(<span class="st">&quot;sesam2.sav&quot;</span>,</a>
-<a class="sourceLine" id="cb4-9" data-line-number="9">                     <span class="dt">to.data.frame =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<div id="section-4" class="section level1">
+<h1><span class="header-section-number">Chapter 8</span> </h1>
+<div id="question-10" class="section level3">
+<h3><span class="header-section-number">8.0.1</span> Question 10</h3>
+<p>The second goal of Kestilä is to show how socio-demographic characteristics affect attitudes towards immigrants and trust in politics in Finland. Select only the Finnish cases using the variable <code>cntry</code>. Next, run a number of multiple linear regression analyses with the (sub-)scales of attitudes towards immigrants and political trust as subsequent dependent variables, and the same predictors as Kestilä. Inspect your output.</p>
+<p>Compare your results with the results from Kestilä. How do your results differ or agree with the results by Kestilä?</p>
+<details>
+<p><summary>Click for explanation</summary></p>
+<p>To select the Finnish cases only:</p>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb124-1" data-line-number="1">df_finland &lt;-<span class="st"> </span>df[df<span class="op">$</span>cntry <span class="op">%in%</span><span class="st"> &quot;Finland&quot;</span>, ]</a>
+<a class="sourceLine" id="cb124-2" data-line-number="2">df_finland<span class="op">$</span>cntry &lt;-<span class="st"> </span><span class="kw">factor</span>(df_finland<span class="op">$</span>cntry)</a></code></pre></div>
+<p>Although we have selected the Finnish cases, we still have to do some recoding. Since not the age of the participants is listed, but the year of birth, we have to recode this variable. Due to the fact that yrbrn was originally coded as a factor, we first have to create a numerical object based on the factor labels. Since the data originated from 2002, we can simply extract the year of birth of every participant from the year 2002.</p>
+<p>The same holds for the variables <code>eduyrs</code> and <code>lrscale</code>, to prevent R from making dummies for all distinct values.</p>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb125-1" data-line-number="1">df_finland<span class="op">$</span>age &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(<span class="kw">as.character</span>(df_finland<span class="op">$</span>yrbrn))</a>
+<a class="sourceLine" id="cb125-2" data-line-number="2">df_finland<span class="op">$</span>age &lt;-<span class="st"> </span>(<span class="dv">2002</span> <span class="op">-</span><span class="st"> </span>df_finland<span class="op">$</span>age)</a>
+<a class="sourceLine" id="cb125-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb125-4" data-line-number="4">df_finland<span class="op">$</span>eduyrs &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(df_finland<span class="op">$</span>eduyrs)</a>
+<a class="sourceLine" id="cb125-5" data-line-number="5">df_finland<span class="op">$</span>lrscale &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(df_finland<span class="op">$</span>lrscale)</a></code></pre></div>
+<p>Fortunately, R creates a dummy for the variables <code>gndr</code> and <code>polintr</code> automatically. However, if you want to run the same analysis as Kestilä, you will have to recode <code>polintr</code> in such a way that there are only two categories, since R will go for a solution with one dummy per category by default. After you have done the recoding, you can replicate Kestiläs analysis.</p>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb126-1" data-line-number="1">df_finland<span class="op">$</span>polintr_dummy &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(df_finland<span class="op">$</span>polintr)</a>
+<a class="sourceLine" id="cb126-2" data-line-number="2">df_finland<span class="op">$</span>polintr_dummy &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(df_finland<span class="op">$</span>polintr_dummy <span class="op">&lt;=</span><span class="st"> </span><span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb126-3" data-line-number="3">df_finland<span class="op">$</span>polintr_dummy &lt;-<span class="st"> </span><span class="kw">factor</span>(df_finland<span class="op">$</span>polintr_dummy,</a>
+<a class="sourceLine" id="cb126-4" data-line-number="4">                                   <span class="dt">levels =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),</a>
+<a class="sourceLine" id="cb126-5" data-line-number="5">                                   <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;Not or hardly interested&quot;</span>,</a>
+<a class="sourceLine" id="cb126-6" data-line-number="6">                                              <span class="st">&quot;Quite or very interested&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb127-1" data-line-number="1">fit_trust1 &lt;-<span class="st"> </span><span class="kw">lm</span>(trustinstEFA <span class="op">~</span><span class="st"> </span>gndr <span class="op">+</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>eduyrs <span class="op">+</span><span class="st"> </span>polintr_dummy <span class="op">+</span><span class="st"> </span>lrscale, <span class="dt">data =</span> df_finland, <span class="dt">na.action =</span> na.omit)</a>
+<a class="sourceLine" id="cb127-2" data-line-number="2"><span class="kw">summary</span>(fit_trust1)</a></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = trustinstEFA ~ gndr + age + eduyrs + polintr_dummy + 
+##     lrscale, data = df_finland, na.action = na.omit)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -4.0364 -0.4740  0.1394  0.6379  2.3394 
+## 
+## Coefficients:
+##                                        Estimate Std. Error t value
+## (Intercept)                           -0.169767   0.131134  -1.295
+## gndrFemale                            -0.010228   0.044386  -0.230
+## age                                   -0.001053   0.001356  -0.776
+## eduyrs                                 0.027904   0.006277   4.445
+## polintr_dummyQuite or very interested  0.090948   0.045642   1.993
+## lrscale                                0.051650   0.011037   4.680
+##                                       Pr(&gt;|t|)    
+## (Intercept)                             0.1956    
+## gndrFemale                              0.8178    
+## age                                     0.4377    
+## eduyrs                                9.34e-06 ***
+## polintr_dummyQuite or very interested   0.0465 *  
+## lrscale                               3.10e-06 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.9159 on 1734 degrees of freedom
+##   (260 observations deleted due to missingness)
+## Multiple R-squared:  0.03377,    Adjusted R-squared:  0.03099 
+## F-statistic: 12.12 on 5 and 1734 DF,  p-value: 1.454e-11</code></pre>
+
+</div>
+<div id="question-11" class="section level3">
+<h3><span class="header-section-number">8.0.2</span> Question 11</h3>
+<p>Save your syntax and your data, you will need it next week.</p>
+
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="importing-excel-files.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="data-manipulation-optional.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="section.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="week-3-home.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

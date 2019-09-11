@@ -107,13 +107,14 @@ plot(density(data$dif))
 
 ### Question 1.e
 
-Can you think of a graph based on two variables (i.e. the difference variable and another variable) that is informative? What is it and how is it informative?
+Can you think of a graph based on two variables that is informative? What is it and how is it informative?
 
 *Hint: A useful plotting function for a bivariate distribution is the scatterplot:* `plot(data$x, data$y)`
 
 <details>
   <summary>Click for explanation</summary>
 ```{r include = show_answers}
+#Possible variables would be the pre- and post measurement
 plot(data$prenumb, data$postnumb)
 ```
 <\details>
@@ -123,15 +124,15 @@ plot(data$prenumb, data$postnumb)
 
 Which of the variables age, prelet, prenumb, prerelat and peabody are significantly related to postnumb? Use Pearson’s correlations (`cor()`). You don’t need to check assumptions.
 
-<details>
-  <summary>Click for explanation</summary>
 *Hint: The function* `cor()` *provides Pearson's correlations. Select variables by name from a data.frame object (like* `data`*) using the following syntax:
 
+<details>
+  <summary>Click for explanation</summary>
 ```{r}
 cor(data[, c("age", "prelet", "prenumb", "prerelat", "peabody", "postnumb")])
 ```
 
-The use of `data[,]` follows the conventions of matrix indexation: You can select rows like this, `data[i, ]`, and columns like this, `data[ ,j]`, where i are the rows and j are the columns you want to select.
+The use of `data[,]` follows the conventions of matrix indexation: You can select rows (the horizontal lines) like this, `data[i, ]`, and columns (the vertical lines) like this, `data[ ,j]`, where i are the rows and j are the columns you want to select. As you can see in the example, you can select multiple columns using c( ... , ... ).
 <\details>
 
 ### Question 1.g
@@ -155,11 +156,11 @@ Provide the null hypotheses and the alternative hypotheses of the model in 1.g.
 
 <details>
   <summary>Click for explanation</summary>
-The null-hypotheses of the **model** pertain to the variance explained: $P^2$ (that's Greek letter rho, for the population value of $R^2$).
+The null-hypotheses of the **model** pertain to the variance explained: $\rho^2$ (that's Greek letter rho, for the population value of $\rho^2$).
 
-$H_0: P^2 = 0$
+$H_0: \rho^2 = 0$
 
-$H_a: P^2 > 0$
+$H_a: \rho^2 > 0$
 <\details>
 
 ### Question 1.i
@@ -179,7 +180,7 @@ How many covariances could you estimate? How many degrees of freedom does this m
 
 ## Section 2
 
-Open the file drivers.sav.
+Open the file Drivers.sav.
 
 ### Research question 1 (ANOVA): Does talking on the phone interfere with people’s driving skills?
 
@@ -193,7 +194,7 @@ DV: reaction time in milliseconds in a driver simulation test.
 
 ```{r, message=FALSE}
 # Load the data and put them in the object called "data"
-data <- read.spss("drivers.sav", to.data.frame = TRUE)
+data <- read.spss("Drivers.sav", to.data.frame = TRUE)
 ```
 
 ### Question 2.a
@@ -234,6 +235,8 @@ We can check the range of the standardized (`scale()`) residuals for outliers in
 range(scale(results$residuals))
 ```
 
+What is your conclusiong about the outliers?
+
 #### Normality of residuals
 
 We can check the normality of residuals using a QQplot.
@@ -253,7 +256,7 @@ shapiro.test(results$residuals)
 
 #### Homogeneity of Variances
 
-The `bartlett.test()` function provides a parametric K-sample test of the equality of variances:
+The `bartlett.test()` function provides a parametric K-sample test of the equality of variancse. This test has the same hypotheses as the Levene's test.
 
 ```{r}
 bartlett.test(formula = RT~condition, data = data)
@@ -268,6 +271,7 @@ ggplot(data, aes(y = RT, group = condition)) +
   geom_boxplot() +
   theme_bw()
 ```
+
 
 ```{r, echo = FALSE}
 library(ggplot2)
@@ -294,7 +298,7 @@ What are your conclusions regarding the assumption checks?
 
 Answer the research question. 
 
-*Hint: Use* `summary()` *and* `pairwise.t.test()`*.*
+*Hint: Use* `summary()` *and* `TukeyHSD()`*.*
 
 <details>
   <summary>Click for explanation</summary>
@@ -304,7 +308,7 @@ Answer the research question.
 summary(results)
 ```
 
-Post-hoc tests with Bonferroni correction can be obtained using `pairwise.t.test()`. We notice that none of these comparisons are significant. However, the research question was *Does talking on the phone interfere with people’s driving skills?* There are two conditions for talking on the phone. We could thus test a planned contrast of these two conditions against the control condition, instead of all possible post-hoc tests:
+Post-hoc tests with Bonferroni correction can be obtained using `TukeyHSD(results)`. We notice that none of these comparisons are significant. However, the research question was *Does talking on the phone interfere with peoples driving skills?* There are two conditions for talking on the phone. We could thus test a planned contrast of these two conditions against the control condition, instead of all possible post-hoc tests:
 
 The standard contrasts are dummy coded:
 
@@ -324,19 +328,8 @@ summary.lm(results)
 
 ### Research question 2 (ANCOVA): Are there differences in reaction time between the conditions when controlling for age? 
 
+
 ### Question 2.f
-
-Perform the ANCOVA.
-
-<details>
-  <summary>Click for explanation</summary>
-```{r, message=FALSE}
-results <- aov(formula = RT ~ condition + age, data = data)
-summary(results)
-```
-<\details>
-
-### Question 2.g
 
 What are the assumptions you need to check?
 
@@ -345,18 +338,20 @@ What are the assumptions you need to check?
   Assumptions for ANCOVA are the same as for ANOVA (no outliers, normality of residuals, homoscedasticity). ANCOVA has the following additional assumptions:
 
 * Homogeneity of regression slopes for the covariate (no interaction between factor variable and covariate)
-* The covariate is independent of the treatment effects
+* The covariate is independent of the treatment effects. I.e. there is no difference in the covariate between the groups of the independent variable.
 
 <\details>
 
 
-### Question 2.h
+### Question 2.g
 
 Explain for each of the assumptions why they are important to check.
 
-### Question 2.i
+### Question 2.h
 
 Check the assumptions of ANCOVA.
+
+*Hint: Within formulas, you can use* `*` *instead of* `+` *to include interaction effects.*
 
 
 <details>
@@ -364,14 +359,23 @@ Check the assumptions of ANCOVA.
   
 #### Homogeneity of regression slopes
 
-Compare a model with only main effects to one with an interaction between age and condition:
+Add the interaction to the model and test whether the interaction is significant:
 
 ```{r}
 results_age <- aov(RT ~ condition + age, data)
 results_age_int <- aov(RT ~ condition * age, data)
+summary(results_age_int)
+
+#Or you could use `anova()` to compare two different models
 anova(results_age, results_age_int)
 ```
+
+What would your conclusion be about this assumption?
+
+<details>
+  <summary>Click for explanation</summary>
 The interaction is NOT significant; no evidence for violation of the assumption.
+<\details>
 
 #### The covariate is independent of the treatment effects
 
@@ -379,10 +383,14 @@ The interaction is NOT significant; no evidence for violation of the assumption.
 results_indep <- aov(age ~ condition, data)
 summary(results_indep)
 ```
+What would your conclusion be about this assumption?
 
-The covariate is not significantly related to treatment effect.
+<details>
+  <summary>Click for explanation</summary>
+The covariate is not significantly related to treatment effect. The assumption is met.
+<\details>
 
-#### Outliers in X-space
+<!--#### Outliers in X-space
 
 In addition to the aforementioned outliers in Y-space, we can now test for (multivariate) outliers in X-space using Mahalanobis' distance. In this case, we only have one continuous covariate. The function requires a **matrix** of data, a vector of means for centering the data, and a covariance matrix. In the syntax below, we use `drop = FALSE` when extracting a single column from the data, in order to make sure that the data will still be in matrix format when we extract only one column. This is necessary for the underlying matrix algebra. We have to take the `sqrt()` because the function `mahalanobis()` returns the **squared** Mahalanobis' distances.
 
@@ -393,11 +401,24 @@ mahal <- sqrt(mahalanobis(data[ , "age", drop = FALSE],
 range(mahal)
 ```
 <\details>
+-->
+
+### Question 2.i
+
+Answer the research question. (Do you have to include the interaction or not?)
 
 
-### Question 2.j
+<details>
+  <summary>Click for explanation</summary>
+```{r, message=FALSE}
+results <- aov(formula = RT ~ condition + age, data = data)
+TukeyHSD(results)
+```
 
-Answer the research question. 
+The handheld-condition has a significant **higher** reaction time than the control condition
+
+<\details>
+
 
 ## Section 3
 
@@ -406,7 +427,7 @@ Open the file Sesam2.sav.
 
 ```{r, message=FALSE}
 # Load the data and put them in the object called "data"
-data <- read.spss("sesam2.sav", to.data.frame = TRUE)
+data <- read.spss("Sesam2.sav", to.data.frame = TRUE)
 ```
 
 Use postnumb as the dependent variable in all the following analyses.
@@ -446,9 +467,9 @@ What do the regression coefficients represent? How can you determine the average
 
 ### Question 3.d
 
-Make a coloured scatter plot with age on the x-axis and postnumb on the y-axis. Colour the dots according to the their ‘viewcat’ category. Double click the plot and add a linear fit line for each of the four viewcat scores separately. How do you interpret the differences in slopes of these four fit lines?
+Make a coloured scatter plot with age on the x-axis and postnumb on the y-axis. Colour the dots according to the their `viewcat` category. How do you interpret the differences in slopes of these four fit lines?
 
-*Hint: Use* `ggplot(); geom_point(); geom_smooth()`
+*Hint: Use* `ggplot(); geom_point(); geom_smooth()`. *Within ggplot, use the aes(colour = '...') to colour according to a certain variable.*
 
 <details>
   <summary>Click for explanation</summary>
@@ -464,7 +485,7 @@ ggplot(data, aes(x = AGE, y = POSTNUMB, colour = VIEWCAT)) +
 
 ### Question 3.e
 
-Add an interaction between age and viewcat. 
+Add an interaction between age and viewcat to the regression analysis. 
 
 *Hint: An interaction is created by multiplying two variables. You can multiply with \* in the formula of* `lm()`.
 
@@ -513,7 +534,7 @@ Write down the null hypothesis that is tested to determine whether there is an i
 
 <details>
   <summary>Click for explanation</summary>
-$H_0: \DeltaP^2 = 0$
+$H_0: \Delta\rho^2 = 0$
 <\details>
 
 ### Question 3.j
@@ -531,6 +552,9 @@ Note that you can also look at this problem as an ANCOVA. What are the research 
 <details>
   <summary>Click for explanation</summary>
 RQ: Is there a significant difference between the marginal means of postnumb by viewcat, after controlling for age?
+
+$H_0:$ After controling for age, the mans of postnumb are equal in all groups.
+
 <\details>
 
 ### Question 3.m
@@ -556,4 +580,6 @@ We use summary.lm() again to obtain the parameter estimates:
 ```{r}
 summary.lm(results_ancov)
 ```
+The parameter estimates are the means of each VIEWCAT category when age = 0.
+
 <\details>

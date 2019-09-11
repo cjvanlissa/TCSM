@@ -22,7 +22,7 @@ If you have **never used R before, this Chapter is essential**, as it gives you 
 
 ### 1. Installing R
 
-You will have to install the latest R Version, which is available [here](https://cran.r-project.org/bin/windows/base/).
+You will have to install the latest R Version, which is available [here](https://cran.r-project.org).
 
 ### 2. Installing RStudio
 

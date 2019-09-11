@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>2.3 Importing SPSS Files | Theory Construction and Statistical Modeling</title>
+  <title>6.1 Loading data | Theory Construction and Statistical Modeling</title>
   <meta name="description" content="This is a guide for the elective course TCSM." />
   <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="2.3 Importing SPSS Files | Theory Construction and Statistical Modeling" />
+  <meta property="og:title" content="6.1 Loading data | Theory Construction and Statistical Modeling" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="2.3 Importing SPSS Files | Theory Construction and Statistical Modeling" />
+  <meta name="twitter:title" content="6.1 Loading data | Theory Construction and Statistical Modeling" />
   
   <meta name="twitter:description" content="This is a guide for the elective course TCSM." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="importing-excel-files.html">
-<link rel="next" href="data-manipulation-optional.html">
+<link rel="prev" href="week-2-class.html">
+<link rel="next" href="section.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -263,27 +263,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="importing-spss-files" class="section level2">
-<h2><span class="header-section-number">2.3</span> Importing SPSS Files</h2>
-<p>SPSS files can be loaded using the <code>foreign</code> package. All SPSS files for this course are available on Blackboard.</p>
-<!--[here](https://github.com/cjvanlissa/Doing-Meta-Analysis-in-R/blob/master/Problem2.sav?raw=true).-->
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co"># Install the package, run this only once</span></a>
-<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="kw">install.packages</span>(<span class="st">&quot;foreign&quot;</span>)</a>
-<a class="sourceLine" id="cb4-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="co"># Load the `foreign` library</span></a>
-<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="kw">library</span>(foreign)</a>
-<a class="sourceLine" id="cb4-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="co"># Read the SPSS data</span></a>
-<a class="sourceLine" id="cb4-8" data-line-number="8">df &lt;-<span class="st"> </span><span class="kw">read.spss</span>(<span class="st">&quot;sesam2.sav&quot;</span>,</a>
-<a class="sourceLine" id="cb4-9" data-line-number="9">                     <span class="dt">to.data.frame =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<div id="loading-data-1" class="section level2">
+<h2><span class="header-section-number">6.1</span> Loading data</h2>
+<p>In the unlikely event that you were able to replicate the results of Kestilä, load the environment of the take-home exercise of week 2. In case you have not saved the environment, you can just load and re-run your script of the take-home exercise.</p>
+<p>If you did not manage to replicate the results, go to blackboard and download ESSround1-b.sav and load this dataset into RStudio.</p>
+<details>
+<p><summary>Click for explanation</summary></p>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb94-1" data-line-number="1"><span class="kw">library</span>(foreign)</a>
+<a class="sourceLine" id="cb94-2" data-line-number="2">data &lt;-<span class="st"> </span><span class="kw">read.spss</span>(<span class="st">&quot;ESSround1-b.sav&quot;</span>, <span class="dt">to.data.frame =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+
 </div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="importing-excel-files.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="data-manipulation-optional.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="week-2-class.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="section.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

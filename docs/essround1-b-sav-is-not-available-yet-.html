@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 7 ESSround1-b.sav is not available yet. | Theory Construction and Statistical Modeling</title>
+  <meta name="description" content="This is a guide for the elective course TCSM." />
+  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 7 ESSround1-b.sav is not available yet. | Theory Construction and Statistical Modeling" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a guide for the elective course TCSM." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 7 ESSround1-b.sav is not available yet. | Theory Construction and Statistical Modeling" />
+  
+  <meta name="twitter:description" content="This is a guide for the elective course TCSM." />
+  
+
+<meta name="author" content="Caspar J. van Lissa¹" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="loading-data-1.html">
+<link rel="next" href="section.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
+<script src="libs/pagedtable-1.1/js/pagedtable.js"></script>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="font-awesome.min.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./index.html">TCSM</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Course</a></li>
+<li class="chapter" data-level="1" data-path="preparing-for-the-course.html"><a href="preparing-for-the-course.html"><i class="fa fa-check"></i><b>1</b> Preparing for the course</a><ul>
+<li class="chapter" data-level="1.1" data-path="installing-software.html"><a href="installing-software.html"><i class="fa fa-check"></i><b>1.1</b> Installing software</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="installing-software.html"><a href="installing-software.html#installing-r"><i class="fa fa-check"></i><b>1.1.1</b> 1. Installing R</a></li>
+<li class="chapter" data-level="1.1.2" data-path="installing-software.html"><a href="installing-software.html#installing-rstudio"><i class="fa fa-check"></i><b>1.1.2</b> 2. Installing RStudio</a></li>
+<li class="chapter" data-level="1.1.3" data-path="installing-software.html"><a href="installing-software.html#installing-packages"><i class="fa fa-check"></i><b>1.1.3</b> 3. Installing packages</a></li>
+<li class="chapter" data-level="1.1.4" data-path="installing-software.html"><a href="installing-software.html#get-started"><i class="fa fa-check"></i><b>1.1.4</b> Get started</a></li>
+<li class="chapter" data-level="1.1.5" data-path="installing-software.html"><a href="installing-software.html#starting-a-new-project-in-rstudio"><i class="fa fa-check"></i><b>1.1.5</b> Starting a new project in Rstudio</a></li>
+<li class="chapter" data-level="1.1.6" data-path="installing-software.html"><a href="installing-software.html#code-conventions"><i class="fa fa-check"></i><b>1.1.6</b> Code conventions</a></li>
+<li class="chapter" data-level="1.1.7" data-path="installing-software.html"><a href="installing-software.html#getting-help"><i class="fa fa-check"></i><b>1.1.7</b> Getting Help</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="getting-your-data-into-r.html"><a href="getting-your-data-into-r.html"><i class="fa fa-check"></i><b>2</b> Getting your data into R</a><ul>
+<li class="chapter" data-level="2.1" data-path="using-r-projects.html"><a href="using-r-projects.html"><i class="fa fa-check"></i><b>2.1</b> Using R projects</a></li>
+<li class="chapter" data-level="2.2" data-path="importing-excel-files.html"><a href="importing-excel-files.html"><i class="fa fa-check"></i><b>2.2</b> Importing Excel Files</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="importing-excel-files.html"><a href="importing-excel-files.html#inspect-the-data"><i class="fa fa-check"></i><b>2.2.1</b> Inspect the data</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="importing-spss-files.html"><a href="importing-spss-files.html"><i class="fa fa-check"></i><b>2.3</b> Importing SPSS Files</a></li>
+<li class="chapter" data-level="2.4" data-path="data-manipulation-optional.html"><a href="data-manipulation-optional.html"><i class="fa fa-check"></i><b>2.4</b> Data manipulation (optional)</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="data-manipulation-optional.html"><a href="data-manipulation-optional.html#convertfactors"><i class="fa fa-check"></i><b>2.4.1</b> Converting to factors</a></li>
+<li class="chapter" data-level="2.4.2" data-path="data-manipulation-optional.html"><a href="data-manipulation-optional.html#select"><i class="fa fa-check"></i><b>2.4.2</b> Selecting specific cases</a></li>
+<li class="chapter" data-level="2.4.3" data-path="data-manipulation-optional.html"><a href="data-manipulation-optional.html#changing-cell-values"><i class="fa fa-check"></i><b>2.4.3</b> Changing cell values</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="week-1-home.html"><a href="week-1-home.html"><i class="fa fa-check"></i><b>3</b> Week 1 - Home</a><ul>
+<li class="chapter" data-level="3.0.1" data-path="week-1-home.html"><a href="week-1-home.html#question-1.a"><i class="fa fa-check"></i><b>3.0.1</b> Question 1.a</a></li>
+<li class="chapter" data-level="3.0.2" data-path="week-1-home.html"><a href="week-1-home.html#question-1.b"><i class="fa fa-check"></i><b>3.0.2</b> Question 1.b</a></li>
+<li class="chapter" data-level="3.0.3" data-path="week-1-home.html"><a href="week-1-home.html#question-1.c."><i class="fa fa-check"></i><b>3.0.3</b> Question 1.c.</a></li>
+<li class="chapter" data-level="3.0.4" data-path="week-1-home.html"><a href="week-1-home.html#question-1.d."><i class="fa fa-check"></i><b>3.0.4</b> Question 1.d.</a></li>
+<li class="chapter" data-level="3.0.5" data-path="week-1-home.html"><a href="week-1-home.html#question-1.e."><i class="fa fa-check"></i><b>3.0.5</b> Question 1.e.</a></li>
+<li class="chapter" data-level="3.0.6" data-path="week-1-home.html"><a href="week-1-home.html#question-1.f."><i class="fa fa-check"></i><b>3.0.6</b> Question 1.f.</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="week-1-class.html"><a href="week-1-class.html"><i class="fa fa-check"></i><b>4</b> Week 1 - Class</a><ul>
+<li class="chapter" data-level="4.1" data-path="loading-data.html"><a href="loading-data.html"><i class="fa fa-check"></i><b>4.1</b> Loading data</a></li>
+<li class="chapter" data-level="4.2" data-path="section-1.html"><a href="section-1.html"><i class="fa fa-check"></i><b>4.2</b> Section 1</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="section-1.html"><a href="section-1.html#question-1.a-1"><i class="fa fa-check"></i><b>4.2.1</b> Question 1.a</a></li>
+<li class="chapter" data-level="4.2.2" data-path="section-1.html"><a href="section-1.html#question-1.b-1"><i class="fa fa-check"></i><b>4.2.2</b> Question 1.b</a></li>
+<li class="chapter" data-level="4.2.3" data-path="section-1.html"><a href="section-1.html#question-1.c"><i class="fa fa-check"></i><b>4.2.3</b> Question 1.c</a></li>
+<li class="chapter" data-level="4.2.4" data-path="section-1.html"><a href="section-1.html#question-1.d"><i class="fa fa-check"></i><b>4.2.4</b> Question 1.d</a></li>
+<li class="chapter" data-level="4.2.5" data-path="section-1.html"><a href="section-1.html#question-1.e"><i class="fa fa-check"></i><b>4.2.5</b> Question 1.e</a></li>
+<li class="chapter" data-level="4.2.6" data-path="section-1.html"><a href="section-1.html#question-1.f"><i class="fa fa-check"></i><b>4.2.6</b> Question 1.f</a></li>
+<li class="chapter" data-level="4.2.7" data-path="section-1.html"><a href="section-1.html#question-1.g"><i class="fa fa-check"></i><b>4.2.7</b> Question 1.g</a></li>
+<li class="chapter" data-level="4.2.8" data-path="section-1.html"><a href="section-1.html#question-1.h"><i class="fa fa-check"></i><b>4.2.8</b> Question 1.h</a></li>
+<li class="chapter" data-level="4.2.9" data-path="section-1.html"><a href="section-1.html#question-1.i"><i class="fa fa-check"></i><b>4.2.9</b> Question 1.i</a></li>
+<li class="chapter" data-level="4.2.10" data-path="section-1.html"><a href="section-1.html#question-1.j"><i class="fa fa-check"></i><b>4.2.10</b> Question 1.j</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="section-2.html"><a href="section-2.html"><i class="fa fa-check"></i><b>4.3</b> Section 2</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="section-2.html"><a href="section-2.html#research-question-1-anova-does-talking-on-the-phone-interfere-with-peoples-driving-skills"><i class="fa fa-check"></i><b>4.3.1</b> Research question 1 (ANOVA): Does talking on the phone interfere with people’s driving skills?</a></li>
+<li class="chapter" data-level="4.3.2" data-path="section-2.html"><a href="section-2.html#question-2.a"><i class="fa fa-check"></i><b>4.3.2</b> Question 2.a</a></li>
+<li class="chapter" data-level="4.3.3" data-path="section-2.html"><a href="section-2.html#question-2.b"><i class="fa fa-check"></i><b>4.3.3</b> Question 2.b</a></li>
+<li class="chapter" data-level="4.3.4" data-path="section-2.html"><a href="section-2.html#question-2.c"><i class="fa fa-check"></i><b>4.3.4</b> Question 2.c</a></li>
+<li class="chapter" data-level="4.3.5" data-path="section-2.html"><a href="section-2.html#question-2.d"><i class="fa fa-check"></i><b>4.3.5</b> Question 2.d</a></li>
+<li class="chapter" data-level="4.3.6" data-path="section-2.html"><a href="section-2.html#question-2.e"><i class="fa fa-check"></i><b>4.3.6</b> Question 2.e</a></li>
+<li class="chapter" data-level="4.3.7" data-path="section-2.html"><a href="section-2.html#research-question-2-ancova-are-there-differences-in-reaction-time-between-the-conditions-when-controlling-for-age"><i class="fa fa-check"></i><b>4.3.7</b> Research question 2 (ANCOVA): Are there differences in reaction time between the conditions when controlling for age?</a></li>
+<li class="chapter" data-level="4.3.8" data-path="section-2.html"><a href="section-2.html#question-2.f"><i class="fa fa-check"></i><b>4.3.8</b> Question 2.f</a></li>
+<li class="chapter" data-level="4.3.9" data-path="section-2.html"><a href="section-2.html#question-2.g"><i class="fa fa-check"></i><b>4.3.9</b> Question 2.g</a></li>
+<li class="chapter" data-level="4.3.10" data-path="section-2.html"><a href="section-2.html#question-2.h"><i class="fa fa-check"></i><b>4.3.10</b> Question 2.h</a></li>
+<li class="chapter" data-level="4.3.11" data-path="section-2.html"><a href="section-2.html#question-2.i"><i class="fa fa-check"></i><b>4.3.11</b> Question 2.i</a></li>
+<li class="chapter" data-level="4.3.12" data-path="section-2.html"><a href="section-2.html#question-2.j"><i class="fa fa-check"></i><b>4.3.12</b> Question 2.j</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="section-3.html"><a href="section-3.html"><i class="fa fa-check"></i><b>4.4</b> Section 3</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="section-3.html"><a href="section-3.html#question-3.a"><i class="fa fa-check"></i><b>4.4.1</b> Question 3.a</a></li>
+<li class="chapter" data-level="4.4.2" data-path="section-3.html"><a href="section-3.html#question-3.b"><i class="fa fa-check"></i><b>4.4.2</b> Question 3.b</a></li>
+<li class="chapter" data-level="4.4.3" data-path="section-3.html"><a href="section-3.html#question-3.c"><i class="fa fa-check"></i><b>4.4.3</b> Question 3.c</a></li>
+<li class="chapter" data-level="4.4.4" data-path="section-3.html"><a href="section-3.html#question-3.d"><i class="fa fa-check"></i><b>4.4.4</b> Question 3.d</a></li>
+<li class="chapter" data-level="4.4.5" data-path="section-3.html"><a href="section-3.html#question-3.e"><i class="fa fa-check"></i><b>4.4.5</b> Question 3.e</a></li>
+<li class="chapter" data-level="4.4.6" data-path="section-3.html"><a href="section-3.html#question-3.f"><i class="fa fa-check"></i><b>4.4.6</b> Question 3.f</a></li>
+<li class="chapter" data-level="4.4.7" data-path="section-3.html"><a href="section-3.html#question-3.g"><i class="fa fa-check"></i><b>4.4.7</b> Question 3.g</a></li>
+<li class="chapter" data-level="4.4.8" data-path="section-3.html"><a href="section-3.html#question-3.h"><i class="fa fa-check"></i><b>4.4.8</b> Question 3.h</a></li>
+<li class="chapter" data-level="4.4.9" data-path="section-3.html"><a href="section-3.html#question-3.i"><i class="fa fa-check"></i><b>4.4.9</b> Question 3.i</a></li>
+<li class="chapter" data-level="4.4.10" data-path="section-3.html"><a href="section-3.html#question-3.j"><i class="fa fa-check"></i><b>4.4.10</b> Question 3.j</a></li>
+<li class="chapter" data-level="4.4.11" data-path="section-3.html"><a href="section-3.html#question-3.k"><i class="fa fa-check"></i><b>4.4.11</b> Question 3.k</a></li>
+<li class="chapter" data-level="4.4.12" data-path="section-3.html"><a href="section-3.html#question-3.l"><i class="fa fa-check"></i><b>4.4.12</b> Question 3.l</a></li>
+<li class="chapter" data-level="4.4.13" data-path="section-3.html"><a href="section-3.html#question-3.m"><i class="fa fa-check"></i><b>4.4.13</b> Question 3.m</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="week-2-home.html"><a href="week-2-home.html"><i class="fa fa-check"></i><b>5</b> Week 2 - Home</a><ul>
+<li class="chapter" data-level="5.0.1" data-path="week-2-home.html"><a href="week-2-home.html#question-1.a-2"><i class="fa fa-check"></i><b>5.0.1</b> Question 1.a</a></li>
+<li class="chapter" data-level="5.0.2" data-path="week-2-home.html"><a href="week-2-home.html#question-1.b-2"><i class="fa fa-check"></i><b>5.0.2</b> Question 1.b</a></li>
+<li class="chapter" data-level="5.0.3" data-path="week-2-home.html"><a href="week-2-home.html#question-1.c-1"><i class="fa fa-check"></i><b>5.0.3</b> Question 1.c</a></li>
+<li class="chapter" data-level="5.0.4" data-path="week-2-home.html"><a href="week-2-home.html#question-1.d-1"><i class="fa fa-check"></i><b>5.0.4</b> Question 1.d</a></li>
+<li class="chapter" data-level="5.0.5" data-path="week-2-home.html"><a href="week-2-home.html#question-1.e-1"><i class="fa fa-check"></i><b>5.0.5</b> Question 1.e</a></li>
+<li class="chapter" data-level="5.0.6" data-path="week-2-home.html"><a href="week-2-home.html#question-1.f-1"><i class="fa fa-check"></i><b>5.0.6</b> Question 1.f</a></li>
+<li class="chapter" data-level="5.0.7" data-path="week-2-home.html"><a href="week-2-home.html#question-1.g-1"><i class="fa fa-check"></i><b>5.0.7</b> Question 1.g</a></li>
+<li class="chapter" data-level="5.0.8" data-path="week-2-home.html"><a href="week-2-home.html#question-1.h-1"><i class="fa fa-check"></i><b>5.0.8</b> Question 1.h</a></li>
+<li class="chapter" data-level="5.0.9" data-path="week-2-home.html"><a href="week-2-home.html#question-1.i-1"><i class="fa fa-check"></i><b>5.0.9</b> Question 1.i</a></li>
+<li class="chapter" data-level="5.0.10" data-path="week-2-home.html"><a href="week-2-home.html#question-1.j-1"><i class="fa fa-check"></i><b>5.0.10</b> Question 1.j</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="week-2-class.html"><a href="week-2-class.html"><i class="fa fa-check"></i><b>6</b> Week 2 - Class</a><ul>
+<li class="chapter" data-level="6.1" data-path="loading-data-1.html"><a href="loading-data-1.html"><i class="fa fa-check"></i><b>6.1</b> Loading data</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="essround1-b-sav-is-not-available-yet-.html"><a href="essround1-b-sav-is-not-available-yet-.html"><i class="fa fa-check"></i><b>7</b> <strong>ESSround1-b.sav is not available yet.</strong></a><ul>
+<li class="chapter" data-level="7.0.1" data-path="essround1-b-sav-is-not-available-yet-.html"><a href="essround1-b-sav-is-not-available-yet-.html#question-1"><i class="fa fa-check"></i><b>7.0.1</b> Question 1</a></li>
+<li class="chapter" data-level="7.0.2" data-path="essround1-b-sav-is-not-available-yet-.html"><a href="essround1-b-sav-is-not-available-yet-.html#question-2"><i class="fa fa-check"></i><b>7.0.2</b> Question 2</a></li>
+<li class="chapter" data-level="7.0.3" data-path="essround1-b-sav-is-not-available-yet-.html"><a href="essround1-b-sav-is-not-available-yet-.html#question-3"><i class="fa fa-check"></i><b>7.0.3</b> Question 3</a></li>
+<li class="chapter" data-level="7.0.4" data-path="essround1-b-sav-is-not-available-yet-.html"><a href="essround1-b-sav-is-not-available-yet-.html#question-4"><i class="fa fa-check"></i><b>7.0.4</b> Question 4</a></li>
+<li class="chapter" data-level="7.0.5" data-path="essround1-b-sav-is-not-available-yet-.html"><a href="essround1-b-sav-is-not-available-yet-.html#question-5"><i class="fa fa-check"></i><b>7.0.5</b> Question 5</a></li>
+<li class="chapter" data-level="7.0.6" data-path="essround1-b-sav-is-not-available-yet-.html"><a href="essround1-b-sav-is-not-available-yet-.html#question-6"><i class="fa fa-check"></i><b>7.0.6</b> Question 6</a></li>
+<li class="chapter" data-level="7.0.7" data-path="essround1-b-sav-is-not-available-yet-.html"><a href="essround1-b-sav-is-not-available-yet-.html#question-7"><i class="fa fa-check"></i><b>7.0.7</b> Question 7</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="section.html"><a href="section.html"><i class="fa fa-check"></i><b>8</b> </a></li>
+<li class="chapter" data-level="9" data-path="section-4.html"><a href="section-4.html"><i class="fa fa-check"></i><b>9</b> </a><ul>
+<li class="chapter" data-level="9.0.1" data-path="section-4.html"><a href="section-4.html#question-8"><i class="fa fa-check"></i><b>9.0.1</b> Question 8</a></li>
+<li class="chapter" data-level="9.0.2" data-path="section-4.html"><a href="section-4.html#question-9"><i class="fa fa-check"></i><b>9.0.2</b> Question 9</a></li>
+<li class="chapter" data-level="9.0.3" data-path="section-4.html"><a href="section-4.html#question-10"><i class="fa fa-check"></i><b>9.0.3</b> Question 10</a></li>
+<li class="chapter" data-level="9.0.4" data-path="section-4.html"><a href="section-4.html#question-11"><i class="fa fa-check"></i><b>9.0.4</b> Question 11</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="week-3-home.html"><a href="week-3-home.html"><i class="fa fa-check"></i><b>10</b> Week 3 - Home</a><ul>
+<li class="chapter" data-level="10.0.1" data-path="week-3-home.html"><a href="week-3-home.html#get-started-with-lavaan"><i class="fa fa-check"></i><b>10.0.1</b> Get started with lavaan</a></li>
+<li class="chapter" data-level="10.0.2" data-path="week-3-home.html"><a href="week-3-home.html#regression-models-in-lavaan"><i class="fa fa-check"></i><b>10.0.2</b> Regression models in lavaan</a></li>
+<li class="chapter" data-level="10.0.3" data-path="week-3-home.html"><a href="week-3-home.html#conceptual-model"><i class="fa fa-check"></i><b>10.0.3</b> Conceptual model</a></li>
+<li class="chapter" data-level="10.0.4" data-path="week-3-home.html"><a href="week-3-home.html#lavaan-syntax"><i class="fa fa-check"></i><b>10.0.4</b> Lavaan syntax</a></li>
+<li class="chapter" data-level="10.0.5" data-path="week-3-home.html"><a href="week-3-home.html#performing-the-analysis"><i class="fa fa-check"></i><b>10.0.5</b> Performing the analysis</a></li>
+<li class="chapter" data-level="10.0.6" data-path="week-3-home.html"><a href="week-3-home.html#viewing-the-output"><i class="fa fa-check"></i><b>10.0.6</b> Viewing the output</a></li>
+<li class="chapter" data-level="10.0.7" data-path="week-3-home.html"><a href="week-3-home.html#plotting-the-output"><i class="fa fa-check"></i><b>10.0.7</b> Plotting the output</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Theory Construction and Statistical Modeling</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="essround1-b.sav-is-not-available-yet." class="section level1">
+<h1><span class="header-section-number">Chapter 7</span> <strong>ESSround1-b.sav is not available yet.</strong></h1>
+<div id="question-1" class="section level3">
+<h3><span class="header-section-number">7.0.1</span> Question 1</h3>
+<p>Kestilä states that running a Principal Components Analysis is a good way to test whether the survey questions in the ESS measure attitudes towards immigration and trust in politics.
+What would Preacher and MacCallum (2003) say about this?</p>
+</div>
+<div id="question-2" class="section level3">
+<h3><span class="header-section-number">7.0.2</span> Question 2</h3>
+<p>If you would have to choose a method for constructing the ‘trust in politics’ and ‘attitude towards immigration’ scales based on the theory and background information in the Kestilä article, what type of factor analysis would you choose?
+Think about:</p>
+<ul>
+<li>Estimation method</li>
+<li>Rotation method</li>
+<li>Method to establish how many factors are needed</li>
+</ul>
+</div>
+<div id="question-3" class="section level3">
+<h3><span class="header-section-number">7.0.3</span> Question 3</h3>
+<p>Run two factor analyses, one for each PCA of the original article. Inspect the number of factors necessary, evaluate the rotation method, and if necessary, run the factor analysis again with adapted settings (rotation method and/or different number of factors). How many factors are there?</p>
+<details>
+<p><summary>Click for explanation</summary></p>
+<pre><code>## re-encoding from UTF-8</code></pre>
+<p>If all countries are included once again, select the same countries as Kestilä used, and make sure that numeric variables are coded as numerical variables instead of factors once again.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">df &lt;-<span class="st"> </span>data[data<span class="op">$</span>cntry <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Austria&quot;</span>, <span class="st">&quot;Belgium&quot;</span>, <span class="st">&quot;Denmark&quot;</span>, <span class="st">&quot;Finland&quot;</span>, <span class="st">&quot;France&quot;</span>, <span class="st">&quot;Germany&quot;</span>, <span class="st">&quot;Italy&quot;</span>, <span class="st">&quot;Netherlands&quot;</span>, <span class="st">&quot;Norway&quot;</span>, <span class="st">&quot;Sweden&quot;</span>), ]</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">df[<span class="dv">7</span><span class="op">:</span><span class="dv">44</span>] &lt;-<span class="st"> </span><span class="kw">lapply</span>(df[<span class="dv">7</span><span class="op">:</span><span class="dv">44</span>], as.numeric)</a></code></pre></div>
+<p>To perform an exploratory factor analysis, you can use the function <code>fa</code> of the package <code>psych</code>. You will have to specify the data, and the columns that you want to include in the factor analyses. Furthermore, you will have to specify the number of factors that you want to extract, the rotation method and the estimation method.</p>
+<p>The possible rotation methods that you can use are:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">rotation_methods &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;none&quot;</span>, <span class="st">&quot;varimax&quot;</span>, <span class="st">&quot;quartimax&quot;</span>, <span class="st">&quot;bentlerT&quot;</span>, <span class="st">&quot;equamax&quot;</span>, <span class="st">&quot;varimin&quot;</span>,</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2">                        <span class="st">&quot;geominT&quot;</span>, <span class="st">&quot;bifactor&quot;</span>, <span class="st">&quot;promax&quot;</span>, <span class="st">&quot;oblimin&quot;</span>, <span class="st">&quot;simplimax&quot;</span>, <span class="st">&quot;bentlerQ&quot;</span>,</a>
+<a class="sourceLine" id="cb5-3" data-line-number="3">                        <span class="st">&quot;geominQ&quot;</span>, <span class="st">&quot;biquartimin&quot;</span>, <span class="st">&quot;cluster&quot;</span>)</a></code></pre></div>
+<p>While the possible estimation methods are:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">estimation_methods &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;minres&quot;</span>, <span class="st">&quot;ols&quot;</span>, <span class="st">&quot;wls&quot;</span>, <span class="st">&quot;gls&quot;</span>, <span class="st">&quot;pa&quot;</span>, <span class="st">&quot;ml&quot;</span>, <span class="st">&quot;minchi&quot;</span>,</a>
+<a class="sourceLine" id="cb6-2" data-line-number="2">                        <span class="st">&quot;minrank&quot;</span>, <span class="st">&quot;old.min&quot;</span>, <span class="st">&quot;alpha&quot;</span>)</a></code></pre></div>
+<p>To perform an exploratory factor analysis on the trust variables, you can use the following code to get started.</p>
+<p><em>Please make sure to remove the {brackets} if you want to run the analysis. Other symbols should remain in the code.</em></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw">library</span>(psych)</a>
+<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="kw">library</span>(GPArotation)</a>
+<a class="sourceLine" id="cb7-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb7-4" data-line-number="4">efa_trust &lt;-<span class="st"> </span><span class="kw">fa</span>(df[, {the columns of interest}], <span class="dt">nfactors =</span> {the number of factors to extract}, <span class="dt">rotate =</span> <span class="st">&quot;{rotation method}&quot;</span>, <span class="dt">fm =</span> <span class="st">&quot;{estimation method}&quot;</span>)</a></code></pre></div>
+<p>In order to determine the number of factors to extract, you might want to look at the eigenvalues of the factors or the scree plot. These information can be accessed by using the following code:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">plot</span>({efa_object_name}<span class="op">$</span>values, <span class="dt">type =</span> <span class="st">&quot;b&quot;</span>)</a>
+<a class="sourceLine" id="cb8-2" data-line-number="2">{efa_object_name}<span class="op">$</span>values</a></code></pre></div>
+<p>For the analysis regarding the attitude variables, you could use the following code:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw">library</span>(psych)</a>
+<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="kw">library</span>(GPArotation)</a>
+<a class="sourceLine" id="cb9-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb9-4" data-line-number="4">efa_att &lt;-<span class="st"> </span><span class="kw">fa</span>(df[, {the columns of interest}], <span class="dt">nfactors =</span> {the number of factors to extract}, <span class="dt">rotate =</span> <span class="st">&quot;{rotation method}&quot;</span>, <span class="dt">fm =</span> <span class="st">&quot;{estimation method}&quot;</span>)</a></code></pre></div>
+<p>And for information about the number of factors, you can use the following commands.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1">{efa_object_name}<span class="op">$</span>values</a>
+<a class="sourceLine" id="cb10-2" data-line-number="2"><span class="kw">plot</span>({efa_object_name}<span class="op">$</span>values, <span class="dt">type =</span> <span class="st">&quot;b&quot;</span>)</a></code></pre></div>
+
+</div>
+<div id="question-4" class="section level3">
+<h3><span class="header-section-number">7.0.4</span> Question 4</h3>
+<p>Apart from the number of factors, you also want to look at the factor loadings. They can be found in the “pattern matrix”. The higher the factor loadings are, the more indicative an item is for the latent factor. If you find some items to have only very low loadings (indicating that the items do not provide much information about the factor), you may choose not to include them in your analysis. This means you have to rerun the analysis under question 3.</p>
+<details>
+<p><summary>Click for explanation</summary>
+You can find the factor loadings by means of the ‘print’-function used in question 3, or you can search for the variable ‘loadings’, which is inside the results object, to end up with just the information you are searching for.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1">{efa_object_name}<span class="op">$</span>loadings</a></code></pre></div>
+<p>And to suppress factor loadings lower than .30, you can use the following code.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="kw">print</span>({efa_object_name}<span class="op">$</span>loadings, <span class="dt">cut =</span> <span class="fl">.30</span>, <span class="dt">digits =</span> <span class="dv">2</span>)</a></code></pre></div>
+<p>Furthermore, if you want to perform a factor analysis without, say, <code>stfedu</code>, while you want all other variables included in your factor analysis, you can simply leave the column number of <code>stfedu</code>, which is 13, unmentioned as follows:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1">efa_trust_without_stfedu &lt;-<span class="st"> </span><span class="kw">fa</span>(df[, <span class="kw">c</span>(<span class="dv">7</span><span class="op">:</span><span class="dv">12</span>, <span class="dv">14</span><span class="op">:</span><span class="dv">19</span>)], <span class="dt">nfactors =</span> {the number of factors to extract}, <span class="dt">rotate =</span> <span class="st">&quot;{rotation method}&quot;</span>, <span class="dt">fm =</span> <span class="st">&quot;{estimation method}&quot;</span>)</a></code></pre></div>
+
+</div>
+<div id="question-5" class="section level3">
+<h3><span class="header-section-number">7.0.5</span> Question 5</h3>
+<p>Give the factor scores scores an appropriate name. You can do this by inspecting the items that load on one factor. What do these items have in common substantively? The goal of a factor analysis usually is to create interpretable factors. If you have trouble interpreting the factors, you can choose to tweak the analysis by changing the options, or including/excluding more items.</p>
+<p>Furthermore, after you named the factor scores accordingly, extract them from the results object and add them to the data.frame.</p>
+<p><em>Hint: If you do not know how to do this, have a look at question 1.h from the take-home exercise of week 2. However, note that in contrast to the function</em> <code>principal</code><em>, the function</em> <code>fa</code> <em>does not provide names for the factors.</em></p>
+</div>
+<div id="question-6" class="section level3">
+<h3><span class="header-section-number">7.0.6</span> Question 6</h3>
+<p>The next step is to assert whether the items that together form one factor, also form a reliable scale. Run separate reliability analyses by means of the function <code>alpha</code> for the items that together form one factor, and evaluate Cronbach’s alpha to see whether the scales are internally consistent. The “Reliability if an item is dropped (alpha.drop)” information may be handy to inspect what would happen if you would delete one item.</p>
+<p><em>Hint: Cronbach’s alpha &gt; .7 are deemed to be ok, &gt; .8 is good.</em></p>
+<p>If Cronbach’s alpha is not ok, deselect one survey item and run the analyses under question 4 and question 5 again.</p>
+<details>
+<p><summary>Click for explanation</summary></p>
+<p>If, for example, your first factor consists of the variables <code>trstlgl</code>, <code>trstplc</code> and <code>trstun</code>, you can run a reliability analysis as follows.</p>
+<p><em>Make sure to adjust the column numbers</em> <code>([, c(7, 8, 9)])</code> <em>so that they match the items that formed the factor. Furthermore, name the new objects substantively, instead of numbering them.</em></p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="kw">library</span>(psych)</a>
+<a class="sourceLine" id="cb14-2" data-line-number="2">reli_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">alpha</span>(df[, <span class="kw">c</span>(<span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>)])</a>
+<a class="sourceLine" id="cb14-3" data-line-number="3">reli_<span class="dv">1</span></a></code></pre></div>
+<pre><code>## 
+## Reliability analysis   
+## Call: alpha(x = df[, c(7, 8, 9)])
+## 
+##   raw_alpha std.alpha G6(smc) average_r S/N    ase mean  sd median_r
+##       0.73      0.73    0.66      0.47 2.7 0.0034    7 1.9     0.43
+## 
+##  lower alpha upper     95% confidence boundaries
+## 0.72 0.73 0.73 
+## 
+##  Reliability if an item is dropped:
+##         raw_alpha std.alpha G6(smc) average_r S/N alpha se var.r med.r
+## trstlgl      0.56      0.56    0.39      0.39 1.3   0.0063    NA  0.39
+## trstplc      0.60      0.60    0.43      0.43 1.5   0.0057    NA  0.43
+## trstun       0.75      0.76    0.61      0.61 3.1   0.0035    NA  0.61
+## 
+##  Item statistics 
+##             n raw.r std.r r.cor r.drop mean  sd
+## trstlgl 19380  0.85  0.84  0.74   0.62  6.8 2.4
+## trstplc 19560  0.82  0.83  0.71   0.59  7.6 2.2
+## trstun  18450  0.76  0.75  0.52   0.45  6.6 2.4</code></pre>
+<p>In this illustrative situation, Cronbach’s alpha tend to decrease through including <code>trstun</code>, so we might opt to run the analysis again, but without this variable, which works as follows.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1"><span class="kw">library</span>(psych)</a>
+<a class="sourceLine" id="cb16-2" data-line-number="2">reli_1b &lt;-<span class="st"> </span><span class="kw">alpha</span>(df[, <span class="kw">c</span>(<span class="dv">7</span>, <span class="dv">8</span>)])</a></code></pre></div>
+<pre><code>## Warning in matrix(unlist(drop.item), ncol = 10, byrow = TRUE): data length
+## [16] is not a sub-multiple or multiple of the number of columns [10]</code></pre>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" data-line-number="1">reli_1b</a></code></pre></div>
+<pre><code>## 
+## Reliability analysis   
+## Call: alpha(x = df[, c(7, 8)])
+## 
+##   raw_alpha std.alpha G6(smc) average_r S/N    ase mean  sd median_r
+##       0.75      0.76    0.61      0.61 3.1 0.0035  7.2 2.1     0.61
+## 
+##  lower alpha upper     95% confidence boundaries
+## 0.75 0.75 0.76 
+## 
+##  Reliability if an item is dropped:
+##         raw_alpha std.alpha G6(smc) average_r S/N alpha se var.r med.r
+## trstlgl      0.61      0.61    0.37      0.61  NA       NA  0.61  0.61
+## trstplc      0.37      0.61      NA        NA  NA       NA  0.37  0.61
+## 
+##  Item statistics 
+##             n raw.r std.r r.cor r.drop mean  sd
+## trstlgl 19380  0.91   0.9   0.7   0.61  6.8 2.4
+## trstplc 19560  0.89   0.9   0.7   0.61  7.6 2.2</code></pre>
+
+</div>
+<div id="question-7" class="section level3">
+<h3><span class="header-section-number">7.0.7</span> Question 7</h3>
+<p>Now you can analyze the differences between the factor scores for the PCA analysis (take-home exercise 2) and the EFA by plotting them in a series of scatterplots (bivariate). This can be done by means of the package <code>ggplot2</code>.</p>
+<p><em>In case you are working in a new environment, you will have to recreate the factor scores of the PCA analysis.</em></p>
+<details>
+<p><summary>Click for explanation</summary></p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" data-line-number="1"><span class="kw">library</span>(psych)</a>
+<a class="sourceLine" id="cb20-2" data-line-number="2">pca_trust &lt;-<span class="st"> </span><span class="kw">principal</span>(df[, <span class="dv">7</span><span class="op">:</span><span class="dv">19</span>], <span class="dt">nfactors =</span> <span class="dv">3</span>, <span class="dt">rotate =</span> <span class="st">&quot;varimax&quot;</span>)</a>
+<a class="sourceLine" id="cb20-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb20-4" data-line-number="4"><span class="kw">library</span>(psych)</a>
+<a class="sourceLine" id="cb20-5" data-line-number="5">pca_att &lt;-<span class="st"> </span><span class="kw">principal</span>(df[, <span class="dv">20</span><span class="op">:</span><span class="dv">44</span>], <span class="dt">nfactors =</span> <span class="dv">5</span>, <span class="dt">rotate =</span> <span class="st">&quot;varimax&quot;</span>)</a></code></pre></div>
+<p>As you did in the take-home exercise, it is convenient to name the factors substantively, instead of numerically. However, make sure that you will be able to distinguish between the PCA factors and the EFA factors.</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" data-line-number="1"><span class="kw">colnames</span>(pca_trust<span class="op">$</span>scores) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;PCA_Trust1&quot;</span>, <span class="st">&quot;PCA_Trust2&quot;</span>, <span class="st">&quot;PCA_Trust3&quot;</span>)</a>
+<a class="sourceLine" id="cb21-2" data-line-number="2"><span class="kw">colnames</span>(pca_att<span class="op">$</span>scores) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;PCA_Att1&quot;</span>, <span class="st">&quot;PCA_Att2&quot;</span>, <span class="st">&quot;PCA_Att3&quot;</span>, <span class="st">&quot;PCA_Att4&quot;</span>, <span class="st">&quot;PCA_Att5&quot;</span>)</a></code></pre></div>
+<p>And, like in the take-home exercise, add them to your data.frame.</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" data-line-number="1">df &lt;-<span class="st"> </span><span class="kw">cbind</span>(df, pca_trust<span class="op">$</span>scores, pca_att<span class="op">$</span>scores)</a></code></pre></div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="loading-data-1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="section.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["TCSM.pdf"],
+"toc": {
+"collapse": "section"
+},
+"search": true
+});
+});
+</script>
+
+</body>
+
+</html>

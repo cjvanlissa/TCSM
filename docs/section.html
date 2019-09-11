@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>4.3 Section 2 | Theory Construction and Statistical Modeling</title>
+  <title>Chapter 7  | Theory Construction and Statistical Modeling</title>
   <meta name="description" content="This is a guide for the elective course TCSM." />
   <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="4.3 Section 2 | Theory Construction and Statistical Modeling" />
+  <meta property="og:title" content="Chapter 7  | Theory Construction and Statistical Modeling" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="4.3 Section 2 | Theory Construction and Statistical Modeling" />
+  <meta name="twitter:title" content="Chapter 7  | Theory Construction and Statistical Modeling" />
   
   <meta name="twitter:description" content="This is a guide for the elective course TCSM." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="section-1.html">
-<link rel="next" href="section-3.html">
+<link rel="prev" href="loading-data-1.html">
+<link rel="next" href="section-4.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -263,222 +263,264 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="section-2" class="section level2">
-<h2><span class="header-section-number">4.3</span> Section 2</h2>
-<p>Open the file drivers.sav.</p>
-<div id="research-question-1-anova-does-talking-on-the-phone-interfere-with-peoples-driving-skills" class="section level3">
-<h3><span class="header-section-number">4.3.1</span> Research question 1 (ANOVA): Does talking on the phone interfere with people’s driving skills?</h3>
-<p>IV: condition</p>
-<ul>
-<li>hand-held phone</li>
-<li>hands-free phone</li>
-<li>control</li>
-</ul>
-<p>DV: reaction time in milliseconds in a driver simulation test.</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" data-line-number="1"><span class="co"># Load the data and put them in the object called &quot;data&quot;</span></a>
-<a class="sourceLine" id="cb38-2" data-line-number="2">data &lt;-<span class="st"> </span><span class="kw">read.spss</span>(<span class="st">&quot;drivers.sav&quot;</span>, <span class="dt">to.data.frame =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<div id="section" class="section level1">
+<h1><span class="header-section-number">Chapter 7</span> </h1>
+<div id="question-1" class="section level3">
+<h3><span class="header-section-number">7.0.1</span> Question 1</h3>
+<p>Kestilä states that running a Principal Components Analysis is a good way to test whether the survey questions in the ESS measure attitudes towards immigration and trust in politics.
+What would Preacher and MacCallum (2003) say about this?</p>
+<details>
+<p><summary>Click for information</summary></p>
+<p>*Hint: If you are working in R studio, you can simply add an <code>#</code> before each line of your answer, so that you will have all information inside the same document, without R thinking that it will have to run the code.</p>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb95-1" data-line-number="1"><span class="co">#Simply like</span></a>
+<a class="sourceLine" id="cb95-2" data-line-number="2"><span class="co">#this</span></a></code></pre></div>
+
 </div>
-<div id="question-2.a" class="section level3">
-<h3><span class="header-section-number">4.3.2</span> Question 2.a</h3>
-<p>Perform the ANOVA.</p>
-<p><em>Hint: The function</em> <code>aov()</code> <em>is an alternate interface to the linear model (lm), which reports results in line with the convention of ANOVA analyses.</em></p>
+<div id="question-2" class="section level3">
+<h3><span class="header-section-number">7.0.2</span> Question 2</h3>
+<p>If you would have to choose a method for constructing the ‘trust in politics’ and ‘attitude towards immigration’ scales based on the theory and background information in the Kestilä article, what type of factor analysis would you choose?
+Think about:</p>
+<ul>
+<li>Estimation method</li>
+<li>Rotation method</li>
+<li>Method to establish how many factors are needed</li>
+</ul>
+</div>
+<div id="question-3" class="section level3">
+<h3><span class="header-section-number">7.0.3</span> Question 3</h3>
+<p>Run two factor analyses, one for each PCA of the original article. Inspect the number of factors necessary, evaluate the rotation method, and if necessary, run the factor analysis again with adapted settings (rotation method and/or different number of factors). How many factors are there?</p>
 <details>
 <p><summary>Click for explanation</summary></p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb39-1" data-line-number="1">results &lt;-<span class="st"> </span><span class="kw">aov</span>(<span class="dt">formula =</span> RT <span class="op">~</span><span class="st"> </span>condition, <span class="dt">data =</span> data)</a>
-<a class="sourceLine" id="cb39-2" data-line-number="2"><span class="kw">summary</span>(results)</a></code></pre></div>
-<pre><code>##             Df Sum Sq Mean Sq F value Pr(&gt;F)  
-## condition    2 103909   51954   3.072 0.0541 .
-## Residuals   57 964082   16914                 
-## ---
-## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
-<p>&lt;&gt;</p>
+<p>First, you will have to create a new data object containing only the countries of interest in which all variables are numeric.</p>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb96-1" data-line-number="1">df &lt;-<span class="st"> </span>data[data<span class="op">$</span>cntry <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Austria&quot;</span>, <span class="st">&quot;Belgium&quot;</span>, <span class="st">&quot;Denmark&quot;</span>, <span class="st">&quot;Finland&quot;</span>, <span class="st">&quot;Germany&quot;</span>, <span class="st">&quot;Italy&quot;</span>, <span class="st">&quot;Netherlands&quot;</span>, <span class="st">&quot;Norway&quot;</span>, <span class="st">&quot;Sweden&quot;</span>), ]</a></code></pre></div>
+<p>However, using this command, R will still see the excluded countries as factor levels, which will result into problems when you are going to replicate the study by Kestilä. To drop these factor levels completely, use the following command.</p>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb97-1" data-line-number="1">df<span class="op">$</span>cntry &lt;-<span class="st"> </span><span class="kw">factor</span>(df<span class="op">$</span>cntry)</a></code></pre></div>
+<p>You also want to adjust the variables of interest to numeric once again.</p>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb98-1" data-line-number="1">df[<span class="dv">7</span><span class="op">:</span><span class="dv">44</span>] &lt;-<span class="st"> </span><span class="kw">lapply</span>(df[<span class="dv">7</span><span class="op">:</span><span class="dv">44</span>], as.numeric)</a></code></pre></div>
+<p>To perform an exploratory factor analysis, you can use the function <code>fa</code> of the package <code>psych</code>. You will have to specify the data, and the variables that you want to include in the factor analyses. Furthermore, you will have to specify the number of factors that you want to extract, the rotation method and the estimation method.</p>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb99-1" data-line-number="1"><span class="kw">library</span>(psych)</a>
+<a class="sourceLine" id="cb99-2" data-line-number="2"><span class="kw">library</span>(GPArotation)</a>
+<a class="sourceLine" id="cb99-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb99-4" data-line-number="4">efa_trust &lt;-<span class="st"> </span><span class="kw">fa</span>(df[, <span class="dv">7</span><span class="op">:</span><span class="dv">19</span>], <span class="dt">nfactors =</span> <span class="dv">3</span>, <span class="dt">rotate =</span> <span class="st">&quot;promax&quot;</span>, <span class="dt">fm =</span> <span class="st">&quot;ml&quot;</span>, <span class="dt">scores =</span> <span class="st">&quot;Bartlett&quot;</span>)</a></code></pre></div>
+<p>In order to determine the number of factors to extract, you might want to look at the eigenvalues of the factors or the scree plot. These information can be accessed by using the following code:</p>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb100-1" data-line-number="1"><span class="kw">round</span>(efa_trust<span class="op">$</span>values, <span class="dt">digits =</span> <span class="dv">3</span>)</a></code></pre></div>
+<pre><code>##  [1]  5.054  0.874  0.687  0.304  0.185  0.076  0.014  0.008 -0.060 -0.078
+## [11] -0.123 -0.149 -0.191</code></pre>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb102-1" data-line-number="1"><span class="kw">plot</span>(efa_trust<span class="op">$</span>values, <span class="dt">type =</span> <span class="st">&quot;b&quot;</span>)</a></code></pre></div>
+<p><img src="TCSM_files/figure-html/unnamed-chunk-83-1.png" width="672" /></p>
+<p>You will have to do the same for the attitude variables.</p>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb103-1" data-line-number="1"><span class="kw">library</span>(psych)</a>
+<a class="sourceLine" id="cb103-2" data-line-number="2"><span class="kw">library</span>(GPArotation)</a>
+<a class="sourceLine" id="cb103-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb103-4" data-line-number="4">efa_att &lt;-<span class="st"> </span><span class="kw">fa</span>(df[, <span class="dv">20</span><span class="op">:</span><span class="dv">44</span>], <span class="dt">nfactors =</span> <span class="dv">5</span>, <span class="dt">rotate =</span> <span class="st">&quot;promax&quot;</span>, <span class="dt">fm =</span> <span class="st">&quot;ml&quot;</span>, <span class="dt">scores =</span> <span class="st">&quot;Bartlett&quot;</span>)</a></code></pre></div>
+<p>And for information about the number of factors, you can use the following commands.</p>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb104-1" data-line-number="1"><span class="kw">round</span>(efa_att<span class="op">$</span>values, <span class="dt">digits =</span> <span class="dv">3</span>)</a></code></pre></div>
+<pre><code>##  [1]  8.016  1.702  1.051  0.697  0.500  0.389  0.218  0.162  0.091  0.046
+## [11]  0.043  0.028  0.022  0.008 -0.018 -0.028 -0.032 -0.056 -0.066 -0.083
+## [21] -0.089 -0.119 -0.132 -0.146 -0.266</code></pre>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb106-1" data-line-number="1"><span class="kw">plot</span>(efa_att<span class="op">$</span>values, <span class="dt">type =</span> <span class="st">&quot;b&quot;</span>)</a></code></pre></div>
+<p><img src="TCSM_files/figure-html/unnamed-chunk-85-1.png" width="672" /></p>
+
 </div>
-<div id="question-2.b" class="section level3">
-<h3><span class="header-section-number">4.3.3</span> Question 2.b</h3>
-<p>What are the assumptions you need to check?</p>
+<div id="question-4" class="section level3">
+<h3><span class="header-section-number">7.0.4</span> Question 4</h3>
+<p>Apart from the number of factors, you also want to look at the factor loadings. They can be found in the “pattern matrix”. The higher the factor loadings are, the more indicative an item is for the latent factor. If you find some items to have only very low loadings (indicating that the items do not provide much information about the factor), you may choose not to include them in your analysis. This means you have to rerun the analysis under question 3.</p>
 <details>
-<p><summary>Click for explanation</summary>
-We can check several assumptions:</p>
-<ol style="list-style-type: decimal">
-<li>Presence of outliers</li>
-<li>Normality of residuals</li>
-<li>Homogeneity of residuals</li>
-</ol>
-<p>Let’s deal with them in order.</p>
-<div id="presence-of-outliers" class="section level4">
-<h4><span class="header-section-number">4.3.3.1</span> Presence of outliers:</h4>
-<p><strong>In Y-space</strong></p>
-<p>We can check the range of the standardized (<code>scale()</code>) residuals for outliers in Y-space. The residuals are <strong>inside</strong> of the results object, so we can just extract them, standardize them, and get the range:</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb41-1" data-line-number="1"><span class="kw">range</span>(<span class="kw">scale</span>(results<span class="op">$</span>residuals))</a></code></pre></div>
-<pre><code>## [1] -2.483778  1.904491</code></pre>
-</div>
-<div id="normality-of-residuals" class="section level4">
-<h4><span class="header-section-number">4.3.3.2</span> Normality of residuals</h4>
-<p>We can check the normality of residuals using a QQplot.</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb43-1" data-line-number="1"><span class="kw">qqnorm</span>(results<span class="op">$</span>residuals)</a>
-<a class="sourceLine" id="cb43-2" data-line-number="2"><span class="kw">qqline</span>(results<span class="op">$</span>residuals)</a></code></pre></div>
-<p><img src="TCSM_files/figure-html/unnamed-chunk-42-1.png" width="672" /></p>
-<p>There appears to be some mild deviation from normality at the extremes.</p>
-<p>You can also <strong>test</strong> for normality with the <code>shapiro.test(x)</code> function:</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb44-1" data-line-number="1"><span class="kw">shapiro.test</span>(results<span class="op">$</span>residuals)</a></code></pre></div>
+<p><summary>Click for explanation</summary></p>
+<p>You can find the factor loadings by means of the ‘print’-function used in the take-home exercise, or you can search for the variable ‘loadings’, which is inside the results object, to end up with just the information you are searching for.</p>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb107-1" data-line-number="1">efa_trust<span class="op">$</span>loadings</a></code></pre></div>
 <pre><code>## 
-##  Shapiro-Wilk normality test
+## Loadings:
+##         ML1    ML2    ML3   
+## pltcare  0.784        -0.126
+## pltinvt  0.783        -0.131
+## trstprl  0.528  0.101  0.258
+## trstlgl                0.827
+## trstplc -0.157         0.800
+## trstplt  0.713         0.116
+## trstep   0.432         0.303
+## trstun   0.343         0.366
+## stfeco   0.128  0.725 -0.129
+## stfgov   0.270  0.640 -0.132
+## stfdem   0.201  0.479  0.129
+## stfedu  -0.166  0.665  0.104
+## stfhlth -0.137  0.632       
 ## 
-## data:  results$residuals
-## W = 0.98367, p-value = 0.6013</code></pre>
-</div>
-<div id="homogeneity-of-variances" class="section level4">
-<h4><span class="header-section-number">4.3.3.3</span> Homogeneity of Variances</h4>
-<p>The <code>bartlett.test()</code> function provides a parametric K-sample test of the equality of variances:</p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb46-1" data-line-number="1"><span class="kw">bartlett.test</span>(<span class="dt">formula =</span> RT<span class="op">~</span>condition, <span class="dt">data =</span> data)</a></code></pre></div>
+##                  ML1   ML2   ML3
+## SS loadings    2.518 2.035 1.725
+## Proportion Var 0.194 0.157 0.133
+## Cumulative Var 0.194 0.350 0.483</code></pre>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb109-1" data-line-number="1">efa_att<span class="op">$</span>loadings</a></code></pre></div>
 <pre><code>## 
-##  Bartlett test of homogeneity of variances
+## Loadings:
+##         ML3    ML1    ML5    ML4    ML2   
+## imsmetn         0.479                0.403
+## imdfetn         0.321                0.563
+## eimrcnt         1.110               -0.187
+## eimpcnt         0.345                0.665
+## imrcntr         0.798                     
+## impcntr         0.259                0.727
+## qfimchr  0.126                0.867       
+## qfimwht  0.114                0.749       
+## imwgdwn  0.511         0.182              
+## imhecop  0.560         0.153              
+## imtcjob  0.712                0.138       
+## imbleco  0.702                0.162       
+## imbgeco  0.740                            
+## imueclt  0.470        -0.166 -0.166       
+## imwbcnt  0.639        -0.169              
+## imwbcrm  0.515        -0.177  0.101       
+## imrsprc                0.534         0.159
+## pplstrd  0.245               -0.365       
+## vrtrlg  -0.115         0.186  0.270       
+## shrrfg   0.302        -0.280              
+## rfgawrk                0.474              
+## gvrfgap                0.752              
+## rfgfrpc  0.219        -0.255              
+## rfggvfn                0.489              
+## rfgbfml                0.632              
 ## 
-## data:  RT by condition
-## Bartlett&#39;s K-squared = 2.7203, df = 2, p-value = 0.2566</code></pre>
-<p>It can also be nice to use a paneled boxplot to visualize the distributions. For this, we will use the package <code>ggplot2</code>:</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb48-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&quot;ggplot2&quot;</span>)</a>
-<a class="sourceLine" id="cb48-2" data-line-number="2"><span class="kw">library</span>(ggplot2)</a>
-<a class="sourceLine" id="cb48-3" data-line-number="3"><span class="kw">ggplot</span>(data, <span class="kw">aes</span>(<span class="dt">y =</span> RT, <span class="dt">group =</span> condition)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb48-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb48-5" data-line-number="5"><span class="st">  </span><span class="kw">theme_bw</span>()</a></code></pre></div>
-<p><img src="TCSM_files/figure-html/unnamed-chunk-46-1.png" width="672" />
-&lt;&gt;</p>
+##                  ML3   ML1   ML5   ML4   ML2
+## SS loadings    3.271 2.397 2.061 1.648 1.549
+## Proportion Var 0.131 0.096 0.082 0.066 0.062
+## Cumulative Var 0.131 0.227 0.309 0.375 0.437</code></pre>
+<p>The output above might appear slightly confusing, due to the jumble of factor loadings. To create more clarity, it is convenient to suppress the factor loadings that are lower than .30.</p>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb111-1" data-line-number="1"><span class="kw">print</span>(efa_trust<span class="op">$</span>loadings, <span class="dt">cut =</span> <span class="fl">.30</span>, <span class="dt">digits =</span> <span class="dv">2</span>)</a></code></pre></div>
+<pre><code>## 
+## Loadings:
+##         ML1   ML2   ML3  
+## pltcare  0.78            
+## pltinvt  0.78            
+## trstprl  0.53            
+## trstlgl              0.83
+## trstplc              0.80
+## trstplt  0.71            
+## trstep   0.43        0.30
+## trstun   0.34        0.37
+## stfeco         0.73      
+## stfgov         0.64      
+## stfdem         0.48      
+## stfedu         0.67      
+## stfhlth        0.63      
+## 
+##                 ML1  ML2  ML3
+## SS loadings    2.52 2.03 1.72
+## Proportion Var 0.19 0.16 0.13
+## Cumulative Var 0.19 0.35 0.48</code></pre>
+<p>Furthermore, if you want to perform a factor analysis without, say, <code>trstep</code>, while you want all other variables included in your factor analysis, you can simply leave the column number of <code>trstep</code>, which is 13, out of the command:</p>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb113-1" data-line-number="1"><span class="kw">library</span>(psych)</a>
+<a class="sourceLine" id="cb113-2" data-line-number="2"><span class="kw">library</span>(GPArotation)</a>
+<a class="sourceLine" id="cb113-3" data-line-number="3">efa_trust_without_stfedu &lt;-<span class="st"> </span><span class="kw">fa</span>(df[, <span class="kw">c</span>(<span class="dv">7</span><span class="op">:</span><span class="dv">12</span>, <span class="dv">14</span><span class="op">:</span><span class="dv">19</span>)], <span class="dt">nfactors =</span> <span class="dv">3</span>, <span class="dt">rotate =</span> <span class="st">&quot;promax&quot;</span>, <span class="dt">fm =</span> <span class="st">&quot;ml&quot;</span>)</a></code></pre></div>
+
 </div>
+<div id="question-5" class="section level3">
+<h3><span class="header-section-number">7.0.5</span> Question 5</h3>
+<p>Give the factor scores an appropriate name. You can do this by inspecting the items that load on one factor. What do these items have in common substantively? The goal of a factor analysis usually is to create interpretable factors. If you have trouble interpreting the factors, you can choose to tweak the analysis by changing the options, or including/excluding more items.</p>
+<p>Furthermore, after you named the factor scores accordingly, extract them from the results object and add them to the data.frame.</p>
+<p><em>Hint: If you do not know how to do this, have a look at question 1.h from the take-home exercise of week 2.</em></p>
+<p><strong>Please note that the <code>colnames</code> will be specified from left to right, and not, for example, from ML1 to ML5.</strong></p>
 </div>
-<div id="question-2.c" class="section level3">
-<h3><span class="header-section-number">4.3.4</span> Question 2.c</h3>
-<p>Explain for each of the assumptions why they are important to check.</p>
-</div>
-<div id="question-2.d" class="section level3">
-<h3><span class="header-section-number">4.3.5</span> Question 2.d</h3>
-<p>What are your conclusions regarding the assumption checks?</p>
+<div id="question-6" class="section level3">
+<h3><span class="header-section-number">7.0.6</span> Question 6</h3>
+<p>The next step is to assert whether the items that together form one factor, also form a reliable scale. Run separate reliability analyses by means of the function <code>alpha</code> for the items that together form one factor, and evaluate Cronbach’s alpha to see whether the scales are internally consistent. The “Reliability if an item is dropped (alpha.drop)” information may be handy to inspect what would happen if you would delete one item; you can find it inside the reliability analysis object. If Cronbach’s alpha is not ok, deselect one survey item and run the analyses under question 4 and question 5 again.</p>
+<p><em>Hint: Cronbach’s alpha &gt; .7 are deemed to be ok, &gt; .8 is good.</em></p>
+<p>If Cronbach’s alpha is not ok, deselect one survey item and run the analyses under question 4 and question 5 again.</p>
 <details>
-<summary>Klik voor meer uitleg</summary>
-There are no outliers in X-space, no evidence for (severe) deviations from normality of residuals, and no evidence for (severe) heteroscedasticity.
-</details>
-</div>
-<div id="question-2.e" class="section level3">
-<h3><span class="header-section-number">4.3.6</span> Question 2.e</h3>
-<p>Answer the research question.</p>
-<p><em>Hint: Use</em> <code>summary()</code> <em>and</em> <code>pairwise.t.test()</code><em>.</em></p>
-<details>
-<p><summary>Click for explanation</summary>
-We can examine the overall F-test, which is significant:</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb49-1" data-line-number="1"><span class="kw">summary</span>(results)</a></code></pre></div>
-<pre><code>##             Df Sum Sq Mean Sq F value Pr(&gt;F)  
-## condition    2 103909   51954   3.072 0.0541 .
-## Residuals   57 964082   16914                 
-## ---
-## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
-<p>Post-hoc tests with Bonferroni correction can be obtained using <code>pairwise.t.test()</code>. We notice that none of these comparisons are significant. However, the research question was <em>Does talking on the phone interfere with people’s driving skills?</em> There are two conditions for talking on the phone. We could thus test a planned contrast of these two conditions against the control condition, instead of all possible post-hoc tests:</p>
-<p>The standard contrasts are dummy coded:</p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb51-1" data-line-number="1"><span class="kw">contrasts</span>(data<span class="op">$</span>condition)</a></code></pre></div>
-<pre><code>##            hands-free control
-## hand-held           0       0
-## hands-free          1       0
-## control             0       1</code></pre>
-<p>We can replace these with planned contrasts for “phone” vs control, and hand-held vs hands-free:</p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb53-1" data-line-number="1"><span class="kw">contrasts</span>(data<span class="op">$</span>condition) &lt;-<span class="st"> </span><span class="kw">cbind</span>(<span class="dt">phoneVcontrol =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">-1</span>, <span class="dv">2</span>), <span class="dt">handVfree =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>))</a>
-<a class="sourceLine" id="cb53-2" data-line-number="2">results &lt;-<span class="st"> </span><span class="kw">aov</span>(RT <span class="op">~</span><span class="st"> </span>condition, data)</a>
-<a class="sourceLine" id="cb53-3" data-line-number="3"><span class="co"># Ask for the lm summary, which gives you t-tests for the planned contrasts:</span></a>
-<a class="sourceLine" id="cb53-4" data-line-number="4"><span class="kw">summary.lm</span>(results)</a></code></pre></div>
+<p><summary>Click for explanation</summary></p>
+<p>If you want to assess the reliability of the variables <code>pltcare</code>, <code>pltinvt</code>, <code>trstprl</code>, <code>trstplt</code>, and <code>trstep</code> you can run a reliability analysis as follows.</p>
+<p><em>Hint: name the new objects substantively, instead of numbering them.</em></p>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb114-1" data-line-number="1"><span class="kw">library</span>(psych)</a>
+<a class="sourceLine" id="cb114-2" data-line-number="2">reli_<span class="dv">1</span> &lt;-<span class="st"> </span>psych<span class="op">::</span><span class="kw">alpha</span>(df[, <span class="kw">c</span>(<span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">12</span>, <span class="dv">13</span>)])</a>
+<a class="sourceLine" id="cb114-3" data-line-number="3">reli_<span class="dv">1</span></a></code></pre></div>
 <pre><code>## 
-## Call:
-## aov(formula = RT ~ condition, data = data)
+## Reliability analysis   
+## Call: psych::alpha(x = df[, c(7, 8, 9, 12, 13)])
 ## 
-## Residuals:
-##     Min      1Q  Median      3Q     Max 
-## -317.50  -71.25    2.98   89.55  243.45 
+##   raw_alpha std.alpha G6(smc) average_r S/N    ase mean  sd median_r
+##        0.8      0.83    0.82      0.49 4.8 0.0019  4.4 1.4     0.52
 ## 
-## Coefficients:
-##                        Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept)              608.60      16.79  36.248   &lt;2e-16 ***
-## conditionphoneVcontrol   -27.42      11.87  -2.310   0.0245 *  
-## conditionhandVfree       -18.47      20.56  -0.898   0.3727    
+##  lower alpha upper     95% confidence boundaries
+## 0.8 0.8 0.81 
+## 
+##  Reliability if an item is dropped:
+##         raw_alpha std.alpha G6(smc) average_r S/N alpha se var.r med.r
+## pltcare      0.79      0.80    0.77      0.50 4.0   0.0021 0.017  0.52
+## pltinvt      0.80      0.81    0.78      0.51 4.2   0.0021 0.016  0.53
+## trstprl      0.73      0.78    0.76      0.47 3.6   0.0027 0.018  0.52
+## trstplt      0.70      0.75    0.73      0.43 3.1   0.0031 0.014  0.43
+## trstep       0.78      0.82    0.80      0.53 4.6   0.0021 0.010  0.52
+## 
+##  Item statistics 
+##             n raw.r std.r r.cor r.drop mean  sd
+## pltcare 17975  0.66  0.75  0.67   0.56  2.6 1.1
+## pltinvt 17971  0.64  0.74  0.65   0.54  2.4 1.1
+## trstprl 17753  0.84  0.80  0.74   0.69  6.3 2.3
+## trstplt 17966  0.88  0.86  0.83   0.77  5.3 2.2
+## trstep  16390  0.77  0.70  0.59   0.57  5.6 2.3</code></pre>
+<p>In the hypothetical scenario that Cronbach’s alpha increases when you drop a variable out of the analysis, you can rerun your analysis without that specific variable. So for a version without variable <code>trstprl</code>, see the example below.</p>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb116-1" data-line-number="1"><span class="kw">library</span>(psych)</a>
+<a class="sourceLine" id="cb116-2" data-line-number="2">reli_1b &lt;-<span class="st"> </span>psych<span class="op">::</span><span class="kw">alpha</span>(df[, <span class="kw">c</span>(<span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">12</span>, <span class="dv">13</span>)])</a></code></pre></div>
+
+</div>
+<div id="question-7" class="section level3">
+<h3><span class="header-section-number">7.0.7</span> Question 7</h3>
+<p>Now you can analyze the differences between the factor scores for the PCA analysis (take-home exercise 2) and the EFA by plotting them in a series of scatterplots (bivariate). This can be done by means of the package <code>ggplot2</code>. The PCA factor scores are already stored in the dataset <code>ESSround1-b.sav</code>.</p>
+<details>
+<p><summary>Click for explanation</summary></p>
+<p><em>Make sure to adjust the variable names to the variables names of your own.</em></p>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb117-1" data-line-number="1"><span class="kw">library</span>(ggplot2)</a>
+<a class="sourceLine" id="cb117-2" data-line-number="2"><span class="kw">ggplot</span>(<span class="dt">data =</span> df) <span class="op">+</span></a>
+<a class="sourceLine" id="cb117-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> EFA_trust1, <span class="dt">y =</span> PCA_Trust1))</a></code></pre></div>
+<p><img src="TCSM_files/figure-html/unnamed-chunk-93-1.png" width="672" /></p>
+
+</div>
+<div id="question-8" class="section level3">
+<h3><span class="header-section-number">7.0.8</span> Question 8</h3>
+<p>Build correlation matrices (PCA and EFA versions) of first the ‘trust in politics’ scores, and then the ‘immigration’ factor scores. What is your conclusion: is there a difference between them?</p>
+<details>
+<p><summary>Click for explanation</summary></p>
+<p><em>Hint: Name the new objects substantively once again.</em></p>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb118-1" data-line-number="1">cor_trust_factor1 &lt;-<span class="st"> </span><span class="kw">cor</span>(df<span class="op">$</span>EFA_Trust1, df<span class="op">$</span>PCA_Trust1, <span class="dt">use =</span> <span class="st">&quot;complete.obs&quot;</span>)</a>
+<a class="sourceLine" id="cb118-2" data-line-number="2">cor_trust_factor1</a></code></pre></div>
+<pre><code>## [1] 0.9375965</code></pre>
+
+</div>
+<div id="question-9" class="section level3">
+<h3><span class="header-section-number">7.0.9</span> Question 9</h3>
+<p>Kestila uses the PCA factor scores to evaluate country level differences in 1. Attitudes towards immigration and 2. Political trust. Repeat her analyses using the factor scores you saved in step 5. Think about the statistical test you would like to use. Do you draw similar or different conclusions?</p>
+<details>
+<p><summary>Click for explanation</summary></p>
+<p>We can use an ANOVA to test whether the countries differ in the amount of political trust the participants have.</p>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb120-1" data-line-number="1">fit_ANOVA &lt;-<span class="st"> </span><span class="kw">aov</span>(trustinstEFA <span class="op">~</span><span class="st"> </span>cntry, <span class="dt">data =</span> df)</a>
+<a class="sourceLine" id="cb120-2" data-line-number="2"><span class="kw">summary</span>(fit_ANOVA)</a></code></pre></div>
+<pre><code>##                Df Sum Sq Mean Sq F value Pr(&gt;F)    
+## cntry           8   1740  217.55   199.6 &lt;2e-16 ***
+## Residuals   14769  16100    1.09                   
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
-## 
-## Residual standard error: 130.1 on 57 degrees of freedom
-## Multiple R-squared:  0.09729,    Adjusted R-squared:  0.06562 
-## F-statistic: 3.072 on 2 and 57 DF,  p-value: 0.05408</code></pre>
-<p>&lt;&gt;</p>
-</div>
-<div id="research-question-2-ancova-are-there-differences-in-reaction-time-between-the-conditions-when-controlling-for-age" class="section level3">
-<h3><span class="header-section-number">4.3.7</span> Research question 2 (ANCOVA): Are there differences in reaction time between the conditions when controlling for age?</h3>
-</div>
-<div id="question-2.f" class="section level3">
-<h3><span class="header-section-number">4.3.8</span> Question 2.f</h3>
-<p>Perform the ANCOVA.</p>
-<details>
-<p><summary>Click for explanation</summary></p>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb55-1" data-line-number="1">results &lt;-<span class="st"> </span><span class="kw">aov</span>(<span class="dt">formula =</span> RT <span class="op">~</span><span class="st"> </span>condition <span class="op">+</span><span class="st"> </span>age, <span class="dt">data =</span> data)</a>
-<a class="sourceLine" id="cb55-2" data-line-number="2"><span class="kw">summary</span>(results)</a></code></pre></div>
-<pre><code>##             Df Sum Sq Mean Sq F value   Pr(&gt;F)    
-## condition    2 103909   51954    4.52   0.0151 *  
-## age          1 320454  320454   27.88 2.18e-06 ***
-## Residuals   56 643627   11493                     
-## ---
-## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
-<p>&lt;&gt;</p>
-</div>
-<div id="question-2.g" class="section level3">
-<h3><span class="header-section-number">4.3.9</span> Question 2.g</h3>
-<p>What are the assumptions you need to check?</p>
-<details>
-<p><summary>Click for explanation</summary>
-Assumptions for ANCOVA are the same as for ANOVA (no outliers, normality of residuals, homoscedasticity). ANCOVA has the following additional assumptions:</p>
-<ul>
-<li>Homogeneity of regression slopes for the covariate (no interaction between factor variable and covariate)</li>
-<li>The covariate is independent of the treatment effects</li>
-</ul>
-<p>&lt;&gt;</p>
-</div>
-<div id="question-2.h" class="section level3">
-<h3><span class="header-section-number">4.3.10</span> Question 2.h</h3>
-<p>Explain for each of the assumptions why they are important to check.</p>
-</div>
-<div id="question-2.i" class="section level3">
-<h3><span class="header-section-number">4.3.11</span> Question 2.i</h3>
-<p>Check the assumptions of ANCOVA.</p>
-<details>
-<p><summary>Click for explanation</summary></p>
-<div id="homogeneity-of-regression-slopes" class="section level4">
-<h4><span class="header-section-number">4.3.11.1</span> Homogeneity of regression slopes</h4>
-<p>Compare a model with only main effects to one with an interaction between age and condition:</p>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb57-1" data-line-number="1">results_age &lt;-<span class="st"> </span><span class="kw">aov</span>(RT <span class="op">~</span><span class="st"> </span>condition <span class="op">+</span><span class="st"> </span>age, data)</a>
-<a class="sourceLine" id="cb57-2" data-line-number="2">results_age_int &lt;-<span class="st"> </span><span class="kw">aov</span>(RT <span class="op">~</span><span class="st"> </span>condition <span class="op">*</span><span class="st"> </span>age, data)</a>
-<a class="sourceLine" id="cb57-3" data-line-number="3"><span class="kw">anova</span>(results_age, results_age_int)</a></code></pre></div>
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Res.Df"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["RSS"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Df"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Sum of Sq"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["F"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["Pr(>F)"],"name":[6],"type":["dbl"],"align":["right"]}],"data":[{"1":"56","2":"643627.3","3":"NA","4":"NA","5":"NA","6":"NA","_rn_":"1"},{"1":"54","2":"619005.2","3":"2","4":"24622.15","5":"1.073978","6":"0.3488307","_rn_":"2"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
-</div>
-<p>The interaction is NOT significant; no evidence for violation of the assumption.</p>
-</div>
-<div id="the-covariate-is-independent-of-the-treatment-effects" class="section level4">
-<h4><span class="header-section-number">4.3.11.2</span> The covariate is independent of the treatment effects</h4>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb58-1" data-line-number="1">results_indep &lt;-<span class="st"> </span><span class="kw">aov</span>(age <span class="op">~</span><span class="st"> </span>condition, data)</a>
-<a class="sourceLine" id="cb58-2" data-line-number="2"><span class="kw">summary</span>(results_indep)</a></code></pre></div>
-<pre><code>##             Df Sum Sq Mean Sq F value Pr(&gt;F)
-## condition    2    137   68.55   0.659  0.521
-## Residuals   57   5926  103.97</code></pre>
-<p>The covariate is not significantly related to treatment effect.</p>
-</div>
-<div id="outliers-in-x-space" class="section level4">
-<h4><span class="header-section-number">4.3.11.3</span> Outliers in X-space</h4>
-<p>In addition to the aforementioned outliers in Y-space, we can now test for (multivariate) outliers in X-space using Mahalanobis’ distance. In this case, we only have one continuous covariate. The function requires a <strong>matrix</strong> of data, a vector of means for centering the data, and a covariance matrix. In the syntax below, we use <code>drop = FALSE</code> when extracting a single column from the data, in order to make sure that the data will still be in matrix format when we extract only one column. This is necessary for the underlying matrix algebra. We have to take the <code>sqrt()</code> because the function <code>mahalanobis()</code> returns the <strong>squared</strong> Mahalanobis’ distances.</p>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb60-1" data-line-number="1">mahal &lt;-<span class="st"> </span><span class="kw">sqrt</span>(<span class="kw">mahalanobis</span>(data[ , <span class="st">&quot;age&quot;</span>, <span class="dt">drop =</span> <span class="ot">FALSE</span>], </a>
-<a class="sourceLine" id="cb60-2" data-line-number="2">                          <span class="dt">center =</span> <span class="kw">mean</span>(data<span class="op">$</span>age),</a>
-<a class="sourceLine" id="cb60-3" data-line-number="3">                          <span class="dt">cov =</span> <span class="kw">cov</span>(data[, <span class="st">&quot;age&quot;</span>, <span class="dt">drop =</span> <span class="ot">FALSE</span>])))</a>
-<a class="sourceLine" id="cb60-4" data-line-number="4"><span class="kw">range</span>(mahal)</a></code></pre></div>
-<pre><code>## [1] 0.01972835 1.79527971</code></pre>
-<p>&lt;&gt;</p>
-</div>
-</div>
-<div id="question-2.j" class="section level3">
-<h3><span class="header-section-number">4.3.12</span> Question 2.j</h3>
-<p>Answer the research question.</p>
+## 3409 observations deleted due to missingness</code></pre>
+<p>In which <code>trustinstEFA</code> is the dependent variable, <code>cntry</code> is the grouping variable, and <code>df</code> is the name of the dataset; <code>summary</code> will provide the results. However, it will only indicate whether the variable <code>cntry</code> is significant or not, so you will be unable to tell which countries differ in terms of their political trust. To tell which countries differ, you can do a pairwise comparison test, with a Bonferroni adjustment for multiple testing.</p>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb122-1" data-line-number="1">pair_comparison &lt;-<span class="st"> </span><span class="kw">pairwise.t.test</span>(df<span class="op">$</span>trustinstEFA, df<span class="op">$</span>cntry, <span class="dt">p.adjust.method =</span> <span class="st">&quot;bonf&quot;</span>, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb122-2" data-line-number="2"><span class="kw">round</span>(pair_comparison<span class="op">$</span>p.value, <span class="dt">digits =</span> <span class="dv">3</span>)</a></code></pre></div>
+<pre><code>##             Austria Belgium Germany Denmark Finland Italy Netherlands
+## Belgium       0.000      NA      NA      NA      NA    NA          NA
+## Germany       0.033       0      NA      NA      NA    NA          NA
+## Denmark       0.000       0       0      NA      NA    NA          NA
+## Finland       0.000       0       0   0.085      NA    NA          NA
+## Italy         1.000       0       1   0.000       0    NA          NA
+## Netherlands   0.000       0       0   0.000       0 0.000          NA
+## Norway        0.000       0       0   0.000       0 0.000           0
+## Sweden        0.231       0       0   0.000       0 0.144           0
+##             Norway
+## Belgium         NA
+## Germany         NA
+## Denmark         NA
+## Finland         NA
+## Italy           NA
+## Netherlands     NA
+## Norway          NA
+## Sweden       0.005</code></pre>
+
 </div>
 </div>
             </section>
@@ -486,8 +528,8 @@ Assumptions for ANCOVA are the same as for ANOVA (no outliers, normality of resi
           </div>
         </div>
       </div>
-<a href="section-1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="section-3.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="loading-data-1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="section-4.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -1,0 +1,164 @@
+# Week 3 - Class
+This week, we will analyze the data from the European social survey, and the paper by Kestilä for the last time. Last week, you first replicated the results by Kestilä, and then ran your own set of factor analyses. Hopefully you experienced yourself that it matters quite a bit what type of factor analysis method you choose; both for the interpretation of your factors, and analyses that incorporate factor scores. 
+
+Instead of doing Exploratory Factor Analysis, another way of analyzing the data from the European Social Survey would be to use Confirmatory Factor Analysis. During this practical, you will conduct a CFA and compare your results to earlier EFA and PCA results and the article by Kestilä.
+
+### Question 1
+Download the ESS data (essround1-c.sav) from Blackboard, and load the data into R. Furthermore, you will have to load the package `lavaan` before starting with the exercises.
+
+```{r, warning = FALSE, message = FALSE}
+library(lavaan)
+library(foreign)
+data <- read.spss("essround1-c.sav", to.data.frame = TRUE)
+```
+
+
+Furthermore, we want to work with numeric variables instead of factors once again, and with the countries of interest only.
+
+```{r}
+data[7:44] <- lapply(data[7:44], as.numeric)
+
+df <- data[data$cntry %in% c("Austria", "Belgium", "Denmark", "Finland", "Germany", "Italy", "Netherlands", "Norway", "Sweden"), ]
+df$cntry <- factor(df$cntry)
+```
+
+### Question 2
+First, review your EFA-results for the 'trust in politics' items, as well as the question wordings of the items. How many factors do you expect?
+
+### Question 3
+Build a CFA model for the trust in politics items by means of the R-package `lavaan`, and kindly ask for the summary statistics. What do you find for the value of Chi-square, df, RMSEA and CFI? Any idea why you find this Chi-square value? Does the model fit the data?
+
+<details>
+  <summary>Click for explanation</summary>
+```{r, message = FALSE}
+trust_model_3f <- 'trustpol  =~ pltcare + pltinvt + trstplt
+                   satcntry  =~ stfeco + stfgov + stfdem + stfedu + stfhlth
+                   trustinst =~ trstlgl + trstplc + trstun + trstprl'
+
+fit_trust_model_3f <- cfa(trust_model_3f, data = data)
+summary(fit_trust_model_3f, fit.measures = TRUE)
+```
+
+\details
+
+###Question 4
+As an alternative model, build a 1-factor model, with the same items as you used before, and one trust in politics factor. Evaluate the Chi-square, df, RMSEA and CFI again. Does the one factor-model fit better or worse than the factor model you previously estimated?
+
+*Note, there is also a formal way to test whether a difference between two chi-square values is significant; more on that in the practicals of week 4.*
+
+<details>
+  <summary>Click for explanation</summary>
+
+```{r, message = FALSE}
+trust_model_1f <- 'political_trust =~ pltcare + pltinvt + trstprl + trstplt + stfeco + stfgov + stfdem + stfedu + stfhlth + trstlgl + trstplc + trstun + trstep'
+
+fit_trust_model_1f <- sem(trust_model_1f, data = data)
+summary(fit_trust_model_1f, fit.measures = TRUE)
+```
+
+\details
+
+###Question 5
+Similarly, can you think of a 2-factor model that would explain political trust? Build this model as well, and compare Chi-square, df, RMSEA and CFI to both the 1-factor and the 3-factor model. Which of the models is the best in your opinion?
+
+By now, you should be able to perform your own two-factor CFA, based on substantive grounds. If you do not know how to do this immediately, please have a look at question 3.
+
+*Note: None of the models fit really well. In practice, this would mean that you would have to change the model. For now, stick with the best model you have.
+
+###Question 6
+Choose your best model, and ask for the standardized estimates by means of the addition `standardized = TRUE` in the summary command. 
+
+<details>
+  <summary>Click for explanation</summary>
+  
+```{r}
+summary(fit_trust_model_3f, fit.measures = TRUE, standardized = TRUE)
+standardizedsolution(fit_trust_model_3f)
+```
+
+
+\details
+
+
+###Question 7
+Byrne (2005) states that under certain conditions, a second order CFA can be specified. Would the political trust model qualify for a second order factor model?
+
+###Question 8
+Specify a second-order factor model and run this model. What do you conclude when you evaluate model fit? Is this model better than your model that you selected in question 6?
+
+<details>
+  <summary>Click for explanation</summary>
+  
+To run a second-order factor model, you can simply add an additional line within the single quotes containing the factors that you want in the second-order factor model, like in the example below.
+```{r, message = FALSE}
+trust_model_3f2o <- 'trustpol  =~ pltcare + pltinvt + trstprl + trstplt
+                     satcntry  =~ stfeco + stfgov + stfdem + stfedu + stfhlth
+                     trustinst =~ trstlgl + trstplc + trstun + trstep
+                     trust     =~ trustpol + trustinst'
+
+fit_trust_model_3f2o <- sem(trust_model_3f2o, data = data)
+summary(fit_trust_model_3f2o, fit.measures = TRUE)
+```
+
+\details
+
+###Question 9
+Build a new one-factor model, only using the 3 items that ask about the respondents trust in institutions with 1) trust in the legal system, 2) trust in the police and 3) trust in the UN (see below). You can also take the full model you specified in either question 6 and question 9, but you might experience that the model becomes complicated due to the large amount of arrows.
+
+After doing this, add as predictors of the latent factor: gender, age, education in years, political interest and self-placement on the left right scale.
+
+![](Q_10_Plot.png)
+
+Estimate the model. The model doesn't fit very well, but for now, we will stick with this modle. Write down the regression coefficients (standardized and unstandardized) and relevant test statistics.
+
+<details>
+<summary>Click for explanation</summary>
+
+We will first have to do some recodings again. You might want to make an age variable instead of a yearborn variable, which eases the interpretation. Furthermore, a dummy for gender is more informative than just the variable `gndr`, although this will be treated as a dummy. You will also have to recode the variables `eduyrs` and `lrscale` to numerical variables, and you will have to make a two-category dummy for the variable `polintr`.
+
+```{r}
+data$age <- 2002 - as.numeric(as.character(data$yrbrn))
+
+data$female <- as.numeric(data$gndr)
+data$female <- as.numeric(data$female == 2)
+data$female <- factor(data$female,
+                      levels = c(0,1),
+                      labels = c("Male",
+                                 "Female"))
+
+data$eduyrs <- as.numeric(data$eduyrs)
+data$polintr_dummy <- as.numeric(data$polintr)
+data$polintr_dummy <- as.numeric(data$polintr_dummy <= 2)
+data$polintr_dummy <- factor(data$polintr_dummy,
+                                   levels = c(0,1),
+                                   labels = c("Not or hardly interested",
+                                              "Quite or very interested"))
+
+data$lrscale <- as.numeric(data$lrscale)
+
+model_q9 <- 'trustinst =~ trstlgl + trstplc + trstun
+             trustinst ~ female + age + eduyrs + polintr_dummy + lrscale'
+
+fit_model_q9 <- sem(model_q9, data = data)
+summary(fit_model_q9, fit.measures = TRUE, standardized = TRUE)
+```
+
+
+\details
+
+###Question 10
+Now, replace the latent score "trust in institutions" with the EFA factor score 'trust in institutions'. Delete the separate indicators, so you end up with the model below.
+
+![](Q_11_Plot.png)
+
+```{r}
+model_q10 <- 'trustinstEFA ~ female + age + eduyrs + polintr_dummy + lrscale'
+
+fit_model_q10 <- sem(model_q10, data = data)
+summary(fit_model_q10, fit.measures = TRUE, standardized = TRUE)
+```
+
+
+
+
+
