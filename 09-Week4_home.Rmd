@@ -1,0 +1,231 @@
+# Week 4 - Home
+
+```{r echo = FALSE, warning=FALSE, message=FALSE}
+library(foreign)
+data <- read.spss("SocialRejection.sav", to.data.frame = TRUE)
+```
+Load the data file SocialRejection.sav into R. It contains three variables: Condition (IV), SelfEst (IV), and Spent (DV).
+
+### Question 1
+
+Check the assumption of homogeneous regression lines (no interaction) first. What is your conclusion? 
+
+*Hint: You need to estimate a model with, and one without an interaction, and compare them using the `anova()` function.*
+
+<details>
+  <summary>Click for explanation</summary>
+```{r, warning = FALSE, message = FALSE}
+ancova_main <- aov(Spent ~ Condition + SelfEst, data = data)
+ancova_int <- aov(Spent ~ Condition*SelfEst, data = data)
+anova(ancova_main, ancova_int)
+```
+
+The lines are homogeneous, the assumption is met (interaction is not significant).
+
+\details
+
+
+### Question 2
+
+What should you do when this assumption is violated?
+
+### Question 3
+ 
+Before you can do an ANCOVA, you should also check the assumption of homogeneity. What does homogeneity imply, and is the assumption met? 
+
+*Hint: You did this in the Week 1 class exercise.*
+
+<details>
+  <summary>Click for explanation</summary>
+
+We can do a test of homogeneity of the variances of Spent across conditions:
+
+```{r}
+bartlett.test(formula = Spent~Condition, data = data)
+```
+
+However, note that the assumption of homogeneity actually requires the **residual** variance, after controlling for the covariate SelfEst, to be the same across conditions. We can extract these residuals from a regression with only SelfEst as a predictor:
+
+```{r}
+reg_selfest <- lm(Spent ~ SelfEst, data = data)
+residuals_selfest <- reg_selfest$residuals
+```
+
+Then, we can test the null hypothesis that the error variance of the dependent variable is equal across groups:
+
+```{r}
+bartlett.test(residuals_selfest, data$Condition)
+```
+
+The test is not significant, meaning that the error variances are indeed equal, the assumption is met.
+
+\details
+
+### Question 4
+
+What should you do when this assumption is violated?
+
+<details>
+  <summary>Click for explanation</summary>
+You cannot really "solve" this problem in classical regression or ANCOVA, because only one parameter is estimated for the error variance. In SEM, however, you can estimate different error variance parameters for each group.
+\details
+
+### Question 5
+
+Run the actual ANCOVA (or use previous output). What are your conclusions about the effects of the factor and the covariate?
+
+<details>
+<summary>Click for explanation</summary>
+
+```{r}
+summary(ancova_main)
+```
+
+Self esteem is significant, F (1, 55) = 29.118, p < .001, the level of self esteem of the respondent is related to the amount spent.
+Condition is significant after controlling for the effect of self-esteem, F (2, 55) = 4.402, p = .017, the amount spent differs between the three conditions.
+
+\details
+
+
+### Question 6
+
+Let's examine the differences in conditional means between the three conditions. In order to do so, we can use several approaches.
+
+#### Approach 1: Conditional means
+
+We can obtain the conditional means of the three groups by asking for the predicted (expected) value, based on the model, for each of the three conditions, keeping the covariate constant at 0. For this, we apply the `predict()` function to the object containing our analysis. We make a small new dataset for the values that we want predictions for:
+
+```{r}
+new_data <- data.frame(Condition = c("rejection", "neutral", "confirming"), 
+                       SelfEst = c(0, 0, 0))
+predict(ancova_main, new_data)
+```
+
+What are your conclusions about the three conditions (i.e., how do they differ)?
+
+#### Approach 2: Testing significance
+
+We can test the significance for these differences using `TukeyHSD()` again, but to get the conditional means, we need to use the residuals from a model that includes only SelfEst, which we obtained before:
+
+```{r}
+reg_selfest <- lm(Spent ~ SelfEst, data = data)
+residuals_selfest <- reg_selfest$residuals
+anova_conditional <- aov(residuals_selfest ~ data$Condition)
+TukeyHSD(anova_conditional)
+```
+
+Respondents in the rejection condition spent more, than respondents in the neutral condition and the confirming condition. These differences are not tested on significance between two groups.
+
+#### Approach 3: Plotting the difference
+
+This is where R really shines: We can quickly put together a plot that shows the difference between groups, along with the raw data. We use the package `ggplot2`
+
+```{r}
+library(ggplot2)
+# Put the data for the plot together
+plot_data <- data.frame(Spent_resid = residuals_selfest,
+                        Condition = data$Condition)
+# Basic plot; indicate that you want condition on the x-axis and Spent_resid on
+# the y-axis
+ggplot(plot_data, aes(x = Condition, y = Spent_resid)) +
+  geom_boxplot() + # Add a boxplot for each condition
+  geom_jitter(width = .2) + # Plot raw datapoints on top
+  theme_bw() # Add a nice APA theme
+```
+
+### QUestion 7
+
+An AN(C)OVA can also be specified as a regression analysis. R automatically creates dummies. Use the `lm()` function instead of `aov()`, and compare the results.
+
+<details>
+<summary>Click for explanation</summary>
+```{r}
+ancova_main <- aov(Spent ~ Condition + SelfEst, data = data)
+summary(ancova_main)
+lm_main <- lm(Spent ~ Condition + SelfEst, data = data)
+summary(lm_main)
+```
+\details
+
+You can get the conditional means directly from this `lm()` model by dropping the intercept, using `-1` (which means: minus the intercept) in the formula:
+
+```{r}
+lm_no_intercept <- lm(Spent ~ -1 + Condition + SelfEst, data = data)
+summary(lm_no_intercept)
+```
+
+### Question 8
+
+To perform this analysis as a structural equation model, we need to manually compute dummy variables. We can use the function `model.matrix()` to "expand" a factor variable into dummies:
+
+```{r}
+data_dummies <- model.matrix(~ -1 + Condition, data = data)
+head(data_dummies)
+```
+
+We can then bind these columns with dummies to our original data using `cbind()` (column bind):
+
+```{r}
+data <- cbind(data, data_dummies)
+head(data)
+```
+
+Begin by specifying the model in lavaan like this: 
+
+![](week4home1.png)
+
+
+<details>
+<summary>Click for explanation</summary>
+
+```{r}
+library(lavaan)
+ancova_lavaan <- sem('Spent ~ SelfEst + Conditionrejection + Conditionconfirming', data = data)
+summary(ancova_lavaan)
+```
+
+To obtain a plot of these results and compare it to our picture above, use `SemPlot`:
+
+```{r}
+library(semPlot)
+semPaths(ancova_lavaan, whatLabels = "est", rotation = 2)
+```
+\details 
+
+### Additional options
+
+**Note:** When you are doing an ANCOVA (even as a regression model with dummies), you want to analyze both the covariance structure AND the mean structure. To include the latter in your analysis, you have to tell lavaan to include this by adding the argument `meanstructure = TRUE` in the fitting function:
+
+```{r}
+library(lavaan)
+ancova_lavaan <- sem('Spent ~ SelfEst + Conditionrejection + Conditionconfirming', 
+                     data = data,
+                     meanstructure = TRUE)
+summary(ancova_lavaan)
+```
+
+To obtain the standardized results and the proportion of explained variance (= squared multiple correlation, i.e., R2), you can use the options in the `summary()` function:
+
+```{r}
+summary(ancova_lavaan, standardized = TRUE, rsquare = TRUE)
+```
+
+### Question 9
+
+Compare your results to those obtained with the regression analysis. What is your conclusion?
+
+### Question 10 
+
+Check the model fit. What do you conclude? 
+
+*Note: Use* `summary()` *and* `fit.measures = TRUE`
+
+<details>
+  <summary>Click for explanation</summary>
+  
+```{r}
+summary(ancova_lavaan, fit.measures = TRUE)
+```
+
+Saturated model, so perfect fit. Because the number of parameters to be estimated is equal to the number of observed statistics, there is a perfect fit. Here our interest is mainly in getting the estimates, not in the model-fit.
+\details

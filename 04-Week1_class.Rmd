@@ -256,7 +256,7 @@ shapiro.test(results$residuals)
 
 #### Homogeneity of Variances
 
-The `bartlett.test()` function provides a parametric K-sample test of the equality of variancse. This test has the same hypotheses as the Levene's test.
+The `bartlett.test()` function provides a parametric K-sample test of the equality of variances. This test has the same hypotheses as the Levene's test.
 
 ```{r}
 bartlett.test(formula = RT~condition, data = data)
