@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 8 Week 3 - Class | Theory Construction and Statistical Modeling</title>
+  <meta name="description" content="This is a guide for the elective course TCSM." />
+  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 8 Week 3 - Class | Theory Construction and Statistical Modeling" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a guide for the elective course TCSM." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 8 Week 3 - Class | Theory Construction and Statistical Modeling" />
+  
+  <meta name="twitter:description" content="This is a guide for the elective course TCSM." />
+  
+
+<meta name="author" content="Caspar J. van Lissa¹" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="week-3-home.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
+<script src="libs/pagedtable-1.1/js/pagedtable.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="font-awesome.min.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./index.html">TCSM</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Course</a></li>
+<li class="chapter" data-level="1" data-path="preparing-for-the-course.html"><a href="preparing-for-the-course.html"><i class="fa fa-check"></i><b>1</b> Preparing for the course</a><ul>
+<li class="chapter" data-level="1.1" data-path="installing-software.html"><a href="installing-software.html"><i class="fa fa-check"></i><b>1.1</b> Installing software</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="installing-software.html"><a href="installing-software.html#installing-r"><i class="fa fa-check"></i><b>1.1.1</b> 1. Installing R</a></li>
+<li class="chapter" data-level="1.1.2" data-path="installing-software.html"><a href="installing-software.html#installing-rstudio"><i class="fa fa-check"></i><b>1.1.2</b> 2. Installing RStudio</a></li>
+<li class="chapter" data-level="1.1.3" data-path="installing-software.html"><a href="installing-software.html#installing-packages"><i class="fa fa-check"></i><b>1.1.3</b> 3. Installing packages</a></li>
+<li class="chapter" data-level="1.1.4" data-path="installing-software.html"><a href="installing-software.html#get-started"><i class="fa fa-check"></i><b>1.1.4</b> Get started</a></li>
+<li class="chapter" data-level="1.1.5" data-path="installing-software.html"><a href="installing-software.html#starting-a-new-project-in-rstudio"><i class="fa fa-check"></i><b>1.1.5</b> Starting a new project in Rstudio</a></li>
+<li class="chapter" data-level="1.1.6" data-path="installing-software.html"><a href="installing-software.html#code-conventions"><i class="fa fa-check"></i><b>1.1.6</b> Code conventions</a></li>
+<li class="chapter" data-level="1.1.7" data-path="installing-software.html"><a href="installing-software.html#getting-help"><i class="fa fa-check"></i><b>1.1.7</b> Getting Help</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="getting-your-data-into-r.html"><a href="getting-your-data-into-r.html"><i class="fa fa-check"></i><b>2</b> Getting your data into R</a><ul>
+<li class="chapter" data-level="2.1" data-path="using-r-projects.html"><a href="using-r-projects.html"><i class="fa fa-check"></i><b>2.1</b> Using R projects</a></li>
+<li class="chapter" data-level="2.2" data-path="importing-excel-files.html"><a href="importing-excel-files.html"><i class="fa fa-check"></i><b>2.2</b> Importing Excel Files</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="importing-excel-files.html"><a href="importing-excel-files.html#inspect-the-data"><i class="fa fa-check"></i><b>2.2.1</b> Inspect the data</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="importing-spss-files.html"><a href="importing-spss-files.html"><i class="fa fa-check"></i><b>2.3</b> Importing SPSS Files</a></li>
+<li class="chapter" data-level="2.4" data-path="data-manipulation-optional.html"><a href="data-manipulation-optional.html"><i class="fa fa-check"></i><b>2.4</b> Data manipulation (optional)</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="data-manipulation-optional.html"><a href="data-manipulation-optional.html#convertfactors"><i class="fa fa-check"></i><b>2.4.1</b> Converting to factors</a></li>
+<li class="chapter" data-level="2.4.2" data-path="data-manipulation-optional.html"><a href="data-manipulation-optional.html#select"><i class="fa fa-check"></i><b>2.4.2</b> Selecting specific cases</a></li>
+<li class="chapter" data-level="2.4.3" data-path="data-manipulation-optional.html"><a href="data-manipulation-optional.html#changing-cell-values"><i class="fa fa-check"></i><b>2.4.3</b> Changing cell values</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="week-1-home.html"><a href="week-1-home.html"><i class="fa fa-check"></i><b>3</b> Week 1 - Home</a><ul>
+<li class="chapter" data-level="3.0.1" data-path="week-1-home.html"><a href="week-1-home.html#question-1.a"><i class="fa fa-check"></i><b>3.0.1</b> Question 1.a</a></li>
+<li class="chapter" data-level="3.0.2" data-path="week-1-home.html"><a href="week-1-home.html#question-1.b"><i class="fa fa-check"></i><b>3.0.2</b> Question 1.b</a></li>
+<li class="chapter" data-level="3.0.3" data-path="week-1-home.html"><a href="week-1-home.html#question-1.c."><i class="fa fa-check"></i><b>3.0.3</b> Question 1.c.</a></li>
+<li class="chapter" data-level="3.0.4" data-path="week-1-home.html"><a href="week-1-home.html#question-1.d."><i class="fa fa-check"></i><b>3.0.4</b> Question 1.d.</a></li>
+<li class="chapter" data-level="3.0.5" data-path="week-1-home.html"><a href="week-1-home.html#question-1.e."><i class="fa fa-check"></i><b>3.0.5</b> Question 1.e.</a></li>
+<li class="chapter" data-level="3.0.6" data-path="week-1-home.html"><a href="week-1-home.html#question-1.f."><i class="fa fa-check"></i><b>3.0.6</b> Question 1.f.</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="week-1-class.html"><a href="week-1-class.html"><i class="fa fa-check"></i><b>4</b> Week 1 - Class</a><ul>
+<li class="chapter" data-level="4.1" data-path="loading-data.html"><a href="loading-data.html"><i class="fa fa-check"></i><b>4.1</b> Loading data</a></li>
+<li class="chapter" data-level="4.2" data-path="section-1.html"><a href="section-1.html"><i class="fa fa-check"></i><b>4.2</b> Section 1</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="section-1.html"><a href="section-1.html#question-1.a-1"><i class="fa fa-check"></i><b>4.2.1</b> Question 1.a</a></li>
+<li class="chapter" data-level="4.2.2" data-path="section-1.html"><a href="section-1.html#question-1.b-1"><i class="fa fa-check"></i><b>4.2.2</b> Question 1.b</a></li>
+<li class="chapter" data-level="4.2.3" data-path="section-1.html"><a href="section-1.html#question-1.c"><i class="fa fa-check"></i><b>4.2.3</b> Question 1.c</a></li>
+<li class="chapter" data-level="4.2.4" data-path="section-1.html"><a href="section-1.html#question-1.d"><i class="fa fa-check"></i><b>4.2.4</b> Question 1.d</a></li>
+<li class="chapter" data-level="4.2.5" data-path="section-1.html"><a href="section-1.html#question-1.e"><i class="fa fa-check"></i><b>4.2.5</b> Question 1.e</a></li>
+<li class="chapter" data-level="4.2.6" data-path="section-1.html"><a href="section-1.html#question-1.f"><i class="fa fa-check"></i><b>4.2.6</b> Question 1.f</a></li>
+<li class="chapter" data-level="4.2.7" data-path="section-1.html"><a href="section-1.html#question-1.g"><i class="fa fa-check"></i><b>4.2.7</b> Question 1.g</a></li>
+<li class="chapter" data-level="4.2.8" data-path="section-1.html"><a href="section-1.html#question-1.h"><i class="fa fa-check"></i><b>4.2.8</b> Question 1.h</a></li>
+<li class="chapter" data-level="4.2.9" data-path="section-1.html"><a href="section-1.html#question-1.i"><i class="fa fa-check"></i><b>4.2.9</b> Question 1.i</a></li>
+<li class="chapter" data-level="4.2.10" data-path="section-1.html"><a href="section-1.html#question-1.j"><i class="fa fa-check"></i><b>4.2.10</b> Question 1.j</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="section-2.html"><a href="section-2.html"><i class="fa fa-check"></i><b>4.3</b> Section 2</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="section-2.html"><a href="section-2.html#research-question-1-anova-does-talking-on-the-phone-interfere-with-peoples-driving-skills"><i class="fa fa-check"></i><b>4.3.1</b> Research question 1 (ANOVA): Does talking on the phone interfere with people’s driving skills?</a></li>
+<li class="chapter" data-level="4.3.2" data-path="section-2.html"><a href="section-2.html#question-2.a"><i class="fa fa-check"></i><b>4.3.2</b> Question 2.a</a></li>
+<li class="chapter" data-level="4.3.3" data-path="section-2.html"><a href="section-2.html#question-2.b"><i class="fa fa-check"></i><b>4.3.3</b> Question 2.b</a></li>
+<li class="chapter" data-level="4.3.4" data-path="section-2.html"><a href="section-2.html#question-2.c"><i class="fa fa-check"></i><b>4.3.4</b> Question 2.c</a></li>
+<li class="chapter" data-level="4.3.5" data-path="section-2.html"><a href="section-2.html#question-2.d"><i class="fa fa-check"></i><b>4.3.5</b> Question 2.d</a></li>
+<li class="chapter" data-level="4.3.6" data-path="section-2.html"><a href="section-2.html#question-2.e"><i class="fa fa-check"></i><b>4.3.6</b> Question 2.e</a></li>
+<li class="chapter" data-level="4.3.7" data-path="section-2.html"><a href="section-2.html#research-question-2-ancova-are-there-differences-in-reaction-time-between-the-conditions-when-controlling-for-age"><i class="fa fa-check"></i><b>4.3.7</b> Research question 2 (ANCOVA): Are there differences in reaction time between the conditions when controlling for age?</a></li>
+<li class="chapter" data-level="4.3.8" data-path="section-2.html"><a href="section-2.html#question-2.f"><i class="fa fa-check"></i><b>4.3.8</b> Question 2.f</a></li>
+<li class="chapter" data-level="4.3.9" data-path="section-2.html"><a href="section-2.html#question-2.g"><i class="fa fa-check"></i><b>4.3.9</b> Question 2.g</a></li>
+<li class="chapter" data-level="4.3.10" data-path="section-2.html"><a href="section-2.html#question-2.h"><i class="fa fa-check"></i><b>4.3.10</b> Question 2.h</a></li>
+<li class="chapter" data-level="4.3.11" data-path="section-2.html"><a href="section-2.html#question-2.i"><i class="fa fa-check"></i><b>4.3.11</b> Question 2.i</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="section-3.html"><a href="section-3.html"><i class="fa fa-check"></i><b>4.4</b> Section 3</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="section-3.html"><a href="section-3.html#question-3.a"><i class="fa fa-check"></i><b>4.4.1</b> Question 3.a</a></li>
+<li class="chapter" data-level="4.4.2" data-path="section-3.html"><a href="section-3.html#question-3.b"><i class="fa fa-check"></i><b>4.4.2</b> Question 3.b</a></li>
+<li class="chapter" data-level="4.4.3" data-path="section-3.html"><a href="section-3.html#question-3.c"><i class="fa fa-check"></i><b>4.4.3</b> Question 3.c</a></li>
+<li class="chapter" data-level="4.4.4" data-path="section-3.html"><a href="section-3.html#question-3.d"><i class="fa fa-check"></i><b>4.4.4</b> Question 3.d</a></li>
+<li class="chapter" data-level="4.4.5" data-path="section-3.html"><a href="section-3.html#question-3.e"><i class="fa fa-check"></i><b>4.4.5</b> Question 3.e</a></li>
+<li class="chapter" data-level="4.4.6" data-path="section-3.html"><a href="section-3.html#question-3.f"><i class="fa fa-check"></i><b>4.4.6</b> Question 3.f</a></li>
+<li class="chapter" data-level="4.4.7" data-path="section-3.html"><a href="section-3.html#question-3.g"><i class="fa fa-check"></i><b>4.4.7</b> Question 3.g</a></li>
+<li class="chapter" data-level="4.4.8" data-path="section-3.html"><a href="section-3.html#question-3.h"><i class="fa fa-check"></i><b>4.4.8</b> Question 3.h</a></li>
+<li class="chapter" data-level="4.4.9" data-path="section-3.html"><a href="section-3.html#question-3.i"><i class="fa fa-check"></i><b>4.4.9</b> Question 3.i</a></li>
+<li class="chapter" data-level="4.4.10" data-path="section-3.html"><a href="section-3.html#question-3.j"><i class="fa fa-check"></i><b>4.4.10</b> Question 3.j</a></li>
+<li class="chapter" data-level="4.4.11" data-path="section-3.html"><a href="section-3.html#question-3.k"><i class="fa fa-check"></i><b>4.4.11</b> Question 3.k</a></li>
+<li class="chapter" data-level="4.4.12" data-path="section-3.html"><a href="section-3.html#question-3.l"><i class="fa fa-check"></i><b>4.4.12</b> Question 3.l</a></li>
+<li class="chapter" data-level="4.4.13" data-path="section-3.html"><a href="section-3.html#question-3.m"><i class="fa fa-check"></i><b>4.4.13</b> Question 3.m</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="week-2-home.html"><a href="week-2-home.html"><i class="fa fa-check"></i><b>5</b> Week 2 - Home</a><ul>
+<li class="chapter" data-level="5.0.1" data-path="week-2-home.html"><a href="week-2-home.html#question-1.a-2"><i class="fa fa-check"></i><b>5.0.1</b> Question 1.a</a></li>
+<li class="chapter" data-level="5.0.2" data-path="week-2-home.html"><a href="week-2-home.html#question-1.b-2"><i class="fa fa-check"></i><b>5.0.2</b> Question 1.b</a></li>
+<li class="chapter" data-level="5.0.3" data-path="week-2-home.html"><a href="week-2-home.html#question-1.c-1"><i class="fa fa-check"></i><b>5.0.3</b> Question 1.c</a></li>
+<li class="chapter" data-level="5.0.4" data-path="week-2-home.html"><a href="week-2-home.html#question-1.d-1"><i class="fa fa-check"></i><b>5.0.4</b> Question 1.d</a></li>
+<li class="chapter" data-level="5.0.5" data-path="week-2-home.html"><a href="week-2-home.html#question-1.e-1"><i class="fa fa-check"></i><b>5.0.5</b> Question 1.e</a></li>
+<li class="chapter" data-level="5.0.6" data-path="week-2-home.html"><a href="week-2-home.html#question-1.f-1"><i class="fa fa-check"></i><b>5.0.6</b> Question 1.f</a></li>
+<li class="chapter" data-level="5.0.7" data-path="week-2-home.html"><a href="week-2-home.html#question-1.g-1"><i class="fa fa-check"></i><b>5.0.7</b> Question 1.g</a></li>
+<li class="chapter" data-level="5.0.8" data-path="week-2-home.html"><a href="week-2-home.html#question-1.h-1"><i class="fa fa-check"></i><b>5.0.8</b> Question 1.h</a></li>
+<li class="chapter" data-level="5.0.9" data-path="week-2-home.html"><a href="week-2-home.html#question-1.i-1"><i class="fa fa-check"></i><b>5.0.9</b> Question 1.i</a></li>
+<li class="chapter" data-level="5.0.10" data-path="week-2-home.html"><a href="week-2-home.html#question-1.j-1"><i class="fa fa-check"></i><b>5.0.10</b> Question 1.j</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="week-2-class.html"><a href="week-2-class.html"><i class="fa fa-check"></i><b>6</b> Week 2 - Class</a><ul>
+<li class="chapter" data-level="6.1" data-path="loading-data-1.html"><a href="loading-data-1.html"><i class="fa fa-check"></i><b>6.1</b> Loading data</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="loading-data-1.html"><a href="loading-data-1.html#question-1"><i class="fa fa-check"></i><b>6.1.1</b> Question 1</a></li>
+<li class="chapter" data-level="6.1.2" data-path="loading-data-1.html"><a href="loading-data-1.html#question-2"><i class="fa fa-check"></i><b>6.1.2</b> Question 2</a></li>
+<li class="chapter" data-level="6.1.3" data-path="loading-data-1.html"><a href="loading-data-1.html#question-3"><i class="fa fa-check"></i><b>6.1.3</b> Question 3</a></li>
+<li class="chapter" data-level="6.1.4" data-path="loading-data-1.html"><a href="loading-data-1.html#question-4"><i class="fa fa-check"></i><b>6.1.4</b> Question 4</a></li>
+<li class="chapter" data-level="6.1.5" data-path="loading-data-1.html"><a href="loading-data-1.html#question-5"><i class="fa fa-check"></i><b>6.1.5</b> Question 5</a></li>
+<li class="chapter" data-level="6.1.6" data-path="loading-data-1.html"><a href="loading-data-1.html#question-6"><i class="fa fa-check"></i><b>6.1.6</b> Question 6</a></li>
+<li class="chapter" data-level="6.1.7" data-path="loading-data-1.html"><a href="loading-data-1.html#question-7"><i class="fa fa-check"></i><b>6.1.7</b> Question 7</a></li>
+<li class="chapter" data-level="6.1.8" data-path="loading-data-1.html"><a href="loading-data-1.html#question-8"><i class="fa fa-check"></i><b>6.1.8</b> Question 8</a></li>
+<li class="chapter" data-level="6.1.9" data-path="loading-data-1.html"><a href="loading-data-1.html#question-9"><i class="fa fa-check"></i><b>6.1.9</b> Question 9</a></li>
+<li class="chapter" data-level="6.1.10" data-path="loading-data-1.html"><a href="loading-data-1.html#question-10"><i class="fa fa-check"></i><b>6.1.10</b> Question 10</a></li>
+<li class="chapter" data-level="6.1.11" data-path="loading-data-1.html"><a href="loading-data-1.html#question-11"><i class="fa fa-check"></i><b>6.1.11</b> Question 11</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="week-3-home.html"><a href="week-3-home.html"><i class="fa fa-check"></i><b>7</b> Week 3 - Home</a><ul>
+<li class="chapter" data-level="7.0.1" data-path="week-3-home.html"><a href="week-3-home.html#get-started-with-lavaan"><i class="fa fa-check"></i><b>7.0.1</b> Get started with lavaan</a></li>
+<li class="chapter" data-level="7.0.2" data-path="week-3-home.html"><a href="week-3-home.html#regression-models-in-lavaan"><i class="fa fa-check"></i><b>7.0.2</b> Regression models in lavaan</a></li>
+<li class="chapter" data-level="7.0.3" data-path="week-3-home.html"><a href="week-3-home.html#conceptual-model"><i class="fa fa-check"></i><b>7.0.3</b> Conceptual model</a></li>
+<li class="chapter" data-level="7.0.4" data-path="week-3-home.html"><a href="week-3-home.html#lavaan-syntax"><i class="fa fa-check"></i><b>7.0.4</b> Lavaan syntax</a></li>
+<li class="chapter" data-level="7.0.5" data-path="week-3-home.html"><a href="week-3-home.html#performing-the-analysis"><i class="fa fa-check"></i><b>7.0.5</b> Performing the analysis</a></li>
+<li class="chapter" data-level="7.0.6" data-path="week-3-home.html"><a href="week-3-home.html#viewing-the-output"><i class="fa fa-check"></i><b>7.0.6</b> Viewing the output</a></li>
+<li class="chapter" data-level="7.0.7" data-path="week-3-home.html"><a href="week-3-home.html#plotting-the-output"><i class="fa fa-check"></i><b>7.0.7</b> Plotting the output</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="week-3-class.html"><a href="week-3-class.html"><i class="fa fa-check"></i><b>8</b> Week 3 - Class</a><ul>
+<li class="chapter" data-level="8.0.1" data-path="week-3-class.html"><a href="week-3-class.html#question-1-1"><i class="fa fa-check"></i><b>8.0.1</b> Question 1</a></li>
+<li class="chapter" data-level="8.0.2" data-path="week-3-class.html"><a href="week-3-class.html#question-2-1"><i class="fa fa-check"></i><b>8.0.2</b> Question 2</a></li>
+<li class="chapter" data-level="8.0.3" data-path="week-3-class.html"><a href="week-3-class.html#question-3-1"><i class="fa fa-check"></i><b>8.0.3</b> Question 3</a></li>
+<li class="chapter" data-level="8.0.4" data-path="week-3-class.html"><a href="week-3-class.html#question-4-1"><i class="fa fa-check"></i><b>8.0.4</b> Question 4</a></li>
+<li class="chapter" data-level="8.0.5" data-path="week-3-class.html"><a href="week-3-class.html#question-5-1"><i class="fa fa-check"></i><b>8.0.5</b> Question 5</a></li>
+<li class="chapter" data-level="8.0.6" data-path="week-3-class.html"><a href="week-3-class.html#question-6-1"><i class="fa fa-check"></i><b>8.0.6</b> Question 6</a></li>
+<li class="chapter" data-level="8.0.7" data-path="week-3-class.html"><a href="week-3-class.html#question-7-1"><i class="fa fa-check"></i><b>8.0.7</b> Question 7</a></li>
+<li class="chapter" data-level="8.0.8" data-path="week-3-class.html"><a href="week-3-class.html#question-8-1"><i class="fa fa-check"></i><b>8.0.8</b> Question 8</a></li>
+<li class="chapter" data-level="8.0.9" data-path="week-3-class.html"><a href="week-3-class.html#question-9-1"><i class="fa fa-check"></i><b>8.0.9</b> Question 9</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Theory Construction and Statistical Modeling</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="week-3---class" class="section level1">
+<h1><span class="header-section-number">Chapter 8</span> Week 3 - Class</h1>
+<p>This week, we will analyze the data from the European social survey, and the paper by Kestilä for the last time. Last week, you first replicated the results by Kestilä, and then ran your own set of factor analyses. Hopefully you experienced yourself that it matters quite a bit what type of factor analysis method you choose; both for the interpretation of your factors, and analyses that incorporate factor scores.</p>
+<p>Instead of doing Exploratory Factor Analysis, another way of analyzing the data from the European Social Survey would be to use Confirmatory Factor Analysis. During this practical, you will conduct a CFA and compare your results to earlier EFA and PCA results and the article by Kestilä.</p>
+<div id="question-1-1" class="section level3">
+<h3><span class="header-section-number">8.0.1</span> Question 1</h3>
+<p>Download the ESS data (essround1-c.sav) from Blackboard, and load the data into R. Furthermore, you will have to load the package <code>lavaan</code> before starting with the exercises.</p>
+<details>
+<p><summary>Click for explanation</summary></p>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb138-1" data-line-number="1"><span class="kw">library</span>(lavaan)</a>
+<a class="sourceLine" id="cb138-2" data-line-number="2"><span class="kw">library</span>(foreign)</a>
+<a class="sourceLine" id="cb138-3" data-line-number="3">data &lt;-<span class="st"> </span><span class="kw">read.spss</span>(<span class="st">&quot;essround1-c.sav&quot;</span>, <span class="dt">to.data.frame =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+
+<p>Furthermore, we want to work with numeric variables instead of factors once again, and with the countries of interest only.</p>
+<details>
+<p><summary>Click for explanation</summary></p>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb139-1" data-line-number="1">data[<span class="dv">7</span><span class="op">:</span><span class="dv">44</span>] &lt;-<span class="st"> </span><span class="kw">lapply</span>(data[<span class="dv">7</span><span class="op">:</span><span class="dv">44</span>], as.numeric)</a>
+<a class="sourceLine" id="cb139-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb139-3" data-line-number="3">df &lt;-<span class="st"> </span>data[data<span class="op">$</span>cntry <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Austria&quot;</span>, <span class="st">&quot;Belgium&quot;</span>, <span class="st">&quot;Denmark&quot;</span>, <span class="st">&quot;Finland&quot;</span>, <span class="st">&quot;Germany&quot;</span>, <span class="st">&quot;Italy&quot;</span>, <span class="st">&quot;Netherlands&quot;</span>, <span class="st">&quot;Norway&quot;</span>, <span class="st">&quot;Sweden&quot;</span>), ]</a>
+<a class="sourceLine" id="cb139-4" data-line-number="4">df<span class="op">$</span>cntry &lt;-<span class="st"> </span><span class="kw">factor</span>(df<span class="op">$</span>cntry)</a></code></pre></div>
+
+</div>
+<div id="question-2-1" class="section level3">
+<h3><span class="header-section-number">8.0.2</span> Question 2</h3>
+<p>First, review your EFA-results for the ‘trust in politics’ items, as well as the question wordings of the items. How many factors do you expect?</p>
+</div>
+<div id="question-3-1" class="section level3">
+<h3><span class="header-section-number">8.0.3</span> Question 3</h3>
+<p>Build a CFA model for the trust in politics items by means of the R-package <code>lavaan</code>. A tutorial example is available here: <a href="http://lavaan.ugent.be/tutorial/cfa.html" class="uri">http://lavaan.ugent.be/tutorial/cfa.html</a></p>
+<p>Make sure to ask for model fit statistics. What do you find for the value of Chi-square, df, RMSEA and CFI? Any idea why you find this Chi-square value? Does the model fit the data?</p>
+<details>
+<p><summary>Click for explanation</summary></p>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb140-1" data-line-number="1">trust_model_3f &lt;-<span class="st"> &#39;trustpol  =~ pltcare + pltinvt + trstplt</span></a>
+<a class="sourceLine" id="cb140-2" data-line-number="2"><span class="st">                   satcntry  =~ stfeco + stfgov + stfdem + stfedu + stfhlth</span></a>
+<a class="sourceLine" id="cb140-3" data-line-number="3"><span class="st">                   trustinst =~ trstlgl + trstplc + trstun + trstprl&#39;</span></a>
+<a class="sourceLine" id="cb140-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb140-5" data-line-number="5">fit_trust_model_3f &lt;-<span class="st"> </span><span class="kw">cfa</span>(trust_model_3f, <span class="dt">data =</span> data)</a>
+<a class="sourceLine" id="cb140-6" data-line-number="6"><span class="kw">summary</span>(fit_trust_model_3f, <span class="dt">fit.measures =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<pre><code>## lavaan 0.6-3 ended normally after 48 iterations
+## 
+##   Optimization method                           NLMINB
+##   Number of free parameters                         27
+## 
+##                                                   Used       Total
+##   Number of observations                         30828       42359
+## 
+##   Estimator                                         ML
+##   Model Fit Test Statistic                   16564.350
+##   Degrees of freedom                                51
+##   P-value (Chi-square)                           0.000
+## 
+## Model test baseline model:
+## 
+##   Minimum Function Test Statistic           151227.639
+##   Degrees of freedom                                66
+##   P-value                                        0.000
+## 
+## User model versus baseline model:
+## 
+##   Comparative Fit Index (CFI)                    0.891
+##   Tucker-Lewis Index (TLI)                       0.859
+## 
+## Loglikelihood and Information Criteria:
+## 
+##   Loglikelihood user model (H0)             -732386.505
+##   Loglikelihood unrestricted model (H1)     -724104.330
+## 
+##   Number of free parameters                         27
+##   Akaike (AIC)                              1464827.011
+##   Bayesian (BIC)                            1465052.088
+##   Sample-size adjusted Bayesian (BIC)       1464966.282
+## 
+## Root Mean Square Error of Approximation:
+## 
+##   RMSEA                                          0.102
+##   90 Percent Confidence Interval          0.101  0.104
+##   P-value RMSEA &lt;= 0.05                          0.000
+## 
+## Standardized Root Mean Square Residual:
+## 
+##   SRMR                                           0.053
+## 
+## Parameter Estimates:
+## 
+##   Information                                 Expected
+##   Information saturated (h1) model          Structured
+##   Standard Errors                             Standard
+## 
+## Latent Variables:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)
+##   trustpol =~                                         
+##     pltcare           1.000                           
+##     pltinvt           0.972    0.011   86.589    0.000
+##     trstplt           3.142    0.029  107.752    0.000
+##   satcntry =~                                         
+##     stfeco            1.000                           
+##     stfgov            1.038    0.009  119.880    0.000
+##     stfdem            0.984    0.009  115.358    0.000
+##     stfedu            0.760    0.008   90.774    0.000
+##     stfhlth           0.771    0.009   87.697    0.000
+##   trustinst =~                                        
+##     trstlgl           1.000                           
+##     trstplc           0.842    0.008   99.435    0.000
+##     trstun            0.781    0.009   89.402    0.000
+##     trstprl           1.087    0.009  126.065    0.000
+## 
+## Covariances:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)
+##   trustpol ~~                                         
+##     satcntry          0.815    0.012   68.138    0.000
+##     trustinst         1.001    0.014   72.217    0.000
+##   satcntry ~~                                         
+##     trustinst         2.374    0.032   74.306    0.000
+## 
+## Variances:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)
+##    .pltcare           0.694    0.006  112.173    0.000
+##    .pltinvt           0.682    0.006  112.683    0.000
+##    .trstplt           1.181    0.023   51.465    0.000
+##    .stfeco            2.844    0.029   99.765    0.000
+##    .stfgov            2.334    0.025   92.017    0.000
+##    .stfdem            2.578    0.026   98.052    0.000
+##    .stfedu            3.736    0.033  113.576    0.000
+##    .stfhlth           4.264    0.037  114.622    0.000
+##    .trstlgl           3.307    0.032  103.837    0.000
+##    .trstplc           3.623    0.033  111.206    0.000
+##    .trstun            4.407    0.038  115.042    0.000
+##    .trstprl           1.883    0.023   80.588    0.000
+##     trustpol          0.409    0.007   55.306    0.000
+##     satcntry          3.074    0.045   68.134    0.000
+##     trustinst         3.275    0.049   66.770    0.000</code></pre>
+
+</div>
+<div id="question-4-1" class="section level3">
+<h3><span class="header-section-number">8.0.4</span> Question 4</h3>
+<p>As an alternative model, build a 1-factor model, with the same items as you used before, and one trust in politics factor. Evaluate the Chi-square, df, RMSEA and CFI again. Does the one factor-model fit better or worse than the factor model you previously estimated?</p>
+<p><em>Note, there is also a formal way to test whether a difference between two chi-square values is significant; more on that in the practicals of week 4.</em></p>
+<details>
+<p><summary>Click for explanation</summary></p>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb142-1" data-line-number="1">trust_model_1f &lt;-<span class="st"> &#39;political_trust =~ pltcare + pltinvt + trstprl + trstplt + stfeco + stfgov + stfdem + stfedu + stfhlth + trstlgl + trstplc + trstun + trstep&#39;</span></a>
+<a class="sourceLine" id="cb142-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb142-3" data-line-number="3">fit_trust_model_1f &lt;-<span class="st"> </span><span class="kw">sem</span>(trust_model_1f, <span class="dt">data =</span> data)</a>
+<a class="sourceLine" id="cb142-4" data-line-number="4"><span class="kw">summary</span>(fit_trust_model_1f, <span class="dt">fit.measures =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<pre><code>## lavaan 0.6-3 ended normally after 37 iterations
+## 
+##   Optimization method                           NLMINB
+##   Number of free parameters                         26
+## 
+##                                                   Used       Total
+##   Number of observations                         29074       42359
+## 
+##   Estimator                                         ML
+##   Model Fit Test Statistic                   36174.300
+##   Degrees of freedom                                65
+##   P-value (Chi-square)                           0.000
+## 
+## Model test baseline model:
+## 
+##   Minimum Function Test Statistic           162613.180
+##   Degrees of freedom                                78
+##   P-value                                        0.000
+## 
+## User model versus baseline model:
+## 
+##   Comparative Fit Index (CFI)                    0.778
+##   Tucker-Lewis Index (TLI)                       0.733
+## 
+## Loglikelihood and Information Criteria:
+## 
+##   Loglikelihood user model (H0)             -756616.235
+##   Loglikelihood unrestricted model (H1)     -738529.085
+## 
+##   Number of free parameters                         26
+##   Akaike (AIC)                              1513284.470
+##   Bayesian (BIC)                            1513499.688
+##   Sample-size adjusted Bayesian (BIC)       1513417.060
+## 
+## Root Mean Square Error of Approximation:
+## 
+##   RMSEA                                          0.138
+##   90 Percent Confidence Interval          0.137  0.139
+##   P-value RMSEA &lt;= 0.05                          0.000
+## 
+## Standardized Root Mean Square Residual:
+## 
+##   SRMR                                           0.080
+## 
+## Parameter Estimates:
+## 
+##   Information                                 Expected
+##   Information saturated (h1) model          Structured
+##   Standard Errors                             Standard
+## 
+## Latent Variables:
+##                      Estimate  Std.Err  z-value  P(&gt;|z|)
+##   political_trust =~                                    
+##     pltcare             1.000                           
+##     pltinvt             0.962    0.013   73.141    0.000
+##     trstprl             3.295    0.035   93.347    0.000
+##     trstplt             3.257    0.034   95.061    0.000
+##     stfeco              2.549    0.032   79.663    0.000
+##     stfgov              2.754    0.033   84.739    0.000
+##     stfdem              2.770    0.032   85.471    0.000
+##     stfedu              2.015    0.029   68.969    0.000
+##     stfhlth             2.025    0.030   66.668    0.000
+##     trstlgl             2.934    0.035   84.186    0.000
+##     trstplc             2.480    0.032   77.913    0.000
+##     trstun              2.511    0.033   76.623    0.000
+##     trstep              2.361    0.031   76.921    0.000
+## 
+## Variances:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)
+##    .pltcare           0.773    0.007  115.172    0.000
+##    .pltinvt           0.764    0.007  115.519    0.000
+##    .trstprl           2.177    0.022   99.594    0.000
+##    .trstplt           1.741    0.018   94.948    0.000
+##    .stfeco            3.720    0.033  113.270    0.000
+##    .stfgov            3.141    0.028  110.458    0.000
+##    .stfdem            3.019    0.027  109.925    0.000
+##    .stfedu            4.173    0.036  116.511    0.000
+##    .stfhlth           4.737    0.041  116.960    0.000
+##    .trstlgl           3.700    0.033  110.834    0.000
+##    .trstplc           3.901    0.034  113.985    0.000
+##    .trstun            4.305    0.038  114.453    0.000
+##    .trstep            3.742    0.033  114.349    0.000
+##     political_trst    0.328    0.007   48.246    0.000</code></pre>
+
+</div>
+<div id="question-5-1" class="section level3">
+<h3><span class="header-section-number">8.0.5</span> Question 5</h3>
+<p>Similarly, can you think of a 2-factor model that would explain political trust? Build this model as well, and compare Chi-square, df, RMSEA and CFI to both the 1-factor and the 3-factor model. Which of the models is the best in your opinion?</p>
+<p>By now, you should be able to perform your own two-factor CFA, based on substantive grounds. If you do not know how to do this immediately, please have a look at question 3.</p>
+<p><strong>Note: None of the models fit really well. In practice, this would mean that you would have to change the model. For now, stick with the best model you have.</strong></p>
+</div>
+<div id="question-6-1" class="section level3">
+<h3><span class="header-section-number">8.0.6</span> Question 6</h3>
+<p>Choose your best model, and ask for the standardized estimates by means of the addition <code>standardized = TRUE</code> in the summary command.</p>
+<details>
+<p><summary>Click for explanation</summary></p>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb144-1" data-line-number="1"><span class="kw">summary</span>(fit_trust_model_3f, <span class="dt">fit.measures =</span> <span class="ot">TRUE</span>, <span class="dt">standardized =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<pre><code>## lavaan 0.6-3 ended normally after 48 iterations
+## 
+##   Optimization method                           NLMINB
+##   Number of free parameters                         27
+## 
+##                                                   Used       Total
+##   Number of observations                         30828       42359
+## 
+##   Estimator                                         ML
+##   Model Fit Test Statistic                   16564.350
+##   Degrees of freedom                                51
+##   P-value (Chi-square)                           0.000
+## 
+## Model test baseline model:
+## 
+##   Minimum Function Test Statistic           151227.639
+##   Degrees of freedom                                66
+##   P-value                                        0.000
+## 
+## User model versus baseline model:
+## 
+##   Comparative Fit Index (CFI)                    0.891
+##   Tucker-Lewis Index (TLI)                       0.859
+## 
+## Loglikelihood and Information Criteria:
+## 
+##   Loglikelihood user model (H0)             -732386.505
+##   Loglikelihood unrestricted model (H1)     -724104.330
+## 
+##   Number of free parameters                         27
+##   Akaike (AIC)                              1464827.011
+##   Bayesian (BIC)                            1465052.088
+##   Sample-size adjusted Bayesian (BIC)       1464966.282
+## 
+## Root Mean Square Error of Approximation:
+## 
+##   RMSEA                                          0.102
+##   90 Percent Confidence Interval          0.101  0.104
+##   P-value RMSEA &lt;= 0.05                          0.000
+## 
+## Standardized Root Mean Square Residual:
+## 
+##   SRMR                                           0.053
+## 
+## Parameter Estimates:
+## 
+##   Information                                 Expected
+##   Information saturated (h1) model          Structured
+##   Standard Errors                             Standard
+## 
+## Latent Variables:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+##   trustpol =~                                                           
+##     pltcare           1.000                               0.640    0.609
+##     pltinvt           0.972    0.011   86.589    0.000    0.621    0.601
+##     trstplt           3.142    0.029  107.752    0.000    2.009    0.880
+##   satcntry =~                                                           
+##     stfeco            1.000                               1.753    0.721
+##     stfgov            1.038    0.009  119.880    0.000    1.820    0.766
+##     stfdem            0.984    0.009  115.358    0.000    1.726    0.732
+##     stfedu            0.760    0.008   90.774    0.000    1.333    0.568
+##     stfhlth           0.771    0.009   87.697    0.000    1.352    0.548
+##   trustinst =~                                                          
+##     trstlgl           1.000                               1.810    0.705
+##     trstplc           0.842    0.008   99.435    0.000    1.523    0.625
+##     trstun            0.781    0.009   89.402    0.000    1.414    0.559
+##     trstprl           1.087    0.009  126.065    0.000    1.967    0.820
+## 
+## Covariances:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+##   trustpol ~~                                                           
+##     satcntry          0.815    0.012   68.138    0.000    0.727    0.727
+##     trustinst         1.001    0.014   72.217    0.000    0.865    0.865
+##   satcntry ~~                                                           
+##     trustinst         2.374    0.032   74.306    0.000    0.748    0.748
+## 
+## Variances:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+##    .pltcare           0.694    0.006  112.173    0.000    0.694    0.629
+##    .pltinvt           0.682    0.006  112.683    0.000    0.682    0.639
+##    .trstplt           1.181    0.023   51.465    0.000    1.181    0.226
+##    .stfeco            2.844    0.029   99.765    0.000    2.844    0.481
+##    .stfgov            2.334    0.025   92.017    0.000    2.334    0.413
+##    .stfdem            2.578    0.026   98.052    0.000    2.578    0.464
+##    .stfedu            3.736    0.033  113.576    0.000    3.736    0.678
+##    .stfhlth           4.264    0.037  114.622    0.000    4.264    0.700
+##    .trstlgl           3.307    0.032  103.837    0.000    3.307    0.502
+##    .trstplc           3.623    0.033  111.206    0.000    3.623    0.610
+##    .trstun            4.407    0.038  115.042    0.000    4.407    0.688
+##    .trstprl           1.883    0.023   80.588    0.000    1.883    0.327
+##     trustpol          0.409    0.007   55.306    0.000    1.000    1.000
+##     satcntry          3.074    0.045   68.134    0.000    1.000    1.000
+##     trustinst         3.275    0.049   66.770    0.000    1.000    1.000</code></pre>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb146-1" data-line-number="1"><span class="kw">standardizedsolution</span>(fit_trust_model_3f)</a></code></pre></div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["lhs"],"name":[1],"type":["chr"],"align":["left"]},{"label":["op"],"name":[2],"type":["chr"],"align":["left"]},{"label":["rhs"],"name":[3],"type":["chr"],"align":["left"]},{"label":["est.std"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["se"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["z"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["pvalue"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["ci.lower"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["ci.upper"],"name":[9],"type":["dbl"],"align":["right"]}],"data":[{"1":"trustpol","2":"=~","3":"pltcare","4":"0.6090302","5":"0.004090339","6":"148.89481","7":"0","8":"0.6010133","9":"0.6170472"},{"1":"trustpol","2":"=~","3":"pltinvt","4":"0.6011819","5":"0.004140381","6":"145.19965","7":"0","8":"0.5930669","9":"0.6092969"},{"1":"trustpol","2":"=~","3":"trstplt","4":"0.8795951","5":"0.002614601","6":"336.41658","7":"0","8":"0.8744706","9":"0.8847196"},{"1":"satcntry","2":"=~","3":"stfeco","4":"0.7206917","5":"0.003383762","6":"212.98534","7":"0","8":"0.7140597","9":"0.7273238"},{"1":"satcntry","2":"=~","3":"stfgov","4":"0.7659636","5":"0.003068436","6":"249.62674","7":"0","8":"0.7599496","9":"0.7719776"},{"1":"satcntry","2":"=~","3":"stfdem","4":"0.7321219","5":"0.003303586","6":"221.61435","7":"0","8":"0.7256470","9":"0.7385969"},{"1":"satcntry","2":"=~","3":"stfedu","4":"0.5676130","5":"0.004405863","6":"128.83128","7":"0","8":"0.5589776","9":"0.5762483"},{"1":"satcntry","2":"=~","3":"stfhlth","4":"0.5478225","5":"0.004524959","6":"121.06684","7":"0","8":"0.5389538","9":"0.5566913"},{"1":"trustinst","2":"=~","3":"trstlgl","4":"0.7053939","5":"0.003423865","6":"206.02270","7":"0","8":"0.6986832","9":"0.7121045"},{"1":"trustinst","2":"=~","3":"trstplc","4":"0.6247713","5":"0.003982756","6":"156.86906","7":"0","8":"0.6169652","9":"0.6325773"},{"1":"trustinst","2":"=~","3":"trstun","4":"0.5587036","5":"0.004404059","6":"126.86105","7":"0","8":"0.5500718","9":"0.5673354"},{"1":"trustinst","2":"=~","3":"trstprl","4":"0.8201265","5":"0.002650789","6":"309.38955","7":"0","8":"0.8149311","9":"0.8253220"},{"1":"pltcare","2":"~~","3":"pltcare","4":"0.6290822","5":"0.004982280","6":"126.26391","7":"0","8":"0.6193171","9":"0.6388473"},{"1":"pltinvt","2":"~~","3":"pltinvt","4":"0.6385803","5":"0.004978245","6":"128.27419","7":"0","8":"0.6288231","9":"0.6483375"},{"1":"trstplt","2":"~~","3":"trstplt","4":"0.2263125","5":"0.004599580","6":"49.20286","7":"0","8":"0.2172975","9":"0.2353275"},{"1":"stfeco","2":"~~","3":"stfeco","4":"0.4806035","5":"0.004877298","6":"98.53887","7":"0","8":"0.4710441","9":"0.4901628"},{"1":"stfgov","2":"~~","3":"stfgov","4":"0.4132997","5":"0.004700620","6":"87.92451","7":"0","8":"0.4040867","9":"0.4225128"},{"1":"stfdem","2":"~~","3":"stfdem","4":"0.4639975","5":"0.004837255","6":"95.92165","7":"0","8":"0.4545166","9":"0.4734783"},{"1":"stfedu","2":"~~","3":"stfedu","4":"0.6778155","5":"0.005001650","6":"135.51839","7":"0","8":"0.6680125","9":"0.6876186"},{"1":"stfhlth","2":"~~","3":"stfhlth","4":"0.6998905","5":"0.004957749","6":"141.17102","7":"0","8":"0.6901735","9":"0.7096075"},{"1":"trstlgl","2":"~~","3":"trstlgl","4":"0.5024195","5":"0.004830346","6":"104.01314","7":"0","8":"0.4929522","9":"0.5118868"},{"1":"trstplc","2":"~~","3":"trstplc","4":"0.6096609","5":"0.004976624","6":"122.50492","7":"0","8":"0.5999069","9":"0.6194149"},{"1":"trstun","2":"~~","3":"trstun","4":"0.6878503","5":"0.004921127","6":"139.77496","7":"0","8":"0.6782051","9":"0.6974956"},{"1":"trstprl","2":"~~","3":"trstprl","4":"0.3273925","5":"0.004347965","6":"75.29787","7":"0","8":"0.3188707","9":"0.3359144"},{"1":"trustpol","2":"~~","3":"trustpol","4":"1.0000000","5":"0.000000000","6":"NA","7":"NA","8":"1.0000000","9":"1.0000000"},{"1":"satcntry","2":"~~","3":"satcntry","4":"1.0000000","5":"0.000000000","6":"NA","7":"NA","8":"1.0000000","9":"1.0000000"},{"1":"trustinst","2":"~~","3":"trustinst","4":"1.0000000","5":"0.000000000","6":"NA","7":"NA","8":"1.0000000","9":"1.0000000"},{"1":"trustpol","2":"~~","3":"satcntry","4":"0.7271526","5":"0.004209465","6":"172.74227","7":"0","8":"0.7189022","9":"0.7354030"},{"1":"trustpol","2":"~~","3":"trustinst","4":"0.8646176","5":"0.003339590","6":"258.89936","7":"0","8":"0.8580721","9":"0.8711631"},{"1":"satcntry","2":"~~","3":"trustinst","4":"0.7482408","5":"0.004005880","6":"186.78565","7":"0","8":"0.7403895","9":"0.7560922"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+
+</div>
+<div id="question-7-1" class="section level3">
+<h3><span class="header-section-number">8.0.7</span> Question 7</h3>
+<p>Byrne (2005) states that under certain conditions, a second order CFA can be specified. Would the political trust model qualify for a second order factor model?</p>
+</div>
+<div id="question-8-1" class="section level3">
+<h3><span class="header-section-number">8.0.8</span> Question 8</h3>
+<p>Specify a second-order factor model and run this model. What do you conclude when you evaluate model fit? Is this model better than your model that you selected in question 6?</p>
+<details>
+<p><summary>Click for explanation</summary>
+To run a second-order factor model, you can simply add an additional line within the single quotes containing the factors that you want in the second-order factor model, like in the example below.</p>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb147-1" data-line-number="1">trust_model_3f2o &lt;-<span class="st"> &#39;trustpol  =~ pltcare + pltinvt + trstprl + trstplt</span></a>
+<a class="sourceLine" id="cb147-2" data-line-number="2"><span class="st">                     satcntry  =~ stfeco + stfgov + stfdem + stfedu + stfhlth</span></a>
+<a class="sourceLine" id="cb147-3" data-line-number="3"><span class="st">                     trustinst =~ trstlgl + trstplc + trstun + trstep</span></a>
+<a class="sourceLine" id="cb147-4" data-line-number="4"><span class="st">                     trust     =~ trustpol + trustinst&#39;</span></a>
+<a class="sourceLine" id="cb147-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb147-6" data-line-number="6">fit_trust_model_3f2o &lt;-<span class="st"> </span><span class="kw">sem</span>(trust_model_3f2o, <span class="dt">data =</span> data)</a>
+<a class="sourceLine" id="cb147-7" data-line-number="7"><span class="kw">summary</span>(fit_trust_model_3f2o, <span class="dt">fit.measures =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<pre><code>## lavaan 0.6-3 ended normally after 49 iterations
+## 
+##   Optimization method                           NLMINB
+##   Number of free parameters                         29
+## 
+##                                                   Used       Total
+##   Number of observations                         29074       42359
+## 
+##   Estimator                                         ML
+##   Model Fit Test Statistic                   21789.775
+##   Degrees of freedom                                62
+##   P-value (Chi-square)                           0.000
+## 
+## Model test baseline model:
+## 
+##   Minimum Function Test Statistic           162613.180
+##   Degrees of freedom                                78
+##   P-value                                        0.000
+## 
+## User model versus baseline model:
+## 
+##   Comparative Fit Index (CFI)                    0.866
+##   Tucker-Lewis Index (TLI)                       0.832
+## 
+## Loglikelihood and Information Criteria:
+## 
+##   Loglikelihood user model (H0)             -749423.973
+##   Loglikelihood unrestricted model (H1)     -738529.085
+## 
+##   Number of free parameters                         29
+##   Akaike (AIC)                              1498905.946
+##   Bayesian (BIC)                            1499145.996
+##   Sample-size adjusted Bayesian (BIC)       1499053.834
+## 
+## Root Mean Square Error of Approximation:
+## 
+##   RMSEA                                          0.110
+##   90 Percent Confidence Interval          0.109  0.111
+##   P-value RMSEA &lt;= 0.05                          0.000
+## 
+## Standardized Root Mean Square Residual:
+## 
+##   SRMR                                           0.059
+## 
+## Parameter Estimates:
+## 
+##   Information                                 Expected
+##   Information saturated (h1) model          Structured
+##   Standard Errors                             Standard
+## 
+## Latent Variables:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)
+##   trustpol =~                                         
+##     pltcare           1.000                           
+##     pltinvt           0.968    0.012   79.458    0.000
+##     trstprl           3.159    0.032   99.861    0.000
+##     trstplt           3.228    0.031  103.264    0.000
+##   satcntry =~                                         
+##     stfeco            1.000                           
+##     stfgov            1.045    0.009  118.576    0.000
+##     stfdem            0.982    0.009  113.216    0.000
+##     stfedu            0.760    0.009   88.912    0.000
+##     stfhlth           0.770    0.009   85.775    0.000
+##   trustinst =~                                        
+##     trstlgl           1.000                           
+##     trstplc           0.853    0.009   98.457    0.000
+##     trstun            0.877    0.009   97.627    0.000
+##     trstep            0.820    0.008   97.598    0.000
+##   trust =~                                            
+##     trustpol          1.000                           
+##     trustinst         2.703    0.035   77.799    0.000
+## 
+## Covariances:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)
+##   satcntry ~~                                         
+##     trust             0.811    0.012   67.195    0.000
+## 
+## Variances:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)
+##    .pltcare           0.728    0.006  112.498    0.000
+##    .pltinvt           0.719    0.006  112.917    0.000
+##    .trstprl           2.017    0.022   90.060    0.000
+##    .trstplt           1.335    0.018   72.574    0.000
+##    .stfeco            2.766    0.029   96.420    0.000
+##    .stfgov            2.263    0.026   88.268    0.000
+##    .stfdem            2.563    0.027   95.430    0.000
+##    .stfedu            3.723    0.034  110.358    0.000
+##    .stfhlth           4.253    0.038  111.400    0.000
+##    .trstlgl           3.104    0.033   92.681    0.000
+##    .trstplc           3.430    0.033  102.497    0.000
+##    .trstun            3.742    0.036  103.074    0.000
+##    .trstep            3.272    0.032  103.094    0.000
+##     trustpol          0.018    0.002    7.509    0.000
+##     satcntry          3.087    0.046   66.932    0.000
+##     trustinst         0.827    0.025   33.159    0.000
+##     trust             0.355    0.007   48.511    0.000</code></pre>
+
+</div>
+<div id="question-9-1" class="section level3">
+<h3><span class="header-section-number">8.0.9</span> Question 9</h3>
+<p>Build a new one-factor model, only using the 3 items that ask about the respondents trust in institutions with 1) trust in the legal system, 2) trust in the police and 3) trust in the UN (see below). You can also take the full model you specified in either question 6 and question 9, but you might experience that the model becomes complicated due to the large amount of arrows.</p>
+<p>After doing this, add as predictors of the latent factor: gender, age, education in years, political interest and self-placement on the left right scale.</p>
+<p><img src="Q_10_Plot.png" /></p>
+<p>Estimate the model. The model doesn’t fit very well, but for now, we will stick with this modle. Write down the regression coefficients (standardized and unstandardized) and relevant test statistics.</p>
+<details>
+<p><summary>Click for explanation</summary></p>
+<p>We will first have to do some recoding again. You might want to make an age variable instead of a yearborn variable, which eases the interpretation. Furthermore, a dummy for gender is more informative than just the variable <code>gndr</code>, although this will be treated as a dummy. You will also have to recode the variables <code>eduyrs</code> and <code>lrscale</code> to numerical variables, and you will have to make a two-category dummy for the variable <code>polintr</code>.</p>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb149-1" data-line-number="1">data<span class="op">$</span>age &lt;-<span class="st"> </span><span class="dv">2002</span> <span class="op">-</span><span class="st"> </span><span class="kw">as.numeric</span>(<span class="kw">as.character</span>(data<span class="op">$</span>yrbrn))</a>
+<a class="sourceLine" id="cb149-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb149-3" data-line-number="3">data<span class="op">$</span>female &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(data<span class="op">$</span>gndr)</a>
+<a class="sourceLine" id="cb149-4" data-line-number="4">data<span class="op">$</span>female &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(data<span class="op">$</span>female <span class="op">==</span><span class="st"> </span><span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb149-5" data-line-number="5">data<span class="op">$</span>female &lt;-<span class="st"> </span><span class="kw">factor</span>(data<span class="op">$</span>female,</a>
+<a class="sourceLine" id="cb149-6" data-line-number="6">                      <span class="dt">levels =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),</a>
+<a class="sourceLine" id="cb149-7" data-line-number="7">                      <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;Male&quot;</span>,</a>
+<a class="sourceLine" id="cb149-8" data-line-number="8">                                 <span class="st">&quot;Female&quot;</span>))</a>
+<a class="sourceLine" id="cb149-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb149-10" data-line-number="10">data<span class="op">$</span>eduyrs &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(data<span class="op">$</span>eduyrs)</a>
+<a class="sourceLine" id="cb149-11" data-line-number="11">data<span class="op">$</span>polintr_dummy &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(data<span class="op">$</span>polintr)</a>
+<a class="sourceLine" id="cb149-12" data-line-number="12">data<span class="op">$</span>polintr_dummy &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(data<span class="op">$</span>polintr_dummy <span class="op">&lt;=</span><span class="st"> </span><span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb149-13" data-line-number="13">data<span class="op">$</span>polintr_dummy &lt;-<span class="st"> </span><span class="kw">factor</span>(data<span class="op">$</span>polintr_dummy,</a>
+<a class="sourceLine" id="cb149-14" data-line-number="14">                                   <span class="dt">levels =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),</a>
+<a class="sourceLine" id="cb149-15" data-line-number="15">                                   <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;Not or hardly interested&quot;</span>,</a>
+<a class="sourceLine" id="cb149-16" data-line-number="16">                                              <span class="st">&quot;Quite or very interested&quot;</span>))</a>
+<a class="sourceLine" id="cb149-17" data-line-number="17"></a>
+<a class="sourceLine" id="cb149-18" data-line-number="18">data<span class="op">$</span>lrscale &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(data<span class="op">$</span>lrscale)</a>
+<a class="sourceLine" id="cb149-19" data-line-number="19"></a>
+<a class="sourceLine" id="cb149-20" data-line-number="20">model_q9 &lt;-<span class="st"> &#39;trustinst =~ trstlgl + trstplc + trstun</span></a>
+<a class="sourceLine" id="cb149-21" data-line-number="21"><span class="st">             trustinst ~ female + age + eduyrs + polintr_dummy + lrscale&#39;</span></a>
+<a class="sourceLine" id="cb149-22" data-line-number="22"></a>
+<a class="sourceLine" id="cb149-23" data-line-number="23">fit_model_q9 &lt;-<span class="st"> </span><span class="kw">sem</span>(model_q9, <span class="dt">data =</span> data)</a>
+<a class="sourceLine" id="cb149-24" data-line-number="24"><span class="kw">summary</span>(fit_model_q9, <span class="dt">fit.measures =</span> <span class="ot">TRUE</span>, <span class="dt">standardized =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<pre><code>## lavaan 0.6-3 ended normally after 46 iterations
+## 
+##   Optimization method                           NLMINB
+##   Number of free parameters                         11
+## 
+##                                                   Used       Total
+##   Number of observations                         33303       42359
+## 
+##   Estimator                                         ML
+##   Model Fit Test Statistic                    1078.614
+##   Degrees of freedom                                10
+##   P-value (Chi-square)                           0.000
+## 
+## Model test baseline model:
+## 
+##   Minimum Function Test Statistic            21759.093
+##   Degrees of freedom                                18
+##   P-value                                        0.000
+## 
+## User model versus baseline model:
+## 
+##   Comparative Fit Index (CFI)                    0.951
+##   Tucker-Lewis Index (TLI)                       0.912
+## 
+## Loglikelihood and Information Criteria:
+## 
+##   Loglikelihood user model (H0)             -222520.069
+##   Loglikelihood unrestricted model (H1)     -221980.762
+## 
+##   Number of free parameters                         11
+##   Akaike (AIC)                              445062.138
+##   Bayesian (BIC)                            445154.686
+##   Sample-size adjusted Bayesian (BIC)       445119.728
+## 
+## Root Mean Square Error of Approximation:
+## 
+##   RMSEA                                          0.057
+##   90 Percent Confidence Interval          0.054  0.060
+##   P-value RMSEA &lt;= 0.05                          0.000
+## 
+## Standardized Root Mean Square Residual:
+## 
+##   SRMR                                           0.023
+## 
+## Parameter Estimates:
+## 
+##   Information                                 Expected
+##   Information saturated (h1) model          Structured
+##   Standard Errors                             Standard
+## 
+## Latent Variables:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+##   trustinst =~                                                          
+##     trstlgl           1.000                               2.029    0.798
+##     trstplc           0.882    0.012   73.142    0.000    1.791    0.743
+##     trstun            0.561    0.009   65.122    0.000    1.139    0.452
+## 
+## Regressions:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+##   trustinst ~                                                           
+##     female           -0.036    0.025   -1.420    0.156   -0.018   -0.009
+##     age               0.002    0.001    2.973    0.003    0.001    0.020
+##     eduyrs            0.048    0.003   13.724    0.000    0.023    0.092
+##     polintr_dummy     0.344    0.027   12.880    0.000    0.169    0.084
+##     lrscale           0.079    0.006   13.590    0.000    0.039    0.085
+## 
+## Variances:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+##    .trstlgl           2.343    0.055   42.572    0.000    2.343    0.363
+##    .trstplc           2.594    0.045   57.382    0.000    2.594    0.447
+##    .trstun            5.043    0.043  118.293    0.000    5.043    0.795
+##    .trustinst         4.012    0.068   58.689    0.000    0.974    0.974</code></pre>
+
+<p>###Question 10
+Now, replace the latent score “trust in institutions” with the EFA factor score ‘trust in institutions’. Delete the separate indicators, so you end up with the model below.</p>
+<p><img src="Q_11_Plot.png" /></p>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb151-1" data-line-number="1">model_q10 &lt;-<span class="st"> &#39;trustinstEFA ~ female + age + eduyrs + polintr_dummy + lrscale&#39;</span></a>
+<a class="sourceLine" id="cb151-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb151-3" data-line-number="3">fit_model_q10 &lt;-<span class="st"> </span><span class="kw">sem</span>(model_q10, <span class="dt">data =</span> data)</a>
+<a class="sourceLine" id="cb151-4" data-line-number="4"><span class="kw">summary</span>(fit_model_q10, <span class="dt">fit.measures =</span> <span class="ot">TRUE</span>, <span class="dt">standardized =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<pre><code>## lavaan 0.6-3 ended normally after 24 iterations
+## 
+##   Optimization method                           NLMINB
+##   Number of free parameters                          6
+## 
+##                                                   Used       Total
+##   Number of observations                         26463       42359
+## 
+##   Estimator                                         ML
+##   Model Fit Test Statistic                       0.000
+##   Degrees of freedom                                 0
+## 
+## Model test baseline model:
+## 
+##   Minimum Function Test Statistic              732.928
+##   Degrees of freedom                                 5
+##   P-value                                        0.000
+## 
+## User model versus baseline model:
+## 
+##   Comparative Fit Index (CFI)                    1.000
+##   Tucker-Lewis Index (TLI)                       1.000
+## 
+## Loglikelihood and Information Criteria:
+## 
+##   Loglikelihood user model (H0)             -39421.655
+##   Loglikelihood unrestricted model (H1)     -39421.655
+## 
+##   Number of free parameters                          6
+##   Akaike (AIC)                               78855.311
+##   Bayesian (BIC)                             78904.412
+##   Sample-size adjusted Bayesian (BIC)        78885.344
+## 
+## Root Mean Square Error of Approximation:
+## 
+##   RMSEA                                          0.000
+##   90 Percent Confidence Interval          0.000  0.000
+##   P-value RMSEA &lt;= 0.05                             NA
+## 
+## Standardized Root Mean Square Residual:
+## 
+##   SRMR                                           0.000
+## 
+## Parameter Estimates:
+## 
+##   Information                                 Expected
+##   Information saturated (h1) model          Structured
+##   Standard Errors                             Standard
+## 
+## Regressions:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+##   trustinstEFA ~                                                        
+##     female           -0.120    0.013   -9.049    0.000   -0.120   -0.055
+##     age               0.002    0.000    5.844    0.000    0.002    0.037
+##     eduyrs            0.022    0.002   12.234    0.000    0.022    0.079
+##     polintr_dummy     0.105    0.014    7.511    0.000    0.105    0.048
+##     lrscale           0.056    0.003   18.347    0.000    0.056    0.111
+## 
+## Variances:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+##    .trustinstEFA      1.152    0.010  115.028    0.000    1.152    0.973</code></pre>
+
+<div id="refs" class="references">
+<div>
+<p>Field, Andy, Jeremy Miles, and Zoë Field. 2012. <em>Discovering Statistics Using R</em>. Sage publications.</p>
+</div>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="week-3-home.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["TCSM.pdf"],
+"toc": {
+"collapse": "section"
+},
+"search": true
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

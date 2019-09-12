@@ -71,7 +71,7 @@ summary(results)
 
 ### Question 1.e.
 
-Perform a multiple regression with LifeSat as the dependent variable and educ, age and ChildSup as the independent variables. 
+Perform a multiple regression with LifSat as the dependent variable and educ, age and ChildSup as the independent variables. 
 
 *Hint: You can use the + sign to add multiple variables to a model.*
 

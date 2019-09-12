@@ -9,6 +9,7 @@ We might add some kind of introduction to the class exercises of week 2.
 
 
 ## Loading data
+
 In the unlikely event that you were able to replicate the results of Kestilä, load the environment of the take-home exercise of week 2. In case you have not saved the environment, you can just load and re-run your script of the take-home exercise.
 
 If you did not manage to replicate the results, go to blackboard and download ESSround1-b.sav and load this dataset into RStudio. 
@@ -23,8 +24,8 @@ data <- read.spss("ESSround1-b.sav", to.data.frame = TRUE)
 
 \details
 
-#
 ### Question 1
+
 Kestilä states that running a Principal Components Analysis is a good way to test whether the survey questions in the ESS measure attitudes towards immigration and trust in politics.
 What would Preacher and MacCallum (2003) say about this?
 
@@ -42,6 +43,7 @@ What would Preacher and MacCallum (2003) say about this?
 
 
 ### Question 2
+
 If you would have to choose a method for constructing the 'trust in politics' and 'attitude towards immigration' scales based on the theory and background information in the Kestilä article, what type of factor analysis would you choose?
 Think about:
 
@@ -50,6 +52,7 @@ Think about:
 * Method to establish how many factors are needed
 
 ### Question 3
+
 Run two factor analyses, one for each PCA of the original article. Inspect the number of factors necessary, evaluate the rotation method, and if necessary, run the factor analysis again with adapted settings (rotation method and/or different number of factors). How many factors are there?
 
 <details>
@@ -110,6 +113,7 @@ plot(efa_att$values, type = "b")
 
 
 ### Question 4
+
 Apart from the number of factors, you also want to look at the factor loadings. They can be found in the "pattern matrix". The higher the factor loadings are, the more indicative an item is for the latent factor. If you find some items to have only very low loadings (indicating that the items do not provide much information about the factor), you may choose not to include them in your analysis. This means you have to rerun the analysis under question 3. 
 
 <details>
@@ -140,6 +144,7 @@ efa_trust_without_stfedu <- fa(df[, c(7:12, 14:19)], nfactors = 3, rotate = "pro
 
 
 ### Question 5
+
 Give the factor scores an appropriate name. You can do this by inspecting the items that load on one factor. What do these items have in common substantively? The goal of a factor analysis usually is to create interpretable factors. If you have trouble interpreting the factors, you can choose to tweak the analysis by changing the options, or including/excluding more items.
 
 Furthermore, after you named the factor scores accordingly, extract them from the results object and add them to the data.frame.
@@ -157,6 +162,7 @@ df <- cbind(df, efa_trust$scores, efa_att$scores)
 ```
 
 ### Question 6
+
 The next step is to assert whether the items that together form one factor, also form a reliable scale. Run separate reliability analyses by means of the function `alpha` for the items that together form one factor, and evaluate Cronbach's alpha to see whether the scales are internally consistent. The "Reliability if an item is dropped (alpha.drop)" information may be handy to inspect what would happen if you would delete one item; you can find it inside the reliability analysis object. If Cronbach's alpha is not ok, deselect one survey item and run the analyses under question 4 and question 5 again.
 
 *Hint: Cronbach's alpha > .7 are deemed to be ok, > .8 is good.* 
@@ -169,6 +175,7 @@ If Cronbach's alpha is not ok, deselect one survey item and run the analyses und
 If you want to assess the reliability of the variables `pltcare`, `pltinvt`, `trstprl`, `trstplt`, and `trstep` you can run a reliability analysis as follows. 
 
 *Hint: name the new objects substantively, instead of numbering them.*
+
 ```{r}
 library(psych)
 reli_1 <- psych::alpha(df[, c(7, 8, 9, 12, 13)])
@@ -186,6 +193,7 @@ reli_1b <- psych::alpha(df[, c(7, 8, 12, 13)])
 \details
 
 ### Question 7
+
 Now you can analyze the differences between the factor scores for the PCA analysis (take-home exercise 2) and the EFA by plotting them in a series of scatterplots (bivariate). This can be done by means of the package `ggplot2`. The PCA factor scores are already stored in the dataset `ESSround1-b.sav`.
 
 <details>
@@ -209,15 +217,15 @@ ggplot(data = df) +
 
 \details
 
-
-
 ### Question 8
+
 Build correlation matrices (PCA and EFA versions) of first the 'trust in politics' scores, and then the 'immigration' factor scores. What is your conclusion: is there a difference between them?
 
 <details>
   <summary>Click for explanation</summary>
   
 *Hint: Name the new objects substantively once again.*
+
 ```{r, eval = FALSE}
 cor_trust_factor1 <- cor(df$EFA_Trust1, df$PCA_Trust1, use = "complete.obs")
 cor_trust_factor1
@@ -232,6 +240,7 @@ cor_trust_factor1b
 
 
 ### Question 9
+
 Kestila uses the PCA factor scores to evaluate country level differences in 1. Attitudes towards immigration and 2. Political trust. Repeat her analyses using the factor scores you saved in step 5. Think about the statistical test you would like to use. Do you draw similar or different conclusions?
 
 <details>
@@ -254,8 +263,8 @@ round(pair_comparison$p.value, digits = 3)
 
 \details
 
-#
 ### Question 10
+
 The second goal of Kestilä is to show how socio-demographic characteristics affect attitudes towards immigrants and trust in politics in Finland. Select only the Finnish cases using the variable `cntry`. Next, run a number of multiple linear regression analyses with the (sub-)scales of attitudes towards immigrants and political trust as subsequent dependent variables, and the same predictors as Kestilä. Inspect your output.
 
 Compare your results with the results from Kestilä. How do your results differ or agree with the results by Kestilä?
@@ -300,4 +309,5 @@ summary(fit_trust1)
 
 
 ### Question 11
+
 Save your syntax and your data, you will need it next week.
