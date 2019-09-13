@@ -1,0 +1,188 @@
+# Week 4 - Home
+
+```{r echo = FALSE, warning=FALSE, message=FALSE}
+library(foreign)
+library(semTools)
+library(lavaan)
+data <- read.spss("SocialRejection.sav", to.data.frame = TRUE)
+```
+
+You will continue with the analysis of the Social Rejection data from the Take Home exercise. Instead of running the model as a regression model with dummy variables (as in the Take Home exercise), in lavaan you can also run the model as a regression model with multiple groups. So, when you have data with categorical and continuous independent variables, as in the data file SocialRejection.sav, you could either perform:
+
+1. an ANCOVA in R
+2. a regression analysis with dummy variables (in R or lavaan)
+3. or you could perform a multiple group analysis in lavaan. 
+
+The advantages of performing a multiple groups analysis in lavaan in this situation are:
+
+* You can allow for differences in the (residual) variances across the groups (= violation of assumption of homogeneity)
+* You can more easily test the assumption of homogenous regression lines
+
+In a multiple group analysis you specify one model and test whether this model is correct for all the groups, or whether there are differences between the groups.
+
+### Specify basic model 
+
+First, specify the following model as a text string, so you can later use it in lavaan:
+
+![](week4class1.png)
+
+<details>
+  <summary>Click for explanation</summary>
+```{r}
+reg_model <- "Spent ~ SelfEst"
+```
+\details
+
+### How to run multi-group model
+
+To run this model as a multi-group model, you can specify the argument `group =` when running the analysis:
+
+```{r}
+library(lavaan)
+multi_group <- sem(reg_model,
+                   data = data, 
+                   group = "Condition")
+```
+
+Now, obtain the standardized estimates and the squared multiple correlations (r square) for this model.
+
+<details>
+  <summary>Click for explanation</summary>
+```{r}
+summary(multi_group, standardize = TRUE, rsquare = TRUE)
+```
+\details
+
+### Question 1
+
+Report on the parameter estimates for the three groups; i.e., the regression coefficients, the variances (of SelfEst), the residual variances (i.e., the variances of the residuals of Spent), the means (of SelfEst), and the intercepts (means of Spent).
+
+### Question 2
+
+Which constraints would we need to impose, across the groups, in order to make this multi-group model equivalent to an ANCOVA?
+
+<details>
+  <summary>Click for explanation</summary>
+1.	Fix regression lines of the covariate to be equal across groups
+2.	Fix residual variances to be equal across groups
+\details
+
+### Question 3
+ 
+An ANCOVA tests whether the means of several groups on the DV (Spent) are all equal (while controlling for the covariate). What are the $H_0$ and $H_1$ of an ANCOVA?
+
+<details>
+  <summary>Click for explanation</summary>
+$H_0$: The intercepts of Spent are all equal across groups
+$H_1$: There is a difference in intercepts of Spent across groups
+\details
+
+### Question 4
+
+You could test the null-hypothesis that you formulated in the previous question by imposing one more constraint across the three groups. What is this constraint?
+
+<details>
+  <summary>Click for explanation</summary>
+Fix all intercepts to be equal.
+\details
+
+### Imposing constraints
+
+So, by putting constraints to these models, we can make the same model as an ANCOVA. In lavaan, we impose constraints by **giving labels** to parameters. You use `c()` to make a vector of labels that is equally long as the number of groups, and you can give any name to the labels. You then use the `*` symbol to assign it to a parameter. The syntax looks like this:
+
+```{r, eval = FALSE}
+"Spent ~ c(labelgroup1, labelgroup2, labelgroup3) * SelfEst"
+```
+
+If you use the same name multiple times, these parameters will be constrained to be equal:
+
+```{r, eval = FALSE}
+"Spent ~ c(label, label, label) * SelfEst"
+```
+
+Constraints for variances are specified similarly:
+
+```{r, eval = FALSE}
+"Spent ~~ c(label, label, label) * Spent"
+```
+
+### Stepwise approach
+
+If you want to add several restrictions (contraints), we can impose them all at once, or in a stepwise manner. Here, we will explain the stepwise approach. But if you know which model you want to run (e.g., an ANCOVA), you can also skip these steps and just run your final model and check if the fit is good.
+
+First you test the model without the constraints and the next step is that you test the model with the first constraint, then a model with the first and second constraint, and so forth. These are all nested models. Give the models informative names, so you can easily compare them.
+
+**NOTE:** make sure to specify increasingly more restricted models, that is, do not release restrictions once they have been imposed). So you go from completely free to most restrictive. You can compare subsequent models using chi-square difference tests (ironically, by calling the `anova()` function) to ensure that the constraints you imposed are tenable. Note that if the chi-square difference test is significant, this means you CANNOT impose the constraint!
+
+In this case, we could run the following nested models: 
+
+*Unconstrained model.* No constraints are imposed
+
+*Model 1.* Structural weights: constrain the regression coefficient across groups
+
+*Model 2.* Structural residuals: constrain the variances and covariances of the residuals of the endogenous variables (here: Spent)
+
+*Model 3.* Structural intercepts: constrain the intercepts of the endogenous variables across groups
+
+We can compare two of these models using the `anova()` function:
+
+```{r, eval =F}
+anova(m1, m2)
+```
+
+However, with more than two models, it is convenient to compare all of them at once. For this, we can use the function `compareFit()` from the  `semTools` package (which you have to install):
+
+```{r, eval = F}
+library(semTools)
+compareFit(weights = m1,
+           residuals = m2,
+           intercepts = m3)
+```
+
+### Question 5
+
+Run the series of models (nested models) as described above. Compare the models and report the chi-square difference test of this comparison. Why does this test have the df it has? What is your conclusion about the constraints you imposed? What does this mean?
+
+<details>
+  <summary>Click for explanation</summary>
+```{r}
+mu <- sem("Spent ~ SelfEst",
+          data = data, 
+          group = "Condition")
+
+m1 <- sem("Spent ~ c(a, a, a) * SelfEst",
+          data = data, 
+          group = "Condition")
+m2 <- sem("Spent ~ c(a, a, a) * SelfEst
+          Spent ~~ c(b, b, b) * Spent",
+          data = data, 
+          group = "Condition")
+m3 <- sem("Spent ~ c(a, a, a) * SelfEst
+          Spent ~~ c(b, b, b) * Spent
+          Spent ~ c(c, c, c) * 1 ",
+          data = data, 
+          group = "Condition")
+
+compareFit(unconstrained = mu,
+           regression = m1,
+           residuals = m2, 
+           intercepts = m3)
+```
+
+In model 1 we constrained the regression lines to be equal across groups. In this model there is 1 regression coefficient estimated instead of 3, so the difference in df = 3-1=2. The associated chi-square is not significant Chi2(2) = 0.74, p = .69. This means that the regression lines can be considered equal across groups, and the first assumption of Ancova holds. 
+
+In model 2 we additionally constrained the residual variance of Spent to be equal across groups. In this model there is 1 residual variance estimated instead of 3, so the difference in df with the previous model is 3-1=2. The associated chi-square is not significant Chi2(2) = 1.74, p = .61. This means that the residual variances of Spent can als be considered equal across groups, and both assumptions hold. 
+\details
+
+### Question 6
+
+Next, compare Model 3 to Model 2. Report the chi-square difference test, what is the conclusion now? Is it the same conclusion from the ANCOVA? Report the relevant results for both the ANCOVA and the Multi-group model, compare the results. (Also think about: what would you report in an article?)
+
+<details>
+  <summary>Click for explanation</summary>
+Additionally constraining the intercepts to be equal across groups significantly deteriorated model fit, Chi2(2) = 7.61, p = .02. This means that the intercepts cannot be considered equal across groups. There is thus a significant difference in Spent between these conditions, controlled for Self-Esteem. In model 2 we see that, compared to the neutral condition (M = 10.27), the intercept is highest in the Rejection condition (M = 12.45) and lowest in the Confirming condition (M = 9.15). 
+
+In the ANCOVA in SPSS we saw that the effect of Condition was significant after controlling for the effect of self-esteem, F (2, 55) = 3.784, p < .05, so the amount spent differs between the three conditions. Respondents in the rejection condition spent more, than respondents in the neutral condition and the confirming condition.
+
+The two conclusions are similar. 
+\details

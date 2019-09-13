@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>1.1 Installing software | Theory Construction and Statistical Modeling</title>
+  <title>Chapter 10 Week 4 - Home | Theory Construction and Statistical Modeling</title>
   <meta name="description" content="This is a guide for the elective course TCSM." />
   <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="1.1 Installing software | Theory Construction and Statistical Modeling" />
+  <meta property="og:title" content="Chapter 10 Week 4 - Home | Theory Construction and Statistical Modeling" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1.1 Installing software | Theory Construction and Statistical Modeling" />
+  <meta name="twitter:title" content="Chapter 10 Week 4 - Home | Theory Construction and Statistical Modeling" />
   
   <meta name="twitter:description" content="This is a guide for the elective course TCSM." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="preparing-for-the-course.html">
-<link rel="next" href="getting-your-data-into-r.html">
+<link rel="prev" href="week-4-home.html">
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -295,127 +295,253 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="installing-software" class="section level2">
-<h2><span class="header-section-number">1.1</span> Installing software</h2>
-<p>Before we start the course, we have to install three things:</p>
-<ul>
-<li><strong>R</strong>, a free program for statistical programming</li>
-<li><strong>RStudio</strong>, a user interface which makes it easier to work with R; overlook our data, packages and output.</li>
-<li>Several <strong>packages</strong>, which are ‘add-ons’ for R with functions to do specific analyses. They also include the documentation (help files) that describes how to use them, and sample data.</li>
-</ul>
-<p>This Chapter shows how you can install RStudio on your computer. We’ll also provide some general information on R, and how you can get help if you get error messages.</p>
-<p>If you already have RStudio installed on your computer, and if you’re an experienced R user already, all of this might be nothing new for you. You may <strong>skip</strong> this chapter then.</p>
-<p>If you have <strong>never used R before, this Chapter is essential</strong>, as it gives you some input on how R works, and how we can use it for our data analyses.</p>
-<p><br><br></p>
-<hr />
-<div id="installing-r" class="section level3">
-<h3><span class="header-section-number">1.1.1</span> 1. Installing R</h3>
-<p>You will have to install the latest R Version, which is available <a href="https://cran.r-project.org">here</a>.</p>
-</div>
-<div id="installing-rstudio" class="section level3">
-<h3><span class="header-section-number">1.1.2</span> 2. Installing RStudio</h3>
-<p><img src="TCSM_files/figure-html/unnamed-chunk-1-1.png" width="288" /></p>
-<p>Download RStudio on the <strong>RStudio</strong> Website (<a href="https://www.rstudio.com/products/rstudio/download/">Link</a>). It’s free!</p>
-</div>
-<div id="installing-packages" class="section level3">
-<h3><span class="header-section-number">1.1.3</span> 3. Installing packages</h3>
-<p>As a prerequisite for this guide, you need to have a few essential <strong>R packages</strong> installed.</p>
+<div id="week-4---home-1" class="section level1">
+<h1><span class="header-section-number">Chapter 10</span> Week 4 - Home</h1>
+<p>You will continue with the analysis of the Social Rejection data from the Take Home exercise. Instead of running the model as a regression model with dummy variables (as in the Take Home exercise), in lavaan you can also run the model as a regression model with multiple groups. So, when you have data with categorical and continuous independent variables, as in the data file SocialRejection.sav, you could either perform:</p>
 <ol style="list-style-type: decimal">
-<li>Open RStudio</li>
-<li>Inside RStudio, find the window named <strong>Console</strong> on the bottom left corner of your screen (it might fill the entire left side of the screen).</li>
-<li>We will now install a few packages using R Code. Here’s an overview of the packages, and why we need them:</li>
+<li>an ANCOVA in R</li>
+<li>a regression analysis with dummy variables (in R or lavaan)</li>
+<li>or you could perform a multiple group analysis in lavaan.</li>
 </ol>
-<table>
-<thead>
-<tr>
-<th style="text-align:left;">
-Package
-</th>
-<th style="text-align:left;">
-Description
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-lavaan
-</td>
-<td style="text-align:left;">
-A sophisticated and user-friendly package for structural equation modeling
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-psych
-</td>
-<td style="text-align:left;">
-A package with convenience functions for screening data, computing scale scores, calculating reliability, etc
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ggplot2
-</td>
-<td style="text-align:left;">
-A flexible and user-friendly package for making graphs
-</td>
-</tr>
-</tbody>
-</table>
-<p><br><br>
-4. To install these packages, we use the <code>install.packages()</code> function in R. One package after another, our code should look like this:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&quot;lavaan&quot;</span>)</a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">install.packages</span>(<span class="st">&quot;psych&quot;</span>)</a>
-<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw">install.packages</span>(<span class="st">&quot;ggplot2&quot;</span>)</a></code></pre></div>
-<div class="rmdachtung">
-<p>
-Don’t forget to put the package names in <code>&quot;&quot;</code>. Otherwise, you will get an error message.
-</p>
-</div>
-<p><br><br></p>
-</div>
-<div id="get-started" class="section level3">
-<h3><span class="header-section-number">1.1.4</span> Get started</h3>
-</div>
-<div id="starting-a-new-project-in-rstudio" class="section level3">
-<h3><span class="header-section-number">1.1.5</span> Starting a new project in Rstudio</h3>
-<p>To keep all your work organized, you should use a <strong>project</strong>. In Rstudio, click <em>File &gt; New Project &gt; New directory &gt; New project</em>. Type the desired directory name in the dialog (give it a meaningful name, e.g. “My Meta-Analysis”), and use ‘Browse’ if you need to change the directory where you store your projects. Now, in your project, click <em>File &gt; New file &gt; R script</em>. This script file works just like notepad, or the syntax editor in SPSS: You type plain text, but you can run it any time you want. Conduct all of the exercises in this script file.</p>
-</div>
-<div id="code-conventions" class="section level3">
-<h3><span class="header-section-number">1.1.6</span> Code conventions</h3>
-<p>Throughout the guide, a consistent set of conventions is used to refer to code:</p>
+<p>The advantages of performing a multiple groups analysis in lavaan in this situation are:</p>
 <ul>
-<li>Functions are in a code font and followed by parentheses, like
-<code>sum()</code> or <code>mean()</code>.</li>
-<li>Other R objects (like data or function arguments) are in a code
-font, without parentheses, like <code>seTE</code> or <code>method.tau</code>.</li>
-<li>Sometimes, we’ll use the package name followed by two colons, like
-<code>lavaan::sem()</code>. This is valid R code and will run. The <code>lavaan::</code> part indicates that the function <code>sem()</code> comes from the package <code>lavaan</code>.</li>
+<li>You can allow for differences in the (residual) variances across the groups (= violation of assumption of homogeneity)</li>
+<li>You can more easily test the assumption of homogenous regression lines</li>
 </ul>
-</div>
-<div id="getting-help" class="section level3">
-<h3><span class="header-section-number">1.1.7</span> Getting Help</h3>
-<p>As you start to apply the techniques described in this guide to your data you will soon find questions that the guide does not answer. This section describes a few tips on how to get help.</p>
-<ol style="list-style-type: decimal">
-<li>Every function in R has documentation (a help file). To see it, select the name of the function and press F1, or run the command <code>?</code> followed by the name of the function, e.g.: <code>?aov</code>.</li>
-<li>Andy Field, the book used for our undergraduate statistics courses <span class="citation">(Field, Miles, and Field <a href="#ref-field2012discovering">2012</a>)</span>, is also available for R. Many basic analyses are explained for R in this book.</li>
-<li>If you get stuck, start with <strong>Google</strong>. Typically, adding “R” to a search is enough to restrict it to relevant results, e.g.: “exploratory factor analysis R”. Google is particularly useful for error messages. If you get an error message and you have no idea what it means, try googling it. Chances are that someone else has been confused by it in the past, and there will be help somewhere on the web. (If the error message isn’t in English,
-run <code>Sys.setenv(LANGUAGE = &quot;en&quot;)</code> and re-run the code; you’re
-more likely to find help for English error messages.)</li>
-<li>If Google doesn’t help, try <a href="https://stackoverflow.com">stackoverflow</a>. Start by spending a little time searching for an existing answer; including [R] restricts your search to questions and answers that use R.</li>
-<li>Lastly, if you stumble upon an error (or typos!) in this guide’s text or R syntax, feel free to contact <strong>Caspar van Lissa</strong> at <strong><a href="mailto:c.j.vanlissa@uu.nl">c.j.vanlissa@uu.nl</a></strong>.</li>
-</ol>
-<p><br><br></p>
-<hr />
+<p>In a multiple group analysis you specify one model and test whether this model is correct for all the groups, or whether there are differences between the groups.</p>
+<div id="specify-basic-model" class="section level3">
+<h3><span class="header-section-number">10.0.1</span> Specify basic model</h3>
+<p>First, specify the following model as a text string, so you can later use it in lavaan:</p>
+<p><img src="week4class1.png" /></p>
+<details>
+<p><summary>Click for explanation</summary></p>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb184-1" data-line-number="1">reg_model &lt;-<span class="st"> &quot;Spent ~ SelfEst&quot;</span></a></code></pre></div>
 
 </div>
+<div id="how-to-run-multi-group-model" class="section level3">
+<h3><span class="header-section-number">10.0.2</span> How to run multi-group model</h3>
+<p>To run this model as a multi-group model, you can specify the argument <code>group =</code> when running the analysis:</p>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb185-1" data-line-number="1"><span class="kw">library</span>(lavaan)</a>
+<a class="sourceLine" id="cb185-2" data-line-number="2">multi_group &lt;-<span class="st"> </span><span class="kw">sem</span>(reg_model,</a>
+<a class="sourceLine" id="cb185-3" data-line-number="3">                   <span class="dt">data =</span> data, </a>
+<a class="sourceLine" id="cb185-4" data-line-number="4">                   <span class="dt">group =</span> <span class="st">&quot;Condition&quot;</span>)</a></code></pre></div>
+<p>Now, obtain the standardized estimates and the squared multiple correlations (r square) for this model.</p>
+<details>
+<p><summary>Click for explanation</summary></p>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb186-1" data-line-number="1"><span class="kw">summary</span>(multi_group, <span class="dt">standardize =</span> <span class="ot">TRUE</span>, <span class="dt">rsquare =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<pre><code>## lavaan 0.6-3 ended normally after 53 iterations
+## 
+##   Optimization method                           NLMINB
+##   Number of free parameters                          9
+## 
+##   Number of observations per group         
+##   rejection                                         19
+##   neutral                                           20
+##   confirming                                        20
+## 
+##   Estimator                                         ML
+##   Model Fit Test Statistic                       0.000
+##   Degrees of freedom                                 0
+##   Minimum Function Value               0.0000000000000
+## 
+## Chi-square for each group:
+## 
+##   rejection                                      0.000
+##   neutral                                        0.000
+##   confirming                                     0.000
+## 
+## Parameter Estimates:
+## 
+##   Information                                 Expected
+##   Information saturated (h1) model          Structured
+##   Standard Errors                             Standard
+## 
+## 
+## Group 1 [rejection]:
+## 
+## Regressions:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+##   Spent ~                                                               
+##     SelfEst          -0.449    0.145   -3.102    0.002   -0.449   -0.580
+## 
+## Intercepts:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+##    .Spent            11.073    2.768    4.000    0.000   11.073    2.593
+## 
+## Variances:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+##    .Spent            12.108    3.928    3.082    0.002   12.108    0.664
+## 
+## R-Square:
+##                    Estimate
+##     Spent             0.336
+## 
+## 
+## Group 2 [neutral]:
+## 
+## Regressions:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+##   Spent ~                                                               
+##     SelfEst          -0.495    0.214   -2.315    0.021   -0.495   -0.460
+## 
+## Intercepts:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+##    .Spent             9.690    4.331    2.237    0.025    9.690    2.095
+## 
+## Variances:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+##    .Spent            16.874    5.336    3.162    0.002   16.874    0.789
+## 
+## R-Square:
+##                    Estimate
+##     Spent             0.211
+## 
+## 
+## Group 3 [confirming]:
+## 
+## Regressions:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+##   Spent ~                                                               
+##     SelfEst          -0.617    0.137   -4.523    0.000   -0.617   -0.711
+## 
+## Intercepts:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+##    .Spent            10.861    2.604    4.171    0.000   10.861    2.322
+## 
+## Variances:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+##    .Spent            10.812    3.419    3.162    0.002   10.812    0.494
+## 
+## R-Square:
+##                    Estimate
+##     Spent             0.506</code></pre>
+
 </div>
-<!-- </div> -->
-<h3>References</h3>
+<div id="question-1-3" class="section level3">
+<h3><span class="header-section-number">10.0.3</span> Question 1</h3>
+<p>Report on the parameter estimates for the three groups; i.e., the regression coefficients, the variances (of SelfEst), the residual variances (i.e., the variances of the residuals of Spent), the means (of SelfEst), and the intercepts (means of Spent).</p>
+</div>
+<div id="question-2-3" class="section level3">
+<h3><span class="header-section-number">10.0.4</span> Question 2</h3>
+<p>Which constraints would we need to impose, across the groups, in order to make this multi-group model equivalent to an ANCOVA?</p>
+<details>
+<p><summary>Click for explanation</summary>
+1. Fix regression lines of the covariate to be equal across groups
+2. Fix residual variances to be equal across groups
+</p>
+</div>
+<div id="question-3-3" class="section level3">
+<h3><span class="header-section-number">10.0.5</span> Question 3</h3>
+<p>An ANCOVA tests whether the means of several groups on the DV (Spent) are all equal (while controlling for the covariate). What are the <span class="math inline">\(H_0\)</span> and <span class="math inline">\(H_1\)</span> of an ANCOVA?</p>
+<details>
+<p><summary>Click for explanation</summary>
+<span class="math inline">\(H_0\)</span>: The intercepts of Spent are all equal across groups
+<span class="math inline">\(H_1\)</span>: There is a difference in intercepts of Spent across groups
+</p>
+</div>
+<div id="question-4-3" class="section level3">
+<h3><span class="header-section-number">10.0.6</span> Question 4</h3>
+<p>You could test the null-hypothesis that you formulated in the previous question by imposing one more constraint across the three groups. What is this constraint?</p>
+<details>
+<p><summary>Click for explanation</summary>
+Fix all intercepts to be equal.
+</p>
+</div>
+<div id="imposing-constraints" class="section level3">
+<h3><span class="header-section-number">10.0.7</span> Imposing constraints</h3>
+<p>So, by putting constraints to these models, we can make the same model as an ANCOVA. In lavaan, we impose constraints by <strong>giving labels</strong> to parameters. You use <code>c()</code> to make a vector of labels that is equally long as the number of groups, and you can give any name to the labels. You then use the <code>*</code> symbol to assign it to a parameter. The syntax looks like this:</p>
+<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb188-1" data-line-number="1"><span class="st">&quot;Spent ~ c(labelgroup1, labelgroup2, labelgroup3) * SelfEst&quot;</span></a></code></pre></div>
+<p>If you use the same name multiple times, these parameters will be constrained to be equal:</p>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb189-1" data-line-number="1"><span class="st">&quot;Spent ~ c(label, label, label) * SelfEst&quot;</span></a></code></pre></div>
+<p>Constraints for variances are specified similarly:</p>
+<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb190-1" data-line-number="1"><span class="st">&quot;Spent ~~ c(label, label, label) * Spent&quot;</span></a></code></pre></div>
+</div>
+<div id="stepwise-approach" class="section level3">
+<h3><span class="header-section-number">10.0.8</span> Stepwise approach</h3>
+<p>If you want to add several restrictions (contraints), we can impose them all at once, or in a stepwise manner. Here, we will explain the stepwise approach. But if you know which model you want to run (e.g., an ANCOVA), you can also skip these steps and just run your final model and check if the fit is good.</p>
+<p>First you test the model without the constraints and the next step is that you test the model with the first constraint, then a model with the first and second constraint, and so forth. These are all nested models. Give the models informative names, so you can easily compare them.</p>
+<p><strong>NOTE:</strong> make sure to specify increasingly more restricted models, that is, do not release restrictions once they have been imposed). So you go from completely free to most restrictive. You can compare subsequent models using chi-square difference tests (ironically, by calling the <code>anova()</code> function) to ensure that the constraints you imposed are tenable. Note that if the chi-square difference test is significant, this means you CANNOT impose the constraint!</p>
+<p>In this case, we could run the following nested models:</p>
+<p><em>Unconstrained model.</em> No constraints are imposed</p>
+<p><em>Model 1.</em> Structural weights: constrain the regression coefficient across groups</p>
+<p><em>Model 2.</em> Structural residuals: constrain the variances and covariances of the residuals of the endogenous variables (here: Spent)</p>
+<p><em>Model 3.</em> Structural intercepts: constrain the intercepts of the endogenous variables across groups</p>
+<p>We can compare two of these models using the <code>anova()</code> function:</p>
+<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb191-1" data-line-number="1"><span class="kw">anova</span>(m1, m2)</a></code></pre></div>
+<p>However, with more than two models, it is convenient to compare all of them at once. For this, we can use the function <code>compareFit()</code> from the <code>semTools</code> package (which you have to install):</p>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb192-1" data-line-number="1"><span class="kw">library</span>(semTools)</a>
+<a class="sourceLine" id="cb192-2" data-line-number="2"><span class="kw">compareFit</span>(<span class="dt">weights =</span> m1,</a>
+<a class="sourceLine" id="cb192-3" data-line-number="3">           <span class="dt">residuals =</span> m2,</a>
+<a class="sourceLine" id="cb192-4" data-line-number="4">           <span class="dt">intercepts =</span> m3)</a></code></pre></div>
+</div>
+<div id="question-5-3" class="section level3">
+<h3><span class="header-section-number">10.0.9</span> Question 5</h3>
+<p>Run the series of models (nested models) as described above. Compare the models and report the chi-square difference test of this comparison. Why does this test have the df it has? What is your conclusion about the constraints you imposed? What does this mean?</p>
+<details>
+<p><summary>Click for explanation</summary></p>
+<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb193-1" data-line-number="1">mu &lt;-<span class="st"> </span><span class="kw">sem</span>(<span class="st">&quot;Spent ~ SelfEst&quot;</span>,</a>
+<a class="sourceLine" id="cb193-2" data-line-number="2">          <span class="dt">data =</span> data, </a>
+<a class="sourceLine" id="cb193-3" data-line-number="3">          <span class="dt">group =</span> <span class="st">&quot;Condition&quot;</span>)</a>
+<a class="sourceLine" id="cb193-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb193-5" data-line-number="5">m1 &lt;-<span class="st"> </span><span class="kw">sem</span>(<span class="st">&quot;Spent ~ c(a, a, a) * SelfEst&quot;</span>,</a>
+<a class="sourceLine" id="cb193-6" data-line-number="6">          <span class="dt">data =</span> data, </a>
+<a class="sourceLine" id="cb193-7" data-line-number="7">          <span class="dt">group =</span> <span class="st">&quot;Condition&quot;</span>)</a>
+<a class="sourceLine" id="cb193-8" data-line-number="8">m2 &lt;-<span class="st"> </span><span class="kw">sem</span>(<span class="st">&quot;Spent ~ c(a, a, a) * SelfEst</span></a>
+<a class="sourceLine" id="cb193-9" data-line-number="9"><span class="st">          Spent ~~ c(b, b, b) * Spent&quot;</span>,</a>
+<a class="sourceLine" id="cb193-10" data-line-number="10">          <span class="dt">data =</span> data, </a>
+<a class="sourceLine" id="cb193-11" data-line-number="11">          <span class="dt">group =</span> <span class="st">&quot;Condition&quot;</span>)</a>
+<a class="sourceLine" id="cb193-12" data-line-number="12">m3 &lt;-<span class="st"> </span><span class="kw">sem</span>(<span class="st">&quot;Spent ~ c(a, a, a) * SelfEst</span></a>
+<a class="sourceLine" id="cb193-13" data-line-number="13"><span class="st">          Spent ~~ c(b, b, b) * Spent</span></a>
+<a class="sourceLine" id="cb193-14" data-line-number="14"><span class="st">          Spent ~ c(c, c, c) * 1 &quot;</span>,</a>
+<a class="sourceLine" id="cb193-15" data-line-number="15">          <span class="dt">data =</span> data, </a>
+<a class="sourceLine" id="cb193-16" data-line-number="16">          <span class="dt">group =</span> <span class="st">&quot;Condition&quot;</span>)</a>
+<a class="sourceLine" id="cb193-17" data-line-number="17"></a>
+<a class="sourceLine" id="cb193-18" data-line-number="18"><span class="kw">compareFit</span>(<span class="dt">unconstrained =</span> mu,</a>
+<a class="sourceLine" id="cb193-19" data-line-number="19">           <span class="dt">regression =</span> m1,</a>
+<a class="sourceLine" id="cb193-20" data-line-number="20">           <span class="dt">residuals =</span> m2, </a>
+<a class="sourceLine" id="cb193-21" data-line-number="21">           <span class="dt">intercepts =</span> m3)</a></code></pre></div>
+<pre><code>## ################### Nested Model Comparison #########################
+## Chi Square Difference Test
+## 
+##               Df    AIC    BIC  Chisq Chisq diff Df diff Pr(&gt;Chisq)  
+## unconstrained  0 336.95 355.64 0.0000                                
+## regression     2 333.69 348.23 0.7435     0.7435       2    0.68954  
+## residuals      4 330.69 341.08 1.7420     0.9986       2    0.60697  
+## intercepts     6 334.29 340.53 9.3477     7.6056       2    0.02231 *
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## ####################### Model Fit Indices ###########################
+##                chisq df pvalue    cfi    tli      aic      bic rmsea  srmr
+## unconstrained  .000†        NA 1.000  1.000  336.947  355.645  .000† .000†
+## regression     .743   2   .690 1.000† 1.080† 333.690  348.233  .000† .057 
+## residuals     1.742   4   .783 1.000† 1.072  330.689† 341.077  .000† .069 
+## intercepts    9.348   6   .155  .858   .929  334.295  340.527† .168  .142 
+## 
+## ################## Differences in Fit Indices #######################
+##                            df    cfi    tli    aic    bic rmsea  srmr
+## regression - unconstrained  2  0.000  0.080 -3.257 -7.412 0.000 0.057
+## residuals - regression      2  0.000 -0.008 -3.001 -7.157 0.000 0.012
+## intercepts - intercepts     2 -0.142 -0.143  3.606 -0.549 0.168 0.073</code></pre>
+<p>In model 1 we constrained the regression lines to be equal across groups. In this model there is 1 regression coefficient estimated instead of 3, so the difference in df = 3-1=2. The associated chi-square is not significant Chi2(2) = 0.74, p = .69. This means that the regression lines can be considered equal across groups, and the first assumption of Ancova holds.</p>
+<p>In model 2 we additionally constrained the residual variance of Spent to be equal across groups. In this model there is 1 residual variance estimated instead of 3, so the difference in df with the previous model is 3-1=2. The associated chi-square is not significant Chi2(2) = 1.74, p = .61. This means that the residual variances of Spent can als be considered equal across groups, and both assumptions hold.
+</p>
+</div>
+<div id="question-6-3" class="section level3">
+<h3><span class="header-section-number">10.0.10</span> Question 6</h3>
+<p>Next, compare Model 3 to Model 2. Report the chi-square difference test, what is the conclusion now? Is it the same conclusion from the ANCOVA? Report the relevant results for both the ANCOVA and the Multi-group model, compare the results. (Also think about: what would you report in an article?)</p>
+<details>
+<p><summary>Click for explanation</summary>
+Additionally constraining the intercepts to be equal across groups significantly deteriorated model fit, Chi2(2) = 7.61, p = .02. This means that the intercepts cannot be considered equal across groups. There is thus a significant difference in Spent between these conditions, controlled for Self-Esteem. In model 2 we see that, compared to the neutral condition (M = 10.27), the intercept is highest in the Rejection condition (M = 12.45) and lowest in the Confirming condition (M = 9.15).</p>
+<p>In the ANCOVA in SPSS we saw that the effect of Condition was significant after controlling for the effect of self-esteem, F (2, 55) = 3.784, p &lt; .05, so the amount spent differs between the three conditions. Respondents in the rejection condition spent more, than respondents in the neutral condition and the confirming condition.</p>
+<p>The two conclusions are similar.
+</p>
+
 <div id="refs" class="references">
-<div id="ref-field2012discovering">
+<div>
 <p>Field, Andy, Jeremy Miles, and Zoë Field. 2012. <em>Discovering Statistics Using R</em>. Sage publications.</p>
+</div>
+</div>
 </div>
 </div>
             </section>
@@ -423,8 +549,8 @@ more likely to find help for English error messages.)</li>
           </div>
         </div>
       </div>
-<a href="preparing-for-the-course.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="getting-your-data-into-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="week-4-home.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
