@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 9 Week 4 - Home | Theory Construction and Statistical Modeling</title>
+  <title>Chapter 11 Week 5 - Home | Theory Construction and Statistical Modeling</title>
   <meta name="description" content="This is a guide for the elective course TCSM." />
   <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 9 Week 4 - Home | Theory Construction and Statistical Modeling" />
+  <meta property="og:title" content="Chapter 11 Week 5 - Home | Theory Construction and Statistical Modeling" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 9 Week 4 - Home | Theory Construction and Statistical Modeling" />
+  <meta name="twitter:title" content="Chapter 11 Week 5 - Home | Theory Construction and Statistical Modeling" />
   
   <meta name="twitter:description" content="This is a guide for the elective course TCSM." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="week-3-class.html">
-<link rel="next" href="week-4-class.html">
+<link rel="prev" href="week-4-class.html">
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -308,378 +308,95 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="week-4---home" class="section level1">
-<h1><span class="header-section-number">Chapter 9</span> Week 4 - Home</h1>
-<p>Load the data file SocialRejection.sav into R. It contains three variables: Condition (IV), SelfEst (IV), and Spent (DV).</p>
-<div id="question-1-2" class="section level3">
-<h3><span class="header-section-number">9.0.1</span> Question 1</h3>
-<p>Check the assumption of homogeneous regression lines (no interaction) first. What is your conclusion?</p>
-<p><em>Hint: You need to estimate a model with, and one without an interaction, and compare them using the <code>anova()</code> function.</em></p>
+<div id="week-5---home" class="section level1">
+<h1><span class="header-section-number">Chapter 11</span> Week 5 - Home</h1>
+<p>The data file SelfEsteem.sav contains the following variables:</p>
+<ul>
+<li>Parental Attachment</li>
+<li>Peer Attachment</li>
+<li>Empathy</li>
+<li>Prosocial behavior</li>
+<li>Aggression</li>
+<li>Self-esteem</li>
+</ul>
+<p>Which were measured for 143 college students (mean age: 18.6 years, SD=1.61). The researcher is interested in the direct and indirect effects of parental and peer attachment on self-esteem, and the mediating roles of empathy and social behavior (i.e., prosocial behavior and aggression).</p>
+<p>Specifically, the researcher expects that having good relationships with peers will increase prosocial behavior and decrease aggressive behavior, and that this is probably mediated through empathy (since people who experience empathy are likely to want to decrease distress in others), while the relationships with parents are expected to have a more direct effect on self-esteem.</p>
+<div id="specify-model" class="section level3">
+<h3><span class="header-section-number">11.0.1</span> Specify model</h3>
+<p>To investigate these research questions, you need to specify the model depicted below. Create a text string describing this model for later use with lavaan:</p>
+<p><img src="week5home.png" /></p>
 <details>
 <p><summary>Click for explanation</summary></p>
-<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb153-1" data-line-number="1">ancova_main &lt;-<span class="st"> </span><span class="kw">aov</span>(Spent <span class="op">~</span><span class="st"> </span>Condition <span class="op">+</span><span class="st"> </span>SelfEst, <span class="dt">data =</span> data)</a>
-<a class="sourceLine" id="cb153-2" data-line-number="2">ancova_int &lt;-<span class="st"> </span><span class="kw">aov</span>(Spent <span class="op">~</span><span class="st"> </span>Condition<span class="op">*</span>SelfEst, <span class="dt">data =</span> data)</a>
-<a class="sourceLine" id="cb153-3" data-line-number="3"><span class="kw">anova</span>(ancova_main, ancova_int)</a></code></pre></div>
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Res.Df"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["RSS"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Df"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Sum of Sq"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["F"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["Pr(>F)"],"name":[6],"type":["dbl"],"align":["right"]}],"data":[{"1":"55","2":"792.3992","3":"NA","4":"NA","5":"NA","6":"NA","_rn_":"1"},{"1":"53","2":"783.7732","3":"2","4":"8.626028","5":"0.2916529","6":"0.7482189","_rn_":"2"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
-</div>
-<p>The lines are homogeneous, the assumption is met (interaction is not significant).</p>
+<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb195-1" data-line-number="1">mediation_model &lt;-<span class="st"> &quot;SelfEst ~ ProSoc + Aggr + ParAtt + PeerAtt</span></a>
+<a class="sourceLine" id="cb195-2" data-line-number="2"><span class="st">                    ProSoc ~ Emp</span></a>
+<a class="sourceLine" id="cb195-3" data-line-number="3"><span class="st">                    Aggr ~ Emp</span></a>
+<a class="sourceLine" id="cb195-4" data-line-number="4"><span class="st">                    Emp ~ ParAtt + PeerAtt</span></a>
+<a class="sourceLine" id="cb195-5" data-line-number="5"><span class="st">                    ProSoc ~~ Aggr</span></a>
+<a class="sourceLine" id="cb195-6" data-line-number="6"><span class="st">                    ParAtt ~~ PeerAtt&quot;</span></a></code></pre></div>
 
 </div>
-<div id="question-2-2" class="section level3">
-<h3><span class="header-section-number">9.0.2</span> Question 2</h3>
-<p>What should you do when this assumption is violated?</p>
-</div>
-<div id="question-3-2" class="section level3">
-<h3><span class="header-section-number">9.0.3</span> Question 3</h3>
-<p>Before you can do an ANCOVA, you should also check the assumption of homogeneity. What does homogeneity imply, and is the assumption met?</p>
-<p><em>Hint: You did this in the Week 1 class exercise.</em></p>
-<details>
-<p><summary>Click for explanation</summary></p>
-<p>We can do a test of homogeneity of the variances of Spent across conditions:</p>
-<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb154-1" data-line-number="1"><span class="kw">bartlett.test</span>(<span class="dt">formula =</span> Spent<span class="op">~</span>Condition, <span class="dt">data =</span> data)</a></code></pre></div>
-<pre><code>## 
-##  Bartlett test of homogeneity of variances
-## 
-## data:  Spent by Condition
-## Bartlett&#39;s K-squared = 0.16678, df = 2, p-value = 0.92</code></pre>
-<p>However, note that the assumption of homogeneity actually requires the <strong>residual</strong> variance, after controlling for the covariate SelfEst, to be the same across conditions. We can extract these residuals from a regression with only SelfEst as a predictor:</p>
-<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb156-1" data-line-number="1">reg_selfest &lt;-<span class="st"> </span><span class="kw">lm</span>(Spent <span class="op">~</span><span class="st"> </span>SelfEst, <span class="dt">data =</span> data)</a>
-<a class="sourceLine" id="cb156-2" data-line-number="2">residuals_selfest &lt;-<span class="st"> </span>reg_selfest<span class="op">$</span>residuals</a></code></pre></div>
-<p>Then, we can test the null hypothesis that the error variance of the dependent variable is equal across groups:</p>
-<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb157-1" data-line-number="1"><span class="kw">bartlett.test</span>(residuals_selfest, data<span class="op">$</span>Condition)</a></code></pre></div>
-<pre><code>## 
-##  Bartlett test of homogeneity of variances
-## 
-## data:  residuals_selfest and data$Condition
-## Bartlett&#39;s K-squared = 0.92603, df = 2, p-value = 0.6294</code></pre>
-<p>The test is not significant, meaning that the error variances are indeed equal, the assumption is met.</p>
-
-</div>
-<div id="question-4-2" class="section level3">
-<h3><span class="header-section-number">9.0.4</span> Question 4</h3>
-<p>What should you do when this assumption is violated?</p>
+<div id="question-1-4" class="section level3">
+<h3><span class="header-section-number">11.0.2</span> Question 1</h3>
+<p>How many and which paths are there from Parental Attachment to Self-esteem? And from Peer Attachment to Self-esteem?</p>
 <details>
 <p><summary>Click for explanation</summary>
-You cannot really “solve” this problem in classical regression or ANCOVA, because only one parameter is estimated for the error variance. In SEM, however, you can estimate different error variance parameters for each group.
+PARA-&gt;SE: 3 if you dont count covariances
+6 if you count covariance between PARATT and PEERATT
+10 if you (additionally) count the covariance between e2 and e3
+I think the indirect pathway in AMOS does not count covariances, so the indirect effect estimate in AMOS is made up of PARATT -&gt; EMP -&gt; PROSOC -&gt; SELFEST, and of PARATT -&gt; EMP -&gt; AGGR -&gt; SELFEST</p>
+<p>PEERA-&gt;SE: as above
 </p>
 </div>
-<div id="question-5-2" class="section level3">
-<h3><span class="header-section-number">9.0.5</span> Question 5</h3>
-<p>Run the actual ANCOVA (or use previous output). What are your conclusions about the effects of the factor and the covariate?</p>
+<div id="question-4-4" class="section level3">
+<h3><span class="header-section-number">11.0.3</span> Question 4</h3>
+<p>Run this model. Discuss the fit of the model.</p>
 <details>
 <p><summary>Click for explanation</summary></p>
-<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb159-1" data-line-number="1"><span class="kw">summary</span>(ancova_main)</a></code></pre></div>
-<pre><code>##             Df Sum Sq Mean Sq F value   Pr(&gt;F)    
-## Condition    2  126.8    63.4   4.402   0.0169 *  
-## SelfEst      1  419.5   419.5  29.118 1.49e-06 ***
-## Residuals   55  792.4    14.4                     
-## ---
-## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
-<p>Self esteem is significant, F (1, 55) = 29.118, p &lt; .001, the level of self esteem of the respondent is related to the amount spent.
-Condition is significant after controlling for the effect of self-esteem, F (2, 55) = 4.402, p = .017, the amount spent differs between the three conditions.</p>
-
-</div>
-<div id="question-6-2" class="section level3">
-<h3><span class="header-section-number">9.0.6</span> Question 6</h3>
-<p>Let’s examine the differences in conditional means between the three conditions. In order to do so, we can use several approaches.</p>
-<div id="approach-1-conditional-means" class="section level4">
-<h4><span class="header-section-number">9.0.6.1</span> Approach 1: Conditional means</h4>
-<p>We can obtain the conditional means of the three groups by asking for the predicted (expected) value, based on the model, for each of the three conditions, keeping the covariate constant at 0. For this, we apply the <code>predict()</code> function to the object containing our analysis. We make a small new dataset for the values that we want predictions for:</p>
-<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb161-1" data-line-number="1">new_data &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Condition =</span> <span class="kw">c</span>(<span class="st">&quot;rejection&quot;</span>, <span class="st">&quot;neutral&quot;</span>, <span class="st">&quot;confirming&quot;</span>), </a>
-<a class="sourceLine" id="cb161-2" data-line-number="2">                       <span class="dt">SelfEst =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>))</a>
-<a class="sourceLine" id="cb161-3" data-line-number="3"><span class="kw">predict</span>(ancova_main, new_data)</a></code></pre></div>
-<pre><code>##         1         2         3 
-## 12.449100 10.265532  9.152918</code></pre>
-<p>What are your conclusions about the three conditions (i.e., how do they differ)?</p>
-</div>
-<div id="approach-2-testing-significance" class="section level4">
-<h4><span class="header-section-number">9.0.6.2</span> Approach 2: Testing significance</h4>
-<p>We can test the significance for these differences using <code>TukeyHSD()</code> again, but to get the conditional means, we need to use the residuals from a model that includes only SelfEst, which we obtained before:</p>
-<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb163-1" data-line-number="1">reg_selfest &lt;-<span class="st"> </span><span class="kw">lm</span>(Spent <span class="op">~</span><span class="st"> </span>SelfEst, <span class="dt">data =</span> data)</a>
-<a class="sourceLine" id="cb163-2" data-line-number="2">residuals_selfest &lt;-<span class="st"> </span>reg_selfest<span class="op">$</span>residuals</a>
-<a class="sourceLine" id="cb163-3" data-line-number="3">anova_conditional &lt;-<span class="st"> </span><span class="kw">aov</span>(residuals_selfest <span class="op">~</span><span class="st"> </span>data<span class="op">$</span>Condition)</a>
-<a class="sourceLine" id="cb163-4" data-line-number="4"><span class="kw">TukeyHSD</span>(anova_conditional)</a></code></pre></div>
-<pre><code>##   Tukey multiple comparisons of means
-##     95% family-wise confidence level
-## 
-## Fit: aov(formula = residuals_selfest ~ data$Condition)
-## 
-## $`data$Condition`
-##                           diff       lwr        upr     p adj
-## neutral-rejection    -2.174775 -5.076198  0.7266467 0.1773921
-## confirming-rejection -3.296276 -6.197698 -0.3948536 0.0223500
-## confirming-neutral   -1.121500 -3.985483  1.7424826 0.6157693</code></pre>
-<p>Respondents in the rejection condition spent more, than respondents in the neutral condition and the confirming condition. These differences are not tested on significance between two groups.</p>
-</div>
-<div id="approach-3-plotting-the-difference" class="section level4">
-<h4><span class="header-section-number">9.0.6.3</span> Approach 3: Plotting the difference</h4>
-<p>This is where R really shines: We can quickly put together a plot that shows the difference between groups, along with the raw data. We use the package <code>ggplot2</code></p>
-<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb165-1" data-line-number="1"><span class="kw">library</span>(ggplot2)</a>
-<a class="sourceLine" id="cb165-2" data-line-number="2"><span class="co"># Put the data for the plot together</span></a>
-<a class="sourceLine" id="cb165-3" data-line-number="3">plot_data &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Spent_resid =</span> residuals_selfest,</a>
-<a class="sourceLine" id="cb165-4" data-line-number="4">                        <span class="dt">Condition =</span> data<span class="op">$</span>Condition)</a>
-<a class="sourceLine" id="cb165-5" data-line-number="5"><span class="co"># Basic plot; indicate that you want condition on the x-axis and Spent_resid on</span></a>
-<a class="sourceLine" id="cb165-6" data-line-number="6"><span class="co"># the y-axis</span></a>
-<a class="sourceLine" id="cb165-7" data-line-number="7"><span class="kw">ggplot</span>(plot_data, <span class="kw">aes</span>(<span class="dt">x =</span> Condition, <span class="dt">y =</span> Spent_resid)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb165-8" data-line-number="8"><span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span><span class="st"> </span><span class="co"># Add a boxplot for each condition</span></a>
-<a class="sourceLine" id="cb165-9" data-line-number="9"><span class="st">  </span><span class="kw">geom_jitter</span>(<span class="dt">width =</span> <span class="fl">.2</span>) <span class="op">+</span><span class="st"> </span><span class="co"># Plot raw datapoints on top</span></a>
-<a class="sourceLine" id="cb165-10" data-line-number="10"><span class="st">  </span><span class="kw">theme_bw</span>() <span class="co"># Add a nice APA theme</span></a></code></pre></div>
-<p><img src="TCSM_files/figure-html/unnamed-chunk-127-1.png" width="672" /></p>
-</div>
-</div>
-<div id="question-7-2" class="section level3">
-<h3><span class="header-section-number">9.0.7</span> QUestion 7</h3>
-<p>An AN(C)OVA can also be specified as a regression analysis. R automatically creates dummies. Use the <code>lm()</code> function instead of <code>aov()</code>, and compare the results.</p>
-<details>
-<p><summary>Click for explanation</summary></p>
-<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb166-1" data-line-number="1">ancova_main &lt;-<span class="st"> </span><span class="kw">aov</span>(Spent <span class="op">~</span><span class="st"> </span>Condition <span class="op">+</span><span class="st"> </span>SelfEst, <span class="dt">data =</span> data)</a>
-<a class="sourceLine" id="cb166-2" data-line-number="2"><span class="kw">summary</span>(ancova_main)</a></code></pre></div>
-<pre><code>##             Df Sum Sq Mean Sq F value   Pr(&gt;F)    
-## Condition    2  126.8    63.4   4.402   0.0169 *  
-## SelfEst      1  419.5   419.5  29.118 1.49e-06 ***
-## Residuals   55  792.4    14.4                     
-## ---
-## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
-<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb168-1" data-line-number="1">lm_main &lt;-<span class="st"> </span><span class="kw">lm</span>(Spent <span class="op">~</span><span class="st"> </span>Condition <span class="op">+</span><span class="st"> </span>SelfEst, <span class="dt">data =</span> data)</a>
-<a class="sourceLine" id="cb168-2" data-line-number="2"><span class="kw">summary</span>(lm_main)</a></code></pre></div>
-<pre><code>## 
-## Call:
-## lm(formula = Spent ~ Condition + SelfEst, data = data)
-## 
-## Residuals:
-##     Min      1Q  Median      3Q     Max 
-## -6.9987 -2.5886 -0.4841  1.9772 10.6503 
-## 
-## Coefficients:
-##                     Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept)         12.44910    1.98050   6.286 5.54e-08 ***
-## Conditionneutral    -2.18357    1.22451  -1.783  0.08007 .  
-## Conditionconfirming -3.29618    1.21599  -2.711  0.00894 ** 
-## SelfEst             -0.52406    0.09712  -5.396 1.49e-06 ***
-## ---
-## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
-## 
-## Residual standard error: 3.796 on 55 degrees of freedom
-## Multiple R-squared:  0.4081, Adjusted R-squared:  0.3758 
-## F-statistic: 12.64 on 3 and 55 DF,  p-value: 2.142e-06</code></pre>
-
-<p>You can get the conditional means directly from this <code>lm()</code> model by dropping the intercept, using <code>-1</code> (which means: minus the intercept) in the formula:</p>
-<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb170-1" data-line-number="1">lm_no_intercept &lt;-<span class="st"> </span><span class="kw">lm</span>(Spent <span class="op">~</span><span class="st"> </span><span class="dv">-1</span> <span class="op">+</span><span class="st"> </span>Condition <span class="op">+</span><span class="st"> </span>SelfEst, <span class="dt">data =</span> data)</a>
-<a class="sourceLine" id="cb170-2" data-line-number="2"><span class="kw">summary</span>(lm_no_intercept)</a></code></pre></div>
-<pre><code>## 
-## Call:
-## lm(formula = Spent ~ -1 + Condition + SelfEst, data = data)
-## 
-## Residuals:
-##     Min      1Q  Median      3Q     Max 
-## -6.9987 -2.5886 -0.4841  1.9772 10.6503 
-## 
-## Coefficients:
-##                     Estimate Std. Error t value Pr(&gt;|t|)    
-## Conditionrejection  12.44910    1.98050   6.286 5.54e-08 ***
-## Conditionneutral    10.26553    2.10191   4.884 9.35e-06 ***
-## Conditionconfirming  9.15292    1.96952   4.647 2.14e-05 ***
-## SelfEst             -0.52406    0.09712  -5.396 1.49e-06 ***
-## ---
-## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
-## 
-## Residual standard error: 3.796 on 55 degrees of freedom
-## Multiple R-squared:  0.4218, Adjusted R-squared:  0.3797 
-## F-statistic: 10.03 on 4 and 55 DF,  p-value: 3.616e-06</code></pre>
-</div>
-<div id="question-8-2" class="section level3">
-<h3><span class="header-section-number">9.0.8</span> Question 8</h3>
-<p>To perform this analysis as a structural equation model, we need to manually compute dummy variables. We can use the function <code>model.matrix()</code> to “expand” a factor variable into dummies:</p>
-<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb172-1" data-line-number="1">data_dummies &lt;-<span class="st"> </span><span class="kw">model.matrix</span>(<span class="op">~</span><span class="st"> </span><span class="dv">-1</span> <span class="op">+</span><span class="st"> </span>Condition, <span class="dt">data =</span> data)</a>
-<a class="sourceLine" id="cb172-2" data-line-number="2"><span class="kw">head</span>(data_dummies)</a></code></pre></div>
-<pre><code>##   Conditionrejection Conditionneutral Conditionconfirming
-## 1                  1                0                   0
-## 2                  1                0                   0
-## 3                  1                0                   0
-## 4                  1                0                   0
-## 5                  1                0                   0
-## 6                  1                0                   0</code></pre>
-<p>We can then bind these columns with dummies to our original data using <code>cbind()</code> (column bind):</p>
-<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb174-1" data-line-number="1">data &lt;-<span class="st"> </span><span class="kw">cbind</span>(data, data_dummies)</a>
-<a class="sourceLine" id="cb174-2" data-line-number="2"><span class="kw">head</span>(data)</a></code></pre></div>
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Condition"],"name":[1],"type":["fctr"],"align":["left"]},{"label":["SelfEst"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Spent"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Conditionrejection"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Conditionneutral"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["Conditionconfirming"],"name":[6],"type":["dbl"],"align":["right"]}],"data":[{"1":"rejection","2":"10","3":"4.785362","4":"1","5":"0","6":"0","_rn_":"1"},{"1":"rejection","2":"18","3":"4.434689","4":"1","5":"0","6":"0","_rn_":"2"},{"1":"rejection","2":"10","3":"6.323272","4":"1","5":"0","6":"0","_rn_":"3"},{"1":"rejection","2":"11","3":"4.823320","4":"1","5":"0","6":"0","_rn_":"4"},{"1":"rejection","2":"22","3":"6.449067","4":"1","5":"0","6":"0","_rn_":"5"},{"1":"rejection","2":"24","3":"4.326671","4":"1","5":"0","6":"0","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
-</div>
-<p>Begin by specifying the model in lavaan like this:</p>
-<p><img src="week4home1.png" /></p>
-<details>
-<p><summary>Click for explanation</summary></p>
-<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb175-1" data-line-number="1"><span class="kw">library</span>(lavaan)</a>
-<a class="sourceLine" id="cb175-2" data-line-number="2">ancova_lavaan &lt;-<span class="st"> </span><span class="kw">sem</span>(<span class="st">&#39;Spent ~ SelfEst + Conditionrejection + Conditionconfirming&#39;</span>, <span class="dt">data =</span> data)</a>
-<a class="sourceLine" id="cb175-3" data-line-number="3"><span class="kw">summary</span>(ancova_lavaan)</a></code></pre></div>
-<pre><code>## lavaan 0.6-3 ended normally after 21 iterations
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb196-1" data-line-number="1">fit_mediation &lt;-<span class="st"> </span><span class="kw">sem</span>(mediation_model,</a>
+<a class="sourceLine" id="cb196-2" data-line-number="2">                     <span class="dt">data =</span> data)</a>
+<a class="sourceLine" id="cb196-3" data-line-number="3"><span class="kw">summary</span>(fit_mediation, <span class="dt">fit.measures =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<pre><code>## lavaan 0.6-3 ended normally after 18 iterations
 ## 
 ##   Optimization method                           NLMINB
-##   Number of free parameters                          4
+##   Number of free parameters                         16
 ## 
-##   Number of observations                            59
-## 
-##   Estimator                                         ML
-##   Model Fit Test Statistic                       0.000
-##   Degrees of freedom                                 0
-##   Minimum Function Value               0.0000000000000
-## 
-## Parameter Estimates:
-## 
-##   Information                                 Expected
-##   Information saturated (h1) model          Structured
-##   Standard Errors                             Standard
-## 
-## Regressions:
-##                    Estimate  Std.Err  z-value  P(&gt;|z|)
-##   Spent ~                                             
-##     SelfEst          -0.524    0.094   -5.589    0.000
-##     Conditionrjctn    2.184    1.182    1.847    0.065
-##     Conditncnfrmng   -1.113    1.167   -0.953    0.341
-## 
-## Variances:
-##                    Estimate  Std.Err  z-value  P(&gt;|z|)
-##    .Spent            13.430    2.473    5.431    0.000</code></pre>
-<p>To obtain a plot of these results and compare it to our picture above, use <code>SemPlot</code>:</p>
-<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb177-1" data-line-number="1"><span class="kw">library</span>(semPlot)</a>
-<a class="sourceLine" id="cb177-2" data-line-number="2"><span class="kw">semPaths</span>(ancova_lavaan, <span class="dt">whatLabels =</span> <span class="st">&quot;est&quot;</span>, <span class="dt">rotation =</span> <span class="dv">2</span>)</a></code></pre></div>
-<p><img src="TCSM_files/figure-html/unnamed-chunk-133-1.png" width="672" />
-</p>
-</div>
-<div id="additional-options" class="section level3">
-<h3><span class="header-section-number">9.0.9</span> Additional options</h3>
-<p><strong>Note:</strong> When you are doing an ANCOVA (even as a regression model with dummies), you want to analyze both the covariance structure AND the mean structure. To include the latter in your analysis, you have to tell lavaan to include this by adding the argument <code>meanstructure = TRUE</code> in the fitting function:</p>
-<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb178-1" data-line-number="1"><span class="kw">library</span>(lavaan)</a>
-<a class="sourceLine" id="cb178-2" data-line-number="2">ancova_lavaan &lt;-<span class="st"> </span><span class="kw">sem</span>(<span class="st">&#39;Spent ~ SelfEst + Conditionrejection + Conditionconfirming&#39;</span>, </a>
-<a class="sourceLine" id="cb178-3" data-line-number="3">                     <span class="dt">data =</span> data,</a>
-<a class="sourceLine" id="cb178-4" data-line-number="4">                     <span class="dt">meanstructure =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb178-5" data-line-number="5"><span class="kw">summary</span>(ancova_lavaan)</a></code></pre></div>
-<pre><code>## lavaan 0.6-3 ended normally after 35 iterations
-## 
-##   Optimization method                           NLMINB
-##   Number of free parameters                          5
-## 
-##   Number of observations                            59
+##   Number of observations                           143
 ## 
 ##   Estimator                                         ML
-##   Model Fit Test Statistic                       0.000
-##   Degrees of freedom                                 0
-## 
-## Parameter Estimates:
-## 
-##   Information                                 Expected
-##   Information saturated (h1) model          Structured
-##   Standard Errors                             Standard
-## 
-## Regressions:
-##                    Estimate  Std.Err  z-value  P(&gt;|z|)
-##   Spent ~                                             
-##     SelfEst          -0.524    0.094   -5.589    0.000
-##     Conditionrjctn    2.184    1.182    1.847    0.065
-##     Conditncnfrmng   -1.113    1.167   -0.953    0.341
-## 
-## Intercepts:
-##                    Estimate  Std.Err  z-value  P(&gt;|z|)
-##    .Spent            10.266    2.029    5.058    0.000
-## 
-## Variances:
-##                    Estimate  Std.Err  z-value  P(&gt;|z|)
-##    .Spent            13.430    2.473    5.431    0.000</code></pre>
-<p>To obtain the standardized results and the proportion of explained variance (= squared multiple correlation, i.e., R2), you can use the options in the <code>summary()</code> function:</p>
-<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb180-1" data-line-number="1"><span class="kw">summary</span>(ancova_lavaan, <span class="dt">standardized =</span> <span class="ot">TRUE</span>, <span class="dt">rsquare =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
-<pre><code>## lavaan 0.6-3 ended normally after 35 iterations
-## 
-##   Optimization method                           NLMINB
-##   Number of free parameters                          5
-## 
-##   Number of observations                            59
-## 
-##   Estimator                                         ML
-##   Model Fit Test Statistic                       0.000
-##   Degrees of freedom                                 0
-## 
-## Parameter Estimates:
-## 
-##   Information                                 Expected
-##   Information saturated (h1) model          Structured
-##   Standard Errors                             Standard
-## 
-## Regressions:
-##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
-##   Spent ~                                                               
-##     SelfEst          -0.524    0.094   -5.589    0.000   -0.524   -0.565
-##     Conditionrjctn    2.184    1.182    1.847    0.065    2.184    0.214
-##     Conditncnfrmng   -1.113    1.167   -0.953    0.341   -1.113   -0.111
-## 
-## Intercepts:
-##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
-##    .Spent            10.266    2.029    5.058    0.000   10.266    2.155
-## 
-## Variances:
-##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
-##    .Spent            13.430    2.473    5.431    0.000   13.430    0.592
-## 
-## R-Square:
-##                    Estimate
-##     Spent             0.408</code></pre>
-</div>
-<div id="question-9-2" class="section level3">
-<h3><span class="header-section-number">9.0.10</span> Question 9</h3>
-<p>Compare your results to those obtained with the regression analysis. What is your conclusion?</p>
-</div>
-<div id="question-10-1" class="section level3">
-<h3><span class="header-section-number">9.0.11</span> Question 10</h3>
-<p>Check the model fit. What do you conclude?</p>
-<p><em>Note: Use</em> <code>summary()</code> <em>and</em> <code>fit.measures = TRUE</code></p>
-<details>
-<p><summary>Click for explanation</summary></p>
-<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb182-1" data-line-number="1"><span class="kw">summary</span>(ancova_lavaan, <span class="dt">fit.measures =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
-<pre><code>## lavaan 0.6-3 ended normally after 35 iterations
-## 
-##   Optimization method                           NLMINB
-##   Number of free parameters                          5
-## 
-##   Number of observations                            59
-## 
-##   Estimator                                         ML
-##   Model Fit Test Statistic                       0.000
-##   Degrees of freedom                                 0
+##   Model Fit Test Statistic                      12.609
+##   Degrees of freedom                                 5
+##   P-value (Chi-square)                           0.027
 ## 
 ## Model test baseline model:
 ## 
-##   Minimum Function Test Statistic               30.941
-##   Degrees of freedom                                 3
+##   Minimum Function Test Statistic              174.959
+##   Degrees of freedom                                15
 ##   P-value                                        0.000
 ## 
 ## User model versus baseline model:
 ## 
-##   Comparative Fit Index (CFI)                    1.000
-##   Tucker-Lewis Index (TLI)                       1.000
+##   Comparative Fit Index (CFI)                    0.952
+##   Tucker-Lewis Index (TLI)                       0.857
 ## 
 ## Loglikelihood and Information Criteria:
 ## 
-##   Loglikelihood user model (H0)               -160.344
-##   Loglikelihood unrestricted model (H1)       -160.344
+##   Loglikelihood user model (H0)              -1131.703
+##   Loglikelihood unrestricted model (H1)      -1125.399
 ## 
-##   Number of free parameters                          5
-##   Akaike (AIC)                                 330.689
-##   Bayesian (BIC)                               341.077
-##   Sample-size adjusted Bayesian (BIC)          325.353
+##   Number of free parameters                         16
+##   Akaike (AIC)                                2295.407
+##   Bayesian (BIC)                              2342.812
+##   Sample-size adjusted Bayesian (BIC)         2292.185
 ## 
 ## Root Mean Square Error of Approximation:
 ## 
-##   RMSEA                                          0.000
-##   90 Percent Confidence Interval          0.000  0.000
-##   P-value RMSEA &lt;= 0.05                             NA
+##   RMSEA                                          0.103
+##   90 Percent Confidence Interval          0.032  0.176
+##   P-value RMSEA &lt;= 0.05                          0.093
 ## 
 ## Standardized Root Mean Square Residual:
 ## 
-##   SRMR                                           0.000
+##   SRMR                                           0.059
 ## 
 ## Parameter Estimates:
 ## 
@@ -689,21 +406,371 @@ Condition is significant after controlling for the effect of self-esteem, F (2, 
 ## 
 ## Regressions:
 ##                    Estimate  Std.Err  z-value  P(&gt;|z|)
-##   Spent ~                                             
-##     SelfEst          -0.524    0.094   -5.589    0.000
-##     Conditionrjctn    2.184    1.182    1.847    0.065
-##     Conditncnfrmng   -1.113    1.167   -0.953    0.341
+##   SelfEst ~                                           
+##     ProSoc            0.312    0.084    3.721    0.000
+##     Aggr              0.159    0.083    1.915    0.056
+##     ParAtt            0.240    0.076    3.153    0.002
+##     PeerAtt           0.083    0.089    0.935    0.350
+##   ProSoc ~                                            
+##     Emp               0.520    0.071    7.285    0.000
+##   Aggr ~                                              
+##     Emp              -0.354    0.078   -4.528    0.000
+##   Emp ~                                               
+##     ParAtt            0.078    0.075    1.045    0.296
+##     PeerAtt           0.306    0.086    3.557    0.000
 ## 
-## Intercepts:
+## Covariances:
 ##                    Estimate  Std.Err  z-value  P(&gt;|z|)
-##    .Spent            10.266    2.029    5.058    0.000
+##  .ProSoc ~~                                           
+##    .Aggr             -0.099    0.061   -1.621    0.105
+##   ParAtt ~~                                           
+##     PeerAtt           0.537    0.103    5.215    0.000
 ## 
 ## Variances:
 ##                    Estimate  Std.Err  z-value  P(&gt;|z|)
-##    .Spent            13.430    2.473    5.431    0.000</code></pre>
-<p>Saturated model, so perfect fit. Because the number of parameters to be estimated is equal to the number of observed statistics, there is a perfect fit. Here our interest is mainly in getting the estimates, not in the model-fit.
+##    .SelfEst           0.808    0.096    8.456    0.000
+##    .ProSoc            0.657    0.078    8.456    0.000
+##    .Aggr              0.789    0.093    8.456    0.000
+##    .Emp               0.779    0.092    8.456    0.000
+##     ParAtt            1.277    0.151    8.456    0.000
+##     PeerAtt           0.963    0.114    8.456    0.000</code></pre>
+<p>CFI is acceptable, RMSEA is not.
 </p>
+</div>
+<div id="question-3-4" class="section level3">
+<h3><span class="header-section-number">11.0.4</span> Question 3</h3>
+<p>Considering the parameter estimates, what can you say about the research questions?</p>
+<details>
+<p><summary>Click for explanation</summary>
+The researcher expects that having good relationships with peers will increase prosocial behavior and decrease aggressive behavior, and that this is probably mediated through empathy (since people who experience empathy are likely to want to decrease distress in others), while the relationships with parents are expected to have a more direct effect on self-esteem.</p>
+<p>Generally seems to be the case – Paratt has a significant direct effect, and ParAtt seems to have a significant effect on empathy. Need to look further at indirect effects and total effects for details.
+</p>
+</div>
+<div id="estimating-indirect-effects" class="section level3">
+<h3><span class="header-section-number">11.0.5</span> Estimating indirect effects</h3>
+<p>Remember that an indirect effect is the product of several chained direct effects. Therefore, to obtain an indirect effect, you can multiply the two (or more) direct effects it consists of. Based on this knowledge - and you previous experience labelling parameters - the way to estimate indirect effects may be obvious:</p>
+<ol style="list-style-type: decimal">
+<li>You label the direct effects</li>
+<li>You multiply the labels</li>
+</ol>
+<p>There is a tutorial on this on the lavaan website: <a href="http://lavaan.ugent.be/tutorial/mediation.html" class="uri">http://lavaan.ugent.be/tutorial/mediation.html</a></p>
+<p>Additionally, a total effect is the sum of all direct and indirect effects that connect one predictor and one outcome. So, for example, in this week’s model, two indirect effects link Empathy and Self-esteem (through prosocial and aggression). The total effect of empathy on self-esteem is therefore the sum of these two indirect effects (and no direct effect).</p>
+</div>
+<div id="question-4-5" class="section level3">
+<h3><span class="header-section-number">11.0.6</span> Question 4</h3>
+<p>Estimate the indirect effects of Emp on SelfEst, mediated through ProSoc and Aggr. Also estimate the total effect.</p>
+<p><em>Note: A new parameter is defined in lavaan using the</em> <code>:=</code> <em>operator.</em></p>
+<details>
+<p><summary>Click for explanation</summary></p>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb198-1" data-line-number="1">mediation_model &lt;-<span class="st"> &quot;SelfEst ~ bse_pro * ProSoc + bse_agg * Aggr + ParAtt + PeerAtt</span></a>
+<a class="sourceLine" id="cb198-2" data-line-number="2"><span class="st">                    ProSoc ~ bpro_emp * Emp</span></a>
+<a class="sourceLine" id="cb198-3" data-line-number="3"><span class="st">                    Aggr ~ bagg_emp * Emp</span></a>
+<a class="sourceLine" id="cb198-4" data-line-number="4"><span class="st">                    Emp ~ ParAtt + PeerAtt</span></a>
+<a class="sourceLine" id="cb198-5" data-line-number="5"><span class="st">                    ProSoc ~~ Aggr</span></a>
+<a class="sourceLine" id="cb198-6" data-line-number="6"><span class="st">                    ParAtt ~~ PeerAtt</span></a>
+<a class="sourceLine" id="cb198-7" data-line-number="7"><span class="st">                    ind_pro := bse_pro * bpro_emp</span></a>
+<a class="sourceLine" id="cb198-8" data-line-number="8"><span class="st">                    ind_agg := bse_agg * bagg_emp</span></a>
+<a class="sourceLine" id="cb198-9" data-line-number="9"><span class="st">                    total := ind_pro + ind_agg&quot;</span></a>
+<a class="sourceLine" id="cb198-10" data-line-number="10">fit_mediation &lt;-<span class="st"> </span><span class="kw">sem</span>(mediation_model,</a>
+<a class="sourceLine" id="cb198-11" data-line-number="11">                     <span class="dt">data =</span> data)</a>
+<a class="sourceLine" id="cb198-12" data-line-number="12"><span class="kw">summary</span>(fit_mediation, <span class="dt">fit.measures =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<pre><code>## lavaan 0.6-3 ended normally after 18 iterations
+## 
+##   Optimization method                           NLMINB
+##   Number of free parameters                         16
+## 
+##   Number of observations                           143
+## 
+##   Estimator                                         ML
+##   Model Fit Test Statistic                      12.609
+##   Degrees of freedom                                 5
+##   P-value (Chi-square)                           0.027
+## 
+## Model test baseline model:
+## 
+##   Minimum Function Test Statistic              174.959
+##   Degrees of freedom                                15
+##   P-value                                        0.000
+## 
+## User model versus baseline model:
+## 
+##   Comparative Fit Index (CFI)                    0.952
+##   Tucker-Lewis Index (TLI)                       0.857
+## 
+## Loglikelihood and Information Criteria:
+## 
+##   Loglikelihood user model (H0)              -1131.703
+##   Loglikelihood unrestricted model (H1)      -1125.399
+## 
+##   Number of free parameters                         16
+##   Akaike (AIC)                                2295.407
+##   Bayesian (BIC)                              2342.812
+##   Sample-size adjusted Bayesian (BIC)         2292.185
+## 
+## Root Mean Square Error of Approximation:
+## 
+##   RMSEA                                          0.103
+##   90 Percent Confidence Interval          0.032  0.176
+##   P-value RMSEA &lt;= 0.05                          0.093
+## 
+## Standardized Root Mean Square Residual:
+## 
+##   SRMR                                           0.059
+## 
+## Parameter Estimates:
+## 
+##   Information                                 Expected
+##   Information saturated (h1) model          Structured
+##   Standard Errors                             Standard
+## 
+## Regressions:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)
+##   SelfEst ~                                           
+##     ProSoc  (bs_p)    0.312    0.084    3.721    0.000
+##     Aggr    (bs_g)    0.159    0.083    1.915    0.056
+##     ParAtt            0.240    0.076    3.153    0.002
+##     PeerAtt           0.083    0.089    0.935    0.350
+##   ProSoc ~                                            
+##     Emp     (bpr_)    0.520    0.071    7.285    0.000
+##   Aggr ~                                              
+##     Emp     (bgg_)   -0.354    0.078   -4.528    0.000
+##   Emp ~                                               
+##     ParAtt            0.078    0.075    1.045    0.296
+##     PeerAtt           0.306    0.086    3.557    0.000
+## 
+## Covariances:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)
+##  .ProSoc ~~                                           
+##    .Aggr             -0.099    0.061   -1.621    0.105
+##   ParAtt ~~                                           
+##     PeerAtt           0.537    0.103    5.215    0.000
+## 
+## Variances:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)
+##    .SelfEst           0.808    0.096    8.456    0.000
+##    .ProSoc            0.657    0.078    8.456    0.000
+##    .Aggr              0.789    0.093    8.456    0.000
+##    .Emp               0.779    0.092    8.456    0.000
+##     ParAtt            1.277    0.151    8.456    0.000
+##     PeerAtt           0.963    0.114    8.456    0.000
+## 
+## Defined Parameters:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)
+##     ind_pro           0.162    0.049    3.314    0.001
+##     ind_agg          -0.056    0.032   -1.764    0.078
+##     total             0.106    0.051    2.066    0.039</code></pre>
 
+</div>
+<div id="question-5-4" class="section level3">
+<h3><span class="header-section-number">11.0.7</span> Question 5</h3>
+<p>Estimate all indirect effects and the total effects of Parental Attachment and Peer Attachment on Self-esteem.</p>
+<details>
+<p><summary>Click for explanation</summary></p>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb200-1" data-line-number="1">mediation_model &lt;-<span class="st"> &quot;SelfEst ~ bse_pro * ProSoc + bse_agg * Aggr + bse_par * ParAtt + bse_peer * PeerAtt</span></a>
+<a class="sourceLine" id="cb200-2" data-line-number="2"><span class="st">                    ProSoc ~ bpro_emp * Emp</span></a>
+<a class="sourceLine" id="cb200-3" data-line-number="3"><span class="st">                    Aggr ~ bagg_emp * Emp</span></a>
+<a class="sourceLine" id="cb200-4" data-line-number="4"><span class="st">                    Emp ~ bemp_par * ParAtt + bemp_peer * PeerAtt</span></a>
+<a class="sourceLine" id="cb200-5" data-line-number="5"><span class="st">                    ProSoc ~~ Aggr</span></a>
+<a class="sourceLine" id="cb200-6" data-line-number="6"><span class="st">                    ParAtt ~~ PeerAtt</span></a>
+<a class="sourceLine" id="cb200-7" data-line-number="7"><span class="st">                    ind_par_emp_pro := bse_pro * bpro_emp * bemp_par</span></a>
+<a class="sourceLine" id="cb200-8" data-line-number="8"><span class="st">                    ind_peer_emp_pro := bse_pro * bpro_emp * bemp_peer</span></a>
+<a class="sourceLine" id="cb200-9" data-line-number="9"><span class="st">                    ind_par_emp_agg := bse_agg * bagg_emp * bemp_par</span></a>
+<a class="sourceLine" id="cb200-10" data-line-number="10"><span class="st">                    ind_peer_emp_agg := bse_agg * bagg_emp * bemp_peer</span></a>
+<a class="sourceLine" id="cb200-11" data-line-number="11"><span class="st">                    </span></a>
+<a class="sourceLine" id="cb200-12" data-line-number="12"><span class="st">                    total_par := bse_par + ind_par_emp_pro + ind_par_emp_agg</span></a>
+<a class="sourceLine" id="cb200-13" data-line-number="13"><span class="st">                    total_peer := bse_peer + ind_peer_emp_pro + ind_peer_emp_agg&quot;</span></a>
+<a class="sourceLine" id="cb200-14" data-line-number="14">fit_mediation &lt;-<span class="st"> </span><span class="kw">sem</span>(mediation_model,</a>
+<a class="sourceLine" id="cb200-15" data-line-number="15">                     <span class="dt">data =</span> data)</a>
+<a class="sourceLine" id="cb200-16" data-line-number="16"><span class="kw">summary</span>(fit_mediation)</a></code></pre></div>
+<pre><code>## lavaan 0.6-3 ended normally after 18 iterations
+## 
+##   Optimization method                           NLMINB
+##   Number of free parameters                         16
+## 
+##   Number of observations                           143
+## 
+##   Estimator                                         ML
+##   Model Fit Test Statistic                      12.609
+##   Degrees of freedom                                 5
+##   P-value (Chi-square)                           0.027
+## 
+## Parameter Estimates:
+## 
+##   Information                                 Expected
+##   Information saturated (h1) model          Structured
+##   Standard Errors                             Standard
+## 
+## Regressions:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)
+##   SelfEst ~                                           
+##     PrS  (bse_pro)    0.312    0.084    3.721    0.000
+##     Agg     (bs_g)    0.159    0.083    1.915    0.056
+##     PrA  (bse_par)    0.240    0.076    3.153    0.002
+##     PrA  (bse_per)    0.083    0.089    0.935    0.350
+##   ProSoc ~                                            
+##     Emp     (bpr_)    0.520    0.071    7.285    0.000
+##   Aggr ~                                              
+##     Emp     (bgg_)   -0.354    0.078   -4.528    0.000
+##   Emp ~                                               
+##     PrA (bemp_par)    0.078    0.075    1.045    0.296
+##     PrA (bemp_per)    0.306    0.086    3.557    0.000
+## 
+## Covariances:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)
+##  .ProSoc ~~                                           
+##    .Aggr             -0.099    0.061   -1.621    0.105
+##   ParAtt ~~                                           
+##     PeerAtt           0.537    0.103    5.215    0.000
+## 
+## Variances:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)
+##    .SelfEst           0.808    0.096    8.456    0.000
+##    .ProSoc            0.657    0.078    8.456    0.000
+##    .Aggr              0.789    0.093    8.456    0.000
+##    .Emp               0.779    0.092    8.456    0.000
+##     ParAtt            1.277    0.151    8.456    0.000
+##     PeerAtt           0.963    0.114    8.456    0.000
+## 
+## Defined Parameters:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)
+##     ind_par_emp_pr    0.013    0.013    0.997    0.319
+##     ind_peer_mp_pr    0.050    0.020    2.425    0.015
+##     ind_par_emp_gg   -0.004    0.005   -0.899    0.368
+##     ind_peer_mp_gg   -0.017    0.011   -1.580    0.114
+##     total_par         0.248    0.076    3.247    0.001
+##     total_peer        0.115    0.088    1.305    0.192</code></pre>
+
+</div>
+<div id="question-6-4" class="section level3">
+<h3><span class="header-section-number">11.0.8</span> Question 6</h3>
+<p>To compare the total effect of parental attachment versus peer attachment on self esteem, should you use the standardized or unstandardized parameters? Obtain the appropriate output, and draw a conclusion.</p>
+<details>
+<p><summary>Click for explanation</summary></p>
+<p>You should use the standardized results:</p>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb202-1" data-line-number="1"><span class="kw">summary</span>(fit_mediation, <span class="dt">fit.measures =</span> <span class="ot">TRUE</span>, <span class="dt">standardize =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<pre><code>## lavaan 0.6-3 ended normally after 18 iterations
+## 
+##   Optimization method                           NLMINB
+##   Number of free parameters                         16
+## 
+##   Number of observations                           143
+## 
+##   Estimator                                         ML
+##   Model Fit Test Statistic                      12.609
+##   Degrees of freedom                                 5
+##   P-value (Chi-square)                           0.027
+## 
+## Model test baseline model:
+## 
+##   Minimum Function Test Statistic              174.959
+##   Degrees of freedom                                15
+##   P-value                                        0.000
+## 
+## User model versus baseline model:
+## 
+##   Comparative Fit Index (CFI)                    0.952
+##   Tucker-Lewis Index (TLI)                       0.857
+## 
+## Loglikelihood and Information Criteria:
+## 
+##   Loglikelihood user model (H0)              -1131.703
+##   Loglikelihood unrestricted model (H1)      -1125.399
+## 
+##   Number of free parameters                         16
+##   Akaike (AIC)                                2295.407
+##   Bayesian (BIC)                              2342.812
+##   Sample-size adjusted Bayesian (BIC)         2292.185
+## 
+## Root Mean Square Error of Approximation:
+## 
+##   RMSEA                                          0.103
+##   90 Percent Confidence Interval          0.032  0.176
+##   P-value RMSEA &lt;= 0.05                          0.093
+## 
+## Standardized Root Mean Square Residual:
+## 
+##   SRMR                                           0.059
+## 
+## Parameter Estimates:
+## 
+##   Information                                 Expected
+##   Information saturated (h1) model          Structured
+##   Standard Errors                             Standard
+## 
+## Regressions:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+##   SelfEst ~                                                             
+##     PrS  (bse_pro)    0.312    0.084    3.721    0.000    0.312    0.295
+##     Agg     (bs_g)    0.159    0.083    1.915    0.056    0.159    0.150
+##     PrA  (bse_par)    0.240    0.076    3.153    0.002    0.240    0.269
+##     PrA  (bse_per)    0.083    0.089    0.935    0.350    0.083    0.081
+##   ProSoc ~                                                              
+##     Emp     (bpr_)    0.520    0.071    7.285    0.000    0.520    0.520
+##   Aggr ~                                                                
+##     Emp     (bgg_)   -0.354    0.078   -4.528    0.000   -0.354   -0.354
+##   Emp ~                                                                 
+##     PrA (bemp_par)    0.078    0.075    1.045    0.296    0.078    0.093
+##     PrA (bemp_per)    0.306    0.086    3.557    0.000    0.306    0.316
+## 
+## Covariances:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+##  .ProSoc ~~                                                             
+##    .Aggr             -0.099    0.061   -1.621    0.105   -0.099   -0.137
+##   ParAtt ~~                                                             
+##     PeerAtt           0.537    0.103    5.215    0.000    0.537    0.485
+## 
+## Variances:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+##    .SelfEst           0.808    0.096    8.456    0.000    0.808    0.797
+##    .ProSoc            0.657    0.078    8.456    0.000    0.657    0.729
+##    .Aggr              0.789    0.093    8.456    0.000    0.789    0.875
+##    .Emp               0.779    0.092    8.456    0.000    0.779    0.863
+##     ParAtt            1.277    0.151    8.456    0.000    1.277    1.000
+##     PeerAtt           0.963    0.114    8.456    0.000    0.963    1.000
+## 
+## Defined Parameters:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+##     ind_par_emp_pr    0.013    0.013    0.997    0.319    0.013    0.014
+##     ind_peer_mp_pr    0.050    0.020    2.425    0.015    0.050    0.048
+##     ind_par_emp_gg   -0.004    0.005   -0.899    0.368   -0.004   -0.005
+##     ind_peer_mp_gg   -0.017    0.011   -1.580    0.114   -0.017   -0.017
+##     total_par         0.248    0.076    3.247    0.001    0.248    0.279
+##     total_peer        0.115    0.088    1.305    0.192    0.115    0.112</code></pre>
+
+</div>
+<div id="difference-between-parameters" class="section level3">
+<h3><span class="header-section-number">11.0.9</span> Difference between parameters</h3>
+<p>To test the difference between parameters, you can constrain them to be equal and do a chi-square difference test to compare the constrained and unconstrained models. However, you can also calculate the difference between parameters, and test if it’s significant:</p>
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb204-1" data-line-number="1"><span class="st">&quot;dif_par_peer := total_par - total_peer&quot;</span></a></code></pre></div>
+</div>
+<div id="bootstrapping" class="section level3">
+<h3><span class="header-section-number">11.0.10</span> Bootstrapping</h3>
+<p>You may have learned before that the sampling distribution of indirect effects is not normal. Consequently, you cannot use parameteric p-values to determine the significance of indirect effects because they are biased. If you want to know whether the indirect effects are significant, you can bootstrap them to obtain a 95% confidence interval.</p>
+<p>Bootstrapping means that lavaan will draw 1000 samples from the data and estimate the model on each sample. There will thus be 1000 estimates for every parameter. The lower and upper bounds of a 95% confidence interval are determined by taking the 2.5% and 97.5% quantiles of the 1000 samples for each parameter.</p>
+<p>The confidence interval is interpreted the same as a normal confidence interval: If zero lies inside the interval (e.g., lower bound is -.4 and upper bound is .9), we conclude that the parameter is not significantly different from zero, but if zero does not lie in this interval (e.g., lower bound is .4 and upper bound is 1.3), we can say the parameter differs from zero (at an alpha of .05 since we are considering a 95% confidence interval).</p>
+<p>We will get these intervals for all the parameters in the model, but we are specifically interested in the intervals for the indirect effects, because we want to know if they differ from zero (i.e., whether there is a mediated effect).</p>
+<p>In lavaan, bootstrap standard errors are requested by specifying se = “bootstrap” in the fitting function, and specifying the number of bootstrap samples as <code>bootstrap = 1000</code>. First, just get your code running by specifying a low number, like 100 or even 10. <strong>Note: To draw reliable conclusions from the results, you should always use 1000+ bootstrap samples - but it can take a long time.</strong></p>
+<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb205-1" data-line-number="1">fit_mediation &lt;-<span class="st"> </span><span class="kw">sem</span>(mediation_model,</a>
+<a class="sourceLine" id="cb205-2" data-line-number="2">                     <span class="dt">data =</span> data,</a>
+<a class="sourceLine" id="cb205-3" data-line-number="3">                     <span class="dt">se =</span> <span class="st">&quot;bootstrap&quot;</span>,</a>
+<a class="sourceLine" id="cb205-4" data-line-number="4">                     <span class="dt">bootstrap =</span> <span class="dv">100</span>)</a></code></pre></div>
+<p>To obtain the confidence intervals for your model, use the following syntax:</p>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb206-1" data-line-number="1"><span class="kw">parameterestimates</span>(fit_mediation, <span class="dt">boot.ci.type =</span> <span class="st">&quot;bca.simple&quot;</span>, <span class="dt">standardized =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["lhs"],"name":[1],"type":["chr"],"align":["left"]},{"label":["op"],"name":[2],"type":["chr"],"align":["left"]},{"label":["rhs"],"name":[3],"type":["chr"],"align":["left"]},{"label":["label"],"name":[4],"type":["chr"],"align":["left"]},{"label":["est"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["se"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["z"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["pvalue"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["ci.lower"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["ci.upper"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["std.lv"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["std.all"],"name":[12],"type":["dbl"],"align":["right"]},{"label":["std.nox"],"name":[13],"type":["dbl"],"align":["right"]}],"data":[{"1":"SelfEst","2":"~","3":"ProSoc","4":"bse_pro","5":"0.312354416","6":"0.100514782","7":"3.1075471","8":"1.886469e-03","9":"0.098280969","10":"0.534676522","11":"0.312354416","12":"0.294575440","13":"0.294575440"},{"1":"SelfEst","2":"~","3":"Aggr","4":"bse_agg","5":"0.159036607","6":"0.077070989","7":"2.0635081","8":"3.906438e-02","9":"0.002222528","10":"0.312826129","11":"0.159036607","12":"0.150037060","13":"0.150037060"},{"1":"SelfEst","2":"~","3":"ParAtt","4":"bse_par","5":"0.240047641","6":"0.088502765","7":"2.7123180","8":"6.681447e-03","9":"0.073300036","10":"0.392940298","11":"0.240047641","12":"0.269427507","13":"0.269427507"},{"1":"SelfEst","2":"~","3":"PeerAtt","4":"bse_peer","5":"0.082870164","6":"0.083236622","7":"0.9955974","8":"3.194458e-01","9":"-0.067295686","10":"0.262331690","11":"0.082870164","12":"0.080784990","13":"0.080784990"},{"1":"ProSoc","2":"~","3":"Emp","4":"bpro_emp","5":"0.519885158","6":"0.067324609","7":"7.7220672","8":"1.154632e-14","9":"0.394978907","10":"0.637711958","11":"0.519885158","12":"0.520247606","13":"0.520247606"},{"1":"Aggr","2":"~","3":"Emp","4":"bagg_emp","5":"-0.353971612","6":"0.083810074","7":"-4.2234972","8":"2.405404e-05","9":"-0.523261142","10":"-0.191479420","11":"-0.353971612","12":"-0.354093983","13":"-0.354093983"},{"1":"Emp","2":"~","3":"ParAtt","4":"bemp_par","5":"0.078074547","6":"0.068523224","7":"1.1393881","8":"2.545413e-01","9":"-0.091915886","10":"0.192415456","11":"0.078074547","12":"0.092854383","13":"0.092854383"},{"1":"Emp","2":"~","3":"PeerAtt","4":"bemp_peer","5":"0.305816883","6":"0.085232935","7":"3.5880131","8":"3.332076e-04","9":"0.149800635","10":"0.485666690","11":"0.305816883","12":"0.315894727","13":"0.315894727"},{"1":"ProSoc","2":"~~","3":"Aggr","4":"","5":"-0.098516374","6":"0.057058268","7":"-1.7265925","8":"8.424088e-02","9":"-0.187306947","10":"0.053875588","11":"-0.098516374","12":"-0.136799219","13":"-0.136799219"},{"1":"ParAtt","2":"~~","3":"PeerAtt","4":"","5":"0.537376348","6":"0.114715028","7":"4.6844460","8":"2.807182e-06","9":"0.345204284","10":"0.797377762","11":"0.537376348","12":"0.484620653","13":"0.484620653"},{"1":"SelfEst","2":"~~","3":"SelfEst","4":"","5":"0.808053822","6":"0.082531283","7":"9.7908792","8":"0.000000e+00","9":"0.695840175","10":"1.034794788","11":"0.808053822","12":"0.797334627","13":"0.797334627"},{"1":"ProSoc","2":"~~","3":"ProSoc","4":"","5":"0.657398809","6":"0.096770427","7":"6.7933854","8":"1.095324e-11","9":"0.493598539","10":"0.886859508","11":"0.657398809","12":"0.729342428","13":"0.729342428"},{"1":"Aggr","2":"~~","3":"Aggr","4":"","5":"0.788897699","6":"0.105196192","7":"7.4992990","8":"6.417089e-14","9":"0.652779030","10":"1.034106442","11":"0.788897699","12":"0.874617451","13":"0.874617451"},{"1":"Emp","2":"~~","3":"Emp","4":"","5":"0.779100311","6":"0.080037314","7":"9.7342137","8":"0.000000e+00","9":"0.630253712","10":"0.908607326","11":"0.779100311","12":"0.863158595","13":"0.863158595"},{"1":"ParAtt","2":"~~","3":"ParAtt","4":"","5":"1.276699370","6":"0.194296637","7":"6.5708773","8":"5.001954e-11","9":"0.973769649","10":"1.769901255","11":"1.276699370","12":"1.000000000","13":"1.000000000"},{"1":"PeerAtt","2":"~~","3":"PeerAtt","4":"","5":"0.963084993","6":"0.114768298","7":"8.3915594","8":"0.000000e+00","9":"0.745291510","10":"1.217907584","11":"0.963084993","12":"1.000000000","13":"1.000000000"},{"1":"ind_par_emp_pro","2":":=","3":"bse_pro*bpro_emp*bemp_par","4":"ind_par_emp_pro","5":"0.012678403","6":"0.013282254","7":"0.9545370","8":"3.398119e-01","9":"-0.006311572","10":"0.056044492","11":"0.012678403","12":"0.014230135","13":"0.014230135"},{"1":"ind_peer_emp_pro","2":":=","3":"bse_pro*bpro_emp*bemp_peer","4":"ind_peer_emp_pro","5":"0.049661122","6":"0.023928810","7":"2.0753695","8":"3.795230e-02","9":"0.013632429","10":"0.100768343","11":"0.049661122","12":"0.048411552","13":"0.048411552"},{"1":"ind_par_emp_agg","2":":=","3":"bse_agg*bagg_emp*bemp_par","4":"ind_par_emp_agg","5":"-0.004395163","6":"0.005275310","7":"-0.8331574","8":"4.047560e-01","9":"-0.029396108","10":"0.001332981","11":"-0.004395163","12":"-0.004933095","13":"-0.004933095"},{"1":"ind_peer_emp_agg","2":":=","3":"bse_agg*bagg_emp*bemp_peer","4":"ind_peer_emp_agg","5":"-0.017215791","6":"0.009216812","7":"-1.8678684","8":"6.178041e-02","9":"-0.037476461","10":"-0.001637833","11":"-0.017215791","12":"-0.016782609","13":"-0.016782609"},{"1":"total_par","2":":=","3":"bse_par+ind_par_emp_pro+ind_par_emp_agg","4":"total_par","5":"0.248330881","6":"0.088692221","7":"2.7999173","8":"5.111570e-03","9":"0.088192397","10":"0.397825582","11":"0.248330881","12":"0.278724547","13":"0.278724547"},{"1":"total_peer","2":":=","3":"bse_peer+ind_peer_emp_pro+ind_peer_emp_agg","4":"total_peer","5":"0.115315495","6":"0.084608548","7":"1.3629296","8":"1.729047e-01","9":"-0.054558857","10":"0.256965041","11":"0.115315495","12":"0.112413933","13":"0.112413933"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<div id="question-7-3" class="section level3">
+<h3><span class="header-section-number">11.0.11</span> Question 7</h3>
+<p>What do you conclude about the indirect and total effects of Parental attachment and Peer attachment on Self-esteem? Report your conclusions as you would report them in a paper (in words and statistics).</p>
+
+<div id="refs" class="references">
+<div>
+<p>Field, Andy, Jeremy Miles, and Zoë Field. 2012. <em>Discovering Statistics Using R</em>. Sage publications.</p>
+</div>
+</div>
 </div>
 </div>
             </section>
@@ -711,8 +778,8 @@ Condition is significant after controlling for the effect of self-esteem, F (2, 
           </div>
         </div>
       </div>
-<a href="week-3-class.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="week-4-class.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="week-4-class.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

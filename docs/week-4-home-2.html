@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 11 Week 4 - Home | Theory Construction and Statistical Modeling</title>
+  <meta name="description" content="This is a guide for the elective course TCSM." />
+  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 11 Week 4 - Home | Theory Construction and Statistical Modeling" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a guide for the elective course TCSM." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 11 Week 4 - Home | Theory Construction and Statistical Modeling" />
+  
+  <meta name="twitter:description" content="This is a guide for the elective course TCSM." />
+  
+
+<meta name="author" content="Caspar J. van Lissa¹" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="week-4-home-1.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
+<script src="libs/pagedtable-1.1/js/pagedtable.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="font-awesome.min.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./index.html">TCSM</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Course</a></li>
+<li class="chapter" data-level="1" data-path="preparing-for-the-course.html"><a href="preparing-for-the-course.html"><i class="fa fa-check"></i><b>1</b> Preparing for the course</a><ul>
+<li class="chapter" data-level="1.1" data-path="installing-software.html"><a href="installing-software.html"><i class="fa fa-check"></i><b>1.1</b> Installing software</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="installing-software.html"><a href="installing-software.html#installing-r"><i class="fa fa-check"></i><b>1.1.1</b> 1. Installing R</a></li>
+<li class="chapter" data-level="1.1.2" data-path="installing-software.html"><a href="installing-software.html#installing-rstudio"><i class="fa fa-check"></i><b>1.1.2</b> 2. Installing RStudio</a></li>
+<li class="chapter" data-level="1.1.3" data-path="installing-software.html"><a href="installing-software.html#installing-packages"><i class="fa fa-check"></i><b>1.1.3</b> 3. Installing packages</a></li>
+<li class="chapter" data-level="1.1.4" data-path="installing-software.html"><a href="installing-software.html#get-started"><i class="fa fa-check"></i><b>1.1.4</b> Get started</a></li>
+<li class="chapter" data-level="1.1.5" data-path="installing-software.html"><a href="installing-software.html#starting-a-new-project-in-rstudio"><i class="fa fa-check"></i><b>1.1.5</b> Starting a new project in Rstudio</a></li>
+<li class="chapter" data-level="1.1.6" data-path="installing-software.html"><a href="installing-software.html#code-conventions"><i class="fa fa-check"></i><b>1.1.6</b> Code conventions</a></li>
+<li class="chapter" data-level="1.1.7" data-path="installing-software.html"><a href="installing-software.html#getting-help"><i class="fa fa-check"></i><b>1.1.7</b> Getting Help</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="getting-your-data-into-r.html"><a href="getting-your-data-into-r.html"><i class="fa fa-check"></i><b>2</b> Getting your data into R</a><ul>
+<li class="chapter" data-level="2.1" data-path="using-r-projects.html"><a href="using-r-projects.html"><i class="fa fa-check"></i><b>2.1</b> Using R projects</a></li>
+<li class="chapter" data-level="2.2" data-path="importing-excel-files.html"><a href="importing-excel-files.html"><i class="fa fa-check"></i><b>2.2</b> Importing Excel Files</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="importing-excel-files.html"><a href="importing-excel-files.html#inspect-the-data"><i class="fa fa-check"></i><b>2.2.1</b> Inspect the data</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="importing-spss-files.html"><a href="importing-spss-files.html"><i class="fa fa-check"></i><b>2.3</b> Importing SPSS Files</a></li>
+<li class="chapter" data-level="2.4" data-path="data-manipulation-optional.html"><a href="data-manipulation-optional.html"><i class="fa fa-check"></i><b>2.4</b> Data manipulation (optional)</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="data-manipulation-optional.html"><a href="data-manipulation-optional.html#convertfactors"><i class="fa fa-check"></i><b>2.4.1</b> Converting to factors</a></li>
+<li class="chapter" data-level="2.4.2" data-path="data-manipulation-optional.html"><a href="data-manipulation-optional.html#select"><i class="fa fa-check"></i><b>2.4.2</b> Selecting specific cases</a></li>
+<li class="chapter" data-level="2.4.3" data-path="data-manipulation-optional.html"><a href="data-manipulation-optional.html#changing-cell-values"><i class="fa fa-check"></i><b>2.4.3</b> Changing cell values</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="week-1-home.html"><a href="week-1-home.html"><i class="fa fa-check"></i><b>3</b> Week 1 - Home</a><ul>
+<li class="chapter" data-level="3.0.1" data-path="week-1-home.html"><a href="week-1-home.html#question-1.a"><i class="fa fa-check"></i><b>3.0.1</b> Question 1.a</a></li>
+<li class="chapter" data-level="3.0.2" data-path="week-1-home.html"><a href="week-1-home.html#question-1.b"><i class="fa fa-check"></i><b>3.0.2</b> Question 1.b</a></li>
+<li class="chapter" data-level="3.0.3" data-path="week-1-home.html"><a href="week-1-home.html#question-1.c."><i class="fa fa-check"></i><b>3.0.3</b> Question 1.c.</a></li>
+<li class="chapter" data-level="3.0.4" data-path="week-1-home.html"><a href="week-1-home.html#question-1.d."><i class="fa fa-check"></i><b>3.0.4</b> Question 1.d.</a></li>
+<li class="chapter" data-level="3.0.5" data-path="week-1-home.html"><a href="week-1-home.html#question-1.e."><i class="fa fa-check"></i><b>3.0.5</b> Question 1.e.</a></li>
+<li class="chapter" data-level="3.0.6" data-path="week-1-home.html"><a href="week-1-home.html#question-1.f."><i class="fa fa-check"></i><b>3.0.6</b> Question 1.f.</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="week-1-class.html"><a href="week-1-class.html"><i class="fa fa-check"></i><b>4</b> Week 1 - Class</a><ul>
+<li class="chapter" data-level="4.1" data-path="loading-data.html"><a href="loading-data.html"><i class="fa fa-check"></i><b>4.1</b> Loading data</a></li>
+<li class="chapter" data-level="4.2" data-path="section-1.html"><a href="section-1.html"><i class="fa fa-check"></i><b>4.2</b> Section 1</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="section-1.html"><a href="section-1.html#question-1.a-1"><i class="fa fa-check"></i><b>4.2.1</b> Question 1.a</a></li>
+<li class="chapter" data-level="4.2.2" data-path="section-1.html"><a href="section-1.html#question-1.b-1"><i class="fa fa-check"></i><b>4.2.2</b> Question 1.b</a></li>
+<li class="chapter" data-level="4.2.3" data-path="section-1.html"><a href="section-1.html#question-1.c"><i class="fa fa-check"></i><b>4.2.3</b> Question 1.c</a></li>
+<li class="chapter" data-level="4.2.4" data-path="section-1.html"><a href="section-1.html#question-1.d"><i class="fa fa-check"></i><b>4.2.4</b> Question 1.d</a></li>
+<li class="chapter" data-level="4.2.5" data-path="section-1.html"><a href="section-1.html#question-1.e"><i class="fa fa-check"></i><b>4.2.5</b> Question 1.e</a></li>
+<li class="chapter" data-level="4.2.6" data-path="section-1.html"><a href="section-1.html#question-1.f"><i class="fa fa-check"></i><b>4.2.6</b> Question 1.f</a></li>
+<li class="chapter" data-level="4.2.7" data-path="section-1.html"><a href="section-1.html#question-1.g"><i class="fa fa-check"></i><b>4.2.7</b> Question 1.g</a></li>
+<li class="chapter" data-level="4.2.8" data-path="section-1.html"><a href="section-1.html#question-1.h"><i class="fa fa-check"></i><b>4.2.8</b> Question 1.h</a></li>
+<li class="chapter" data-level="4.2.9" data-path="section-1.html"><a href="section-1.html#question-1.i"><i class="fa fa-check"></i><b>4.2.9</b> Question 1.i</a></li>
+<li class="chapter" data-level="4.2.10" data-path="section-1.html"><a href="section-1.html#question-1.j"><i class="fa fa-check"></i><b>4.2.10</b> Question 1.j</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="section-2.html"><a href="section-2.html"><i class="fa fa-check"></i><b>4.3</b> Section 2</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="section-2.html"><a href="section-2.html#research-question-1-anova-does-talking-on-the-phone-interfere-with-peoples-driving-skills"><i class="fa fa-check"></i><b>4.3.1</b> Research question 1 (ANOVA): Does talking on the phone interfere with people’s driving skills?</a></li>
+<li class="chapter" data-level="4.3.2" data-path="section-2.html"><a href="section-2.html#question-2.a"><i class="fa fa-check"></i><b>4.3.2</b> Question 2.a</a></li>
+<li class="chapter" data-level="4.3.3" data-path="section-2.html"><a href="section-2.html#question-2.b"><i class="fa fa-check"></i><b>4.3.3</b> Question 2.b</a></li>
+<li class="chapter" data-level="4.3.4" data-path="section-2.html"><a href="section-2.html#question-2.c"><i class="fa fa-check"></i><b>4.3.4</b> Question 2.c</a></li>
+<li class="chapter" data-level="4.3.5" data-path="section-2.html"><a href="section-2.html#question-2.d"><i class="fa fa-check"></i><b>4.3.5</b> Question 2.d</a></li>
+<li class="chapter" data-level="4.3.6" data-path="section-2.html"><a href="section-2.html#question-2.e"><i class="fa fa-check"></i><b>4.3.6</b> Question 2.e</a></li>
+<li class="chapter" data-level="4.3.7" data-path="section-2.html"><a href="section-2.html#research-question-2-ancova-are-there-differences-in-reaction-time-between-the-conditions-when-controlling-for-age"><i class="fa fa-check"></i><b>4.3.7</b> Research question 2 (ANCOVA): Are there differences in reaction time between the conditions when controlling for age?</a></li>
+<li class="chapter" data-level="4.3.8" data-path="section-2.html"><a href="section-2.html#question-2.f"><i class="fa fa-check"></i><b>4.3.8</b> Question 2.f</a></li>
+<li class="chapter" data-level="4.3.9" data-path="section-2.html"><a href="section-2.html#question-2.g"><i class="fa fa-check"></i><b>4.3.9</b> Question 2.g</a></li>
+<li class="chapter" data-level="4.3.10" data-path="section-2.html"><a href="section-2.html#question-2.h"><i class="fa fa-check"></i><b>4.3.10</b> Question 2.h</a></li>
+<li class="chapter" data-level="4.3.11" data-path="section-2.html"><a href="section-2.html#question-2.i"><i class="fa fa-check"></i><b>4.3.11</b> Question 2.i</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="section-3.html"><a href="section-3.html"><i class="fa fa-check"></i><b>4.4</b> Section 3</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="section-3.html"><a href="section-3.html#question-3.a"><i class="fa fa-check"></i><b>4.4.1</b> Question 3.a</a></li>
+<li class="chapter" data-level="4.4.2" data-path="section-3.html"><a href="section-3.html#question-3.b"><i class="fa fa-check"></i><b>4.4.2</b> Question 3.b</a></li>
+<li class="chapter" data-level="4.4.3" data-path="section-3.html"><a href="section-3.html#question-3.c"><i class="fa fa-check"></i><b>4.4.3</b> Question 3.c</a></li>
+<li class="chapter" data-level="4.4.4" data-path="section-3.html"><a href="section-3.html#question-3.d"><i class="fa fa-check"></i><b>4.4.4</b> Question 3.d</a></li>
+<li class="chapter" data-level="4.4.5" data-path="section-3.html"><a href="section-3.html#question-3.e"><i class="fa fa-check"></i><b>4.4.5</b> Question 3.e</a></li>
+<li class="chapter" data-level="4.4.6" data-path="section-3.html"><a href="section-3.html#question-3.f"><i class="fa fa-check"></i><b>4.4.6</b> Question 3.f</a></li>
+<li class="chapter" data-level="4.4.7" data-path="section-3.html"><a href="section-3.html#question-3.g"><i class="fa fa-check"></i><b>4.4.7</b> Question 3.g</a></li>
+<li class="chapter" data-level="4.4.8" data-path="section-3.html"><a href="section-3.html#question-3.h"><i class="fa fa-check"></i><b>4.4.8</b> Question 3.h</a></li>
+<li class="chapter" data-level="4.4.9" data-path="section-3.html"><a href="section-3.html#question-3.i"><i class="fa fa-check"></i><b>4.4.9</b> Question 3.i</a></li>
+<li class="chapter" data-level="4.4.10" data-path="section-3.html"><a href="section-3.html#question-3.j"><i class="fa fa-check"></i><b>4.4.10</b> Question 3.j</a></li>
+<li class="chapter" data-level="4.4.11" data-path="section-3.html"><a href="section-3.html#question-3.k"><i class="fa fa-check"></i><b>4.4.11</b> Question 3.k</a></li>
+<li class="chapter" data-level="4.4.12" data-path="section-3.html"><a href="section-3.html#question-3.l"><i class="fa fa-check"></i><b>4.4.12</b> Question 3.l</a></li>
+<li class="chapter" data-level="4.4.13" data-path="section-3.html"><a href="section-3.html#question-3.m"><i class="fa fa-check"></i><b>4.4.13</b> Question 3.m</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="week-2-home.html"><a href="week-2-home.html"><i class="fa fa-check"></i><b>5</b> Week 2 - Home</a><ul>
+<li class="chapter" data-level="5.0.1" data-path="week-2-home.html"><a href="week-2-home.html#question-1.a-2"><i class="fa fa-check"></i><b>5.0.1</b> Question 1.a</a></li>
+<li class="chapter" data-level="5.0.2" data-path="week-2-home.html"><a href="week-2-home.html#question-1.b-2"><i class="fa fa-check"></i><b>5.0.2</b> Question 1.b</a></li>
+<li class="chapter" data-level="5.0.3" data-path="week-2-home.html"><a href="week-2-home.html#question-1.c-1"><i class="fa fa-check"></i><b>5.0.3</b> Question 1.c</a></li>
+<li class="chapter" data-level="5.0.4" data-path="week-2-home.html"><a href="week-2-home.html#question-1.d-1"><i class="fa fa-check"></i><b>5.0.4</b> Question 1.d</a></li>
+<li class="chapter" data-level="5.0.5" data-path="week-2-home.html"><a href="week-2-home.html#question-1.e-1"><i class="fa fa-check"></i><b>5.0.5</b> Question 1.e</a></li>
+<li class="chapter" data-level="5.0.6" data-path="week-2-home.html"><a href="week-2-home.html#question-1.f-1"><i class="fa fa-check"></i><b>5.0.6</b> Question 1.f</a></li>
+<li class="chapter" data-level="5.0.7" data-path="week-2-home.html"><a href="week-2-home.html#question-1.g-1"><i class="fa fa-check"></i><b>5.0.7</b> Question 1.g</a></li>
+<li class="chapter" data-level="5.0.8" data-path="week-2-home.html"><a href="week-2-home.html#question-1.h-1"><i class="fa fa-check"></i><b>5.0.8</b> Question 1.h</a></li>
+<li class="chapter" data-level="5.0.9" data-path="week-2-home.html"><a href="week-2-home.html#question-1.i-1"><i class="fa fa-check"></i><b>5.0.9</b> Question 1.i</a></li>
+<li class="chapter" data-level="5.0.10" data-path="week-2-home.html"><a href="week-2-home.html#question-1.j-1"><i class="fa fa-check"></i><b>5.0.10</b> Question 1.j</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="week-2-class.html"><a href="week-2-class.html"><i class="fa fa-check"></i><b>6</b> Week 2 - Class</a><ul>
+<li class="chapter" data-level="6.1" data-path="loading-data-1.html"><a href="loading-data-1.html"><i class="fa fa-check"></i><b>6.1</b> Loading data</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="loading-data-1.html"><a href="loading-data-1.html#question-1"><i class="fa fa-check"></i><b>6.1.1</b> Question 1</a></li>
+<li class="chapter" data-level="6.1.2" data-path="loading-data-1.html"><a href="loading-data-1.html#question-2"><i class="fa fa-check"></i><b>6.1.2</b> Question 2</a></li>
+<li class="chapter" data-level="6.1.3" data-path="loading-data-1.html"><a href="loading-data-1.html#question-3"><i class="fa fa-check"></i><b>6.1.3</b> Question 3</a></li>
+<li class="chapter" data-level="6.1.4" data-path="loading-data-1.html"><a href="loading-data-1.html#question-4"><i class="fa fa-check"></i><b>6.1.4</b> Question 4</a></li>
+<li class="chapter" data-level="6.1.5" data-path="loading-data-1.html"><a href="loading-data-1.html#question-5"><i class="fa fa-check"></i><b>6.1.5</b> Question 5</a></li>
+<li class="chapter" data-level="6.1.6" data-path="loading-data-1.html"><a href="loading-data-1.html#question-6"><i class="fa fa-check"></i><b>6.1.6</b> Question 6</a></li>
+<li class="chapter" data-level="6.1.7" data-path="loading-data-1.html"><a href="loading-data-1.html#question-7"><i class="fa fa-check"></i><b>6.1.7</b> Question 7</a></li>
+<li class="chapter" data-level="6.1.8" data-path="loading-data-1.html"><a href="loading-data-1.html#question-8"><i class="fa fa-check"></i><b>6.1.8</b> Question 8</a></li>
+<li class="chapter" data-level="6.1.9" data-path="loading-data-1.html"><a href="loading-data-1.html#question-9"><i class="fa fa-check"></i><b>6.1.9</b> Question 9</a></li>
+<li class="chapter" data-level="6.1.10" data-path="loading-data-1.html"><a href="loading-data-1.html#question-10"><i class="fa fa-check"></i><b>6.1.10</b> Question 10</a></li>
+<li class="chapter" data-level="6.1.11" data-path="loading-data-1.html"><a href="loading-data-1.html#question-11"><i class="fa fa-check"></i><b>6.1.11</b> Question 11</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="week-3-home.html"><a href="week-3-home.html"><i class="fa fa-check"></i><b>7</b> Week 3 - Home</a><ul>
+<li class="chapter" data-level="7.0.1" data-path="week-3-home.html"><a href="week-3-home.html#get-started-with-lavaan"><i class="fa fa-check"></i><b>7.0.1</b> Get started with lavaan</a></li>
+<li class="chapter" data-level="7.0.2" data-path="week-3-home.html"><a href="week-3-home.html#regression-models-in-lavaan"><i class="fa fa-check"></i><b>7.0.2</b> Regression models in lavaan</a></li>
+<li class="chapter" data-level="7.0.3" data-path="week-3-home.html"><a href="week-3-home.html#conceptual-model"><i class="fa fa-check"></i><b>7.0.3</b> Conceptual model</a></li>
+<li class="chapter" data-level="7.0.4" data-path="week-3-home.html"><a href="week-3-home.html#lavaan-syntax"><i class="fa fa-check"></i><b>7.0.4</b> Lavaan syntax</a></li>
+<li class="chapter" data-level="7.0.5" data-path="week-3-home.html"><a href="week-3-home.html#performing-the-analysis"><i class="fa fa-check"></i><b>7.0.5</b> Performing the analysis</a></li>
+<li class="chapter" data-level="7.0.6" data-path="week-3-home.html"><a href="week-3-home.html#viewing-the-output"><i class="fa fa-check"></i><b>7.0.6</b> Viewing the output</a></li>
+<li class="chapter" data-level="7.0.7" data-path="week-3-home.html"><a href="week-3-home.html#plotting-the-output"><i class="fa fa-check"></i><b>7.0.7</b> Plotting the output</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="week-3-class.html"><a href="week-3-class.html"><i class="fa fa-check"></i><b>8</b> Week 3 - Class</a><ul>
+<li class="chapter" data-level="8.0.1" data-path="week-3-class.html"><a href="week-3-class.html#question-1-1"><i class="fa fa-check"></i><b>8.0.1</b> Question 1</a></li>
+<li class="chapter" data-level="8.0.2" data-path="week-3-class.html"><a href="week-3-class.html#question-2-1"><i class="fa fa-check"></i><b>8.0.2</b> Question 2</a></li>
+<li class="chapter" data-level="8.0.3" data-path="week-3-class.html"><a href="week-3-class.html#question-3-1"><i class="fa fa-check"></i><b>8.0.3</b> Question 3</a></li>
+<li class="chapter" data-level="8.0.4" data-path="week-3-class.html"><a href="week-3-class.html#question-4-1"><i class="fa fa-check"></i><b>8.0.4</b> Question 4</a></li>
+<li class="chapter" data-level="8.0.5" data-path="week-3-class.html"><a href="week-3-class.html#question-5-1"><i class="fa fa-check"></i><b>8.0.5</b> Question 5</a></li>
+<li class="chapter" data-level="8.0.6" data-path="week-3-class.html"><a href="week-3-class.html#question-6-1"><i class="fa fa-check"></i><b>8.0.6</b> Question 6</a></li>
+<li class="chapter" data-level="8.0.7" data-path="week-3-class.html"><a href="week-3-class.html#question-7-1"><i class="fa fa-check"></i><b>8.0.7</b> Question 7</a></li>
+<li class="chapter" data-level="8.0.8" data-path="week-3-class.html"><a href="week-3-class.html#question-8-1"><i class="fa fa-check"></i><b>8.0.8</b> Question 8</a></li>
+<li class="chapter" data-level="8.0.9" data-path="week-3-class.html"><a href="week-3-class.html#question-9-1"><i class="fa fa-check"></i><b>8.0.9</b> Question 9</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="week-4-home.html"><a href="week-4-home.html"><i class="fa fa-check"></i><b>9</b> Week 4 - Home</a><ul>
+<li class="chapter" data-level="9.0.1" data-path="week-4-home.html"><a href="week-4-home.html#question-1-2"><i class="fa fa-check"></i><b>9.0.1</b> Question 1</a></li>
+<li class="chapter" data-level="9.0.2" data-path="week-4-home.html"><a href="week-4-home.html#question-2-2"><i class="fa fa-check"></i><b>9.0.2</b> Question 2</a></li>
+<li class="chapter" data-level="9.0.3" data-path="week-4-home.html"><a href="week-4-home.html#question-3-2"><i class="fa fa-check"></i><b>9.0.3</b> Question 3</a></li>
+<li class="chapter" data-level="9.0.4" data-path="week-4-home.html"><a href="week-4-home.html#question-4-2"><i class="fa fa-check"></i><b>9.0.4</b> Question 4</a></li>
+<li class="chapter" data-level="9.0.5" data-path="week-4-home.html"><a href="week-4-home.html#question-5-2"><i class="fa fa-check"></i><b>9.0.5</b> Question 5</a></li>
+<li class="chapter" data-level="9.0.6" data-path="week-4-home.html"><a href="week-4-home.html#question-6-2"><i class="fa fa-check"></i><b>9.0.6</b> Question 6</a></li>
+<li class="chapter" data-level="9.0.7" data-path="week-4-home.html"><a href="week-4-home.html#question-7-2"><i class="fa fa-check"></i><b>9.0.7</b> QUestion 7</a></li>
+<li class="chapter" data-level="9.0.8" data-path="week-4-home.html"><a href="week-4-home.html#question-8-2"><i class="fa fa-check"></i><b>9.0.8</b> Question 8</a></li>
+<li class="chapter" data-level="9.0.9" data-path="week-4-home.html"><a href="week-4-home.html#additional-options"><i class="fa fa-check"></i><b>9.0.9</b> Additional options</a></li>
+<li class="chapter" data-level="9.0.10" data-path="week-4-home.html"><a href="week-4-home.html#question-9-2"><i class="fa fa-check"></i><b>9.0.10</b> Question 9</a></li>
+<li class="chapter" data-level="9.0.11" data-path="week-4-home.html"><a href="week-4-home.html#question-10-1"><i class="fa fa-check"></i><b>9.0.11</b> Question 10</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="week-4-home-1.html"><a href="week-4-home-1.html"><i class="fa fa-check"></i><b>10</b> Week 4 - Home</a><ul>
+<li class="chapter" data-level="10.0.1" data-path="week-4-home-1.html"><a href="week-4-home-1.html#specify-basic-model"><i class="fa fa-check"></i><b>10.0.1</b> Specify basic model</a></li>
+<li class="chapter" data-level="10.0.2" data-path="week-4-home-1.html"><a href="week-4-home-1.html#how-to-run-multi-group-model"><i class="fa fa-check"></i><b>10.0.2</b> How to run multi-group model</a></li>
+<li class="chapter" data-level="10.0.3" data-path="week-4-home-1.html"><a href="week-4-home-1.html#question-1-3"><i class="fa fa-check"></i><b>10.0.3</b> Question 1</a></li>
+<li class="chapter" data-level="10.0.4" data-path="week-4-home-1.html"><a href="week-4-home-1.html#question-2-3"><i class="fa fa-check"></i><b>10.0.4</b> Question 2</a></li>
+<li class="chapter" data-level="10.0.5" data-path="week-4-home-1.html"><a href="week-4-home-1.html#question-3-3"><i class="fa fa-check"></i><b>10.0.5</b> Question 3</a></li>
+<li class="chapter" data-level="10.0.6" data-path="week-4-home-1.html"><a href="week-4-home-1.html#question-4-3"><i class="fa fa-check"></i><b>10.0.6</b> Question 4</a></li>
+<li class="chapter" data-level="10.0.7" data-path="week-4-home-1.html"><a href="week-4-home-1.html#imposing-constraints"><i class="fa fa-check"></i><b>10.0.7</b> Imposing constraints</a></li>
+<li class="chapter" data-level="10.0.8" data-path="week-4-home-1.html"><a href="week-4-home-1.html#stepwise-approach"><i class="fa fa-check"></i><b>10.0.8</b> Stepwise approach</a></li>
+<li class="chapter" data-level="10.0.9" data-path="week-4-home-1.html"><a href="week-4-home-1.html#question-5-3"><i class="fa fa-check"></i><b>10.0.9</b> Question 5</a></li>
+<li class="chapter" data-level="10.0.10" data-path="week-4-home-1.html"><a href="week-4-home-1.html#question-6-3"><i class="fa fa-check"></i><b>10.0.10</b> Question 6</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="week-4-home-2.html"><a href="week-4-home-2.html"><i class="fa fa-check"></i><b>11</b> Week 4 - Home</a><ul>
+<li class="chapter" data-level="11.0.1" data-path="week-4-home-2.html"><a href="week-4-home-2.html#specify-model"><i class="fa fa-check"></i><b>11.0.1</b> Specify model</a></li>
+<li class="chapter" data-level="11.0.2" data-path="week-4-home-2.html"><a href="week-4-home-2.html#question-1-4"><i class="fa fa-check"></i><b>11.0.2</b> Question 1</a></li>
+<li class="chapter" data-level="11.0.3" data-path="week-4-home-2.html"><a href="week-4-home-2.html#question-4-4"><i class="fa fa-check"></i><b>11.0.3</b> Question 4</a></li>
+<li class="chapter" data-level="11.0.4" data-path="week-4-home-2.html"><a href="week-4-home-2.html#question-3-4"><i class="fa fa-check"></i><b>11.0.4</b> Question 3</a></li>
+<li class="chapter" data-level="11.0.5" data-path="week-4-home-2.html"><a href="week-4-home-2.html#estimating-indirect-effects"><i class="fa fa-check"></i><b>11.0.5</b> Estimating indirect effects</a></li>
+<li class="chapter" data-level="11.0.6" data-path="week-4-home-2.html"><a href="week-4-home-2.html#question-4-5"><i class="fa fa-check"></i><b>11.0.6</b> Question 4</a></li>
+<li class="chapter" data-level="11.0.7" data-path="week-4-home-2.html"><a href="week-4-home-2.html#question-5-4"><i class="fa fa-check"></i><b>11.0.7</b> Question 5</a></li>
+<li class="chapter" data-level="11.0.8" data-path="week-4-home-2.html"><a href="week-4-home-2.html#question-6-4"><i class="fa fa-check"></i><b>11.0.8</b> Question 6</a></li>
+<li class="chapter" data-level="11.0.9" data-path="week-4-home-2.html"><a href="week-4-home-2.html#difference-between-parameters"><i class="fa fa-check"></i><b>11.0.9</b> Difference between parameters</a></li>
+<li class="chapter" data-level="11.0.10" data-path="week-4-home-2.html"><a href="week-4-home-2.html#bootstrapping"><i class="fa fa-check"></i><b>11.0.10</b> Bootstrapping</a></li>
+<li class="chapter" data-level="11.0.11" data-path="week-4-home-2.html"><a href="week-4-home-2.html#question-7-3"><i class="fa fa-check"></i><b>11.0.11</b> Question 7</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Theory Construction and Statistical Modeling</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="week-4---home-2" class="section level1">
+<h1><span class="header-section-number">Chapter 11</span> Week 4 - Home</h1>
+<p>The data file SelfEsteem.sav contains the following variables:</p>
+<ul>
+<li>Parental Attachment</li>
+<li>Peer Attachment</li>
+<li>Empathy</li>
+<li>Prosocial behavior</li>
+<li>Aggression</li>
+<li>Self-esteem</li>
+</ul>
+<p>Which were measured for 143 college students (mean age: 18.6 years, SD=1.61). The researcher is interested in the direct and indirect effects of parental and peer attachment on self-esteem, and the mediating roles of empathy and social behavior (i.e., prosocial behavior and aggression).</p>
+<p>Specifically, the researcher expects that having good relationships with peers will increase prosocial behavior and decrease aggressive behavior, and that this is probably mediated through empathy (since people who experience empathy are likely to want to decrease distress in others), while the relationships with parents are expected to have a more direct effect on self-esteem.</p>
+<div id="specify-model" class="section level3">
+<h3><span class="header-section-number">11.0.1</span> Specify model</h3>
+<p>To investigate these research questions, you need to specify the model depicted below. Create a text string describing this model for later use with lavaan:</p>
+<p><img src="week5home.png" /></p>
+<details>
+<p><summary>Click for explanation</summary></p>
+<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb195-1" data-line-number="1">mediation_model &lt;-<span class="st"> &quot;SelfEst ~ ProSoc + Aggr + ParAtt + PeerAtt</span></a>
+<a class="sourceLine" id="cb195-2" data-line-number="2"><span class="st">                    ProSoc ~ Emp</span></a>
+<a class="sourceLine" id="cb195-3" data-line-number="3"><span class="st">                    Aggr ~ Emp</span></a>
+<a class="sourceLine" id="cb195-4" data-line-number="4"><span class="st">                    Emp ~ ParAtt + PeerAtt</span></a>
+<a class="sourceLine" id="cb195-5" data-line-number="5"><span class="st">                    ProSoc ~~ Aggr</span></a>
+<a class="sourceLine" id="cb195-6" data-line-number="6"><span class="st">                    ParAtt ~~ PeerAtt&quot;</span></a></code></pre></div>
+
+</div>
+<div id="question-1-4" class="section level3">
+<h3><span class="header-section-number">11.0.2</span> Question 1</h3>
+<p>How many and which paths are there from Parental Attachment to Self-esteem? And from Peer Attachment to Self-esteem?</p>
+<details>
+<p><summary>Click for explanation</summary>
+PARA-&gt;SE: 3 if you dont count covariances
+6 if you count covariance between PARATT and PEERATT
+10 if you (additionally) count the covariance between e2 and e3
+I think the indirect pathway in AMOS does not count covariances, so the indirect effect estimate in AMOS is made up of PARATT -&gt; EMP -&gt; PROSOC -&gt; SELFEST, and of PARATT -&gt; EMP -&gt; AGGR -&gt; SELFEST</p>
+<p>PEERA-&gt;SE: as above
+</p>
+</div>
+<div id="question-4-4" class="section level3">
+<h3><span class="header-section-number">11.0.3</span> Question 4</h3>
+<p>Run this model. Discuss the fit of the model.</p>
+<details>
+<p><summary>Click for explanation</summary></p>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb196-1" data-line-number="1">fit_mediation &lt;-<span class="st"> </span><span class="kw">sem</span>(mediation_model,</a>
+<a class="sourceLine" id="cb196-2" data-line-number="2">                     <span class="dt">data =</span> data)</a>
+<a class="sourceLine" id="cb196-3" data-line-number="3"><span class="kw">summary</span>(fit_mediation, <span class="dt">fit.measures =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<pre><code>## lavaan 0.6-3 ended normally after 18 iterations
+## 
+##   Optimization method                           NLMINB
+##   Number of free parameters                         16
+## 
+##   Number of observations                           143
+## 
+##   Estimator                                         ML
+##   Model Fit Test Statistic                      12.609
+##   Degrees of freedom                                 5
+##   P-value (Chi-square)                           0.027
+## 
+## Model test baseline model:
+## 
+##   Minimum Function Test Statistic              174.959
+##   Degrees of freedom                                15
+##   P-value                                        0.000
+## 
+## User model versus baseline model:
+## 
+##   Comparative Fit Index (CFI)                    0.952
+##   Tucker-Lewis Index (TLI)                       0.857
+## 
+## Loglikelihood and Information Criteria:
+## 
+##   Loglikelihood user model (H0)              -1131.703
+##   Loglikelihood unrestricted model (H1)      -1125.399
+## 
+##   Number of free parameters                         16
+##   Akaike (AIC)                                2295.407
+##   Bayesian (BIC)                              2342.812
+##   Sample-size adjusted Bayesian (BIC)         2292.185
+## 
+## Root Mean Square Error of Approximation:
+## 
+##   RMSEA                                          0.103
+##   90 Percent Confidence Interval          0.032  0.176
+##   P-value RMSEA &lt;= 0.05                          0.093
+## 
+## Standardized Root Mean Square Residual:
+## 
+##   SRMR                                           0.059
+## 
+## Parameter Estimates:
+## 
+##   Information                                 Expected
+##   Information saturated (h1) model          Structured
+##   Standard Errors                             Standard
+## 
+## Regressions:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)
+##   SelfEst ~                                           
+##     ProSoc            0.312    0.084    3.721    0.000
+##     Aggr              0.159    0.083    1.915    0.056
+##     ParAtt            0.240    0.076    3.153    0.002
+##     PeerAtt           0.083    0.089    0.935    0.350
+##   ProSoc ~                                            
+##     Emp               0.520    0.071    7.285    0.000
+##   Aggr ~                                              
+##     Emp              -0.354    0.078   -4.528    0.000
+##   Emp ~                                               
+##     ParAtt            0.078    0.075    1.045    0.296
+##     PeerAtt           0.306    0.086    3.557    0.000
+## 
+## Covariances:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)
+##  .ProSoc ~~                                           
+##    .Aggr             -0.099    0.061   -1.621    0.105
+##   ParAtt ~~                                           
+##     PeerAtt           0.537    0.103    5.215    0.000
+## 
+## Variances:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)
+##    .SelfEst           0.808    0.096    8.456    0.000
+##    .ProSoc            0.657    0.078    8.456    0.000
+##    .Aggr              0.789    0.093    8.456    0.000
+##    .Emp               0.779    0.092    8.456    0.000
+##     ParAtt            1.277    0.151    8.456    0.000
+##     PeerAtt           0.963    0.114    8.456    0.000</code></pre>
+<p>CFI is acceptable, RMSEA is not.
+</p>
+</div>
+<div id="question-3-4" class="section level3">
+<h3><span class="header-section-number">11.0.4</span> Question 3</h3>
+<p>Considering the parameter estimates, what can you say about the research questions?</p>
+<details>
+<p><summary>Click for explanation</summary>
+The researcher expects that having good relationships with peers will increase prosocial behavior and decrease aggressive behavior, and that this is probably mediated through empathy (since people who experience empathy are likely to want to decrease distress in others), while the relationships with parents are expected to have a more direct effect on self-esteem.</p>
+<p>Generally seems to be the case – Paratt has a significant direct effect, and ParAtt seems to have a significant effect on empathy. Need to look further at indirect effects and total effects for details.
+</p>
+</div>
+<div id="estimating-indirect-effects" class="section level3">
+<h3><span class="header-section-number">11.0.5</span> Estimating indirect effects</h3>
+<p>Remember that an indirect effect is the product of several chained direct effects. Therefore, to obtain an indirect effect, you can multiply the two (or more) direct effects it consists of. Based on this knowledge - and you previous experience labelling parameters - the way to estimate indirect effects may be obvious:</p>
+<ol style="list-style-type: decimal">
+<li>You label the direct effects</li>
+<li>You multiply the labels</li>
+</ol>
+<p>There is a tutorial on this on the lavaan website: <a href="http://lavaan.ugent.be/tutorial/mediation.html" class="uri">http://lavaan.ugent.be/tutorial/mediation.html</a></p>
+<p>Additionally, a total effect is the sum of all direct and indirect effects that connect one predictor and one outcome. So, for example, in this week’s model, two indirect effects link Empathy and Self-esteem (through prosocial and aggression). The total effect of empathy on self-esteem is therefore the sum of these two indirect effects (and no direct effect).</p>
+</div>
+<div id="question-4-5" class="section level3">
+<h3><span class="header-section-number">11.0.6</span> Question 4</h3>
+<p>Estimate the indirect effects of Emp on SelfEst, mediated through ProSoc and Aggr. Also estimate the total effect.</p>
+<p><em>Note: A new parameter is defined in lavaan using the</em> <code>:=</code> <em>operator.</em></p>
+<details>
+<p><summary>Click for explanation</summary></p>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb198-1" data-line-number="1">mediation_model &lt;-<span class="st"> &quot;SelfEst ~ bse_pro * ProSoc + bse_agg * Aggr + ParAtt + PeerAtt</span></a>
+<a class="sourceLine" id="cb198-2" data-line-number="2"><span class="st">                    ProSoc ~ bpro_emp * Emp</span></a>
+<a class="sourceLine" id="cb198-3" data-line-number="3"><span class="st">                    Aggr ~ bagg_emp * Emp</span></a>
+<a class="sourceLine" id="cb198-4" data-line-number="4"><span class="st">                    Emp ~ ParAtt + PeerAtt</span></a>
+<a class="sourceLine" id="cb198-5" data-line-number="5"><span class="st">                    ProSoc ~~ Aggr</span></a>
+<a class="sourceLine" id="cb198-6" data-line-number="6"><span class="st">                    ParAtt ~~ PeerAtt</span></a>
+<a class="sourceLine" id="cb198-7" data-line-number="7"><span class="st">                    ind_pro := bse_pro * bpro_emp</span></a>
+<a class="sourceLine" id="cb198-8" data-line-number="8"><span class="st">                    ind_agg := bse_agg * bagg_emp</span></a>
+<a class="sourceLine" id="cb198-9" data-line-number="9"><span class="st">                    total := ind_pro + ind_agg&quot;</span></a>
+<a class="sourceLine" id="cb198-10" data-line-number="10">fit_mediation &lt;-<span class="st"> </span><span class="kw">sem</span>(mediation_model,</a>
+<a class="sourceLine" id="cb198-11" data-line-number="11">                     <span class="dt">data =</span> data)</a>
+<a class="sourceLine" id="cb198-12" data-line-number="12"><span class="kw">summary</span>(fit_mediation, <span class="dt">fit.measures =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<pre><code>## lavaan 0.6-3 ended normally after 18 iterations
+## 
+##   Optimization method                           NLMINB
+##   Number of free parameters                         16
+## 
+##   Number of observations                           143
+## 
+##   Estimator                                         ML
+##   Model Fit Test Statistic                      12.609
+##   Degrees of freedom                                 5
+##   P-value (Chi-square)                           0.027
+## 
+## Model test baseline model:
+## 
+##   Minimum Function Test Statistic              174.959
+##   Degrees of freedom                                15
+##   P-value                                        0.000
+## 
+## User model versus baseline model:
+## 
+##   Comparative Fit Index (CFI)                    0.952
+##   Tucker-Lewis Index (TLI)                       0.857
+## 
+## Loglikelihood and Information Criteria:
+## 
+##   Loglikelihood user model (H0)              -1131.703
+##   Loglikelihood unrestricted model (H1)      -1125.399
+## 
+##   Number of free parameters                         16
+##   Akaike (AIC)                                2295.407
+##   Bayesian (BIC)                              2342.812
+##   Sample-size adjusted Bayesian (BIC)         2292.185
+## 
+## Root Mean Square Error of Approximation:
+## 
+##   RMSEA                                          0.103
+##   90 Percent Confidence Interval          0.032  0.176
+##   P-value RMSEA &lt;= 0.05                          0.093
+## 
+## Standardized Root Mean Square Residual:
+## 
+##   SRMR                                           0.059
+## 
+## Parameter Estimates:
+## 
+##   Information                                 Expected
+##   Information saturated (h1) model          Structured
+##   Standard Errors                             Standard
+## 
+## Regressions:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)
+##   SelfEst ~                                           
+##     ProSoc  (bs_p)    0.312    0.084    3.721    0.000
+##     Aggr    (bs_g)    0.159    0.083    1.915    0.056
+##     ParAtt            0.240    0.076    3.153    0.002
+##     PeerAtt           0.083    0.089    0.935    0.350
+##   ProSoc ~                                            
+##     Emp     (bpr_)    0.520    0.071    7.285    0.000
+##   Aggr ~                                              
+##     Emp     (bgg_)   -0.354    0.078   -4.528    0.000
+##   Emp ~                                               
+##     ParAtt            0.078    0.075    1.045    0.296
+##     PeerAtt           0.306    0.086    3.557    0.000
+## 
+## Covariances:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)
+##  .ProSoc ~~                                           
+##    .Aggr             -0.099    0.061   -1.621    0.105
+##   ParAtt ~~                                           
+##     PeerAtt           0.537    0.103    5.215    0.000
+## 
+## Variances:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)
+##    .SelfEst           0.808    0.096    8.456    0.000
+##    .ProSoc            0.657    0.078    8.456    0.000
+##    .Aggr              0.789    0.093    8.456    0.000
+##    .Emp               0.779    0.092    8.456    0.000
+##     ParAtt            1.277    0.151    8.456    0.000
+##     PeerAtt           0.963    0.114    8.456    0.000
+## 
+## Defined Parameters:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)
+##     ind_pro           0.162    0.049    3.314    0.001
+##     ind_agg          -0.056    0.032   -1.764    0.078
+##     total             0.106    0.051    2.066    0.039</code></pre>
+
+</div>
+<div id="question-5-4" class="section level3">
+<h3><span class="header-section-number">11.0.7</span> Question 5</h3>
+<p>Estimate all indirect effects and the total effects of Parental Attachment and Peer Attachment on Self-esteem.</p>
+<details>
+<p><summary>Click for explanation</summary></p>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb200-1" data-line-number="1">mediation_model &lt;-<span class="st"> &quot;SelfEst ~ bse_pro * ProSoc + bse_agg * Aggr + bse_par * ParAtt + bse_peer * PeerAtt</span></a>
+<a class="sourceLine" id="cb200-2" data-line-number="2"><span class="st">                    ProSoc ~ bpro_emp * Emp</span></a>
+<a class="sourceLine" id="cb200-3" data-line-number="3"><span class="st">                    Aggr ~ bagg_emp * Emp</span></a>
+<a class="sourceLine" id="cb200-4" data-line-number="4"><span class="st">                    Emp ~ bemp_par * ParAtt + bemp_peer * PeerAtt</span></a>
+<a class="sourceLine" id="cb200-5" data-line-number="5"><span class="st">                    ProSoc ~~ Aggr</span></a>
+<a class="sourceLine" id="cb200-6" data-line-number="6"><span class="st">                    ParAtt ~~ PeerAtt</span></a>
+<a class="sourceLine" id="cb200-7" data-line-number="7"><span class="st">                    ind_par_emp_pro := bse_pro * bpro_emp * bemp_par</span></a>
+<a class="sourceLine" id="cb200-8" data-line-number="8"><span class="st">                    ind_peer_emp_pro := bse_pro * bpro_emp * bemp_peer</span></a>
+<a class="sourceLine" id="cb200-9" data-line-number="9"><span class="st">                    ind_par_emp_agg := bse_agg * bagg_emp * bemp_par</span></a>
+<a class="sourceLine" id="cb200-10" data-line-number="10"><span class="st">                    ind_peer_emp_agg := bse_agg * bagg_emp * bemp_peer</span></a>
+<a class="sourceLine" id="cb200-11" data-line-number="11"><span class="st">                    </span></a>
+<a class="sourceLine" id="cb200-12" data-line-number="12"><span class="st">                    total_par := bse_par + ind_par_emp_pro + ind_par_emp_agg</span></a>
+<a class="sourceLine" id="cb200-13" data-line-number="13"><span class="st">                    total_peer := bse_peer + ind_peer_emp_pro + ind_peer_emp_agg&quot;</span></a>
+<a class="sourceLine" id="cb200-14" data-line-number="14">fit_mediation &lt;-<span class="st"> </span><span class="kw">sem</span>(mediation_model,</a>
+<a class="sourceLine" id="cb200-15" data-line-number="15">                     <span class="dt">data =</span> data)</a>
+<a class="sourceLine" id="cb200-16" data-line-number="16"><span class="kw">summary</span>(fit_mediation)</a></code></pre></div>
+<pre><code>## lavaan 0.6-3 ended normally after 18 iterations
+## 
+##   Optimization method                           NLMINB
+##   Number of free parameters                         16
+## 
+##   Number of observations                           143
+## 
+##   Estimator                                         ML
+##   Model Fit Test Statistic                      12.609
+##   Degrees of freedom                                 5
+##   P-value (Chi-square)                           0.027
+## 
+## Parameter Estimates:
+## 
+##   Information                                 Expected
+##   Information saturated (h1) model          Structured
+##   Standard Errors                             Standard
+## 
+## Regressions:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)
+##   SelfEst ~                                           
+##     PrS  (bse_pro)    0.312    0.084    3.721    0.000
+##     Agg     (bs_g)    0.159    0.083    1.915    0.056
+##     PrA  (bse_par)    0.240    0.076    3.153    0.002
+##     PrA  (bse_per)    0.083    0.089    0.935    0.350
+##   ProSoc ~                                            
+##     Emp     (bpr_)    0.520    0.071    7.285    0.000
+##   Aggr ~                                              
+##     Emp     (bgg_)   -0.354    0.078   -4.528    0.000
+##   Emp ~                                               
+##     PrA (bemp_par)    0.078    0.075    1.045    0.296
+##     PrA (bemp_per)    0.306    0.086    3.557    0.000
+## 
+## Covariances:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)
+##  .ProSoc ~~                                           
+##    .Aggr             -0.099    0.061   -1.621    0.105
+##   ParAtt ~~                                           
+##     PeerAtt           0.537    0.103    5.215    0.000
+## 
+## Variances:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)
+##    .SelfEst           0.808    0.096    8.456    0.000
+##    .ProSoc            0.657    0.078    8.456    0.000
+##    .Aggr              0.789    0.093    8.456    0.000
+##    .Emp               0.779    0.092    8.456    0.000
+##     ParAtt            1.277    0.151    8.456    0.000
+##     PeerAtt           0.963    0.114    8.456    0.000
+## 
+## Defined Parameters:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)
+##     ind_par_emp_pr    0.013    0.013    0.997    0.319
+##     ind_peer_mp_pr    0.050    0.020    2.425    0.015
+##     ind_par_emp_gg   -0.004    0.005   -0.899    0.368
+##     ind_peer_mp_gg   -0.017    0.011   -1.580    0.114
+##     total_par         0.248    0.076    3.247    0.001
+##     total_peer        0.115    0.088    1.305    0.192</code></pre>
+
+</div>
+<div id="question-6-4" class="section level3">
+<h3><span class="header-section-number">11.0.8</span> Question 6</h3>
+<p>To compare the total effect of parental attachment versus peer attachment on self esteem, should you use the standardized or unstandardized parameters? Obtain the appropriate output, and draw a conclusion.</p>
+<details>
+<p><summary>Click for explanation</summary></p>
+<p>You should use the standardized results:</p>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb202-1" data-line-number="1"><span class="kw">summary</span>(fit_mediation, <span class="dt">fit.measures =</span> <span class="ot">TRUE</span>, <span class="dt">standardize =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<pre><code>## lavaan 0.6-3 ended normally after 18 iterations
+## 
+##   Optimization method                           NLMINB
+##   Number of free parameters                         16
+## 
+##   Number of observations                           143
+## 
+##   Estimator                                         ML
+##   Model Fit Test Statistic                      12.609
+##   Degrees of freedom                                 5
+##   P-value (Chi-square)                           0.027
+## 
+## Model test baseline model:
+## 
+##   Minimum Function Test Statistic              174.959
+##   Degrees of freedom                                15
+##   P-value                                        0.000
+## 
+## User model versus baseline model:
+## 
+##   Comparative Fit Index (CFI)                    0.952
+##   Tucker-Lewis Index (TLI)                       0.857
+## 
+## Loglikelihood and Information Criteria:
+## 
+##   Loglikelihood user model (H0)              -1131.703
+##   Loglikelihood unrestricted model (H1)      -1125.399
+## 
+##   Number of free parameters                         16
+##   Akaike (AIC)                                2295.407
+##   Bayesian (BIC)                              2342.812
+##   Sample-size adjusted Bayesian (BIC)         2292.185
+## 
+## Root Mean Square Error of Approximation:
+## 
+##   RMSEA                                          0.103
+##   90 Percent Confidence Interval          0.032  0.176
+##   P-value RMSEA &lt;= 0.05                          0.093
+## 
+## Standardized Root Mean Square Residual:
+## 
+##   SRMR                                           0.059
+## 
+## Parameter Estimates:
+## 
+##   Information                                 Expected
+##   Information saturated (h1) model          Structured
+##   Standard Errors                             Standard
+## 
+## Regressions:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+##   SelfEst ~                                                             
+##     PrS  (bse_pro)    0.312    0.084    3.721    0.000    0.312    0.295
+##     Agg     (bs_g)    0.159    0.083    1.915    0.056    0.159    0.150
+##     PrA  (bse_par)    0.240    0.076    3.153    0.002    0.240    0.269
+##     PrA  (bse_per)    0.083    0.089    0.935    0.350    0.083    0.081
+##   ProSoc ~                                                              
+##     Emp     (bpr_)    0.520    0.071    7.285    0.000    0.520    0.520
+##   Aggr ~                                                                
+##     Emp     (bgg_)   -0.354    0.078   -4.528    0.000   -0.354   -0.354
+##   Emp ~                                                                 
+##     PrA (bemp_par)    0.078    0.075    1.045    0.296    0.078    0.093
+##     PrA (bemp_per)    0.306    0.086    3.557    0.000    0.306    0.316
+## 
+## Covariances:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+##  .ProSoc ~~                                                             
+##    .Aggr             -0.099    0.061   -1.621    0.105   -0.099   -0.137
+##   ParAtt ~~                                                             
+##     PeerAtt           0.537    0.103    5.215    0.000    0.537    0.485
+## 
+## Variances:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+##    .SelfEst           0.808    0.096    8.456    0.000    0.808    0.797
+##    .ProSoc            0.657    0.078    8.456    0.000    0.657    0.729
+##    .Aggr              0.789    0.093    8.456    0.000    0.789    0.875
+##    .Emp               0.779    0.092    8.456    0.000    0.779    0.863
+##     ParAtt            1.277    0.151    8.456    0.000    1.277    1.000
+##     PeerAtt           0.963    0.114    8.456    0.000    0.963    1.000
+## 
+## Defined Parameters:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+##     ind_par_emp_pr    0.013    0.013    0.997    0.319    0.013    0.014
+##     ind_peer_mp_pr    0.050    0.020    2.425    0.015    0.050    0.048
+##     ind_par_emp_gg   -0.004    0.005   -0.899    0.368   -0.004   -0.005
+##     ind_peer_mp_gg   -0.017    0.011   -1.580    0.114   -0.017   -0.017
+##     total_par         0.248    0.076    3.247    0.001    0.248    0.279
+##     total_peer        0.115    0.088    1.305    0.192    0.115    0.112</code></pre>
+
+</div>
+<div id="difference-between-parameters" class="section level3">
+<h3><span class="header-section-number">11.0.9</span> Difference between parameters</h3>
+<p>To test the difference between parameters, you can constrain them to be equal and do a chi-square difference test to compare the constrained and unconstrained models. However, you can also calculate the difference between parameters, and test if it’s significant:</p>
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb204-1" data-line-number="1"><span class="st">&quot;dif_par_peer := total_par - total_peer&quot;</span></a></code></pre></div>
+</div>
+<div id="bootstrapping" class="section level3">
+<h3><span class="header-section-number">11.0.10</span> Bootstrapping</h3>
+<p>You may have learned before that the sampling distribution of indirect effects is not normal. Consequently, you cannot use parameteric p-values to determine the significance of indirect effects because they are biased. If you want to know whether the indirect effects are significant, you can bootstrap them to obtain a 95% confidence interval.</p>
+<p>Bootstrapping means that lavaan will draw 1000 samples from the data and estimate the model on each sample. There will thus be 1000 estimates for every parameter. The lower and upper bounds of a 95% confidence interval are determined by taking the 2.5% and 97.5% quantiles of the 1000 samples for each parameter.</p>
+<p>The confidence interval is interpreted the same as a normal confidence interval: If zero lies inside the interval (e.g., lower bound is -.4 and upper bound is .9), we conclude that the parameter is not significantly different from zero, but if zero does not lie in this interval (e.g., lower bound is .4 and upper bound is 1.3), we can say the parameter differs from zero (at an alpha of .05 since we are considering a 95% confidence interval).</p>
+<p>We will get these intervals for all the parameters in the model, but we are specifically interested in the intervals for the indirect effects, because we want to know if they differ from zero (i.e., whether there is a mediated effect).</p>
+<p>In lavaan, bootstrap standard errors are requested by specifying se = “bootstrap” in the fitting function, and specifying the number of bootstrap samples as <code>bootstrap = 1000</code>. First, just get your code running by specifying a low number, like 100 or even 10. <strong>Note: To draw reliable conclusions from the results, you should always use 1000+ bootstrap samples - but it can take a long time.</strong></p>
+<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb205-1" data-line-number="1">fit_mediation &lt;-<span class="st"> </span><span class="kw">sem</span>(mediation_model,</a>
+<a class="sourceLine" id="cb205-2" data-line-number="2">                     <span class="dt">data =</span> data,</a>
+<a class="sourceLine" id="cb205-3" data-line-number="3">                     <span class="dt">se =</span> <span class="st">&quot;bootstrap&quot;</span>,</a>
+<a class="sourceLine" id="cb205-4" data-line-number="4">                     <span class="dt">bootstrap =</span> <span class="dv">100</span>)</a></code></pre></div>
+<p>To obtain the confidence intervals for your model, use the following syntax:</p>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb206-1" data-line-number="1"><span class="kw">parameterestimates</span>(fit_mediation, <span class="dt">boot.ci.type =</span> <span class="st">&quot;bca.simple&quot;</span>, <span class="dt">standardized =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["lhs"],"name":[1],"type":["chr"],"align":["left"]},{"label":["op"],"name":[2],"type":["chr"],"align":["left"]},{"label":["rhs"],"name":[3],"type":["chr"],"align":["left"]},{"label":["label"],"name":[4],"type":["chr"],"align":["left"]},{"label":["est"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["se"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["z"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["pvalue"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["ci.lower"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["ci.upper"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["std.lv"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["std.all"],"name":[12],"type":["dbl"],"align":["right"]},{"label":["std.nox"],"name":[13],"type":["dbl"],"align":["right"]}],"data":[{"1":"SelfEst","2":"~","3":"ProSoc","4":"bse_pro","5":"0.312354416","6":"0.087828084","7":"3.5564298","8":"3.759289e-04","9":"0.086192046","10":"0.4653278842","11":"0.312354416","12":"0.294575440","13":"0.294575440"},{"1":"SelfEst","2":"~","3":"Aggr","4":"bse_agg","5":"0.159036607","6":"0.075968433","7":"2.0934565","8":"3.630843e-02","9":"0.001896489","10":"0.3139316923","11":"0.159036607","12":"0.150037060","13":"0.150037060"},{"1":"SelfEst","2":"~","3":"ParAtt","4":"bse_par","5":"0.240047641","6":"0.074426342","7":"3.2253049","8":"1.258386e-03","9":"0.080209986","10":"0.3648429682","11":"0.240047641","12":"0.269427507","13":"0.269427507"},{"1":"SelfEst","2":"~","3":"PeerAtt","4":"bse_peer","5":"0.082870164","6":"0.091072375","7":"0.9099374","8":"3.628555e-01","9":"-0.078055325","10":"0.3142942936","11":"0.082870164","12":"0.080784990","13":"0.080784990"},{"1":"ProSoc","2":"~","3":"Emp","4":"bpro_emp","5":"0.519885158","6":"0.086423819","7":"6.0155309","8":"1.792980e-09","9":"0.375194266","10":"0.6922794404","11":"0.519885158","12":"0.520247606","13":"0.520247606"},{"1":"Aggr","2":"~","3":"Emp","4":"bagg_emp","5":"-0.353971612","6":"0.073522505","7":"-4.8144662","8":"1.475939e-06","9":"-0.502653610","10":"-0.2275918684","11":"-0.353971612","12":"-0.354093983","13":"-0.354093983"},{"1":"Emp","2":"~","3":"ParAtt","4":"bemp_par","5":"0.078074547","6":"0.067065918","7":"1.1641464","8":"2.443647e-01","9":"-0.036268398","10":"0.2267222858","11":"0.078074547","12":"0.092854383","13":"0.092854383"},{"1":"Emp","2":"~","3":"PeerAtt","4":"bemp_peer","5":"0.305816883","6":"0.070973929","7":"4.3088622","8":"1.640965e-05","9":"0.128713859","10":"0.4210022274","11":"0.305816883","12":"0.315894727","13":"0.315894727"},{"1":"ProSoc","2":"~~","3":"Aggr","4":"","5":"-0.098516374","6":"0.057145356","7":"-1.7239612","8":"8.471485e-02","9":"-0.229084988","10":"0.0116964055","11":"-0.098516374","12":"-0.136799219","13":"-0.136799219"},{"1":"ParAtt","2":"~~","3":"PeerAtt","4":"","5":"0.537376348","6":"0.119552313","7":"4.4949055","8":"6.960085e-06","9":"0.290530032","10":"0.8048591906","11":"0.537376348","12":"0.484620653","13":"0.484620653"},{"1":"SelfEst","2":"~~","3":"SelfEst","4":"","5":"0.808053822","6":"0.085043355","7":"9.5016691","8":"0.000000e+00","9":"0.669614475","10":"0.9732047454","11":"0.808053822","12":"0.797334627","13":"0.797334627"},{"1":"ProSoc","2":"~~","3":"ProSoc","4":"","5":"0.657398809","6":"0.071956079","7":"9.1361121","8":"0.000000e+00","9":"0.490198645","10":"0.8110013261","11":"0.657398809","12":"0.729342428","13":"0.729342428"},{"1":"Aggr","2":"~~","3":"Aggr","4":"","5":"0.788897699","6":"0.095960573","7":"8.2210607","8":"2.220446e-16","9":"0.621606632","10":"1.0211866431","11":"0.788897699","12":"0.874617451","13":"0.874617451"},{"1":"Emp","2":"~~","3":"Emp","4":"","5":"0.779100311","6":"0.083074479","7":"9.3783352","8":"0.000000e+00","9":"0.622747326","10":"0.9558664348","11":"0.779100311","12":"0.863158595","13":"0.863158595"},{"1":"ParAtt","2":"~~","3":"ParAtt","4":"","5":"1.276699370","6":"0.193211132","7":"6.6077941","8":"3.900880e-11","9":"0.885787155","10":"1.6276574120","11":"1.276699370","12":"1.000000000","13":"1.000000000"},{"1":"PeerAtt","2":"~~","3":"PeerAtt","4":"","5":"0.963084993","6":"0.108007968","7":"8.9167958","8":"0.000000e+00","9":"0.732243452","10":"1.1738037198","11":"0.963084993","12":"1.000000000","13":"1.000000000"},{"1":"ind_par_emp_pro","2":":=","3":"bse_pro*bpro_emp*bemp_par","4":"ind_par_emp_pro","5":"0.012678403","6":"0.012146606","7":"1.0437815","8":"2.965865e-01","9":"-0.004244438","10":"0.0416794364","11":"0.012678403","12":"0.014230135","13":"0.014230135"},{"1":"ind_peer_emp_pro","2":":=","3":"bse_pro*bpro_emp*bemp_peer","4":"ind_peer_emp_pro","5":"0.049661122","6":"0.019460657","7":"2.5518729","8":"1.071456e-02","9":"0.018200605","10":"0.0892856853","11":"0.049661122","12":"0.048411552","13":"0.048411552"},{"1":"ind_par_emp_agg","2":":=","3":"bse_agg*bagg_emp*bemp_par","4":"ind_par_emp_agg","5":"-0.004395163","6":"0.004704996","7":"-0.9341481","8":"3.502275e-01","9":"-0.019950774","10":"0.0016508217","11":"-0.004395163","12":"-0.004933095","13":"-0.004933095"},{"1":"ind_peer_emp_agg","2":":=","3":"bse_agg*bagg_emp*bemp_peer","4":"ind_peer_emp_agg","5":"-0.017215791","6":"0.009472826","7":"-1.8173872","8":"6.915785e-02","9":"-0.039030944","10":"-0.0004769951","11":"-0.017215791","12":"-0.016782609","13":"-0.016782609"},{"1":"total_par","2":":=","3":"bse_par+ind_par_emp_pro+ind_par_emp_agg","4":"total_par","5":"0.248330881","6":"0.074497945","7":"3.3333924","8":"8.579386e-04","9":"0.090478630","10":"0.3671880678","11":"0.248330881","12":"0.278724547","13":"0.278724547"},{"1":"total_peer","2":":=","3":"bse_peer+ind_peer_emp_pro+ind_peer_emp_agg","4":"total_peer","5":"0.115315495","6":"0.093064820","7":"1.2390879","8":"2.153129e-01","9":"-0.054096288","10":"0.3514705304","11":"0.115315495","12":"0.112413933","13":"0.112413933"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<div id="question-7-3" class="section level3">
+<h3><span class="header-section-number">11.0.11</span> Question 7</h3>
+<p>What do you conclude about the indirect and total effects of Parental attachment and Peer attachment on Self-esteem? Report your conclusions as you would report them in a paper (in words and statistics).</p>
+
+<div id="refs" class="references">
+<div>
+<p>Field, Andy, Jeremy Miles, and Zoë Field. 2012. <em>Discovering Statistics Using R</em>. Sage publications.</p>
+</div>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="week-4-home-1.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["TCSM.pdf"],
+"toc": {
+"collapse": "section"
+},
+"search": true
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
