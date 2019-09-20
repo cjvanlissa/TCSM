@@ -66,15 +66,15 @@ Based on the `lavaan` tutorial, write down (just as text) the model syntax that 
 The syntax for this model is:
 
 ```{r, eval = FALSE}
-"AT ~ Income + Education
+"SAT ~ Income + Education
 Income ~~ Education"
 ```
 
 Or, equivalently:
 
 ```{r, eval = FALSE}
-"AT ~ Income 
-AT ~ Education
+"SAT ~ Income 
+SAT ~ Education
 Income ~~ Education"
 ```
 
@@ -111,6 +111,7 @@ fit <- sem(model = "SAT ~ Income + Education
                     Income ~~ Education",
            data = df)
 ```
+This will result in a warning about the variances. You can ignore this.
 \details
 
 ### Viewing the output

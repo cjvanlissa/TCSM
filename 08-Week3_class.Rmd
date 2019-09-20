@@ -46,7 +46,7 @@ trust_model_3f <- 'trustpol  =~ pltcare + pltinvt + trstplt
                    satcntry  =~ stfeco + stfgov + stfdem + stfedu + stfhlth
                    trustinst =~ trstlgl + trstplc + trstun + trstprl'
 
-fit_trust_model_3f <- cfa(trust_model_3f, data = data)
+fit_trust_model_3f <- cfa(trust_model_3f, data = df)
 summary(fit_trust_model_3f, fit.measures = TRUE)
 ```
 \details
@@ -63,7 +63,7 @@ As an alternative model, build a 1-factor model, with the same items as you used
 ```{r, message = FALSE}
 trust_model_1f <- 'political_trust =~ pltcare + pltinvt + trstprl + trstplt + stfeco + stfgov + stfdem + stfedu + stfhlth + trstlgl + trstplc + trstun + trstep'
 
-fit_trust_model_1f <- sem(trust_model_1f, data = data)
+fit_trust_model_1f <- sem(trust_model_1f, data = df)
 summary(fit_trust_model_1f, fit.measures = TRUE)
 ```
 \details
@@ -78,7 +78,7 @@ By now, you should be able to perform your own two-factor CFA, based on substant
 
 ### Question 6
 
-Choose your best model, and ask for the standardized estimates by means of the addition `standardized = TRUE` in the summary command. 
+Choose your best model, and ask for the standardized estimates by means of the addition `standardized = TRUE` in the summary command. Which item is the best predictor of the first factor?
 
 <details>
   <summary>Click for explanation</summary>
@@ -108,7 +108,7 @@ trust_model_3f2o <- 'trustpol  =~ pltcare + pltinvt + trstprl + trstplt
                      trustinst =~ trstlgl + trstplc + trstun + trstep
                      trust     =~ trustpol + trustinst'
 
-fit_trust_model_3f2o <- sem(trust_model_3f2o, data = data)
+fit_trust_model_3f2o <- sem(trust_model_3f2o, data = df)
 summary(fit_trust_model_3f2o, fit.measures = TRUE)
 ```
 \details
@@ -123,42 +123,44 @@ After doing this, add as predictors of the latent factor: gender, age, education
 
 Estimate the model. The model doesn't fit very well, but for now, we will stick with this modle. Write down the regression coefficients (standardized and unstandardized) and relevant test statistics.
 
+*Hint: Once you add predictions to your model, you should use* `sem()` *instead of* `pca()`.
+
 <details>
 <summary>Click for explanation</summary>
 
 We will first have to do some recoding again. You might want to make an age variable instead of a yearborn variable, which eases the interpretation. Furthermore, a dummy for gender is more informative than just the variable `gndr`, although this will be treated as a dummy. You will also have to recode the variables `eduyrs` and `lrscale` to numerical variables, and you will have to make a two-category dummy for the variable `polintr`.
 
 ```{r}
-data$age <- 2002 - as.numeric(as.character(data$yrbrn))
+df$age <- 2002 - as.numeric(as.character(df$yrbrn))
 
-data$female <- as.numeric(data$gndr)
-data$female <- as.numeric(data$female == 2)
-data$female <- factor(data$female,
+df$female <- as.numeric(df$gndr)
+df$female <- as.numeric(df$female == 2)
+df$female <- factor(df$female,
                       levels = c(0,1),
                       labels = c("Male",
                                  "Female"))
 
-data$eduyrs <- as.numeric(data$eduyrs)
-data$polintr_dummy <- as.numeric(data$polintr)
-data$polintr_dummy <- as.numeric(data$polintr_dummy <= 2)
-data$polintr_dummy <- factor(data$polintr_dummy,
+df$eduyrs <- as.numeric(df$eduyrs)
+df$polintr_dummy <- as.numeric(df$polintr)
+df$polintr_dummy <- as.numeric(df$polintr_dummy <= 2)
+df$polintr_dummy <- factor(df$polintr_dummy,
                                    levels = c(0,1),
                                    labels = c("Not or hardly interested",
                                               "Quite or very interested"))
 
-data$lrscale <- as.numeric(data$lrscale)
+df$lrscale <- as.numeric(df$lrscale)
 
 model_q9 <- 'trustinst =~ trstlgl + trstplc + trstun
              trustinst ~ female + age + eduyrs + polintr_dummy + lrscale'
 
-fit_model_q9 <- sem(model_q9, data = data)
+fit_model_q9 <- sem(model_q9, data = df)
 summary(fit_model_q9, fit.measures = TRUE, standardized = TRUE)
 ```
 
 
 \details
 
-###Question 10
+### Question 10
 Now, replace the latent score "trust in institutions" with the EFA factor score 'trust in institutions'. Delete the separate indicators, so you end up with the model below.
 
 ![](Q_11_Plot.png)
@@ -166,11 +168,11 @@ Now, replace the latent score "trust in institutions" with the EFA factor score 
 ```{r}
 model_q10 <- 'trustinstEFA ~ female + age + eduyrs + polintr_dummy + lrscale'
 
-fit_model_q10 <- sem(model_q10, data = data)
+fit_model_q10 <- sem(model_q10, data = df)
 summary(fit_model_q10, fit.measures = TRUE, standardized = TRUE)
 ```
 
-
+Compare the results. Does it matter whether we use a CFA or EFA to predict trust in institutions?
 
 
 
