@@ -252,6 +252,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.0.7" data-path="week-3-class.html"><a href="week-3-class.html#question-7-1"><i class="fa fa-check"></i><b>8.0.7</b> Question 7</a></li>
 <li class="chapter" data-level="8.0.8" data-path="week-3-class.html"><a href="week-3-class.html#question-8-1"><i class="fa fa-check"></i><b>8.0.8</b> Question 8</a></li>
 <li class="chapter" data-level="8.0.9" data-path="week-3-class.html"><a href="week-3-class.html#question-9-1"><i class="fa fa-check"></i><b>8.0.9</b> Question 9</a></li>
+<li class="chapter" data-level="8.0.10" data-path="week-3-class.html"><a href="week-3-class.html#optional"><i class="fa fa-check"></i><b>8.0.10</b> Optional</a></li>
+<li class="chapter" data-level="8.0.11" data-path="week-3-class.html"><a href="week-3-class.html#question-10-1"><i class="fa fa-check"></i><b>8.0.11</b> Question 10</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="week-4-home.html"><a href="week-4-home.html"><i class="fa fa-check"></i><b>9</b> Week 4 - Home</a><ul>
 <li class="chapter" data-level="9.0.1" data-path="week-4-home.html"><a href="week-4-home.html#question-1-2"><i class="fa fa-check"></i><b>9.0.1</b> Question 1</a></li>
@@ -264,7 +266,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.0.8" data-path="week-4-home.html"><a href="week-4-home.html#question-8-2"><i class="fa fa-check"></i><b>9.0.8</b> Question 8</a></li>
 <li class="chapter" data-level="9.0.9" data-path="week-4-home.html"><a href="week-4-home.html#additional-options"><i class="fa fa-check"></i><b>9.0.9</b> Additional options</a></li>
 <li class="chapter" data-level="9.0.10" data-path="week-4-home.html"><a href="week-4-home.html#question-9-2"><i class="fa fa-check"></i><b>9.0.10</b> Question 9</a></li>
-<li class="chapter" data-level="9.0.11" data-path="week-4-home.html"><a href="week-4-home.html#question-10-1"><i class="fa fa-check"></i><b>9.0.11</b> Question 10</a></li>
+<li class="chapter" data-level="9.0.11" data-path="week-4-home.html"><a href="week-4-home.html#question-10-2"><i class="fa fa-check"></i><b>9.0.11</b> Question 10</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="week-4-class.html"><a href="week-4-class.html"><i class="fa fa-check"></i><b>10</b> Week 4 - Class</a><ul>
 <li class="chapter" data-level="10.0.1" data-path="week-4-class.html"><a href="week-4-class.html#specify-basic-model"><i class="fa fa-check"></i><b>10.0.1</b> Specify basic model</a></li>
@@ -324,8 +326,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Furthermore, we want to work with numeric variables instead of factors once again, and with the countries of interest only.</p>
 <details>
 <p><summary>Click for explanation</summary></p>
-<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb139-1" data-line-number="1">data[<span class="dv">7</span><span class="op">:</span><span class="dv">44</span>] &lt;-<span class="st"> </span><span class="kw">lapply</span>(data[<span class="dv">7</span><span class="op">:</span><span class="dv">44</span>], as.numeric)</a>
-<a class="sourceLine" id="cb139-2" data-line-number="2"></a>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb139-1" data-line-number="1">data[<span class="kw">c</span>(<span class="dv">7</span><span class="op">:</span><span class="dv">44</span>, <span class="dv">48</span>, <span class="dv">49</span>, <span class="dv">50</span>)] &lt;-<span class="st"> </span><span class="kw">lapply</span>(data[<span class="kw">c</span>(<span class="dv">7</span><span class="op">:</span><span class="dv">44</span>, <span class="dv">48</span>, <span class="dv">49</span>, <span class="dv">50</span>)], as.numeric)</a>
+<a class="sourceLine" id="cb139-2" data-line-number="2">data<span class="op">$</span>yrbrn &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(<span class="kw">as.character</span>(data<span class="op">$</span>yrbrn))</a>
 <a class="sourceLine" id="cb139-3" data-line-number="3">df &lt;-<span class="st"> </span>data[data<span class="op">$</span>cntry <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Austria&quot;</span>, <span class="st">&quot;Belgium&quot;</span>, <span class="st">&quot;Denmark&quot;</span>, <span class="st">&quot;Finland&quot;</span>, <span class="st">&quot;Germany&quot;</span>, <span class="st">&quot;Italy&quot;</span>, <span class="st">&quot;Netherlands&quot;</span>, <span class="st">&quot;Norway&quot;</span>, <span class="st">&quot;Sweden&quot;</span>), ]</a>
 <a class="sourceLine" id="cb139-4" data-line-number="4">df<span class="op">$</span>cntry &lt;-<span class="st"> </span><span class="kw">factor</span>(df<span class="op">$</span>cntry)</a></code></pre></div>
 
@@ -344,51 +346,51 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb140-2" data-line-number="2"><span class="st">                   satcntry  =~ stfeco + stfgov + stfdem + stfedu + stfhlth</span></a>
 <a class="sourceLine" id="cb140-3" data-line-number="3"><span class="st">                   trustinst =~ trstlgl + trstplc + trstun + trstprl&#39;</span></a>
 <a class="sourceLine" id="cb140-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb140-5" data-line-number="5">fit_trust_model_3f &lt;-<span class="st"> </span><span class="kw">cfa</span>(trust_model_3f, <span class="dt">data =</span> data)</a>
+<a class="sourceLine" id="cb140-5" data-line-number="5">fit_trust_model_3f &lt;-<span class="st"> </span><span class="kw">cfa</span>(trust_model_3f, <span class="dt">data =</span> df)</a>
 <a class="sourceLine" id="cb140-6" data-line-number="6"><span class="kw">summary</span>(fit_trust_model_3f, <span class="dt">fit.measures =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
-<pre><code>## lavaan 0.6-3 ended normally after 48 iterations
+<pre><code>## lavaan 0.6-3 ended normally after 45 iterations
 ## 
 ##   Optimization method                           NLMINB
 ##   Number of free parameters                         27
 ## 
 ##                                                   Used       Total
-##   Number of observations                         30828       42359
+##   Number of observations                         15448       18187
 ## 
 ##   Estimator                                         ML
-##   Model Fit Test Statistic                   16564.350
+##   Model Fit Test Statistic                    9188.922
 ##   Degrees of freedom                                51
 ##   P-value (Chi-square)                           0.000
 ## 
 ## Model test baseline model:
 ## 
-##   Minimum Function Test Statistic           151227.639
+##   Minimum Function Test Statistic            75675.049
 ##   Degrees of freedom                                66
 ##   P-value                                        0.000
 ## 
 ## User model versus baseline model:
 ## 
-##   Comparative Fit Index (CFI)                    0.891
-##   Tucker-Lewis Index (TLI)                       0.859
+##   Comparative Fit Index (CFI)                    0.879
+##   Tucker-Lewis Index (TLI)                       0.844
 ## 
 ## Loglikelihood and Information Criteria:
 ## 
-##   Loglikelihood user model (H0)             -732386.505
-##   Loglikelihood unrestricted model (H1)     -724104.330
+##   Loglikelihood user model (H0)             -357923.209
+##   Loglikelihood unrestricted model (H1)     -353328.748
 ## 
 ##   Number of free parameters                         27
-##   Akaike (AIC)                              1464827.011
-##   Bayesian (BIC)                            1465052.088
-##   Sample-size adjusted Bayesian (BIC)       1464966.282
+##   Akaike (AIC)                              715900.419
+##   Bayesian (BIC)                            716106.840
+##   Sample-size adjusted Bayesian (BIC)       716021.036
 ## 
 ## Root Mean Square Error of Approximation:
 ## 
-##   RMSEA                                          0.102
-##   90 Percent Confidence Interval          0.101  0.104
+##   RMSEA                                          0.108
+##   90 Percent Confidence Interval          0.106  0.110
 ##   P-value RMSEA &lt;= 0.05                          0.000
 ## 
 ## Standardized Root Mean Square Residual:
 ## 
-##   SRMR                                           0.053
+##   SRMR                                           0.058
 ## 
 ## Parameter Estimates:
 ## 
@@ -400,45 +402,45 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##                    Estimate  Std.Err  z-value  P(&gt;|z|)
 ##   trustpol =~                                         
 ##     pltcare           1.000                           
-##     pltinvt           0.972    0.011   86.589    0.000
-##     trstplt           3.142    0.029  107.752    0.000
+##     pltinvt           0.981    0.015   65.449    0.000
+##     trstplt           2.848    0.035   80.855    0.000
 ##   satcntry =~                                         
 ##     stfeco            1.000                           
-##     stfgov            1.038    0.009  119.880    0.000
-##     stfdem            0.984    0.009  115.358    0.000
-##     stfedu            0.760    0.008   90.774    0.000
-##     stfhlth           0.771    0.009   87.697    0.000
+##     stfgov            1.039    0.013   81.895    0.000
+##     stfdem            0.979    0.012   80.257    0.000
+##     stfedu            0.780    0.012   64.344    0.000
+##     stfhlth           0.706    0.012   58.239    0.000
 ##   trustinst =~                                        
 ##     trstlgl           1.000                           
-##     trstplc           0.842    0.008   99.435    0.000
-##     trstun            0.781    0.009   89.402    0.000
-##     trstprl           1.087    0.009  126.065    0.000
+##     trstplc           0.777    0.012   64.538    0.000
+##     trstun            0.861    0.013   66.949    0.000
+##     trstprl           1.123    0.013   85.721    0.000
 ## 
 ## Covariances:
 ##                    Estimate  Std.Err  z-value  P(&gt;|z|)
 ##   trustpol ~~                                         
-##     satcntry          0.815    0.012   68.138    0.000
-##     trustinst         1.001    0.014   72.217    0.000
+##     satcntry          0.793    0.016   48.672    0.000
+##     trustinst         0.950    0.018   51.888    0.000
 ##   satcntry ~~                                         
-##     trustinst         2.374    0.032   74.306    0.000
+##     trustinst         2.046    0.040   51.736    0.000
 ## 
 ## Variances:
 ##                    Estimate  Std.Err  z-value  P(&gt;|z|)
-##    .pltcare           0.694    0.006  112.173    0.000
-##    .pltinvt           0.682    0.006  112.683    0.000
-##    .trstplt           1.181    0.023   51.465    0.000
-##    .stfeco            2.844    0.029   99.765    0.000
-##    .stfgov            2.334    0.025   92.017    0.000
-##    .stfdem            2.578    0.026   98.052    0.000
-##    .stfedu            3.736    0.033  113.576    0.000
-##    .stfhlth           4.264    0.037  114.622    0.000
-##    .trstlgl           3.307    0.032  103.837    0.000
-##    .trstplc           3.623    0.033  111.206    0.000
-##    .trstun            4.407    0.038  115.042    0.000
-##    .trstprl           1.883    0.023   80.588    0.000
-##     trustpol          0.409    0.007   55.306    0.000
-##     satcntry          3.074    0.045   68.134    0.000
-##     trustinst         3.275    0.049   66.770    0.000</code></pre>
+##    .pltcare           0.651    0.008   77.811    0.000
+##    .pltinvt           0.680    0.009   78.658    0.000
+##    .trstplt           1.103    0.029   38.414    0.000
+##    .stfeco            2.671    0.038   70.723    0.000
+##    .stfgov            2.287    0.035   66.172    0.000
+##    .stfdem            2.266    0.033   68.444    0.000
+##    .stfedu            3.378    0.042   79.725    0.000
+##    .stfhlth           3.721    0.045   81.846    0.000
+##    .trstlgl           2.997    0.040   74.548    0.000
+##    .trstplc           3.178    0.040   80.410    0.000
+##    .trstun            3.443    0.043   79.405    0.000
+##    .trstprl           1.746    0.030   57.842    0.000
+##     trustpol          0.450    0.011   41.572    0.000
+##     satcntry          2.751    0.058   47.286    0.000
+##     trustinst         2.690    0.059   45.613    0.000</code></pre>
 
 </div>
 <div id="question-4-1" class="section level3">
@@ -449,46 +451,46 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><summary>Click for explanation</summary></p>
 <div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb142-1" data-line-number="1">trust_model_1f &lt;-<span class="st"> &#39;political_trust =~ pltcare + pltinvt + trstprl + trstplt + stfeco + stfgov + stfdem + stfedu + stfhlth + trstlgl + trstplc + trstun + trstep&#39;</span></a>
 <a class="sourceLine" id="cb142-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb142-3" data-line-number="3">fit_trust_model_1f &lt;-<span class="st"> </span><span class="kw">sem</span>(trust_model_1f, <span class="dt">data =</span> data)</a>
+<a class="sourceLine" id="cb142-3" data-line-number="3">fit_trust_model_1f &lt;-<span class="st"> </span><span class="kw">sem</span>(trust_model_1f, <span class="dt">data =</span> df)</a>
 <a class="sourceLine" id="cb142-4" data-line-number="4"><span class="kw">summary</span>(fit_trust_model_1f, <span class="dt">fit.measures =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
-<pre><code>## lavaan 0.6-3 ended normally after 37 iterations
+<pre><code>## lavaan 0.6-3 ended normally after 38 iterations
 ## 
 ##   Optimization method                           NLMINB
 ##   Number of free parameters                         26
 ## 
 ##                                                   Used       Total
-##   Number of observations                         29074       42359
+##   Number of observations                         14778       18187
 ## 
 ##   Estimator                                         ML
-##   Model Fit Test Statistic                   36174.300
+##   Model Fit Test Statistic                   17667.304
 ##   Degrees of freedom                                65
 ##   P-value (Chi-square)                           0.000
 ## 
 ## Model test baseline model:
 ## 
-##   Minimum Function Test Statistic           162613.180
+##   Minimum Function Test Statistic            81699.096
 ##   Degrees of freedom                                78
 ##   P-value                                        0.000
 ## 
 ## User model versus baseline model:
 ## 
-##   Comparative Fit Index (CFI)                    0.778
-##   Tucker-Lewis Index (TLI)                       0.733
+##   Comparative Fit Index (CFI)                    0.784
+##   Tucker-Lewis Index (TLI)                       0.741
 ## 
 ## Loglikelihood and Information Criteria:
 ## 
-##   Loglikelihood user model (H0)             -756616.235
-##   Loglikelihood unrestricted model (H1)     -738529.085
+##   Loglikelihood user model (H0)             -374912.206
+##   Loglikelihood unrestricted model (H1)     -366078.555
 ## 
 ##   Number of free parameters                         26
-##   Akaike (AIC)                              1513284.470
-##   Bayesian (BIC)                            1513499.688
-##   Sample-size adjusted Bayesian (BIC)       1513417.060
+##   Akaike (AIC)                              749876.413
+##   Bayesian (BIC)                            750074.036
+##   Sample-size adjusted Bayesian (BIC)       749991.410
 ## 
 ## Root Mean Square Error of Approximation:
 ## 
-##   RMSEA                                          0.138
-##   90 Percent Confidence Interval          0.137  0.139
+##   RMSEA                                          0.135
+##   90 Percent Confidence Interval          0.134  0.137
 ##   P-value RMSEA &lt;= 0.05                          0.000
 ## 
 ## Standardized Root Mean Square Residual:
@@ -505,35 +507,35 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##                      Estimate  Std.Err  z-value  P(&gt;|z|)
 ##   political_trust =~                                    
 ##     pltcare             1.000                           
-##     pltinvt             0.962    0.013   73.141    0.000
-##     trstprl             3.295    0.035   93.347    0.000
-##     trstplt             3.257    0.034   95.061    0.000
-##     stfeco              2.549    0.032   79.663    0.000
-##     stfgov              2.754    0.033   84.739    0.000
-##     stfdem              2.770    0.032   85.471    0.000
-##     stfedu              2.015    0.029   68.969    0.000
-##     stfhlth             2.025    0.030   66.668    0.000
-##     trstlgl             2.934    0.035   84.186    0.000
-##     trstplc             2.480    0.032   77.913    0.000
-##     trstun              2.511    0.033   76.623    0.000
-##     trstep              2.361    0.031   76.921    0.000
+##     pltinvt             0.966    0.018   55.075    0.000
+##     trstprl             2.986    0.043   70.171    0.000
+##     trstplt             2.988    0.042   71.755    0.000
+##     stfeco              2.262    0.039   57.544    0.000
+##     stfgov              2.489    0.040   62.079    0.000
+##     stfdem              2.522    0.039   64.095    0.000
+##     stfedu              1.756    0.036   48.642    0.000
+##     stfhlth             1.554    0.035   43.930    0.000
+##     trstlgl             2.526    0.041   61.195    0.000
+##     trstplc             1.956    0.036   54.052    0.000
+##     trstun              2.350    0.040   59.017    0.000
+##     trstep              2.296    0.038   60.160    0.000
 ## 
 ## Variances:
 ##                    Estimate  Std.Err  z-value  P(&gt;|z|)
-##    .pltcare           0.773    0.007  115.172    0.000
-##    .pltinvt           0.764    0.007  115.519    0.000
-##    .trstprl           2.177    0.022   99.594    0.000
-##    .trstplt           1.741    0.018   94.948    0.000
-##    .stfeco            3.720    0.033  113.270    0.000
-##    .stfgov            3.141    0.028  110.458    0.000
-##    .stfdem            3.019    0.027  109.925    0.000
-##    .stfedu            4.173    0.036  116.511    0.000
-##    .stfhlth           4.737    0.041  116.960    0.000
-##    .trstlgl           3.700    0.033  110.834    0.000
-##    .trstplc           3.901    0.034  113.985    0.000
-##    .trstun            4.305    0.038  114.453    0.000
-##    .trstep            3.742    0.033  114.349    0.000
-##     political_trst    0.328    0.007   48.246    0.000</code></pre>
+##    .pltcare           0.743    0.009   81.579    0.000
+##    .pltinvt           0.775    0.009   82.043    0.000
+##    .trstprl           1.938    0.027   70.877    0.000
+##    .trstplt           1.548    0.023   67.052    0.000
+##    .stfeco            3.565    0.044   81.289    0.000
+##    .stfgov            3.044    0.038   79.326    0.000
+##    .stfdem            2.631    0.034   78.072    0.000
+##    .stfedu            3.941    0.047   83.419    0.000
+##    .stfhlth           4.201    0.050   84.093    0.000
+##    .trstlgl           3.370    0.042   79.787    0.000
+##    .trstplc           3.410    0.041   82.311    0.000
+##    .trstun            3.451    0.043   80.749    0.000
+##    .trstep            3.019    0.038   80.272    0.000
+##     political_trst    0.360    0.010   36.350    0.000</code></pre>
 
 </div>
 <div id="question-5-1" class="section level3">
@@ -544,53 +546,53 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="question-6-1" class="section level3">
 <h3><span class="header-section-number">8.0.6</span> Question 6</h3>
-<p>Choose your best model, and ask for the standardized estimates by means of the addition <code>standardized = TRUE</code> in the summary command.</p>
+<p>Choose your best model, and ask for the standardized estimates by means of the addition <code>standardized = TRUE</code> in the summary command. Which item is the best predictor of the first factor?</p>
 <details>
 <p><summary>Click for explanation</summary></p>
 <div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb144-1" data-line-number="1"><span class="kw">summary</span>(fit_trust_model_3f, <span class="dt">fit.measures =</span> <span class="ot">TRUE</span>, <span class="dt">standardized =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
-<pre><code>## lavaan 0.6-3 ended normally after 48 iterations
+<pre><code>## lavaan 0.6-3 ended normally after 45 iterations
 ## 
 ##   Optimization method                           NLMINB
 ##   Number of free parameters                         27
 ## 
 ##                                                   Used       Total
-##   Number of observations                         30828       42359
+##   Number of observations                         15448       18187
 ## 
 ##   Estimator                                         ML
-##   Model Fit Test Statistic                   16564.350
+##   Model Fit Test Statistic                    9188.922
 ##   Degrees of freedom                                51
 ##   P-value (Chi-square)                           0.000
 ## 
 ## Model test baseline model:
 ## 
-##   Minimum Function Test Statistic           151227.639
+##   Minimum Function Test Statistic            75675.049
 ##   Degrees of freedom                                66
 ##   P-value                                        0.000
 ## 
 ## User model versus baseline model:
 ## 
-##   Comparative Fit Index (CFI)                    0.891
-##   Tucker-Lewis Index (TLI)                       0.859
+##   Comparative Fit Index (CFI)                    0.879
+##   Tucker-Lewis Index (TLI)                       0.844
 ## 
 ## Loglikelihood and Information Criteria:
 ## 
-##   Loglikelihood user model (H0)             -732386.505
-##   Loglikelihood unrestricted model (H1)     -724104.330
+##   Loglikelihood user model (H0)             -357923.209
+##   Loglikelihood unrestricted model (H1)     -353328.748
 ## 
 ##   Number of free parameters                         27
-##   Akaike (AIC)                              1464827.011
-##   Bayesian (BIC)                            1465052.088
-##   Sample-size adjusted Bayesian (BIC)       1464966.282
+##   Akaike (AIC)                              715900.419
+##   Bayesian (BIC)                            716106.840
+##   Sample-size adjusted Bayesian (BIC)       716021.036
 ## 
 ## Root Mean Square Error of Approximation:
 ## 
-##   RMSEA                                          0.102
-##   90 Percent Confidence Interval          0.101  0.104
+##   RMSEA                                          0.108
+##   90 Percent Confidence Interval          0.106  0.110
 ##   P-value RMSEA &lt;= 0.05                          0.000
 ## 
 ## Standardized Root Mean Square Residual:
 ## 
-##   SRMR                                           0.053
+##   SRMR                                           0.058
 ## 
 ## Parameter Estimates:
 ## 
@@ -601,50 +603,50 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## Latent Variables:
 ##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
 ##   trustpol =~                                                           
-##     pltcare           1.000                               0.640    0.609
-##     pltinvt           0.972    0.011   86.589    0.000    0.621    0.601
-##     trstplt           3.142    0.029  107.752    0.000    2.009    0.880
+##     pltcare           1.000                               0.671    0.639
+##     pltinvt           0.981    0.015   65.449    0.000    0.658    0.624
+##     trstplt           2.848    0.035   80.855    0.000    1.911    0.876
 ##   satcntry =~                                                           
-##     stfeco            1.000                               1.753    0.721
-##     stfgov            1.038    0.009  119.880    0.000    1.820    0.766
-##     stfdem            0.984    0.009  115.358    0.000    1.726    0.732
-##     stfedu            0.760    0.008   90.774    0.000    1.333    0.568
-##     stfhlth           0.771    0.009   87.697    0.000    1.352    0.548
+##     stfeco            1.000                               1.659    0.712
+##     stfgov            1.039    0.013   81.895    0.000    1.724    0.752
+##     stfdem            0.979    0.012   80.257    0.000    1.624    0.733
+##     stfedu            0.780    0.012   64.344    0.000    1.294    0.576
+##     stfhlth           0.706    0.012   58.239    0.000    1.171    0.519
 ##   trustinst =~                                                          
-##     trstlgl           1.000                               1.810    0.705
-##     trstplc           0.842    0.008   99.435    0.000    1.523    0.625
-##     trstun            0.781    0.009   89.402    0.000    1.414    0.559
-##     trstprl           1.087    0.009  126.065    0.000    1.967    0.820
+##     trstlgl           1.000                               1.640    0.688
+##     trstplc           0.777    0.012   64.538    0.000    1.275    0.582
+##     trstun            0.861    0.013   66.949    0.000    1.411    0.605
+##     trstprl           1.123    0.013   85.721    0.000    1.842    0.812
 ## 
 ## Covariances:
 ##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
 ##   trustpol ~~                                                           
-##     satcntry          0.815    0.012   68.138    0.000    0.727    0.727
-##     trustinst         1.001    0.014   72.217    0.000    0.865    0.865
+##     satcntry          0.793    0.016   48.672    0.000    0.712    0.712
+##     trustinst         0.950    0.018   51.888    0.000    0.863    0.863
 ##   satcntry ~~                                                           
-##     trustinst         2.374    0.032   74.306    0.000    0.748    0.748
+##     trustinst         2.046    0.040   51.736    0.000    0.752    0.752
 ## 
 ## Variances:
 ##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
-##    .pltcare           0.694    0.006  112.173    0.000    0.694    0.629
-##    .pltinvt           0.682    0.006  112.683    0.000    0.682    0.639
-##    .trstplt           1.181    0.023   51.465    0.000    1.181    0.226
-##    .stfeco            2.844    0.029   99.765    0.000    2.844    0.481
-##    .stfgov            2.334    0.025   92.017    0.000    2.334    0.413
-##    .stfdem            2.578    0.026   98.052    0.000    2.578    0.464
-##    .stfedu            3.736    0.033  113.576    0.000    3.736    0.678
-##    .stfhlth           4.264    0.037  114.622    0.000    4.264    0.700
-##    .trstlgl           3.307    0.032  103.837    0.000    3.307    0.502
-##    .trstplc           3.623    0.033  111.206    0.000    3.623    0.610
-##    .trstun            4.407    0.038  115.042    0.000    4.407    0.688
-##    .trstprl           1.883    0.023   80.588    0.000    1.883    0.327
-##     trustpol          0.409    0.007   55.306    0.000    1.000    1.000
-##     satcntry          3.074    0.045   68.134    0.000    1.000    1.000
-##     trustinst         3.275    0.049   66.770    0.000    1.000    1.000</code></pre>
+##    .pltcare           0.651    0.008   77.811    0.000    0.651    0.591
+##    .pltinvt           0.680    0.009   78.658    0.000    0.680    0.611
+##    .trstplt           1.103    0.029   38.414    0.000    1.103    0.232
+##    .stfeco            2.671    0.038   70.723    0.000    2.671    0.493
+##    .stfgov            2.287    0.035   66.172    0.000    2.287    0.435
+##    .stfdem            2.266    0.033   68.444    0.000    2.266    0.462
+##    .stfedu            3.378    0.042   79.725    0.000    3.378    0.668
+##    .stfhlth           3.721    0.045   81.846    0.000    3.721    0.731
+##    .trstlgl           2.997    0.040   74.548    0.000    2.997    0.527
+##    .trstplc           3.178    0.040   80.410    0.000    3.178    0.662
+##    .trstun            3.443    0.043   79.405    0.000    3.443    0.633
+##    .trstprl           1.746    0.030   57.842    0.000    1.746    0.340
+##     trustpol          0.450    0.011   41.572    0.000    1.000    1.000
+##     satcntry          2.751    0.058   47.286    0.000    1.000    1.000
+##     trustinst         2.690    0.059   45.613    0.000    1.000    1.000</code></pre>
 <div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb146-1" data-line-number="1"><span class="kw">standardizedsolution</span>(fit_trust_model_3f)</a></code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["lhs"],"name":[1],"type":["chr"],"align":["left"]},{"label":["op"],"name":[2],"type":["chr"],"align":["left"]},{"label":["rhs"],"name":[3],"type":["chr"],"align":["left"]},{"label":["est.std"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["se"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["z"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["pvalue"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["ci.lower"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["ci.upper"],"name":[9],"type":["dbl"],"align":["right"]}],"data":[{"1":"trustpol","2":"=~","3":"pltcare","4":"0.6090302","5":"0.004090339","6":"148.89481","7":"0","8":"0.6010133","9":"0.6170472"},{"1":"trustpol","2":"=~","3":"pltinvt","4":"0.6011819","5":"0.004140381","6":"145.19965","7":"0","8":"0.5930669","9":"0.6092969"},{"1":"trustpol","2":"=~","3":"trstplt","4":"0.8795951","5":"0.002614601","6":"336.41658","7":"0","8":"0.8744706","9":"0.8847196"},{"1":"satcntry","2":"=~","3":"stfeco","4":"0.7206917","5":"0.003383762","6":"212.98534","7":"0","8":"0.7140597","9":"0.7273238"},{"1":"satcntry","2":"=~","3":"stfgov","4":"0.7659636","5":"0.003068436","6":"249.62674","7":"0","8":"0.7599496","9":"0.7719776"},{"1":"satcntry","2":"=~","3":"stfdem","4":"0.7321219","5":"0.003303586","6":"221.61435","7":"0","8":"0.7256470","9":"0.7385969"},{"1":"satcntry","2":"=~","3":"stfedu","4":"0.5676130","5":"0.004405863","6":"128.83128","7":"0","8":"0.5589776","9":"0.5762483"},{"1":"satcntry","2":"=~","3":"stfhlth","4":"0.5478225","5":"0.004524959","6":"121.06684","7":"0","8":"0.5389538","9":"0.5566913"},{"1":"trustinst","2":"=~","3":"trstlgl","4":"0.7053939","5":"0.003423865","6":"206.02270","7":"0","8":"0.6986832","9":"0.7121045"},{"1":"trustinst","2":"=~","3":"trstplc","4":"0.6247713","5":"0.003982756","6":"156.86906","7":"0","8":"0.6169652","9":"0.6325773"},{"1":"trustinst","2":"=~","3":"trstun","4":"0.5587036","5":"0.004404059","6":"126.86105","7":"0","8":"0.5500718","9":"0.5673354"},{"1":"trustinst","2":"=~","3":"trstprl","4":"0.8201265","5":"0.002650789","6":"309.38955","7":"0","8":"0.8149311","9":"0.8253220"},{"1":"pltcare","2":"~~","3":"pltcare","4":"0.6290822","5":"0.004982280","6":"126.26391","7":"0","8":"0.6193171","9":"0.6388473"},{"1":"pltinvt","2":"~~","3":"pltinvt","4":"0.6385803","5":"0.004978245","6":"128.27419","7":"0","8":"0.6288231","9":"0.6483375"},{"1":"trstplt","2":"~~","3":"trstplt","4":"0.2263125","5":"0.004599580","6":"49.20286","7":"0","8":"0.2172975","9":"0.2353275"},{"1":"stfeco","2":"~~","3":"stfeco","4":"0.4806035","5":"0.004877298","6":"98.53887","7":"0","8":"0.4710441","9":"0.4901628"},{"1":"stfgov","2":"~~","3":"stfgov","4":"0.4132997","5":"0.004700620","6":"87.92451","7":"0","8":"0.4040867","9":"0.4225128"},{"1":"stfdem","2":"~~","3":"stfdem","4":"0.4639975","5":"0.004837255","6":"95.92165","7":"0","8":"0.4545166","9":"0.4734783"},{"1":"stfedu","2":"~~","3":"stfedu","4":"0.6778155","5":"0.005001650","6":"135.51839","7":"0","8":"0.6680125","9":"0.6876186"},{"1":"stfhlth","2":"~~","3":"stfhlth","4":"0.6998905","5":"0.004957749","6":"141.17102","7":"0","8":"0.6901735","9":"0.7096075"},{"1":"trstlgl","2":"~~","3":"trstlgl","4":"0.5024195","5":"0.004830346","6":"104.01314","7":"0","8":"0.4929522","9":"0.5118868"},{"1":"trstplc","2":"~~","3":"trstplc","4":"0.6096609","5":"0.004976624","6":"122.50492","7":"0","8":"0.5999069","9":"0.6194149"},{"1":"trstun","2":"~~","3":"trstun","4":"0.6878503","5":"0.004921127","6":"139.77496","7":"0","8":"0.6782051","9":"0.6974956"},{"1":"trstprl","2":"~~","3":"trstprl","4":"0.3273925","5":"0.004347965","6":"75.29787","7":"0","8":"0.3188707","9":"0.3359144"},{"1":"trustpol","2":"~~","3":"trustpol","4":"1.0000000","5":"0.000000000","6":"NA","7":"NA","8":"1.0000000","9":"1.0000000"},{"1":"satcntry","2":"~~","3":"satcntry","4":"1.0000000","5":"0.000000000","6":"NA","7":"NA","8":"1.0000000","9":"1.0000000"},{"1":"trustinst","2":"~~","3":"trustinst","4":"1.0000000","5":"0.000000000","6":"NA","7":"NA","8":"1.0000000","9":"1.0000000"},{"1":"trustpol","2":"~~","3":"satcntry","4":"0.7271526","5":"0.004209465","6":"172.74227","7":"0","8":"0.7189022","9":"0.7354030"},{"1":"trustpol","2":"~~","3":"trustinst","4":"0.8646176","5":"0.003339590","6":"258.89936","7":"0","8":"0.8580721","9":"0.8711631"},{"1":"satcntry","2":"~~","3":"trustinst","4":"0.7482408","5":"0.004005880","6":"186.78565","7":"0","8":"0.7403895","9":"0.7560922"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["lhs"],"name":[1],"type":["chr"],"align":["left"]},{"label":["op"],"name":[2],"type":["chr"],"align":["left"]},{"label":["rhs"],"name":[3],"type":["chr"],"align":["left"]},{"label":["est.std"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["se"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["z"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["pvalue"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["ci.lower"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["ci.upper"],"name":[9],"type":["dbl"],"align":["right"]}],"data":[{"1":"trustpol","2":"=~","3":"pltcare","4":"0.6393603","5":"0.005500765","6":"116.23116","7":"0","8":"0.6285790","9":"0.6501416"},{"1":"trustpol","2":"=~","3":"pltinvt","4":"0.6237608","5":"0.005645631","6":"110.48557","7":"0","8":"0.6126955","9":"0.6348260"},{"1":"trustpol","2":"=~","3":"trstplt","4":"0.8764316","5":"0.003615576","6":"242.40443","7":"0","8":"0.8693452","9":"0.8835180"},{"1":"satcntry","2":"=~","3":"stfeco","4":"0.7123372","5":"0.004912208","6":"145.01363","7":"0","8":"0.7027094","9":"0.7219649"},{"1":"satcntry","2":"=~","3":"stfgov","4":"0.7516990","5":"0.004530465","6":"165.92095","7":"0","8":"0.7428195","9":"0.7605786"},{"1":"satcntry","2":"=~","3":"stfdem","4":"0.7334722","5":"0.004706435","6":"155.84454","7":"0","8":"0.7242478","9":"0.7426966"},{"1":"satcntry","2":"=~","3":"stfedu","4":"0.5758271","5":"0.006189362","6":"93.03497","7":"0","8":"0.5636961","9":"0.5879580"},{"1":"satcntry","2":"=~","3":"stfhlth","4":"0.5188157","5":"0.006663599","6":"77.85818","7":"0","8":"0.5057553","9":"0.5318761"},{"1":"trustinst","2":"=~","3":"trstlgl","4":"0.6877377","5":"0.005038743","6":"136.48993","7":"0","8":"0.6778619","9":"0.6976134"},{"1":"trustinst","2":"=~","3":"trstplc","4":"0.5817029","5":"0.006040212","6":"96.30505","7":"0","8":"0.5698643","9":"0.5935415"},{"1":"trustinst","2":"=~","3":"trstun","4":"0.6054279","5":"0.005826611","6":"103.90738","7":"0","8":"0.5940079","9":"0.6168478"},{"1":"trustinst","2":"=~","3":"trstprl","4":"0.8124493","5":"0.003859351","6":"210.51447","7":"0","8":"0.8048851","9":"0.8200134"},{"1":"pltcare","2":"~~","3":"pltcare","4":"0.5912184","5":"0.007033941","6":"84.05222","7":"0","8":"0.5774321","9":"0.6050047"},{"1":"pltinvt","2":"~~","3":"pltinvt","4":"0.6109225","5":"0.007043046","6":"86.74123","7":"0","8":"0.5971184","9":"0.6247266"},{"1":"trstplt","2":"~~","3":"trstplt","4":"0.2318676","5":"0.006337610","6":"36.58597","7":"0","8":"0.2194461","9":"0.2442891"},{"1":"stfeco","2":"~~","3":"stfeco","4":"0.4925758","5":"0.006998297","6":"70.38509","7":"0","8":"0.4788594","9":"0.5062922"},{"1":"stfgov","2":"~~","3":"stfgov","4":"0.4349486","5":"0.006811092","6":"63.85887","7":"0","8":"0.4215991","9":"0.4482981"},{"1":"stfdem","2":"~~","3":"stfdem","4":"0.4620185","5":"0.006904079","6":"66.91965","7":"0","8":"0.4484868","9":"0.4755503"},{"1":"stfedu","2":"~~","3":"stfedu","4":"0.6684232","5":"0.007128004","6":"93.77425","7":"0","8":"0.6544526","9":"0.6823938"},{"1":"stfhlth","2":"~~","3":"stfhlth","4":"0.7308302","5":"0.006914360","6":"105.69745","7":"0","8":"0.7172783","9":"0.7443821"},{"1":"trstlgl","2":"~~","3":"trstlgl","4":"0.5270169","5":"0.006930667","6":"76.04130","7":"0","8":"0.5134330","9":"0.5406007"},{"1":"trstplc","2":"~~","3":"trstplc","4":"0.6616217","5":"0.007027218","6":"94.15131","7":"0","8":"0.6478486","9":"0.6753948"},{"1":"trstun","2":"~~","3":"trstun","4":"0.6334571","5":"0.007055185","6":"89.78603","7":"0","8":"0.6196292","9":"0.6472850"},{"1":"trstprl","2":"~~","3":"trstprl","4":"0.3399262","5":"0.006271054","6":"54.20560","7":"0","8":"0.3276352","9":"0.3522172"},{"1":"trustpol","2":"~~","3":"trustpol","4":"1.0000000","5":"0.000000000","6":"NA","7":"NA","8":"1.0000000","9":"1.0000000"},{"1":"satcntry","2":"~~","3":"satcntry","4":"1.0000000","5":"0.000000000","6":"NA","7":"NA","8":"1.0000000","9":"1.0000000"},{"1":"trustinst","2":"~~","3":"trustinst","4":"1.0000000","5":"0.000000000","6":"NA","7":"NA","8":"1.0000000","9":"1.0000000"},{"1":"trustpol","2":"~~","3":"satcntry","4":"0.7123621","5":"0.006081456","6":"117.13678","7":"0","8":"0.7004427","9":"0.7242816"},{"1":"trustpol","2":"~~","3":"trustinst","4":"0.8632598","5":"0.004701304","6":"183.62136","7":"0","8":"0.8540454","9":"0.8724742"},{"1":"satcntry","2":"~~","3":"trustinst","4":"0.7520966","5":"0.005729763","6":"131.26138","7":"0","8":"0.7408664","9":"0.7633267"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 
@@ -664,51 +666,51 @@ To run a second-order factor model, you can simply add an additional line within
 <a class="sourceLine" id="cb147-3" data-line-number="3"><span class="st">                     trustinst =~ trstlgl + trstplc + trstun + trstep</span></a>
 <a class="sourceLine" id="cb147-4" data-line-number="4"><span class="st">                     trust     =~ trustpol + trustinst&#39;</span></a>
 <a class="sourceLine" id="cb147-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb147-6" data-line-number="6">fit_trust_model_3f2o &lt;-<span class="st"> </span><span class="kw">sem</span>(trust_model_3f2o, <span class="dt">data =</span> data)</a>
+<a class="sourceLine" id="cb147-6" data-line-number="6">fit_trust_model_3f2o &lt;-<span class="st"> </span><span class="kw">sem</span>(trust_model_3f2o, <span class="dt">data =</span> df)</a>
 <a class="sourceLine" id="cb147-7" data-line-number="7"><span class="kw">summary</span>(fit_trust_model_3f2o, <span class="dt">fit.measures =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
-<pre><code>## lavaan 0.6-3 ended normally after 49 iterations
+<pre><code>## lavaan 0.6-3 ended normally after 46 iterations
 ## 
 ##   Optimization method                           NLMINB
 ##   Number of free parameters                         29
 ## 
 ##                                                   Used       Total
-##   Number of observations                         29074       42359
+##   Number of observations                         14778       18187
 ## 
 ##   Estimator                                         ML
-##   Model Fit Test Statistic                   21789.775
+##   Model Fit Test Statistic                   10116.996
 ##   Degrees of freedom                                62
 ##   P-value (Chi-square)                           0.000
 ## 
 ## Model test baseline model:
 ## 
-##   Minimum Function Test Statistic           162613.180
+##   Minimum Function Test Statistic            81699.096
 ##   Degrees of freedom                                78
 ##   P-value                                        0.000
 ## 
 ## User model versus baseline model:
 ## 
-##   Comparative Fit Index (CFI)                    0.866
-##   Tucker-Lewis Index (TLI)                       0.832
+##   Comparative Fit Index (CFI)                    0.877
+##   Tucker-Lewis Index (TLI)                       0.845
 ## 
 ## Loglikelihood and Information Criteria:
 ## 
-##   Loglikelihood user model (H0)             -749423.973
-##   Loglikelihood unrestricted model (H1)     -738529.085
+##   Loglikelihood user model (H0)             -371137.053
+##   Loglikelihood unrestricted model (H1)     -366078.555
 ## 
 ##   Number of free parameters                         29
-##   Akaike (AIC)                              1498905.946
-##   Bayesian (BIC)                            1499145.996
-##   Sample-size adjusted Bayesian (BIC)       1499053.834
+##   Akaike (AIC)                              742332.105
+##   Bayesian (BIC)                            742552.531
+##   Sample-size adjusted Bayesian (BIC)       742460.372
 ## 
 ## Root Mean Square Error of Approximation:
 ## 
-##   RMSEA                                          0.110
-##   90 Percent Confidence Interval          0.109  0.111
+##   RMSEA                                          0.105
+##   90 Percent Confidence Interval          0.103  0.106
 ##   P-value RMSEA &lt;= 0.05                          0.000
 ## 
 ## Standardized Root Mean Square Residual:
 ## 
-##   SRMR                                           0.059
+##   SRMR                                           0.058
 ## 
 ## Parameter Estimates:
 ## 
@@ -720,126 +722,110 @@ To run a second-order factor model, you can simply add an additional line within
 ##                    Estimate  Std.Err  z-value  P(&gt;|z|)
 ##   trustpol =~                                         
 ##     pltcare           1.000                           
-##     pltinvt           0.968    0.012   79.458    0.000
-##     trstprl           3.159    0.032   99.861    0.000
-##     trstplt           3.228    0.031  103.264    0.000
+##     pltinvt           0.973    0.016   60.793    0.000
+##     trstprl           2.825    0.037   75.592    0.000
+##     trstplt           2.943    0.037   78.957    0.000
 ##   satcntry =~                                         
 ##     stfeco            1.000                           
-##     stfgov            1.045    0.009  118.576    0.000
-##     stfdem            0.982    0.009  113.216    0.000
-##     stfedu            0.760    0.009   88.912    0.000
-##     stfhlth           0.770    0.009   85.775    0.000
+##     stfgov            1.046    0.013   80.774    0.000
+##     stfdem            0.976    0.012   78.465    0.000
+##     stfedu            0.779    0.012   63.067    0.000
+##     stfhlth           0.705    0.012   57.172    0.000
 ##   trustinst =~                                        
 ##     trstlgl           1.000                           
-##     trstplc           0.853    0.009   98.457    0.000
-##     trstun            0.877    0.009   97.627    0.000
-##     trstep            0.820    0.008   97.598    0.000
+##     trstplc           0.799    0.012   66.870    0.000
+##     trstun            0.930    0.013   72.417    0.000
+##     trstep            0.875    0.012   71.768    0.000
 ##   trust =~                                            
 ##     trustpol          1.000                           
-##     trustinst         2.703    0.035   77.799    0.000
+##     trustinst         2.391    0.042   56.391    0.000
 ## 
 ## Covariances:
 ##                    Estimate  Std.Err  z-value  P(&gt;|z|)
 ##   satcntry ~~                                         
-##     trust             0.811    0.012   67.195    0.000
+##     trust             0.797    0.016   48.523    0.000
 ## 
 ## Variances:
 ##                    Estimate  Std.Err  z-value  P(&gt;|z|)
-##    .pltcare           0.728    0.006  112.498    0.000
-##    .pltinvt           0.719    0.006  112.917    0.000
-##    .trstprl           2.017    0.022   90.060    0.000
-##    .trstplt           1.335    0.018   72.574    0.000
-##    .stfeco            2.766    0.029   96.420    0.000
-##    .stfgov            2.263    0.026   88.268    0.000
-##    .stfdem            2.563    0.027   95.430    0.000
-##    .stfedu            3.723    0.034  110.358    0.000
-##    .stfhlth           4.253    0.038  111.400    0.000
-##    .trstlgl           3.104    0.033   92.681    0.000
-##    .trstplc           3.430    0.033  102.497    0.000
-##    .trstun            3.742    0.036  103.074    0.000
-##    .trstep            3.272    0.032  103.094    0.000
-##     trustpol          0.018    0.002    7.509    0.000
-##     satcntry          3.087    0.046   66.932    0.000
-##     trustinst         0.827    0.025   33.159    0.000
-##     trust             0.355    0.007   48.511    0.000</code></pre>
+##    .pltcare           0.687    0.009   79.196    0.000
+##    .pltinvt           0.718    0.009   79.838    0.000
+##    .trstprl           1.834    0.028   64.765    0.000
+##    .trstplt           1.166    0.023   50.203    0.000
+##    .stfeco            2.648    0.038   68.975    0.000
+##    .stfgov            2.255    0.035   64.065    0.000
+##    .stfdem            2.295    0.034   67.280    0.000
+##    .stfedu            3.376    0.043   77.978    0.000
+##    .stfhlth           3.700    0.046   80.021    0.000
+##    .trstlgl           2.770    0.041   67.151    0.000
+##    .trstplc           2.940    0.039   74.828    0.000
+##    .trstun            2.935    0.042   70.714    0.000
+##    .trstep            2.699    0.038   71.292    0.000
+##     trustpol          0.035    0.004    9.165    0.000
+##     satcntry          2.761    0.059   46.436    0.000
+##     trustinst         0.722    0.030   24.029    0.000
+##     trust             0.381    0.011   36.203    0.000</code></pre>
 
 </div>
 <div id="question-9-1" class="section level3">
 <h3><span class="header-section-number">8.0.9</span> Question 9</h3>
 <p>Build a new one-factor model, only using the 3 items that ask about the respondents trust in institutions with 1) trust in the legal system, 2) trust in the police and 3) trust in the UN (see below). You can also take the full model you specified in either question 6 and question 9, but you might experience that the model becomes complicated due to the large amount of arrows.</p>
 <p>After doing this, add as predictors of the latent factor: gender, age, education in years, political interest and self-placement on the left right scale.</p>
-<p><img src="Q_10_Plot.png" /></p>
-<p>Estimate the model. The model doesn’t fit very well, but for now, we will stick with this modle. Write down the regression coefficients (standardized and unstandardized) and relevant test statistics.</p>
+<p><img src="week3class1.png" /></p>
+<p>Estimate the model. The model doesn’t fit very well, but for now, we will stick with this model. Write down the regression coefficients (standardized and unstandardized) and relevant test statistics.</p>
+<p><em>Hint: Once you add predictions to your model, you should use</em> <code>sem()</code> <em>instead of</em> <code>cfa()</code>.</p>
 <details>
 <p><summary>Click for explanation</summary></p>
 <p>We will first have to do some recoding again. You might want to make an age variable instead of a yearborn variable, which eases the interpretation. Furthermore, a dummy for gender is more informative than just the variable <code>gndr</code>, although this will be treated as a dummy. You will also have to recode the variables <code>eduyrs</code> and <code>lrscale</code> to numerical variables, and you will have to make a two-category dummy for the variable <code>polintr</code>.</p>
-<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb149-1" data-line-number="1">data<span class="op">$</span>age &lt;-<span class="st"> </span><span class="dv">2002</span> <span class="op">-</span><span class="st"> </span><span class="kw">as.numeric</span>(<span class="kw">as.character</span>(data<span class="op">$</span>yrbrn))</a>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb149-1" data-line-number="1">df<span class="op">$</span>age &lt;-<span class="st"> </span><span class="dv">2002</span> <span class="op">-</span><span class="st"> </span>df<span class="op">$</span>yrbrn</a>
 <a class="sourceLine" id="cb149-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb149-3" data-line-number="3">data<span class="op">$</span>female &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(data<span class="op">$</span>gndr)</a>
-<a class="sourceLine" id="cb149-4" data-line-number="4">data<span class="op">$</span>female &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(data<span class="op">$</span>female <span class="op">==</span><span class="st"> </span><span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb149-5" data-line-number="5">data<span class="op">$</span>female &lt;-<span class="st"> </span><span class="kw">factor</span>(data<span class="op">$</span>female,</a>
-<a class="sourceLine" id="cb149-6" data-line-number="6">                      <span class="dt">levels =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),</a>
-<a class="sourceLine" id="cb149-7" data-line-number="7">                      <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;Male&quot;</span>,</a>
-<a class="sourceLine" id="cb149-8" data-line-number="8">                                 <span class="st">&quot;Female&quot;</span>))</a>
-<a class="sourceLine" id="cb149-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb149-10" data-line-number="10">data<span class="op">$</span>eduyrs &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(data<span class="op">$</span>eduyrs)</a>
-<a class="sourceLine" id="cb149-11" data-line-number="11">data<span class="op">$</span>polintr_dummy &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(data<span class="op">$</span>polintr)</a>
-<a class="sourceLine" id="cb149-12" data-line-number="12">data<span class="op">$</span>polintr_dummy &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(data<span class="op">$</span>polintr_dummy <span class="op">&lt;=</span><span class="st"> </span><span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb149-13" data-line-number="13">data<span class="op">$</span>polintr_dummy &lt;-<span class="st"> </span><span class="kw">factor</span>(data<span class="op">$</span>polintr_dummy,</a>
-<a class="sourceLine" id="cb149-14" data-line-number="14">                                   <span class="dt">levels =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),</a>
-<a class="sourceLine" id="cb149-15" data-line-number="15">                                   <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;Not or hardly interested&quot;</span>,</a>
-<a class="sourceLine" id="cb149-16" data-line-number="16">                                              <span class="st">&quot;Quite or very interested&quot;</span>))</a>
-<a class="sourceLine" id="cb149-17" data-line-number="17"></a>
-<a class="sourceLine" id="cb149-18" data-line-number="18">data<span class="op">$</span>lrscale &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(data<span class="op">$</span>lrscale)</a>
-<a class="sourceLine" id="cb149-19" data-line-number="19"></a>
-<a class="sourceLine" id="cb149-20" data-line-number="20">model_q9 &lt;-<span class="st"> &#39;trustinst =~ trstlgl + trstplc + trstun</span></a>
-<a class="sourceLine" id="cb149-21" data-line-number="21"><span class="st">             trustinst ~ female + age + eduyrs + polintr_dummy + lrscale&#39;</span></a>
-<a class="sourceLine" id="cb149-22" data-line-number="22"></a>
-<a class="sourceLine" id="cb149-23" data-line-number="23">fit_model_q9 &lt;-<span class="st"> </span><span class="kw">sem</span>(model_q9, <span class="dt">data =</span> data)</a>
-<a class="sourceLine" id="cb149-24" data-line-number="24"><span class="kw">summary</span>(fit_model_q9, <span class="dt">fit.measures =</span> <span class="ot">TRUE</span>, <span class="dt">standardized =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
-<pre><code>## lavaan 0.6-3 ended normally after 46 iterations
+<a class="sourceLine" id="cb149-3" data-line-number="3">model_q9 &lt;-<span class="st"> &#39;trustinst =~ trstlgl + trstplc + trstun</span></a>
+<a class="sourceLine" id="cb149-4" data-line-number="4"><span class="st">             trustinst ~ gndr + age + eduyrs + polintr + lrscale&#39;</span></a>
+<a class="sourceLine" id="cb149-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb149-6" data-line-number="6">fit_model_q9 &lt;-<span class="st"> </span><span class="kw">sem</span>(model_q9, <span class="dt">data =</span> df)</a>
+<a class="sourceLine" id="cb149-7" data-line-number="7"><span class="kw">summary</span>(fit_model_q9, <span class="dt">fit.measures =</span> <span class="ot">TRUE</span>, <span class="dt">standardized =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<pre><code>## lavaan 0.6-3 ended normally after 41 iterations
 ## 
 ##   Optimization method                           NLMINB
 ##   Number of free parameters                         11
 ## 
 ##                                                   Used       Total
-##   Number of observations                         33303       42359
+##   Number of observations                         15524       18187
 ## 
 ##   Estimator                                         ML
-##   Model Fit Test Statistic                    1078.614
+##   Model Fit Test Statistic                     615.470
 ##   Degrees of freedom                                10
 ##   P-value (Chi-square)                           0.000
 ## 
 ## Model test baseline model:
 ## 
-##   Minimum Function Test Statistic            21759.093
+##   Minimum Function Test Statistic            11664.434
 ##   Degrees of freedom                                18
 ##   P-value                                        0.000
 ## 
 ## User model versus baseline model:
 ## 
-##   Comparative Fit Index (CFI)                    0.951
-##   Tucker-Lewis Index (TLI)                       0.912
+##   Comparative Fit Index (CFI)                    0.948
+##   Tucker-Lewis Index (TLI)                       0.906
 ## 
 ## Loglikelihood and Information Criteria:
 ## 
-##   Loglikelihood user model (H0)             -222520.069
-##   Loglikelihood unrestricted model (H1)     -221980.762
+##   Loglikelihood user model (H0)             -99125.659
+##   Loglikelihood unrestricted model (H1)     -98817.925
 ## 
 ##   Number of free parameters                         11
-##   Akaike (AIC)                              445062.138
-##   Bayesian (BIC)                            445154.686
-##   Sample-size adjusted Bayesian (BIC)       445119.728
+##   Akaike (AIC)                              198273.319
+##   Bayesian (BIC)                            198357.470
+##   Sample-size adjusted Bayesian (BIC)       198322.513
 ## 
 ## Root Mean Square Error of Approximation:
 ## 
-##   RMSEA                                          0.057
-##   90 Percent Confidence Interval          0.054  0.060
+##   RMSEA                                          0.062
+##   90 Percent Confidence Interval          0.058  0.067
 ##   P-value RMSEA &lt;= 0.05                          0.000
 ## 
 ## Standardized Root Mean Square Residual:
 ## 
-##   SRMR                                           0.023
+##   SRMR                                           0.025
 ## 
 ## Parameter Estimates:
 ## 
@@ -850,48 +836,60 @@ To run a second-order factor model, you can simply add an additional line within
 ## Latent Variables:
 ##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
 ##   trustinst =~                                                          
-##     trstlgl           1.000                               2.029    0.798
-##     trstplc           0.882    0.012   73.142    0.000    1.791    0.743
-##     trstun            0.561    0.009   65.122    0.000    1.139    0.452
+##     trstlgl           1.000                               1.989    0.836
+##     trstplc           0.802    0.014   56.879    0.000    1.596    0.731
+##     trstun            0.584    0.012   50.257    0.000    1.162    0.503
 ## 
 ## Regressions:
 ##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
 ##   trustinst ~                                                           
-##     female           -0.036    0.025   -1.420    0.156   -0.018   -0.009
-##     age               0.002    0.001    2.973    0.003    0.001    0.020
-##     eduyrs            0.048    0.003   13.724    0.000    0.023    0.092
-##     polintr_dummy     0.344    0.027   12.880    0.000    0.169    0.084
-##     lrscale           0.079    0.006   13.590    0.000    0.039    0.085
+##     gndr             -0.101    0.036   -2.821    0.005   -0.051   -0.025
+##     age               0.000    0.001    0.084    0.933    0.000    0.001
+##     eduyrs            0.065    0.005   12.303    0.000    0.033    0.120
+##     polintr          -0.147    0.023   -6.357    0.000   -0.074   -0.061
+##     lrscale           0.087    0.009   10.046    0.000    0.044    0.090
 ## 
 ## Variances:
 ##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
-##    .trstlgl           2.343    0.055   42.572    0.000    2.343    0.363
-##    .trstplc           2.594    0.045   57.382    0.000    2.594    0.447
-##    .trstun            5.043    0.043  118.293    0.000    5.043    0.795
-##    .trustinst         4.012    0.068   58.689    0.000    0.974    0.974</code></pre>
+##    .trstlgl           1.700    0.065   26.040    0.000    1.700    0.301
+##    .trstplc           2.213    0.047   46.640    0.000    2.213    0.465
+##    .trstun            3.996    0.050   79.266    0.000    3.996    0.747
+##    .trustinst         3.833    0.085   44.906    0.000    0.969    0.969</code></pre>
 
-<p>###Question 10
-Now, replace the latent score “trust in institutions” with the EFA factor score ‘trust in institutions’. Delete the separate indicators, so you end up with the model below.</p>
-<p><img src="Q_11_Plot.png" /></p>
-<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb151-1" data-line-number="1">model_q10 &lt;-<span class="st"> &#39;trustinstEFA ~ female + age + eduyrs + polintr_dummy + lrscale&#39;</span></a>
-<a class="sourceLine" id="cb151-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb151-3" data-line-number="3">fit_model_q10 &lt;-<span class="st"> </span><span class="kw">sem</span>(model_q10, <span class="dt">data =</span> data)</a>
-<a class="sourceLine" id="cb151-4" data-line-number="4"><span class="kw">summary</span>(fit_model_q10, <span class="dt">fit.measures =</span> <span class="ot">TRUE</span>, <span class="dt">standardized =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
-<pre><code>## lavaan 0.6-3 ended normally after 24 iterations
+</div>
+<div id="optional" class="section level3">
+<h3><span class="header-section-number">8.0.10</span> Optional</h3>
+<p>You can plot the resulting model using <code>semPaths()</code>:</p>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb151-1" data-line-number="1"><span class="kw">library</span>(semPlot)</a>
+<a class="sourceLine" id="cb151-2" data-line-number="2"><span class="kw">semPaths</span>(fit_model_q9, <span class="dt">whatLabels =</span> <span class="st">&quot;est&quot;</span>, <span class="dt">rotation =</span> <span class="dv">4</span>)</a></code></pre></div>
+<p><img src="TCSM_files/figure-html/unnamed-chunk-119-1.png" width="672" /></p>
+</div>
+<div id="question-10-1" class="section level3">
+<h3><span class="header-section-number">8.0.11</span> Question 10</h3>
+<p>Now, replace the latent score “trust in institutions” with the EFA factor score ‘trust in institutions’. Delete the separate indicators, so you end up with the model below.</p>
+<p><img src="week3class2.png" /></p>
+<details>
+<p><summary>Click for explanation</summary></p>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb152-1" data-line-number="1">model_q10 &lt;-<span class="st"> &#39;trustinstEFA ~ gndr + age + eduyrs + polintr + lrscale&#39;</span></a>
+<a class="sourceLine" id="cb152-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb152-3" data-line-number="3">fit_model_q10 &lt;-<span class="st"> </span><span class="kw">sem</span>(model_q10, <span class="dt">data =</span> df)</a>
+<a class="sourceLine" id="cb152-4" data-line-number="4"><span class="kw">summary</span>(fit_model_q10, <span class="dt">fit.measures =</span> <span class="ot">TRUE</span>, <span class="dt">standardized =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<pre><code>## lavaan 0.6-3 ended normally after 20 iterations
 ## 
 ##   Optimization method                           NLMINB
 ##   Number of free parameters                          6
 ## 
 ##                                                   Used       Total
-##   Number of observations                         26463       42359
+##   Number of observations                         13829       18187
 ## 
 ##   Estimator                                         ML
 ##   Model Fit Test Statistic                       0.000
 ##   Degrees of freedom                                 0
+##   Minimum Function Value               0.0000000000000
 ## 
 ## Model test baseline model:
 ## 
-##   Minimum Function Test Statistic              732.928
+##   Minimum Function Test Statistic              575.844
 ##   Degrees of freedom                                 5
 ##   P-value                                        0.000
 ## 
@@ -902,13 +900,13 @@ Now, replace the latent score “trust in institutions” with the EFA factor sc
 ## 
 ## Loglikelihood and Information Criteria:
 ## 
-##   Loglikelihood user model (H0)             -39421.655
-##   Loglikelihood unrestricted model (H1)     -39421.655
+##   Loglikelihood user model (H0)             -19582.755
+##   Loglikelihood unrestricted model (H1)     -19582.755
 ## 
 ##   Number of free parameters                          6
-##   Akaike (AIC)                               78855.311
-##   Bayesian (BIC)                             78904.412
-##   Sample-size adjusted Bayesian (BIC)        78885.344
+##   Akaike (AIC)                               39177.510
+##   Bayesian (BIC)                             39222.717
+##   Sample-size adjusted Bayesian (BIC)        39203.649
 ## 
 ## Root Mean Square Error of Approximation:
 ## 
@@ -929,15 +927,17 @@ Now, replace the latent score “trust in institutions” with the EFA factor sc
 ## Regressions:
 ##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
 ##   trustinstEFA ~                                                        
-##     female           -0.120    0.013   -9.049    0.000   -0.120   -0.055
-##     age               0.002    0.000    5.844    0.000    0.002    0.037
-##     eduyrs            0.022    0.002   12.234    0.000    0.022    0.079
-##     polintr_dummy     0.105    0.014    7.511    0.000    0.105    0.048
-##     lrscale           0.056    0.003   18.347    0.000    0.056    0.111
+##     gndr             -0.146    0.017   -8.537    0.000   -0.146   -0.072
+##     age              -0.000    0.001   -0.443    0.658   -0.000   -0.004
+##     eduyrs            0.017    0.003    6.686    0.000    0.017    0.060
+##     polintr           0.012    0.011    1.075    0.282    0.012    0.010
+##     lrscale           0.087    0.004   20.970    0.000    0.087    0.176
 ## 
 ## Variances:
 ##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
-##    .trustinstEFA      1.152    0.010  115.028    0.000    1.152    0.973</code></pre>
+##    .trustinstEFA      0.994    0.012   83.153    0.000    0.994    0.959</code></pre>
+
+<p>Compare the results. Does it matter whether we use a CFA or EFA to predict trust in institutions?</p>
 
 </div>
 </div>

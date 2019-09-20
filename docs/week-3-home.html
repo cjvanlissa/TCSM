@@ -252,6 +252,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.0.7" data-path="week-3-class.html"><a href="week-3-class.html#question-7-1"><i class="fa fa-check"></i><b>8.0.7</b> Question 7</a></li>
 <li class="chapter" data-level="8.0.8" data-path="week-3-class.html"><a href="week-3-class.html#question-8-1"><i class="fa fa-check"></i><b>8.0.8</b> Question 8</a></li>
 <li class="chapter" data-level="8.0.9" data-path="week-3-class.html"><a href="week-3-class.html#question-9-1"><i class="fa fa-check"></i><b>8.0.9</b> Question 9</a></li>
+<li class="chapter" data-level="8.0.10" data-path="week-3-class.html"><a href="week-3-class.html#optional"><i class="fa fa-check"></i><b>8.0.10</b> Optional</a></li>
+<li class="chapter" data-level="8.0.11" data-path="week-3-class.html"><a href="week-3-class.html#question-10-1"><i class="fa fa-check"></i><b>8.0.11</b> Question 10</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="week-4-home.html"><a href="week-4-home.html"><i class="fa fa-check"></i><b>9</b> Week 4 - Home</a><ul>
 <li class="chapter" data-level="9.0.1" data-path="week-4-home.html"><a href="week-4-home.html#question-1-2"><i class="fa fa-check"></i><b>9.0.1</b> Question 1</a></li>
@@ -264,7 +266,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.0.8" data-path="week-4-home.html"><a href="week-4-home.html#question-8-2"><i class="fa fa-check"></i><b>9.0.8</b> Question 8</a></li>
 <li class="chapter" data-level="9.0.9" data-path="week-4-home.html"><a href="week-4-home.html#additional-options"><i class="fa fa-check"></i><b>9.0.9</b> Additional options</a></li>
 <li class="chapter" data-level="9.0.10" data-path="week-4-home.html"><a href="week-4-home.html#question-9-2"><i class="fa fa-check"></i><b>9.0.10</b> Question 9</a></li>
-<li class="chapter" data-level="9.0.11" data-path="week-4-home.html"><a href="week-4-home.html#question-10-1"><i class="fa fa-check"></i><b>9.0.11</b> Question 10</a></li>
+<li class="chapter" data-level="9.0.11" data-path="week-4-home.html"><a href="week-4-home.html#question-10-2"><i class="fa fa-check"></i><b>9.0.11</b> Question 10</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="week-4-class.html"><a href="week-4-class.html"><i class="fa fa-check"></i><b>10</b> Week 4 - Class</a><ul>
 <li class="chapter" data-level="10.0.1" data-path="week-4-class.html"><a href="week-4-class.html#specify-basic-model"><i class="fa fa-check"></i><b>10.0.1</b> Specify basic model</a></li>
@@ -364,11 +366,11 @@ figure specifies that Other must have a weight of 1 in the prediction of SAT. Th
 <details>
 <p><summary>Click for explanation</summary>
 The syntax for this model is:</p>
-<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb130-1" data-line-number="1"><span class="st">&quot;AT ~ Income + Education</span></a>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb130-1" data-line-number="1"><span class="st">&quot;SAT ~ Income + Education</span></a>
 <a class="sourceLine" id="cb130-2" data-line-number="2"><span class="st">Income ~~ Education&quot;</span></a></code></pre></div>
 <p>Or, equivalently:</p>
-<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb131-1" data-line-number="1"><span class="st">&quot;AT ~ Income </span></a>
-<a class="sourceLine" id="cb131-2" data-line-number="2"><span class="st">AT ~ Education</span></a>
+<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb131-1" data-line-number="1"><span class="st">&quot;SAT ~ Income </span></a>
+<a class="sourceLine" id="cb131-2" data-line-number="2"><span class="st">SAT ~ Education</span></a>
 <a class="sourceLine" id="cb131-3" data-line-number="3"><span class="st">Income ~~ Education&quot;</span></a></code></pre></div>
 <p>This syntax specifies two regression equations and one covariance. However, three more parameters are included by lavaan per default:</p>
 <ol style="list-style-type: decimal">
@@ -395,7 +397,8 @@ The syntax for this model is:</p>
 <a class="sourceLine" id="cb133-4" data-line-number="4">fit &lt;-<span class="st"> </span><span class="kw">sem</span>(<span class="dt">model =</span> <span class="st">&quot;SAT ~ Income + Education</span></a>
 <a class="sourceLine" id="cb133-5" data-line-number="5"><span class="st">                    Income ~~ Education&quot;</span>,</a>
 <a class="sourceLine" id="cb133-6" data-line-number="6">           <span class="dt">data =</span> df)</a></code></pre></div>
-
+<p>This will result in a warning about the variances. You can ignore this.
+</p>
 </div>
 <div id="viewing-the-output" class="section level3">
 <h3><span class="header-section-number">7.0.6</span> Viewing the output</h3>

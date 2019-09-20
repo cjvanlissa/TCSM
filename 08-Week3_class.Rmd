@@ -22,8 +22,8 @@ Furthermore, we want to work with numeric variables instead of factors once agai
 <details>
   <summary>Click for explanation</summary>
 ```{r}
-data[7:44] <- lapply(data[7:44], as.numeric)
-
+data[c(7:44, 48, 49, 50)] <- lapply(data[c(7:44, 48, 49, 50)], as.numeric)
+data$yrbrn <- as.numeric(as.character(data$yrbrn))
 df <- data[data$cntry %in% c("Austria", "Belgium", "Denmark", "Finland", "Germany", "Italy", "Netherlands", "Norway", "Sweden"), ]
 df$cntry <- factor(df$cntry)
 ```
@@ -119,18 +119,29 @@ Build a new one-factor model, only using the 3 items that ask about the responde
 
 After doing this, add as predictors of the latent factor: gender, age, education in years, political interest and self-placement on the left right scale.
 
-![](Q_10_Plot.png)
+![](week3class1.png)
 
-Estimate the model. The model doesn't fit very well, but for now, we will stick with this modle. Write down the regression coefficients (standardized and unstandardized) and relevant test statistics.
+Estimate the model. The model doesn't fit very well, but for now, we will stick with this model. Write down the regression coefficients (standardized and unstandardized) and relevant test statistics.
 
-*Hint: Once you add predictions to your model, you should use* `sem()` *instead of* `pca()`.
+*Hint: Once you add predictions to your model, you should use* `sem()` *instead of* `cfa()`.
 
 <details>
 <summary>Click for explanation</summary>
 
 We will first have to do some recoding again. You might want to make an age variable instead of a yearborn variable, which eases the interpretation. Furthermore, a dummy for gender is more informative than just the variable `gndr`, although this will be treated as a dummy. You will also have to recode the variables `eduyrs` and `lrscale` to numerical variables, and you will have to make a two-category dummy for the variable `polintr`.
 
+
 ```{r}
+df$age <- 2002 - df$yrbrn
+
+model_q9 <- 'trustinst =~ trstlgl + trstplc + trstun
+             trustinst ~ gndr + age + eduyrs + polintr + lrscale'
+
+fit_model_q9 <- sem(model_q9, data = df)
+summary(fit_model_q9, fit.measures = TRUE, standardized = TRUE)
+```
+
+```{r, echo = FALSE, eval = FALSE}
 df$age <- 2002 - as.numeric(as.character(df$yrbrn))
 
 df$female <- as.numeric(df$gndr)
@@ -156,21 +167,35 @@ model_q9 <- 'trustinst =~ trstlgl + trstplc + trstun
 fit_model_q9 <- sem(model_q9, data = df)
 summary(fit_model_q9, fit.measures = TRUE, standardized = TRUE)
 ```
-
-
 \details
 
-### Question 10
-Now, replace the latent score "trust in institutions" with the EFA factor score 'trust in institutions'. Delete the separate indicators, so you end up with the model below.
+### Optional 
 
-![](Q_11_Plot.png)
+You can plot the resulting model using `semPaths()`:
 
 ```{r}
-model_q10 <- 'trustinstEFA ~ female + age + eduyrs + polintr_dummy + lrscale'
+library(semPlot)
+semPaths(fit_model_q9, whatLabels = "est", rotation = 4)
+```
+
+### Question 10
+
+Now, replace the latent score "trust in institutions" with the EFA factor score 'trust in institutions'. Delete the separate indicators, so you end up with the model below.
+
+![](week3class2.png)
+
+
+<details>
+<summary>Click for explanation</summary>
+
+```{r}
+model_q10 <- 'trustinstEFA ~ gndr + age + eduyrs + polintr + lrscale'
 
 fit_model_q10 <- sem(model_q10, data = df)
 summary(fit_model_q10, fit.measures = TRUE, standardized = TRUE)
 ```
+
+\details
 
 Compare the results. Does it matter whether we use a CFA or EFA to predict trust in institutions?
 
