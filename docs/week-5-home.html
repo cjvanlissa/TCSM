@@ -357,25 +357,27 @@ I think the indirect pathway in AMOS does not count covariances, so the indirect
 <div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb197-1" data-line-number="1">fit_mediation &lt;-<span class="st"> </span><span class="kw">sem</span>(mediation_model,</a>
 <a class="sourceLine" id="cb197-2" data-line-number="2">                     <span class="dt">data =</span> data)</a>
 <a class="sourceLine" id="cb197-3" data-line-number="3"><span class="kw">summary</span>(fit_mediation, <span class="dt">fit.measures =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
-<pre><code>## lavaan 0.6-3 ended normally after 18 iterations
-## 
-##   Optimization method                           NLMINB
-##   Number of free parameters                         16
-## 
-##   Number of observations                           143
+<pre><code>## lavaan 0.6-5 ended normally after 18 iterations
 ## 
 ##   Estimator                                         ML
-##   Model Fit Test Statistic                      12.609
+##   Optimization method                           NLMINB
+##   Number of free parameters                         16
+##                                                       
+##   Number of observations                           143
+##                                                       
+## Model Test User Model:
+##                                                       
+##   Test statistic                                12.609
 ##   Degrees of freedom                                 5
 ##   P-value (Chi-square)                           0.027
 ## 
-## Model test baseline model:
+## Model Test Baseline Model:
 ## 
-##   Minimum Function Test Statistic              174.959
+##   Test statistic                               174.959
 ##   Degrees of freedom                                15
 ##   P-value                                        0.000
 ## 
-## User model versus baseline model:
+## User Model versus Baseline Model:
 ## 
 ##   Comparative Fit Index (CFI)                    0.952
 ##   Tucker-Lewis Index (TLI)                       0.857
@@ -384,8 +386,7 @@ I think the indirect pathway in AMOS does not count covariances, so the indirect
 ## 
 ##   Loglikelihood user model (H0)              -1131.703
 ##   Loglikelihood unrestricted model (H1)      -1125.399
-## 
-##   Number of free parameters                         16
+##                                                       
 ##   Akaike (AIC)                                2295.407
 ##   Bayesian (BIC)                              2342.812
 ##   Sample-size adjusted Bayesian (BIC)         2292.185
@@ -393,7 +394,8 @@ I think the indirect pathway in AMOS does not count covariances, so the indirect
 ## Root Mean Square Error of Approximation:
 ## 
 ##   RMSEA                                          0.103
-##   90 Percent Confidence Interval          0.032  0.176
+##   90 Percent confidence interval - lower         0.032
+##   90 Percent confidence interval - upper         0.176
 ##   P-value RMSEA &lt;= 0.05                          0.093
 ## 
 ## Standardized Root Mean Square Residual:
@@ -404,7 +406,7 @@ I think the indirect pathway in AMOS does not count covariances, so the indirect
 ## 
 ##   Information                                 Expected
 ##   Information saturated (h1) model          Structured
-##   Standard Errors                             Standard
+##   Standard errors                             Standard
 ## 
 ## Regressions:
 ##                    Estimate  Std.Err  z-value  P(&gt;|z|)
@@ -476,25 +478,27 @@ The researcher expects that having good relationships with peers will increase p
 <a class="sourceLine" id="cb199-10" data-line-number="10">fit_mediation &lt;-<span class="st"> </span><span class="kw">sem</span>(mediation_model,</a>
 <a class="sourceLine" id="cb199-11" data-line-number="11">                     <span class="dt">data =</span> data)</a>
 <a class="sourceLine" id="cb199-12" data-line-number="12"><span class="kw">summary</span>(fit_mediation, <span class="dt">fit.measures =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
-<pre><code>## lavaan 0.6-3 ended normally after 18 iterations
-## 
-##   Optimization method                           NLMINB
-##   Number of free parameters                         16
-## 
-##   Number of observations                           143
+<pre><code>## lavaan 0.6-5 ended normally after 18 iterations
 ## 
 ##   Estimator                                         ML
-##   Model Fit Test Statistic                      12.609
+##   Optimization method                           NLMINB
+##   Number of free parameters                         16
+##                                                       
+##   Number of observations                           143
+##                                                       
+## Model Test User Model:
+##                                                       
+##   Test statistic                                12.609
 ##   Degrees of freedom                                 5
 ##   P-value (Chi-square)                           0.027
 ## 
-## Model test baseline model:
+## Model Test Baseline Model:
 ## 
-##   Minimum Function Test Statistic              174.959
+##   Test statistic                               174.959
 ##   Degrees of freedom                                15
 ##   P-value                                        0.000
 ## 
-## User model versus baseline model:
+## User Model versus Baseline Model:
 ## 
 ##   Comparative Fit Index (CFI)                    0.952
 ##   Tucker-Lewis Index (TLI)                       0.857
@@ -503,8 +507,7 @@ The researcher expects that having good relationships with peers will increase p
 ## 
 ##   Loglikelihood user model (H0)              -1131.703
 ##   Loglikelihood unrestricted model (H1)      -1125.399
-## 
-##   Number of free parameters                         16
+##                                                       
 ##   Akaike (AIC)                                2295.407
 ##   Bayesian (BIC)                              2342.812
 ##   Sample-size adjusted Bayesian (BIC)         2292.185
@@ -512,7 +515,8 @@ The researcher expects that having good relationships with peers will increase p
 ## Root Mean Square Error of Approximation:
 ## 
 ##   RMSEA                                          0.103
-##   90 Percent Confidence Interval          0.032  0.176
+##   90 Percent confidence interval - lower         0.032
+##   90 Percent confidence interval - upper         0.176
 ##   P-value RMSEA &lt;= 0.05                          0.093
 ## 
 ## Standardized Root Mean Square Residual:
@@ -523,7 +527,7 @@ The researcher expects that having good relationships with peers will increase p
 ## 
 ##   Information                                 Expected
 ##   Information saturated (h1) model          Structured
-##   Standard Errors                             Standard
+##   Standard errors                             Standard
 ## 
 ## Regressions:
 ##                    Estimate  Std.Err  z-value  P(&gt;|z|)
@@ -584,15 +588,17 @@ The researcher expects that having good relationships with peers will increase p
 <a class="sourceLine" id="cb201-14" data-line-number="14">fit_mediation &lt;-<span class="st"> </span><span class="kw">sem</span>(mediation_model,</a>
 <a class="sourceLine" id="cb201-15" data-line-number="15">                     <span class="dt">data =</span> data)</a>
 <a class="sourceLine" id="cb201-16" data-line-number="16"><span class="kw">summary</span>(fit_mediation)</a></code></pre></div>
-<pre><code>## lavaan 0.6-3 ended normally after 18 iterations
-## 
-##   Optimization method                           NLMINB
-##   Number of free parameters                         16
-## 
-##   Number of observations                           143
+<pre><code>## lavaan 0.6-5 ended normally after 18 iterations
 ## 
 ##   Estimator                                         ML
-##   Model Fit Test Statistic                      12.609
+##   Optimization method                           NLMINB
+##   Number of free parameters                         16
+##                                                       
+##   Number of observations                           143
+##                                                       
+## Model Test User Model:
+##                                                       
+##   Test statistic                                12.609
 ##   Degrees of freedom                                 5
 ##   P-value (Chi-square)                           0.027
 ## 
@@ -600,7 +606,7 @@ The researcher expects that having good relationships with peers will increase p
 ## 
 ##   Information                                 Expected
 ##   Information saturated (h1) model          Structured
-##   Standard Errors                             Standard
+##   Standard errors                             Standard
 ## 
 ## Regressions:
 ##                    Estimate  Std.Err  z-value  P(&gt;|z|)
@@ -650,25 +656,27 @@ The researcher expects that having good relationships with peers will increase p
 <p><summary>Click for explanation</summary></p>
 <p>You should use the standardized results:</p>
 <div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb203-1" data-line-number="1"><span class="kw">summary</span>(fit_mediation, <span class="dt">fit.measures =</span> <span class="ot">TRUE</span>, <span class="dt">standardize =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
-<pre><code>## lavaan 0.6-3 ended normally after 18 iterations
-## 
-##   Optimization method                           NLMINB
-##   Number of free parameters                         16
-## 
-##   Number of observations                           143
+<pre><code>## lavaan 0.6-5 ended normally after 18 iterations
 ## 
 ##   Estimator                                         ML
-##   Model Fit Test Statistic                      12.609
+##   Optimization method                           NLMINB
+##   Number of free parameters                         16
+##                                                       
+##   Number of observations                           143
+##                                                       
+## Model Test User Model:
+##                                                       
+##   Test statistic                                12.609
 ##   Degrees of freedom                                 5
 ##   P-value (Chi-square)                           0.027
 ## 
-## Model test baseline model:
+## Model Test Baseline Model:
 ## 
-##   Minimum Function Test Statistic              174.959
+##   Test statistic                               174.959
 ##   Degrees of freedom                                15
 ##   P-value                                        0.000
 ## 
-## User model versus baseline model:
+## User Model versus Baseline Model:
 ## 
 ##   Comparative Fit Index (CFI)                    0.952
 ##   Tucker-Lewis Index (TLI)                       0.857
@@ -677,8 +685,7 @@ The researcher expects that having good relationships with peers will increase p
 ## 
 ##   Loglikelihood user model (H0)              -1131.703
 ##   Loglikelihood unrestricted model (H1)      -1125.399
-## 
-##   Number of free parameters                         16
+##                                                       
 ##   Akaike (AIC)                                2295.407
 ##   Bayesian (BIC)                              2342.812
 ##   Sample-size adjusted Bayesian (BIC)         2292.185
@@ -686,7 +693,8 @@ The researcher expects that having good relationships with peers will increase p
 ## Root Mean Square Error of Approximation:
 ## 
 ##   RMSEA                                          0.103
-##   90 Percent Confidence Interval          0.032  0.176
+##   90 Percent confidence interval - lower         0.032
+##   90 Percent confidence interval - upper         0.176
 ##   P-value RMSEA &lt;= 0.05                          0.093
 ## 
 ## Standardized Root Mean Square Residual:
@@ -697,7 +705,7 @@ The researcher expects that having good relationships with peers will increase p
 ## 
 ##   Information                                 Expected
 ##   Information saturated (h1) model          Structured
-##   Standard Errors                             Standard
+##   Standard errors                             Standard
 ## 
 ## Regressions:
 ##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
@@ -760,7 +768,7 @@ The researcher expects that having good relationships with peers will increase p
 <div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb207-1" data-line-number="1"><span class="kw">parameterestimates</span>(fit_mediation, <span class="dt">boot.ci.type =</span> <span class="st">&quot;bca.simple&quot;</span>, <span class="dt">standardized =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["lhs"],"name":[1],"type":["chr"],"align":["left"]},{"label":["op"],"name":[2],"type":["chr"],"align":["left"]},{"label":["rhs"],"name":[3],"type":["chr"],"align":["left"]},{"label":["label"],"name":[4],"type":["chr"],"align":["left"]},{"label":["est"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["se"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["z"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["pvalue"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["ci.lower"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["ci.upper"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["std.lv"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["std.all"],"name":[12],"type":["dbl"],"align":["right"]},{"label":["std.nox"],"name":[13],"type":["dbl"],"align":["right"]}],"data":[{"1":"SelfEst","2":"~","3":"ProSoc","4":"bse_pro","5":"0.312354416","6":"0.085974478","7":"3.6331063","8":"2.800296e-04","9":"0.139956212","10":"0.468524429","11":"0.312354416","12":"0.294575440","13":"0.294575440"},{"1":"SelfEst","2":"~","3":"Aggr","4":"bse_agg","5":"0.159036607","6":"0.089536337","7":"1.7762242","8":"7.569597e-02","9":"-0.017622423","10":"0.348045695","11":"0.159036607","12":"0.150037060","13":"0.150037060"},{"1":"SelfEst","2":"~","3":"ParAtt","4":"bse_par","5":"0.240047641","6":"0.089608403","7":"2.6788519","8":"7.387506e-03","9":"0.097095251","10":"0.425740727","11":"0.240047641","12":"0.269427507","13":"0.269427507"},{"1":"SelfEst","2":"~","3":"PeerAtt","4":"bse_peer","5":"0.082870164","6":"0.094573256","7":"0.8762537","8":"3.808921e-01","9":"-0.077219973","10":"0.283337676","11":"0.082870164","12":"0.080784990","13":"0.080784990"},{"1":"ProSoc","2":"~","3":"Emp","4":"bpro_emp","5":"0.519885158","6":"0.073650114","7":"7.0588507","8":"1.678879e-12","9":"0.364162091","10":"0.685267676","11":"0.519885158","12":"0.520247606","13":"0.520247606"},{"1":"Aggr","2":"~","3":"Emp","4":"bagg_emp","5":"-0.353971612","6":"0.085292567","7":"-4.1500875","8":"3.323483e-05","9":"-0.503813687","10":"-0.176292439","11":"-0.353971612","12":"-0.354093983","13":"-0.354093983"},{"1":"Emp","2":"~","3":"ParAtt","4":"bemp_par","5":"0.078074547","6":"0.073834857","7":"1.0574213","8":"2.903194e-01","9":"-0.051407490","10":"0.233190013","11":"0.078074547","12":"0.092854383","13":"0.092854383"},{"1":"Emp","2":"~","3":"PeerAtt","4":"bemp_peer","5":"0.305816883","6":"0.076487582","7":"3.9982554","8":"6.381109e-05","9":"0.153501297","10":"0.451242715","11":"0.305816883","12":"0.315894727","13":"0.315894727"},{"1":"ProSoc","2":"~~","3":"Aggr","4":"","5":"-0.098516374","6":"0.061490436","7":"-1.6021414","8":"1.091243e-01","9":"-0.195772465","10":"0.062738037","11":"-0.098516374","12":"-0.136799219","13":"-0.136799219"},{"1":"ParAtt","2":"~~","3":"PeerAtt","4":"","5":"0.537376348","6":"0.114471874","7":"4.6943964","8":"2.673951e-06","9":"0.327674895","10":"0.797136902","11":"0.537376348","12":"0.484620653","13":"0.484620653"},{"1":"SelfEst","2":"~~","3":"SelfEst","4":"","5":"0.808053822","6":"0.080719370","7":"10.0106557","8":"0.000000e+00","9":"0.676927494","10":"1.023372213","11":"0.808053822","12":"0.797334627","13":"0.797334627"},{"1":"ProSoc","2":"~~","3":"ProSoc","4":"","5":"0.657398809","6":"0.082744660","7":"7.9449091","8":"1.998401e-15","9":"0.534151793","10":"0.818597471","11":"0.657398809","12":"0.729342428","13":"0.729342428"},{"1":"Aggr","2":"~~","3":"Aggr","4":"","5":"0.788897699","6":"0.102983635","7":"7.6604180","8":"1.842970e-14","9":"0.639656697","10":"1.096178138","11":"0.788897699","12":"0.874617451","13":"0.874617451"},{"1":"Emp","2":"~~","3":"Emp","4":"","5":"0.779100311","6":"0.096617851","7":"8.0637305","8":"6.661338e-16","9":"0.577656540","10":"0.994579259","11":"0.779100311","12":"0.863158595","13":"0.863158595"},{"1":"ParAtt","2":"~~","3":"ParAtt","4":"","5":"1.276699370","6":"0.179427224","7":"7.1154162","8":"1.115774e-12","9":"0.983776962","10":"1.657239031","11":"1.276699370","12":"1.000000000","13":"1.000000000"},{"1":"PeerAtt","2":"~~","3":"PeerAtt","4":"","5":"0.963084993","6":"0.112084287","7":"8.5925067","8":"0.000000e+00","9":"0.733427460","10":"1.223996135","11":"0.963084993","12":"1.000000000","13":"1.000000000"},{"1":"ind_par_emp_pro","2":":=","3":"bse_pro*bpro_emp*bemp_par","4":"ind_par_emp_pro","5":"0.012678403","6":"0.013822509","7":"0.9172288","8":"3.590228e-01","9":"-0.008143507","10":"0.048830921","11":"0.012678403","12":"0.014230135","13":"0.014230135"},{"1":"ind_peer_emp_pro","2":":=","3":"bse_pro*bpro_emp*bemp_peer","4":"ind_peer_emp_pro","5":"0.049661122","6":"0.021116303","7":"2.3517905","8":"1.868329e-02","9":"0.022779318","10":"0.116817176","11":"0.049661122","12":"0.048411552","13":"0.048411552"},{"1":"ind_par_emp_agg","2":":=","3":"bse_agg*bagg_emp*bemp_par","4":"ind_par_emp_agg","5":"-0.004395163","6":"0.006151415","7":"-0.7144963","8":"4.749204e-01","9":"-0.027998390","10":"0.001431193","11":"-0.004395163","12":"-0.004933095","13":"-0.004933095"},{"1":"ind_peer_emp_agg","2":":=","3":"bse_agg*bagg_emp*bemp_peer","4":"ind_peer_emp_agg","5":"-0.017215791","6":"0.011228055","7":"-1.5332835","8":"1.252060e-01","9":"-0.049873564","10":"0.001816327","11":"-0.017215791","12":"-0.016782609","13":"-0.016782609"},{"1":"total_par","2":":=","3":"bse_par+ind_par_emp_pro+ind_par_emp_agg","4":"total_par","5":"0.248330881","6":"0.091441729","7":"2.7157282","8":"6.613018e-03","9":"0.100264425","10":"0.426352246","11":"0.248330881","12":"0.278724547","13":"0.278724547"},{"1":"total_peer","2":":=","3":"bse_peer+ind_peer_emp_pro+ind_peer_emp_agg","4":"total_peer","5":"0.115315495","6":"0.096451207","7":"1.1955837","8":"2.318590e-01","9":"-0.044738548","10":"0.304819908","11":"0.115315495","12":"0.112413933","13":"0.112413933"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["lhs"],"name":[1],"type":["chr"],"align":["left"]},{"label":["op"],"name":[2],"type":["chr"],"align":["left"]},{"label":["rhs"],"name":[3],"type":["chr"],"align":["left"]},{"label":["label"],"name":[4],"type":["chr"],"align":["left"]},{"label":["est"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["se"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["z"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["pvalue"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["ci.lower"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["ci.upper"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["std.lv"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["std.all"],"name":[12],"type":["dbl"],"align":["right"]},{"label":["std.nox"],"name":[13],"type":["dbl"],"align":["right"]}],"data":[{"1":"SelfEst","2":"~","3":"ProSoc","4":"bse_pro","5":"0.312354416","6":"0.085829017","7":"3.6392636","8":"2.734188e-04","9":"0.136680524","10":"0.475435884","11":"0.312354416","12":"0.294575440","13":"0.294575440"},{"1":"SelfEst","2":"~","3":"Aggr","4":"bse_agg","5":"0.159036607","6":"0.087031077","7":"1.8273542","8":"6.764653e-02","9":"0.016533656","10":"0.361645815","11":"0.159036607","12":"0.150037060","13":"0.150037060"},{"1":"SelfEst","2":"~","3":"ParAtt","4":"bse_par","5":"0.240047641","6":"0.077984431","7":"3.0781483","8":"2.082912e-03","9":"0.116343496","10":"0.425015676","11":"0.240047641","12":"0.269427507","13":"0.269427507"},{"1":"SelfEst","2":"~","3":"PeerAtt","4":"bse_peer","5":"0.082870164","6":"0.086774755","7":"0.9550031","8":"3.395761e-01","9":"-0.123955285","10":"0.238618862","11":"0.082870164","12":"0.080784990","13":"0.080784990"},{"1":"ProSoc","2":"~","3":"Emp","4":"bpro_emp","5":"0.519885158","6":"0.077459929","7":"6.7116658","8":"1.924150e-11","9":"0.391268644","10":"0.677198126","11":"0.519885158","12":"0.520247606","13":"0.520247606"},{"1":"Aggr","2":"~","3":"Emp","4":"bagg_emp","5":"-0.353971612","6":"0.081006055","7":"-4.3696932","8":"1.244212e-05","9":"-0.498563115","10":"-0.165693029","11":"-0.353971612","12":"-0.354093983","13":"-0.354093983"},{"1":"Emp","2":"~","3":"ParAtt","4":"bemp_par","5":"0.078074547","6":"0.063411535","7":"1.2312357","8":"2.182347e-01","9":"-0.051614005","10":"0.193716807","11":"0.078074547","12":"0.092854383","13":"0.092854383"},{"1":"Emp","2":"~","3":"PeerAtt","4":"bemp_peer","5":"0.305816883","6":"0.078207053","7":"3.9103492","8":"9.216280e-05","9":"0.149488192","10":"0.493810400","11":"0.305816883","12":"0.315894727","13":"0.315894727"},{"1":"ProSoc","2":"~~","3":"Aggr","4":"","5":"-0.098516374","6":"0.059975907","7":"-1.6425992","8":"1.004659e-01","9":"-0.269658412","10":"0.001726457","11":"-0.098516374","12":"-0.136799219","13":"-0.136799219"},{"1":"ParAtt","2":"~~","3":"PeerAtt","4":"","5":"0.537376348","6":"0.115268865","7":"4.6619384","8":"3.132449e-06","9":"0.346779724","10":"0.837970639","11":"0.537376348","12":"0.484620653","13":"0.484620653"},{"1":"SelfEst","2":"~~","3":"SelfEst","4":"","5":"0.808053822","6":"0.086783887","7":"9.3111043","8":"0.000000e+00","9":"0.687927883","10":"1.013069075","11":"0.808053822","12":"0.797334627","13":"0.797334627"},{"1":"ProSoc","2":"~~","3":"ProSoc","4":"","5":"0.657398809","6":"0.073243236","7":"8.9755566","8":"0.000000e+00","9":"0.500836212","10":"0.809675657","11":"0.657398809","12":"0.729342428","13":"0.729342428"},{"1":"Aggr","2":"~~","3":"Aggr","4":"","5":"0.788897699","6":"0.106815944","7":"7.3855800","8":"1.518785e-13","9":"0.577172382","10":"1.076196053","11":"0.788897699","12":"0.874617451","13":"0.874617451"},{"1":"Emp","2":"~~","3":"Emp","4":"","5":"0.779100311","6":"0.084236256","7":"9.2489902","8":"0.000000e+00","9":"0.645675031","10":"0.944688185","11":"0.779100311","12":"0.863158595","13":"0.863158595"},{"1":"ParAtt","2":"~~","3":"ParAtt","4":"","5":"1.276699370","6":"0.179417352","7":"7.1158077","8":"1.112666e-12","9":"0.966757483","10":"1.751164810","11":"1.276699370","12":"1.000000000","13":"1.000000000"},{"1":"PeerAtt","2":"~~","3":"PeerAtt","4":"","5":"0.963084993","6":"0.111860600","7":"8.6096891","8":"0.000000e+00","9":"0.795617569","10":"1.245878915","11":"0.963084993","12":"1.000000000","13":"1.000000000"},{"1":"ind_par_emp_pro","2":":=","3":"bse_pro*bpro_emp*bemp_par","4":"ind_par_emp_pro","5":"0.012678403","6":"0.011449779","7":"1.1073054","8":"2.681619e-01","9":"-0.007183883","10":"0.041770924","11":"0.012678403","12":"0.014230135","13":"0.014230135"},{"1":"ind_peer_emp_pro","2":":=","3":"bse_pro*bpro_emp*bemp_peer","4":"ind_peer_emp_pro","5":"0.049661122","6":"0.022736278","7":"2.1842239","8":"2.894580e-02","9":"0.016348865","10":"0.110052259","11":"0.049661122","12":"0.048411552","13":"0.048411552"},{"1":"ind_par_emp_agg","2":":=","3":"bse_agg*bagg_emp*bemp_par","4":"ind_par_emp_agg","5":"-0.004395163","6":"0.005764231","7":"-0.7624891","8":"4.457681e-01","9":"-0.029374145","10":"0.001544680","11":"-0.004395163","12":"-0.004933095","13":"-0.004933095"},{"1":"ind_peer_emp_agg","2":":=","3":"bse_agg*bagg_emp*bemp_peer","4":"ind_peer_emp_agg","5":"-0.017215791","6":"0.011327036","7":"-1.5198850","8":"1.285399e-01","9":"-0.051508044","10":"-0.003567898","11":"-0.017215791","12":"-0.016782609","13":"-0.016782609"},{"1":"total_par","2":":=","3":"bse_par+ind_par_emp_pro+ind_par_emp_agg","4":"total_par","5":"0.248330881","6":"0.078773637","7":"3.1524618","8":"1.619000e-03","9":"0.131921379","10":"0.438084563","11":"0.248330881","12":"0.278724547","13":"0.278724547"},{"1":"total_peer","2":":=","3":"bse_peer+ind_peer_emp_pro+ind_peer_emp_agg","4":"total_peer","5":"0.115315495","6":"0.088756574","7":"1.2992333","8":"1.938639e-01","9":"-0.091715125","10":"0.254707448","11":"0.115315495","12":"0.112413933","13":"0.112413933"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>

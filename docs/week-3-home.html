@@ -327,8 +327,8 @@ subsequently test your theory using Statistical Modeling.</p>
 <h3><span class="header-section-number">7.0.1</span> Get started with lavaan</h3>
 <p>To get started with lavaan, read and run the following two chapters of the official <code>lavaan</code> tutorial:</p>
 <ul>
-<li><a href="Installing%20lavaan">http://lavaan.ugent.be/tutorial/install.html</a></li>
-<li><a href="Lavaan%20syntax">http://lavaan.ugent.be/tutorial/syntax1.html</a> (you just have to read this one)</li>
+<li><a href="http://lavaan.ugent.be/tutorial/install.html">Installing lavaan</a></li>
+<li><a href="http://lavaan.ugent.be/tutorial/syntax1.html">Lavaan syntax</a> (you just have to read this one)</li>
 </ul>
 </div>
 <div id="regression-models-in-lavaan" class="section level3">
@@ -406,22 +406,24 @@ The syntax for this model is:</p>
 <details>
 <p><summary>Click for explanation</summary></p>
 <div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb134-1" data-line-number="1"><span class="kw">summary</span>(fit, <span class="dt">rsquare =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
-<pre><code>## lavaan 0.6-3 ended normally after 48 iterations
-## 
-##   Optimization method                           NLMINB
-##   Number of free parameters                          6
-## 
-##   Number of observations                            21
+<pre><code>## lavaan 0.6-5 ended normally after 48 iterations
 ## 
 ##   Estimator                                         ML
-##   Model Fit Test Statistic                       0.000
+##   Optimization method                           NLMINB
+##   Number of free parameters                          6
+##                                                       
+##   Number of observations                            21
+##                                                       
+## Model Test User Model:
+##                                                       
+##   Test statistic                                 0.000
 ##   Degrees of freedom                                 0
 ## 
 ## Parameter Estimates:
 ## 
 ##   Information                                 Expected
 ##   Information saturated (h1) model          Structured
-##   Standard Errors                             Standard
+##   Standard errors                             Standard
 ## 
 ## Regressions:
 ##                    Estimate  Std.Err  z-value  P(&gt;|z|)

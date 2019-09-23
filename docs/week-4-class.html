@@ -344,32 +344,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <details>
 <p><summary>Click for explanation</summary></p>
 <div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb187-1" data-line-number="1"><span class="kw">summary</span>(multi_group, <span class="dt">standardize =</span> <span class="ot">TRUE</span>, <span class="dt">rsquare =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
-<pre><code>## lavaan 0.6-3 ended normally after 53 iterations
-## 
-##   Optimization method                           NLMINB
-##   Number of free parameters                          9
-## 
-##   Number of observations per group         
-##   rejection                                         19
-##   neutral                                           20
-##   confirming                                        20
+<pre><code>## lavaan 0.6-5 ended normally after 53 iterations
 ## 
 ##   Estimator                                         ML
-##   Model Fit Test Statistic                       0.000
+##   Optimization method                           NLMINB
+##   Number of free parameters                          9
+##                                                       
+##   Number of observations per group:                   
+##     rejection                                       19
+##     neutral                                         20
+##     confirming                                      20
+##                                                       
+## Model Test User Model:
+##                                                       
+##   Test statistic                                 0.000
 ##   Degrees of freedom                                 0
-##   Minimum Function Value               0.0000000000000
-## 
-## Chi-square for each group:
-## 
-##   rejection                                      0.000
-##   neutral                                        0.000
-##   confirming                                     0.000
+##   Test statistic for each group:
+##     rejection                                    0.000
+##     neutral                                      0.000
+##     confirming                                   0.000
 ## 
 ## Parameter Estimates:
 ## 
 ##   Information                                 Expected
 ##   Information saturated (h1) model          Structured
-##   Standard Errors                             Standard
+##   Standard errors                             Standard
 ## 
 ## 
 ## Group 1 [rejection]:
@@ -516,7 +515,7 @@ Fix all intercepts to be equal.
 <a class="sourceLine" id="cb194-20" data-line-number="20">           <span class="dt">residuals =</span> m2, </a>
 <a class="sourceLine" id="cb194-21" data-line-number="21">           <span class="dt">intercepts =</span> m3)</a></code></pre></div>
 <pre><code>## ################### Nested Model Comparison #########################
-## Chi Square Difference Test
+## Chi-Squared Difference Test
 ## 
 ##               Df    AIC    BIC  Chisq Chisq diff Df diff Pr(&gt;Chisq)  
 ## unconstrained  0 336.95 355.64 0.0000                                

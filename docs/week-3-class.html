@@ -348,36 +348,37 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb140-4" data-line-number="4"></a>
 <a class="sourceLine" id="cb140-5" data-line-number="5">fit_trust_model_3f &lt;-<span class="st"> </span><span class="kw">cfa</span>(trust_model_3f, <span class="dt">data =</span> df)</a>
 <a class="sourceLine" id="cb140-6" data-line-number="6"><span class="kw">summary</span>(fit_trust_model_3f, <span class="dt">fit.measures =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
-<pre><code>## lavaan 0.6-3 ended normally after 45 iterations
-## 
-##   Optimization method                           NLMINB
-##   Number of free parameters                         27
-## 
-##                                                   Used       Total
-##   Number of observations                         15448       18187
+<pre><code>## lavaan 0.6-5 ended normally after 45 iterations
 ## 
 ##   Estimator                                         ML
-##   Model Fit Test Statistic                    9188.922
+##   Optimization method                           NLMINB
+##   Number of free parameters                         27
+##                                                       
+##                                                   Used       Total
+##   Number of observations                         15448       18187
+##                                                                   
+## Model Test User Model:
+##                                                       
+##   Test statistic                              9188.922
 ##   Degrees of freedom                                51
 ##   P-value (Chi-square)                           0.000
 ## 
-## Model test baseline model:
+## Model Test Baseline Model:
 ## 
-##   Minimum Function Test Statistic            75675.049
+##   Test statistic                             75675.049
 ##   Degrees of freedom                                66
 ##   P-value                                        0.000
 ## 
-## User model versus baseline model:
+## User Model versus Baseline Model:
 ## 
 ##   Comparative Fit Index (CFI)                    0.879
 ##   Tucker-Lewis Index (TLI)                       0.844
 ## 
 ## Loglikelihood and Information Criteria:
 ## 
-##   Loglikelihood user model (H0)             -357923.209
-##   Loglikelihood unrestricted model (H1)     -353328.748
-## 
-##   Number of free parameters                         27
+##   Loglikelihood user model (H0)            -357923.209
+##   Loglikelihood unrestricted model (H1)    -353328.748
+##                                                       
 ##   Akaike (AIC)                              715900.419
 ##   Bayesian (BIC)                            716106.840
 ##   Sample-size adjusted Bayesian (BIC)       716021.036
@@ -385,7 +386,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## Root Mean Square Error of Approximation:
 ## 
 ##   RMSEA                                          0.108
-##   90 Percent Confidence Interval          0.106  0.110
+##   90 Percent confidence interval - lower         0.106
+##   90 Percent confidence interval - upper         0.110
 ##   P-value RMSEA &lt;= 0.05                          0.000
 ## 
 ## Standardized Root Mean Square Residual:
@@ -396,7 +398,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ##   Information                                 Expected
 ##   Information saturated (h1) model          Structured
-##   Standard Errors                             Standard
+##   Standard errors                             Standard
 ## 
 ## Latent Variables:
 ##                    Estimate  Std.Err  z-value  P(&gt;|z|)
@@ -453,36 +455,37 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb142-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb142-3" data-line-number="3">fit_trust_model_1f &lt;-<span class="st"> </span><span class="kw">sem</span>(trust_model_1f, <span class="dt">data =</span> df)</a>
 <a class="sourceLine" id="cb142-4" data-line-number="4"><span class="kw">summary</span>(fit_trust_model_1f, <span class="dt">fit.measures =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
-<pre><code>## lavaan 0.6-3 ended normally after 38 iterations
-## 
-##   Optimization method                           NLMINB
-##   Number of free parameters                         26
-## 
-##                                                   Used       Total
-##   Number of observations                         14778       18187
+<pre><code>## lavaan 0.6-5 ended normally after 38 iterations
 ## 
 ##   Estimator                                         ML
-##   Model Fit Test Statistic                   17667.304
-##   Degrees of freedom                                65
-##   P-value (Chi-square)                           0.000
+##   Optimization method                           NLMINB
+##   Number of free parameters                         26
+##                                                       
+##                                                   Used       Total
+##   Number of observations                         14778       18187
+##                                                                   
+## Model Test User Model:
+##                                                        
+##   Test statistic                              17667.304
+##   Degrees of freedom                                 65
+##   P-value (Chi-square)                            0.000
 ## 
-## Model test baseline model:
+## Model Test Baseline Model:
 ## 
-##   Minimum Function Test Statistic            81699.096
+##   Test statistic                             81699.096
 ##   Degrees of freedom                                78
 ##   P-value                                        0.000
 ## 
-## User model versus baseline model:
+## User Model versus Baseline Model:
 ## 
 ##   Comparative Fit Index (CFI)                    0.784
 ##   Tucker-Lewis Index (TLI)                       0.741
 ## 
 ## Loglikelihood and Information Criteria:
 ## 
-##   Loglikelihood user model (H0)             -374912.206
-##   Loglikelihood unrestricted model (H1)     -366078.555
-## 
-##   Number of free parameters                         26
+##   Loglikelihood user model (H0)            -374912.206
+##   Loglikelihood unrestricted model (H1)    -366078.555
+##                                                       
 ##   Akaike (AIC)                              749876.413
 ##   Bayesian (BIC)                            750074.036
 ##   Sample-size adjusted Bayesian (BIC)       749991.410
@@ -490,7 +493,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## Root Mean Square Error of Approximation:
 ## 
 ##   RMSEA                                          0.135
-##   90 Percent Confidence Interval          0.134  0.137
+##   90 Percent confidence interval - lower         0.134
+##   90 Percent confidence interval - upper         0.137
 ##   P-value RMSEA &lt;= 0.05                          0.000
 ## 
 ## Standardized Root Mean Square Residual:
@@ -501,7 +505,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ##   Information                                 Expected
 ##   Information saturated (h1) model          Structured
-##   Standard Errors                             Standard
+##   Standard errors                             Standard
 ## 
 ## Latent Variables:
 ##                      Estimate  Std.Err  z-value  P(&gt;|z|)
@@ -550,36 +554,37 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <details>
 <p><summary>Click for explanation</summary></p>
 <div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb144-1" data-line-number="1"><span class="kw">summary</span>(fit_trust_model_3f, <span class="dt">fit.measures =</span> <span class="ot">TRUE</span>, <span class="dt">standardized =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
-<pre><code>## lavaan 0.6-3 ended normally after 45 iterations
-## 
-##   Optimization method                           NLMINB
-##   Number of free parameters                         27
-## 
-##                                                   Used       Total
-##   Number of observations                         15448       18187
+<pre><code>## lavaan 0.6-5 ended normally after 45 iterations
 ## 
 ##   Estimator                                         ML
-##   Model Fit Test Statistic                    9188.922
+##   Optimization method                           NLMINB
+##   Number of free parameters                         27
+##                                                       
+##                                                   Used       Total
+##   Number of observations                         15448       18187
+##                                                                   
+## Model Test User Model:
+##                                                       
+##   Test statistic                              9188.922
 ##   Degrees of freedom                                51
 ##   P-value (Chi-square)                           0.000
 ## 
-## Model test baseline model:
+## Model Test Baseline Model:
 ## 
-##   Minimum Function Test Statistic            75675.049
+##   Test statistic                             75675.049
 ##   Degrees of freedom                                66
 ##   P-value                                        0.000
 ## 
-## User model versus baseline model:
+## User Model versus Baseline Model:
 ## 
 ##   Comparative Fit Index (CFI)                    0.879
 ##   Tucker-Lewis Index (TLI)                       0.844
 ## 
 ## Loglikelihood and Information Criteria:
 ## 
-##   Loglikelihood user model (H0)             -357923.209
-##   Loglikelihood unrestricted model (H1)     -353328.748
-## 
-##   Number of free parameters                         27
+##   Loglikelihood user model (H0)            -357923.209
+##   Loglikelihood unrestricted model (H1)    -353328.748
+##                                                       
 ##   Akaike (AIC)                              715900.419
 ##   Bayesian (BIC)                            716106.840
 ##   Sample-size adjusted Bayesian (BIC)       716021.036
@@ -587,7 +592,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## Root Mean Square Error of Approximation:
 ## 
 ##   RMSEA                                          0.108
-##   90 Percent Confidence Interval          0.106  0.110
+##   90 Percent confidence interval - lower         0.106
+##   90 Percent confidence interval - upper         0.110
 ##   P-value RMSEA &lt;= 0.05                          0.000
 ## 
 ## Standardized Root Mean Square Residual:
@@ -598,7 +604,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ##   Information                                 Expected
 ##   Information saturated (h1) model          Structured
-##   Standard Errors                             Standard
+##   Standard errors                             Standard
 ## 
 ## Latent Variables:
 ##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
@@ -668,36 +674,37 @@ To run a second-order factor model, you can simply add an additional line within
 <a class="sourceLine" id="cb147-5" data-line-number="5"></a>
 <a class="sourceLine" id="cb147-6" data-line-number="6">fit_trust_model_3f2o &lt;-<span class="st"> </span><span class="kw">sem</span>(trust_model_3f2o, <span class="dt">data =</span> df)</a>
 <a class="sourceLine" id="cb147-7" data-line-number="7"><span class="kw">summary</span>(fit_trust_model_3f2o, <span class="dt">fit.measures =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
-<pre><code>## lavaan 0.6-3 ended normally after 46 iterations
-## 
-##   Optimization method                           NLMINB
-##   Number of free parameters                         29
-## 
-##                                                   Used       Total
-##   Number of observations                         14778       18187
+<pre><code>## lavaan 0.6-5 ended normally after 46 iterations
 ## 
 ##   Estimator                                         ML
-##   Model Fit Test Statistic                   10116.996
-##   Degrees of freedom                                62
-##   P-value (Chi-square)                           0.000
+##   Optimization method                           NLMINB
+##   Number of free parameters                         29
+##                                                       
+##                                                   Used       Total
+##   Number of observations                         14778       18187
+##                                                                   
+## Model Test User Model:
+##                                                        
+##   Test statistic                              10116.996
+##   Degrees of freedom                                 62
+##   P-value (Chi-square)                            0.000
 ## 
-## Model test baseline model:
+## Model Test Baseline Model:
 ## 
-##   Minimum Function Test Statistic            81699.096
+##   Test statistic                             81699.096
 ##   Degrees of freedom                                78
 ##   P-value                                        0.000
 ## 
-## User model versus baseline model:
+## User Model versus Baseline Model:
 ## 
 ##   Comparative Fit Index (CFI)                    0.877
 ##   Tucker-Lewis Index (TLI)                       0.845
 ## 
 ## Loglikelihood and Information Criteria:
 ## 
-##   Loglikelihood user model (H0)             -371137.053
-##   Loglikelihood unrestricted model (H1)     -366078.555
-## 
-##   Number of free parameters                         29
+##   Loglikelihood user model (H0)            -371137.053
+##   Loglikelihood unrestricted model (H1)    -366078.555
+##                                                       
 ##   Akaike (AIC)                              742332.105
 ##   Bayesian (BIC)                            742552.531
 ##   Sample-size adjusted Bayesian (BIC)       742460.372
@@ -705,7 +712,8 @@ To run a second-order factor model, you can simply add an additional line within
 ## Root Mean Square Error of Approximation:
 ## 
 ##   RMSEA                                          0.105
-##   90 Percent Confidence Interval          0.103  0.106
+##   90 Percent confidence interval - lower         0.103
+##   90 Percent confidence interval - upper         0.106
 ##   P-value RMSEA &lt;= 0.05                          0.000
 ## 
 ## Standardized Root Mean Square Residual:
@@ -716,7 +724,7 @@ To run a second-order factor model, you can simply add an additional line within
 ## 
 ##   Information                                 Expected
 ##   Information saturated (h1) model          Structured
-##   Standard Errors                             Standard
+##   Standard errors                             Standard
 ## 
 ## Latent Variables:
 ##                    Estimate  Std.Err  z-value  P(&gt;|z|)
@@ -760,9 +768,9 @@ To run a second-order factor model, you can simply add an additional line within
 ##    .trstplc           2.940    0.039   74.828    0.000
 ##    .trstun            2.935    0.042   70.714    0.000
 ##    .trstep            2.699    0.038   71.292    0.000
-##     trustpol          0.035    0.004    9.165    0.000
+##    .trustpol          0.035    0.004    9.165    0.000
 ##     satcntry          2.761    0.059   46.436    0.000
-##     trustinst         0.722    0.030   24.029    0.000
+##    .trustinst         0.722    0.030   24.029    0.000
 ##     trust             0.381    0.011   36.203    0.000</code></pre>
 
 </div>
@@ -783,26 +791,28 @@ To run a second-order factor model, you can simply add an additional line within
 <a class="sourceLine" id="cb149-5" data-line-number="5"></a>
 <a class="sourceLine" id="cb149-6" data-line-number="6">fit_model_q9 &lt;-<span class="st"> </span><span class="kw">sem</span>(model_q9, <span class="dt">data =</span> df)</a>
 <a class="sourceLine" id="cb149-7" data-line-number="7"><span class="kw">summary</span>(fit_model_q9, <span class="dt">fit.measures =</span> <span class="ot">TRUE</span>, <span class="dt">standardized =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
-<pre><code>## lavaan 0.6-3 ended normally after 41 iterations
-## 
-##   Optimization method                           NLMINB
-##   Number of free parameters                         11
-## 
-##                                                   Used       Total
-##   Number of observations                         15524       18187
+<pre><code>## lavaan 0.6-5 ended normally after 41 iterations
 ## 
 ##   Estimator                                         ML
-##   Model Fit Test Statistic                     615.470
+##   Optimization method                           NLMINB
+##   Number of free parameters                         11
+##                                                       
+##                                                   Used       Total
+##   Number of observations                         15524       18187
+##                                                                   
+## Model Test User Model:
+##                                                       
+##   Test statistic                               615.470
 ##   Degrees of freedom                                10
 ##   P-value (Chi-square)                           0.000
 ## 
-## Model test baseline model:
+## Model Test Baseline Model:
 ## 
-##   Minimum Function Test Statistic            11664.434
+##   Test statistic                             11664.434
 ##   Degrees of freedom                                18
 ##   P-value                                        0.000
 ## 
-## User model versus baseline model:
+## User Model versus Baseline Model:
 ## 
 ##   Comparative Fit Index (CFI)                    0.948
 ##   Tucker-Lewis Index (TLI)                       0.906
@@ -811,8 +821,7 @@ To run a second-order factor model, you can simply add an additional line within
 ## 
 ##   Loglikelihood user model (H0)             -99125.659
 ##   Loglikelihood unrestricted model (H1)     -98817.925
-## 
-##   Number of free parameters                         11
+##                                                       
 ##   Akaike (AIC)                              198273.319
 ##   Bayesian (BIC)                            198357.470
 ##   Sample-size adjusted Bayesian (BIC)       198322.513
@@ -820,7 +829,8 @@ To run a second-order factor model, you can simply add an additional line within
 ## Root Mean Square Error of Approximation:
 ## 
 ##   RMSEA                                          0.062
-##   90 Percent Confidence Interval          0.058  0.067
+##   90 Percent confidence interval - lower         0.058
+##   90 Percent confidence interval - upper         0.067
 ##   P-value RMSEA &lt;= 0.05                          0.000
 ## 
 ## Standardized Root Mean Square Residual:
@@ -831,7 +841,7 @@ To run a second-order factor model, you can simply add an additional line within
 ## 
 ##   Information                                 Expected
 ##   Information saturated (h1) model          Structured
-##   Standard Errors                             Standard
+##   Standard errors                             Standard
 ## 
 ## Latent Variables:
 ##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
@@ -874,26 +884,27 @@ To run a second-order factor model, you can simply add an additional line within
 <a class="sourceLine" id="cb152-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb152-3" data-line-number="3">fit_model_q10 &lt;-<span class="st"> </span><span class="kw">sem</span>(model_q10, <span class="dt">data =</span> df)</a>
 <a class="sourceLine" id="cb152-4" data-line-number="4"><span class="kw">summary</span>(fit_model_q10, <span class="dt">fit.measures =</span> <span class="ot">TRUE</span>, <span class="dt">standardized =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
-<pre><code>## lavaan 0.6-3 ended normally after 20 iterations
-## 
-##   Optimization method                           NLMINB
-##   Number of free parameters                          6
-## 
-##                                                   Used       Total
-##   Number of observations                         13829       18187
+<pre><code>## lavaan 0.6-5 ended normally after 20 iterations
 ## 
 ##   Estimator                                         ML
-##   Model Fit Test Statistic                       0.000
+##   Optimization method                           NLMINB
+##   Number of free parameters                          6
+##                                                       
+##                                                   Used       Total
+##   Number of observations                         13829       18187
+##                                                                   
+## Model Test User Model:
+##                                                       
+##   Test statistic                                 0.000
 ##   Degrees of freedom                                 0
-##   Minimum Function Value               0.0000000000000
 ## 
-## Model test baseline model:
+## Model Test Baseline Model:
 ## 
-##   Minimum Function Test Statistic              575.844
+##   Test statistic                               575.844
 ##   Degrees of freedom                                 5
 ##   P-value                                        0.000
 ## 
-## User model versus baseline model:
+## User Model versus Baseline Model:
 ## 
 ##   Comparative Fit Index (CFI)                    1.000
 ##   Tucker-Lewis Index (TLI)                       1.000
@@ -902,8 +913,7 @@ To run a second-order factor model, you can simply add an additional line within
 ## 
 ##   Loglikelihood user model (H0)             -19582.755
 ##   Loglikelihood unrestricted model (H1)     -19582.755
-## 
-##   Number of free parameters                          6
+##                                                       
 ##   Akaike (AIC)                               39177.510
 ##   Bayesian (BIC)                             39222.717
 ##   Sample-size adjusted Bayesian (BIC)        39203.649
@@ -911,7 +921,8 @@ To run a second-order factor model, you can simply add an additional line within
 ## Root Mean Square Error of Approximation:
 ## 
 ##   RMSEA                                          0.000
-##   90 Percent Confidence Interval          0.000  0.000
+##   90 Percent confidence interval - lower         0.000
+##   90 Percent confidence interval - upper         0.000
 ##   P-value RMSEA &lt;= 0.05                             NA
 ## 
 ## Standardized Root Mean Square Residual:
@@ -922,7 +933,7 @@ To run a second-order factor model, you can simply add an additional line within
 ## 
 ##   Information                                 Expected
 ##   Information saturated (h1) model          Structured
-##   Standard Errors                             Standard
+##   Standard errors                             Standard
 ## 
 ## Regressions:
 ##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all

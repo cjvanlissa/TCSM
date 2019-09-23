@@ -519,23 +519,24 @@ Condition is significant after controlling for the effect of self-esteem, F (2, 
 <div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb176-1" data-line-number="1"><span class="kw">library</span>(lavaan)</a>
 <a class="sourceLine" id="cb176-2" data-line-number="2">ancova_lavaan &lt;-<span class="st"> </span><span class="kw">sem</span>(<span class="st">&#39;Spent ~ SelfEst + Conditionrejection + Conditionconfirming&#39;</span>, <span class="dt">data =</span> data)</a>
 <a class="sourceLine" id="cb176-3" data-line-number="3"><span class="kw">summary</span>(ancova_lavaan)</a></code></pre></div>
-<pre><code>## lavaan 0.6-3 ended normally after 21 iterations
-## 
-##   Optimization method                           NLMINB
-##   Number of free parameters                          4
-## 
-##   Number of observations                            59
+<pre><code>## lavaan 0.6-5 ended normally after 21 iterations
 ## 
 ##   Estimator                                         ML
-##   Model Fit Test Statistic                       0.000
+##   Optimization method                           NLMINB
+##   Number of free parameters                          4
+##                                                       
+##   Number of observations                            59
+##                                                       
+## Model Test User Model:
+##                                                       
+##   Test statistic                                 0.000
 ##   Degrees of freedom                                 0
-##   Minimum Function Value               0.0000000000000
 ## 
 ## Parameter Estimates:
 ## 
 ##   Information                                 Expected
 ##   Information saturated (h1) model          Structured
-##   Standard Errors                             Standard
+##   Standard errors                             Standard
 ## 
 ## Regressions:
 ##                    Estimate  Std.Err  z-value  P(&gt;|z|)
@@ -561,22 +562,24 @@ Condition is significant after controlling for the effect of self-esteem, F (2, 
 <a class="sourceLine" id="cb179-3" data-line-number="3">                     <span class="dt">data =</span> data,</a>
 <a class="sourceLine" id="cb179-4" data-line-number="4">                     <span class="dt">meanstructure =</span> <span class="ot">TRUE</span>)</a>
 <a class="sourceLine" id="cb179-5" data-line-number="5"><span class="kw">summary</span>(ancova_lavaan)</a></code></pre></div>
-<pre><code>## lavaan 0.6-3 ended normally after 35 iterations
-## 
-##   Optimization method                           NLMINB
-##   Number of free parameters                          5
-## 
-##   Number of observations                            59
+<pre><code>## lavaan 0.6-5 ended normally after 35 iterations
 ## 
 ##   Estimator                                         ML
-##   Model Fit Test Statistic                       0.000
+##   Optimization method                           NLMINB
+##   Number of free parameters                          5
+##                                                       
+##   Number of observations                            59
+##                                                       
+## Model Test User Model:
+##                                                       
+##   Test statistic                                 0.000
 ##   Degrees of freedom                                 0
 ## 
 ## Parameter Estimates:
 ## 
 ##   Information                                 Expected
 ##   Information saturated (h1) model          Structured
-##   Standard Errors                             Standard
+##   Standard errors                             Standard
 ## 
 ## Regressions:
 ##                    Estimate  Std.Err  z-value  P(&gt;|z|)
@@ -594,22 +597,24 @@ Condition is significant after controlling for the effect of self-esteem, F (2, 
 ##    .Spent            13.430    2.473    5.431    0.000</code></pre>
 <p>To obtain the standardized results and the proportion of explained variance (= squared multiple correlation, i.e., R2), you can use the options in the <code>summary()</code> function:</p>
 <div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb181-1" data-line-number="1"><span class="kw">summary</span>(ancova_lavaan, <span class="dt">standardized =</span> <span class="ot">TRUE</span>, <span class="dt">rsquare =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
-<pre><code>## lavaan 0.6-3 ended normally after 35 iterations
-## 
-##   Optimization method                           NLMINB
-##   Number of free parameters                          5
-## 
-##   Number of observations                            59
+<pre><code>## lavaan 0.6-5 ended normally after 35 iterations
 ## 
 ##   Estimator                                         ML
-##   Model Fit Test Statistic                       0.000
+##   Optimization method                           NLMINB
+##   Number of free parameters                          5
+##                                                       
+##   Number of observations                            59
+##                                                       
+## Model Test User Model:
+##                                                       
+##   Test statistic                                 0.000
 ##   Degrees of freedom                                 0
 ## 
 ## Parameter Estimates:
 ## 
 ##   Information                                 Expected
 ##   Information saturated (h1) model          Structured
-##   Standard Errors                             Standard
+##   Standard errors                             Standard
 ## 
 ## Regressions:
 ##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
@@ -641,24 +646,26 @@ Condition is significant after controlling for the effect of self-esteem, F (2, 
 <details>
 <p><summary>Click for explanation</summary></p>
 <div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb183-1" data-line-number="1"><span class="kw">summary</span>(ancova_lavaan, <span class="dt">fit.measures =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
-<pre><code>## lavaan 0.6-3 ended normally after 35 iterations
-## 
-##   Optimization method                           NLMINB
-##   Number of free parameters                          5
-## 
-##   Number of observations                            59
+<pre><code>## lavaan 0.6-5 ended normally after 35 iterations
 ## 
 ##   Estimator                                         ML
-##   Model Fit Test Statistic                       0.000
+##   Optimization method                           NLMINB
+##   Number of free parameters                          5
+##                                                       
+##   Number of observations                            59
+##                                                       
+## Model Test User Model:
+##                                                       
+##   Test statistic                                 0.000
 ##   Degrees of freedom                                 0
 ## 
-## Model test baseline model:
+## Model Test Baseline Model:
 ## 
-##   Minimum Function Test Statistic               30.941
+##   Test statistic                                30.941
 ##   Degrees of freedom                                 3
 ##   P-value                                        0.000
 ## 
-## User model versus baseline model:
+## User Model versus Baseline Model:
 ## 
 ##   Comparative Fit Index (CFI)                    1.000
 ##   Tucker-Lewis Index (TLI)                       1.000
@@ -667,8 +674,7 @@ Condition is significant after controlling for the effect of self-esteem, F (2, 
 ## 
 ##   Loglikelihood user model (H0)               -160.344
 ##   Loglikelihood unrestricted model (H1)       -160.344
-## 
-##   Number of free parameters                          5
+##                                                       
 ##   Akaike (AIC)                                 330.689
 ##   Bayesian (BIC)                               341.077
 ##   Sample-size adjusted Bayesian (BIC)          325.353
@@ -676,7 +682,8 @@ Condition is significant after controlling for the effect of self-esteem, F (2, 
 ## Root Mean Square Error of Approximation:
 ## 
 ##   RMSEA                                          0.000
-##   90 Percent Confidence Interval          0.000  0.000
+##   90 Percent confidence interval - lower         0.000
+##   90 Percent confidence interval - upper         0.000
 ##   P-value RMSEA &lt;= 0.05                             NA
 ## 
 ## Standardized Root Mean Square Residual:
@@ -687,7 +694,7 @@ Condition is significant after controlling for the effect of self-esteem, F (2, 
 ## 
 ##   Information                                 Expected
 ##   Information saturated (h1) model          Structured
-##   Standard Errors                             Standard
+##   Standard errors                             Standard
 ## 
 ## Regressions:
 ##                    Estimate  Std.Err  z-value  P(&gt;|z|)

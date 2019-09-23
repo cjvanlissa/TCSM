@@ -18,8 +18,8 @@ As a preparation for the next practical, work your way through this tutorial (pa
 
 To get started with lavaan, read and run the following two chapters of the official `lavaan` tutorial:
 
-* [http://lavaan.ugent.be/tutorial/install.html](Installing lavaan)
-* [http://lavaan.ugent.be/tutorial/syntax1.html](Lavaan syntax) (you just have to read this one)
+* [Installing lavaan](http://lavaan.ugent.be/tutorial/install.html)
+* [Lavaan syntax](http://lavaan.ugent.be/tutorial/syntax1.html) (you just have to read this one)
 
 ### Regression models in lavaan
 
