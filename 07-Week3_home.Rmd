@@ -23,7 +23,7 @@ To get started with lavaan, read and run the following two chapters of the offic
 
 ### Regression models in lavaan
 
-Download the data file *Hamilton.xls* from blackboard. The data are as follows:
+Download the data file *Hamilton.csv*, or *Hamilton.xls* from blackboard. The data are as follows:
 
 Hamilton (1990) provided several measurements on each of 21 states. Three of the
 measurements will be used in this tutorial:
@@ -32,15 +32,21 @@ measurements will be used in this tutorial:
 2. Per capita income expressed in $1,000 units
 3. Median education for residents 25 years of age or older
 
-Load the data from the xls file into R.
+Load the data from the .csv or .xls file into R.
 
-*Hint: Use* `XLConnect::readWorkSheetFromFile()`
+*Hint: Use* `read.csv()` *or* `XLConnect::readWorkSheetFromFile()`
 
 <details>
   <summary>Click for explanation</summary>
 ```{r, message=FALSE}
 library(XLConnect)
 df <- readWorksheetFromFile("Hamilton.xls", 1)
+```
+
+Or 
+
+```{r, eval=FALSE}
+df <- read.csv("Hamilton.csv")
 ```
 \details
 
