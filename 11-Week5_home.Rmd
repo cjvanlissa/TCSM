@@ -52,7 +52,7 @@ I think the indirect pathway in AMOS does not count covariances, so the indirect
 PEERA->SE: as above
 \details
 
-### Question 4
+### Question 2
 
 Run this model. Discuss the fit of the model.
 

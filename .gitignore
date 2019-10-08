@@ -10,3 +10,4 @@ rsconnect
 *.xls
 *.xlsx
 *.pdf
+*.RData

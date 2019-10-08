@@ -1,0 +1,187 @@
+# Week 5 - Class
+
+```{r echo = FALSE, warning=FALSE, message=FALSE}
+library(foreign)
+library(semTools)
+library(kableExtra)
+library(lavaan)
+library(psych)
+data <- read.spss("WorkingMom_2014.sav", to.data.frame = TRUE)
+```
+
+The effect of professional child care on the cognitive, emotional, and social development of children is a much debated toping among policy makers as well as parents with young children. In particular the effect of child care during the first year of life has been of interest.
+
+In the current study the researchers are interested in the relationship between mothers' work status during the first year of life and their children's cognitive development by age 4.5 years, measured with the Woodcock Johnson Achievement and Cognitive Batteries (WCJ). Other variables that are considered of interest and which were included are: Mother’s earnings at age 4.5; Home environment quality; Mother’s sensitivity; and Mother’s depression.
+
+Mother's work status has three levels: 
+
+1. full time working moms
+2. part time working moms, and
+3. stay-at-home moms.
+
+### The analysis
+
+If you were to analyze these data, you could do an ANCOVA analysis, with Work (mother's working status) as factor, and the other independent variables as covariates. Here you find the results of the ANCOVA analysis (assumptions of the ANCOVA were checked and okay). 
+
+```{r echo = FALSE, echo = FALSE}
+fit <- lm(WCJ ~ Work + MothEar + HomeEnv + MothSen + MothDep, data)
+print(anova(fit))
+```
+
+These are the parameter estimates for that model:
+
+```{r echo = FALSE, eval = TRUE}
+print(summary(fit))
+```
+
+
+### Question 1
+
+Based on the results, what would be your advise for women with children under one year of age, and why?
+
+### Dummy coding
+
+Consider the other variables that were included. We may expect that these are actually influenced by mother's work status. For instance, mother’s earnings by age 4.5 may depend on whether or not the mother was working during the first year, and also on whether she was working full time or part time. This implies there may be *mediated* or indirect effects of work status on the outcome variable. 
+
+To investigate this, we can specify a SEM model in which the effects of work status are mediated through the four other variables. Note that work status is a categorical (ordinal) variable, with three categories. To include this variable as a predictor, we need to dummy-code it. `lm()` does this automatically; `lavaan` doesn't. The function `dummy.code` in `library(psych)` can help us:
+
+```{r, eval = FALSE, message=FALSE}
+library(psych)
+dummy.code(data$Work)
+```
+```{r, echo = FALSE}
+head(psych::dummy.code(data$Work))
+```
+
+We need to add these variables to our `data`. Also, the names of the dummies include spaces, so we should rename them. One easy way to do this is to change the levels of the original variable. Then, we add the dummies to `data`:
+
+```{r}
+levels(data$Work)
+levels(data$Work) <- c("workfull", "workpart", "workno")
+data <- data.frame(data, dummy.code(data$Work))
+```
+
+If we want to use the stay-at-home moms as the reference group, we just use the other two dummies as predictors. Additionally, if we want to know the intercept of `WCJ` for the reference category, we need to add the argument `meanstructure = TRUE` to the `sem()` function call.
+
+### Question 2
+
+We now want to specify a SEM model in which the effects of work status are mediated through the four other variables. What is the syntax of this model?
+
+<!--Note: If two variables are purely independent in your model (i.e. they have no arrows drawn towards them), a covariance arrow between them needs to be drawn. Otherwise the model will be fit as if their covariance is 0. (Which is usually not the case, the dummy variables do covary.)-->
+
+
+<details>
+  <summary>Click for explanation</summary>
+```{r}
+model <- '
+WCJ ~ MothEar + HomeEnv + MothSen + MothDep + workfull + workpart
+MothEar ~ workfull + workpart
+HomeEnv  ~ workfull + workpart
+MothSen  ~ workfull + workpart
+MothDep  ~ workfull + workpart 
+'
+```
+
+\details
+
+### Question 3
+
+If you had no access to lavaan, what regression analyses could you run in order to piece together this mediated path model? What else would we need to do?
+
+<details>
+  <summary>Click for explanation</summary>
+You would estimate these regression analyses:
+```{r, eval = FALSE}
+fit_y <- lm(WCJ ~ MothEar + HomeEnv + MothSen + MothDep + workfull + workpart, data)
+fit_m1 <- lm(MothEar ~ workfull + workpart, data)
+fit_m2 <- lm(HomeEnv  ~ workfull + workpart, data)
+fit_m3 <- lm(MothSen  ~ workfull + workpart, data)
+fit_m4 <- lm(MothDep  ~ workfull + workpart, data)
+```
+
+Additionally, we would have to multiply the effects of the dummies on the mediators, with the effects of the mediators on WCJ, in order to calculate the indirect effects.
+\details
+
+
+### Question 4
+
+Add syntax to compute the indirect effects to your model from question 2, and run the analysis. Apply an appropriate solution to test whether the indirect effects are significant or not. Discuss the indirect effects of work status on the outcome variable. Taking the direct effects into account, can you explain the differences between the two dummy variables?
+
+<details>
+  <summary>Click for explanation</summary>
+First, label all regressions, and add syntax for the indirect effects:
+
+```{r}
+model <- '
+WCJ ~ ear * MothEar + env * HomeEnv + sen * MothSen + dep * MothDep + workfull + workpart
+MothEar ~ earfull * workfull + earpart * workpart
+HomeEnv  ~ envfull * workfull + envpart * workpart
+MothSen  ~ senfull * workfull + senpart * workpart
+MothDep  ~ depfull * workfull + deppart * workpart
+
+i_earfull := ear * earfull
+i_envfull := env * envfull
+i_senfull := sen * senfull
+i_depfull := dep * depfull
+
+i_earpart := ear * earpart
+i_envpart := env * envpart
+i_senpart := sen * senpart
+i_deppart := dep * deppart
+'
+```
+
+Then, estimate the model. Specify bootstrapped SEs and 1000 bootstrap samples. Remember that, to get the intercepts of dependent variables for the reference category, we should specify `meanstructure = TRUE`:
+
+```{r, message = FALSE, eval=FALSE}
+library(lavaan)
+fit <- sem(model, 
+           data, 
+           meanstructure = TRUE,
+           se = "bootstrap", 
+           bootstrap = 1000)
+```
+```{r, message = FALSE, echo=FALSE}
+#save(fit, file = "boot_sem5class.RData")
+load("boot_sem5class.RData")
+```
+
+To obtain the 95% CIs for the indirect effects, we can use the following syntax. First, I obtain the `parameterestimates()` and put them in an object called `pars`. Then, I ask for only the **rows** that contain my defined parameters (`pars$op == ":="`), and only the columns `c("label", "est", "ci.upper", "ci.lower")`:
+
+```{r, eval = FALSE}
+pars <- parameterestimates(fit, boot.ci.type = "bca.simple")
+pars[pars$op == ":=", c("label", "est", "ci.upper", "ci.lower")]
+```
+```{r, echo = FALSE}
+pars <- parameterestimates(fit, boot.ci.type = "bca.simple")
+print(pars[pars$op == ":=", c("label", "est", "ci.upper", "ci.lower")], row.names = FALSE)
+```
+\details
+
+
+### Question 5
+
+If we want to determine whether working or not is harmful for children’s cognitive development, what should we consider: the direct effects, the indirect effects, or the total effects, and why? 
+
+### Question 6
+
+Compare the effect of the dummy variables working full time and working part time in a regression model with all control variables, to the parameters in the lavaan model. Which parameter estimates from the regression correspond to your lavaan model, and why? 
+
+<details>
+  <summary>Click for explanation</summary>
+First, run the requested regression:
+
+```{r}
+fit_reg <- lm(WCJ ~ workfull + workpart + MothEar + HomeEnv + MothSen + MothDep, data)
+summary(fit_reg)
+```
+
+These coefficients are all identical to the direct effects on WCJ from your lavaan model.
+
+The only difference is that your lavaan model ADDITIONALLY estimates the effects of the dummies on the mediators, AND computes the indirect effects.
+\details
+
+
+### Question 7
+
+What are your most important conclusions about the effect of working status on cognitive development? You can use your answers to the previous questions. But a model with many variables such as this one has many possible interesting options to look at. Just look around for any interesting results! 

@@ -133,7 +133,7 @@ ggplot(plot_data, aes(x = Condition, y = Spent_resid)) +
   theme_bw() # Add a nice APA theme
 ```
 
-### QUestion 7
+### Question 7
 
 An AN(C)OVA can also be specified as a regression analysis. R automatically creates dummies. Use the `lm()` function instead of `aov()`, and compare the results.
 

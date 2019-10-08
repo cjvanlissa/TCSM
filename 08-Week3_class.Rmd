@@ -6,14 +6,19 @@ Instead of doing Exploratory Factor Analysis, another way of analyzing the data 
 
 ### Question 1
 
-Download the ESS data (essround1-c.sav) from Blackboard, and load the data into R. Furthermore, you will have to load the package `lavaan` before starting with the exercises.
+Download the ESS data from Blackboard, and load the data into R. The data are in the file *essround1-c.RData*. This is a special R-filetype that can contain several R-objects. You can load it into R using the syntax:
+
+```{r}
+load("essround1-c.RData")
+```
+
+Furthermore, you will have to load the package `lavaan` before starting with the exercises, and for convenience, copy the object `essround1_c` into an object called `data`.
 
 <details>
   <summary>Click for explanation</summary>
 ```{r, warning = FALSE, message = FALSE}
 library(lavaan)
-library(foreign)
-data <- read.spss("essround1-c.sav", to.data.frame = TRUE)
+data <- essround1_c
 ```
 \details
 
