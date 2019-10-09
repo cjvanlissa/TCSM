@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 9 Week 4 - Home | Theory Construction and Statistical Modeling</title>
+  <title>Chapter 13 Week 6 - Class | Theory Construction and Statistical Modeling</title>
   <meta name="description" content="This is a guide for the elective course TCSM." />
   <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 9 Week 4 - Home | Theory Construction and Statistical Modeling" />
+  <meta property="og:title" content="Chapter 13 Week 6 - Class | Theory Construction and Statistical Modeling" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 9 Week 4 - Home | Theory Construction and Statistical Modeling" />
+  <meta name="twitter:title" content="Chapter 13 Week 6 - Class | Theory Construction and Statistical Modeling" />
   
   <meta name="twitter:description" content="This is a guide for the elective course TCSM." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="week-3-class.html"/>
-<link rel="next" href="week-4-class.html"/>
+<link rel="prev" href="week-5-class.html"/>
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -334,385 +334,442 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="week-4---home" class="section level1">
-<h1><span class="header-section-number">Chapter 9</span> Week 4 - Home</h1>
-<p>Load the data file SocialRejection.sav into R. It contains three variables: Condition (IV), SelfEst (IV), and Spent (DV).</p>
-<div id="question-1-2" class="section level3">
-<h3><span class="header-section-number">9.0.1</span> Question 1</h3>
-<p>Check the assumption of homogeneous regression lines (no interaction) first. What is your conclusion?</p>
-<p><em>Hint: You need to estimate a model with, and one without an interaction, and compare them using the <code>anova()</code> function.</em></p>
-<details>
-<p><summary>Click for explanation</summary></p>
-<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb156-1" title="1">ancova_main &lt;-<span class="st"> </span><span class="kw">aov</span>(Spent <span class="op">~</span><span class="st"> </span>Condition <span class="op">+</span><span class="st"> </span>SelfEst, <span class="dt">data =</span> data)</a>
-<a class="sourceLine" id="cb156-2" title="2">ancova_int &lt;-<span class="st"> </span><span class="kw">aov</span>(Spent <span class="op">~</span><span class="st"> </span>Condition<span class="op">*</span>SelfEst, <span class="dt">data =</span> data)</a>
-<a class="sourceLine" id="cb156-3" title="3"><span class="kw">anova</span>(ancova_main, ancova_int)</a></code></pre></div>
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Res.Df"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["RSS"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Df"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Sum of Sq"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["F"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["Pr(>F)"],"name":[6],"type":["dbl"],"align":["right"]}],"data":[{"1":"55","2":"792.3992","3":"NA","4":"NA","5":"NA","6":"NA","_rn_":"1"},{"1":"53","2":"783.7732","3":"2","4":"8.626028","5":"0.2916529","6":"0.7482189","_rn_":"2"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
-</div>
-<p>The lines are homogeneous, the assumption is met (interaction is not significant).</p>
-
-</div>
-<div id="question-2-2" class="section level3">
-<h3><span class="header-section-number">9.0.2</span> Question 2</h3>
-<p>What should you do when this assumption is violated?</p>
-</div>
-<div id="question-3-2" class="section level3">
-<h3><span class="header-section-number">9.0.3</span> Question 3</h3>
-<p>Before you can do an ANCOVA, you should also check the assumption of homogeneity. What does homogeneity imply, and is the assumption met?</p>
-<p><em>Hint: You did this in the Week 1 class exercise.</em></p>
-<details>
-<p><summary>Click for explanation</summary></p>
-<p>We can do a test of homogeneity of the variances of Spent across conditions:</p>
-<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb157-1" title="1"><span class="kw">bartlett.test</span>(<span class="dt">formula =</span> Spent<span class="op">~</span>Condition, <span class="dt">data =</span> data)</a></code></pre></div>
-<pre><code>## 
-##  Bartlett test of homogeneity of variances
-## 
-## data:  Spent by Condition
-## Bartlett&#39;s K-squared = 0.16678, df = 2, p-value = 0.92</code></pre>
-<p>However, note that the assumption of homogeneity actually requires the <strong>residual</strong> variance, after controlling for the covariate SelfEst, to be the same across conditions. We can extract these residuals from a regression with only SelfEst as a predictor:</p>
-<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb159-1" title="1">reg_selfest &lt;-<span class="st"> </span><span class="kw">lm</span>(Spent <span class="op">~</span><span class="st"> </span>SelfEst, <span class="dt">data =</span> data)</a>
-<a class="sourceLine" id="cb159-2" title="2">residuals_selfest &lt;-<span class="st"> </span>reg_selfest<span class="op">$</span>residuals</a></code></pre></div>
-<p>Then, we can test the null hypothesis that the error variance of the dependent variable is equal across groups:</p>
-<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb160-1" title="1"><span class="kw">bartlett.test</span>(residuals_selfest, data<span class="op">$</span>Condition)</a></code></pre></div>
-<pre><code>## 
-##  Bartlett test of homogeneity of variances
-## 
-## data:  residuals_selfest and data$Condition
-## Bartlett&#39;s K-squared = 0.92603, df = 2, p-value = 0.6294</code></pre>
-<p>The test is not significant, meaning that the error variances are indeed equal, the assumption is met.</p>
-
-</div>
-<div id="question-4-2" class="section level3">
-<h3><span class="header-section-number">9.0.4</span> Question 4</h3>
-<p>What should you do when this assumption is violated?</p>
+<div id="week-6---class" class="section level1">
+<h1><span class="header-section-number">Chapter 13</span> Week 6 - Class</h1>
+<p>Exercise based on:</p>
+<p>Metha, A., Chen, E, Mulvenon, S. and Dode, I. (1998). A Theoretical Model of Suicide Risk. <em>Archives of Suicide Research, 4</em>, p. 115-133.</p>
+<p>Download the dataset “suiciderisk.sav” from blackboard. This is a dataset that was simulated from the covariance matrices in the original paper presented on p.123. The idea behind simulation is that you can recreate the dataset from some summary statistics. The covariance matrix suffices for doing this, as it summarizes all relations between all variables (see <a href="http://en.wikipedia.org/wiki/Computer_simulation" class="uri">http://en.wikipedia.org/wiki/Computer_simulation</a> for an introduction).
+The new data matrix almost exactly corresponds to the data as presented in the paper, albeit that there are inconsistent data cells (negative- or our of range values for the scale of the original variables). You don’t have to worry about this now.</p>
+<p>In the take home- and class exercise we will investigate the dataset on suicidesisk and test whether there is a possible moderation of gender.</p>
+<div id="question-1-6" class="section level3">
+<h3><span class="header-section-number">13.0.1</span> Question 1</h3>
+<p>Baron and Kenny (1986) present four cases to illustrate how moderation can be studied. If gender is our moderator, and either depression, hopelessness, selfesteem and/or substance abuse our independent variables, what case should we use to investigate moderation?</p>
 <details>
 <p><summary>Click for explanation</summary>
-You cannot really “solve” this problem in classical regression or ANCOVA, because only one parameter is estimated for the error variance. In SEM, however, you can estimate different error variance parameters for each group.
+Case 2: dichotomous moderator, continuous independent variables
 </p>
 </div>
-<div id="question-5-2" class="section level3">
-<h3><span class="header-section-number">9.0.5</span> Question 5</h3>
-<p>Run the actual ANCOVA (or use previous output). What are your conclusions about the effects of the factor and the covariate?</p>
+<div id="question-2-6" class="section level3">
+<h3><span class="header-section-number">13.0.2</span> Question 2</h3>
+<p>First, run bivariate correlations of all continuous independent variables with suicide risk. Do you think it is useful to investigate these predictors? What if one one the correlations is non-significant. Is it then still useful to study moderation?</p>
+<p><em>Note: You can obtain correlations using</em> <code>cor()</code> <em>or</em> <code>psych::corr.test()</code></p>
+<details>
+<p><summary>Click for explanation</summary>
+A basic correlation matrix for the first 5 variables:</p>
+<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb225-1" title="1"><span class="kw">cor</span>(data[, <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>])</a></code></pre></div>
+<pre><code>##               suirisk   subabuse   hopeless selfesteem depression
+## suirisk     1.0000000  0.2931462  0.3231625 -0.2751558  0.4071431
+## subabuse    0.2931462  1.0000000  0.2854853 -0.2478123  0.2991709
+## hopeless    0.3231625  0.2854853  1.0000000 -0.6266401  0.6464750
+## selfesteem -0.2751558 -0.2478123 -0.6266401  1.0000000 -0.6003697
+## depression  0.4071431  0.2991709  0.6464750 -0.6003697  1.0000000</code></pre>
+<p>A correlation table with p-values can be obtained using the <code>psych::corr.test()</code> function:</p>
+<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb227-1" title="1"><span class="kw">library</span>(psych)</a>
+<a class="sourceLine" id="cb227-2" title="2"><span class="kw">corr.test</span>(data[, <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>])</a></code></pre></div>
+<pre><code>## Call:corr.test(x = data[, 1:5])
+## Correlation matrix 
+##            suirisk subabuse hopeless selfesteem depression
+## suirisk       1.00     0.29     0.32      -0.28       0.41
+## subabuse      0.29     1.00     0.29      -0.25       0.30
+## hopeless      0.32     0.29     1.00      -0.63       0.65
+## selfesteem   -0.28    -0.25    -0.63       1.00      -0.60
+## depression    0.41     0.30     0.65      -0.60       1.00
+## Sample Size 
+## [1] 521
+## Probability values (Entries above the diagonal are adjusted for multiple tests.) 
+##            suirisk subabuse hopeless selfesteem depression
+## suirisk          0        0        0          0          0
+## subabuse         0        0        0          0          0
+## hopeless         0        0        0          0          0
+## selfesteem       0        0        0          0          0
+## depression       0        0        0          0          0
+## 
+##  To see confidence intervals of the correlations, print with the short=FALSE option</code></pre>
+<p>Yes, correlations are similar to those in paper, and are all significant. Even when correlations are n.s., it is still useful to investigate moderation: there might be a suppression effect
+</p>
+</div>
+<div id="question-3-6" class="section level3">
+<h3><span class="header-section-number">13.0.3</span> Question 3</h3>
+<p>Examine the relationships between suicide risk and the four continuous predictors visually. What do you think about the relations?</p>
 <details>
 <p><summary>Click for explanation</summary></p>
-<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb162-1" title="1"><span class="kw">summary</span>(ancova_main)</a></code></pre></div>
-<pre><code>##             Df Sum Sq Mean Sq F value   Pr(&gt;F)    
-## Condition    2  126.8    63.4   4.402   0.0169 *  
-## SelfEst      1  419.5   419.5  29.118 1.49e-06 ***
-## Residuals   55  792.4    14.4                     
-## ---
-## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
-<p>Self esteem is significant, F (1, 55) = 29.118, p &lt; .001, the level of self esteem of the respondent is related to the amount spent.
-Condition is significant after controlling for the effect of self-esteem, F (2, 55) = 4.402, p = .017, the amount spent differs between the three conditions.</p>
-
+<div id="a-psych-solution" class="section level4">
+<h4><span class="header-section-number">13.0.3.1</span> A psych solution</h4>
+<p>The package `psych’ contains a function to help us visually check assumptions, such as linearity:</p>
+<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb229-1" title="1"><span class="kw">pairs.panels</span>(data[, <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>], </a>
+<a class="sourceLine" id="cb229-2" title="2">             <span class="dt">density =</span> <span class="ot">TRUE</span>, <span class="co"># show density plots</span></a>
+<a class="sourceLine" id="cb229-3" title="3">             <span class="dt">ellipses =</span> <span class="ot">TRUE</span> <span class="co"># show correlation ellipses</span></a>
+<a class="sourceLine" id="cb229-4" title="4">             )</a></code></pre></div>
+<p><img src="TCSM_files/figure-html/unnamed-chunk-177-1.png" width="672" /></p>
 </div>
-<div id="question-6-2" class="section level3">
-<h3><span class="header-section-number">9.0.6</span> Question 6</h3>
-<p>Let’s examine the differences in conditional means between the three conditions. In order to do so, we can use several approaches.</p>
-<div id="approach-1-conditional-means" class="section level4">
-<h4><span class="header-section-number">9.0.6.1</span> Approach 1: Conditional means</h4>
-<p>We can obtain the conditional means of the three groups by asking for the predicted (expected) value, based on the model, for each of the three conditions, keeping the covariate constant at 0. For this, we apply the <code>predict()</code> function to the object containing our analysis. We make a small new dataset for the values that we want predictions for:</p>
-<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb164-1" title="1">new_data &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Condition =</span> <span class="kw">c</span>(<span class="st">&quot;rejection&quot;</span>, <span class="st">&quot;neutral&quot;</span>, <span class="st">&quot;confirming&quot;</span>), </a>
-<a class="sourceLine" id="cb164-2" title="2">                       <span class="dt">SelfEst =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>))</a>
-<a class="sourceLine" id="cb164-3" title="3"><span class="kw">predict</span>(ancova_main, new_data)</a></code></pre></div>
-<pre><code>##         1         2         3 
-## 12.449100 10.265532  9.152918</code></pre>
-<p>What are your conclusions about the three conditions (i.e., how do they differ)?</p>
-</div>
-<div id="approach-2-testing-significance" class="section level4">
-<h4><span class="header-section-number">9.0.6.2</span> Approach 2: Testing significance</h4>
-<p>We can test the significance for these differences using <code>TukeyHSD()</code> again, but to get the conditional means, we need to use the residuals from a model that includes only SelfEst, which we obtained before:</p>
-<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb166-1" title="1">reg_selfest &lt;-<span class="st"> </span><span class="kw">lm</span>(Spent <span class="op">~</span><span class="st"> </span>SelfEst, <span class="dt">data =</span> data)</a>
-<a class="sourceLine" id="cb166-2" title="2">residuals_selfest &lt;-<span class="st"> </span>reg_selfest<span class="op">$</span>residuals</a>
-<a class="sourceLine" id="cb166-3" title="3">anova_conditional &lt;-<span class="st"> </span><span class="kw">aov</span>(residuals_selfest <span class="op">~</span><span class="st"> </span>data<span class="op">$</span>Condition)</a>
-<a class="sourceLine" id="cb166-4" title="4"><span class="kw">TukeyHSD</span>(anova_conditional)</a></code></pre></div>
-<pre><code>##   Tukey multiple comparisons of means
-##     95% family-wise confidence level
-## 
-## Fit: aov(formula = residuals_selfest ~ data$Condition)
-## 
-## $`data$Condition`
-##                           diff       lwr        upr     p adj
-## neutral-rejection    -2.174775 -5.076198  0.7266467 0.1773921
-## confirming-rejection -3.296276 -6.197698 -0.3948536 0.0223500
-## confirming-neutral   -1.121500 -3.985483  1.7424826 0.6157693</code></pre>
-<p>Respondents in the rejection condition spent more, than respondents in the neutral condition and the confirming condition. These differences are not tested on significance between two groups.</p>
-</div>
-<div id="approach-3-plotting-the-difference" class="section level4">
-<h4><span class="header-section-number">9.0.6.3</span> Approach 3: Plotting the difference</h4>
-<p>This is where R really shines: We can quickly put together a plot that shows the difference between groups, along with the raw data. We use the package <code>ggplot2</code></p>
-<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb168-1" title="1"><span class="kw">library</span>(ggplot2)</a>
-<a class="sourceLine" id="cb168-2" title="2"><span class="co"># Put the data for the plot together</span></a>
-<a class="sourceLine" id="cb168-3" title="3">plot_data &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Spent_resid =</span> residuals_selfest,</a>
-<a class="sourceLine" id="cb168-4" title="4">                        <span class="dt">Condition =</span> data<span class="op">$</span>Condition)</a>
-<a class="sourceLine" id="cb168-5" title="5"><span class="co"># Basic plot; indicate that you want condition on the x-axis and Spent_resid on</span></a>
-<a class="sourceLine" id="cb168-6" title="6"><span class="co"># the y-axis</span></a>
-<a class="sourceLine" id="cb168-7" title="7"><span class="kw">ggplot</span>(plot_data, <span class="kw">aes</span>(<span class="dt">x =</span> Condition, <span class="dt">y =</span> Spent_resid)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb168-8" title="8"><span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span><span class="st"> </span><span class="co"># Add a boxplot for each condition</span></a>
-<a class="sourceLine" id="cb168-9" title="9"><span class="st">  </span><span class="kw">geom_jitter</span>(<span class="dt">width =</span> <span class="fl">.2</span>) <span class="op">+</span><span class="st"> </span><span class="co"># Plot raw datapoints on top</span></a>
-<a class="sourceLine" id="cb168-10" title="10"><span class="st">  </span><span class="kw">theme_bw</span>() <span class="co"># Add a nice APA theme</span></a></code></pre></div>
-<p><img src="TCSM_files/figure-html/unnamed-chunk-131-1.png" width="672" /></p>
+<div id="ggplot-to-build-plots" class="section level4">
+<h4><span class="header-section-number">13.0.3.2</span> Ggplot to build plots</h4>
+<p>In this case, psych is easier. But generally, we can make any plot we want using <code>ggplot2</code>. In ggplot, we add one plot element at a time. Here is an example for one variable:</p>
+<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb230-1" title="1"><span class="kw">library</span>(ggplot2)</a>
+<a class="sourceLine" id="cb230-2" title="2"><span class="kw">ggplot</span>(data, <span class="kw">aes</span>(<span class="dt">x =</span> subabuse, <span class="dt">y =</span> suirisk)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb230-3" title="3"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st">  </span><span class="co"># Add scatter</span></a>
+<a class="sourceLine" id="cb230-4" title="4"><span class="st">  </span><span class="kw">geom_smooth</span>() <span class="op">+</span><span class="st"> </span><span class="co"># Add smooth trend</span></a>
+<a class="sourceLine" id="cb230-5" title="5"><span class="st">  </span><span class="kw">theme_bw</span>()      <span class="co"># Add black/white theme</span></a></code></pre></div>
+<p><img src="TCSM_files/figure-html/unnamed-chunk-178-1.png" width="672" /></p>
+<p>You could also add a linear trend line:</p>
+<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb231-1" title="1"><span class="kw">ggplot</span>(data, <span class="kw">aes</span>(<span class="dt">x =</span> subabuse, <span class="dt">y =</span> suirisk)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb231-2" title="2"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st">  </span><span class="co"># Add scatter</span></a>
+<a class="sourceLine" id="cb231-3" title="3"><span class="st">  </span><span class="kw">geom_smooth</span>() <span class="op">+</span><span class="st"> </span><span class="co"># Add smooth trend</span></a>
+<a class="sourceLine" id="cb231-4" title="4"><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span><span class="st">    </span><span class="co"># Add black/white theme</span></a>
+<a class="sourceLine" id="cb231-5" title="5"><span class="st">  </span><span class="co"># Add linear trend line (without confidence bound and red in color)</span></a>
+<a class="sourceLine" id="cb231-6" title="6"><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
+<p><img src="TCSM_files/figure-html/unnamed-chunk-179-1.png" width="672" /></p>
+<p>This seems linear; you can check the other variables!
+</p>
 </div>
 </div>
-<div id="question-7-2" class="section level3">
-<h3><span class="header-section-number">9.0.7</span> Question 7</h3>
-<p>An AN(C)OVA can also be specified as a regression analysis. R automatically creates dummies. Use the <code>lm()</code> function instead of <code>aov()</code>, and compare the results.</p>
+<div id="question-4-6" class="section level3">
+<h3><span class="header-section-number">13.0.4</span> Question 4</h3>
+<p>Build the scatterplots again, but now map participants’ gender to the colour of the dots and smooth line. Do your conclusions differ from question 3?</p>
 <details>
 <p><summary>Click for explanation</summary></p>
-<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb169-1" title="1">ancova_main &lt;-<span class="st"> </span><span class="kw">aov</span>(Spent <span class="op">~</span><span class="st"> </span>Condition <span class="op">+</span><span class="st"> </span>SelfEst, <span class="dt">data =</span> data)</a>
-<a class="sourceLine" id="cb169-2" title="2"><span class="kw">summary</span>(ancova_main)</a></code></pre></div>
-<pre><code>##             Df Sum Sq Mean Sq F value   Pr(&gt;F)    
-## Condition    2  126.8    63.4   4.402   0.0169 *  
-## SelfEst      1  419.5   419.5  29.118 1.49e-06 ***
-## Residuals   55  792.4    14.4                     
-## ---
-## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
-<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb171-1" title="1">lm_main &lt;-<span class="st"> </span><span class="kw">lm</span>(Spent <span class="op">~</span><span class="st"> </span>Condition <span class="op">+</span><span class="st"> </span>SelfEst, <span class="dt">data =</span> data)</a>
-<a class="sourceLine" id="cb171-2" title="2"><span class="kw">summary</span>(lm_main)</a></code></pre></div>
-<pre><code>## 
-## Call:
-## lm(formula = Spent ~ Condition + SelfEst, data = data)
-## 
-## Residuals:
-##     Min      1Q  Median      3Q     Max 
-## -6.9987 -2.5886 -0.4841  1.9772 10.6503 
-## 
-## Coefficients:
-##                     Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept)         12.44910    1.98050   6.286 5.54e-08 ***
-## Conditionneutral    -2.18357    1.22451  -1.783  0.08007 .  
-## Conditionconfirming -3.29618    1.21599  -2.711  0.00894 ** 
-## SelfEst             -0.52406    0.09712  -5.396 1.49e-06 ***
-## ---
-## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
-## 
-## Residual standard error: 3.796 on 55 degrees of freedom
-## Multiple R-squared:  0.4081, Adjusted R-squared:  0.3758 
-## F-statistic: 12.64 on 3 and 55 DF,  p-value: 2.142e-06</code></pre>
-
-<p>You can get the conditional means directly from this <code>lm()</code> model by dropping the intercept, using <code>-1</code> (which means: minus the intercept) in the formula:</p>
-<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb173-1" title="1">lm_no_intercept &lt;-<span class="st"> </span><span class="kw">lm</span>(Spent <span class="op">~</span><span class="st"> </span><span class="dv">-1</span> <span class="op">+</span><span class="st"> </span>Condition <span class="op">+</span><span class="st"> </span>SelfEst, <span class="dt">data =</span> data)</a>
-<a class="sourceLine" id="cb173-2" title="2"><span class="kw">summary</span>(lm_no_intercept)</a></code></pre></div>
-<pre><code>## 
-## Call:
-## lm(formula = Spent ~ -1 + Condition + SelfEst, data = data)
-## 
-## Residuals:
-##     Min      1Q  Median      3Q     Max 
-## -6.9987 -2.5886 -0.4841  1.9772 10.6503 
-## 
-## Coefficients:
-##                     Estimate Std. Error t value Pr(&gt;|t|)    
-## Conditionrejection  12.44910    1.98050   6.286 5.54e-08 ***
-## Conditionneutral    10.26553    2.10191   4.884 9.35e-06 ***
-## Conditionconfirming  9.15292    1.96952   4.647 2.14e-05 ***
-## SelfEst             -0.52406    0.09712  -5.396 1.49e-06 ***
-## ---
-## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
-## 
-## Residual standard error: 3.796 on 55 degrees of freedom
-## Multiple R-squared:  0.4218, Adjusted R-squared:  0.3797 
-## F-statistic: 10.03 on 4 and 55 DF,  p-value: 3.616e-06</code></pre>
+<div id="a-psych-solution-1" class="section level4">
+<h4><span class="header-section-number">13.0.4.1</span> A psych solution</h4>
+<p>Again, <code>psych</code> has a standard solution for this situation:</p>
+<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb232-1" title="1"><span class="kw">pairs.panels</span>(data[, <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>], <span class="dt">bg =</span> <span class="kw">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;blue&quot;</span>)[data<span class="op">$</span>gender], <span class="dt">pch =</span> <span class="dv">21</span>)</a></code></pre></div>
+<p><img src="TCSM_files/figure-html/unnamed-chunk-180-1.png" width="672" /></p>
+<p>In ggplot, we can make the plots more detailed. We can map gender to the color of the dots and smooth line using <code>aes(colour = gender)</code>:</p>
+<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb233-1" title="1"><span class="kw">ggplot</span>(data, <span class="kw">aes</span>(<span class="dt">x =</span> subabuse, <span class="dt">y =</span> suirisk, <span class="dt">colour =</span> gender)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb233-2" title="2"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st">  </span><span class="co"># Add scatter</span></a>
+<a class="sourceLine" id="cb233-3" title="3"><span class="st">  </span><span class="kw">geom_smooth</span>() <span class="op">+</span><span class="st"> </span><span class="co"># Add smooth trend</span></a>
+<a class="sourceLine" id="cb233-4" title="4"><span class="st">  </span><span class="kw">theme_bw</span>()      <span class="co"># Add black/white theme</span></a></code></pre></div>
+<p><img src="TCSM_files/figure-html/unnamed-chunk-181-1.png" width="672" /></p>
+<p>This seems linear; you can check the other variables! There are also some differences by gender, in range and steepness.
+</p>
 </div>
-<div id="question-8-2" class="section level3">
-<h3><span class="header-section-number">9.0.8</span> Question 8</h3>
-<p>To perform this analysis as a structural equation model, we need to manually compute dummy variables. We can use the function <code>model.matrix()</code> to “expand” a factor variable into dummies:</p>
-<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb175-1" title="1">data_dummies &lt;-<span class="st"> </span><span class="kw">model.matrix</span>(<span class="op">~</span><span class="st"> </span><span class="dv">-1</span> <span class="op">+</span><span class="st"> </span>Condition, <span class="dt">data =</span> data)</a>
-<a class="sourceLine" id="cb175-2" title="2"><span class="kw">head</span>(data_dummies)</a></code></pre></div>
-<pre><code>##   Conditionrejection Conditionneutral Conditionconfirming
-## 1                  1                0                   0
-## 2                  1                0                   0
-## 3                  1                0                   0
-## 4                  1                0                   0
-## 5                  1                0                   0
-## 6                  1                0                   0</code></pre>
-<p>We can then bind these columns with dummies to our original data using <code>cbind()</code> (column bind):</p>
-<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb177-1" title="1">data &lt;-<span class="st"> </span><span class="kw">cbind</span>(data, data_dummies)</a>
-<a class="sourceLine" id="cb177-2" title="2"><span class="kw">head</span>(data)</a></code></pre></div>
+</div>
+<div id="question-5-6" class="section level3">
+<h3><span class="header-section-number">13.0.5</span> Question 5</h3>
+<p>Baron and Kenny (1986) note the correlational method (as we just used) has two serious deficiencies. We can investigate only one of them. Which? Please investigate whether this potential problem exists for the moderator gender.</p>
+<p><em>Note: Use</em> <code>psych::describeBy()</code> <em>or</em> <code>car::leveneTest</code></p>
+<details>
+<p><summary>Click for explanation</summary></p>
+<p>The variances might not be equal for all levels of gender. We can do a preliminary investigation using <code>describeBy</code>; a version of the <code>describe</code> that splits the data by group.</p>
+<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb234-1" title="1"><span class="kw">library</span>(psych)</a>
+<a class="sourceLine" id="cb234-2" title="2"><span class="kw">describeBy</span>(data[, <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>], <span class="dt">group =</span> data<span class="op">$</span>gender)</a></code></pre></div>
+<pre><code>## 
+##  Descriptive statistics by group 
+## group: females
+##            vars   n  mean   sd median trimmed  mad min max range  skew
+## suirisk       1 329  2.47 1.80      2    2.45 1.48  -2   7     9  0.09
+## subabuse      2 329  0.94 6.45      1    0.89 7.41 -18  18    36  0.05
+## hopeless      3 329  2.86 2.83      3    2.84 2.97  -6  12    18  0.11
+## selfesteem    4 329 31.38 5.17     31   31.37 5.93  18  45    27  0.04
+## depression    5 329  6.07 7.60      6    6.05 7.41 -16  28    44 -0.03
+##            kurtosis   se
+## suirisk       -0.38 0.10
+## subabuse      -0.24 0.36
+## hopeless       0.10 0.16
+## selfesteem    -0.42 0.29
+## depression    -0.18 0.42
+## -------------------------------------------------------- 
+## group: males
+##            vars   n  mean   sd median trimmed  mad min max range  skew
+## suirisk       1 192  2.75 1.84      3    2.77 1.48  -3   8    11 -0.12
+## subabuse      2 192  3.09 2.69      3    3.11 2.97  -5   9    14 -0.16
+## hopeless      3 192  2.98 2.74      3    3.03 2.97  -5   9    14 -0.19
+## selfesteem    4 192 32.91 5.64     33   32.81 5.93  18  47    29  0.14
+## depression    5 192  6.39 7.75      7    6.46 7.41 -13  30    43 -0.06
+##            kurtosis   se
+## suirisk        0.28 0.13
+## subabuse      -0.12 0.19
+## hopeless      -0.06 0.20
+## selfesteem    -0.41 0.41
+## depression     0.24 0.56</code></pre>
+<p>The variances turn out to be roughly the same for most variables, but there is a large difference in the variance of nartotic substance use. Let’s apply Levene’s test, which lives in the <code>car</code> package:</p>
+<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb236-1" title="1"><span class="kw">library</span>(car)</a>
+<a class="sourceLine" id="cb236-2" title="2"><span class="kw">leveneTest</span>(<span class="dt">y =</span> data<span class="op">$</span>subabuse, <span class="dt">group =</span> data<span class="op">$</span>gender)</a></code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Condition"],"name":[1],"type":["fctr"],"align":["left"]},{"label":["SelfEst"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Spent"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Conditionrejection"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Conditionneutral"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["Conditionconfirming"],"name":[6],"type":["dbl"],"align":["right"]}],"data":[{"1":"rejection","2":"10","3":"4.785362","4":"1","5":"0","6":"0","_rn_":"1"},{"1":"rejection","2":"18","3":"4.434689","4":"1","5":"0","6":"0","_rn_":"2"},{"1":"rejection","2":"10","3":"6.323272","4":"1","5":"0","6":"0","_rn_":"3"},{"1":"rejection","2":"11","3":"4.823320","4":"1","5":"0","6":"0","_rn_":"4"},{"1":"rejection","2":"22","3":"6.449067","4":"1","5":"0","6":"0","_rn_":"5"},{"1":"rejection","2":"24","3":"4.326671","4":"1","5":"0","6":"0","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Df"],"name":[1],"type":["int"],"align":["right"]},{"label":["F value"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Pr(>F)"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"114.5052","3":"2.77758e-24","_rn_":"group"},{"1":"519","2":"NA","3":"NA","_rn_":""}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
-<p>Begin by specifying the model in lavaan like this:</p>
-<p><img src="week4home1.png" /></p>
+<p>If we want a Levene’s test for all five continuous variables, it can be helpful to <strong>apply</strong> the function to the 5 columns of data. The function <code>lapply()</code> applies a second function (<code>leveneTest()</code>) to every element of a list; in this case - the five columns. The argument <code>group</code> stays the same for each variable:</p>
+<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb237-1" title="1"><span class="kw">lapply</span>(data[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>], leveneTest, <span class="dt">group =</span> data<span class="op">$</span>gender)</a></code></pre></div>
+<pre><code>## $suirisk
+## Levene&#39;s Test for Homogeneity of Variance (center = median)
+##        Df F value Pr(&gt;F)
+## group   1  0.1234 0.7255
+##       519               
+## 
+## $subabuse
+## Levene&#39;s Test for Homogeneity of Variance (center = median)
+##        Df F value    Pr(&gt;F)    
+## group   1  114.51 &lt; 2.2e-16 ***
+##       519                      
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## $hopeless
+## Levene&#39;s Test for Homogeneity of Variance (center = median)
+##        Df F value Pr(&gt;F)
+## group   1  0.2901 0.5904
+##       519               
+## 
+## $selfesteem
+## Levene&#39;s Test for Homogeneity of Variance (center = median)
+##        Df F value Pr(&gt;F)
+## group   1  0.9124 0.3399
+##       519               
+## 
+## $depression
+## Levene&#39;s Test for Homogeneity of Variance (center = median)
+##        Df F value Pr(&gt;F)
+## group   1  0.0357 0.8502
+##       519</code></pre>
+
+</div>
+<div id="question-6-6" class="section level3">
+<h3><span class="header-section-number">13.0.6</span> Question 6</h3>
+<p>Baron and Kenny also state how this problem might be resolved by looking at regression coefficients. Run a multiple regression model, with suicide risk as dependent variable, and all 4 independent variables as predictors. Run this model separately for both genders. Do you find any differences in the regression coefficients? (unstandardized)</p>
 <details>
 <p><summary>Click for explanation</summary></p>
-<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb178-1" title="1"><span class="kw">library</span>(lavaan)</a>
-<a class="sourceLine" id="cb178-2" title="2">ancova_lavaan &lt;-<span class="st"> </span><span class="kw">sem</span>(<span class="st">&#39;Spent ~ SelfEst + Conditionrejection + Conditionconfirming&#39;</span>, <span class="dt">data =</span> data)</a>
-<a class="sourceLine" id="cb178-3" title="3"><span class="kw">summary</span>(ancova_lavaan)</a></code></pre></div>
-<pre><code>## lavaan 0.6-5 ended normally after 21 iterations
+<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb239-1" title="1"> <span class="co"># In the lm() function, ~ . means: use all predictors</span></a>
+<a class="sourceLine" id="cb239-2" title="2"><span class="kw">summary</span>(<span class="kw">lm</span>(suirisk <span class="op">~</span><span class="st"> </span>., <span class="dt">data =</span> data[data<span class="op">$</span>gender <span class="op">==</span><span class="st"> &quot;females&quot;</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>]))</a></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = suirisk ~ ., data = data[data$gender == &quot;females&quot;, 
+##     1:5])
 ## 
-##   Estimator                                         ML
-##   Optimization method                           NLMINB
-##   Number of free parameters                          4
-##                                                       
-##   Number of observations                            59
-##                                                       
-## Model Test User Model:
-##                                                       
-##   Test statistic                                 0.000
-##   Degrees of freedom                                 0
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -4.0022 -1.3247  0.0047  1.2927  4.1531 
 ## 
-## Parameter Estimates:
+## Coefficients:
+##               Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  1.9862150  0.8373132   2.372 0.018270 *  
+## subabuse     0.0587404  0.0154119   3.811 0.000165 ***
+## hopeless     0.0452029  0.0458534   0.986 0.324961    
+## selfesteem  -0.0001569  0.0237796  -0.007 0.994741    
+## depression   0.0502616  0.0162516   3.093 0.002156 ** 
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
-##   Information                                 Expected
-##   Information saturated (h1) model          Structured
-##   Standard errors                             Standard
+## Residual standard error: 1.671 on 324 degrees of freedom
+## Multiple R-squared:  0.1515, Adjusted R-squared:  0.141 
+## F-statistic: 14.46 on 4 and 324 DF,  p-value: 7.1e-11</code></pre>
+<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb241-1" title="1"><span class="kw">summary</span>(<span class="kw">lm</span>(suirisk <span class="op">~</span><span class="st"> </span>., <span class="dt">data =</span> data[data<span class="op">$</span>gender <span class="op">==</span><span class="st"> &quot;males&quot;</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>]))</a></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = suirisk ~ ., data = data[data$gender == &quot;males&quot;, 
+##     1:5])
 ## 
-## Regressions:
-##                    Estimate  Std.Err  z-value  P(&gt;|z|)
-##   Spent ~                                             
-##     SelfEst          -0.524    0.094   -5.589    0.000
-##     Conditionrjctn    2.184    1.182    1.847    0.065
-##     Conditncnfrmng   -1.113    1.167   -0.953    0.341
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -5.9171 -1.0382 -0.0001  1.0582  3.9736 
 ## 
-## Variances:
-##                    Estimate  Std.Err  z-value  P(&gt;|z|)
-##    .Spent            13.430    2.473    5.431    0.000</code></pre>
-<p>To obtain a plot of these results and compare it to our picture above, use <code>SemPlot</code>:</p>
-<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb180-1" title="1"><span class="kw">library</span>(semPlot)</a>
-<a class="sourceLine" id="cb180-2" title="2"><span class="kw">semPaths</span>(ancova_lavaan, <span class="dt">whatLabels =</span> <span class="st">&quot;est&quot;</span>, <span class="dt">rotation =</span> <span class="dv">2</span>)</a></code></pre></div>
-<p><img src="TCSM_files/figure-html/unnamed-chunk-137-1.png" width="672" />
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  1.11735    1.11623   1.001  0.31812    
+## subabuse     0.12190    0.04399   2.771  0.00615 ** 
+## hopeless     0.03359    0.06130   0.548  0.58441    
+## selfesteem   0.01272    0.02948   0.431  0.66665    
+## depression   0.11540    0.02235   5.163 6.19e-07 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 1.528 on 187 degrees of freedom
+## Multiple R-squared:  0.3238, Adjusted R-squared:  0.3093 
+## F-statistic: 22.38 on 4 and 187 DF,  p-value: 4.057e-15</code></pre>
+<p>A small difference for substance use (.12 males, .06 females) and depression (.05 females, .115 males)? Other than that, they are similar.</p>
+
+</div>
+<div id="question-7-5" class="section level3">
+<h3><span class="header-section-number">13.0.7</span> Question 7</h3>
+<p>What do you think, does it make sense to study the moderating role of gender in a model that explains suicide risk?</p>
+<details>
+<p><summary>Click for explanation</summary>
+Yes, all assumptions hold, so fine to do it.
 </p>
 </div>
-<div id="additional-options" class="section level3">
-<h3><span class="header-section-number">9.0.9</span> Additional options</h3>
-<p><strong>Note:</strong> When you are doing an ANCOVA (even as a regression model with dummies), you want to analyze both the covariance structure AND the mean structure. To include the latter in your analysis, you have to tell lavaan to include this by adding the argument <code>meanstructure = TRUE</code> in the fitting function:</p>
-<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb181-1" title="1"><span class="kw">library</span>(lavaan)</a>
-<a class="sourceLine" id="cb181-2" title="2">ancova_lavaan &lt;-<span class="st"> </span><span class="kw">sem</span>(<span class="st">&#39;Spent ~ SelfEst + Conditionrejection + Conditionconfirming&#39;</span>, </a>
-<a class="sourceLine" id="cb181-3" title="3">                     <span class="dt">data =</span> data,</a>
-<a class="sourceLine" id="cb181-4" title="4">                     <span class="dt">meanstructure =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb181-5" title="5"><span class="kw">summary</span>(ancova_lavaan)</a></code></pre></div>
-<pre><code>## lavaan 0.6-5 ended normally after 35 iterations
-## 
-##   Estimator                                         ML
-##   Optimization method                           NLMINB
-##   Number of free parameters                          5
-##                                                       
-##   Number of observations                            59
-##                                                       
-## Model Test User Model:
-##                                                       
-##   Test statistic                                 0.000
-##   Degrees of freedom                                 0
-## 
-## Parameter Estimates:
-## 
-##   Information                                 Expected
-##   Information saturated (h1) model          Structured
-##   Standard errors                             Standard
-## 
-## Regressions:
-##                    Estimate  Std.Err  z-value  P(&gt;|z|)
-##   Spent ~                                             
-##     SelfEst          -0.524    0.094   -5.589    0.000
-##     Conditionrjctn    2.184    1.182    1.847    0.065
-##     Conditncnfrmng   -1.113    1.167   -0.953    0.341
-## 
-## Intercepts:
-##                    Estimate  Std.Err  z-value  P(&gt;|z|)
-##    .Spent            10.266    2.029    5.058    0.000
-## 
-## Variances:
-##                    Estimate  Std.Err  z-value  P(&gt;|z|)
-##    .Spent            13.430    2.473    5.431    0.000</code></pre>
-<p>To obtain the standardized results and the proportion of explained variance (= squared multiple correlation, i.e., R2), you can use the options in the <code>summary()</code> function:</p>
-<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb183-1" title="1"><span class="kw">summary</span>(ancova_lavaan, <span class="dt">standardized =</span> <span class="ot">TRUE</span>, <span class="dt">rsquare =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
-<pre><code>## lavaan 0.6-5 ended normally after 35 iterations
-## 
-##   Estimator                                         ML
-##   Optimization method                           NLMINB
-##   Number of free parameters                          5
-##                                                       
-##   Number of observations                            59
-##                                                       
-## Model Test User Model:
-##                                                       
-##   Test statistic                                 0.000
-##   Degrees of freedom                                 0
-## 
-## Parameter Estimates:
-## 
-##   Information                                 Expected
-##   Information saturated (h1) model          Structured
-##   Standard errors                             Standard
-## 
-## Regressions:
-##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
-##   Spent ~                                                               
-##     SelfEst          -0.524    0.094   -5.589    0.000   -0.524   -0.565
-##     Conditionrjctn    2.184    1.182    1.847    0.065    2.184    0.214
-##     Conditncnfrmng   -1.113    1.167   -0.953    0.341   -1.113   -0.111
-## 
-## Intercepts:
-##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
-##    .Spent            10.266    2.029    5.058    0.000   10.266    2.155
-## 
-## Variances:
-##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
-##    .Spent            13.430    2.473    5.431    0.000   13.430    0.592
-## 
-## R-Square:
-##                    Estimate
-##     Spent             0.408</code></pre>
-</div>
-<div id="question-9-2" class="section level3">
-<h3><span class="header-section-number">9.0.10</span> Question 9</h3>
-<p>Compare your results to those obtained with the regression analysis. What is your conclusion?</p>
-</div>
-<div id="question-10-2" class="section level3">
-<h3><span class="header-section-number">9.0.11</span> Question 10</h3>
-<p>Check the model fit. What do you conclude?</p>
-<p><em>Note: Use</em> <code>summary()</code> <em>and</em> <code>fit.measures = TRUE</code></p>
+<div id="question-8-3" class="section level3">
+<h3><span class="header-section-number">13.0.8</span> Question 8</h3>
+<p>One way to study moderation (and this is something you might have done in an earlier statistics course), is to compute interaction terms of the moderator variable with the independent variables. R does this automatically, if you use the multiplication symbol <code>*</code> in your regression equation.</p>
+<p>Run a hierarchical regression analysis: Build two regression models, and include all independent variables and gender in the first model, and add the interaction terms in the second model. Then, compare the fit of the two models using <code>anova()</code> Do you find that the interaction variables explain part of the variance in suicide risk over and above that of the independent variables?</p>
 <details>
 <p><summary>Click for explanation</summary></p>
-<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb185-1" title="1"><span class="kw">summary</span>(ancova_lavaan, <span class="dt">fit.measures =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
-<pre><code>## lavaan 0.6-5 ended normally after 35 iterations
+<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb243-1" title="1">reg_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">lm</span>(suirisk <span class="op">~</span><span class="st"> </span>., data)</a>
+<a class="sourceLine" id="cb243-2" title="2"><span class="kw">summary</span>(reg_<span class="dv">1</span>)</a></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = suirisk ~ ., data = data)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -5.7146 -1.1199 -0.0062  1.1489  4.2356 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  1.971013   0.659121   2.990  0.00292 ** 
+## subabuse     0.057529   0.014136   4.070 5.45e-05 ***
+## hopeless     0.045793   0.036721   1.247  0.21296    
+## selfesteem  -0.003881   0.018508  -0.210  0.83399    
+## depression   0.071918   0.013132   5.477 6.79e-08 ***
+## gendermales  0.132756   0.154934   0.857  0.39192    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 1.633 on 515 degrees of freedom
+## Multiple R-squared:  0.2023, Adjusted R-squared:  0.1946 
+## F-statistic: 26.12 on 5 and 515 DF,  p-value: &lt; 2.2e-16</code></pre>
+<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb245-1" title="1">reg_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">lm</span>(suirisk <span class="op">~</span><span class="st"> </span>gender <span class="op">*</span><span class="st"> </span>subabuse <span class="op">+</span><span class="st"> </span>gender <span class="op">*</span><span class="st"> </span>hopeless <span class="op">+</span><span class="st"> </span>gender <span class="op">*</span><span class="st"> </span>selfesteem <span class="op">+</span><span class="st"> </span>gender <span class="op">*</span><span class="st"> </span>depression, data)</a>
+<a class="sourceLine" id="cb245-2" title="2"><span class="kw">summary</span>(reg_<span class="dv">2</span>)</a></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = suirisk ~ gender * subabuse + gender * hopeless + 
+##     gender * selfesteem + gender * depression, data = data)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -5.9171 -1.1597  0.0047  1.1552  4.1531 
+## 
+## Coefficients:
+##                          Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)             1.9862150  0.8119207   2.446  0.01477 *  
+## gendermales            -0.8688675  1.4350193  -0.605  0.54513    
+## subabuse                0.0587404  0.0149445   3.931 9.64e-05 ***
+## hopeless                0.0452029  0.0444629   1.017  0.30980    
+## selfesteem             -0.0001569  0.0230584  -0.007  0.99458    
+## depression              0.0502616  0.0157588   3.189  0.00151 ** 
+## gendermales:subabuse    0.0631559  0.0489630   1.290  0.19768    
+## gendermales:hopeless   -0.0116150  0.0787379  -0.148  0.88278    
+## gendermales:selfesteem  0.0128741  0.0388335   0.332  0.74039    
+## gendermales:depression  0.0651349  0.0284552   2.289  0.02248 *  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 1.62 on 511 degrees of freedom
+## Multiple R-squared:  0.2208, Adjusted R-squared:  0.2071 
+## F-statistic: 16.09 on 9 and 511 DF,  p-value: &lt; 2.2e-16</code></pre>
+<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb247-1" title="1"><span class="kw">anova</span>(reg_<span class="dv">1</span>, reg_<span class="dv">2</span>)</a></code></pre></div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Res.Df"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["RSS"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Df"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Sum of Sq"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["F"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["Pr(>F)"],"name":[6],"type":["dbl"],"align":["right"]}],"data":[{"1":"515","2":"1373.131","3":"NA","4":"NA","5":"NA","6":"NA","_rn_":"1"},{"1":"511","2":"1341.348","3":"4","4":"31.78305","5":"3.027018","6":"0.0174243","_rn_":"2"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<p>R2 goes from .20 to .22, so small difference. This difference is significant. The only significant interaction effect is gendermales:depression.</p>
+
+</div>
+<div id="question-9-3" class="section level3">
+<h3><span class="header-section-number">13.0.9</span> Question 9</h3>
+<p>Build a basic regression model in lavaan, see the figure below. You have built this model before. Compare your lavaan results to your earlier findings. What do you conclude?</p>
+<p><img src="week6home1.png" /></p>
+<details>
+<p><summary>Click for explanation</summary></p>
+<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb248-1" title="1"><span class="kw">library</span>(lavaan)</a>
+<a class="sourceLine" id="cb248-2" title="2">model &lt;-<span class="st"> &quot;suirisk ~ subabuse + hopeless + selfesteem + depression + gender&quot;</span></a>
+<a class="sourceLine" id="cb248-3" title="3">fit &lt;-<span class="st"> </span><span class="kw">sem</span>(model, data)</a>
+<a class="sourceLine" id="cb248-4" title="4"><span class="kw">summary</span>(fit)</a></code></pre></div>
+<pre><code>## lavaan 0.6-5 ended normally after 18 iterations
 ## 
 ##   Estimator                                         ML
 ##   Optimization method                           NLMINB
-##   Number of free parameters                          5
+##   Number of free parameters                          6
 ##                                                       
-##   Number of observations                            59
+##   Number of observations                           521
 ##                                                       
 ## Model Test User Model:
 ##                                                       
 ##   Test statistic                                 0.000
 ##   Degrees of freedom                                 0
+## 
+## Parameter Estimates:
+## 
+##   Information                                 Expected
+##   Information saturated (h1) model          Structured
+##   Standard errors                             Standard
+## 
+## Regressions:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)
+##   suirisk ~                                           
+##     subabuse          0.058    0.014    4.093    0.000
+##     hopeless          0.046    0.037    1.254    0.210
+##     selfesteem       -0.004    0.018   -0.211    0.833
+##     depression        0.072    0.013    5.508    0.000
+##     gender            0.133    0.154    0.862    0.389
+## 
+## Variances:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)
+##    .suirisk           2.636    0.163   16.140    0.000</code></pre>
+<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb250-1" title="1"><span class="kw">library</span>(semPlot)</a>
+<a class="sourceLine" id="cb250-2" title="2"><span class="kw">semPaths</span>(fit, <span class="dt">whatLabels =</span> <span class="st">&quot;est&quot;</span>, <span class="dt">rotation =</span> <span class="dv">2</span>)</a></code></pre></div>
+<p><img src="TCSM_files/figure-html/unnamed-chunk-188-1.png" width="672" /></p>
+<p>Same results, except for a small difference in the standard errors, that results from the fact we use Ordinary Least Squares (OLS)-estimation in R and Maximum Likelihood (ML) in lavaan. Apart from that, we can also estimate the correlations/covariances between the independent variables in lavaan, that we cannot estimate in R.
+</p>
+</div>
+<div id="question-10-3" class="section level3">
+<h3><span class="header-section-number">13.0.10</span> Question 10</h3>
+<p>Do you have any idea why we find a Chi-square value of exactly 0.0?</p>
+<details>
+<p><summary>Click for explanation</summary>
+There are no degrees of freedom (the model is identical to the saturated model) left. This means we want to estimate as many paths as there are sample moments. So, all covariances between variables are accounted for in the model, and there is no room for any deviation between our “model” and the data.
+</p>
+</div>
+<div id="question-11-1" class="section level3">
+<h3><span class="header-section-number">13.0.11</span> Question 11</h3>
+<p>Mehta et al (1998) state that the theory of suicide risk is more complicated than we so far modeled using regression models. The effects of self-esteem and depression are mediated through hopelessness, while depression also explains self-esteem. On page 117-118 they summarize their expectations about the effects in 6 hypotheses (H1 and H2a-e). Build a mediation model in lavaan based on these hypotheses. Leave gender out of the model for now.</p>
+<p>Run the model, and see whether the model fits by looking at the Chi-square(df), it’s p-value, CFI and RMSEA. In case your model does not fit, can you make it fit the data by making an alteration to the model? Note that your Chi-square values might differ slightly from those presented by Mehta et al (1998), because of data simulation procedures.</p>
+<details>
+<p><summary>Click for explanation</summary>
+The model fits when a covariance is added between substance use and depression (see figure 1 in the article). Then, Chi-square(3) =9.4, p=.025 CFI=.992, RMSEA=.064. This is probably what Mehta et al. (1998) did as well, without showing us.</p>
+<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb251-1" title="1">model &lt;-<span class="st"> &quot;</span></a>
+<a class="sourceLine" id="cb251-2" title="2"><span class="st">suirisk ~ hopeless + depression + subabuse</span></a>
+<a class="sourceLine" id="cb251-3" title="3"><span class="st">hopeless ~ depression + selfesteem</span></a>
+<a class="sourceLine" id="cb251-4" title="4"><span class="st">selfesteem ~ depression</span></a>
+<a class="sourceLine" id="cb251-5" title="5"><span class="st">subabuse ~~ depression</span></a>
+<a class="sourceLine" id="cb251-6" title="6"><span class="st">&quot;</span></a>
+<a class="sourceLine" id="cb251-7" title="7"></a>
+<a class="sourceLine" id="cb251-8" title="8">fit &lt;-<span class="st"> </span><span class="kw">sem</span>(model, data)</a>
+<a class="sourceLine" id="cb251-9" title="9"><span class="kw">summary</span>(fit, <span class="dt">fit.measures =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<pre><code>## lavaan 0.6-5 ended normally after 35 iterations
+## 
+##   Estimator                                         ML
+##   Optimization method                           NLMINB
+##   Number of free parameters                         12
+##                                                       
+##   Number of observations                           521
+##                                                       
+## Model Test User Model:
+##                                                       
+##   Test statistic                                 9.400
+##   Degrees of freedom                                 3
+##   P-value (Chi-square)                           0.024
 ## 
 ## Model Test Baseline Model:
 ## 
-##   Test statistic                                30.941
-##   Degrees of freedom                                 3
+##   Test statistic                               776.507
+##   Degrees of freedom                                10
 ##   P-value                                        0.000
 ## 
 ## User Model versus Baseline Model:
 ## 
-##   Comparative Fit Index (CFI)                    1.000
-##   Tucker-Lewis Index (TLI)                       1.000
+##   Comparative Fit Index (CFI)                    0.992
+##   Tucker-Lewis Index (TLI)                       0.972
 ## 
 ## Loglikelihood and Information Criteria:
 ## 
-##   Loglikelihood user model (H0)               -160.344
-##   Loglikelihood unrestricted model (H1)       -160.344
+##   Loglikelihood user model (H0)              -6981.634
+##   Loglikelihood unrestricted model (H1)      -6976.934
 ##                                                       
-##   Akaike (AIC)                                 330.689
-##   Bayesian (BIC)                               341.077
-##   Sample-size adjusted Bayesian (BIC)          325.353
+##   Akaike (AIC)                               13987.267
+##   Bayesian (BIC)                             14038.336
+##   Sample-size adjusted Bayesian (BIC)        14000.246
 ## 
 ## Root Mean Square Error of Approximation:
 ## 
-##   RMSEA                                          0.000
-##   90 Percent confidence interval - lower         0.000
-##   90 Percent confidence interval - upper         0.000
-##   P-value RMSEA &lt;= 0.05                             NA
+##   RMSEA                                          0.064
+##   90 Percent confidence interval - lower         0.020
+##   90 Percent confidence interval - upper         0.112
+##   P-value RMSEA &lt;= 0.05                          0.250
 ## 
 ## Standardized Root Mean Square Residual:
 ## 
-##   SRMR                                           0.000
+##   SRMR                                           0.030
 ## 
 ## Parameter Estimates:
 ## 
@@ -722,21 +779,37 @@ Condition is significant after controlling for the effect of self-esteem, F (2, 
 ## 
 ## Regressions:
 ##                    Estimate  Std.Err  z-value  P(&gt;|z|)
-##   Spent ~                                             
-##     SelfEst          -0.524    0.094   -5.589    0.000
-##     Conditionrjctn    2.184    1.182    1.847    0.065
-##     Conditncnfrmng   -1.113    1.167   -0.953    0.341
+##   suirisk ~                                           
+##     hopeless          0.048    0.033    1.450    0.147
+##     depression        0.073    0.013    5.779    0.000
+##     subabuse          0.060    0.014    4.402    0.000
+##   hopeless ~                                          
+##     depression        0.155    0.014   10.985    0.000
+##     selfesteem       -0.194    0.020   -9.694    0.000
+##   selfesteem ~                                        
+##     depression       -0.423    0.025  -17.136    0.000
 ## 
-## Intercepts:
+## Covariances:
 ##                    Estimate  Std.Err  z-value  P(&gt;|z|)
-##    .Spent            10.266    2.029    5.058    0.000
+##   depression ~~                                       
+##     subabuse         12.498    1.910    6.542    0.000
 ## 
 ## Variances:
 ##                    Estimate  Std.Err  z-value  P(&gt;|z|)
-##    .Spent            13.430    2.473    5.431    0.000</code></pre>
-<p>Saturated model, so perfect fit. Because the number of parameters to be estimated is equal to the number of observed statistics, there is a perfect fit. Here our interest is mainly in getting the estimates, not in the model-fit.
+##    .suirisk           2.639    0.164   16.140    0.000
+##    .hopeless          3.854    0.239   16.140    0.000
+##    .selfesteem       18.561    1.150   16.140    0.000
+##     depression       58.346    3.615   16.140    0.000
+##     subabuse         29.912    1.853   16.140    0.000</code></pre>
+<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb253-1" title="1"><span class="kw">semPaths</span>(fit, <span class="dt">whatLabels =</span> <span class="st">&quot;est&quot;</span>, <span class="dt">rotation =</span> <span class="dv">2</span>)</a></code></pre></div>
+<p><img src="TCSM_files/figure-html/unnamed-chunk-189-1.png" width="672" />
 </p>
 
+<div id="refs" class="references">
+<div>
+<p>Field, Andy, Jeremy Miles, and Zoë Field. 2012. <em>Discovering Statistics Using R</em>. Sage publications.</p>
+</div>
+</div>
 </div>
 </div>
             </section>
@@ -744,8 +817,8 @@ Condition is significant after controlling for the effect of self-esteem, F (2, 
           </div>
         </div>
       </div>
-<a href="week-3-class.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="week-4-class.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="week-5-class.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
