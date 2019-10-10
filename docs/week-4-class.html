@@ -457,7 +457,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="question-1-3" class="section level3">
 <h3><span class="header-section-number">10.0.3</span> Question 1</h3>
-<p>Report on the parameter estimates for the three groups; i.e., the regression coefficients, the variances (of SelfEst), the residual variances (i.e., the variances of the residuals of Spent), the means (of SelfEst), and the intercepts (means of Spent).</p>
+<p>Report on the parameter estimates for the three groups; i.e., the regression coefficients, the intercepts (marginal means of Spent), and the residual variances (i.e., the variances of the residuals of Spent).</p>
+<p><strong>Note:</strong> What’s missing from the model are the means and variances of SelfEst. That’s because any variable that is <strong>purely independent</strong> is not strictly considered to be part of the model. We can manually incorporate it into the model by estimating the intercept of SelfEst. This will make SelfEst part of the model, so we will also get its variance. You estimate the intercept of a variable by adding this code to your model:</p>
+<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb191-1" title="1"><span class="st">&quot;SelfEst ~1&quot;</span></a></code></pre></div>
 </div>
 <div id="question-2-3" class="section level3">
 <h3><span class="header-section-number">10.0.4</span> Question 2</h3>
@@ -488,11 +490,11 @@ Fix all intercepts to be equal.
 <div id="imposing-constraints" class="section level3">
 <h3><span class="header-section-number">10.0.7</span> Imposing constraints</h3>
 <p>So, by putting constraints to these models, we can make the same model as an ANCOVA. In lavaan, we impose constraints by <strong>giving labels</strong> to parameters. You use <code>c()</code> to make a vector of labels that is equally long as the number of groups, and you can give any name to the labels. You then use the <code>*</code> symbol to assign it to a parameter. The syntax looks like this:</p>
-<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb191-1" title="1"><span class="st">&quot;Spent ~ c(labelgroup1, labelgroup2, labelgroup3) * SelfEst&quot;</span></a></code></pre></div>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb192-1" title="1"><span class="st">&quot;Spent ~ c(labelgroup1, labelgroup2, labelgroup3) * SelfEst&quot;</span></a></code></pre></div>
 <p>If you use the same name multiple times, these parameters will be constrained to be equal:</p>
-<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb192-1" title="1"><span class="st">&quot;Spent ~ c(label, label, label) * SelfEst&quot;</span></a></code></pre></div>
+<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb193-1" title="1"><span class="st">&quot;Spent ~ c(label, label, label) * SelfEst&quot;</span></a></code></pre></div>
 <p>Constraints for variances are specified similarly:</p>
-<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb193-1" title="1"><span class="st">&quot;Spent ~~ c(label, label, label) * Spent&quot;</span></a></code></pre></div>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb194-1" title="1"><span class="st">&quot;Spent ~~ c(label, label, label) * Spent&quot;</span></a></code></pre></div>
 </div>
 <div id="stepwise-approach" class="section level3">
 <h3><span class="header-section-number">10.0.8</span> Stepwise approach</h3>
@@ -505,39 +507,39 @@ Fix all intercepts to be equal.
 <p><em>Model 2.</em> Structural residuals: constrain the variances and covariances of the residuals of the endogenous variables (here: Spent)</p>
 <p><em>Model 3.</em> Structural intercepts: constrain the intercepts of the endogenous variables across groups</p>
 <p>We can compare two of these models using the <code>anova()</code> function:</p>
-<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb194-1" title="1"><span class="kw">anova</span>(m1, m2)</a></code></pre></div>
+<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb195-1" title="1"><span class="kw">anova</span>(m1, m2)</a></code></pre></div>
 <p>However, with more than two models, it is convenient to compare all of them at once. For this, we can use the function <code>compareFit()</code> from the <code>semTools</code> package (which you have to install):</p>
-<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb195-1" title="1"><span class="kw">library</span>(semTools)</a>
-<a class="sourceLine" id="cb195-2" title="2"><span class="kw">compareFit</span>(<span class="dt">weights =</span> m1,</a>
-<a class="sourceLine" id="cb195-3" title="3">           <span class="dt">residuals =</span> m2,</a>
-<a class="sourceLine" id="cb195-4" title="4">           <span class="dt">intercepts =</span> m3)</a></code></pre></div>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb196-1" title="1"><span class="kw">library</span>(semTools)</a>
+<a class="sourceLine" id="cb196-2" title="2"><span class="kw">compareFit</span>(<span class="dt">weights =</span> m1,</a>
+<a class="sourceLine" id="cb196-3" title="3">           <span class="dt">residuals =</span> m2,</a>
+<a class="sourceLine" id="cb196-4" title="4">           <span class="dt">intercepts =</span> m3)</a></code></pre></div>
 </div>
 <div id="question-5-3" class="section level3">
 <h3><span class="header-section-number">10.0.9</span> Question 5</h3>
 <p>Run the series of models (nested models) as described above. Compare the models and report the chi-square difference test of this comparison. Why does this test have the df it has? What is your conclusion about the constraints you imposed? What does this mean?</p>
 <details>
 <p><summary>Click for explanation</summary></p>
-<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb196-1" title="1">mu &lt;-<span class="st"> </span><span class="kw">sem</span>(<span class="st">&quot;Spent ~ SelfEst&quot;</span>,</a>
-<a class="sourceLine" id="cb196-2" title="2">          <span class="dt">data =</span> data, </a>
-<a class="sourceLine" id="cb196-3" title="3">          <span class="dt">group =</span> <span class="st">&quot;Condition&quot;</span>)</a>
-<a class="sourceLine" id="cb196-4" title="4"></a>
-<a class="sourceLine" id="cb196-5" title="5">m1 &lt;-<span class="st"> </span><span class="kw">sem</span>(<span class="st">&quot;Spent ~ c(a, a, a) * SelfEst&quot;</span>,</a>
-<a class="sourceLine" id="cb196-6" title="6">          <span class="dt">data =</span> data, </a>
-<a class="sourceLine" id="cb196-7" title="7">          <span class="dt">group =</span> <span class="st">&quot;Condition&quot;</span>)</a>
-<a class="sourceLine" id="cb196-8" title="8">m2 &lt;-<span class="st"> </span><span class="kw">sem</span>(<span class="st">&quot;Spent ~ c(a, a, a) * SelfEst</span></a>
-<a class="sourceLine" id="cb196-9" title="9"><span class="st">          Spent ~~ c(b, b, b) * Spent&quot;</span>,</a>
-<a class="sourceLine" id="cb196-10" title="10">          <span class="dt">data =</span> data, </a>
-<a class="sourceLine" id="cb196-11" title="11">          <span class="dt">group =</span> <span class="st">&quot;Condition&quot;</span>)</a>
-<a class="sourceLine" id="cb196-12" title="12">m3 &lt;-<span class="st"> </span><span class="kw">sem</span>(<span class="st">&quot;Spent ~ c(a, a, a) * SelfEst</span></a>
-<a class="sourceLine" id="cb196-13" title="13"><span class="st">          Spent ~~ c(b, b, b) * Spent</span></a>
-<a class="sourceLine" id="cb196-14" title="14"><span class="st">          Spent ~ c(c, c, c) * 1 &quot;</span>,</a>
-<a class="sourceLine" id="cb196-15" title="15">          <span class="dt">data =</span> data, </a>
-<a class="sourceLine" id="cb196-16" title="16">          <span class="dt">group =</span> <span class="st">&quot;Condition&quot;</span>)</a>
-<a class="sourceLine" id="cb196-17" title="17"></a>
-<a class="sourceLine" id="cb196-18" title="18"><span class="kw">compareFit</span>(<span class="dt">unconstrained =</span> mu,</a>
-<a class="sourceLine" id="cb196-19" title="19">           <span class="dt">regression =</span> m1,</a>
-<a class="sourceLine" id="cb196-20" title="20">           <span class="dt">residuals =</span> m2, </a>
-<a class="sourceLine" id="cb196-21" title="21">           <span class="dt">intercepts =</span> m3)</a></code></pre></div>
+<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb197-1" title="1">mu &lt;-<span class="st"> </span><span class="kw">sem</span>(<span class="st">&quot;Spent ~ SelfEst&quot;</span>,</a>
+<a class="sourceLine" id="cb197-2" title="2">          <span class="dt">data =</span> data, </a>
+<a class="sourceLine" id="cb197-3" title="3">          <span class="dt">group =</span> <span class="st">&quot;Condition&quot;</span>)</a>
+<a class="sourceLine" id="cb197-4" title="4"></a>
+<a class="sourceLine" id="cb197-5" title="5">m1 &lt;-<span class="st"> </span><span class="kw">sem</span>(<span class="st">&quot;Spent ~ c(a, a, a) * SelfEst&quot;</span>,</a>
+<a class="sourceLine" id="cb197-6" title="6">          <span class="dt">data =</span> data, </a>
+<a class="sourceLine" id="cb197-7" title="7">          <span class="dt">group =</span> <span class="st">&quot;Condition&quot;</span>)</a>
+<a class="sourceLine" id="cb197-8" title="8">m2 &lt;-<span class="st"> </span><span class="kw">sem</span>(<span class="st">&quot;Spent ~ c(a, a, a) * SelfEst</span></a>
+<a class="sourceLine" id="cb197-9" title="9"><span class="st">          Spent ~~ c(b, b, b) * Spent&quot;</span>,</a>
+<a class="sourceLine" id="cb197-10" title="10">          <span class="dt">data =</span> data, </a>
+<a class="sourceLine" id="cb197-11" title="11">          <span class="dt">group =</span> <span class="st">&quot;Condition&quot;</span>)</a>
+<a class="sourceLine" id="cb197-12" title="12">m3 &lt;-<span class="st"> </span><span class="kw">sem</span>(<span class="st">&quot;Spent ~ c(a, a, a) * SelfEst</span></a>
+<a class="sourceLine" id="cb197-13" title="13"><span class="st">          Spent ~~ c(b, b, b) * Spent</span></a>
+<a class="sourceLine" id="cb197-14" title="14"><span class="st">          Spent ~ c(c, c, c) * 1 &quot;</span>,</a>
+<a class="sourceLine" id="cb197-15" title="15">          <span class="dt">data =</span> data, </a>
+<a class="sourceLine" id="cb197-16" title="16">          <span class="dt">group =</span> <span class="st">&quot;Condition&quot;</span>)</a>
+<a class="sourceLine" id="cb197-17" title="17"></a>
+<a class="sourceLine" id="cb197-18" title="18"><span class="kw">compareFit</span>(<span class="dt">unconstrained =</span> mu,</a>
+<a class="sourceLine" id="cb197-19" title="19">           <span class="dt">regression =</span> m1,</a>
+<a class="sourceLine" id="cb197-20" title="20">           <span class="dt">residuals =</span> m2, </a>
+<a class="sourceLine" id="cb197-21" title="21">           <span class="dt">intercepts =</span> m3)</a></code></pre></div>
 <pre><code>## ################### Nested Model Comparison #########################
 ## Chi-Squared Difference Test
 ## 

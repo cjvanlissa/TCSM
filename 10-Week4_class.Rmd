@@ -55,7 +55,13 @@ summary(multi_group, standardize = TRUE, rsquare = TRUE)
 
 ### Question 1
 
-Report on the parameter estimates for the three groups; i.e., the regression coefficients, the variances (of SelfEst), the residual variances (i.e., the variances of the residuals of Spent), the means (of SelfEst), and the intercepts (means of Spent).
+Report on the parameter estimates for the three groups; i.e., the regression coefficients, the intercepts (marginal means of Spent), and the residual variances (i.e., the variances of the residuals of Spent).
+
+**Note:** What's missing from the model are the means and variances of SelfEst. That's because any variable that is **purely independent** is not strictly considered to be part of the model. We can manually incorporate it into the model by estimating the intercept of SelfEst. This will make SelfEst part of the model, so we will also get its variance. You estimate the intercept of a variable by adding this code to your model:
+
+```{r, eval = FALSE}
+"SelfEst ~1"
+```
 
 ### Question 2
 

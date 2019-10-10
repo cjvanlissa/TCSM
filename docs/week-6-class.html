@@ -356,7 +356,7 @@ Case 2: dichotomous moderator, continuous independent variables
 <details>
 <p><summary>Click for explanation</summary>
 A basic correlation matrix for the first 5 variables:</p>
-<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb225-1" title="1"><span class="kw">cor</span>(data[, <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>])</a></code></pre></div>
+<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb226-1" title="1"><span class="kw">cor</span>(data[, <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>])</a></code></pre></div>
 <pre><code>##               suirisk   subabuse   hopeless selfesteem depression
 ## suirisk     1.0000000  0.2931462  0.3231625 -0.2751558  0.4071431
 ## subabuse    0.2931462  1.0000000  0.2854853 -0.2478123  0.2991709
@@ -364,8 +364,8 @@ A basic correlation matrix for the first 5 variables:</p>
 ## selfesteem -0.2751558 -0.2478123 -0.6266401  1.0000000 -0.6003697
 ## depression  0.4071431  0.2991709  0.6464750 -0.6003697  1.0000000</code></pre>
 <p>A correlation table with p-values can be obtained using the <code>psych::corr.test()</code> function:</p>
-<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb227-1" title="1"><span class="kw">library</span>(psych)</a>
-<a class="sourceLine" id="cb227-2" title="2"><span class="kw">corr.test</span>(data[, <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>])</a></code></pre></div>
+<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb228-1" title="1"><span class="kw">library</span>(psych)</a>
+<a class="sourceLine" id="cb228-2" title="2"><span class="kw">corr.test</span>(data[, <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>])</a></code></pre></div>
 <pre><code>## Call:corr.test(x = data[, 1:5])
 ## Correlation matrix 
 ##            suirisk subabuse hopeless selfesteem depression
@@ -396,29 +396,29 @@ A basic correlation matrix for the first 5 variables:</p>
 <div id="a-psych-solution" class="section level4">
 <h4><span class="header-section-number">13.0.3.1</span> A psych solution</h4>
 <p>The package `psych’ contains a function to help us visually check assumptions, such as linearity:</p>
-<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb229-1" title="1"><span class="kw">pairs.panels</span>(data[, <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>], </a>
-<a class="sourceLine" id="cb229-2" title="2">             <span class="dt">density =</span> <span class="ot">TRUE</span>, <span class="co"># show density plots</span></a>
-<a class="sourceLine" id="cb229-3" title="3">             <span class="dt">ellipses =</span> <span class="ot">TRUE</span> <span class="co"># show correlation ellipses</span></a>
-<a class="sourceLine" id="cb229-4" title="4">             )</a></code></pre></div>
-<p><img src="TCSM_files/figure-html/unnamed-chunk-177-1.png" width="672" /></p>
+<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb230-1" title="1"><span class="kw">pairs.panels</span>(data[, <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>], </a>
+<a class="sourceLine" id="cb230-2" title="2">             <span class="dt">density =</span> <span class="ot">TRUE</span>, <span class="co"># show density plots</span></a>
+<a class="sourceLine" id="cb230-3" title="3">             <span class="dt">ellipses =</span> <span class="ot">TRUE</span> <span class="co"># show correlation ellipses</span></a>
+<a class="sourceLine" id="cb230-4" title="4">             )</a></code></pre></div>
+<p><img src="TCSM_files/figure-html/unnamed-chunk-178-1.png" width="672" /></p>
 </div>
 <div id="ggplot-to-build-plots" class="section level4">
 <h4><span class="header-section-number">13.0.3.2</span> Ggplot to build plots</h4>
 <p>In this case, psych is easier. But generally, we can make any plot we want using <code>ggplot2</code>. In ggplot, we add one plot element at a time. Here is an example for one variable:</p>
-<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb230-1" title="1"><span class="kw">library</span>(ggplot2)</a>
-<a class="sourceLine" id="cb230-2" title="2"><span class="kw">ggplot</span>(data, <span class="kw">aes</span>(<span class="dt">x =</span> subabuse, <span class="dt">y =</span> suirisk)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb230-3" title="3"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st">  </span><span class="co"># Add scatter</span></a>
-<a class="sourceLine" id="cb230-4" title="4"><span class="st">  </span><span class="kw">geom_smooth</span>() <span class="op">+</span><span class="st"> </span><span class="co"># Add smooth trend</span></a>
-<a class="sourceLine" id="cb230-5" title="5"><span class="st">  </span><span class="kw">theme_bw</span>()      <span class="co"># Add black/white theme</span></a></code></pre></div>
-<p><img src="TCSM_files/figure-html/unnamed-chunk-178-1.png" width="672" /></p>
-<p>You could also add a linear trend line:</p>
-<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb231-1" title="1"><span class="kw">ggplot</span>(data, <span class="kw">aes</span>(<span class="dt">x =</span> subabuse, <span class="dt">y =</span> suirisk)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb231-2" title="2"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st">  </span><span class="co"># Add scatter</span></a>
-<a class="sourceLine" id="cb231-3" title="3"><span class="st">  </span><span class="kw">geom_smooth</span>() <span class="op">+</span><span class="st"> </span><span class="co"># Add smooth trend</span></a>
-<a class="sourceLine" id="cb231-4" title="4"><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span><span class="st">    </span><span class="co"># Add black/white theme</span></a>
-<a class="sourceLine" id="cb231-5" title="5"><span class="st">  </span><span class="co"># Add linear trend line (without confidence bound and red in color)</span></a>
-<a class="sourceLine" id="cb231-6" title="6"><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb231-1" title="1"><span class="kw">library</span>(ggplot2)</a>
+<a class="sourceLine" id="cb231-2" title="2"><span class="kw">ggplot</span>(data, <span class="kw">aes</span>(<span class="dt">x =</span> subabuse, <span class="dt">y =</span> suirisk)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb231-3" title="3"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st">  </span><span class="co"># Add scatter</span></a>
+<a class="sourceLine" id="cb231-4" title="4"><span class="st">  </span><span class="kw">geom_smooth</span>() <span class="op">+</span><span class="st"> </span><span class="co"># Add smooth trend</span></a>
+<a class="sourceLine" id="cb231-5" title="5"><span class="st">  </span><span class="kw">theme_bw</span>()      <span class="co"># Add black/white theme</span></a></code></pre></div>
 <p><img src="TCSM_files/figure-html/unnamed-chunk-179-1.png" width="672" /></p>
+<p>You could also add a linear trend line:</p>
+<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb232-1" title="1"><span class="kw">ggplot</span>(data, <span class="kw">aes</span>(<span class="dt">x =</span> subabuse, <span class="dt">y =</span> suirisk)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb232-2" title="2"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st">  </span><span class="co"># Add scatter</span></a>
+<a class="sourceLine" id="cb232-3" title="3"><span class="st">  </span><span class="kw">geom_smooth</span>() <span class="op">+</span><span class="st"> </span><span class="co"># Add smooth trend</span></a>
+<a class="sourceLine" id="cb232-4" title="4"><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span><span class="st">    </span><span class="co"># Add black/white theme</span></a>
+<a class="sourceLine" id="cb232-5" title="5"><span class="st">  </span><span class="co"># Add linear trend line (without confidence bound and red in color)</span></a>
+<a class="sourceLine" id="cb232-6" title="6"><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
+<p><img src="TCSM_files/figure-html/unnamed-chunk-180-1.png" width="672" /></p>
 <p>This seems linear; you can check the other variables!
 </p>
 </div>
@@ -431,14 +431,14 @@ A basic correlation matrix for the first 5 variables:</p>
 <div id="a-psych-solution-1" class="section level4">
 <h4><span class="header-section-number">13.0.4.1</span> A psych solution</h4>
 <p>Again, <code>psych</code> has a standard solution for this situation:</p>
-<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb232-1" title="1"><span class="kw">pairs.panels</span>(data[, <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>], <span class="dt">bg =</span> <span class="kw">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;blue&quot;</span>)[data<span class="op">$</span>gender], <span class="dt">pch =</span> <span class="dv">21</span>)</a></code></pre></div>
-<p><img src="TCSM_files/figure-html/unnamed-chunk-180-1.png" width="672" /></p>
-<p>In ggplot, we can make the plots more detailed. We can map gender to the color of the dots and smooth line using <code>aes(colour = gender)</code>:</p>
-<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb233-1" title="1"><span class="kw">ggplot</span>(data, <span class="kw">aes</span>(<span class="dt">x =</span> subabuse, <span class="dt">y =</span> suirisk, <span class="dt">colour =</span> gender)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb233-2" title="2"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st">  </span><span class="co"># Add scatter</span></a>
-<a class="sourceLine" id="cb233-3" title="3"><span class="st">  </span><span class="kw">geom_smooth</span>() <span class="op">+</span><span class="st"> </span><span class="co"># Add smooth trend</span></a>
-<a class="sourceLine" id="cb233-4" title="4"><span class="st">  </span><span class="kw">theme_bw</span>()      <span class="co"># Add black/white theme</span></a></code></pre></div>
+<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb233-1" title="1"><span class="kw">pairs.panels</span>(data[, <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>], <span class="dt">bg =</span> <span class="kw">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;blue&quot;</span>)[data<span class="op">$</span>gender], <span class="dt">pch =</span> <span class="dv">21</span>)</a></code></pre></div>
 <p><img src="TCSM_files/figure-html/unnamed-chunk-181-1.png" width="672" /></p>
+<p>In ggplot, we can make the plots more detailed. We can map gender to the color of the dots and smooth line using <code>aes(colour = gender)</code>:</p>
+<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb234-1" title="1"><span class="kw">ggplot</span>(data, <span class="kw">aes</span>(<span class="dt">x =</span> subabuse, <span class="dt">y =</span> suirisk, <span class="dt">colour =</span> gender)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb234-2" title="2"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st">  </span><span class="co"># Add scatter</span></a>
+<a class="sourceLine" id="cb234-3" title="3"><span class="st">  </span><span class="kw">geom_smooth</span>() <span class="op">+</span><span class="st"> </span><span class="co"># Add smooth trend</span></a>
+<a class="sourceLine" id="cb234-4" title="4"><span class="st">  </span><span class="kw">theme_bw</span>()      <span class="co"># Add black/white theme</span></a></code></pre></div>
+<p><img src="TCSM_files/figure-html/unnamed-chunk-182-1.png" width="672" /></p>
 <p>This seems linear; you can check the other variables! There are also some differences by gender, in range and steepness.
 </p>
 </div>
@@ -450,8 +450,8 @@ A basic correlation matrix for the first 5 variables:</p>
 <details>
 <p><summary>Click for explanation</summary></p>
 <p>The variances might not be equal for all levels of gender. We can do a preliminary investigation using <code>describeBy</code>; a version of the <code>describe</code> that splits the data by group.</p>
-<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb234-1" title="1"><span class="kw">library</span>(psych)</a>
-<a class="sourceLine" id="cb234-2" title="2"><span class="kw">describeBy</span>(data[, <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>], <span class="dt">group =</span> data<span class="op">$</span>gender)</a></code></pre></div>
+<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb235-1" title="1"><span class="kw">library</span>(psych)</a>
+<a class="sourceLine" id="cb235-2" title="2"><span class="kw">describeBy</span>(data[, <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>], <span class="dt">group =</span> data<span class="op">$</span>gender)</a></code></pre></div>
 <pre><code>## 
 ##  Descriptive statistics by group 
 ## group: females
@@ -482,15 +482,15 @@ A basic correlation matrix for the first 5 variables:</p>
 ## selfesteem    -0.41 0.41
 ## depression     0.24 0.56</code></pre>
 <p>The variances turn out to be roughly the same for most variables, but there is a large difference in the variance of nartotic substance use. Let’s apply Levene’s test, which lives in the <code>car</code> package:</p>
-<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb236-1" title="1"><span class="kw">library</span>(car)</a>
-<a class="sourceLine" id="cb236-2" title="2"><span class="kw">leveneTest</span>(<span class="dt">y =</span> data<span class="op">$</span>subabuse, <span class="dt">group =</span> data<span class="op">$</span>gender)</a></code></pre></div>
+<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb237-1" title="1"><span class="kw">library</span>(car)</a>
+<a class="sourceLine" id="cb237-2" title="2"><span class="kw">leveneTest</span>(<span class="dt">y =</span> data<span class="op">$</span>subabuse, <span class="dt">group =</span> data<span class="op">$</span>gender)</a></code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Df"],"name":[1],"type":["int"],"align":["right"]},{"label":["F value"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Pr(>F)"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"114.5052","3":"2.77758e-24","_rn_":"group"},{"1":"519","2":"NA","3":"NA","_rn_":""}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 <p>If we want a Levene’s test for all five continuous variables, it can be helpful to <strong>apply</strong> the function to the 5 columns of data. The function <code>lapply()</code> applies a second function (<code>leveneTest()</code>) to every element of a list; in this case - the five columns. The argument <code>group</code> stays the same for each variable:</p>
-<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb237-1" title="1"><span class="kw">lapply</span>(data[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>], leveneTest, <span class="dt">group =</span> data<span class="op">$</span>gender)</a></code></pre></div>
+<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb238-1" title="1"><span class="kw">lapply</span>(data[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>], leveneTest, <span class="dt">group =</span> data<span class="op">$</span>gender)</a></code></pre></div>
 <pre><code>## $suirisk
 ## Levene&#39;s Test for Homogeneity of Variance (center = median)
 ##        Df F value Pr(&gt;F)
@@ -529,8 +529,8 @@ A basic correlation matrix for the first 5 variables:</p>
 <p>Baron and Kenny also state how this problem might be resolved by looking at regression coefficients. Run a multiple regression model, with suicide risk as dependent variable, and all 4 independent variables as predictors. Run this model separately for both genders. Do you find any differences in the regression coefficients? (unstandardized)</p>
 <details>
 <p><summary>Click for explanation</summary></p>
-<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb239-1" title="1"> <span class="co"># In the lm() function, ~ . means: use all predictors</span></a>
-<a class="sourceLine" id="cb239-2" title="2"><span class="kw">summary</span>(<span class="kw">lm</span>(suirisk <span class="op">~</span><span class="st"> </span>., <span class="dt">data =</span> data[data<span class="op">$</span>gender <span class="op">==</span><span class="st"> &quot;females&quot;</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>]))</a></code></pre></div>
+<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb240-1" title="1"> <span class="co"># In the lm() function, ~ . means: use all predictors</span></a>
+<a class="sourceLine" id="cb240-2" title="2"><span class="kw">summary</span>(<span class="kw">lm</span>(suirisk <span class="op">~</span><span class="st"> </span>., <span class="dt">data =</span> data[data<span class="op">$</span>gender <span class="op">==</span><span class="st"> &quot;females&quot;</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>]))</a></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = suirisk ~ ., data = data[data$gender == &quot;females&quot;, 
@@ -553,7 +553,7 @@ A basic correlation matrix for the first 5 variables:</p>
 ## Residual standard error: 1.671 on 324 degrees of freedom
 ## Multiple R-squared:  0.1515, Adjusted R-squared:  0.141 
 ## F-statistic: 14.46 on 4 and 324 DF,  p-value: 7.1e-11</code></pre>
-<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb241-1" title="1"><span class="kw">summary</span>(<span class="kw">lm</span>(suirisk <span class="op">~</span><span class="st"> </span>., <span class="dt">data =</span> data[data<span class="op">$</span>gender <span class="op">==</span><span class="st"> &quot;males&quot;</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>]))</a></code></pre></div>
+<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb242-1" title="1"><span class="kw">summary</span>(<span class="kw">lm</span>(suirisk <span class="op">~</span><span class="st"> </span>., <span class="dt">data =</span> data[data<span class="op">$</span>gender <span class="op">==</span><span class="st"> &quot;males&quot;</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>]))</a></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = suirisk ~ ., data = data[data$gender == &quot;males&quot;, 
@@ -593,8 +593,8 @@ Yes, all assumptions hold, so fine to do it.
 <p>Run a hierarchical regression analysis: Build two regression models, and include all independent variables and gender in the first model, and add the interaction terms in the second model. Then, compare the fit of the two models using <code>anova()</code> Do you find that the interaction variables explain part of the variance in suicide risk over and above that of the independent variables?</p>
 <details>
 <p><summary>Click for explanation</summary></p>
-<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb243-1" title="1">reg_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">lm</span>(suirisk <span class="op">~</span><span class="st"> </span>., data)</a>
-<a class="sourceLine" id="cb243-2" title="2"><span class="kw">summary</span>(reg_<span class="dv">1</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb244-1" title="1">reg_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">lm</span>(suirisk <span class="op">~</span><span class="st"> </span>., data)</a>
+<a class="sourceLine" id="cb244-2" title="2"><span class="kw">summary</span>(reg_<span class="dv">1</span>)</a></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = suirisk ~ ., data = data)
@@ -617,8 +617,8 @@ Yes, all assumptions hold, so fine to do it.
 ## Residual standard error: 1.633 on 515 degrees of freedom
 ## Multiple R-squared:  0.2023, Adjusted R-squared:  0.1946 
 ## F-statistic: 26.12 on 5 and 515 DF,  p-value: &lt; 2.2e-16</code></pre>
-<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb245-1" title="1">reg_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">lm</span>(suirisk <span class="op">~</span><span class="st"> </span>gender <span class="op">*</span><span class="st"> </span>subabuse <span class="op">+</span><span class="st"> </span>gender <span class="op">*</span><span class="st"> </span>hopeless <span class="op">+</span><span class="st"> </span>gender <span class="op">*</span><span class="st"> </span>selfesteem <span class="op">+</span><span class="st"> </span>gender <span class="op">*</span><span class="st"> </span>depression, data)</a>
-<a class="sourceLine" id="cb245-2" title="2"><span class="kw">summary</span>(reg_<span class="dv">2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb246-1" title="1">reg_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">lm</span>(suirisk <span class="op">~</span><span class="st"> </span>gender <span class="op">*</span><span class="st"> </span>subabuse <span class="op">+</span><span class="st"> </span>gender <span class="op">*</span><span class="st"> </span>hopeless <span class="op">+</span><span class="st"> </span>gender <span class="op">*</span><span class="st"> </span>selfesteem <span class="op">+</span><span class="st"> </span>gender <span class="op">*</span><span class="st"> </span>depression, data)</a>
+<a class="sourceLine" id="cb246-2" title="2"><span class="kw">summary</span>(reg_<span class="dv">2</span>)</a></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = suirisk ~ gender * subabuse + gender * hopeless + 
@@ -646,7 +646,7 @@ Yes, all assumptions hold, so fine to do it.
 ## Residual standard error: 1.62 on 511 degrees of freedom
 ## Multiple R-squared:  0.2208, Adjusted R-squared:  0.2071 
 ## F-statistic: 16.09 on 9 and 511 DF,  p-value: &lt; 2.2e-16</code></pre>
-<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb247-1" title="1"><span class="kw">anova</span>(reg_<span class="dv">1</span>, reg_<span class="dv">2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb248-1" title="1"><span class="kw">anova</span>(reg_<span class="dv">1</span>, reg_<span class="dv">2</span>)</a></code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Res.Df"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["RSS"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Df"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Sum of Sq"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["F"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["Pr(>F)"],"name":[6],"type":["dbl"],"align":["right"]}],"data":[{"1":"515","2":"1373.131","3":"NA","4":"NA","5":"NA","6":"NA","_rn_":"1"},{"1":"511","2":"1341.348","3":"4","4":"31.78305","5":"3.027018","6":"0.0174243","_rn_":"2"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -661,10 +661,10 @@ Yes, all assumptions hold, so fine to do it.
 <p><img src="week6home1.png" /></p>
 <details>
 <p><summary>Click for explanation</summary></p>
-<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb248-1" title="1"><span class="kw">library</span>(lavaan)</a>
-<a class="sourceLine" id="cb248-2" title="2">model &lt;-<span class="st"> &quot;suirisk ~ subabuse + hopeless + selfesteem + depression + gender&quot;</span></a>
-<a class="sourceLine" id="cb248-3" title="3">fit &lt;-<span class="st"> </span><span class="kw">sem</span>(model, data)</a>
-<a class="sourceLine" id="cb248-4" title="4"><span class="kw">summary</span>(fit)</a></code></pre></div>
+<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb249-1" title="1"><span class="kw">library</span>(lavaan)</a>
+<a class="sourceLine" id="cb249-2" title="2">model &lt;-<span class="st"> &quot;suirisk ~ subabuse + hopeless + selfesteem + depression + gender&quot;</span></a>
+<a class="sourceLine" id="cb249-3" title="3">fit &lt;-<span class="st"> </span><span class="kw">sem</span>(model, data)</a>
+<a class="sourceLine" id="cb249-4" title="4"><span class="kw">summary</span>(fit)</a></code></pre></div>
 <pre><code>## lavaan 0.6-5 ended normally after 18 iterations
 ## 
 ##   Estimator                                         ML
@@ -696,9 +696,9 @@ Yes, all assumptions hold, so fine to do it.
 ## Variances:
 ##                    Estimate  Std.Err  z-value  P(&gt;|z|)
 ##    .suirisk           2.636    0.163   16.140    0.000</code></pre>
-<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb250-1" title="1"><span class="kw">library</span>(semPlot)</a>
-<a class="sourceLine" id="cb250-2" title="2"><span class="kw">semPaths</span>(fit, <span class="dt">whatLabels =</span> <span class="st">&quot;est&quot;</span>, <span class="dt">rotation =</span> <span class="dv">2</span>)</a></code></pre></div>
-<p><img src="TCSM_files/figure-html/unnamed-chunk-188-1.png" width="672" /></p>
+<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb251-1" title="1"><span class="kw">library</span>(semPlot)</a>
+<a class="sourceLine" id="cb251-2" title="2"><span class="kw">semPaths</span>(fit, <span class="dt">whatLabels =</span> <span class="st">&quot;est&quot;</span>, <span class="dt">rotation =</span> <span class="dv">2</span>)</a></code></pre></div>
+<p><img src="TCSM_files/figure-html/unnamed-chunk-189-1.png" width="672" /></p>
 <p>Same results, except for a small difference in the standard errors, that results from the fact we use Ordinary Least Squares (OLS)-estimation in R and Maximum Likelihood (ML) in lavaan. Apart from that, we can also estimate the correlations/covariances between the independent variables in lavaan, that we cannot estimate in R.
 </p>
 </div>
@@ -717,15 +717,15 @@ There are no degrees of freedom (the model is identical to the saturated model) 
 <details>
 <p><summary>Click for explanation</summary>
 The model fits when a covariance is added between substance use and depression (see figure 1 in the article). Then, Chi-square(3) =9.4, p=.025 CFI=.992, RMSEA=.064. This is probably what Mehta et al. (1998) did as well, without showing us.</p>
-<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb251-1" title="1">model &lt;-<span class="st"> &quot;</span></a>
-<a class="sourceLine" id="cb251-2" title="2"><span class="st">suirisk ~ hopeless + depression + subabuse</span></a>
-<a class="sourceLine" id="cb251-3" title="3"><span class="st">hopeless ~ depression + selfesteem</span></a>
-<a class="sourceLine" id="cb251-4" title="4"><span class="st">selfesteem ~ depression</span></a>
-<a class="sourceLine" id="cb251-5" title="5"><span class="st">subabuse ~~ depression</span></a>
-<a class="sourceLine" id="cb251-6" title="6"><span class="st">&quot;</span></a>
-<a class="sourceLine" id="cb251-7" title="7"></a>
-<a class="sourceLine" id="cb251-8" title="8">fit &lt;-<span class="st"> </span><span class="kw">sem</span>(model, data)</a>
-<a class="sourceLine" id="cb251-9" title="9"><span class="kw">summary</span>(fit, <span class="dt">fit.measures =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb252-1" title="1">model &lt;-<span class="st"> &quot;</span></a>
+<a class="sourceLine" id="cb252-2" title="2"><span class="st">suirisk ~ hopeless + depression + subabuse</span></a>
+<a class="sourceLine" id="cb252-3" title="3"><span class="st">hopeless ~ depression + selfesteem</span></a>
+<a class="sourceLine" id="cb252-4" title="4"><span class="st">selfesteem ~ depression</span></a>
+<a class="sourceLine" id="cb252-5" title="5"><span class="st">subabuse ~~ depression</span></a>
+<a class="sourceLine" id="cb252-6" title="6"><span class="st">&quot;</span></a>
+<a class="sourceLine" id="cb252-7" title="7"></a>
+<a class="sourceLine" id="cb252-8" title="8">fit &lt;-<span class="st"> </span><span class="kw">sem</span>(model, data)</a>
+<a class="sourceLine" id="cb252-9" title="9"><span class="kw">summary</span>(fit, <span class="dt">fit.measures =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <pre><code>## lavaan 0.6-5 ended normally after 35 iterations
 ## 
 ##   Estimator                                         ML
@@ -801,8 +801,8 @@ The model fits when a covariance is added between substance use and depression (
 ##    .selfesteem       18.561    1.150   16.140    0.000
 ##     depression       58.346    3.615   16.140    0.000
 ##     subabuse         29.912    1.853   16.140    0.000</code></pre>
-<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb253-1" title="1"><span class="kw">semPaths</span>(fit, <span class="dt">whatLabels =</span> <span class="st">&quot;est&quot;</span>, <span class="dt">rotation =</span> <span class="dv">2</span>)</a></code></pre></div>
-<p><img src="TCSM_files/figure-html/unnamed-chunk-189-1.png" width="672" />
+<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb254-1" title="1"><span class="kw">semPaths</span>(fit, <span class="dt">whatLabels =</span> <span class="st">&quot;est&quot;</span>, <span class="dt">rotation =</span> <span class="dv">2</span>)</a></code></pre></div>
+<p><img src="TCSM_files/figure-html/unnamed-chunk-190-1.png" width="672" />
 </p>
 
 <div id="refs" class="references">
