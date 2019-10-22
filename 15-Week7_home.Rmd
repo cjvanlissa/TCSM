@@ -1,6 +1,4 @@
-# Week 8 - Home
-
-*Putting it all together*
+# Week 7 - Putting it all together
 
 **Path analysis on Theory of Reasoned Action data (file: toradata.sav)**
 
@@ -14,7 +12,7 @@ The TORA data are an artificial data set following results found by Reinecke (19
   <summary>Click for explanation</summary>
 ```{r}
 library(foreign)
-df <- read.spss("toradata + gend.sav", use.value.labels = FALSE, to.data.frame = TRUE)
+df <- read.spss("toradata.sav", use.value.labels = FALSE, to.data.frame = TRUE)
 df$gender <- factor(df$gender, labels = c("woman", "man"))
 ```
 \details
