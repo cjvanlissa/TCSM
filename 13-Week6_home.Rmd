@@ -1,4 +1,4 @@
-# Week 6 - Class
+# Week 6 - Home
 
 ```{r echo = FALSE, warning=FALSE, message=FALSE}
 library(foreign)

@@ -1,0 +1,96 @@
+# Week 6 - Class
+
+```{r echo = FALSE, warning=FALSE, message=FALSE}
+library(foreign)
+library(semTools)
+library(kableExtra)
+library(lavaan)
+library(psych)
+data <- read.spss("suiciderisk.sav", to.data.frame = TRUE)
+```
+
+Start with your last model from Question 11 of the THE. 
+
+### Question 1
+
+We can modify this general model for all cases into a multi-group model
+with two groups (males and females). Why is this a good method to study moderation? (or in other words, what are the two research questions we can investigate with a multi-group model?)
+
+<details>
+  <summary>Click for explanation</summary>
+Because we can investigate 1) whether the model itself is different for boys and girls and 2) whether the size of regression coefficients differ
+\details
+
+### Question 2
+
+Estimate a multi-group model, with gender as grouping variable. In case you forgot how to do this, see the first of the class exercise from week 4. Look at the fit of the model, what do you find?
+
+<details>
+  <summary>Click for explanation</summary>
+```{r}
+model <- "
+suirisk ~ hopeless + depression + subabuse
+hopeless ~ depression + selfesteem
+selfesteem ~ depression
+subabuse ~~ depression
+"
+
+fit <- sem(model, data, 
+                   group = "gender")
+summary(fit, fit.measures = TRUE)
+```
+
+\details
+
+### Question 3
+
+Mehta et al. (1998) state that their model can be improved post-hoc by adding and removing a path to this model. If you feel this is a good idea, follow their procedure and add a path for both males and females, and also remove a nonsignificant path.
+
+<details>
+  <summary>Click for explanation</summary>
+```{r}
+model <- "
+suirisk ~ depression + subabuse
+hopeless ~ depression + selfesteem
+selfesteem ~ depression
+subabuse ~~ depression + hopeless
+"
+
+fit <- sem(model, data, 
+                   group = "gender")
+summary(fit, fit.measures = TRUE)
+```
+\details
+
+### Question 4
+
+Evaluate the path coefficients of both males and females (tip: look at both the unstandardized and standardized coefficients). Can you explain how the two groups differ?
+
+<details>
+  <summary>Click for explanation</summary>
+```{r}
+summary(fit, fit.measures = FALSE, standardized = TRUE)
+```
+  
+
+\details
+
+### Question 5
+
+We can test the difference between males and females more formally by constraining the size of the regression coefficients to be equal in both groups, or even by computing (`:=`) a parameter for the difference between the two groups, and lookign at its p-value or bootstrapping it. Why is this preferred over just comparing regression coefficients by sight?
+
+<details>
+  <summary>Click for explanation</summary>
+Even if we observe differences, we do not know whether they are significantly different. By constraining parameters to be equal, we can test two models. 1) the free model against 2) the constrained model. This is done using a Chi-square difference test. By computing a difference parameter, we can do a parameteric test or bootstrap confidence interval for the difference.
+\details
+
+### Question 6
+
+Constrain the models for males and females. Use the multi-group option in “analyze -> multiple-group analysis”. This will result in three new models, that consecutively constrain more parameters to be equal for males and females (review class exercise 4 if you get stuck here).
+Compare the unconstrained model to the model with structural weights in the “model comparison” subcommand, what is your conclusion?
+The model gets significantly worse: delta-chi-square(6)=29.00, p<0.01. This means the regression coefficients for males and females are not equal
+
+7. Just knowing that regression coefficients differ, is interesting in itself. (reflect here on the conclusion of Mehta et al. 1998, did you notice that they do not test whether there is significant moderation?).
+However, it is even more interesting to know how the models differ. We cannot test this automatically in AMOS, but have to do this by hand.
+Go back to the model you saved in question 4. Save this model again under a different filename. We will now manually add constraints between the parameters. You can do this as follows:
+First, label every path in your model (6 paths for males and females), as you see below (f=females, m=males):
