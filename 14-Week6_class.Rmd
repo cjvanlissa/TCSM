@@ -9,7 +9,7 @@ library(psych)
 data <- read.spss("suiciderisk.sav", to.data.frame = TRUE)
 ```
 
-Start with your last model from Question 11 of the THE. 
+Start with your last model from Question 11 of the THE. Note that ‘Depression’ and ‘use of narcotic substances’ are completely independent in the model, i.e. they are not predicted by anything. Usually we would estimate a covariance between them, otherwise the model restricts the covariance to be zero. However, to replicate the original results, it is important to NOT estimate this covariance (fix it to zero). 
 
 ### Question 1
 
@@ -32,7 +32,7 @@ model <- "
 suirisk ~ hopeless + depression + subabuse
 hopeless ~ depression + selfesteem
 selfesteem ~ depression
-subabuse ~~ depression
+subabuse ~~ 0*depression
 "
 
 fit <- sem(model, data, 
@@ -53,7 +53,8 @@ model_exploratory <- "
 suirisk ~ depression + subabuse
 hopeless ~ depression + selfesteem
 selfesteem ~ depression
-subabuse ~~ depression + hopeless
+subabuse ~ hopeless
+subabuse ~~ 0*depression
 "
 
 fit_exploratory <- sem(model_exploratory, data, 
@@ -211,6 +212,8 @@ The R-square for suicide risk is .32 for females, and .15 for males. The model p
 ### Question 12
 
 Calculate the total, direct and indirect effects (see practical week 5). The model we have made is a typical example of moderated mediation (i.e. the mediation effects are moderated by gender). In your own words, what are the differences in the mediation between males and females?
+
+*Note: Because the paths are different for males and females, you should also calculate the total, direct and indirect effects (see practical week 5) for males and females separately.* 
 
 <details>
   <summary>Click for explanation</summary>

@@ -374,7 +374,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <details>
 <p><summary>Click for explanation</summary></p>
 <div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb272-1" title="1"><span class="kw">library</span>(foreign)</a>
-<a class="sourceLine" id="cb272-2" title="2">df &lt;-<span class="st"> </span><span class="kw">read.spss</span>(<span class="st">&quot;toradata + gend.sav&quot;</span>, <span class="dt">use.value.labels =</span> <span class="ot">FALSE</span>, <span class="dt">to.data.frame =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb272-2" title="2">df &lt;-<span class="st"> </span><span class="kw">read.spss</span>(<span class="st">&quot;toradata.sav&quot;</span>, <span class="dt">use.value.labels =</span> <span class="ot">FALSE</span>, <span class="dt">to.data.frame =</span> <span class="ot">TRUE</span>)</a>
 <a class="sourceLine" id="cb272-3" title="3">df<span class="op">$</span>gender &lt;-<span class="st"> </span><span class="kw">factor</span>(df<span class="op">$</span>gender, <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;woman&quot;</span>, <span class="st">&quot;man&quot;</span>))</a></code></pre></div>
 
 </div>
