@@ -23,6 +23,11 @@ description: "This is a guide for the elective course TCSM."
 
 # Course {-}
 
+```{r global_options, include=FALSE}
+knitr::opts_chunk$set(warning=FALSE, message=FALSE)
+```
 In this course you will learn how to translate a social scientific theory into a statistical model, how to analyze your data with these models, and how to interpret and report your results following APA standards.
 
-The analyses will be executed using the statistical programming environment R, and in particular using the structural equation modeling package lavaan.
+The analyses will be executed using the statistical programming environment R, and in particular using the structural equation modeling package `lavaan`.
+
+**You do not need a book for this course.** Most information is contained within this GitBook and the course readings. Optionally, if you want to expand your learning, you can follow the excellent [`lavaan` tutorial](https://lavaan.ugent.be/tutorial/).

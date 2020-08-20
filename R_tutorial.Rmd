@@ -1,0 +1,9 @@
+---
+title: "R: How to get started"
+author: "By [Ihnwhi Heo](https://www.linkedin.com/in/ihnwhi-heo/), [Duco Veen](https://www.ducoveen.com/), and [Rens van de Schoot](https://www.rensvandeschoot.com/)"
+date: 'Last modified: `r Sys.setlocale("LC_TIME", "English"); format(Sys.time(), "%d %B %Y")`'
+output:
+  html_document:
+    keep_md: true
+---
+

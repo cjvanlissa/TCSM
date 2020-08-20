@@ -34,13 +34,13 @@ measurements will be used in this tutorial:
 
 Load the data from the .csv or .xls file into R.
 
-*Hint: Use* `read.csv()` *or* `XLConnect::readWorkSheetFromFile()`
+*Hint: Use* `read.csv()` *or* `readxl::read_excel()`
 
 <details>
   <summary>Click for explanation</summary>
 ```{r, message=FALSE}
-library(XLConnect)
-df <- readWorksheetFromFile("Hamilton.xls", 1)
+library(readxl)
+df <- read_excel("Hamilton.xls", 1)
 ```
 
 Or 

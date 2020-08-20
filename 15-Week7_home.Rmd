@@ -11,12 +11,9 @@ The TORA data are an artificial data set following results found by Reinecke (19
 <details>
   <summary>Click for explanation</summary>
 ```{r}
-library(foreign)
-df <- read.spss("toradata.sav", use.value.labels = FALSE, to.data.frame = TRUE)
-df$gender <- factor(df$gender, labels = c("woman", "man"))
+df <- read.csv("TCSM_student/toradata.csv", stringsAsFactors = TRUE)
 ```
 \details
-
 
 ### Question 1
 
@@ -28,9 +25,9 @@ We have 3 indicators for attitude, norm and control, plus the variables intentio
   <summary>Click for explanation</summary>
 ```{r}
 library(lavaan)
-TORA_cfa <- 'attit =~ attit1 + attit2 + attit3
-             norm =~ norm1 + norm2 + norm3
-             control =~ control1 + control2 + control3'
+TORA_cfa <- 'attit =~ attit_1 + attit_2 + attit_3
+             norm =~ norm_1 + norm_2 + norm_3
+             control =~ control_1 + control_2 + control_3'
 
 fit <- cfa(TORA_cfa, data = df)
 
@@ -45,8 +42,8 @@ Set up a TORA model with attitude and norms as latent variables, both predicting
 <details>
   <summary>Click for explanation</summary>
 ```{r}
-TORA_sem <- 'attit =~ attit1 + attit2 + attit3
-             norm =~ norm1 + norm2 + norm3
+TORA_sem <- 'attit =~ attit_1 + attit_2 + attit_3
+             norm =~ norm_1 + norm_2 + norm_3
              
              intent ~ attit + norm
              behavior ~ intent'
@@ -67,9 +64,9 @@ Add control as a latent variable. Assume control has an effect on intention. Ana
 The option `rsquare = TRUE` tells us how much variance is explained in each dependent variable:
 
 ```{r}
-TORA_sem <- 'attit =~ attit1 + attit2 + attit3
-             norm =~ norm1 + norm2 + norm3
-             control =~ control1 + control2 + control3
+TORA_sem <- 'attit =~ attit_1 + attit_2 + attit_3
+             norm =~ norm_1 + norm_2 + norm_3
+             control =~ control_1 + control_2 + control_3
              
              intent ~ attit + norm + control
              behavior ~ intent'
@@ -89,29 +86,29 @@ control can be either direct or indirect; the TORA does not specify which. Test 
 <details>
   <summary>Click for explanation</summary>
 ```{r}
-TORA_dir <- 'attit =~ attit1 + attit2 + attit3
-             norm =~ norm1 + norm2 + norm3
-             control =~ control1 + control2 + control3
+TORA_dir <- 'attit =~ attit_1 + attit_2 + attit_3
+             norm =~ norm_1 + norm_2 + norm_3
+             control =~ control_1 + control_2 + control_3
              
              intent ~ attit + norm + control
              behavior ~ intent'
 
-TORA_ind <- 'attit =~ attit1 + attit2 + attit3
-             norm =~ norm1 + norm2 + norm3
-             control =~ control1 + control2 + control3
+TORA_ind <- 'attit =~ attit_1 + attit_2 + attit_3
+             norm =~ norm_1 + norm_2 + norm_3
+             control =~ control_1 + control_2 + control_3
              
              intent ~ attit + norm + control
              behavior ~ intent + control'
 
 fit_dir <- sem(TORA_dir, data = df)
 fit_ind <- sem(TORA_ind, data = df)
-
 ```
 
 To compare the models, we can use a $\chi^2$-difference test, using the `anova()` function or ``semTools::compareFits`:
 
 ```{r}
 anova(fit_dir, fit_ind)
+library(semTools)
 compareFit(Direct = fit_dir, Indirect = fit_ind)
 ```
 
@@ -119,37 +116,58 @@ compareFit(Direct = fit_dir, Indirect = fit_ind)
 
 ### Question 5
 
-Use `semPlot::semPaths()` to plot both models, and check whether the picture corresponds with theory and with the way you intended to specify the model.
+Use `tidySEM::graph_sem()` to plot both models, and check whether the picture corresponds with theory and with the way you intended to specify the model.
 
 <details>
   <summary>Click for explanation</summary>
 ```{r}
-library(semPlot)
-semPaths(fit_dir, whatLabels = "est")
-semPaths(fit_ind, whatLabels = "est")
+library(tidySEM)
+graph_sem(fit_dir)
+graph_sem(fit_ind)
 ```
 \details
 
 ### Question 6
 
-Before you learned about latent variables, you might have analyzed these data by computing sum or mean scores for attitude, norms, and control, and using these as observed variables in a path model. Set up a TORA model using the sum or mean scores of the variables, and compare the results with the previous analysis. Which model would you prefer, and why? 
+Before you learned about latent variables, you might have analyzed these data by computing sum or mean scores for attitude, norms, and control, and using these as observed variables in a path model. It is possible to obtain mean scale scores using `tidySEM`, as follows:
 
-*Hint: Use* `$; <-, [, rowMeans(), sum()`
+```{r, message=FALSE}
+library(dplyr)
+df[,c(2:7, 10:12)] %>%
+  tidy_sem() %>%
+  create_scales() -> scales
+```
+
+The `scales` object contains a table with scale descriptive statistics:
+
+```{r}
+scales$descriptives
+```
+
+Use the mean scores of the variables to set up a TORA model,
+and compare the results with the previous analysis.
+Which model would you prefer, and why? 
+
+*Hint: Use* `cbind()` *to add the scale scores to* `df`
 
 <details>
   <summary>Click for explanation</summary>
 ```{r}
-df$attit <- rowMeans(df[, c("attit1", "attit2", "attit3")])
-# Or: df$norm <- rowSums(df[, c("attit1", "attit2", "attit3")])
-df$norm <- rowMeans(df[, c("norm1", "norm2", "norm3")])
-df$control <- rowMeans(df[, c("control1", "control2", "control3")])
+library(dplyr)
+names(df)
+df %>%
+  tidy_sem() %>%
+  tidySEM::create_scales() -> scales
+df_obs <- cbind(df, scales$scores)
 
 TORA_obs <- 'intent ~ attit + norm + control
              behavior ~ intent'
-fit_obs <- sem(TORA_obs, df)
+fit_obs <- sem(TORA_obs, df_obs)
 ```
 
-The fit of this new model is worse than the model that included latent variables. However, we cannot directly compare fit indices, because these models are **not nested**! They are estimated on different variables. We will get a warning to emphasize this point. We can only interpret the Model Fit Indices table, and the Differences in Fit Indices, but not the Nested Model Comparison.
+The fit of this new model is worse than the model that included latent variables.
+However, note that these models are **not nested**, so we cannot directly compare fit indices.
+They are estimated on different variables. We will get a warning to emphasize this point. We can only interpret the Model Fit Indices table, and the Differences in Fit Indices, but not the Nested Model Comparison.
 
 ```{r}
 compareFit(Latent = fit_dir,
@@ -159,10 +177,13 @@ compareFit(Latent = fit_dir,
 We can also inspect the regression coefficients in both models:
 
 ```{r}
-parameters_latent <- partable(fit_dir)
-parameters_observed <- partable(fit_obs)
-cbind(parameters_latent[parameters_latent$op == "~", c("lhs", "op", "rhs", "est")],
-      est_obs = parameters_observed[parameters_observed$op == "~", c("est")])
+table_results(fit_dir) %>%
+  filter(grepl("ON", label))
+```
+
+```{r}
+table_results(fit_obs) %>%
+  filter(grepl("ON", label))
 ```
 \details
 
@@ -172,13 +193,13 @@ We now want to investigate whether the Theory of Reasoned Action for condom use 
 
 ### Question 7
 
-Estimate the gender moderated model. What happened to the fit of the model when you compare it to your earlier model that didn’t include gender?
+Estimate the sex moderated model. What happened to the fit of the model when you compare it to your earlier model that didn’t include sex?
 
 <details>
   <summary>Click for explanation</summary>
   
 ```{r}
-fit_mod <- sem(TORA_sem, data = df, group = "gender")
+fit_mod <- sem(TORA_sem, data = df, group = "sex")
 
 summary(fit_mod, fit.measures = TRUE)
 ```
@@ -196,10 +217,10 @@ We can specify these models with `groups.equal` constraints and then use `compar
 
 ```{r}
 library(semTools)
-fit.config <- cfa(TORA_cfa, data = df, group = "gender")
-fit.metric <- cfa(TORA_cfa, data = df, group = "gender",
+fit.config <- cfa(TORA_cfa, data = df, group = "sex")
+fit.metric <- cfa(TORA_cfa, data = df, group = "sex",
                   group.equal = "loadings")
-fit.scalar <- cfa(TORA_cfa, data = df, group = "gender",
+fit.scalar <- cfa(TORA_cfa, data = df, group = "sex",
                   group.equal = c("loadings", "intercepts"))
 compareFit(Configural = fit.config, 
            Metric = fit.metric, 
@@ -217,10 +238,10 @@ Going back to the multi-group model, impose scalar invariance, and then determin
   
 ```{r}
 fit_mod_invar <- sem(TORA_sem, data = df, 
-                     group = "gender", 
+                     group = "sex", 
                      group.equal = c("loadings", "intercepts"))
 fit_mod_invar_reg <- sem(TORA_sem, data = df, 
-                         group = "gender", 
+                         group = "sex", 
                          group.equal = c("loadings", "intercepts", "regressions"))
 
 compareFit(Multigroup = fit_mod_invar,

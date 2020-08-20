@@ -12,21 +12,24 @@ One advantage of using an **R project** is that the project directory is automat
 
 ## Importing Excel Files
 
-One way to get Excel files directly into R is by using the `XLConnect` package. Install the package, and try using the readWorksheetFromFile() function to load the data, and assign it to an object called `df`:
+```{r include=FALSE}
+knitr::opts_chunk$set(warning=FALSE, message=FALSE)
+```
+One way to get Excel files directly into R is by using the `readxl` package. Install the package, and try using the read_excel() function to load the data, and assign it to an object called `df`:
 
 ```{r, eval = FALSE}
 # Run this only once, to download and install the package:
-install.packages("XLConnect")
+install.packages("readxl")
 # Load the package:
-library(XLConnect)
+library(readxl)
 # Read an Excel file into 'df':
-df <- readWorksheetFromFile("your_file.xlsx",
+df <- read_excel("your_file.xlsx",
                             sheet = 1)
 ```
 
 ```{r, echo=FALSE, results = "hide", message=FALSE, eval = FALSE}
-library(XLConnect)
-df <- readWorksheetFromFile("happy.xlsx",
+library(readxl)
+df <- read_excel("happy.xlsx",
                             sheet = 1)
 ```
 
@@ -36,9 +39,7 @@ R does not work with a single spreadsheet (SPSS or Excel). Instead, it can keep 
 
 ```{r, echo=FALSE}
 library(png)
-library(grid)
-img <- readPNG("environment.PNG")
-grid.raster(img)
+knitr::include_graphics("environment.PNG")
 ```
 
 As you can see, the on the top-right pane **Environment**, your file is now listed as a data set in your RStudio environment.

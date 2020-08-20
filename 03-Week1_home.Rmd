@@ -2,7 +2,12 @@
 
 Open the data file LifeSat.sav. 
 
-```{r, message=FALSE}
+```{r, message=FALSE, echo=FALSE}
+library(foreign)
+data <- read.spss("TCSM_student/LifeSat.sav", to.data.frame = TRUE)
+knitr::opts_chunk$set(warning=FALSE, message=FALSE)
+```
+```{r, message=FALSE,eval=FALSE}
 library(foreign)
 data <- read.spss("LifeSat.sav", to.data.frame = TRUE)
 ```
@@ -13,15 +18,15 @@ Make a descriptives table for the variables: LifSat, educ, ChildSup, SpouSup, an
 
 What is the average age in the sample? And the range (youngest and oldest child)? 
 
-*Hint: Use* `library(psych); describe(); []`
+*Hint: Use* `library(tidySEM); descriptives(); []`
 
 <details>
   <summary>Click for explanation</summary>
-The package `psych` contains many functions for exploring data. Install and load the package, then use the `describe()` function to describe the data:
+The package `tidySEM` contains a function to describe data. Install and load the package, then use the `descriptives()` function. Alternatively, you can also use the `describe()` function in the `psych` package.
 
 ```{r}
-library(psych)
-describe(data[, c("LifSat", "educ", "ChildSup", "SpouSup", "age")])
+library(tidySEM)
+descriptives(data[, c("LifSat", "educ", "ChildSup", "SpouSup", "age")])
 ```
 <\details>
 

@@ -6,19 +6,32 @@ Instead of doing Exploratory Factor Analysis, another way of analyzing the data 
 
 ### Question 1
 
-Download the ESS data from Blackboard, and load the data into R. The data are in the file *essround1-c.RData*. This is a special R-filetype that can contain several R-objects. You can load it into R using the syntax:
+Load the ESS data into R,  into an object called `df`. The data are in the file `"week3_class.csv"`. You can load it into R using the syntax:
 
-```{r}
-load("essround1-c.RData")
+```{r, echo = FALSE, eval = TRUE}
+if(FALSE){
+  load("essround1-c.RData")
+data <- essround1_c
+data[c(7:44, 48, 49, 50)] <- lapply(data[c(7:44, 48, 49, 50)], as.numeric)
+data$yrbrn <- as.numeric(as.character(data$yrbrn))
+df <- data[data$cntry %in% c("Austria", "Belgium", "Denmark", "Finland", "Germany", "Italy", "Netherlands", "Norway", "Sweden"), ]
+df$cntry <- factor(df$cntry)
+df <- df[, -c(which(names(data) == "filter_."):which(names(data)=="immieco"))]
+write.csv(df, "TCSM_student/week3_class.csv", row.names = FALSE)
+}
+df <- read.csv("TCSM_student/week3_class.csv", stringsAsFactors = TRUE)
+```
+```{r, eval = FALSE}
+df <- read.csv("week3_class.csv", stringsAsFactors = TRUE)
 ```
 
-Furthermore, you will have to load the package `lavaan` before starting with the exercises, and for convenience, copy the object `essround1_c` into an object called `data`.
+Furthermore, you will have to load the package `lavaan` before starting with the exercises.
 
 <details>
   <summary>Click for explanation</summary>
 ```{r, warning = FALSE, message = FALSE}
 library(lavaan)
-data <- essround1_c
+
 ```
 \details
 
@@ -27,10 +40,7 @@ Furthermore, we want to work with numeric variables instead of factors once agai
 <details>
   <summary>Click for explanation</summary>
 ```{r}
-data[c(7:44, 48, 49, 50)] <- lapply(data[c(7:44, 48, 49, 50)], as.numeric)
-data$yrbrn <- as.numeric(as.character(data$yrbrn))
-df <- data[data$cntry %in% c("Austria", "Belgium", "Denmark", "Finland", "Germany", "Italy", "Netherlands", "Norway", "Sweden"), ]
-df$cntry <- factor(df$cntry)
+
 ```
 \details
 

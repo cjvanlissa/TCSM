@@ -1,12 +1,22 @@
 # Week 6 - Home
 
 ```{r echo = FALSE, warning=FALSE, message=FALSE}
-library(foreign)
+library(haven)
+library(labelled)
 library(semTools)
 library(kableExtra)
 library(lavaan)
 library(psych)
-data <- read.spss("suiciderisk.sav", to.data.frame = TRUE)
+data <- unlabelled(read_sav("suiciderisk.sav"))
+```
+```{r echo = FALSE, warning=FALSE, message=FALSE}
+library(haven)
+library(labelled)
+library(semTools)
+library(kableExtra)
+library(lavaan)
+library(psych)
+data <- unlabelled(read_sav("suiciderisk.sav"))
 ```
 
 Exercise based on: 

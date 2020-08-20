@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>4.3 Section 2 | Theory Construction and Statistical Modeling</title>
   <meta name="description" content="This is a guide for the elective course TCSM." />
-  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
 
   <meta property="og:title" content="4.3 Section 2 | Theory Construction and Statistical Modeling" />
   <meta property="og:type" content="book" />
@@ -39,6 +39,9 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -136,11 +139,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.1" data-path="installing-software.html"><a href="installing-software.html"><i class="fa fa-check"></i><b>1.1</b> Installing software</a><ul>
 <li class="chapter" data-level="1.1.1" data-path="installing-software.html"><a href="installing-software.html#installing-r"><i class="fa fa-check"></i><b>1.1.1</b> 1. Installing R</a></li>
 <li class="chapter" data-level="1.1.2" data-path="installing-software.html"><a href="installing-software.html#installing-rstudio"><i class="fa fa-check"></i><b>1.1.2</b> 2. Installing RStudio</a></li>
-<li class="chapter" data-level="1.1.3" data-path="installing-software.html"><a href="installing-software.html#installing-packages"><i class="fa fa-check"></i><b>1.1.3</b> 3. Installing packages</a></li>
+<li class="chapter" data-level="1.1.3" data-path="installing-software.html"><a href="installing-software.html#installpackages"><i class="fa fa-check"></i><b>1.1.3</b> 3. Installing packages</a></li>
 <li class="chapter" data-level="1.1.4" data-path="installing-software.html"><a href="installing-software.html#get-started"><i class="fa fa-check"></i><b>1.1.4</b> Get started</a></li>
 <li class="chapter" data-level="1.1.5" data-path="installing-software.html"><a href="installing-software.html#starting-a-new-project-in-rstudio"><i class="fa fa-check"></i><b>1.1.5</b> Starting a new project in Rstudio</a></li>
 <li class="chapter" data-level="1.1.6" data-path="installing-software.html"><a href="installing-software.html#code-conventions"><i class="fa fa-check"></i><b>1.1.6</b> Code conventions</a></li>
 <li class="chapter" data-level="1.1.7" data-path="installing-software.html"><a href="installing-software.html#getting-help"><i class="fa fa-check"></i><b>1.1.7</b> Getting Help</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="getting-the-course-data.html"><a href="getting-the-course-data.html"><i class="fa fa-check"></i><b>1.2</b> Getting the course data</a></li>
+<li class="chapter" data-level="1.3" data-path="r-tutorial-for-beginners-optional.html"><a href="r-tutorial-for-beginners-optional.html"><i class="fa fa-check"></i><b>1.3</b> R tutorial for beginners (optional)</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="r-tutorial-for-beginners-optional.html"><a href="r-tutorial-for-beginners-optional.html#who-r-you"><i class="fa fa-check"></i><b>1.3.1</b> Who R you?</a></li>
+<li class="chapter" data-level="1.3.2" data-path="r-tutorial-for-beginners-optional.html"><a href="r-tutorial-for-beginners-optional.html#rstudio"><i class="fa fa-check"></i><b>1.3.2</b> RStudio</a></li>
+<li class="chapter" data-level="1.3.3" data-path="r-tutorial-for-beginners-optional.html"><a href="r-tutorial-for-beginners-optional.html#loading-data"><i class="fa fa-check"></i><b>1.3.3</b> Loading data</a></li>
+<li class="chapter" data-level="1.3.4" data-path="r-tutorial-for-beginners-optional.html"><a href="r-tutorial-for-beginners-optional.html#explore-your-data"><i class="fa fa-check"></i><b>1.3.4</b> Explore your data</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="plotting-the-data-optional.html"><a href="plotting-the-data-optional.html"><i class="fa fa-check"></i><b>1.4</b> Plotting the data (optional)</a><ul>
+<li class="chapter" data-level="1.4.1" data-path="plotting-the-data-optional.html"><a href="plotting-the-data-optional.html#a-histogram"><i class="fa fa-check"></i><b>1.4.1</b> A histogram</a></li>
+<li class="chapter" data-level="1.4.2" data-path="plotting-the-data-optional.html"><a href="plotting-the-data-optional.html#a-boxplot"><i class="fa fa-check"></i><b>1.4.2</b> A boxplot</a></li>
+<li class="chapter" data-level="1.4.3" data-path="plotting-the-data-optional.html"><a href="plotting-the-data-optional.html#scatterplot"><i class="fa fa-check"></i><b>1.4.3</b> Scatterplot</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="getting-your-data-into-r.html"><a href="getting-your-data-into-r.html"><i class="fa fa-check"></i><b>2</b> Getting your data into R</a><ul>
@@ -164,7 +179,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.0.6" data-path="week-1-home.html"><a href="week-1-home.html#question-1.f."><i class="fa fa-check"></i><b>3.0.6</b> Question 1.f.</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="week-1-class.html"><a href="week-1-class.html"><i class="fa fa-check"></i><b>4</b> Week 1 - Class</a><ul>
-<li class="chapter" data-level="4.1" data-path="loading-data.html"><a href="loading-data.html"><i class="fa fa-check"></i><b>4.1</b> Loading data</a></li>
+<li class="chapter" data-level="4.1" data-path="loading-data-1.html"><a href="loading-data-1.html"><i class="fa fa-check"></i><b>4.1</b> Loading data</a></li>
 <li class="chapter" data-level="4.2" data-path="section-1.html"><a href="section-1.html"><i class="fa fa-check"></i><b>4.2</b> Section 1</a><ul>
 <li class="chapter" data-level="4.2.1" data-path="section-1.html"><a href="section-1.html#question-1.a-1"><i class="fa fa-check"></i><b>4.2.1</b> Question 1.a</a></li>
 <li class="chapter" data-level="4.2.2" data-path="section-1.html"><a href="section-1.html#question-1.b-1"><i class="fa fa-check"></i><b>4.2.2</b> Question 1.b</a></li>
@@ -219,19 +234,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.0.10" data-path="week-2-home.html"><a href="week-2-home.html#question-1.j-1"><i class="fa fa-check"></i><b>5.0.10</b> Question 1.j</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="week-2-class.html"><a href="week-2-class.html"><i class="fa fa-check"></i><b>6</b> Week 2 - Class</a><ul>
-<li class="chapter" data-level="6.1" data-path="loading-data-1.html"><a href="loading-data-1.html"><i class="fa fa-check"></i><b>6.1</b> Loading data</a><ul>
-<li class="chapter" data-level="6.1.1" data-path="loading-data-1.html"><a href="loading-data-1.html#question-1"><i class="fa fa-check"></i><b>6.1.1</b> Question 1</a></li>
-<li class="chapter" data-level="6.1.2" data-path="loading-data-1.html"><a href="loading-data-1.html#question-2"><i class="fa fa-check"></i><b>6.1.2</b> Question 2</a></li>
-<li class="chapter" data-level="6.1.3" data-path="loading-data-1.html"><a href="loading-data-1.html#question-3"><i class="fa fa-check"></i><b>6.1.3</b> Question 3</a></li>
-<li class="chapter" data-level="6.1.4" data-path="loading-data-1.html"><a href="loading-data-1.html#question-4"><i class="fa fa-check"></i><b>6.1.4</b> Question 4</a></li>
-<li class="chapter" data-level="6.1.5" data-path="loading-data-1.html"><a href="loading-data-1.html#question-5"><i class="fa fa-check"></i><b>6.1.5</b> Question 5</a></li>
-<li class="chapter" data-level="6.1.6" data-path="loading-data-1.html"><a href="loading-data-1.html#question-6"><i class="fa fa-check"></i><b>6.1.6</b> Question 6</a></li>
-<li class="chapter" data-level="6.1.7" data-path="loading-data-1.html"><a href="loading-data-1.html#question-7"><i class="fa fa-check"></i><b>6.1.7</b> Question 7</a></li>
-<li class="chapter" data-level="6.1.8" data-path="loading-data-1.html"><a href="loading-data-1.html#question-8"><i class="fa fa-check"></i><b>6.1.8</b> Question 8</a></li>
-<li class="chapter" data-level="6.1.9" data-path="loading-data-1.html"><a href="loading-data-1.html#question-9"><i class="fa fa-check"></i><b>6.1.9</b> Question 9</a></li>
-<li class="chapter" data-level="6.1.10" data-path="loading-data-1.html"><a href="loading-data-1.html#question-10"><i class="fa fa-check"></i><b>6.1.10</b> Question 10</a></li>
-<li class="chapter" data-level="6.1.11" data-path="loading-data-1.html"><a href="loading-data-1.html#question-11"><i class="fa fa-check"></i><b>6.1.11</b> Question 11</a></li>
-</ul></li>
+<li class="chapter" data-level="6.0.1" data-path="week-2-class.html"><a href="week-2-class.html#loading-the-data"><i class="fa fa-check"></i><b>6.0.1</b> Loading the data</a></li>
+<li class="chapter" data-level="6.0.2" data-path="week-2-class.html"><a href="week-2-class.html#question-1"><i class="fa fa-check"></i><b>6.0.2</b> Question 1</a></li>
+<li class="chapter" data-level="6.0.3" data-path="week-2-class.html"><a href="week-2-class.html#question-2"><i class="fa fa-check"></i><b>6.0.3</b> Question 2</a></li>
+<li class="chapter" data-level="6.0.4" data-path="week-2-class.html"><a href="week-2-class.html#question-3"><i class="fa fa-check"></i><b>6.0.4</b> Question 3</a></li>
+<li class="chapter" data-level="6.0.5" data-path="week-2-class.html"><a href="week-2-class.html#question-4"><i class="fa fa-check"></i><b>6.0.5</b> Question 4</a></li>
+<li class="chapter" data-level="6.0.6" data-path="week-2-class.html"><a href="week-2-class.html#question-5"><i class="fa fa-check"></i><b>6.0.6</b> Question 5</a></li>
+<li class="chapter" data-level="6.0.7" data-path="week-2-class.html"><a href="week-2-class.html#question-6"><i class="fa fa-check"></i><b>6.0.7</b> Question 6</a></li>
+<li class="chapter" data-level="6.0.8" data-path="week-2-class.html"><a href="week-2-class.html#question-7"><i class="fa fa-check"></i><b>6.0.8</b> Question 7</a></li>
+<li class="chapter" data-level="6.0.9" data-path="week-2-class.html"><a href="week-2-class.html#question-8"><i class="fa fa-check"></i><b>6.0.9</b> Question 8</a></li>
+<li class="chapter" data-level="6.0.10" data-path="week-2-class.html"><a href="week-2-class.html#question-9"><i class="fa fa-check"></i><b>6.0.10</b> Question 9</a></li>
+<li class="chapter" data-level="6.0.11" data-path="week-2-class.html"><a href="week-2-class.html#question-10"><i class="fa fa-check"></i><b>6.0.11</b> Question 10</a></li>
+<li class="chapter" data-level="6.0.12" data-path="week-2-class.html"><a href="week-2-class.html#question-11"><i class="fa fa-check"></i><b>6.0.12</b> Question 11</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="week-3-home.html"><a href="week-3-home.html"><i class="fa fa-check"></i><b>7</b> Week 3 - Home</a><ul>
 <li class="chapter" data-level="7.0.1" data-path="week-3-home.html"><a href="week-3-home.html#get-started-with-lavaan"><i class="fa fa-check"></i><b>7.0.1</b> Get started with lavaan</a></li>
@@ -334,7 +348,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="14.0.14" data-path="week-6-class.html"><a href="week-6-class.html#question-13"><i class="fa fa-check"></i><b>14.0.14</b> Question 13</a></li>
 </ul></li>
 <li class="chapter" data-level="15" data-path="week-7-putting-it-all-together.html"><a href="week-7-putting-it-all-together.html"><i class="fa fa-check"></i><b>15</b> Week 7 - Putting it all together</a><ul>
-<li class="chapter" data-level="15.0.1" data-path="week-7-putting-it-all-together.html"><a href="week-7-putting-it-all-together.html#loading-the-data"><i class="fa fa-check"></i><b>15.0.1</b> Loading the data</a></li>
+<li class="chapter" data-level="15.0.1" data-path="week-7-putting-it-all-together.html"><a href="week-7-putting-it-all-together.html#loading-the-data-1"><i class="fa fa-check"></i><b>15.0.1</b> Loading the data</a></li>
 <li class="chapter" data-level="15.0.2" data-path="week-7-putting-it-all-together.html"><a href="week-7-putting-it-all-together.html#question-1-8"><i class="fa fa-check"></i><b>15.0.2</b> Question 1</a></li>
 <li class="chapter" data-level="15.0.3" data-path="week-7-putting-it-all-together.html"><a href="week-7-putting-it-all-together.html#question-2-8"><i class="fa fa-check"></i><b>15.0.3</b> Question 2</a></li>
 <li class="chapter" data-level="15.0.4" data-path="week-7-putting-it-all-together.html"><a href="week-7-putting-it-all-together.html#question-3-8"><i class="fa fa-check"></i><b>15.0.4</b> Question 3</a></li>
@@ -376,8 +390,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>control</li>
 </ul>
 <p>DV: reaction time in milliseconds in a driver simulation test.</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" title="1"><span class="co"># Load the data and put them in the object called &quot;data&quot;</span></a>
-<a class="sourceLine" id="cb38-2" title="2">data &lt;-<span class="st"> </span><span class="kw">read.spss</span>(<span class="st">&quot;Drivers.sav&quot;</span>, <span class="dt">to.data.frame =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb55-1" title="1"><span class="co"># Load the data and put them in the object called &quot;data&quot;</span></a>
+<a class="sourceLine" id="cb55-2" title="2">data &lt;-<span class="st"> </span><span class="kw">read.spss</span>(<span class="st">&quot;Drivers.sav&quot;</span>, <span class="dt">to.data.frame =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 </div>
 <div id="question-2.a" class="section level3">
 <h3><span class="header-section-number">4.3.2</span> Question 2.a</h3>
@@ -385,8 +399,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><em>Hint: The function</em> <code>aov()</code> <em>is an alternate interface to the linear model (lm), which reports results in line with the convention of ANOVA analyses.</em></p>
 <details>
 <p><summary>Click for explanation</summary></p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb39-1" title="1">results &lt;-<span class="st"> </span><span class="kw">aov</span>(<span class="dt">formula =</span> RT <span class="op">~</span><span class="st"> </span>condition, <span class="dt">data =</span> data)</a>
-<a class="sourceLine" id="cb39-2" title="2"><span class="kw">summary</span>(results)</a></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb56-1" title="1">results &lt;-<span class="st"> </span><span class="kw">aov</span>(<span class="dt">formula =</span> RT <span class="op">~</span><span class="st"> </span>condition, <span class="dt">data =</span> data)</a>
+<a class="sourceLine" id="cb56-2" title="2"><span class="kw">summary</span>(results)</a></code></pre></div>
 <pre><code>##             Df Sum Sq Mean Sq F value Pr(&gt;F)  
 ## condition    2 103909   51954   3.072 0.0541 .
 ## Residuals   57 964082   16914                 
@@ -410,19 +424,19 @@ We can check several assumptions:</p>
 <h4><span class="header-section-number">4.3.3.1</span> Presence of outliers:</h4>
 <p><strong>In Y-space</strong></p>
 <p>We can check the range of the standardized (<code>scale()</code>) residuals for outliers in Y-space. The residuals are <strong>inside</strong> of the results object, so we can just extract them, standardize them, and get the range:</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb41-1" title="1"><span class="kw">range</span>(<span class="kw">scale</span>(results<span class="op">$</span>residuals))</a></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb58-1" title="1"><span class="kw">range</span>(<span class="kw">scale</span>(results<span class="op">$</span>residuals))</a></code></pre></div>
 <pre><code>## [1] -2.483778  1.904491</code></pre>
 <p>What is your conclusiong about the outliers?</p>
 </div>
 <div id="normality-of-residuals" class="section level4">
 <h4><span class="header-section-number">4.3.3.2</span> Normality of residuals</h4>
 <p>We can check the normality of residuals using a QQplot.</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb43-1" title="1"><span class="kw">qqnorm</span>(results<span class="op">$</span>residuals)</a>
-<a class="sourceLine" id="cb43-2" title="2"><span class="kw">qqline</span>(results<span class="op">$</span>residuals)</a></code></pre></div>
-<p><img src="TCSM_files/figure-html/unnamed-chunk-42-1.png" width="672" /></p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb60-1" title="1"><span class="kw">qqnorm</span>(results<span class="op">$</span>residuals)</a>
+<a class="sourceLine" id="cb60-2" title="2"><span class="kw">qqline</span>(results<span class="op">$</span>residuals)</a></code></pre></div>
+<p><img src="TCSM_files/figure-html/unnamed-chunk-61-1.png" width="672" /></p>
 <p>There appears to be some mild deviation from normality at the extremes.</p>
 <p>You can also <strong>test</strong> for normality with the <code>shapiro.test(x)</code> function:</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb44-1" title="1"><span class="kw">shapiro.test</span>(results<span class="op">$</span>residuals)</a></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb61-1" title="1"><span class="kw">shapiro.test</span>(results<span class="op">$</span>residuals)</a></code></pre></div>
 <pre><code>## 
 ##  Shapiro-Wilk normality test
 ## 
@@ -432,19 +446,18 @@ We can check several assumptions:</p>
 <div id="homogeneity-of-variances" class="section level4">
 <h4><span class="header-section-number">4.3.3.3</span> Homogeneity of Variances</h4>
 <p>The <code>bartlett.test()</code> function provides a parametric K-sample test of the equality of variances. This test has the same hypotheses as the Levene’s test.</p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb46-1" title="1"><span class="kw">bartlett.test</span>(<span class="dt">formula =</span> RT<span class="op">~</span>condition, <span class="dt">data =</span> data)</a></code></pre></div>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb63-1" title="1"><span class="kw">bartlett.test</span>(<span class="dt">formula =</span> RT<span class="op">~</span>condition, <span class="dt">data =</span> data)</a></code></pre></div>
 <pre><code>## 
 ##  Bartlett test of homogeneity of variances
 ## 
 ## data:  RT by condition
 ## Bartlett&#39;s K-squared = 2.7203, df = 2, p-value = 0.2566</code></pre>
-<p>It can also be nice to use a paneled boxplot to visualize the distributions. For this, we will use the package <code>ggplot2</code>:</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb48-1" title="1"><span class="kw">install.packages</span>(<span class="st">&quot;ggplot2&quot;</span>)</a>
-<a class="sourceLine" id="cb48-2" title="2"><span class="kw">library</span>(ggplot2)</a>
-<a class="sourceLine" id="cb48-3" title="3"><span class="kw">ggplot</span>(data, <span class="kw">aes</span>(<span class="dt">y =</span> RT, <span class="dt">group =</span> condition)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb48-4" title="4"><span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb48-5" title="5"><span class="st">  </span><span class="kw">theme_bw</span>()</a></code></pre></div>
-<p><img src="TCSM_files/figure-html/unnamed-chunk-46-1.png" width="672" />
+<p>It can also be nice to use a paneled boxplot to visualize the distributions. For this, we will use <code>ggplot2</code>. This time, we introduce a new command, <code>theme_bw()</code>: A theme for the plot that conforms to APA standards. We can apply this theme to any figure created using <code>ggplot()</code>:</p>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb65-1" title="1"><span class="kw">library</span>(ggplot2)</a>
+<a class="sourceLine" id="cb65-2" title="2"><span class="kw">ggplot</span>(data, <span class="kw">aes</span>(<span class="dt">y =</span> RT, <span class="dt">group =</span> condition)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb65-3" title="3"><span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb65-4" title="4"><span class="st">  </span><span class="kw">theme_bw</span>()</a></code></pre></div>
+<p><img src="TCSM_files/figure-html/unnamed-chunk-64-1.png" width="672" />
 &lt;&gt;</p>
 </div>
 </div>
@@ -467,24 +480,35 @@ There are no outliers in X-space, no evidence for (severe) deviations from norma
 <details>
 <p><summary>Click for explanation</summary>
 We can examine the overall F-test, which is significant:</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb49-1" title="1"><span class="kw">summary</span>(results)</a></code></pre></div>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb66-1" title="1"><span class="kw">summary</span>(results)</a></code></pre></div>
 <pre><code>##             Df Sum Sq Mean Sq F value Pr(&gt;F)  
 ## condition    2 103909   51954   3.072 0.0541 .
 ## Residuals   57 964082   16914                 
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb68-1" title="1"><span class="kw">TukeyHSD</span>(results)</a></code></pre></div>
+<pre><code>##   Tukey multiple comparisons of means
+##     95% family-wise confidence level
+## 
+## Fit: aov(formula = RT ~ condition, data = data)
+## 
+## $condition
+##                         diff      lwr       upr     p adj
+## hands-free-hand-held  -36.95 -135.917 62.017041 0.6434900
+## control-hand-held    -100.75 -199.717 -1.782959 0.0451401
+## control-hands-free    -63.80 -162.767 35.167041 0.2750829</code></pre>
 <p>Post-hoc tests with Bonferroni correction can be obtained using <code>TukeyHSD(results)</code>. We notice that none of these comparisons are significant. However, the research question was <em>Does talking on the phone interfere with peoples driving skills?</em> There are two conditions for talking on the phone. We could thus test a planned contrast of these two conditions against the control condition, instead of all possible post-hoc tests:</p>
 <p>The standard contrasts are dummy coded:</p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb51-1" title="1"><span class="kw">contrasts</span>(data<span class="op">$</span>condition)</a></code></pre></div>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb70-1" title="1"><span class="kw">contrasts</span>(data<span class="op">$</span>condition)</a></code></pre></div>
 <pre><code>##            hands-free control
 ## hand-held           0       0
 ## hands-free          1       0
 ## control             0       1</code></pre>
 <p>We can replace these with planned contrasts for “phone” vs control, and hand-held vs hands-free:</p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb53-1" title="1"><span class="kw">contrasts</span>(data<span class="op">$</span>condition) &lt;-<span class="st"> </span><span class="kw">cbind</span>(<span class="dt">phoneVcontrol =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">-1</span>, <span class="dv">2</span>), <span class="dt">handVfree =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>))</a>
-<a class="sourceLine" id="cb53-2" title="2">results &lt;-<span class="st"> </span><span class="kw">aov</span>(RT <span class="op">~</span><span class="st"> </span>condition, data)</a>
-<a class="sourceLine" id="cb53-3" title="3"><span class="co"># Ask for the lm summary, which gives you t-tests for the planned contrasts:</span></a>
-<a class="sourceLine" id="cb53-4" title="4"><span class="kw">summary.lm</span>(results)</a></code></pre></div>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb72-1" title="1"><span class="kw">contrasts</span>(data<span class="op">$</span>condition) &lt;-<span class="st"> </span><span class="kw">cbind</span>(<span class="dt">phoneVcontrol =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">-1</span>, <span class="dv">2</span>), <span class="dt">handVfree =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>))</a>
+<a class="sourceLine" id="cb72-2" title="2">results &lt;-<span class="st"> </span><span class="kw">aov</span>(RT <span class="op">~</span><span class="st"> </span>condition, data)</a>
+<a class="sourceLine" id="cb72-3" title="3"><span class="co"># Ask for the lm summary, which gives you t-tests for the planned contrasts:</span></a>
+<a class="sourceLine" id="cb72-4" title="4"><span class="kw">summary.lm</span>(results)</a></code></pre></div>
 <pre><code>## 
 ## Call:
 ## aov(formula = RT ~ condition, data = data)
@@ -534,9 +558,9 @@ Assumptions for ANCOVA are the same as for ANOVA (no outliers, normality of resi
 <div id="homogeneity-of-regression-slopes" class="section level4">
 <h4><span class="header-section-number">4.3.10.1</span> Homogeneity of regression slopes</h4>
 <p>Add the interaction to the model and test whether the interaction is significant:</p>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb55-1" title="1">results_age &lt;-<span class="st"> </span><span class="kw">aov</span>(RT <span class="op">~</span><span class="st"> </span>condition <span class="op">+</span><span class="st"> </span>age, data)</a>
-<a class="sourceLine" id="cb55-2" title="2">results_age_int &lt;-<span class="st"> </span><span class="kw">aov</span>(RT <span class="op">~</span><span class="st"> </span>condition <span class="op">*</span><span class="st"> </span>age, data)</a>
-<a class="sourceLine" id="cb55-3" title="3"><span class="kw">summary</span>(results_age_int)</a></code></pre></div>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb74-1" title="1">results_age &lt;-<span class="st"> </span><span class="kw">aov</span>(RT <span class="op">~</span><span class="st"> </span>condition <span class="op">+</span><span class="st"> </span>age, data)</a>
+<a class="sourceLine" id="cb74-2" title="2">results_age_int &lt;-<span class="st"> </span><span class="kw">aov</span>(RT <span class="op">~</span><span class="st"> </span>condition <span class="op">*</span><span class="st"> </span>age, data)</a>
+<a class="sourceLine" id="cb74-3" title="3"><span class="kw">summary</span>(results_age_int)</a></code></pre></div>
 <pre><code>##               Df Sum Sq Mean Sq F value  Pr(&gt;F)    
 ## condition      2 103909   51954   4.532  0.0151 *  
 ## age            1 320454  320454  27.955 2.3e-06 ***
@@ -544,8 +568,8 @@ Assumptions for ANCOVA are the same as for ANOVA (no outliers, normality of resi
 ## Residuals     54 619005   11463                    
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb57-1" title="1"><span class="co">#Or you could use `anova()` to compare two different models</span></a>
-<a class="sourceLine" id="cb57-2" title="2"><span class="kw">anova</span>(results_age, results_age_int)</a></code></pre></div>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb76-1" title="1"><span class="co">#Or you could use `anova()` to compare two different models</span></a>
+<a class="sourceLine" id="cb76-2" title="2"><span class="kw">anova</span>(results_age, results_age_int)</a></code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Res.Df"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["RSS"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Df"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Sum of Sq"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["F"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["Pr(>F)"],"name":[6],"type":["dbl"],"align":["right"]}],"data":[{"1":"56","2":"643627.3","3":"NA","4":"NA","5":"NA","6":"NA","_rn_":"1"},{"1":"54","2":"619005.2","3":"2","4":"24622.15","5":"1.073978","6":"0.3488307","_rn_":"2"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -559,8 +583,8 @@ The interaction is NOT significant; no evidence for violation of the assumption.
 </div>
 <div id="the-covariate-is-independent-of-the-treatment-effects" class="section level4">
 <h4><span class="header-section-number">4.3.10.2</span> The covariate is independent of the treatment effects</h4>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb58-1" title="1">results_indep &lt;-<span class="st"> </span><span class="kw">aov</span>(age <span class="op">~</span><span class="st"> </span>condition, data)</a>
-<a class="sourceLine" id="cb58-2" title="2"><span class="kw">summary</span>(results_indep)</a></code></pre></div>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb77-1" title="1">results_indep &lt;-<span class="st"> </span><span class="kw">aov</span>(age <span class="op">~</span><span class="st"> </span>condition, data)</a>
+<a class="sourceLine" id="cb77-2" title="2"><span class="kw">summary</span>(results_indep)</a></code></pre></div>
 <pre><code>##             Df Sum Sq Mean Sq F value Pr(&gt;F)
 ## condition    2    137   68.55   0.659  0.521
 ## Residuals   57   5926  103.97</code></pre>
@@ -593,8 +617,8 @@ range(mahal)
 <p>Answer the research question. (Do you have to include the interaction or not?)</p>
 <details>
 <p><summary>Click for explanation</summary></p>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb60-1" title="1">results &lt;-<span class="st"> </span><span class="kw">aov</span>(<span class="dt">formula =</span> RT <span class="op">~</span><span class="st"> </span>condition <span class="op">+</span><span class="st"> </span>age, <span class="dt">data =</span> data)</a>
-<a class="sourceLine" id="cb60-2" title="2"><span class="kw">TukeyHSD</span>(results)</a></code></pre></div>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb79-1" title="1">results &lt;-<span class="st"> </span><span class="kw">aov</span>(<span class="dt">formula =</span> RT <span class="op">~</span><span class="st"> </span>condition <span class="op">+</span><span class="st"> </span>age, <span class="dt">data =</span> data)</a>
+<a class="sourceLine" id="cb79-2" title="2"><span class="kw">TukeyHSD</span>(results)</a></code></pre></div>
 <pre><code>##   Tukey multiple comparisons of means
 ##     95% family-wise confidence level
 ## 
@@ -620,11 +644,13 @@ range(mahal)
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -632,12 +658,11 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -649,6 +674,10 @@ gitbook.start({
 "text": null
 },
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },

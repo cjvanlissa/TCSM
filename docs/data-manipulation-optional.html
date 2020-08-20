@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>2.4 Data manipulation (optional) | Theory Construction and Statistical Modeling</title>
   <meta name="description" content="This is a guide for the elective course TCSM." />
-  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
 
   <meta property="og:title" content="2.4 Data manipulation (optional) | Theory Construction and Statistical Modeling" />
   <meta property="og:type" content="book" />
@@ -39,6 +39,9 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -136,11 +139,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.1" data-path="installing-software.html"><a href="installing-software.html"><i class="fa fa-check"></i><b>1.1</b> Installing software</a><ul>
 <li class="chapter" data-level="1.1.1" data-path="installing-software.html"><a href="installing-software.html#installing-r"><i class="fa fa-check"></i><b>1.1.1</b> 1. Installing R</a></li>
 <li class="chapter" data-level="1.1.2" data-path="installing-software.html"><a href="installing-software.html#installing-rstudio"><i class="fa fa-check"></i><b>1.1.2</b> 2. Installing RStudio</a></li>
-<li class="chapter" data-level="1.1.3" data-path="installing-software.html"><a href="installing-software.html#installing-packages"><i class="fa fa-check"></i><b>1.1.3</b> 3. Installing packages</a></li>
+<li class="chapter" data-level="1.1.3" data-path="installing-software.html"><a href="installing-software.html#installpackages"><i class="fa fa-check"></i><b>1.1.3</b> 3. Installing packages</a></li>
 <li class="chapter" data-level="1.1.4" data-path="installing-software.html"><a href="installing-software.html#get-started"><i class="fa fa-check"></i><b>1.1.4</b> Get started</a></li>
 <li class="chapter" data-level="1.1.5" data-path="installing-software.html"><a href="installing-software.html#starting-a-new-project-in-rstudio"><i class="fa fa-check"></i><b>1.1.5</b> Starting a new project in Rstudio</a></li>
 <li class="chapter" data-level="1.1.6" data-path="installing-software.html"><a href="installing-software.html#code-conventions"><i class="fa fa-check"></i><b>1.1.6</b> Code conventions</a></li>
 <li class="chapter" data-level="1.1.7" data-path="installing-software.html"><a href="installing-software.html#getting-help"><i class="fa fa-check"></i><b>1.1.7</b> Getting Help</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="getting-the-course-data.html"><a href="getting-the-course-data.html"><i class="fa fa-check"></i><b>1.2</b> Getting the course data</a></li>
+<li class="chapter" data-level="1.3" data-path="r-tutorial-for-beginners-optional.html"><a href="r-tutorial-for-beginners-optional.html"><i class="fa fa-check"></i><b>1.3</b> R tutorial for beginners (optional)</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="r-tutorial-for-beginners-optional.html"><a href="r-tutorial-for-beginners-optional.html#who-r-you"><i class="fa fa-check"></i><b>1.3.1</b> Who R you?</a></li>
+<li class="chapter" data-level="1.3.2" data-path="r-tutorial-for-beginners-optional.html"><a href="r-tutorial-for-beginners-optional.html#rstudio"><i class="fa fa-check"></i><b>1.3.2</b> RStudio</a></li>
+<li class="chapter" data-level="1.3.3" data-path="r-tutorial-for-beginners-optional.html"><a href="r-tutorial-for-beginners-optional.html#loading-data"><i class="fa fa-check"></i><b>1.3.3</b> Loading data</a></li>
+<li class="chapter" data-level="1.3.4" data-path="r-tutorial-for-beginners-optional.html"><a href="r-tutorial-for-beginners-optional.html#explore-your-data"><i class="fa fa-check"></i><b>1.3.4</b> Explore your data</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="plotting-the-data-optional.html"><a href="plotting-the-data-optional.html"><i class="fa fa-check"></i><b>1.4</b> Plotting the data (optional)</a><ul>
+<li class="chapter" data-level="1.4.1" data-path="plotting-the-data-optional.html"><a href="plotting-the-data-optional.html#a-histogram"><i class="fa fa-check"></i><b>1.4.1</b> A histogram</a></li>
+<li class="chapter" data-level="1.4.2" data-path="plotting-the-data-optional.html"><a href="plotting-the-data-optional.html#a-boxplot"><i class="fa fa-check"></i><b>1.4.2</b> A boxplot</a></li>
+<li class="chapter" data-level="1.4.3" data-path="plotting-the-data-optional.html"><a href="plotting-the-data-optional.html#scatterplot"><i class="fa fa-check"></i><b>1.4.3</b> Scatterplot</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="getting-your-data-into-r.html"><a href="getting-your-data-into-r.html"><i class="fa fa-check"></i><b>2</b> Getting your data into R</a><ul>
@@ -164,7 +179,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.0.6" data-path="week-1-home.html"><a href="week-1-home.html#question-1.f."><i class="fa fa-check"></i><b>3.0.6</b> Question 1.f.</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="week-1-class.html"><a href="week-1-class.html"><i class="fa fa-check"></i><b>4</b> Week 1 - Class</a><ul>
-<li class="chapter" data-level="4.1" data-path="loading-data.html"><a href="loading-data.html"><i class="fa fa-check"></i><b>4.1</b> Loading data</a></li>
+<li class="chapter" data-level="4.1" data-path="loading-data-1.html"><a href="loading-data-1.html"><i class="fa fa-check"></i><b>4.1</b> Loading data</a></li>
 <li class="chapter" data-level="4.2" data-path="section-1.html"><a href="section-1.html"><i class="fa fa-check"></i><b>4.2</b> Section 1</a><ul>
 <li class="chapter" data-level="4.2.1" data-path="section-1.html"><a href="section-1.html#question-1.a-1"><i class="fa fa-check"></i><b>4.2.1</b> Question 1.a</a></li>
 <li class="chapter" data-level="4.2.2" data-path="section-1.html"><a href="section-1.html#question-1.b-1"><i class="fa fa-check"></i><b>4.2.2</b> Question 1.b</a></li>
@@ -219,19 +234,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.0.10" data-path="week-2-home.html"><a href="week-2-home.html#question-1.j-1"><i class="fa fa-check"></i><b>5.0.10</b> Question 1.j</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="week-2-class.html"><a href="week-2-class.html"><i class="fa fa-check"></i><b>6</b> Week 2 - Class</a><ul>
-<li class="chapter" data-level="6.1" data-path="loading-data-1.html"><a href="loading-data-1.html"><i class="fa fa-check"></i><b>6.1</b> Loading data</a><ul>
-<li class="chapter" data-level="6.1.1" data-path="loading-data-1.html"><a href="loading-data-1.html#question-1"><i class="fa fa-check"></i><b>6.1.1</b> Question 1</a></li>
-<li class="chapter" data-level="6.1.2" data-path="loading-data-1.html"><a href="loading-data-1.html#question-2"><i class="fa fa-check"></i><b>6.1.2</b> Question 2</a></li>
-<li class="chapter" data-level="6.1.3" data-path="loading-data-1.html"><a href="loading-data-1.html#question-3"><i class="fa fa-check"></i><b>6.1.3</b> Question 3</a></li>
-<li class="chapter" data-level="6.1.4" data-path="loading-data-1.html"><a href="loading-data-1.html#question-4"><i class="fa fa-check"></i><b>6.1.4</b> Question 4</a></li>
-<li class="chapter" data-level="6.1.5" data-path="loading-data-1.html"><a href="loading-data-1.html#question-5"><i class="fa fa-check"></i><b>6.1.5</b> Question 5</a></li>
-<li class="chapter" data-level="6.1.6" data-path="loading-data-1.html"><a href="loading-data-1.html#question-6"><i class="fa fa-check"></i><b>6.1.6</b> Question 6</a></li>
-<li class="chapter" data-level="6.1.7" data-path="loading-data-1.html"><a href="loading-data-1.html#question-7"><i class="fa fa-check"></i><b>6.1.7</b> Question 7</a></li>
-<li class="chapter" data-level="6.1.8" data-path="loading-data-1.html"><a href="loading-data-1.html#question-8"><i class="fa fa-check"></i><b>6.1.8</b> Question 8</a></li>
-<li class="chapter" data-level="6.1.9" data-path="loading-data-1.html"><a href="loading-data-1.html#question-9"><i class="fa fa-check"></i><b>6.1.9</b> Question 9</a></li>
-<li class="chapter" data-level="6.1.10" data-path="loading-data-1.html"><a href="loading-data-1.html#question-10"><i class="fa fa-check"></i><b>6.1.10</b> Question 10</a></li>
-<li class="chapter" data-level="6.1.11" data-path="loading-data-1.html"><a href="loading-data-1.html#question-11"><i class="fa fa-check"></i><b>6.1.11</b> Question 11</a></li>
-</ul></li>
+<li class="chapter" data-level="6.0.1" data-path="week-2-class.html"><a href="week-2-class.html#loading-the-data"><i class="fa fa-check"></i><b>6.0.1</b> Loading the data</a></li>
+<li class="chapter" data-level="6.0.2" data-path="week-2-class.html"><a href="week-2-class.html#question-1"><i class="fa fa-check"></i><b>6.0.2</b> Question 1</a></li>
+<li class="chapter" data-level="6.0.3" data-path="week-2-class.html"><a href="week-2-class.html#question-2"><i class="fa fa-check"></i><b>6.0.3</b> Question 2</a></li>
+<li class="chapter" data-level="6.0.4" data-path="week-2-class.html"><a href="week-2-class.html#question-3"><i class="fa fa-check"></i><b>6.0.4</b> Question 3</a></li>
+<li class="chapter" data-level="6.0.5" data-path="week-2-class.html"><a href="week-2-class.html#question-4"><i class="fa fa-check"></i><b>6.0.5</b> Question 4</a></li>
+<li class="chapter" data-level="6.0.6" data-path="week-2-class.html"><a href="week-2-class.html#question-5"><i class="fa fa-check"></i><b>6.0.6</b> Question 5</a></li>
+<li class="chapter" data-level="6.0.7" data-path="week-2-class.html"><a href="week-2-class.html#question-6"><i class="fa fa-check"></i><b>6.0.7</b> Question 6</a></li>
+<li class="chapter" data-level="6.0.8" data-path="week-2-class.html"><a href="week-2-class.html#question-7"><i class="fa fa-check"></i><b>6.0.8</b> Question 7</a></li>
+<li class="chapter" data-level="6.0.9" data-path="week-2-class.html"><a href="week-2-class.html#question-8"><i class="fa fa-check"></i><b>6.0.9</b> Question 8</a></li>
+<li class="chapter" data-level="6.0.10" data-path="week-2-class.html"><a href="week-2-class.html#question-9"><i class="fa fa-check"></i><b>6.0.10</b> Question 9</a></li>
+<li class="chapter" data-level="6.0.11" data-path="week-2-class.html"><a href="week-2-class.html#question-10"><i class="fa fa-check"></i><b>6.0.11</b> Question 10</a></li>
+<li class="chapter" data-level="6.0.12" data-path="week-2-class.html"><a href="week-2-class.html#question-11"><i class="fa fa-check"></i><b>6.0.12</b> Question 11</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="week-3-home.html"><a href="week-3-home.html"><i class="fa fa-check"></i><b>7</b> Week 3 - Home</a><ul>
 <li class="chapter" data-level="7.0.1" data-path="week-3-home.html"><a href="week-3-home.html#get-started-with-lavaan"><i class="fa fa-check"></i><b>7.0.1</b> Get started with lavaan</a></li>
@@ -334,7 +348,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="14.0.14" data-path="week-6-class.html"><a href="week-6-class.html#question-13"><i class="fa fa-check"></i><b>14.0.14</b> Question 13</a></li>
 </ul></li>
 <li class="chapter" data-level="15" data-path="week-7-putting-it-all-together.html"><a href="week-7-putting-it-all-together.html"><i class="fa fa-check"></i><b>15</b> Week 7 - Putting it all together</a><ul>
-<li class="chapter" data-level="15.0.1" data-path="week-7-putting-it-all-together.html"><a href="week-7-putting-it-all-together.html#loading-the-data"><i class="fa fa-check"></i><b>15.0.1</b> Loading the data</a></li>
+<li class="chapter" data-level="15.0.1" data-path="week-7-putting-it-all-together.html"><a href="week-7-putting-it-all-together.html#loading-the-data-1"><i class="fa fa-check"></i><b>15.0.1</b> Loading the data</a></li>
 <li class="chapter" data-level="15.0.2" data-path="week-7-putting-it-all-together.html"><a href="week-7-putting-it-all-together.html#question-1-8"><i class="fa fa-check"></i><b>15.0.2</b> Question 1</a></li>
 <li class="chapter" data-level="15.0.3" data-path="week-7-putting-it-all-together.html"><a href="week-7-putting-it-all-together.html#question-2-8"><i class="fa fa-check"></i><b>15.0.3</b> Question 2</a></li>
 <li class="chapter" data-level="15.0.4" data-path="week-7-putting-it-all-together.html"><a href="week-7-putting-it-all-together.html#question-3-8"><i class="fa fa-check"></i><b>15.0.4</b> Question 3</a></li>
@@ -434,30 +448,30 @@ Factors are stored as numbers, with each number signifying a different level of 
 <p>Let’s look at the variable <code>df$VIEWCAT</code>. This is a categorical variable, coded as a numerical one. We can have a look at this variable by typing the name of our dataset, then adding the selector <code>$</code> and then adding the variable we want to have a look at.
 This variable is currently a numeric vector. We want it to be a factor: That’s a categorical variable.</p>
 <p>To convert this to a <strong>factor</strong> variable now, we use the <code>factor()</code> function.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1">df<span class="op">$</span>VIEWCAT &lt;-<span class="st"> </span><span class="kw">factor</span>(df<span class="op">$</span>VIEWCAT)</a></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" title="1">df<span class="op">$</span>VIEWCAT &lt;-<span class="st"> </span><span class="kw">factor</span>(df<span class="op">$</span>VIEWCAT)</a></code></pre></div>
 <p>We now see that the variable has been <strong>converted to a factor with the levels “1”, “2”, “3”, and “4”</strong>. We can assign different value labels as follows:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1">df<span class="op">$</span>VIEWCAT &lt;-<span class="st"> </span><span class="kw">factor</span>(df<span class="op">$</span>VIEWCAT, <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;Rarely&quot;</span>, <span class="st">&quot;Sometimes&quot;</span>, <span class="st">&quot;Regularly&quot;</span>, <span class="st">&quot;Often&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" title="1">df<span class="op">$</span>VIEWCAT &lt;-<span class="st"> </span><span class="kw">factor</span>(df<span class="op">$</span>VIEWCAT, <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;Rarely&quot;</span>, <span class="st">&quot;Sometimes&quot;</span>, <span class="st">&quot;Regularly&quot;</span>, <span class="st">&quot;Often&quot;</span>))</a></code></pre></div>
 </div>
 <div id="select" class="section level3">
 <h3><span class="header-section-number">2.4.2</span> Selecting specific cases</h3>
 <p>It may often come in handy to <strong>select certain cases for further analyses</strong>, or to <strong>exclude some studies in further analyses</strong> (e.g., if they are outliers).</p>
 <p>To do this, we can use the <code>[]</code> operator to index our data.</p>
 <p>Let’s say we want to get only the first 5 cases. We can select them like so:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1">df[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, ]</a></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" title="1">df[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, ]</a></code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["ID"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["SITE"],"name":[2],"type":["fctr"],"align":["left"]},{"label":["SEX"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["AGE"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["VIEWCAT"],"name":[5],"type":["fctr"],"align":["left"]},{"label":["SETTING"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["VIEWENC"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["PREBODY"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["PRELET"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["PREFORM"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["PRENUMB"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["PRERELAT"],"name":[12],"type":["dbl"],"align":["right"]},{"label":["PRECLAS"],"name":[13],"type":["dbl"],"align":["right"]},{"label":["POSTBODY"],"name":[14],"type":["dbl"],"align":["right"]},{"label":["POSTLET"],"name":[15],"type":["dbl"],"align":["right"]},{"label":["POSTFORM"],"name":[16],"type":["dbl"],"align":["right"]},{"label":["POSTNUMB"],"name":[17],"type":["dbl"],"align":["right"]},{"label":["POSTREL"],"name":[18],"type":["dbl"],"align":["right"]},{"label":["POSTCLAS"],"name":[19],"type":["dbl"],"align":["right"]},{"label":["PEABODY"],"name":[20],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"DIC","3":"1","4":"66","5":"Rarely","6":"2","7":"1","8":"16","9":"23","10":"12","11":"40","12":"14","13":"20","14":"18","15":"30","16":"14","17":"44","18":"14","19":"23","20":"62","_rn_":"1"},{"1":"2","2":"DIC","3":"2","4":"67","5":"Regularly","6":"2","7":"1","8":"30","9":"26","10":"9","11":"39","12":"16","13":"22","14":"30","15":"37","16":"17","17":"39","18":"14","19":"22","20":"80","_rn_":"2"},{"1":"3","2":"DIC","3":"1","4":"56","5":"Regularly","6":"2","7":"2","8":"22","9":"14","10":"9","11":"9","12":"9","13":"8","14":"21","15":"46","16":"15","17":"40","18":"9","19":"19","20":"32","_rn_":"3"},{"1":"4","2":"DIC","3":"1","4":"49","5":"Rarely","6":"2","7":"2","8":"23","9":"11","10":"10","11":"14","12":"9","13":"13","14":"21","15":"14","16":"13","17":"19","18":"8","19":"15","20":"27","_rn_":"4"},{"1":"5","2":"DIC","3":"1","4":"69","5":"Often","6":"2","7":"2","8":"32","9":"47","10":"15","11":"51","12":"17","13":"22","14":"32","15":"53","16":"18","17":"54","18":"14","19":"21","20":"71","_rn_":"5"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 <p>Or let’s say we only want the children younger than 36 months in the dataset. In this case, we can use <strong>boolean indexing</strong>: We create a TRUE / FALSE statement, and select the cases that are TRUE:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1">df[df<span class="op">$</span>AGE <span class="op">&lt;</span><span class="st"> </span><span class="dv">36</span>, ]</a></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" title="1">df[df<span class="op">$</span>AGE <span class="op">&lt;</span><span class="st"> </span><span class="dv">36</span>, ]</a></code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["ID"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["SITE"],"name":[2],"type":["fctr"],"align":["left"]},{"label":["SEX"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["AGE"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["VIEWCAT"],"name":[5],"type":["fctr"],"align":["left"]},{"label":["SETTING"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["VIEWENC"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["PREBODY"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["PRELET"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["PREFORM"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["PRENUMB"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["PRERELAT"],"name":[12],"type":["dbl"],"align":["right"]},{"label":["PRECLAS"],"name":[13],"type":["dbl"],"align":["right"]},{"label":["POSTBODY"],"name":[14],"type":["dbl"],"align":["right"]},{"label":["POSTLET"],"name":[15],"type":["dbl"],"align":["right"]},{"label":["POSTFORM"],"name":[16],"type":["dbl"],"align":["right"]},{"label":["POSTNUMB"],"name":[17],"type":["dbl"],"align":["right"]},{"label":["POSTREL"],"name":[18],"type":["dbl"],"align":["right"]},{"label":["POSTCLAS"],"name":[19],"type":["dbl"],"align":["right"]},{"label":["PEABODY"],"name":[20],"type":["dbl"],"align":["right"]}],"data":[{"1":"24","2":"DIC","3":"1","4":"35","5":"Often","6":"1","7":"1","8":"11","9":"6","10":"8","11":"16","12":"8","13":"9","14":"22","15":"27","16":"16","17":"20","18":"14","19":"15","20":"40","_rn_":"24"},{"1":"28","2":"DIC","3":"2","4":"34","5":"Often","6":"1","7":"1","8":"17","9":"13","10":"7","11":"10","12":"5","13":"11","14":"21","15":"17","16":"13","17":"13","18":"10","19":"15","20":"42","_rn_":"28"},{"1":"43","2":"DIC","3":"2","4":"35","5":"Regularly","6":"1","7":"2","8":"23","9":"12","10":"8","11":"9","12":"5","13":"5","14":"29","15":"11","16":"8","17":"9","18":"11","19":"11","20":"32","_rn_":"43"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 <p>Note that this approach can be used for any other type of data and variable. We can also use it to e.g., only select studies where VIEWCAT was equal to “Often” “typical”:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1">df[df<span class="op">$</span>VIEWCAT <span class="op">==</span><span class="st"> &quot;Often&quot;</span>, ]</a></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" title="1">df[df<span class="op">$</span>VIEWCAT <span class="op">==</span><span class="st"> &quot;Often&quot;</span>, ]</a></code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["ID"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["SITE"],"name":[2],"type":["fctr"],"align":["left"]},{"label":["SEX"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["AGE"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["VIEWCAT"],"name":[5],"type":["fctr"],"align":["left"]},{"label":["SETTING"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["VIEWENC"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["PREBODY"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["PRELET"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["PREFORM"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["PRENUMB"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["PRERELAT"],"name":[12],"type":["dbl"],"align":["right"]},{"label":["PRECLAS"],"name":[13],"type":["dbl"],"align":["right"]},{"label":["POSTBODY"],"name":[14],"type":["dbl"],"align":["right"]},{"label":["POSTLET"],"name":[15],"type":["dbl"],"align":["right"]},{"label":["POSTFORM"],"name":[16],"type":["dbl"],"align":["right"]},{"label":["POSTNUMB"],"name":[17],"type":["dbl"],"align":["right"]},{"label":["POSTREL"],"name":[18],"type":["dbl"],"align":["right"]},{"label":["POSTCLAS"],"name":[19],"type":["dbl"],"align":["right"]},{"label":["PEABODY"],"name":[20],"type":["dbl"],"align":["right"]}],"data":[{"1":"5","2":"DIC","3":"1","4":"69","5":"Often","6":"2","7":"2","8":"32","9":"47","10":"15","11":"51","12":"17","13":"22","14":"32","15":"53","16":"18","17":"54","18":"14","19":"21","20":"71","_rn_":"5"},{"1":"9","2":"DIC","3":"1","4":"69","5":"Often","6":"2","7":"1","8":"27","9":"44","10":"18","11":"42","12":"15","13":"20","14":"32","15":"50","16":"17","17":"48","18":"14","19":"24","20":"49","_rn_":"9"},{"1":"12","2":"DIC","3":"2","4":"58","5":"Often","6":"2","7":"2","8":"21","9":"25","10":"13","11":"29","12":"16","13":"21","14":"27","15":"29","16":"15","17":"40","18":"13","19":"19","20":"58","_rn_":"12"},{"1":"18","2":"DIC","3":"1","4":"45","5":"Often","6":"2","7":"1","8":"16","9":"12","10":"8","11":"11","12":"6","13":"3","14":"25","15":"16","16":"11","17":"17","18":"9","19":"9","20":"29","_rn_":"18"},{"1":"21","2":"DIC","3":"2","4":"65","5":"Often","6":"2","7":"1","8":"29","9":"24","10":"14","11":"41","12":"10","13":"23","14":"29","15":"48","16":"20","17":"51","18":"15","19":"24","20":"55","_rn_":"21"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -469,12 +483,12 @@ This variable is currently a numeric vector. We want it to be a factor: That’s
 <p>Sometimes, even when preparing your data in EXCEL, you might want to <strong>change values in RStudio once you have imported your data</strong>.</p>
 <p>To do this, we have to select a cell in our data frame in RStudio. This can be done by adding <code>[x,y]</code> to our dataset name, where <strong>x</strong> signifies the number of the <strong>row</strong> we want to select, and <strong>y</strong> signifies the number of the <strong>column</strong>.</p>
 <p>To see how this works, let’s select a variable using this command first:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1">df[<span class="dv">8</span>,<span class="dv">1</span>]</a></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" title="1">df[<span class="dv">8</span>,<span class="dv">1</span>]</a></code></pre></div>
 <pre><code>## [1] 8</code></pre>
 <p>We now see the <strong>8th study</strong> in our dataframe, and the value of this study for <strong>Column 1 (participant ID)</strong> is displayed. Let’s say we had a typo in this name and want to have it changed. In this case, we have to give this exact cell a new value.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1">df[<span class="dv">8</span>,<span class="dv">1</span>] &lt;-<span class="st"> </span><span class="dv">1001</span></a></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" title="1">df[<span class="dv">8</span>,<span class="dv">1</span>] &lt;-<span class="st"> </span><span class="dv">1001</span></a></code></pre></div>
 <p>Let’s check if the value has changed.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" title="1">df[<span class="dv">8</span>,<span class="dv">1</span>]</a></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" title="1">df[<span class="dv">8</span>,<span class="dv">1</span>]</a></code></pre></div>
 <pre><code>## [1] 1001</code></pre>
 <p>You can also use this function to change any other type of data, including numericals and logicals. Only for characters, you have to put the values you want to insert in <code>""</code>.</p>
 <p><br><br></p>
@@ -494,11 +508,13 @@ This variable is currently a numeric vector. We want it to be a factor: That’s
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -506,12 +522,11 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -523,6 +538,10 @@ gitbook.start({
 "text": null
 },
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },

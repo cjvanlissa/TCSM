@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 8 Week 3 - Class | Theory Construction and Statistical Modeling</title>
   <meta name="description" content="This is a guide for the elective course TCSM." />
-  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 8 Week 3 - Class | Theory Construction and Statistical Modeling" />
   <meta property="og:type" content="book" />
@@ -39,6 +39,9 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -136,11 +139,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.1" data-path="installing-software.html"><a href="installing-software.html"><i class="fa fa-check"></i><b>1.1</b> Installing software</a><ul>
 <li class="chapter" data-level="1.1.1" data-path="installing-software.html"><a href="installing-software.html#installing-r"><i class="fa fa-check"></i><b>1.1.1</b> 1. Installing R</a></li>
 <li class="chapter" data-level="1.1.2" data-path="installing-software.html"><a href="installing-software.html#installing-rstudio"><i class="fa fa-check"></i><b>1.1.2</b> 2. Installing RStudio</a></li>
-<li class="chapter" data-level="1.1.3" data-path="installing-software.html"><a href="installing-software.html#installing-packages"><i class="fa fa-check"></i><b>1.1.3</b> 3. Installing packages</a></li>
+<li class="chapter" data-level="1.1.3" data-path="installing-software.html"><a href="installing-software.html#installpackages"><i class="fa fa-check"></i><b>1.1.3</b> 3. Installing packages</a></li>
 <li class="chapter" data-level="1.1.4" data-path="installing-software.html"><a href="installing-software.html#get-started"><i class="fa fa-check"></i><b>1.1.4</b> Get started</a></li>
 <li class="chapter" data-level="1.1.5" data-path="installing-software.html"><a href="installing-software.html#starting-a-new-project-in-rstudio"><i class="fa fa-check"></i><b>1.1.5</b> Starting a new project in Rstudio</a></li>
 <li class="chapter" data-level="1.1.6" data-path="installing-software.html"><a href="installing-software.html#code-conventions"><i class="fa fa-check"></i><b>1.1.6</b> Code conventions</a></li>
 <li class="chapter" data-level="1.1.7" data-path="installing-software.html"><a href="installing-software.html#getting-help"><i class="fa fa-check"></i><b>1.1.7</b> Getting Help</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="getting-the-course-data.html"><a href="getting-the-course-data.html"><i class="fa fa-check"></i><b>1.2</b> Getting the course data</a></li>
+<li class="chapter" data-level="1.3" data-path="r-tutorial-for-beginners-optional.html"><a href="r-tutorial-for-beginners-optional.html"><i class="fa fa-check"></i><b>1.3</b> R tutorial for beginners (optional)</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="r-tutorial-for-beginners-optional.html"><a href="r-tutorial-for-beginners-optional.html#who-r-you"><i class="fa fa-check"></i><b>1.3.1</b> Who R you?</a></li>
+<li class="chapter" data-level="1.3.2" data-path="r-tutorial-for-beginners-optional.html"><a href="r-tutorial-for-beginners-optional.html#rstudio"><i class="fa fa-check"></i><b>1.3.2</b> RStudio</a></li>
+<li class="chapter" data-level="1.3.3" data-path="r-tutorial-for-beginners-optional.html"><a href="r-tutorial-for-beginners-optional.html#loading-data"><i class="fa fa-check"></i><b>1.3.3</b> Loading data</a></li>
+<li class="chapter" data-level="1.3.4" data-path="r-tutorial-for-beginners-optional.html"><a href="r-tutorial-for-beginners-optional.html#explore-your-data"><i class="fa fa-check"></i><b>1.3.4</b> Explore your data</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="plotting-the-data-optional.html"><a href="plotting-the-data-optional.html"><i class="fa fa-check"></i><b>1.4</b> Plotting the data (optional)</a><ul>
+<li class="chapter" data-level="1.4.1" data-path="plotting-the-data-optional.html"><a href="plotting-the-data-optional.html#a-histogram"><i class="fa fa-check"></i><b>1.4.1</b> A histogram</a></li>
+<li class="chapter" data-level="1.4.2" data-path="plotting-the-data-optional.html"><a href="plotting-the-data-optional.html#a-boxplot"><i class="fa fa-check"></i><b>1.4.2</b> A boxplot</a></li>
+<li class="chapter" data-level="1.4.3" data-path="plotting-the-data-optional.html"><a href="plotting-the-data-optional.html#scatterplot"><i class="fa fa-check"></i><b>1.4.3</b> Scatterplot</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="getting-your-data-into-r.html"><a href="getting-your-data-into-r.html"><i class="fa fa-check"></i><b>2</b> Getting your data into R</a><ul>
@@ -164,7 +179,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.0.6" data-path="week-1-home.html"><a href="week-1-home.html#question-1.f."><i class="fa fa-check"></i><b>3.0.6</b> Question 1.f.</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="week-1-class.html"><a href="week-1-class.html"><i class="fa fa-check"></i><b>4</b> Week 1 - Class</a><ul>
-<li class="chapter" data-level="4.1" data-path="loading-data.html"><a href="loading-data.html"><i class="fa fa-check"></i><b>4.1</b> Loading data</a></li>
+<li class="chapter" data-level="4.1" data-path="loading-data-1.html"><a href="loading-data-1.html"><i class="fa fa-check"></i><b>4.1</b> Loading data</a></li>
 <li class="chapter" data-level="4.2" data-path="section-1.html"><a href="section-1.html"><i class="fa fa-check"></i><b>4.2</b> Section 1</a><ul>
 <li class="chapter" data-level="4.2.1" data-path="section-1.html"><a href="section-1.html#question-1.a-1"><i class="fa fa-check"></i><b>4.2.1</b> Question 1.a</a></li>
 <li class="chapter" data-level="4.2.2" data-path="section-1.html"><a href="section-1.html#question-1.b-1"><i class="fa fa-check"></i><b>4.2.2</b> Question 1.b</a></li>
@@ -219,19 +234,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.0.10" data-path="week-2-home.html"><a href="week-2-home.html#question-1.j-1"><i class="fa fa-check"></i><b>5.0.10</b> Question 1.j</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="week-2-class.html"><a href="week-2-class.html"><i class="fa fa-check"></i><b>6</b> Week 2 - Class</a><ul>
-<li class="chapter" data-level="6.1" data-path="loading-data-1.html"><a href="loading-data-1.html"><i class="fa fa-check"></i><b>6.1</b> Loading data</a><ul>
-<li class="chapter" data-level="6.1.1" data-path="loading-data-1.html"><a href="loading-data-1.html#question-1"><i class="fa fa-check"></i><b>6.1.1</b> Question 1</a></li>
-<li class="chapter" data-level="6.1.2" data-path="loading-data-1.html"><a href="loading-data-1.html#question-2"><i class="fa fa-check"></i><b>6.1.2</b> Question 2</a></li>
-<li class="chapter" data-level="6.1.3" data-path="loading-data-1.html"><a href="loading-data-1.html#question-3"><i class="fa fa-check"></i><b>6.1.3</b> Question 3</a></li>
-<li class="chapter" data-level="6.1.4" data-path="loading-data-1.html"><a href="loading-data-1.html#question-4"><i class="fa fa-check"></i><b>6.1.4</b> Question 4</a></li>
-<li class="chapter" data-level="6.1.5" data-path="loading-data-1.html"><a href="loading-data-1.html#question-5"><i class="fa fa-check"></i><b>6.1.5</b> Question 5</a></li>
-<li class="chapter" data-level="6.1.6" data-path="loading-data-1.html"><a href="loading-data-1.html#question-6"><i class="fa fa-check"></i><b>6.1.6</b> Question 6</a></li>
-<li class="chapter" data-level="6.1.7" data-path="loading-data-1.html"><a href="loading-data-1.html#question-7"><i class="fa fa-check"></i><b>6.1.7</b> Question 7</a></li>
-<li class="chapter" data-level="6.1.8" data-path="loading-data-1.html"><a href="loading-data-1.html#question-8"><i class="fa fa-check"></i><b>6.1.8</b> Question 8</a></li>
-<li class="chapter" data-level="6.1.9" data-path="loading-data-1.html"><a href="loading-data-1.html#question-9"><i class="fa fa-check"></i><b>6.1.9</b> Question 9</a></li>
-<li class="chapter" data-level="6.1.10" data-path="loading-data-1.html"><a href="loading-data-1.html#question-10"><i class="fa fa-check"></i><b>6.1.10</b> Question 10</a></li>
-<li class="chapter" data-level="6.1.11" data-path="loading-data-1.html"><a href="loading-data-1.html#question-11"><i class="fa fa-check"></i><b>6.1.11</b> Question 11</a></li>
-</ul></li>
+<li class="chapter" data-level="6.0.1" data-path="week-2-class.html"><a href="week-2-class.html#loading-the-data"><i class="fa fa-check"></i><b>6.0.1</b> Loading the data</a></li>
+<li class="chapter" data-level="6.0.2" data-path="week-2-class.html"><a href="week-2-class.html#question-1"><i class="fa fa-check"></i><b>6.0.2</b> Question 1</a></li>
+<li class="chapter" data-level="6.0.3" data-path="week-2-class.html"><a href="week-2-class.html#question-2"><i class="fa fa-check"></i><b>6.0.3</b> Question 2</a></li>
+<li class="chapter" data-level="6.0.4" data-path="week-2-class.html"><a href="week-2-class.html#question-3"><i class="fa fa-check"></i><b>6.0.4</b> Question 3</a></li>
+<li class="chapter" data-level="6.0.5" data-path="week-2-class.html"><a href="week-2-class.html#question-4"><i class="fa fa-check"></i><b>6.0.5</b> Question 4</a></li>
+<li class="chapter" data-level="6.0.6" data-path="week-2-class.html"><a href="week-2-class.html#question-5"><i class="fa fa-check"></i><b>6.0.6</b> Question 5</a></li>
+<li class="chapter" data-level="6.0.7" data-path="week-2-class.html"><a href="week-2-class.html#question-6"><i class="fa fa-check"></i><b>6.0.7</b> Question 6</a></li>
+<li class="chapter" data-level="6.0.8" data-path="week-2-class.html"><a href="week-2-class.html#question-7"><i class="fa fa-check"></i><b>6.0.8</b> Question 7</a></li>
+<li class="chapter" data-level="6.0.9" data-path="week-2-class.html"><a href="week-2-class.html#question-8"><i class="fa fa-check"></i><b>6.0.9</b> Question 8</a></li>
+<li class="chapter" data-level="6.0.10" data-path="week-2-class.html"><a href="week-2-class.html#question-9"><i class="fa fa-check"></i><b>6.0.10</b> Question 9</a></li>
+<li class="chapter" data-level="6.0.11" data-path="week-2-class.html"><a href="week-2-class.html#question-10"><i class="fa fa-check"></i><b>6.0.11</b> Question 10</a></li>
+<li class="chapter" data-level="6.0.12" data-path="week-2-class.html"><a href="week-2-class.html#question-11"><i class="fa fa-check"></i><b>6.0.12</b> Question 11</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="week-3-home.html"><a href="week-3-home.html"><i class="fa fa-check"></i><b>7</b> Week 3 - Home</a><ul>
 <li class="chapter" data-level="7.0.1" data-path="week-3-home.html"><a href="week-3-home.html#get-started-with-lavaan"><i class="fa fa-check"></i><b>7.0.1</b> Get started with lavaan</a></li>
@@ -334,7 +348,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="14.0.14" data-path="week-6-class.html"><a href="week-6-class.html#question-13"><i class="fa fa-check"></i><b>14.0.14</b> Question 13</a></li>
 </ul></li>
 <li class="chapter" data-level="15" data-path="week-7-putting-it-all-together.html"><a href="week-7-putting-it-all-together.html"><i class="fa fa-check"></i><b>15</b> Week 7 - Putting it all together</a><ul>
-<li class="chapter" data-level="15.0.1" data-path="week-7-putting-it-all-together.html"><a href="week-7-putting-it-all-together.html#loading-the-data"><i class="fa fa-check"></i><b>15.0.1</b> Loading the data</a></li>
+<li class="chapter" data-level="15.0.1" data-path="week-7-putting-it-all-together.html"><a href="week-7-putting-it-all-together.html#loading-the-data-1"><i class="fa fa-check"></i><b>15.0.1</b> Loading the data</a></li>
 <li class="chapter" data-level="15.0.2" data-path="week-7-putting-it-all-together.html"><a href="week-7-putting-it-all-together.html#question-1-8"><i class="fa fa-check"></i><b>15.0.2</b> Question 1</a></li>
 <li class="chapter" data-level="15.0.3" data-path="week-7-putting-it-all-together.html"><a href="week-7-putting-it-all-together.html#question-2-8"><i class="fa fa-check"></i><b>15.0.3</b> Question 2</a></li>
 <li class="chapter" data-level="15.0.4" data-path="week-7-putting-it-all-together.html"><a href="week-7-putting-it-all-together.html#question-3-8"><i class="fa fa-check"></i><b>15.0.4</b> Question 3</a></li>
@@ -370,21 +384,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Instead of doing Exploratory Factor Analysis, another way of analyzing the data from the European Social Survey would be to use Confirmatory Factor Analysis. During this practical, you will conduct a CFA and compare your results to earlier EFA and PCA results and the article by Kestilä.</p>
 <div id="question-1-1" class="section level3">
 <h3><span class="header-section-number">8.0.1</span> Question 1</h3>
-<p>Download the ESS data from Blackboard, and load the data into R. The data are in the file <em>essround1-c.RData</em>. This is a special R-filetype that can contain several R-objects. You can load it into R using the syntax:</p>
-<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb139-1" title="1"><span class="kw">load</span>(<span class="st">&quot;essround1-c.RData&quot;</span>)</a></code></pre></div>
-<p>Furthermore, you will have to load the package <code>lavaan</code> before starting with the exercises, and for convenience, copy the object <code>essround1_c</code> into an object called <code>data</code>.</p>
+<p>Load the ESS data into R, into an object called <code>df</code>. The data are in the file <code>"week3_class.csv"</code>. You can load it into R using the syntax:</p>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb159-1" title="1">df &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;week3_class.csv&quot;</span>, <span class="dt">stringsAsFactors =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<p>Furthermore, you will have to load the package <code>lavaan</code> before starting with the exercises.</p>
 <details>
 <p><summary>Click for explanation</summary></p>
-<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb140-1" title="1"><span class="kw">library</span>(lavaan)</a>
-<a class="sourceLine" id="cb140-2" title="2">data &lt;-<span class="st"> </span>essround1_c</a></code></pre></div>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb160-1" title="1"><span class="kw">library</span>(lavaan)</a></code></pre></div>
 
 <p>Furthermore, we want to work with numeric variables instead of factors once again, and with the countries of interest only.</p>
 <details>
 <p><summary>Click for explanation</summary></p>
-<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb141-1" title="1">data[<span class="kw">c</span>(<span class="dv">7</span><span class="op">:</span><span class="dv">44</span>, <span class="dv">48</span>, <span class="dv">49</span>, <span class="dv">50</span>)] &lt;-<span class="st"> </span><span class="kw">lapply</span>(data[<span class="kw">c</span>(<span class="dv">7</span><span class="op">:</span><span class="dv">44</span>, <span class="dv">48</span>, <span class="dv">49</span>, <span class="dv">50</span>)], as.numeric)</a>
-<a class="sourceLine" id="cb141-2" title="2">data<span class="op">$</span>yrbrn &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(<span class="kw">as.character</span>(data<span class="op">$</span>yrbrn))</a>
-<a class="sourceLine" id="cb141-3" title="3">df &lt;-<span class="st"> </span>data[data<span class="op">$</span>cntry <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Austria&quot;</span>, <span class="st">&quot;Belgium&quot;</span>, <span class="st">&quot;Denmark&quot;</span>, <span class="st">&quot;Finland&quot;</span>, <span class="st">&quot;Germany&quot;</span>, <span class="st">&quot;Italy&quot;</span>, <span class="st">&quot;Netherlands&quot;</span>, <span class="st">&quot;Norway&quot;</span>, <span class="st">&quot;Sweden&quot;</span>), ]</a>
-<a class="sourceLine" id="cb141-4" title="4">df<span class="op">$</span>cntry &lt;-<span class="st"> </span><span class="kw">factor</span>(df<span class="op">$</span>cntry)</a></code></pre></div>
 
 </div>
 <div id="question-2-1" class="section level3">
@@ -397,13 +406,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Make sure to ask for model fit statistics. What do you find for the value of Chi-square, df, RMSEA and CFI? Any idea why you find this Chi-square value? Does the model fit the data?</p>
 <details>
 <p><summary>Click for explanation</summary></p>
-<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb142-1" title="1">trust_model_3f &lt;-<span class="st"> &#39;trustpol  =~ pltcare + pltinvt + trstplt</span></a>
-<a class="sourceLine" id="cb142-2" title="2"><span class="st">                   satcntry  =~ stfeco + stfgov + stfdem + stfedu + stfhlth</span></a>
-<a class="sourceLine" id="cb142-3" title="3"><span class="st">                   trustinst =~ trstlgl + trstplc + trstun + trstprl&#39;</span></a>
-<a class="sourceLine" id="cb142-4" title="4"></a>
-<a class="sourceLine" id="cb142-5" title="5">fit_trust_model_3f &lt;-<span class="st"> </span><span class="kw">cfa</span>(trust_model_3f, <span class="dt">data =</span> df)</a>
-<a class="sourceLine" id="cb142-6" title="6"><span class="kw">summary</span>(fit_trust_model_3f, <span class="dt">fit.measures =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
-<pre><code>## lavaan 0.6-5 ended normally after 45 iterations
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb161-1" title="1">trust_model_3f &lt;-<span class="st"> &#39;trustpol  =~ pltcare + pltinvt + trstplt</span></a>
+<a class="sourceLine" id="cb161-2" title="2"><span class="st">                   satcntry  =~ stfeco + stfgov + stfdem + stfedu + stfhlth</span></a>
+<a class="sourceLine" id="cb161-3" title="3"><span class="st">                   trustinst =~ trstlgl + trstplc + trstun + trstprl&#39;</span></a>
+<a class="sourceLine" id="cb161-4" title="4"></a>
+<a class="sourceLine" id="cb161-5" title="5">fit_trust_model_3f &lt;-<span class="st"> </span><span class="kw">cfa</span>(trust_model_3f, <span class="dt">data =</span> df)</a>
+<a class="sourceLine" id="cb161-6" title="6"><span class="kw">summary</span>(fit_trust_model_3f, <span class="dt">fit.measures =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<pre><code>## lavaan 0.6-6 ended normally after 45 iterations
 ## 
 ##   Estimator                                         ML
 ##   Optimization method                           NLMINB
@@ -451,9 +460,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ## Parameter Estimates:
 ## 
+##   Standard errors                             Standard
 ##   Information                                 Expected
 ##   Information saturated (h1) model          Structured
-##   Standard errors                             Standard
 ## 
 ## Latent Variables:
 ##                    Estimate  Std.Err  z-value  P(&gt;|z|)
@@ -506,11 +515,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><em>Note, there is also a formal way to test whether a difference between two chi-square values is significant; more on that in the practicals of week 4.</em></p>
 <details>
 <p><summary>Click for explanation</summary></p>
-<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb144-1" title="1">trust_model_1f &lt;-<span class="st"> &#39;political_trust =~ pltcare + pltinvt + trstprl + trstplt + stfeco + stfgov + stfdem + stfedu + stfhlth + trstlgl + trstplc + trstun + trstep&#39;</span></a>
-<a class="sourceLine" id="cb144-2" title="2"></a>
-<a class="sourceLine" id="cb144-3" title="3">fit_trust_model_1f &lt;-<span class="st"> </span><span class="kw">sem</span>(trust_model_1f, <span class="dt">data =</span> df)</a>
-<a class="sourceLine" id="cb144-4" title="4"><span class="kw">summary</span>(fit_trust_model_1f, <span class="dt">fit.measures =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
-<pre><code>## lavaan 0.6-5 ended normally after 38 iterations
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb163-1" title="1">trust_model_1f &lt;-<span class="st"> &#39;political_trust =~ pltcare + pltinvt + trstprl + trstplt + stfeco + stfgov + stfdem + stfedu + stfhlth + trstlgl + trstplc + trstun + trstep&#39;</span></a>
+<a class="sourceLine" id="cb163-2" title="2"></a>
+<a class="sourceLine" id="cb163-3" title="3">fit_trust_model_1f &lt;-<span class="st"> </span><span class="kw">sem</span>(trust_model_1f, <span class="dt">data =</span> df)</a>
+<a class="sourceLine" id="cb163-4" title="4"><span class="kw">summary</span>(fit_trust_model_1f, <span class="dt">fit.measures =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<pre><code>## lavaan 0.6-6 ended normally after 38 iterations
 ## 
 ##   Estimator                                         ML
 ##   Optimization method                           NLMINB
@@ -558,9 +567,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ## Parameter Estimates:
 ## 
+##   Standard errors                             Standard
 ##   Information                                 Expected
 ##   Information saturated (h1) model          Structured
-##   Standard errors                             Standard
 ## 
 ## Latent Variables:
 ##                      Estimate  Std.Err  z-value  P(&gt;|z|)
@@ -608,8 +617,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Choose your best model, and ask for the standardized estimates by means of the addition <code>standardized = TRUE</code> in the summary command. Which item is the best predictor of the first factor?</p>
 <details>
 <p><summary>Click for explanation</summary></p>
-<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb146-1" title="1"><span class="kw">summary</span>(fit_trust_model_3f, <span class="dt">fit.measures =</span> <span class="ot">TRUE</span>, <span class="dt">standardized =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
-<pre><code>## lavaan 0.6-5 ended normally after 45 iterations
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb165-1" title="1"><span class="kw">summary</span>(fit_trust_model_3f, <span class="dt">fit.measures =</span> <span class="ot">TRUE</span>, <span class="dt">standardized =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<pre><code>## lavaan 0.6-6 ended normally after 45 iterations
 ## 
 ##   Estimator                                         ML
 ##   Optimization method                           NLMINB
@@ -657,9 +666,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ## Parameter Estimates:
 ## 
+##   Standard errors                             Standard
 ##   Information                                 Expected
 ##   Information saturated (h1) model          Structured
-##   Standard errors                             Standard
 ## 
 ## Latent Variables:
 ##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
@@ -704,7 +713,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##     trustpol          0.450    0.011   41.572    0.000    1.000    1.000
 ##     satcntry          2.751    0.058   47.286    0.000    1.000    1.000
 ##     trustinst         2.690    0.059   45.613    0.000    1.000    1.000</code></pre>
-<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb148-1" title="1"><span class="kw">standardizedsolution</span>(fit_trust_model_3f)</a></code></pre></div>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb167-1" title="1"><span class="kw">standardizedsolution</span>(fit_trust_model_3f)</a></code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":["lhs"],"name":[1],"type":["chr"],"align":["left"]},{"label":["op"],"name":[2],"type":["chr"],"align":["left"]},{"label":["rhs"],"name":[3],"type":["chr"],"align":["left"]},{"label":["est.std"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["se"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["z"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["pvalue"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["ci.lower"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["ci.upper"],"name":[9],"type":["dbl"],"align":["right"]}],"data":[{"1":"trustpol","2":"=~","3":"pltcare","4":"0.6393603","5":"0.005500765","6":"116.23116","7":"0","8":"0.6285790","9":"0.6501416"},{"1":"trustpol","2":"=~","3":"pltinvt","4":"0.6237608","5":"0.005645631","6":"110.48557","7":"0","8":"0.6126955","9":"0.6348260"},{"1":"trustpol","2":"=~","3":"trstplt","4":"0.8764316","5":"0.003615576","6":"242.40443","7":"0","8":"0.8693452","9":"0.8835180"},{"1":"satcntry","2":"=~","3":"stfeco","4":"0.7123372","5":"0.004912208","6":"145.01363","7":"0","8":"0.7027094","9":"0.7219649"},{"1":"satcntry","2":"=~","3":"stfgov","4":"0.7516990","5":"0.004530465","6":"165.92095","7":"0","8":"0.7428195","9":"0.7605786"},{"1":"satcntry","2":"=~","3":"stfdem","4":"0.7334722","5":"0.004706435","6":"155.84454","7":"0","8":"0.7242478","9":"0.7426966"},{"1":"satcntry","2":"=~","3":"stfedu","4":"0.5758271","5":"0.006189362","6":"93.03497","7":"0","8":"0.5636961","9":"0.5879580"},{"1":"satcntry","2":"=~","3":"stfhlth","4":"0.5188157","5":"0.006663599","6":"77.85818","7":"0","8":"0.5057553","9":"0.5318761"},{"1":"trustinst","2":"=~","3":"trstlgl","4":"0.6877377","5":"0.005038743","6":"136.48993","7":"0","8":"0.6778619","9":"0.6976134"},{"1":"trustinst","2":"=~","3":"trstplc","4":"0.5817029","5":"0.006040212","6":"96.30505","7":"0","8":"0.5698643","9":"0.5935415"},{"1":"trustinst","2":"=~","3":"trstun","4":"0.6054279","5":"0.005826611","6":"103.90738","7":"0","8":"0.5940079","9":"0.6168478"},{"1":"trustinst","2":"=~","3":"trstprl","4":"0.8124493","5":"0.003859351","6":"210.51447","7":"0","8":"0.8048851","9":"0.8200134"},{"1":"pltcare","2":"~~","3":"pltcare","4":"0.5912184","5":"0.007033941","6":"84.05222","7":"0","8":"0.5774321","9":"0.6050047"},{"1":"pltinvt","2":"~~","3":"pltinvt","4":"0.6109225","5":"0.007043046","6":"86.74123","7":"0","8":"0.5971184","9":"0.6247266"},{"1":"trstplt","2":"~~","3":"trstplt","4":"0.2318676","5":"0.006337610","6":"36.58597","7":"0","8":"0.2194461","9":"0.2442891"},{"1":"stfeco","2":"~~","3":"stfeco","4":"0.4925758","5":"0.006998297","6":"70.38509","7":"0","8":"0.4788594","9":"0.5062922"},{"1":"stfgov","2":"~~","3":"stfgov","4":"0.4349486","5":"0.006811092","6":"63.85887","7":"0","8":"0.4215991","9":"0.4482981"},{"1":"stfdem","2":"~~","3":"stfdem","4":"0.4620185","5":"0.006904079","6":"66.91965","7":"0","8":"0.4484868","9":"0.4755503"},{"1":"stfedu","2":"~~","3":"stfedu","4":"0.6684232","5":"0.007128004","6":"93.77425","7":"0","8":"0.6544526","9":"0.6823938"},{"1":"stfhlth","2":"~~","3":"stfhlth","4":"0.7308302","5":"0.006914360","6":"105.69745","7":"0","8":"0.7172783","9":"0.7443821"},{"1":"trstlgl","2":"~~","3":"trstlgl","4":"0.5270169","5":"0.006930667","6":"76.04130","7":"0","8":"0.5134330","9":"0.5406007"},{"1":"trstplc","2":"~~","3":"trstplc","4":"0.6616217","5":"0.007027218","6":"94.15131","7":"0","8":"0.6478486","9":"0.6753948"},{"1":"trstun","2":"~~","3":"trstun","4":"0.6334571","5":"0.007055185","6":"89.78603","7":"0","8":"0.6196292","9":"0.6472850"},{"1":"trstprl","2":"~~","3":"trstprl","4":"0.3399262","5":"0.006271054","6":"54.20560","7":"0","8":"0.3276352","9":"0.3522172"},{"1":"trustpol","2":"~~","3":"trustpol","4":"1.0000000","5":"0.000000000","6":"NA","7":"NA","8":"1.0000000","9":"1.0000000"},{"1":"satcntry","2":"~~","3":"satcntry","4":"1.0000000","5":"0.000000000","6":"NA","7":"NA","8":"1.0000000","9":"1.0000000"},{"1":"trustinst","2":"~~","3":"trustinst","4":"1.0000000","5":"0.000000000","6":"NA","7":"NA","8":"1.0000000","9":"1.0000000"},{"1":"trustpol","2":"~~","3":"satcntry","4":"0.7123621","5":"0.006081456","6":"117.13678","7":"0","8":"0.7004427","9":"0.7242816"},{"1":"trustpol","2":"~~","3":"trustinst","4":"0.8632598","5":"0.004701304","6":"183.62136","7":"0","8":"0.8540454","9":"0.8724742"},{"1":"satcntry","2":"~~","3":"trustinst","4":"0.7520966","5":"0.005729763","6":"131.26138","7":"0","8":"0.7408664","9":"0.7633267"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -722,14 +731,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <details>
 <p><summary>Click for explanation</summary>
 To run a second-order factor model, you can simply add an additional line within the single quotes containing the factors that you want in the second-order factor model, like in the example below.</p>
-<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb149-1" title="1">trust_model_3f2o &lt;-<span class="st"> &#39;trustpol  =~ pltcare + pltinvt + trstprl + trstplt</span></a>
-<a class="sourceLine" id="cb149-2" title="2"><span class="st">                     satcntry  =~ stfeco + stfgov + stfdem + stfedu + stfhlth</span></a>
-<a class="sourceLine" id="cb149-3" title="3"><span class="st">                     trustinst =~ trstlgl + trstplc + trstun + trstep</span></a>
-<a class="sourceLine" id="cb149-4" title="4"><span class="st">                     trust     =~ trustpol + trustinst&#39;</span></a>
-<a class="sourceLine" id="cb149-5" title="5"></a>
-<a class="sourceLine" id="cb149-6" title="6">fit_trust_model_3f2o &lt;-<span class="st"> </span><span class="kw">sem</span>(trust_model_3f2o, <span class="dt">data =</span> df)</a>
-<a class="sourceLine" id="cb149-7" title="7"><span class="kw">summary</span>(fit_trust_model_3f2o, <span class="dt">fit.measures =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
-<pre><code>## lavaan 0.6-5 ended normally after 46 iterations
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb168-1" title="1">trust_model_3f2o &lt;-<span class="st"> &#39;trustpol  =~ pltcare + pltinvt + trstprl + trstplt</span></a>
+<a class="sourceLine" id="cb168-2" title="2"><span class="st">                     satcntry  =~ stfeco + stfgov + stfdem + stfedu + stfhlth</span></a>
+<a class="sourceLine" id="cb168-3" title="3"><span class="st">                     trustinst =~ trstlgl + trstplc + trstun + trstep</span></a>
+<a class="sourceLine" id="cb168-4" title="4"><span class="st">                     trust     =~ trustpol + trustinst&#39;</span></a>
+<a class="sourceLine" id="cb168-5" title="5"></a>
+<a class="sourceLine" id="cb168-6" title="6">fit_trust_model_3f2o &lt;-<span class="st"> </span><span class="kw">sem</span>(trust_model_3f2o, <span class="dt">data =</span> df)</a>
+<a class="sourceLine" id="cb168-7" title="7"><span class="kw">summary</span>(fit_trust_model_3f2o, <span class="dt">fit.measures =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<pre><code>## lavaan 0.6-6 ended normally after 46 iterations
 ## 
 ##   Estimator                                         ML
 ##   Optimization method                           NLMINB
@@ -777,9 +786,9 @@ To run a second-order factor model, you can simply add an additional line within
 ## 
 ## Parameter Estimates:
 ## 
+##   Standard errors                             Standard
 ##   Information                                 Expected
 ##   Information saturated (h1) model          Structured
-##   Standard errors                             Standard
 ## 
 ## Latent Variables:
 ##                    Estimate  Std.Err  z-value  P(&gt;|z|)
@@ -839,14 +848,14 @@ To run a second-order factor model, you can simply add an additional line within
 <details>
 <p><summary>Click for explanation</summary></p>
 <p>We will first have to do some recoding again. You might want to make an age variable instead of a yearborn variable, which eases the interpretation. Furthermore, a dummy for gender is more informative than just the variable <code>gndr</code>, although this will be treated as a dummy. You will also have to recode the variables <code>eduyrs</code> and <code>lrscale</code> to numerical variables, and you will have to make a two-category dummy for the variable <code>polintr</code>.</p>
-<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb151-1" title="1">df<span class="op">$</span>age &lt;-<span class="st"> </span><span class="dv">2002</span> <span class="op">-</span><span class="st"> </span>df<span class="op">$</span>yrbrn</a>
-<a class="sourceLine" id="cb151-2" title="2"></a>
-<a class="sourceLine" id="cb151-3" title="3">model_q9 &lt;-<span class="st"> &#39;trustinst =~ trstlgl + trstplc + trstun</span></a>
-<a class="sourceLine" id="cb151-4" title="4"><span class="st">             trustinst ~ gndr + age + eduyrs + polintr + lrscale&#39;</span></a>
-<a class="sourceLine" id="cb151-5" title="5"></a>
-<a class="sourceLine" id="cb151-6" title="6">fit_model_q9 &lt;-<span class="st"> </span><span class="kw">sem</span>(model_q9, <span class="dt">data =</span> df)</a>
-<a class="sourceLine" id="cb151-7" title="7"><span class="kw">summary</span>(fit_model_q9, <span class="dt">fit.measures =</span> <span class="ot">TRUE</span>, <span class="dt">standardized =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
-<pre><code>## lavaan 0.6-5 ended normally after 41 iterations
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb170-1" title="1">df<span class="op">$</span>age &lt;-<span class="st"> </span><span class="dv">2002</span> <span class="op">-</span><span class="st"> </span>df<span class="op">$</span>yrbrn</a>
+<a class="sourceLine" id="cb170-2" title="2"></a>
+<a class="sourceLine" id="cb170-3" title="3">model_q9 &lt;-<span class="st"> &#39;trustinst =~ trstlgl + trstplc + trstun</span></a>
+<a class="sourceLine" id="cb170-4" title="4"><span class="st">             trustinst ~ gndr + age + eduyrs + polintr + lrscale&#39;</span></a>
+<a class="sourceLine" id="cb170-5" title="5"></a>
+<a class="sourceLine" id="cb170-6" title="6">fit_model_q9 &lt;-<span class="st"> </span><span class="kw">sem</span>(model_q9, <span class="dt">data =</span> df)</a>
+<a class="sourceLine" id="cb170-7" title="7"><span class="kw">summary</span>(fit_model_q9, <span class="dt">fit.measures =</span> <span class="ot">TRUE</span>, <span class="dt">standardized =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<pre><code>## lavaan 0.6-6 ended normally after 41 iterations
 ## 
 ##   Estimator                                         ML
 ##   Optimization method                           NLMINB
@@ -894,9 +903,9 @@ To run a second-order factor model, you can simply add an additional line within
 ## 
 ## Parameter Estimates:
 ## 
+##   Standard errors                             Standard
 ##   Information                                 Expected
 ##   Information saturated (h1) model          Structured
-##   Standard errors                             Standard
 ## 
 ## Latent Variables:
 ##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
@@ -908,7 +917,7 @@ To run a second-order factor model, you can simply add an additional line within
 ## Regressions:
 ##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
 ##   trustinst ~                                                           
-##     gndr             -0.101    0.036   -2.821    0.005   -0.051   -0.025
+##     gndr              0.101    0.036    2.821    0.005    0.051    0.025
 ##     age               0.000    0.001    0.084    0.933    0.000    0.001
 ##     eduyrs            0.065    0.005   12.303    0.000    0.033    0.120
 ##     polintr          -0.147    0.023   -6.357    0.000   -0.074   -0.061
@@ -925,9 +934,9 @@ To run a second-order factor model, you can simply add an additional line within
 <div id="optional" class="section level3">
 <h3><span class="header-section-number">8.0.10</span> Optional</h3>
 <p>You can plot the resulting model using <code>semPaths()</code>:</p>
-<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb153-1" title="1"><span class="kw">library</span>(semPlot)</a>
-<a class="sourceLine" id="cb153-2" title="2"><span class="kw">semPaths</span>(fit_model_q9, <span class="dt">whatLabels =</span> <span class="st">&quot;est&quot;</span>, <span class="dt">rotation =</span> <span class="dv">4</span>)</a></code></pre></div>
-<p><img src="TCSM_files/figure-html/unnamed-chunk-121-1.png" width="672" /></p>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb172-1" title="1"><span class="kw">library</span>(semPlot)</a>
+<a class="sourceLine" id="cb172-2" title="2"><span class="kw">semPaths</span>(fit_model_q9, <span class="dt">whatLabels =</span> <span class="st">&quot;est&quot;</span>, <span class="dt">rotation =</span> <span class="dv">4</span>)</a></code></pre></div>
+<p><img src="TCSM_files/figure-html/unnamed-chunk-141-1.png" width="672" /></p>
 </div>
 <div id="question-10-1" class="section level3">
 <h3><span class="header-section-number">8.0.11</span> Question 10</h3>
@@ -935,11 +944,11 @@ To run a second-order factor model, you can simply add an additional line within
 <p><img src="week3class2.png" /></p>
 <details>
 <p><summary>Click for explanation</summary></p>
-<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb154-1" title="1">model_q10 &lt;-<span class="st"> &#39;trustinstEFA ~ gndr + age + eduyrs + polintr + lrscale&#39;</span></a>
-<a class="sourceLine" id="cb154-2" title="2"></a>
-<a class="sourceLine" id="cb154-3" title="3">fit_model_q10 &lt;-<span class="st"> </span><span class="kw">sem</span>(model_q10, <span class="dt">data =</span> df)</a>
-<a class="sourceLine" id="cb154-4" title="4"><span class="kw">summary</span>(fit_model_q10, <span class="dt">fit.measures =</span> <span class="ot">TRUE</span>, <span class="dt">standardized =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
-<pre><code>## lavaan 0.6-5 ended normally after 20 iterations
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb173-1" title="1">model_q10 &lt;-<span class="st"> &#39;trustinstEFA ~ gndr + age + eduyrs + polintr + lrscale&#39;</span></a>
+<a class="sourceLine" id="cb173-2" title="2"></a>
+<a class="sourceLine" id="cb173-3" title="3">fit_model_q10 &lt;-<span class="st"> </span><span class="kw">sem</span>(model_q10, <span class="dt">data =</span> df)</a>
+<a class="sourceLine" id="cb173-4" title="4"><span class="kw">summary</span>(fit_model_q10, <span class="dt">fit.measures =</span> <span class="ot">TRUE</span>, <span class="dt">standardized =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<pre><code>## lavaan 0.6-6 ended normally after 20 iterations
 ## 
 ##   Estimator                                         ML
 ##   Optimization method                           NLMINB
@@ -986,14 +995,14 @@ To run a second-order factor model, you can simply add an additional line within
 ## 
 ## Parameter Estimates:
 ## 
+##   Standard errors                             Standard
 ##   Information                                 Expected
 ##   Information saturated (h1) model          Structured
-##   Standard errors                             Standard
 ## 
 ## Regressions:
 ##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
 ##   trustinstEFA ~                                                        
-##     gndr             -0.146    0.017   -8.537    0.000   -0.146   -0.072
+##     gndr              0.146    0.017    8.537    0.000    0.146    0.072
 ##     age              -0.000    0.001   -0.443    0.658   -0.000   -0.004
 ##     eduyrs            0.017    0.003    6.686    0.000    0.017    0.060
 ##     polintr           0.012    0.011    1.075    0.282    0.012    0.010
@@ -1018,11 +1027,13 @@ To run a second-order factor model, you can simply add an additional line within
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -1030,12 +1041,11 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -1047,6 +1057,10 @@ gitbook.start({
 "text": null
 },
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 10 Week 4 - Class | Theory Construction and Statistical Modeling</title>
   <meta name="description" content="This is a guide for the elective course TCSM." />
-  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 10 Week 4 - Class | Theory Construction and Statistical Modeling" />
   <meta property="og:type" content="book" />
@@ -39,6 +39,9 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -136,11 +139,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.1" data-path="installing-software.html"><a href="installing-software.html"><i class="fa fa-check"></i><b>1.1</b> Installing software</a><ul>
 <li class="chapter" data-level="1.1.1" data-path="installing-software.html"><a href="installing-software.html#installing-r"><i class="fa fa-check"></i><b>1.1.1</b> 1. Installing R</a></li>
 <li class="chapter" data-level="1.1.2" data-path="installing-software.html"><a href="installing-software.html#installing-rstudio"><i class="fa fa-check"></i><b>1.1.2</b> 2. Installing RStudio</a></li>
-<li class="chapter" data-level="1.1.3" data-path="installing-software.html"><a href="installing-software.html#installing-packages"><i class="fa fa-check"></i><b>1.1.3</b> 3. Installing packages</a></li>
+<li class="chapter" data-level="1.1.3" data-path="installing-software.html"><a href="installing-software.html#installpackages"><i class="fa fa-check"></i><b>1.1.3</b> 3. Installing packages</a></li>
 <li class="chapter" data-level="1.1.4" data-path="installing-software.html"><a href="installing-software.html#get-started"><i class="fa fa-check"></i><b>1.1.4</b> Get started</a></li>
 <li class="chapter" data-level="1.1.5" data-path="installing-software.html"><a href="installing-software.html#starting-a-new-project-in-rstudio"><i class="fa fa-check"></i><b>1.1.5</b> Starting a new project in Rstudio</a></li>
 <li class="chapter" data-level="1.1.6" data-path="installing-software.html"><a href="installing-software.html#code-conventions"><i class="fa fa-check"></i><b>1.1.6</b> Code conventions</a></li>
 <li class="chapter" data-level="1.1.7" data-path="installing-software.html"><a href="installing-software.html#getting-help"><i class="fa fa-check"></i><b>1.1.7</b> Getting Help</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="getting-the-course-data.html"><a href="getting-the-course-data.html"><i class="fa fa-check"></i><b>1.2</b> Getting the course data</a></li>
+<li class="chapter" data-level="1.3" data-path="r-tutorial-for-beginners-optional.html"><a href="r-tutorial-for-beginners-optional.html"><i class="fa fa-check"></i><b>1.3</b> R tutorial for beginners (optional)</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="r-tutorial-for-beginners-optional.html"><a href="r-tutorial-for-beginners-optional.html#who-r-you"><i class="fa fa-check"></i><b>1.3.1</b> Who R you?</a></li>
+<li class="chapter" data-level="1.3.2" data-path="r-tutorial-for-beginners-optional.html"><a href="r-tutorial-for-beginners-optional.html#rstudio"><i class="fa fa-check"></i><b>1.3.2</b> RStudio</a></li>
+<li class="chapter" data-level="1.3.3" data-path="r-tutorial-for-beginners-optional.html"><a href="r-tutorial-for-beginners-optional.html#loading-data"><i class="fa fa-check"></i><b>1.3.3</b> Loading data</a></li>
+<li class="chapter" data-level="1.3.4" data-path="r-tutorial-for-beginners-optional.html"><a href="r-tutorial-for-beginners-optional.html#explore-your-data"><i class="fa fa-check"></i><b>1.3.4</b> Explore your data</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="plotting-the-data-optional.html"><a href="plotting-the-data-optional.html"><i class="fa fa-check"></i><b>1.4</b> Plotting the data (optional)</a><ul>
+<li class="chapter" data-level="1.4.1" data-path="plotting-the-data-optional.html"><a href="plotting-the-data-optional.html#a-histogram"><i class="fa fa-check"></i><b>1.4.1</b> A histogram</a></li>
+<li class="chapter" data-level="1.4.2" data-path="plotting-the-data-optional.html"><a href="plotting-the-data-optional.html#a-boxplot"><i class="fa fa-check"></i><b>1.4.2</b> A boxplot</a></li>
+<li class="chapter" data-level="1.4.3" data-path="plotting-the-data-optional.html"><a href="plotting-the-data-optional.html#scatterplot"><i class="fa fa-check"></i><b>1.4.3</b> Scatterplot</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="getting-your-data-into-r.html"><a href="getting-your-data-into-r.html"><i class="fa fa-check"></i><b>2</b> Getting your data into R</a><ul>
@@ -164,7 +179,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.0.6" data-path="week-1-home.html"><a href="week-1-home.html#question-1.f."><i class="fa fa-check"></i><b>3.0.6</b> Question 1.f.</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="week-1-class.html"><a href="week-1-class.html"><i class="fa fa-check"></i><b>4</b> Week 1 - Class</a><ul>
-<li class="chapter" data-level="4.1" data-path="loading-data.html"><a href="loading-data.html"><i class="fa fa-check"></i><b>4.1</b> Loading data</a></li>
+<li class="chapter" data-level="4.1" data-path="loading-data-1.html"><a href="loading-data-1.html"><i class="fa fa-check"></i><b>4.1</b> Loading data</a></li>
 <li class="chapter" data-level="4.2" data-path="section-1.html"><a href="section-1.html"><i class="fa fa-check"></i><b>4.2</b> Section 1</a><ul>
 <li class="chapter" data-level="4.2.1" data-path="section-1.html"><a href="section-1.html#question-1.a-1"><i class="fa fa-check"></i><b>4.2.1</b> Question 1.a</a></li>
 <li class="chapter" data-level="4.2.2" data-path="section-1.html"><a href="section-1.html#question-1.b-1"><i class="fa fa-check"></i><b>4.2.2</b> Question 1.b</a></li>
@@ -219,19 +234,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.0.10" data-path="week-2-home.html"><a href="week-2-home.html#question-1.j-1"><i class="fa fa-check"></i><b>5.0.10</b> Question 1.j</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="week-2-class.html"><a href="week-2-class.html"><i class="fa fa-check"></i><b>6</b> Week 2 - Class</a><ul>
-<li class="chapter" data-level="6.1" data-path="loading-data-1.html"><a href="loading-data-1.html"><i class="fa fa-check"></i><b>6.1</b> Loading data</a><ul>
-<li class="chapter" data-level="6.1.1" data-path="loading-data-1.html"><a href="loading-data-1.html#question-1"><i class="fa fa-check"></i><b>6.1.1</b> Question 1</a></li>
-<li class="chapter" data-level="6.1.2" data-path="loading-data-1.html"><a href="loading-data-1.html#question-2"><i class="fa fa-check"></i><b>6.1.2</b> Question 2</a></li>
-<li class="chapter" data-level="6.1.3" data-path="loading-data-1.html"><a href="loading-data-1.html#question-3"><i class="fa fa-check"></i><b>6.1.3</b> Question 3</a></li>
-<li class="chapter" data-level="6.1.4" data-path="loading-data-1.html"><a href="loading-data-1.html#question-4"><i class="fa fa-check"></i><b>6.1.4</b> Question 4</a></li>
-<li class="chapter" data-level="6.1.5" data-path="loading-data-1.html"><a href="loading-data-1.html#question-5"><i class="fa fa-check"></i><b>6.1.5</b> Question 5</a></li>
-<li class="chapter" data-level="6.1.6" data-path="loading-data-1.html"><a href="loading-data-1.html#question-6"><i class="fa fa-check"></i><b>6.1.6</b> Question 6</a></li>
-<li class="chapter" data-level="6.1.7" data-path="loading-data-1.html"><a href="loading-data-1.html#question-7"><i class="fa fa-check"></i><b>6.1.7</b> Question 7</a></li>
-<li class="chapter" data-level="6.1.8" data-path="loading-data-1.html"><a href="loading-data-1.html#question-8"><i class="fa fa-check"></i><b>6.1.8</b> Question 8</a></li>
-<li class="chapter" data-level="6.1.9" data-path="loading-data-1.html"><a href="loading-data-1.html#question-9"><i class="fa fa-check"></i><b>6.1.9</b> Question 9</a></li>
-<li class="chapter" data-level="6.1.10" data-path="loading-data-1.html"><a href="loading-data-1.html#question-10"><i class="fa fa-check"></i><b>6.1.10</b> Question 10</a></li>
-<li class="chapter" data-level="6.1.11" data-path="loading-data-1.html"><a href="loading-data-1.html#question-11"><i class="fa fa-check"></i><b>6.1.11</b> Question 11</a></li>
-</ul></li>
+<li class="chapter" data-level="6.0.1" data-path="week-2-class.html"><a href="week-2-class.html#loading-the-data"><i class="fa fa-check"></i><b>6.0.1</b> Loading the data</a></li>
+<li class="chapter" data-level="6.0.2" data-path="week-2-class.html"><a href="week-2-class.html#question-1"><i class="fa fa-check"></i><b>6.0.2</b> Question 1</a></li>
+<li class="chapter" data-level="6.0.3" data-path="week-2-class.html"><a href="week-2-class.html#question-2"><i class="fa fa-check"></i><b>6.0.3</b> Question 2</a></li>
+<li class="chapter" data-level="6.0.4" data-path="week-2-class.html"><a href="week-2-class.html#question-3"><i class="fa fa-check"></i><b>6.0.4</b> Question 3</a></li>
+<li class="chapter" data-level="6.0.5" data-path="week-2-class.html"><a href="week-2-class.html#question-4"><i class="fa fa-check"></i><b>6.0.5</b> Question 4</a></li>
+<li class="chapter" data-level="6.0.6" data-path="week-2-class.html"><a href="week-2-class.html#question-5"><i class="fa fa-check"></i><b>6.0.6</b> Question 5</a></li>
+<li class="chapter" data-level="6.0.7" data-path="week-2-class.html"><a href="week-2-class.html#question-6"><i class="fa fa-check"></i><b>6.0.7</b> Question 6</a></li>
+<li class="chapter" data-level="6.0.8" data-path="week-2-class.html"><a href="week-2-class.html#question-7"><i class="fa fa-check"></i><b>6.0.8</b> Question 7</a></li>
+<li class="chapter" data-level="6.0.9" data-path="week-2-class.html"><a href="week-2-class.html#question-8"><i class="fa fa-check"></i><b>6.0.9</b> Question 8</a></li>
+<li class="chapter" data-level="6.0.10" data-path="week-2-class.html"><a href="week-2-class.html#question-9"><i class="fa fa-check"></i><b>6.0.10</b> Question 9</a></li>
+<li class="chapter" data-level="6.0.11" data-path="week-2-class.html"><a href="week-2-class.html#question-10"><i class="fa fa-check"></i><b>6.0.11</b> Question 10</a></li>
+<li class="chapter" data-level="6.0.12" data-path="week-2-class.html"><a href="week-2-class.html#question-11"><i class="fa fa-check"></i><b>6.0.12</b> Question 11</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="week-3-home.html"><a href="week-3-home.html"><i class="fa fa-check"></i><b>7</b> Week 3 - Home</a><ul>
 <li class="chapter" data-level="7.0.1" data-path="week-3-home.html"><a href="week-3-home.html#get-started-with-lavaan"><i class="fa fa-check"></i><b>7.0.1</b> Get started with lavaan</a></li>
@@ -334,7 +348,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="14.0.14" data-path="week-6-class.html"><a href="week-6-class.html#question-13"><i class="fa fa-check"></i><b>14.0.14</b> Question 13</a></li>
 </ul></li>
 <li class="chapter" data-level="15" data-path="week-7-putting-it-all-together.html"><a href="week-7-putting-it-all-together.html"><i class="fa fa-check"></i><b>15</b> Week 7 - Putting it all together</a><ul>
-<li class="chapter" data-level="15.0.1" data-path="week-7-putting-it-all-together.html"><a href="week-7-putting-it-all-together.html#loading-the-data"><i class="fa fa-check"></i><b>15.0.1</b> Loading the data</a></li>
+<li class="chapter" data-level="15.0.1" data-path="week-7-putting-it-all-together.html"><a href="week-7-putting-it-all-together.html#loading-the-data-1"><i class="fa fa-check"></i><b>15.0.1</b> Loading the data</a></li>
 <li class="chapter" data-level="15.0.2" data-path="week-7-putting-it-all-together.html"><a href="week-7-putting-it-all-together.html#question-1-8"><i class="fa fa-check"></i><b>15.0.2</b> Question 1</a></li>
 <li class="chapter" data-level="15.0.3" data-path="week-7-putting-it-all-together.html"><a href="week-7-putting-it-all-together.html#question-2-8"><i class="fa fa-check"></i><b>15.0.3</b> Question 2</a></li>
 <li class="chapter" data-level="15.0.4" data-path="week-7-putting-it-all-together.html"><a href="week-7-putting-it-all-together.html#question-3-8"><i class="fa fa-check"></i><b>15.0.4</b> Question 3</a></li>
@@ -384,21 +398,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="week4class1.png" /></p>
 <details>
 <p><summary>Click for explanation</summary></p>
-<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb187-1" title="1">reg_model &lt;-<span class="st"> &quot;Spent ~ SelfEst&quot;</span></a></code></pre></div>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb206-1" title="1">reg_model &lt;-<span class="st"> &quot;Spent ~ SelfEst&quot;</span></a></code></pre></div>
 
 </div>
 <div id="how-to-run-multi-group-model" class="section level3">
 <h3><span class="header-section-number">10.0.2</span> How to run multi-group model</h3>
 <p>To run this model as a multi-group model, you can specify the argument <code>group =</code> when running the analysis:</p>
-<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb188-1" title="1"><span class="kw">library</span>(lavaan)</a>
-<a class="sourceLine" id="cb188-2" title="2">multi_group &lt;-<span class="st"> </span><span class="kw">sem</span>(reg_model,</a>
-<a class="sourceLine" id="cb188-3" title="3">                   <span class="dt">data =</span> data, </a>
-<a class="sourceLine" id="cb188-4" title="4">                   <span class="dt">group =</span> <span class="st">&quot;Condition&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb207-1" title="1"><span class="kw">library</span>(lavaan)</a>
+<a class="sourceLine" id="cb207-2" title="2">multi_group &lt;-<span class="st"> </span><span class="kw">sem</span>(reg_model,</a>
+<a class="sourceLine" id="cb207-3" title="3">                   <span class="dt">data =</span> data, </a>
+<a class="sourceLine" id="cb207-4" title="4">                   <span class="dt">group =</span> <span class="st">&quot;Condition&quot;</span>)</a></code></pre></div>
 <p>Now, obtain the standardized estimates and the squared multiple correlations (r square) for this model.</p>
 <details>
 <p><summary>Click for explanation</summary></p>
-<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb189-1" title="1"><span class="kw">summary</span>(multi_group, <span class="dt">standardize =</span> <span class="ot">TRUE</span>, <span class="dt">rsquare =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
-<pre><code>## lavaan 0.6-5 ended normally after 53 iterations
+<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb208-1" title="1"><span class="kw">summary</span>(multi_group, <span class="dt">standardize =</span> <span class="ot">TRUE</span>, <span class="dt">rsquare =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<pre><code>## lavaan 0.6-6 ended normally after 53 iterations
 ## 
 ##   Estimator                                         ML
 ##   Optimization method                           NLMINB
@@ -420,9 +434,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ## Parameter Estimates:
 ## 
+##   Standard errors                             Standard
 ##   Information                                 Expected
 ##   Information saturated (h1) model          Structured
-##   Standard errors                             Standard
 ## 
 ## 
 ## Group 1 [rejection]:
@@ -489,7 +503,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">10.0.3</span> Question 1</h3>
 <p>Report on the parameter estimates for the three groups; i.e., the regression coefficients, the intercepts (marginal means of Spent), and the residual variances (i.e., the variances of the residuals of Spent).</p>
 <p><strong>Note:</strong> What’s missing from the model are the means and variances of SelfEst. That’s because any variable that is <strong>purely independent</strong> is not strictly considered to be part of the model. We can manually incorporate it into the model by estimating the intercept of SelfEst. This will make SelfEst part of the model, so we will also get its variance. You estimate the intercept of a variable by adding this code to your model:</p>
-<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb191-1" title="1"><span class="st">&quot;SelfEst ~1&quot;</span></a></code></pre></div>
+<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb210-1" title="1"><span class="st">&quot;SelfEst ~1&quot;</span></a></code></pre></div>
 </div>
 <div id="question-2-3" class="section level3">
 <h3><span class="header-section-number">10.0.4</span> Question 2</h3>
@@ -520,11 +534,11 @@ Fix all intercepts to be equal.
 <div id="imposing-constraints" class="section level3">
 <h3><span class="header-section-number">10.0.7</span> Imposing constraints</h3>
 <p>So, by putting constraints to these models, we can make the same model as an ANCOVA. In lavaan, we impose constraints by <strong>giving labels</strong> to parameters. You use <code>c()</code> to make a vector of labels that is equally long as the number of groups, and you can give any name to the labels. You then use the <code>*</code> symbol to assign it to a parameter. The syntax looks like this:</p>
-<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb192-1" title="1"><span class="st">&quot;Spent ~ c(labelgroup1, labelgroup2, labelgroup3) * SelfEst&quot;</span></a></code></pre></div>
+<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb211-1" title="1"><span class="st">&quot;Spent ~ c(labelgroup1, labelgroup2, labelgroup3) * SelfEst&quot;</span></a></code></pre></div>
 <p>If you use the same name multiple times, these parameters will be constrained to be equal:</p>
-<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb193-1" title="1"><span class="st">&quot;Spent ~ c(label, label, label) * SelfEst&quot;</span></a></code></pre></div>
+<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb212-1" title="1"><span class="st">&quot;Spent ~ c(label, label, label) * SelfEst&quot;</span></a></code></pre></div>
 <p>Constraints for variances are specified similarly:</p>
-<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb194-1" title="1"><span class="st">&quot;Spent ~~ c(label, label, label) * Spent&quot;</span></a></code></pre></div>
+<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb213-1" title="1"><span class="st">&quot;Spent ~~ c(label, label, label) * Spent&quot;</span></a></code></pre></div>
 </div>
 <div id="stepwise-approach" class="section level3">
 <h3><span class="header-section-number">10.0.8</span> Stepwise approach</h3>
@@ -537,39 +551,39 @@ Fix all intercepts to be equal.
 <p><em>Model 2.</em> Structural residuals: constrain the variances and covariances of the residuals of the endogenous variables (here: Spent)</p>
 <p><em>Model 3.</em> Structural intercepts: constrain the intercepts of the endogenous variables across groups</p>
 <p>We can compare two of these models using the <code>anova()</code> function:</p>
-<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb195-1" title="1"><span class="kw">anova</span>(m1, m2)</a></code></pre></div>
+<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb214-1" title="1"><span class="kw">anova</span>(m1, m2)</a></code></pre></div>
 <p>However, with more than two models, it is convenient to compare all of them at once. For this, we can use the function <code>compareFit()</code> from the <code>semTools</code> package (which you have to install):</p>
-<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb196-1" title="1"><span class="kw">library</span>(semTools)</a>
-<a class="sourceLine" id="cb196-2" title="2"><span class="kw">compareFit</span>(<span class="dt">weights =</span> m1,</a>
-<a class="sourceLine" id="cb196-3" title="3">           <span class="dt">residuals =</span> m2,</a>
-<a class="sourceLine" id="cb196-4" title="4">           <span class="dt">intercepts =</span> m3)</a></code></pre></div>
+<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb215-1" title="1"><span class="kw">library</span>(semTools)</a>
+<a class="sourceLine" id="cb215-2" title="2"><span class="kw">compareFit</span>(<span class="dt">weights =</span> m1,</a>
+<a class="sourceLine" id="cb215-3" title="3">           <span class="dt">residuals =</span> m2,</a>
+<a class="sourceLine" id="cb215-4" title="4">           <span class="dt">intercepts =</span> m3)</a></code></pre></div>
 </div>
 <div id="question-5-3" class="section level3">
 <h3><span class="header-section-number">10.0.9</span> Question 5</h3>
 <p>Run the series of models (nested models) as described above. Compare the models and report the chi-square difference test of this comparison. Why does this test have the df it has? What is your conclusion about the constraints you imposed? What does this mean?</p>
 <details>
 <p><summary>Click for explanation</summary></p>
-<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb197-1" title="1">mu &lt;-<span class="st"> </span><span class="kw">sem</span>(<span class="st">&quot;Spent ~ SelfEst&quot;</span>,</a>
-<a class="sourceLine" id="cb197-2" title="2">          <span class="dt">data =</span> data, </a>
-<a class="sourceLine" id="cb197-3" title="3">          <span class="dt">group =</span> <span class="st">&quot;Condition&quot;</span>)</a>
-<a class="sourceLine" id="cb197-4" title="4"></a>
-<a class="sourceLine" id="cb197-5" title="5">m1 &lt;-<span class="st"> </span><span class="kw">sem</span>(<span class="st">&quot;Spent ~ c(a, a, a) * SelfEst&quot;</span>,</a>
-<a class="sourceLine" id="cb197-6" title="6">          <span class="dt">data =</span> data, </a>
-<a class="sourceLine" id="cb197-7" title="7">          <span class="dt">group =</span> <span class="st">&quot;Condition&quot;</span>)</a>
-<a class="sourceLine" id="cb197-8" title="8">m2 &lt;-<span class="st"> </span><span class="kw">sem</span>(<span class="st">&quot;Spent ~ c(a, a, a) * SelfEst</span></a>
-<a class="sourceLine" id="cb197-9" title="9"><span class="st">          Spent ~~ c(b, b, b) * Spent&quot;</span>,</a>
-<a class="sourceLine" id="cb197-10" title="10">          <span class="dt">data =</span> data, </a>
-<a class="sourceLine" id="cb197-11" title="11">          <span class="dt">group =</span> <span class="st">&quot;Condition&quot;</span>)</a>
-<a class="sourceLine" id="cb197-12" title="12">m3 &lt;-<span class="st"> </span><span class="kw">sem</span>(<span class="st">&quot;Spent ~ c(a, a, a) * SelfEst</span></a>
-<a class="sourceLine" id="cb197-13" title="13"><span class="st">          Spent ~~ c(b, b, b) * Spent</span></a>
-<a class="sourceLine" id="cb197-14" title="14"><span class="st">          Spent ~ c(c, c, c) * 1 &quot;</span>,</a>
-<a class="sourceLine" id="cb197-15" title="15">          <span class="dt">data =</span> data, </a>
-<a class="sourceLine" id="cb197-16" title="16">          <span class="dt">group =</span> <span class="st">&quot;Condition&quot;</span>)</a>
-<a class="sourceLine" id="cb197-17" title="17"></a>
-<a class="sourceLine" id="cb197-18" title="18"><span class="kw">compareFit</span>(<span class="dt">unconstrained =</span> mu,</a>
-<a class="sourceLine" id="cb197-19" title="19">           <span class="dt">regression =</span> m1,</a>
-<a class="sourceLine" id="cb197-20" title="20">           <span class="dt">residuals =</span> m2, </a>
-<a class="sourceLine" id="cb197-21" title="21">           <span class="dt">intercepts =</span> m3)</a></code></pre></div>
+<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb216-1" title="1">mu &lt;-<span class="st"> </span><span class="kw">sem</span>(<span class="st">&quot;Spent ~ SelfEst&quot;</span>,</a>
+<a class="sourceLine" id="cb216-2" title="2">          <span class="dt">data =</span> data, </a>
+<a class="sourceLine" id="cb216-3" title="3">          <span class="dt">group =</span> <span class="st">&quot;Condition&quot;</span>)</a>
+<a class="sourceLine" id="cb216-4" title="4"></a>
+<a class="sourceLine" id="cb216-5" title="5">m1 &lt;-<span class="st"> </span><span class="kw">sem</span>(<span class="st">&quot;Spent ~ c(a, a, a) * SelfEst&quot;</span>,</a>
+<a class="sourceLine" id="cb216-6" title="6">          <span class="dt">data =</span> data, </a>
+<a class="sourceLine" id="cb216-7" title="7">          <span class="dt">group =</span> <span class="st">&quot;Condition&quot;</span>)</a>
+<a class="sourceLine" id="cb216-8" title="8">m2 &lt;-<span class="st"> </span><span class="kw">sem</span>(<span class="st">&quot;Spent ~ c(a, a, a) * SelfEst</span></a>
+<a class="sourceLine" id="cb216-9" title="9"><span class="st">          Spent ~~ c(b, b, b) * Spent&quot;</span>,</a>
+<a class="sourceLine" id="cb216-10" title="10">          <span class="dt">data =</span> data, </a>
+<a class="sourceLine" id="cb216-11" title="11">          <span class="dt">group =</span> <span class="st">&quot;Condition&quot;</span>)</a>
+<a class="sourceLine" id="cb216-12" title="12">m3 &lt;-<span class="st"> </span><span class="kw">sem</span>(<span class="st">&quot;Spent ~ c(a, a, a) * SelfEst</span></a>
+<a class="sourceLine" id="cb216-13" title="13"><span class="st">          Spent ~~ c(b, b, b) * Spent</span></a>
+<a class="sourceLine" id="cb216-14" title="14"><span class="st">          Spent ~ c(c, c, c) * 1 &quot;</span>,</a>
+<a class="sourceLine" id="cb216-15" title="15">          <span class="dt">data =</span> data, </a>
+<a class="sourceLine" id="cb216-16" title="16">          <span class="dt">group =</span> <span class="st">&quot;Condition&quot;</span>)</a>
+<a class="sourceLine" id="cb216-17" title="17"></a>
+<a class="sourceLine" id="cb216-18" title="18"><span class="kw">compareFit</span>(<span class="dt">unconstrained =</span> mu,</a>
+<a class="sourceLine" id="cb216-19" title="19">           <span class="dt">regression =</span> m1,</a>
+<a class="sourceLine" id="cb216-20" title="20">           <span class="dt">residuals =</span> m2, </a>
+<a class="sourceLine" id="cb216-21" title="21">           <span class="dt">intercepts =</span> m3)</a></code></pre></div>
 <pre><code>## ################### Nested Model Comparison #########################
 ## Chi-Squared Difference Test
 ## 
@@ -620,11 +634,13 @@ Additionally constraining the intercepts to be equal across groups significantly
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -632,12 +648,11 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -649,6 +664,10 @@ gitbook.start({
 "text": null
 },
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },

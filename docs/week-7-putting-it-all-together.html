@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 15 Week 7 - Putting it all together | Theory Construction and Statistical Modeling</title>
   <meta name="description" content="This is a guide for the elective course TCSM." />
-  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 15 Week 7 - Putting it all together | Theory Construction and Statistical Modeling" />
   <meta property="og:type" content="book" />
@@ -39,6 +39,9 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -136,11 +139,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.1" data-path="installing-software.html"><a href="installing-software.html"><i class="fa fa-check"></i><b>1.1</b> Installing software</a><ul>
 <li class="chapter" data-level="1.1.1" data-path="installing-software.html"><a href="installing-software.html#installing-r"><i class="fa fa-check"></i><b>1.1.1</b> 1. Installing R</a></li>
 <li class="chapter" data-level="1.1.2" data-path="installing-software.html"><a href="installing-software.html#installing-rstudio"><i class="fa fa-check"></i><b>1.1.2</b> 2. Installing RStudio</a></li>
-<li class="chapter" data-level="1.1.3" data-path="installing-software.html"><a href="installing-software.html#installing-packages"><i class="fa fa-check"></i><b>1.1.3</b> 3. Installing packages</a></li>
+<li class="chapter" data-level="1.1.3" data-path="installing-software.html"><a href="installing-software.html#installpackages"><i class="fa fa-check"></i><b>1.1.3</b> 3. Installing packages</a></li>
 <li class="chapter" data-level="1.1.4" data-path="installing-software.html"><a href="installing-software.html#get-started"><i class="fa fa-check"></i><b>1.1.4</b> Get started</a></li>
 <li class="chapter" data-level="1.1.5" data-path="installing-software.html"><a href="installing-software.html#starting-a-new-project-in-rstudio"><i class="fa fa-check"></i><b>1.1.5</b> Starting a new project in Rstudio</a></li>
 <li class="chapter" data-level="1.1.6" data-path="installing-software.html"><a href="installing-software.html#code-conventions"><i class="fa fa-check"></i><b>1.1.6</b> Code conventions</a></li>
 <li class="chapter" data-level="1.1.7" data-path="installing-software.html"><a href="installing-software.html#getting-help"><i class="fa fa-check"></i><b>1.1.7</b> Getting Help</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="getting-the-course-data.html"><a href="getting-the-course-data.html"><i class="fa fa-check"></i><b>1.2</b> Getting the course data</a></li>
+<li class="chapter" data-level="1.3" data-path="r-tutorial-for-beginners-optional.html"><a href="r-tutorial-for-beginners-optional.html"><i class="fa fa-check"></i><b>1.3</b> R tutorial for beginners (optional)</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="r-tutorial-for-beginners-optional.html"><a href="r-tutorial-for-beginners-optional.html#who-r-you"><i class="fa fa-check"></i><b>1.3.1</b> Who R you?</a></li>
+<li class="chapter" data-level="1.3.2" data-path="r-tutorial-for-beginners-optional.html"><a href="r-tutorial-for-beginners-optional.html#rstudio"><i class="fa fa-check"></i><b>1.3.2</b> RStudio</a></li>
+<li class="chapter" data-level="1.3.3" data-path="r-tutorial-for-beginners-optional.html"><a href="r-tutorial-for-beginners-optional.html#loading-data"><i class="fa fa-check"></i><b>1.3.3</b> Loading data</a></li>
+<li class="chapter" data-level="1.3.4" data-path="r-tutorial-for-beginners-optional.html"><a href="r-tutorial-for-beginners-optional.html#explore-your-data"><i class="fa fa-check"></i><b>1.3.4</b> Explore your data</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="plotting-the-data-optional.html"><a href="plotting-the-data-optional.html"><i class="fa fa-check"></i><b>1.4</b> Plotting the data (optional)</a><ul>
+<li class="chapter" data-level="1.4.1" data-path="plotting-the-data-optional.html"><a href="plotting-the-data-optional.html#a-histogram"><i class="fa fa-check"></i><b>1.4.1</b> A histogram</a></li>
+<li class="chapter" data-level="1.4.2" data-path="plotting-the-data-optional.html"><a href="plotting-the-data-optional.html#a-boxplot"><i class="fa fa-check"></i><b>1.4.2</b> A boxplot</a></li>
+<li class="chapter" data-level="1.4.3" data-path="plotting-the-data-optional.html"><a href="plotting-the-data-optional.html#scatterplot"><i class="fa fa-check"></i><b>1.4.3</b> Scatterplot</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="getting-your-data-into-r.html"><a href="getting-your-data-into-r.html"><i class="fa fa-check"></i><b>2</b> Getting your data into R</a><ul>
@@ -164,7 +179,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.0.6" data-path="week-1-home.html"><a href="week-1-home.html#question-1.f."><i class="fa fa-check"></i><b>3.0.6</b> Question 1.f.</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="week-1-class.html"><a href="week-1-class.html"><i class="fa fa-check"></i><b>4</b> Week 1 - Class</a><ul>
-<li class="chapter" data-level="4.1" data-path="loading-data.html"><a href="loading-data.html"><i class="fa fa-check"></i><b>4.1</b> Loading data</a></li>
+<li class="chapter" data-level="4.1" data-path="loading-data-1.html"><a href="loading-data-1.html"><i class="fa fa-check"></i><b>4.1</b> Loading data</a></li>
 <li class="chapter" data-level="4.2" data-path="section-1.html"><a href="section-1.html"><i class="fa fa-check"></i><b>4.2</b> Section 1</a><ul>
 <li class="chapter" data-level="4.2.1" data-path="section-1.html"><a href="section-1.html#question-1.a-1"><i class="fa fa-check"></i><b>4.2.1</b> Question 1.a</a></li>
 <li class="chapter" data-level="4.2.2" data-path="section-1.html"><a href="section-1.html#question-1.b-1"><i class="fa fa-check"></i><b>4.2.2</b> Question 1.b</a></li>
@@ -219,19 +234,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.0.10" data-path="week-2-home.html"><a href="week-2-home.html#question-1.j-1"><i class="fa fa-check"></i><b>5.0.10</b> Question 1.j</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="week-2-class.html"><a href="week-2-class.html"><i class="fa fa-check"></i><b>6</b> Week 2 - Class</a><ul>
-<li class="chapter" data-level="6.1" data-path="loading-data-1.html"><a href="loading-data-1.html"><i class="fa fa-check"></i><b>6.1</b> Loading data</a><ul>
-<li class="chapter" data-level="6.1.1" data-path="loading-data-1.html"><a href="loading-data-1.html#question-1"><i class="fa fa-check"></i><b>6.1.1</b> Question 1</a></li>
-<li class="chapter" data-level="6.1.2" data-path="loading-data-1.html"><a href="loading-data-1.html#question-2"><i class="fa fa-check"></i><b>6.1.2</b> Question 2</a></li>
-<li class="chapter" data-level="6.1.3" data-path="loading-data-1.html"><a href="loading-data-1.html#question-3"><i class="fa fa-check"></i><b>6.1.3</b> Question 3</a></li>
-<li class="chapter" data-level="6.1.4" data-path="loading-data-1.html"><a href="loading-data-1.html#question-4"><i class="fa fa-check"></i><b>6.1.4</b> Question 4</a></li>
-<li class="chapter" data-level="6.1.5" data-path="loading-data-1.html"><a href="loading-data-1.html#question-5"><i class="fa fa-check"></i><b>6.1.5</b> Question 5</a></li>
-<li class="chapter" data-level="6.1.6" data-path="loading-data-1.html"><a href="loading-data-1.html#question-6"><i class="fa fa-check"></i><b>6.1.6</b> Question 6</a></li>
-<li class="chapter" data-level="6.1.7" data-path="loading-data-1.html"><a href="loading-data-1.html#question-7"><i class="fa fa-check"></i><b>6.1.7</b> Question 7</a></li>
-<li class="chapter" data-level="6.1.8" data-path="loading-data-1.html"><a href="loading-data-1.html#question-8"><i class="fa fa-check"></i><b>6.1.8</b> Question 8</a></li>
-<li class="chapter" data-level="6.1.9" data-path="loading-data-1.html"><a href="loading-data-1.html#question-9"><i class="fa fa-check"></i><b>6.1.9</b> Question 9</a></li>
-<li class="chapter" data-level="6.1.10" data-path="loading-data-1.html"><a href="loading-data-1.html#question-10"><i class="fa fa-check"></i><b>6.1.10</b> Question 10</a></li>
-<li class="chapter" data-level="6.1.11" data-path="loading-data-1.html"><a href="loading-data-1.html#question-11"><i class="fa fa-check"></i><b>6.1.11</b> Question 11</a></li>
-</ul></li>
+<li class="chapter" data-level="6.0.1" data-path="week-2-class.html"><a href="week-2-class.html#loading-the-data"><i class="fa fa-check"></i><b>6.0.1</b> Loading the data</a></li>
+<li class="chapter" data-level="6.0.2" data-path="week-2-class.html"><a href="week-2-class.html#question-1"><i class="fa fa-check"></i><b>6.0.2</b> Question 1</a></li>
+<li class="chapter" data-level="6.0.3" data-path="week-2-class.html"><a href="week-2-class.html#question-2"><i class="fa fa-check"></i><b>6.0.3</b> Question 2</a></li>
+<li class="chapter" data-level="6.0.4" data-path="week-2-class.html"><a href="week-2-class.html#question-3"><i class="fa fa-check"></i><b>6.0.4</b> Question 3</a></li>
+<li class="chapter" data-level="6.0.5" data-path="week-2-class.html"><a href="week-2-class.html#question-4"><i class="fa fa-check"></i><b>6.0.5</b> Question 4</a></li>
+<li class="chapter" data-level="6.0.6" data-path="week-2-class.html"><a href="week-2-class.html#question-5"><i class="fa fa-check"></i><b>6.0.6</b> Question 5</a></li>
+<li class="chapter" data-level="6.0.7" data-path="week-2-class.html"><a href="week-2-class.html#question-6"><i class="fa fa-check"></i><b>6.0.7</b> Question 6</a></li>
+<li class="chapter" data-level="6.0.8" data-path="week-2-class.html"><a href="week-2-class.html#question-7"><i class="fa fa-check"></i><b>6.0.8</b> Question 7</a></li>
+<li class="chapter" data-level="6.0.9" data-path="week-2-class.html"><a href="week-2-class.html#question-8"><i class="fa fa-check"></i><b>6.0.9</b> Question 8</a></li>
+<li class="chapter" data-level="6.0.10" data-path="week-2-class.html"><a href="week-2-class.html#question-9"><i class="fa fa-check"></i><b>6.0.10</b> Question 9</a></li>
+<li class="chapter" data-level="6.0.11" data-path="week-2-class.html"><a href="week-2-class.html#question-10"><i class="fa fa-check"></i><b>6.0.11</b> Question 10</a></li>
+<li class="chapter" data-level="6.0.12" data-path="week-2-class.html"><a href="week-2-class.html#question-11"><i class="fa fa-check"></i><b>6.0.12</b> Question 11</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="week-3-home.html"><a href="week-3-home.html"><i class="fa fa-check"></i><b>7</b> Week 3 - Home</a><ul>
 <li class="chapter" data-level="7.0.1" data-path="week-3-home.html"><a href="week-3-home.html#get-started-with-lavaan"><i class="fa fa-check"></i><b>7.0.1</b> Get started with lavaan</a></li>
@@ -334,7 +348,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="14.0.14" data-path="week-6-class.html"><a href="week-6-class.html#question-13"><i class="fa fa-check"></i><b>14.0.14</b> Question 13</a></li>
 </ul></li>
 <li class="chapter" data-level="15" data-path="week-7-putting-it-all-together.html"><a href="week-7-putting-it-all-together.html"><i class="fa fa-check"></i><b>15</b> Week 7 - Putting it all together</a><ul>
-<li class="chapter" data-level="15.0.1" data-path="week-7-putting-it-all-together.html"><a href="week-7-putting-it-all-together.html#loading-the-data"><i class="fa fa-check"></i><b>15.0.1</b> Loading the data</a></li>
+<li class="chapter" data-level="15.0.1" data-path="week-7-putting-it-all-together.html"><a href="week-7-putting-it-all-together.html#loading-the-data-1"><i class="fa fa-check"></i><b>15.0.1</b> Loading the data</a></li>
 <li class="chapter" data-level="15.0.2" data-path="week-7-putting-it-all-together.html"><a href="week-7-putting-it-all-together.html#question-1-8"><i class="fa fa-check"></i><b>15.0.2</b> Question 1</a></li>
 <li class="chapter" data-level="15.0.3" data-path="week-7-putting-it-all-together.html"><a href="week-7-putting-it-all-together.html#question-2-8"><i class="fa fa-check"></i><b>15.0.3</b> Question 2</a></li>
 <li class="chapter" data-level="15.0.4" data-path="week-7-putting-it-all-together.html"><a href="week-7-putting-it-all-together.html#question-3-8"><i class="fa fa-check"></i><b>15.0.4</b> Question 3</a></li>
@@ -368,14 +382,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Chapter 15</span> Week 7 - Putting it all together</h1>
 <p><strong>Path analysis on Theory of Reasoned Action data (file: toradata.sav)</strong></p>
 <p>A popular theory in psychology to explain social behavior is the Theory of Reasoned Action (TORA) of Ajzen and Fishbein (sometimes called the Ajzen-Fishbein model). This states that behavior is predicted by behavioral intention, which is in turn predicted by the attitude toward the behavior and the subjective norm about the behavior. Ajzen and Fisbein originally proposed a complex way to measure attitude and norm, but in practice researchers usually measure the attitude by including a number of attitude questions, and the norm by including a number of questions about the perceived social norms (e.g., how many of your friends would do…). The intention is usually measured by a single question on a 7 or 9-point scale and the behavior is either a dichotomous outcome (yes/no) or a frequency (how often do you…). Later, a third determinant was added, perceived behavioral control. If people feel they have little control over their behavior, this will also influence their behavior.</p>
-<div id="loading-the-data" class="section level3">
+<div id="loading-the-data-1" class="section level3">
 <h3><span class="header-section-number">15.0.1</span> Loading the data</h3>
 <p>The TORA data are an artificial data set following results found by Reinecke (1998). The behavior under investigation is condom use by 16-24 year adolescents. The dependent variable ‘condom use’ is measured on a 5-point frequency scale (How often do you…), and the behavioral intention on a similar 5-point scale (In general do you intend to…). There are three attitude items about condom use (e.g., using a condom is awkward), three normative items (e.g., I think most of my friends would use…), and three control items (e.g., I know well how to use a condom), all measured on a 5-point Likert-type scale.</p>
 <details>
 <p><summary>Click for explanation</summary></p>
-<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb272-1" title="1"><span class="kw">library</span>(foreign)</a>
-<a class="sourceLine" id="cb272-2" title="2">df &lt;-<span class="st"> </span><span class="kw">read.spss</span>(<span class="st">&quot;toradata.sav&quot;</span>, <span class="dt">use.value.labels =</span> <span class="ot">FALSE</span>, <span class="dt">to.data.frame =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb272-3" title="3">df<span class="op">$</span>gender &lt;-<span class="st"> </span><span class="kw">factor</span>(df<span class="op">$</span>gender, <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;woman&quot;</span>, <span class="st">&quot;man&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb291-1" title="1">df &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;TCSM_student/toradata.csv&quot;</span>, <span class="dt">stringsAsFactors =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 
 </div>
 <div id="question-1-8" class="section level3">
@@ -384,15 +396,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!--*Hint: Use* `[]; %in%`-->
 <details>
 <p><summary>Click for explanation</summary></p>
-<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb273-1" title="1"><span class="kw">library</span>(lavaan)</a>
-<a class="sourceLine" id="cb273-2" title="2">TORA_cfa &lt;-<span class="st"> &#39;attit =~ attit1 + attit2 + attit3</span></a>
-<a class="sourceLine" id="cb273-3" title="3"><span class="st">             norm =~ norm1 + norm2 + norm3</span></a>
-<a class="sourceLine" id="cb273-4" title="4"><span class="st">             control =~ control1 + control2 + control3&#39;</span></a>
-<a class="sourceLine" id="cb273-5" title="5"></a>
-<a class="sourceLine" id="cb273-6" title="6">fit &lt;-<span class="st"> </span><span class="kw">cfa</span>(TORA_cfa, <span class="dt">data =</span> df)</a>
-<a class="sourceLine" id="cb273-7" title="7"></a>
-<a class="sourceLine" id="cb273-8" title="8"><span class="kw">summary</span>(fit, <span class="dt">fit.measures=</span><span class="ot">TRUE</span>)</a></code></pre></div>
-<pre><code>## lavaan 0.6-5 ended normally after 29 iterations
+<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb292-1" title="1"><span class="kw">library</span>(lavaan)</a>
+<a class="sourceLine" id="cb292-2" title="2">TORA_cfa &lt;-<span class="st"> &#39;attit =~ attit_1 + attit_2 + attit_3</span></a>
+<a class="sourceLine" id="cb292-3" title="3"><span class="st">             norm =~ norm_1 + norm_2 + norm_3</span></a>
+<a class="sourceLine" id="cb292-4" title="4"><span class="st">             control =~ control_1 + control_2 + control_3&#39;</span></a>
+<a class="sourceLine" id="cb292-5" title="5"></a>
+<a class="sourceLine" id="cb292-6" title="6">fit &lt;-<span class="st"> </span><span class="kw">cfa</span>(TORA_cfa, <span class="dt">data =</span> df)</a>
+<a class="sourceLine" id="cb292-7" title="7"></a>
+<a class="sourceLine" id="cb292-8" title="8"><span class="kw">summary</span>(fit, <span class="dt">fit.measures=</span><span class="ot">TRUE</span>)</a></code></pre></div>
+<pre><code>## lavaan 0.6-6 ended normally after 29 iterations
 ## 
 ##   Estimator                                         ML
 ##   Optimization method                           NLMINB
@@ -439,24 +451,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ## Parameter Estimates:
 ## 
+##   Standard errors                             Standard
 ##   Information                                 Expected
 ##   Information saturated (h1) model          Structured
-##   Standard errors                             Standard
 ## 
 ## Latent Variables:
 ##                    Estimate  Std.Err  z-value  P(&gt;|z|)
 ##   attit =~                                            
-##     attit1            1.000                           
-##     attit2            1.036    0.068   15.308    0.000
-##     attit3           -1.002    0.067  -14.856    0.000
+##     attit_1           1.000                           
+##     attit_2           1.036    0.068   15.308    0.000
+##     attit_3          -1.002    0.067  -14.856    0.000
 ##   norm =~                                             
-##     norm1             1.000                           
-##     norm2             1.031    0.098   10.574    0.000
-##     norm3             0.932    0.093   10.013    0.000
+##     norm_1            1.000                           
+##     norm_2            1.031    0.098   10.574    0.000
+##     norm_3            0.932    0.093   10.013    0.000
 ##   control =~                                          
-##     control1          1.000                           
-##     control2          0.862    0.129    6.699    0.000
-##     control3          0.968    0.133    7.290    0.000
+##     control_1         1.000                           
+##     control_2         0.862    0.129    6.699    0.000
+##     control_3         0.968    0.133    7.290    0.000
 ## 
 ## Covariances:
 ##                    Estimate  Std.Err  z-value  P(&gt;|z|)
@@ -468,15 +480,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ## Variances:
 ##                    Estimate  Std.Err  z-value  P(&gt;|z|)
-##    .attit1            0.418    0.052    8.047    0.000
-##    .attit2            0.310    0.047    6.633    0.000
-##    .attit3            0.369    0.049    7.577    0.000
-##    .norm1             0.504    0.071    7.130    0.000
-##    .norm2             0.469    0.071    6.591    0.000
-##    .norm3             0.635    0.075    8.465    0.000
-##    .control1          0.614    0.078    7.905    0.000
-##    .control2          0.865    0.091    9.520    0.000
-##    .control3          0.762    0.087    8.758    0.000
+##    .attit_1           0.418    0.052    8.047    0.000
+##    .attit_2           0.310    0.047    6.633    0.000
+##    .attit_3           0.369    0.049    7.577    0.000
+##    .norm_1            0.504    0.071    7.130    0.000
+##    .norm_2            0.469    0.071    6.591    0.000
+##    .norm_3            0.635    0.075    8.465    0.000
+##    .control_1         0.614    0.078    7.905    0.000
+##    .control_2         0.865    0.091    9.520    0.000
+##    .control_3         0.762    0.087    8.758    0.000
 ##     attit             0.885    0.116    7.620    0.000
 ##     norm              0.743    0.116    6.423    0.000
 ##     control           0.497    0.099    5.002    0.000</code></pre>
@@ -487,16 +499,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Set up a TORA model with attitude and norms as latent variables, both predicting behavorial intention and behavior. Analyze it. Interpret the model fit. If you find the model to fit, look at the results. How much variance does the model explain?</p>
 <details>
 <p><summary>Click for explanation</summary></p>
-<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb275-1" title="1">TORA_sem &lt;-<span class="st"> &#39;attit =~ attit1 + attit2 + attit3</span></a>
-<a class="sourceLine" id="cb275-2" title="2"><span class="st">             norm =~ norm1 + norm2 + norm3</span></a>
-<a class="sourceLine" id="cb275-3" title="3"><span class="st">             </span></a>
-<a class="sourceLine" id="cb275-4" title="4"><span class="st">             intent ~ attit + norm</span></a>
-<a class="sourceLine" id="cb275-5" title="5"><span class="st">             behavior ~ intent&#39;</span></a>
-<a class="sourceLine" id="cb275-6" title="6"></a>
-<a class="sourceLine" id="cb275-7" title="7">fit &lt;-<span class="st"> </span><span class="kw">sem</span>(TORA_sem, <span class="dt">data =</span> df)</a>
-<a class="sourceLine" id="cb275-8" title="8"></a>
-<a class="sourceLine" id="cb275-9" title="9"><span class="kw">summary</span>(fit, <span class="dt">fit.measures =</span> <span class="ot">TRUE</span>, <span class="dt">rsquare =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
-<pre><code>## lavaan 0.6-5 ended normally after 24 iterations
+<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb294-1" title="1">TORA_sem &lt;-<span class="st"> &#39;attit =~ attit_1 + attit_2 + attit_3</span></a>
+<a class="sourceLine" id="cb294-2" title="2"><span class="st">             norm =~ norm_1 + norm_2 + norm_3</span></a>
+<a class="sourceLine" id="cb294-3" title="3"><span class="st">             </span></a>
+<a class="sourceLine" id="cb294-4" title="4"><span class="st">             intent ~ attit + norm</span></a>
+<a class="sourceLine" id="cb294-5" title="5"><span class="st">             behavior ~ intent&#39;</span></a>
+<a class="sourceLine" id="cb294-6" title="6"></a>
+<a class="sourceLine" id="cb294-7" title="7">fit &lt;-<span class="st"> </span><span class="kw">sem</span>(TORA_sem, <span class="dt">data =</span> df)</a>
+<a class="sourceLine" id="cb294-8" title="8"></a>
+<a class="sourceLine" id="cb294-9" title="9"><span class="kw">summary</span>(fit, <span class="dt">fit.measures =</span> <span class="ot">TRUE</span>, <span class="dt">rsquare =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<pre><code>## lavaan 0.6-6 ended normally after 24 iterations
 ## 
 ##   Estimator                                         ML
 ##   Optimization method                           NLMINB
@@ -543,20 +555,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ## Parameter Estimates:
 ## 
+##   Standard errors                             Standard
 ##   Information                                 Expected
 ##   Information saturated (h1) model          Structured
-##   Standard errors                             Standard
 ## 
 ## Latent Variables:
 ##                    Estimate  Std.Err  z-value  P(&gt;|z|)
 ##   attit =~                                            
-##     attit1            1.000                           
-##     attit2            1.039    0.068   15.365    0.000
-##     attit3           -1.002    0.067  -14.850    0.000
+##     attit_1           1.000                           
+##     attit_2           1.039    0.068   15.365    0.000
+##     attit_3          -1.002    0.067  -14.850    0.000
 ##   norm =~                                             
-##     norm1             1.000                           
-##     norm2             0.983    0.087   11.333    0.000
-##     norm3             0.935    0.087   10.778    0.000
+##     norm_1            1.000                           
+##     norm_2            0.983    0.087   11.333    0.000
+##     norm_3            0.935    0.087   10.778    0.000
 ## 
 ## Regressions:
 ##                    Estimate  Std.Err  z-value  P(&gt;|z|)
@@ -573,12 +585,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ## Variances:
 ##                    Estimate  Std.Err  z-value  P(&gt;|z|)
-##    .attit1            0.420    0.052    8.103    0.000
-##    .attit2            0.306    0.046    6.604    0.000
-##    .attit3            0.372    0.049    7.651    0.000
-##    .norm1             0.483    0.064    7.581    0.000
-##    .norm2             0.521    0.065    7.954    0.000
-##    .norm3             0.610    0.070    8.713    0.000
+##    .attit_1           0.420    0.052    8.103    0.000
+##    .attit_2           0.306    0.046    6.604    0.000
+##    .attit_3           0.372    0.049    7.651    0.000
+##    .norm_1            0.483    0.064    7.581    0.000
+##    .norm_2            0.521    0.065    7.954    0.000
+##    .norm_3            0.610    0.070    8.713    0.000
 ##    .intent            0.423    0.048    8.769    0.000
 ##    .behavior          0.603    0.054   11.180    0.000
 ##     attit             0.884    0.116    7.614    0.000
@@ -586,12 +598,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ## R-Square:
 ##                    Estimate
-##     attit1            0.678
-##     attit2            0.757
-##     attit3            0.705
-##     norm1             0.613
-##     norm2             0.587
-##     norm3             0.523
+##     attit_1           0.678
+##     attit_2           0.757
+##     attit_3           0.705
+##     norm_1            0.613
+##     norm_2            0.587
+##     norm_3            0.523
 ##     intent            0.639
 ##     behavior          0.520</code></pre>
 
@@ -602,17 +614,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <details>
 <p><summary>Click for explanation</summary></p>
 <p>The option <code>rsquare = TRUE</code> tells us how much variance is explained in each dependent variable:</p>
-<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb277-1" title="1">TORA_sem &lt;-<span class="st"> &#39;attit =~ attit1 + attit2 + attit3</span></a>
-<a class="sourceLine" id="cb277-2" title="2"><span class="st">             norm =~ norm1 + norm2 + norm3</span></a>
-<a class="sourceLine" id="cb277-3" title="3"><span class="st">             control =~ control1 + control2 + control3</span></a>
-<a class="sourceLine" id="cb277-4" title="4"><span class="st">             </span></a>
-<a class="sourceLine" id="cb277-5" title="5"><span class="st">             intent ~ attit + norm + control</span></a>
-<a class="sourceLine" id="cb277-6" title="6"><span class="st">             behavior ~ intent&#39;</span></a>
-<a class="sourceLine" id="cb277-7" title="7"></a>
-<a class="sourceLine" id="cb277-8" title="8">fit &lt;-<span class="st"> </span><span class="kw">sem</span>(TORA_sem, <span class="dt">data =</span> df)</a>
-<a class="sourceLine" id="cb277-9" title="9"></a>
-<a class="sourceLine" id="cb277-10" title="10"><span class="kw">summary</span>(fit, <span class="dt">fit.measures =</span> <span class="ot">TRUE</span>, <span class="dt">rsquare =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
-<pre><code>## lavaan 0.6-5 ended normally after 33 iterations
+<div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb296-1" title="1">TORA_sem &lt;-<span class="st"> &#39;attit =~ attit_1 + attit_2 + attit_3</span></a>
+<a class="sourceLine" id="cb296-2" title="2"><span class="st">             norm =~ norm_1 + norm_2 + norm_3</span></a>
+<a class="sourceLine" id="cb296-3" title="3"><span class="st">             control =~ control_1 + control_2 + control_3</span></a>
+<a class="sourceLine" id="cb296-4" title="4"><span class="st">             </span></a>
+<a class="sourceLine" id="cb296-5" title="5"><span class="st">             intent ~ attit + norm + control</span></a>
+<a class="sourceLine" id="cb296-6" title="6"><span class="st">             behavior ~ intent&#39;</span></a>
+<a class="sourceLine" id="cb296-7" title="7"></a>
+<a class="sourceLine" id="cb296-8" title="8">fit &lt;-<span class="st"> </span><span class="kw">sem</span>(TORA_sem, <span class="dt">data =</span> df)</a>
+<a class="sourceLine" id="cb296-9" title="9"></a>
+<a class="sourceLine" id="cb296-10" title="10"><span class="kw">summary</span>(fit, <span class="dt">fit.measures =</span> <span class="ot">TRUE</span>, <span class="dt">rsquare =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<pre><code>## lavaan 0.6-6 ended normally after 33 iterations
 ## 
 ##   Estimator                                         ML
 ##   Optimization method                           NLMINB
@@ -659,24 +671,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ## Parameter Estimates:
 ## 
+##   Standard errors                             Standard
 ##   Information                                 Expected
 ##   Information saturated (h1) model          Structured
-##   Standard errors                             Standard
 ## 
 ## Latent Variables:
 ##                    Estimate  Std.Err  z-value  P(&gt;|z|)
 ##   attit =~                                            
-##     attit1            1.000                           
-##     attit2            1.033    0.068   15.295    0.000
-##     attit3           -1.018    0.068  -15.087    0.000
+##     attit_1           1.000                           
+##     attit_2           1.033    0.068   15.295    0.000
+##     attit_3          -1.018    0.068  -15.087    0.000
 ##   norm =~                                             
-##     norm1             1.000                           
-##     norm2             0.985    0.087   11.305    0.000
-##     norm3             0.947    0.087   10.845    0.000
+##     norm_1            1.000                           
+##     norm_2            0.985    0.087   11.305    0.000
+##     norm_3            0.947    0.087   10.845    0.000
 ##   control =~                                          
-##     control1          1.000                           
-##     control2          0.864    0.126    6.855    0.000
-##     control3          0.958    0.129    7.417    0.000
+##     control_1         1.000                           
+##     control_2         0.864    0.126    6.855    0.000
+##     control_3         0.958    0.129    7.417    0.000
 ## 
 ## Regressions:
 ##                    Estimate  Std.Err  z-value  P(&gt;|z|)
@@ -697,15 +709,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ## Variances:
 ##                    Estimate  Std.Err  z-value  P(&gt;|z|)
-##    .attit1            0.427    0.051    8.295    0.000
-##    .attit2            0.325    0.046    7.101    0.000
-##    .attit3            0.349    0.047    7.477    0.000
-##    .norm1             0.490    0.064    7.702    0.000
-##    .norm2             0.524    0.065    8.025    0.000
-##    .norm3             0.600    0.069    8.652    0.000
-##    .control1          0.610    0.076    8.015    0.000
-##    .control2          0.861    0.090    9.580    0.000
-##    .control3          0.769    0.086    8.938    0.000
+##    .attit_1           0.427    0.051    8.295    0.000
+##    .attit_2           0.325    0.046    7.101    0.000
+##    .attit_3           0.349    0.047    7.477    0.000
+##    .norm_1            0.490    0.064    7.702    0.000
+##    .norm_2            0.524    0.065    8.025    0.000
+##    .norm_3            0.600    0.069    8.652    0.000
+##    .control_1         0.610    0.076    8.015    0.000
+##    .control_2         0.861    0.090    9.580    0.000
+##    .control_3         0.769    0.086    8.938    0.000
 ##    .intent            0.412    0.046    8.890    0.000
 ##    .behavior          0.603    0.054   11.180    0.000
 ##     attit             0.877    0.115    7.596    0.000
@@ -714,15 +726,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ## R-Square:
 ##                    Estimate
-##     attit1            0.673
-##     attit2            0.742
-##     attit3            0.723
-##     norm1             0.607
-##     norm2             0.584
-##     norm3             0.531
-##     control1          0.450
-##     control2          0.303
-##     control3          0.374
+##     attit_1           0.673
+##     attit_2           0.742
+##     attit_3           0.723
+##     norm_1            0.607
+##     norm_2            0.584
+##     norm_3            0.531
+##     control_1         0.450
+##     control_2         0.303
+##     control_3         0.374
 ##     intent            0.649
 ##     behavior          0.520</code></pre>
 
@@ -734,30 +746,31 @@ behavior; the effect should be mediated totally by the behavioral intention. The
 control can be either direct or indirect; the TORA does not specify which. Test a model with both a direct and indirect effect of control on TORA and decide whether you want to keep or remove them. Decide which model you accept as the best model for these data, and explain how you decided to keep this model.</p>
 <details>
 <p><summary>Click for explanation</summary></p>
-<div class="sourceCode" id="cb279"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb279-1" title="1">TORA_dir &lt;-<span class="st"> &#39;attit =~ attit1 + attit2 + attit3</span></a>
-<a class="sourceLine" id="cb279-2" title="2"><span class="st">             norm =~ norm1 + norm2 + norm3</span></a>
-<a class="sourceLine" id="cb279-3" title="3"><span class="st">             control =~ control1 + control2 + control3</span></a>
-<a class="sourceLine" id="cb279-4" title="4"><span class="st">             </span></a>
-<a class="sourceLine" id="cb279-5" title="5"><span class="st">             intent ~ attit + norm + control</span></a>
-<a class="sourceLine" id="cb279-6" title="6"><span class="st">             behavior ~ intent&#39;</span></a>
-<a class="sourceLine" id="cb279-7" title="7"></a>
-<a class="sourceLine" id="cb279-8" title="8">TORA_ind &lt;-<span class="st"> &#39;attit =~ attit1 + attit2 + attit3</span></a>
-<a class="sourceLine" id="cb279-9" title="9"><span class="st">             norm =~ norm1 + norm2 + norm3</span></a>
-<a class="sourceLine" id="cb279-10" title="10"><span class="st">             control =~ control1 + control2 + control3</span></a>
-<a class="sourceLine" id="cb279-11" title="11"><span class="st">             </span></a>
-<a class="sourceLine" id="cb279-12" title="12"><span class="st">             intent ~ attit + norm + control</span></a>
-<a class="sourceLine" id="cb279-13" title="13"><span class="st">             behavior ~ intent + control&#39;</span></a>
-<a class="sourceLine" id="cb279-14" title="14"></a>
-<a class="sourceLine" id="cb279-15" title="15">fit_dir &lt;-<span class="st"> </span><span class="kw">sem</span>(TORA_dir, <span class="dt">data =</span> df)</a>
-<a class="sourceLine" id="cb279-16" title="16">fit_ind &lt;-<span class="st"> </span><span class="kw">sem</span>(TORA_ind, <span class="dt">data =</span> df)</a></code></pre></div>
+<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb298-1" title="1">TORA_dir &lt;-<span class="st"> &#39;attit =~ attit_1 + attit_2 + attit_3</span></a>
+<a class="sourceLine" id="cb298-2" title="2"><span class="st">             norm =~ norm_1 + norm_2 + norm_3</span></a>
+<a class="sourceLine" id="cb298-3" title="3"><span class="st">             control =~ control_1 + control_2 + control_3</span></a>
+<a class="sourceLine" id="cb298-4" title="4"><span class="st">             </span></a>
+<a class="sourceLine" id="cb298-5" title="5"><span class="st">             intent ~ attit + norm + control</span></a>
+<a class="sourceLine" id="cb298-6" title="6"><span class="st">             behavior ~ intent&#39;</span></a>
+<a class="sourceLine" id="cb298-7" title="7"></a>
+<a class="sourceLine" id="cb298-8" title="8">TORA_ind &lt;-<span class="st"> &#39;attit =~ attit_1 + attit_2 + attit_3</span></a>
+<a class="sourceLine" id="cb298-9" title="9"><span class="st">             norm =~ norm_1 + norm_2 + norm_3</span></a>
+<a class="sourceLine" id="cb298-10" title="10"><span class="st">             control =~ control_1 + control_2 + control_3</span></a>
+<a class="sourceLine" id="cb298-11" title="11"><span class="st">             </span></a>
+<a class="sourceLine" id="cb298-12" title="12"><span class="st">             intent ~ attit + norm + control</span></a>
+<a class="sourceLine" id="cb298-13" title="13"><span class="st">             behavior ~ intent + control&#39;</span></a>
+<a class="sourceLine" id="cb298-14" title="14"></a>
+<a class="sourceLine" id="cb298-15" title="15">fit_dir &lt;-<span class="st"> </span><span class="kw">sem</span>(TORA_dir, <span class="dt">data =</span> df)</a>
+<a class="sourceLine" id="cb298-16" title="16">fit_ind &lt;-<span class="st"> </span><span class="kw">sem</span>(TORA_ind, <span class="dt">data =</span> df)</a></code></pre></div>
 <p>To compare the models, we can use a <span class="math inline">\(\chi^2\)</span>-difference test, using the <code>anova()</code> function or `<code>semTools::compareFits</code>:</p>
-<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb280-1" title="1"><span class="kw">anova</span>(fit_dir, fit_ind)</a></code></pre></div>
+<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb299-1" title="1"><span class="kw">anova</span>(fit_dir, fit_ind)</a></code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Df"],"name":[1],"type":["int"],"align":["right"]},{"label":["AIC"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["BIC"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Chisq"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Chisq diff"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["Df diff"],"name":[6],"type":["int"],"align":["right"]},{"label":["Pr(>Chisq)"],"name":[7],"type":["dbl"],"align":["right"]}],"data":[{"1":"38","2":"7156.952","3":"7255.553","4":"47.38864","5":"NA","6":"NA","7":"NA","_rn_":"fit_ind"},{"1":"39","2":"7170.360","3":"7265.439","4":"62.79676","5":"15.40812","6":"1","7":"8.661552e-05","_rn_":"fit_dir"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
-<div class="sourceCode" id="cb281"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb281-1" title="1"><span class="kw">compareFit</span>(<span class="dt">Direct =</span> fit_dir, <span class="dt">Indirect =</span> fit_ind)</a></code></pre></div>
+<div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb300-1" title="1"><span class="kw">library</span>(semTools)</a>
+<a class="sourceLine" id="cb300-2" title="2"><span class="kw">compareFit</span>(<span class="dt">Direct =</span> fit_dir, <span class="dt">Indirect =</span> fit_ind)</a></code></pre></div>
 <pre><code>## ################### Nested Model Comparison #########################
 ## Chi-Squared Difference Test
 ## 
@@ -779,58 +792,84 @@ control can be either direct or indirect; the TORA does not specify which. Test 
 </div>
 <div id="question-5-8" class="section level3">
 <h3><span class="header-section-number">15.0.6</span> Question 5</h3>
-<p>Use <code>semPlot::semPaths()</code> to plot both models, and check whether the picture corresponds with theory and with the way you intended to specify the model.</p>
+<p>Use <code>tidySEM::graph_sem()</code> to plot both models, and check whether the picture corresponds with theory and with the way you intended to specify the model.</p>
 <details>
 <p><summary>Click for explanation</summary></p>
-<div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb283-1" title="1"><span class="kw">library</span>(semPlot)</a>
-<a class="sourceLine" id="cb283-2" title="2"><span class="kw">semPaths</span>(fit_dir, <span class="dt">whatLabels =</span> <span class="st">&quot;est&quot;</span>)</a></code></pre></div>
-<p><img src="TCSM_files/figure-html/unnamed-chunk-208-1.png" width="672" /></p>
-<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb284-1" title="1"><span class="kw">semPaths</span>(fit_ind, <span class="dt">whatLabels =</span> <span class="st">&quot;est&quot;</span>)</a></code></pre></div>
-<p><img src="TCSM_files/figure-html/unnamed-chunk-208-2.png" width="672" />
+<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb302-1" title="1"><span class="kw">library</span>(tidySEM)</a>
+<a class="sourceLine" id="cb302-2" title="2"><span class="kw">graph_sem</span>(fit_dir)</a></code></pre></div>
+<p><img src="TCSM_files/figure-html/unnamed-chunk-229-1.png" width="672" /></p>
+<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb303-1" title="1"><span class="kw">graph_sem</span>(fit_ind)</a></code></pre></div>
+<p><img src="TCSM_files/figure-html/unnamed-chunk-229-2.png" width="672" />
 </p>
 </div>
 <div id="question-6-8" class="section level3">
 <h3><span class="header-section-number">15.0.7</span> Question 6</h3>
-<p>Before you learned about latent variables, you might have analyzed these data by computing sum or mean scores for attitude, norms, and control, and using these as observed variables in a path model. Set up a TORA model using the sum or mean scores of the variables, and compare the results with the previous analysis. Which model would you prefer, and why?</p>
-<p><em>Hint: Use</em> <code>$; &lt;-, [, rowMeans(), sum()</code></p>
+<p>Before you learned about latent variables, you might have analyzed these data by computing sum or mean scores for attitude, norms, and control, and using these as observed variables in a path model. It is possible to obtain mean scale scores using <code>tidySEM</code>, as follows:</p>
+<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb304-1" title="1"><span class="kw">library</span>(dplyr)</a>
+<a class="sourceLine" id="cb304-2" title="2">df[,<span class="kw">c</span>(<span class="dv">2</span><span class="op">:</span><span class="dv">7</span>, <span class="dv">10</span><span class="op">:</span><span class="dv">12</span>)] <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb304-3" title="3"><span class="st">  </span><span class="kw">tidy_sem</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb304-4" title="4"><span class="st">  </span><span class="kw">create_scales</span>() -&gt;<span class="st"> </span>scales</a></code></pre></div>
+<p>The <code>scales</code> object contains a table with scale descriptive statistics:</p>
+<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb305-1" title="1">scales<span class="op">$</span>descriptives</a></code></pre></div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["Subscale"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Items"],"name":[2],"type":["chr"],"align":["left"]},{"label":["n"],"name":[3],"type":["chr"],"align":["left"]},{"label":["mean"],"name":[4],"type":["chr"],"align":["left"]},{"label":["sd"],"name":[5],"type":["chr"],"align":["left"]},{"label":["min"],"name":[6],"type":["chr"],"align":["left"]},{"label":["max"],"name":[7],"type":["chr"],"align":["left"]},{"label":["skew"],"name":[8],"type":["chr"],"align":["left"]},{"label":["skew_2se"],"name":[9],"type":["chr"],"align":["left"]},{"label":["kurt"],"name":[10],"type":["chr"],"align":["left"]},{"label":["kurt_2se"],"name":[11],"type":["chr"],"align":["left"]},{"label":["Reliability"],"name":[12],"type":["chr"],"align":["left"]},{"label":["Interpret"],"name":[13],"type":["chr"],"align":["left"]},{"label":["min_load"],"name":[14],"type":["chr"],"align":["left"]},{"label":["max_load"],"name":[15],"type":["chr"],"align":["left"]}],"data":[{"1":"attit","2":"3.00","3":"250.00","4":"2.99","5":"1.02","6":"1.00","7":"5.00","8":"-0.09","9":"-0.30","10":"-0.60","11":"-0.97","12":"0.88","13":"Good","14":"0.82","15":"0.89"},{"1":"norm","2":"3.00","3":"250.00","4":"2.99","5":"0.95","6":"1.00","7":"5.00","8":"-0.03","9":"-0.09","10":"-0.53","11":"-0.87","12":"0.80","13":"Good","14":"0.69","15":"0.82"},{"1":"control","2":"3.00","3":"250.00","4":"2.97","5":"0.83","6":"1.00","7":"5.00","8":"-0.20","9":"-0.65","10":"-0.35","11":"-0.57","12":"0.64","13":"Questionable","14":"0.54","15":"0.74"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<p>Use the mean scores of the variables to set up a TORA model,
+and compare the results with the previous analysis.
+Which model would you prefer, and why?</p>
+<p><em>Hint: Use</em> <code>cbind()</code> <em>to add the scale scores to</em> <code>df</code></p>
 <details>
 <p><summary>Click for explanation</summary></p>
-<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb285-1" title="1">df<span class="op">$</span>attit &lt;-<span class="st"> </span><span class="kw">rowMeans</span>(df[, <span class="kw">c</span>(<span class="st">&quot;attit1&quot;</span>, <span class="st">&quot;attit2&quot;</span>, <span class="st">&quot;attit3&quot;</span>)])</a>
-<a class="sourceLine" id="cb285-2" title="2"><span class="co"># Or: df$norm &lt;- rowSums(df[, c(&quot;attit1&quot;, &quot;attit2&quot;, &quot;attit3&quot;)])</span></a>
-<a class="sourceLine" id="cb285-3" title="3">df<span class="op">$</span>norm &lt;-<span class="st"> </span><span class="kw">rowMeans</span>(df[, <span class="kw">c</span>(<span class="st">&quot;norm1&quot;</span>, <span class="st">&quot;norm2&quot;</span>, <span class="st">&quot;norm3&quot;</span>)])</a>
-<a class="sourceLine" id="cb285-4" title="4">df<span class="op">$</span>control &lt;-<span class="st"> </span><span class="kw">rowMeans</span>(df[, <span class="kw">c</span>(<span class="st">&quot;control1&quot;</span>, <span class="st">&quot;control2&quot;</span>, <span class="st">&quot;control3&quot;</span>)])</a>
-<a class="sourceLine" id="cb285-5" title="5"></a>
-<a class="sourceLine" id="cb285-6" title="6">TORA_obs &lt;-<span class="st"> &#39;intent ~ attit + norm + control</span></a>
-<a class="sourceLine" id="cb285-7" title="7"><span class="st">             behavior ~ intent&#39;</span></a>
-<a class="sourceLine" id="cb285-8" title="8">fit_obs &lt;-<span class="st"> </span><span class="kw">sem</span>(TORA_obs, df)</a></code></pre></div>
-<p>The fit of this new model is worse than the model that included latent variables. However, we cannot directly compare fit indices, because these models are <strong>not nested</strong>! They are estimated on different variables. We will get a warning to emphasize this point. We can only interpret the Model Fit Indices table, and the Differences in Fit Indices, but not the Nested Model Comparison.</p>
-<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb286-1" title="1"><span class="kw">compareFit</span>(<span class="dt">Latent =</span> fit_dir,</a>
-<a class="sourceLine" id="cb286-2" title="2">           <span class="dt">Observed =</span> fit_obs)</a></code></pre></div>
+<div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb306-1" title="1"><span class="kw">library</span>(dplyr)</a>
+<a class="sourceLine" id="cb306-2" title="2"><span class="kw">names</span>(df)</a></code></pre></div>
+<pre><code>##  [1] &quot;respnr&quot;    &quot;attit_1&quot;   &quot;attit_2&quot;   &quot;attit_3&quot;   &quot;norm_1&quot;    &quot;norm_2&quot;   
+##  [7] &quot;norm_3&quot;    &quot;intent&quot;    &quot;behavior&quot;  &quot;control_1&quot; &quot;control_2&quot; &quot;control_3&quot;
+## [13] &quot;sex&quot;</code></pre>
+<div class="sourceCode" id="cb308"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb308-1" title="1">df <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb308-2" title="2"><span class="st">  </span><span class="kw">tidy_sem</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb308-3" title="3"><span class="st">  </span>tidySEM<span class="op">::</span><span class="kw">create_scales</span>() -&gt;<span class="st"> </span>scales</a>
+<a class="sourceLine" id="cb308-4" title="4">df_obs &lt;-<span class="st"> </span><span class="kw">cbind</span>(df, scales<span class="op">$</span>scores)</a>
+<a class="sourceLine" id="cb308-5" title="5"></a>
+<a class="sourceLine" id="cb308-6" title="6">TORA_obs &lt;-<span class="st"> &#39;intent ~ attit + norm + control</span></a>
+<a class="sourceLine" id="cb308-7" title="7"><span class="st">             behavior ~ intent&#39;</span></a>
+<a class="sourceLine" id="cb308-8" title="8">fit_obs &lt;-<span class="st"> </span><span class="kw">sem</span>(TORA_obs, df_obs)</a></code></pre></div>
+<p>The fit of this new model is worse than the model that included latent variables.
+However, note that these models are <strong>not nested</strong>, so we cannot directly compare fit indices.
+They are estimated on different variables. We will get a warning to emphasize this point. We can only interpret the Model Fit Indices table, and the Differences in Fit Indices, but not the Nested Model Comparison.</p>
+<div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb309-1" title="1"><span class="kw">compareFit</span>(<span class="dt">Latent =</span> fit_dir,</a>
+<a class="sourceLine" id="cb309-2" title="2">           <span class="dt">Observed =</span> fit_obs)</a></code></pre></div>
 <pre><code>## ################### Nested Model Comparison #########################
 ## Chi-Squared Difference Test
 ## 
 ##          Df    AIC    BIC  Chisq Chisq diff Df diff Pr(&gt;Chisq)  
-## Observed  3 1162.6 1183.7 13.528                                
-## Latent   39 7170.4 7265.4 62.797     49.269      36    0.06928 .
+## Observed  3 1130.6 1151.7 15.342                                
+## Latent   39 7170.4 7265.4 62.797     47.455      36    0.09588 .
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
 ## ####################### Model Fit Indices ###########################
 ##            chisq df pvalue   cfi   tli       aic       bic rmsea  srmr
-## Observed 13.528†  3   .004 .972  .934  1162.568† 1183.697† .118  .037†
+## Observed 15.342†  3   .002 .970  .929  1130.603† 1151.732† .128  .042†
 ## Latent   62.797  39   .009 .981† .974† 7170.360  7265.439  .049† .043 
 ## 
 ## ################## Differences in Fit Indices #######################
-##                   df  cfi  tli      aic      bic  rmsea  srmr
-## Latent - Observed 36 0.01 0.04 6007.792 6081.742 -0.069 0.006</code></pre>
+##                   df   cfi   tli      aic      bic  rmsea  srmr
+## Latent - Observed 36 0.012 0.045 6039.757 6113.707 -0.079 0.001</code></pre>
 <p>We can also inspect the regression coefficients in both models:</p>
-<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb288-1" title="1">parameters_latent &lt;-<span class="st"> </span><span class="kw">partable</span>(fit_dir)</a>
-<a class="sourceLine" id="cb288-2" title="2">parameters_observed &lt;-<span class="st"> </span><span class="kw">partable</span>(fit_obs)</a>
-<a class="sourceLine" id="cb288-3" title="3"><span class="kw">cbind</span>(parameters_latent[parameters_latent<span class="op">$</span>op <span class="op">==</span><span class="st"> &quot;~&quot;</span>, <span class="kw">c</span>(<span class="st">&quot;lhs&quot;</span>, <span class="st">&quot;op&quot;</span>, <span class="st">&quot;rhs&quot;</span>, <span class="st">&quot;est&quot;</span>)],</a>
-<a class="sourceLine" id="cb288-4" title="4">      <span class="dt">est_obs =</span> parameters_observed[parameters_observed<span class="op">$</span>op <span class="op">==</span><span class="st"> &quot;~&quot;</span>, <span class="kw">c</span>(<span class="st">&quot;est&quot;</span>)])</a></code></pre></div>
+<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb311-1" title="1"><span class="kw">table_results</span>(fit_dir) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb311-2" title="2"><span class="st">  </span><span class="kw">filter</span>(<span class="kw">grepl</span>(<span class="st">&quot;ON&quot;</span>, label))</a></code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["lhs"],"name":[1],"type":["chr"],"align":["left"]},{"label":["op"],"name":[2],"type":["chr"],"align":["left"]},{"label":["rhs"],"name":[3],"type":["chr"],"align":["left"]},{"label":["est"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["est_obs"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"intent","2":"~","3":"attit","4":"0.3519261","5":"0.3254286","_rn_":"10"},{"1":"intent","2":"~","3":"norm","4":"0.6437148","5":"0.5698362","_rn_":"11"},{"1":"intent","2":"~","3":"control","4":"0.2065830","5":"0.3509214","_rn_":"12"},{"1":"behavior","2":"~","3":"intent","4":"0.7457439","5":"0.7457438","_rn_":"13"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["label"],"name":[1],"type":["chr"],"align":["left"]},{"label":["est_sig"],"name":[2],"type":["chr"],"align":["left"]},{"label":["se"],"name":[3],"type":["chr"],"align":["left"]},{"label":["confint"],"name":[4],"type":["chr"],"align":["left"]}],"data":[{"1":"intent.ON.attit","2":"0.35***","3":"0.10","4":"[0.16, 0.54]"},{"1":"intent.ON.norm","2":"0.64***","3":"0.09","4":"[0.47, 0.82]"},{"1":"intent.ON.control","2":"0.21","3":"0.16","4":"[-0.11, 0.53]"},{"1":"behavior.ON.intent","2":"0.75***","3":"0.05","4":"[0.66, 0.83]"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<div class="sourceCode" id="cb312"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb312-1" title="1"><span class="kw">table_results</span>(fit_obs) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb312-2" title="2"><span class="st">  </span><span class="kw">filter</span>(<span class="kw">grepl</span>(<span class="st">&quot;ON&quot;</span>, label))</a></code></pre></div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["label"],"name":[1],"type":["chr"],"align":["left"]},{"label":["est_sig"],"name":[2],"type":["chr"],"align":["left"]},{"label":["se"],"name":[3],"type":["chr"],"align":["left"]},{"label":["confint"],"name":[4],"type":["chr"],"align":["left"]}],"data":[{"1":"intent.ON.attit","2":"0.36***","3":"0.05","4":"[0.25, 0.46]"},{"1":"intent.ON.norm","2":"0.54***","3":"0.05","4":"[0.43, 0.64]"},{"1":"intent.ON.control","2":"0.19**","3":"0.07","4":"[0.06, 0.32]"},{"1":"behavior.ON.intent","2":"0.75***","3":"0.05","4":"[0.66, 0.83]"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 
@@ -841,13 +880,13 @@ control can be either direct or indirect; the TORA does not specify which. Test 
 </div>
 <div id="question-7-7" class="section level3">
 <h3><span class="header-section-number">15.0.9</span> Question 7</h3>
-<p>Estimate the gender moderated model. What happened to the fit of the model when you compare it to your earlier model that didn’t include gender?</p>
+<p>Estimate the sex moderated model. What happened to the fit of the model when you compare it to your earlier model that didn’t include sex?</p>
 <details>
 <p><summary>Click for explanation</summary></p>
-<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb289-1" title="1">fit_mod &lt;-<span class="st"> </span><span class="kw">sem</span>(TORA_sem, <span class="dt">data =</span> df, <span class="dt">group =</span> <span class="st">&quot;gender&quot;</span>)</a>
-<a class="sourceLine" id="cb289-2" title="2"></a>
-<a class="sourceLine" id="cb289-3" title="3"><span class="kw">summary</span>(fit_mod, <span class="dt">fit.measures =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
-<pre><code>## lavaan 0.6-5 ended normally after 71 iterations
+<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb313-1" title="1">fit_mod &lt;-<span class="st"> </span><span class="kw">sem</span>(TORA_sem, <span class="dt">data =</span> df, <span class="dt">group =</span> <span class="st">&quot;sex&quot;</span>)</a>
+<a class="sourceLine" id="cb313-2" title="2"></a>
+<a class="sourceLine" id="cb313-3" title="3"><span class="kw">summary</span>(fit_mod, <span class="dt">fit.measures =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<pre><code>## lavaan 0.6-6 ended normally after 71 iterations
 ## 
 ##   Estimator                                         ML
 ##   Optimization method                           NLMINB
@@ -899,9 +938,9 @@ control can be either direct or indirect; the TORA does not specify which. Test 
 ## 
 ## Parameter Estimates:
 ## 
+##   Standard errors                             Standard
 ##   Information                                 Expected
 ##   Information saturated (h1) model          Structured
-##   Standard errors                             Standard
 ## 
 ## 
 ## Group 1 [woman]:
@@ -909,17 +948,17 @@ control can be either direct or indirect; the TORA does not specify which. Test 
 ## Latent Variables:
 ##                    Estimate  Std.Err  z-value  P(&gt;|z|)
 ##   attit =~                                            
-##     attit1            1.000                           
-##     attit2            0.992    0.076   13.026    0.000
-##     attit3           -1.003    0.076  -13.213    0.000
+##     attit_1           1.000                           
+##     attit_2           0.992    0.076   13.026    0.000
+##     attit_3          -1.003    0.076  -13.213    0.000
 ##   norm =~                                             
-##     norm1             1.000                           
-##     norm2             0.944    0.098    9.674    0.000
-##     norm3             0.915    0.099    9.222    0.000
+##     norm_1            1.000                           
+##     norm_2            0.944    0.098    9.674    0.000
+##     norm_3            0.915    0.099    9.222    0.000
 ##   control =~                                          
-##     control1          1.000                           
-##     control2          0.819    0.143    5.727    0.000
-##     control3          0.968    0.148    6.536    0.000
+##     control_1         1.000                           
+##     control_2         0.819    0.143    5.727    0.000
+##     control_3         0.968    0.148    6.536    0.000
 ## 
 ## Regressions:
 ##                    Estimate  Std.Err  z-value  P(&gt;|z|)
@@ -940,15 +979,15 @@ control can be either direct or indirect; the TORA does not specify which. Test 
 ## 
 ## Intercepts:
 ##                    Estimate  Std.Err  z-value  P(&gt;|z|)
-##    .attit1            2.839    0.090   31.702    0.000
-##    .attit2            2.907    0.084   34.728    0.000
-##    .attit3            3.174    0.084   37.969    0.000
-##    .norm1             2.832    0.080   35.342    0.000
-##    .norm2             2.832    0.079   35.775    0.000
-##    .norm3             2.795    0.081   34.694    0.000
-##    .control1          2.851    0.082   34.755    0.000
-##    .control2          2.857    0.081   35.104    0.000
-##    .control3          2.888    0.081   35.877    0.000
+##    .attit_1           2.839    0.090   31.702    0.000
+##    .attit_2           2.907    0.084   34.728    0.000
+##    .attit_3           3.174    0.084   37.969    0.000
+##    .norm_1            2.832    0.080   35.342    0.000
+##    .norm_2            2.832    0.079   35.775    0.000
+##    .norm_3            2.795    0.081   34.694    0.000
+##    .control_1         2.851    0.082   34.755    0.000
+##    .control_2         2.857    0.081   35.104    0.000
+##    .control_3         2.888    0.081   35.877    0.000
 ##    .intent            2.677    0.078   34.159    0.000
 ##    .behavior          0.536    0.155    3.448    0.001
 ##     attit             0.000                           
@@ -957,15 +996,15 @@ control can be either direct or indirect; the TORA does not specify which. Test 
 ## 
 ## Variances:
 ##                    Estimate  Std.Err  z-value  P(&gt;|z|)
-##    .attit1            0.415    0.059    6.986    0.000
-##    .attit2            0.267    0.046    5.862    0.000
-##    .attit3            0.245    0.044    5.523    0.000
-##    .norm1             0.360    0.061    5.874    0.000
-##    .norm2             0.408    0.062    6.539    0.000
-##    .norm3             0.481    0.068    7.049    0.000
-##    .control1          0.587    0.089    6.608    0.000
-##    .control2          0.733    0.095    7.746    0.000
-##    .control3          0.578    0.086    6.729    0.000
+##    .attit_1           0.415    0.059    6.986    0.000
+##    .attit_2           0.267    0.046    5.862    0.000
+##    .attit_3           0.245    0.044    5.523    0.000
+##    .norm_1            0.360    0.061    5.874    0.000
+##    .norm_2            0.408    0.062    6.539    0.000
+##    .norm_3            0.481    0.068    7.049    0.000
+##    .control_1         0.587    0.089    6.608    0.000
+##    .control_2         0.733    0.095    7.746    0.000
+##    .control_3         0.578    0.086    6.729    0.000
 ##    .intent            0.382    0.050    7.716    0.000
 ##    .behavior          0.472    0.053    8.972    0.000
 ##     attit             0.875    0.141    6.199    0.000
@@ -978,17 +1017,17 @@ control can be either direct or indirect; the TORA does not specify which. Test 
 ## Latent Variables:
 ##                    Estimate  Std.Err  z-value  P(&gt;|z|)
 ##   attit =~                                            
-##     attit1            1.000                           
-##     attit2            1.200    0.147    8.137    0.000
-##     attit3           -1.043    0.141   -7.375    0.000
+##     attit_1           1.000                           
+##     attit_2           1.200    0.147    8.137    0.000
+##     attit_3          -1.043    0.141   -7.375    0.000
 ##   norm =~                                             
-##     norm1             1.000                           
-##     norm2             0.931    0.160    5.829    0.000
-##     norm3             0.879    0.158    5.571    0.000
+##     norm_1            1.000                           
+##     norm_2            0.931    0.160    5.829    0.000
+##     norm_3            0.879    0.158    5.571    0.000
 ##   control =~                                          
-##     control1          1.000                           
-##     control2          0.914    0.267    3.430    0.001
-##     control3          0.960    0.271    3.546    0.000
+##     control_1         1.000                           
+##     control_2         0.914    0.267    3.430    0.001
+##     control_3         0.960    0.271    3.546    0.000
 ## 
 ## Regressions:
 ##                    Estimate  Std.Err  z-value  P(&gt;|z|)
@@ -1009,15 +1048,15 @@ control can be either direct or indirect; the TORA does not specify which. Test 
 ## 
 ## Intercepts:
 ##                    Estimate  Std.Err  z-value  P(&gt;|z|)
-##    .attit1            3.270    0.117   28.063    0.000
-##    .attit2            3.180    0.128   24.905    0.000
-##    .attit3            2.787    0.126   22.187    0.000
-##    .norm1             3.236    0.131   24.692    0.000
-##    .norm2             3.337    0.132   25.293    0.000
-##    .norm3             3.303    0.131   25.136    0.000
-##    .control1          3.157    0.111   28.415    0.000
-##    .control2          3.135    0.129   24.249    0.000
-##    .control3          3.213    0.130   24.805    0.000
+##    .attit_1           3.270    0.117   28.063    0.000
+##    .attit_2           3.180    0.128   24.905    0.000
+##    .attit_3           2.787    0.126   22.187    0.000
+##    .norm_1            3.236    0.131   24.692    0.000
+##    .norm_2            3.337    0.132   25.293    0.000
+##    .norm_3            3.303    0.131   25.136    0.000
+##    .control_1         3.157    0.111   28.415    0.000
+##    .control_2         3.135    0.129   24.249    0.000
+##    .control_3         3.213    0.130   24.805    0.000
 ##    .intent            3.427    0.113   30.233    0.000
 ##    .behavior          2.234    0.233    9.600    0.000
 ##     attit             0.000                           
@@ -1026,15 +1065,15 @@ control can be either direct or indirect; the TORA does not specify which. Test 
 ## 
 ## Variances:
 ##                    Estimate  Std.Err  z-value  P(&gt;|z|)
-##    .attit1            0.449    0.093    4.844    0.000
-##    .attit2            0.357    0.103    3.480    0.001
-##    .attit3            0.578    0.112    5.160    0.000
-##    .norm1             0.640    0.145    4.402    0.000
-##    .norm2             0.779    0.154    5.062    0.000
-##    .norm3             0.851    0.158    5.373    0.000
-##    .control1          0.658    0.142    4.618    0.000
-##    .control2          1.119    0.195    5.724    0.000
-##    .control3          1.087    0.194    5.587    0.000
+##    .attit_1           0.449    0.093    4.844    0.000
+##    .attit_2           0.357    0.103    3.480    0.001
+##    .attit_3           0.578    0.112    5.160    0.000
+##    .norm_1            0.640    0.145    4.402    0.000
+##    .norm_2            0.779    0.154    5.062    0.000
+##    .norm_3            0.851    0.158    5.373    0.000
+##    .control_1         0.658    0.142    4.618    0.000
+##    .control_2         1.119    0.195    5.724    0.000
+##    .control_3         1.087    0.194    5.587    0.000
 ##    .intent            0.383    0.084    4.546    0.000
 ##    .behavior          0.428    0.064    6.671    0.000
 ##     attit             0.759    0.180    4.223    0.000
@@ -1051,15 +1090,15 @@ control can be either direct or indirect; the TORA does not specify which. Test 
 <li>Scalar: Same factor loadings, and intercepts for the indicators.</li>
 </ol>
 <p>We can specify these models with <code>groups.equal</code> constraints and then use <code>compareFit()</code>:</p>
-<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb291-1" title="1"><span class="kw">library</span>(semTools)</a>
-<a class="sourceLine" id="cb291-2" title="2">fit.config &lt;-<span class="st"> </span><span class="kw">cfa</span>(TORA_cfa, <span class="dt">data =</span> df, <span class="dt">group =</span> <span class="st">&quot;gender&quot;</span>)</a>
-<a class="sourceLine" id="cb291-3" title="3">fit.metric &lt;-<span class="st"> </span><span class="kw">cfa</span>(TORA_cfa, <span class="dt">data =</span> df, <span class="dt">group =</span> <span class="st">&quot;gender&quot;</span>,</a>
-<a class="sourceLine" id="cb291-4" title="4">                  <span class="dt">group.equal =</span> <span class="st">&quot;loadings&quot;</span>)</a>
-<a class="sourceLine" id="cb291-5" title="5">fit.scalar &lt;-<span class="st"> </span><span class="kw">cfa</span>(TORA_cfa, <span class="dt">data =</span> df, <span class="dt">group =</span> <span class="st">&quot;gender&quot;</span>,</a>
-<a class="sourceLine" id="cb291-6" title="6">                  <span class="dt">group.equal =</span> <span class="kw">c</span>(<span class="st">&quot;loadings&quot;</span>, <span class="st">&quot;intercepts&quot;</span>))</a>
-<a class="sourceLine" id="cb291-7" title="7"><span class="kw">compareFit</span>(<span class="dt">Configural =</span> fit.config, </a>
-<a class="sourceLine" id="cb291-8" title="8">           <span class="dt">Metric =</span> fit.metric, </a>
-<a class="sourceLine" id="cb291-9" title="9">           <span class="dt">Scalar =</span> fit.scalar)</a></code></pre></div>
+<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb315-1" title="1"><span class="kw">library</span>(semTools)</a>
+<a class="sourceLine" id="cb315-2" title="2">fit.config &lt;-<span class="st"> </span><span class="kw">cfa</span>(TORA_cfa, <span class="dt">data =</span> df, <span class="dt">group =</span> <span class="st">&quot;sex&quot;</span>)</a>
+<a class="sourceLine" id="cb315-3" title="3">fit.metric &lt;-<span class="st"> </span><span class="kw">cfa</span>(TORA_cfa, <span class="dt">data =</span> df, <span class="dt">group =</span> <span class="st">&quot;sex&quot;</span>,</a>
+<a class="sourceLine" id="cb315-4" title="4">                  <span class="dt">group.equal =</span> <span class="st">&quot;loadings&quot;</span>)</a>
+<a class="sourceLine" id="cb315-5" title="5">fit.scalar &lt;-<span class="st"> </span><span class="kw">cfa</span>(TORA_cfa, <span class="dt">data =</span> df, <span class="dt">group =</span> <span class="st">&quot;sex&quot;</span>,</a>
+<a class="sourceLine" id="cb315-6" title="6">                  <span class="dt">group.equal =</span> <span class="kw">c</span>(<span class="st">&quot;loadings&quot;</span>, <span class="st">&quot;intercepts&quot;</span>))</a>
+<a class="sourceLine" id="cb315-7" title="7"><span class="kw">compareFit</span>(<span class="dt">Configural =</span> fit.config, </a>
+<a class="sourceLine" id="cb315-8" title="8">           <span class="dt">Metric =</span> fit.metric, </a>
+<a class="sourceLine" id="cb315-9" title="9">           <span class="dt">Scalar =</span> fit.scalar)</a></code></pre></div>
 <pre><code>## ################### Nested Model Comparison #########################
 ## Chi-Squared Difference Test
 ## 
@@ -1085,40 +1124,35 @@ control can be either direct or indirect; the TORA does not specify which. Test 
 <p>Going back to the multi-group model, impose scalar invariance, and then determine whether it makes sense to constrain all the regression coefficients to be equal. Does it?</p>
 <details>
 <p><summary>Click for explanation</summary></p>
-<div class="sourceCode" id="cb293"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb293-1" title="1">fit_mod_invar &lt;-<span class="st"> </span><span class="kw">sem</span>(TORA_sem, <span class="dt">data =</span> df, </a>
-<a class="sourceLine" id="cb293-2" title="2">                     <span class="dt">group =</span> <span class="st">&quot;gender&quot;</span>, </a>
-<a class="sourceLine" id="cb293-3" title="3">                     <span class="dt">group.equal =</span> <span class="kw">c</span>(<span class="st">&quot;loadings&quot;</span>, <span class="st">&quot;intercepts&quot;</span>))</a>
-<a class="sourceLine" id="cb293-4" title="4">fit_mod_invar_reg &lt;-<span class="st"> </span><span class="kw">sem</span>(TORA_sem, <span class="dt">data =</span> df, </a>
-<a class="sourceLine" id="cb293-5" title="5">                         <span class="dt">group =</span> <span class="st">&quot;gender&quot;</span>, </a>
-<a class="sourceLine" id="cb293-6" title="6">                         <span class="dt">group.equal =</span> <span class="kw">c</span>(<span class="st">&quot;loadings&quot;</span>, <span class="st">&quot;intercepts&quot;</span>, <span class="st">&quot;regressions&quot;</span>))</a>
-<a class="sourceLine" id="cb293-7" title="7"></a>
-<a class="sourceLine" id="cb293-8" title="8"><span class="kw">compareFit</span>(<span class="dt">Multigroup =</span> fit_mod_invar,</a>
-<a class="sourceLine" id="cb293-9" title="9">           <span class="dt">Constrain_regressions =</span> fit_mod_invar_reg)</a></code></pre></div>
+<div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb317-1" title="1">fit_mod_invar &lt;-<span class="st"> </span><span class="kw">sem</span>(TORA_sem, <span class="dt">data =</span> df, </a>
+<a class="sourceLine" id="cb317-2" title="2">                     <span class="dt">group =</span> <span class="st">&quot;sex&quot;</span>, </a>
+<a class="sourceLine" id="cb317-3" title="3">                     <span class="dt">group.equal =</span> <span class="kw">c</span>(<span class="st">&quot;loadings&quot;</span>, <span class="st">&quot;intercepts&quot;</span>))</a>
+<a class="sourceLine" id="cb317-4" title="4">fit_mod_invar_reg &lt;-<span class="st"> </span><span class="kw">sem</span>(TORA_sem, <span class="dt">data =</span> df, </a>
+<a class="sourceLine" id="cb317-5" title="5">                         <span class="dt">group =</span> <span class="st">&quot;sex&quot;</span>, </a>
+<a class="sourceLine" id="cb317-6" title="6">                         <span class="dt">group.equal =</span> <span class="kw">c</span>(<span class="st">&quot;loadings&quot;</span>, <span class="st">&quot;intercepts&quot;</span>, <span class="st">&quot;regressions&quot;</span>))</a>
+<a class="sourceLine" id="cb317-7" title="7"></a>
+<a class="sourceLine" id="cb317-8" title="8"><span class="kw">compareFit</span>(<span class="dt">Multigroup =</span> fit_mod_invar,</a>
+<a class="sourceLine" id="cb317-9" title="9">           <span class="dt">Constrain_regressions =</span> fit_mod_invar_reg)</a></code></pre></div>
 <pre><code>## ################### Nested Model Comparison #########################
 ## Chi-Squared Difference Test
 ## 
-##                       Df    AIC    BIC  Chisq Chisq diff Df diff
-## Multigroup            92 7100.4 7318.8 176.58                   
-## Constrain_regressions 96 7132.7 7337.0 216.87      40.29       4
-##                       Pr(&gt;Chisq)    
-## Multigroup                          
-## Constrain_regressions   3.77e-08 ***
+##                       Df    AIC    BIC  Chisq Chisq diff Df diff Pr(&gt;Chisq)    
+## Multigroup            92 7100.4 7318.8 176.58                                  
+## Constrain_regressions 96 7132.7 7337.0 216.87      40.29       4   3.77e-08 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
 ## ####################### Model Fit Indices ###########################
-##                          chisq df pvalue   cfi   tli       aic       bic
-## Multigroup            176.582† 92   .000 .933† .920† 7100.436† 7318.766†
-## Constrain_regressions 216.872  96   .000 .905  .891  7132.726  7336.971 
-##                       rmsea  srmr
-## Multigroup            .086† .103 
-## Constrain_regressions .100  .102†
+##                          chisq df pvalue   cfi   tli       aic       bic rmsea
+## Multigroup            176.582† 92   .000 .933† .920† 7100.436† 7318.766† .086†
+## Constrain_regressions 216.872  96   .000 .905  .891  7132.726  7336.971  .100 
+##                        srmr
+## Multigroup            .103 
+## Constrain_regressions .102†
 ## 
 ## ################## Differences in Fit Indices #######################
-##                                    df    cfi    tli   aic    bic rmsea
-## Constrain_regressions - Multigroup  4 -0.029 -0.029 32.29 18.204 0.015
-##                                      srmr
-## Constrain_regressions - Multigroup -0.001</code></pre>
+##                                    df    cfi    tli   aic    bic rmsea   srmr
+## Constrain_regressions - Multigroup  4 -0.029 -0.029 32.29 18.204 0.015 -0.001</code></pre>
 
 </div>
 <div id="question-9-5" class="section level3">
@@ -1144,11 +1178,13 @@ control can be either direct or indirect; the TORA does not specify which. Test 
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -1156,12 +1192,11 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -1173,6 +1208,10 @@ gitbook.start({
 "text": null
 },
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },

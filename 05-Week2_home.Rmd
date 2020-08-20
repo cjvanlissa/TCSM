@@ -1,5 +1,8 @@
 # Week 2 - Home
 
+```{r include=FALSE}
+knitr::opts_chunk$set(warning=FALSE, message=FALSE)
+```
 This exercise is based on Kestilä, Elina (2006) Is There Demand for Radical Right 
 Populism in the Finnish Electorate? Scandinavian Political Studies 29(3),169-191 
  
@@ -22,6 +25,10 @@ Download the file, and import it in R. Inspect the file (no. of cases and no. of
 ```{r, message=FALSE, warning=FALSE}
 library(foreign)
 data <- read.spss("ESSround1-a.sav", to.data.frame = TRUE)
+```
+```{r, echo=FALSE, warning=FALSE}
+library(foreign)
+data <- read.spss("TCSM_student/ESSround1-a.sav", to.data.frame = TRUE)
 ```
 
 <details>
@@ -93,7 +100,7 @@ manageable, and make sure our results pertain to our target population.
 
 Kestilä only uses data from ten countries: `c("Austria", "Belgium", "Denmark", "Finland", "France", "Germany", "Italy", "Netherlands", "Norway", "Sweden")`.
 
-Select data from these countries by means of boolean indexing, using the `%in%` function.
+As explained in the tutorial chapters at the beginning of this GitBook, it is possible to select rows from the data. In this case, we will select only rows from these countries by means of boolean indexing, using the `%in%` function to check if the value of `$cntry` is in the list.
 
 *Hint: Use* `[]; %in%`
 
@@ -120,6 +127,8 @@ statistics-courses)?
   This question is open to interpretation. One thing you might notice is that all variables the authors used are currently coded as factor variables (e.g., "Factor w/ 11 levels"):
 
 ```{r}
+library(tidySEM)
+descriptives(df)
 levels(df$trstlgl)
 ```
 
@@ -127,16 +136,17 @@ In keeping with conventions, we could treat ordinal Likert scales with >5 levels
 
 #### Re-coding factors to numeric
 
-Data.frames like `df` are (secretly) lists, where each column is an element of the list. That means we can index a data.frame as a list, not just as a matrix. We can also use the incredibly powerful `lapply()` function, short for list apply, which takes each list element (column), and applies a function to it. In this case, that function is `as.numeric()`, which turns factors into numbers: 
+We can convert a factor to numeric using the function `as.numeric()`. However, in this case, we have `r 45-7` variables to convert - that's a lot of code.
+
+Thankfully, there is a function to apply this transformation to each column of the data: `lapply()`, short for list apply. This function takes each list element (column of the `data.frame`), and applies the function `as.numeric()` to it:
 
 ```{r}
 df[7:44] <- lapply(df[7:44], as.numeric)
-table(df[,7])
 ```
 
 #### Reading data without coding factors
 
-An alternative solution is to stop the function `read.spss()` from using value labels to code variables as factors. However, we're not going to use this right now, so the information below is merely illustrative:
+An alternative solution is to prevent the function `read.spss()` from using value labels to code variables as factors when the data are loaded. However, we're not going to use this right now, so the information below is merely illustrative:
 
 ```{r, eval = FALSE}
 # The option use.value.labels = FALSE stops the function from coding factors:
@@ -150,52 +160,56 @@ df <- data[data$cntry %in% c(21,18,17,15,9,8,6,5,2,1), ]
 
 ### Question 1.e
 
-Screen all your variables univariately (one by one) by making frequency tables for 
-every variable. Again, unsure how to do this? Review Field. Pay particular 
-attention to the measurement scales of each variable. 
+Aside from screening variables by looking at summary statistics, we can also plot their distributions. You already know how to do this for one single variable.
+Yet it is not very difficult to plot all variables in a data.frame.
+To do this, we need to turn the data from "wide format" (one column per variable)
+into "long format" (one column with the variable names, one column with the values).
+The package `tidyr` has a convenient function to reshape data to long format:
+`pivot_longer()`.
 
-*Hint: Use* `table(); lapply(); psych::describe()`
+First, make a long data.frame containing variables 7:44.
+
+```{r, eval = FALSE}
+install.packages("tidyr")
+library(tidyr)
+df_plot <- df[7:44]
+df_plot <- pivot_longer(df_plot, names(df_plot))
+```
+```{r, echo = FALSE}
+library(tidyr)
+df_plot <- df[7:44]
+df_plot <- pivot_longer(df_plot, names(df_plot))
+```
+
+Next, we can plot the data - using `geom_histogram()`, `geom_density()` or `geom_boxplot()` as before. A new additional function allows us to make separate plots for each variable: `+ facet_wrap(~name, scales = "free_x")`.
 
 <details>
   <summary>Click for explanation</summary>
-  We can use the `lapply()` function from the previous question to get frequency tables for all relevant variables:
 
-```{r, eval = FALSE}
-lapply(df[7:44], table)
+```{r}
+library(ggplot2)
+ggplot(df_plot, aes(x = value)) + geom_histogram() + facet_wrap(~name, scales = "free_x")
 ```
 
-```{r, echo = FALSE}
-lapply(df[7:8], table)
-```
-
-This is probably a bit too much detail, so we can just use the `psych::describe()` fuction again:
-
-```{r, eval = FALSE}
-psych::describe(df[7:44])
-```
-
-```{r, echo = FALSE}
-psych::describe(df[7:16])
-```
+Notice the fact that you can see that the scales are actually categorical (because of the gaps between bars), and that most variables look relatively normally distributed despite being categorical. It's probably fine to treat them as continuous.
 \details
 
 ### Question 1.f
 
-Are there any incorrectly coded missing value labels, or other inexplicable values?
+Check the scale descriptives table again. Are there any incorrectly coded missing value labels, or other inexplicable values?
 
 ### Question 1.g
 
 The first step in re-analyzing data is replicating the results from the paper by 
 Kestilä. Run a Principal Component Analysis using `psych::principal()`, and 
 choose the exact same specification as Kestilä concerning estimation method, 
-rotation etc. Do two analyses: one for trust in politics, and one for attitudes towards immigration. 
+rotation etc. Do two analyses: one for trust in politics, and one for attitudes towards immigration. Remember that you can view the help file for `psych::principal()` by running
+`?psych::principal`.
 
 *Hint: Use* `psych::principal()`
 
 <details>
   <summary>Click for explanation</summary>
-  There's a convenient function for PCA in the `psych` package, although base R also has the function `princomp()`.
-
 
 #### Trust in politics
 
@@ -218,6 +232,7 @@ print(pca_att, cut = .3)
 
 ### Question 1.h
 
+<!-- Video here about extracting factor scores-->
 Extract the PCA factor scores from the results objects, and add them to the data.frame. Give the PCA scores informative names, based on your interpretation of the factor loadings, so that you understand what they summarize. 
 
 *Hint: Use* `$; colnames(); cbind()`
@@ -226,7 +241,7 @@ Extract the PCA factor scores from the results objects, and add them to the data
   <summary>Click for explanation</summary>
 Extracting factor scores
 
-The factor scores are INSIDE of the results objects. Use the `$` operator to access them:
+The factor scores are inside of the results objects. Use the `$` operator to access them:
 
 ```{r}
 head(pca_att$scores)
@@ -253,7 +268,7 @@ Are you able to replicate her results?
 
 <details>
   <summary>Click for explanation</summary>
-  No, probably not. 
+  No, probably not. The team of teachers was unable to reproduce this analysis, even though it should be pretty easy to do so...
 
 \details
 

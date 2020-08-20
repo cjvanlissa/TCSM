@@ -1,80 +1,54 @@
 # Week 2 - Class
-During this exercise, you will perform multiple factor analyses. Before you will be able to execute these, you will have to install the R-package `GPArotation`.
 
-``` {r, eval = FALSE}
-install.packages("GPArotation")
+```{r include=FALSE}
+knitr::opts_chunk$set(warning=FALSE, message=FALSE)
 ```
+In the unlikely event that you were able to replicate the results of Kestilä in the take-home exercise, rerun your analysis script. If you did not manage to replicate the results, load the dataset `ESSround1-b.csv` into RStudio. 
 
-We might add some kind of introduction to the class exercises of week 2.
+### Loading the data
 
-
-## Loading data
-
-In the unlikely event that you were able to replicate the results of Kestilä, load the environment of the take-home exercise of week 2. In case you have not saved the environment, you can just load and re-run your script of the take-home exercise.
-
-If you did not manage to replicate the results, go to blackboard and download ESSround1-b.sav and load this dataset into RStudio. 
+If you don't know how to load the data, click below. 
 
 <details>
   <summary>Click for explanation</summary>
-
-``` {r, message = FALSE, warning = FALSE}
-library(foreign)
-data <- read.spss("ESSround1-b.sav", to.data.frame = TRUE)
+``` {r, eval = FALSE, warning = FALSE}
+df <- read.csv("ESSround1-b.csv", stringsAsFactors = FALSE)
 ```
-
+``` {r, echo = FALSE, message = FALSE, warning = FALSE}
+df <- read.csv("TCSM_student/ESSround1-b.csv", stringsAsFactors = FALSE)
+```
 \details
+
+
 
 ### Question 1
 
 Kestilä states that running a Principal Components Analysis is a good way to test whether the survey questions in the ESS measure attitudes towards immigration and trust in politics.
-What would Preacher and MacCallum (2003) say about this?
+Based on your reading of Preacher and MacCallum (2003), do you agree with this position?
+
+### Question 2
+
+If you would have to choose a method for constructing the 'trust in politics' and 'attitude towards immigration' scales based on the theory and background information in the Kestilä article, what type of factor analysis would you choose? What key factors influence your decision?
 
 <details>
   <summary>Click for information</summary>
   
-*Hint: If you are working in R studio, you can simply add an `#` before each line of your answer, so that you will have all information inside the same document, without R thinking that it will have to run the code.
+Key factors include:
 
-```{r}
-#Simply like
-#this
-```
-
-\details
-
-
-### Question 2
-
-If you would have to choose a method for constructing the 'trust in politics' and 'attitude towards immigration' scales based on the theory and background information in the Kestilä article, what type of factor analysis would you choose?
-Think about:
-
+* Theory-driven or exploratory?
 * Estimation method
 * Rotation method
 * Method to establish how many factors are needed
+\details
 
 ### Question 3
 
 Run two factor analyses, one for each PCA of the original article. Inspect the number of factors necessary, evaluate the rotation method, and if necessary, run the factor analysis again with adapted settings (rotation method and/or different number of factors). How many factors are there?
 
+*Hint: Examing the help file for* `?psych::fa`
+
 <details>
   <summary>Click for explanation</summary>
-
-First, you will have to create a new data object containing only the countries of interest in which all variables are numeric.
-
-```{r}
-df <- data[data$cntry %in% c("Austria", "Belgium", "Denmark", "Finland", "Germany", "Italy", "Netherlands", "Norway", "Sweden"), ]
-```
-
-However, using this command, R will still see the excluded countries as factor levels, which will result into problems when you are going to replicate the study by Kestilä. To drop these factor levels completely, use the following command.
-
-```{r}
-df$cntry <- factor(df$cntry)
-```
-
-You also want to adjust the variables of interest to numeric once again.
-
-```{r}
-df[7:44] <- lapply(df[7:44], as.numeric)
-```
 
 To perform an exploratory factor analysis, you can use the function `fa` of the package `psych`. You will have to specify the data, and the variables that you want to include in the factor analyses. Furthermore, you will have to specify the number of factors that you want to extract, the rotation method and the estimation method.
 
@@ -85,27 +59,25 @@ library(GPArotation)
 efa_trust <- fa(df[, 7:19], nfactors = 3, rotate = "promax", fm = "ml", scores = "Bartlett")
 ```
 
-In order to determine the number of factors to extract, you might want to look at the eigenvalues of the factors or the scree plot. These information can be accessed by using the following code:
+In order to determine the number of factors to extract, you might want to look at the eigenvalues of the factors, which can be accessed by using the following code:
 
 ```{r}
 round(efa_trust$values, digits = 3)
-plot(efa_trust$values, type = "b")
 ```
 
-You will have to do the same for the attitude variables. 
-
-```{r, warning = FALSE}
-library(psych)
-library(GPArotation)
-
-efa_att <- fa(df[, 20:44], nfactors = 5, rotate = "promax", fm = "ml", scores = "Bartlett")
-```
-
-And for information about the number of factors, you can use the following commands.
+Another common approach is to make a scree plot. All that is required for this, is to pass the eigenvalues to the `qplot()` function and add a geom_path:
 
 ```{r}
+library(ggplot2)
+qplot(y = efa_trust$values) + geom_path()
+```
+
+You can do the same for the attitude variables:
+
+```{r, warning = FALSE}
+efa_att <- fa(df[, 20:44], nfactors = 5, rotate = "promax", fm = "ml", scores = "Bartlett")
 round(efa_att$values, digits = 3)
-plot(efa_att$values, type = "b")
+qplot(y = efa_att$values) + geom_path()
 ```
 
 \details
@@ -127,7 +99,13 @@ efa_trust$loadings
 efa_att$loadings
 ```
 
-The output above might appear slightly confusing, due to the jumble of factor loadings. To create more clarity, it is convenient to suppress the factor loadings that are lower than .30.
+The matrix of loadings indicates how strongly each factor (columns) is associated with the items (rows).
+Below the matrix of loadings, we see a second matrix, which indicates (amongst other things) the
+*proportion var*: How much variance in the items is explained by each of the factors.
+Each subsequent factor explains slightly less variance than the ones before it (this is a property of exploratory factor analysis).
+The *cumulative var* indicates how much variance the factors explain, in total. If you estimated as many factors as items, then the last value for *cumulative var* would be `1.00` (100%).
+
+The factor loading matrix is slightly hard to read, due to the jumble of factor loadings. To create more clarity, it is convenient to suppress the factor loadings that are lower than .30.
 
 ```{r}
 print(efa_trust$loadings, cut = .30, digits = 2)
@@ -136,8 +114,6 @@ print(efa_trust$loadings, cut = .30, digits = 2)
 Furthermore, if you want to perform a factor analysis without, say, `trstep`, while you want all other variables included in your factor analysis, you can simply leave the column number of `trstep`, which is 13, out of the command:
 
 ```{r, eval = FALSE}
-library(psych)
-library(GPArotation)
 efa_trust_without_stfedu <- fa(df[, c(7:12, 14:19)], nfactors = 3, rotate = "promax", fm = "ml")
 ```
 \details
@@ -182,24 +158,18 @@ reli_1 <- psych::alpha(df[, c(7, 8, 9, 12, 13)])
 reli_1
 ```
 
-In the hypothetical scenario that Cronbach's alpha increases when you drop a variable out of the analysis, you can rerun your analysis without that specific variable. So for a version without variable `trstprl`, see the example below.
-
-```{r}
-library(psych)
-reli_1b <- psych::alpha(df[, c(7, 8, 12, 13)])
-```
-
+Sometimes, the table "Reliability if an item is dropped" will indicate that Cronbach's alpha increases when you drop a variable out of the analysis. Note, however, that doing so is an exploratory approach to analysis, and it may make your work incomparable to other publications using the same scale.
 
 \details
 
 ### Question 7
 
-Now you can analyze the differences between the factor scores for the PCA analysis (take-home exercise 2) and the EFA by plotting them in a series of scatterplots (bivariate). This can be done by means of the package `ggplot2`. The PCA factor scores are already stored in the dataset `ESSround1-b.sav`.
+Now you can analyze the differences between the factor scores for the PCA analysis (take-home exercise 2) and the EFA by plotting them in a series of scatterplots (bivariate) using `ggplot2`. The PCA factor scores are already stored in the dataset `ESSround1-b.csv`.
 
 <details>
   <summary>Click for explanation</summary>
 
-*Make sure to adjust the variable names to the variables names of your own.*
+*Make sure to adjust the variable names to the variables names you used.*
 
 ```{r, eval = FALSE}
 library(ggplot2)
@@ -219,21 +189,20 @@ ggplot(data = df) +
 
 ### Question 8
 
-Build correlation matrices (PCA and EFA versions) of first the 'trust in politics' scores, and then the 'immigration' factor scores. What is your conclusion: is there a difference between them?
+Examine the correlations between the PCA and EFA scales for the 'trust in politics' scores, and for the 'immigration' scores. What is your conclusion: is there a difference between them?
 
 <details>
   <summary>Click for explanation</summary>
   
 *Hint: Name the new objects substantively once again.*
 
-```{r, eval = FALSE}
-cor_trust_factor1 <- cor(df$EFA_Trust1, df$PCA_Trust1, use = "complete.obs")
-cor_trust_factor1
-```
+Example for trust in politics:
 
+```{r, eval = FALSE}
+cor(df$EFA_Trust1, df$PCA_Trust1, use = "complete.obs")
+```
 ```{r, echo = FALSE, warning = FALSE}
-cor_trust_factor1b <- cor(df$trustinstEFA, df$trustinst, use = "complete.obs") 
-cor_trust_factor1b
+cor(df$trustinstEFA, df$trustinst, use = "complete.obs") 
 ```
 
 \details
@@ -260,46 +229,75 @@ pair_comparison <- pairwise.t.test(df$trustinstEFA, df$cntry, p.adjust.method = 
 round(pair_comparison$p.value, digits = 3)
 ```
 
-
 \details
 
 ### Question 10
 
-The second goal of Kestilä is to show how socio-demographic characteristics affect attitudes towards immigrants and trust in politics in Finland. Select only the Finnish cases using the variable `cntry`. Next, run a number of multiple linear regression analyses with the (sub-)scales of attitudes towards immigrants and political trust as subsequent dependent variables, and the same predictors as Kestilä. Inspect your output.
-
-Compare your results with the results from Kestilä. How do your results differ or agree with the results by Kestilä?
+The second goal of Kestilä is to show how socio-demographic characteristics affect attitudes towards immigrants and trust in politics in Finland. Select only the Finnish cases using the variable `cntry`. 
 
 <details>
   <summary>Click for explanation</summary>
   
-To select the Finnish cases only:
+To select the Finnish cases only, select rows for which `$cntry` is equal to (`==`) Finland:
 ```{r}
-df_finland <- df[df$cntry %in% "Finland", ]
-df_finland$cntry <- factor(df_finland$cntry)
+df_finland <- df[df$cntry == "Finland", ]
 ```
 
-Although we have selected the Finnish cases, we still have to do some recoding. Since not the age of the participants is listed, but the year of birth, we have to recode this variable. Due to the fact that yrbrn was originally coded as a factor, we first have to create a numerical object based on the factor labels. Since the data originated from 2002, we can simply extract the year of birth of every participant from the year 2002.
+\details
 
-The same holds for the variables `eduyrs` and `lrscale`, to prevent R from making dummies for all distinct values.
+After selecting the Finnish cases, we have to prepare our variables for analysis.
+Thanks to the factor analyses above, our dependent variables are taken care of.
+However, we should examine the independent variables to make sure there are no surprises,
+and do any recoding necessary before we can run multiple regression. The independent variables are
+`c("gndr", "yrbrn", "eduyrs", "polintr", "lrscale")`.
+
+<details>
+  <summary>Click for explanation</summary>
+```{r}
+library(tidySEM)
+descriptives(df_finland[, c("gndr", "yrbrn", "eduyrs", "polintr", "lrscale")])
+```
+
+  
+Note that we still have to do some recoding. For example, the data contains participants' year of birth instead of their age. We have to recode this variable. The data were collected in 2002, so we can simply subtract the year of birth of every participant from the year 2002.
+
 
 ```{r}
-df_finland$age <- as.numeric(as.character(df_finland$yrbrn))
-df_finland$age <- (2002 - df_finland$age)
+df_finland$age <- (2002 - df_finland$yrbrn)
+```
 
-df_finland$eduyrs <- as.numeric(df_finland$eduyrs)
+Furthermore, the variables `polintr` and `lrscale` are currently coded as character variables. If you analyze them like that, R will make dummies for all distinct values on these variables. Let's recode those, too! The main challenge is to get the levels of these variables in the correct order, and convert them to numbers. We demonstrate two ways to do this, one way for each of the two variables.
+
+For political interest, we convert the character variable to an ordered categorical variable, and we specify the correct order of labels. Then, we convert it to a numeric variable.
+
+```{r}
+table(df_finland$polintr)
+df_finland$polintr <- ordered(df_finland$polintr, levels = c("Not at all interested", "Hardly interested", "Quite interested", "Very interested"))
+table(df_finland$polintr)
+df_finland$polintr <- as.numeric(df_finland$polintr)
+```
+
+For political orientation, only the two extreme values of the scale are labeled as text. Thus, we can replace these labels with numbers, and then convert the entire variable to numeric.
+
+```{r}
+table(df_finland$lrscale)
+df_finland$lrscale[df_finland$lrscale == "Left"] <- 0
+df_finland$lrscale[df_finland$lrscale == "Right"] <- 10
 df_finland$lrscale <- as.numeric(df_finland$lrscale)
 ```
 
-Fortunately, R creates a dummy for the variables `gndr` and `polintr` automatically. However, if you want to run the same analysis as Kestilä, you will have to recode `polintr` in such a way that there are only two categories, since R will go for a solution with one dummy per category by default. After you have done the recoding, you can replicate Kestiläs analysis.
+Furthermore, Kestilä recoded `polintr` in such a way that there are only two categories. The lowest two and highest two categories were combined. Here is how to do this in R, so you can replicate their analysis:
 
 ```{r}
-df_finland$polintr_dummy <- as.numeric(df_finland$polintr)
-df_finland$polintr_dummy <- as.numeric(df_finland$polintr_dummy <= 2)
-df_finland$polintr_dummy <- factor(df_finland$polintr_dummy,
-                                   levels = c(0,1),
-                                   labels = c("Not or hardly interested",
-                                              "Quite or very interested"))
+df_finland$polintr_dummy <- ifelse(df_finland$polintr <= 2,
+                                   "Not or hardly interested",
+                                   "Quite or very interested")
 ```
+
+
+Next, run a number of multiple linear regression analyses with the (sub-)scales of attitudes towards immigrants and political trust as subsequent dependent variables, and the same predictors as Kestilä. Inspect your output.
+
+Compare your results with the results from Kestilä. How do your results differ or agree with the results by Kestilä?
 
 ```{r}
 fit_trust1 <- lm(trustinstEFA ~ gndr + age + eduyrs + polintr_dummy + lrscale, data = df_finland, na.action = na.omit)

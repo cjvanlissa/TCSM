@@ -1,6 +1,6 @@
 # Week 1 - Class
 
-```{r setup, include=FALSE}
+```{r include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
 show_answers <- TRUE
 ```
@@ -16,13 +16,18 @@ We start with two exercises in which you have to explore your data and perform a
 
 Open the file Sesam.sav:
 
-```{r, message=FALSE}
+```{r, message=FALSE, eval = FALSE}
 # Library for reading SPSS files:
 library(foreign)
 # Load the data and put them in the object called "data"
 data <- read.spss("sesam.sav", to.data.frame = TRUE, use.value.labels = FALSE)
 ```
-
+```{r, message=FALSE, echo= FALSE}
+# Library for reading SPSS files:
+library(foreign)
+# Load the data and put them in the object called "data"
+data <- read.spss("TCSM_student/sesam.sav", to.data.frame = TRUE, use.value.labels = FALSE)
+```
 This file is part of a larger dataset that evaluates the impact of the first year of the Sesame Street television series. Sesame Street is mainly concerned with teaching preschool related skills to children in the 3-5 year age range.
 
 The following variables will be used in this exercise:
@@ -53,20 +58,15 @@ knitr::include_graphics("measurement_level.png")#, out.width = "456px")
 
 What is the average age in the sample? And the range (youngest and oldest child)? 
 
-*Hint: Use install.packages("psych"); library(psych); describe()*
+*Hint: Use library(tidySEM); descriptives()*
 
 <details>
   <summary>Click for explanation</summary>
-The package `psych` contains many functions for exploring data. Install and load the package, then use the `describe()` function to describe the data:
+The package `psych` contains many functions for exploring data. If you have not yet done so, install the package, then load it and use the `describe()` function to describe the data:
 
-```{r, eval = FALSE}
-install.packages("psych")
-library(psych)
-describe(data)
-```
-```{r, echo=FALSE}
-library(psych)
-describe(data)
+```{r}
+library(tidySEM)
+descriptives(data)
 ```
 <\details>
 
@@ -96,12 +96,16 @@ sd(data$dif)
 
 Choose an appropriate graph to present the gain scores. What did you choose and why?
 
-*Hint: Several useful plotting functions for univariate distributions are:* `hist(); plot(density()); boxplot()`
+*Hint: As explained in the introductory chapters, you can use ggplot and add a histogram, density plot, or boxplot:* `geom_histogram(); geom_density(); geom_boxplot()`
 
 <details>
   <summary>Click for explanation</summary>
 ```{r include = show_answers}
-plot(density(data$dif))
+library(ggplot2)
+p <- ggplot(data, aes(x = dif))
+p + geom_histogram()
+p + geom_density()
+p + geom_boxplot()
 ```
 <\details>
 
@@ -109,22 +113,22 @@ plot(density(data$dif))
 
 Can you think of a graph based on two variables that is informative? What is it and how is it informative?
 
-*Hint: A useful plotting function for a bivariate distribution is the scatterplot:* `plot(data$x, data$y)`
+*Hint: A useful plotting function for a bivariate distribution is the scatterplot:* `geom_point()`
 
 <details>
   <summary>Click for explanation</summary>
 ```{r include = show_answers}
 #Possible variables would be the pre- and post measurement
-plot(data$prenumb, data$postnumb)
+ggplot(data, aes(x = prenumb, y = postnumb)) + geom_point()
 ```
 <\details>
 
 
 ### Question 1.f
 
-Which of the variables age, prelet, prenumb, prerelat and peabody are significantly related to postnumb? Use Pearson’s correlations (`cor()`). You don’t need to check assumptions.
+Which of the variables age, prelet, prenumb, prerelat and peabody are related to postnumb? Use Pearson’s correlations (`cor()`). You don’t need to check assumptions. If you want p-values for the correlations, use the function `corr.test()` from the `psych` package instead.
 
-*Hint: The function* `cor()` *provides Pearson's correlations. Select variables by name from a data.frame object (like* `data`*) using the following syntax:
+*Hint: The function* `cor()` *provides Pearson's correlations. Select variables by name from a data.frame object (like* `data`*) using the following syntax*: `data[, c("each", "variable", "name")]`*.*
 
 <details>
   <summary>Click for explanation</summary>
@@ -168,7 +172,17 @@ $H_a: \rho^2 > 0$
 Consider the path model below. How many regression coefficients are estimated in this model? And how many variances? And how many covariances? How many degrees of freedom does this model have? ($df = N_{obs} – N_{par}$, see slides Lecture 1). 
 
 ```{r echo = FALSE}
-knitr::include_graphics("1_path_model.png")#, out.width = "456px")
+#knitr::include_graphics("1_path_model.png")#, out.width = "456px")
+res <- lavaan::sem("postnumb ~ prerelat + prelet + prenumb
+                   prerelat ~ age
+                   prelet ~ age
+                   prenumb ~ age", data)
+library(tidySEM)
+p <- prepare_graph(res, layout = get_layout("", "prerelat", "",
+                                            "age", "prelet", "postnumb",
+                                            "", "prenumb", "", rows = 3), angle = 1)
+edges(p)$label <- NA
+plot(p)
 ```
 
 ### Question 1.j
@@ -192,9 +206,13 @@ IV: condition
 
 DV: reaction time in milliseconds in a driver simulation test.
 
-```{r, message=FALSE}
+```{r, eval=FALSE}
 # Load the data and put them in the object called "data"
 data <- read.spss("Drivers.sav", to.data.frame = TRUE)
+```
+```{r, message=FALSE, echo = FALSE}
+# Load the data and put them in the object called "data"
+data <- read.spss("TCSM_student/Drivers.sav", to.data.frame = TRUE)
 ```
 
 ### Question 2.a
@@ -262,18 +280,9 @@ The `bartlett.test()` function provides a parametric K-sample test of the equali
 bartlett.test(formula = RT~condition, data = data)
 ```
 
-It can also be nice to use a paneled boxplot to visualize the distributions. For this, we will use the package `ggplot2`:
+It can also be nice to use a paneled boxplot to visualize the distributions. For this, we will use `ggplot2`. This time, we introduce a new command, `theme_bw()`: A theme for the plot that conforms to APA standards. We can apply this theme to any figure created using `ggplot()`:
 
-```{r, eval = FALSE}
-install.packages("ggplot2")
-library(ggplot2)
-ggplot(data, aes(y = RT, group = condition)) +
-  geom_boxplot() +
-  theme_bw()
-```
-
-
-```{r, echo = FALSE}
+```{r}
 library(ggplot2)
 ggplot(data, aes(y = RT, group = condition)) +
   geom_boxplot() +
@@ -306,6 +315,7 @@ Answer the research question.
   
 ```{r, message=FALSE}
 summary(results)
+TukeyHSD(results)
 ```
 
 Post-hoc tests with Bonferroni correction can be obtained using `TukeyHSD(results)`. We notice that none of these comparisons are significant. However, the research question was *Does talking on the phone interfere with peoples driving skills?* There are two conditions for talking on the phone. We could thus test a planned contrast of these two conditions against the control condition, instead of all possible post-hoc tests:
@@ -425,11 +435,14 @@ The handheld-condition has a significant **higher** reaction time than the contr
 Open the file Sesam2.sav. 
 
 
-```{r, message=FALSE}
+```{r, eval=FALSE}
 # Load the data and put them in the object called "data"
 data <- read.spss("Sesam2.sav", to.data.frame = TRUE)
 ```
-
+```{r, message=FALSE, echo = FALSE}
+# Load the data and put them in the object called "data"
+data <- read.spss("TCSM_student/Sesam2.sav", to.data.frame = TRUE)
+```
 Use postnumb as the dependent variable in all the following analyses.
 
 ### Question 3.a
@@ -469,7 +482,7 @@ What do the regression coefficients represent? How can you determine the average
 
 Make a coloured scatter plot with age on the x-axis and postnumb on the y-axis. Colour the dots according to the their `viewcat` category. How do you interpret the differences in slopes of these four fit lines?
 
-*Hint: Use* `ggplot(); geom_point(); geom_smooth()`. *Within ggplot, use the aes(colour = '...') to colour according to a certain variable.*
+*Hint: Use* `ggplot()` and `geom_point()`; *use the argument aes(colour = '...') to map colour to a certain variable. A new command is* `geom_smooth()` *: This plots a smooth line (like a regression line).*
 
 <details>
   <summary>Click for explanation</summary>

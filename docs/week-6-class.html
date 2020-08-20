@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 14 Week 6 - Class | Theory Construction and Statistical Modeling</title>
   <meta name="description" content="This is a guide for the elective course TCSM." />
-  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 14 Week 6 - Class | Theory Construction and Statistical Modeling" />
   <meta property="og:type" content="book" />
@@ -39,6 +39,9 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -136,11 +139,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.1" data-path="installing-software.html"><a href="installing-software.html"><i class="fa fa-check"></i><b>1.1</b> Installing software</a><ul>
 <li class="chapter" data-level="1.1.1" data-path="installing-software.html"><a href="installing-software.html#installing-r"><i class="fa fa-check"></i><b>1.1.1</b> 1. Installing R</a></li>
 <li class="chapter" data-level="1.1.2" data-path="installing-software.html"><a href="installing-software.html#installing-rstudio"><i class="fa fa-check"></i><b>1.1.2</b> 2. Installing RStudio</a></li>
-<li class="chapter" data-level="1.1.3" data-path="installing-software.html"><a href="installing-software.html#installing-packages"><i class="fa fa-check"></i><b>1.1.3</b> 3. Installing packages</a></li>
+<li class="chapter" data-level="1.1.3" data-path="installing-software.html"><a href="installing-software.html#installpackages"><i class="fa fa-check"></i><b>1.1.3</b> 3. Installing packages</a></li>
 <li class="chapter" data-level="1.1.4" data-path="installing-software.html"><a href="installing-software.html#get-started"><i class="fa fa-check"></i><b>1.1.4</b> Get started</a></li>
 <li class="chapter" data-level="1.1.5" data-path="installing-software.html"><a href="installing-software.html#starting-a-new-project-in-rstudio"><i class="fa fa-check"></i><b>1.1.5</b> Starting a new project in Rstudio</a></li>
 <li class="chapter" data-level="1.1.6" data-path="installing-software.html"><a href="installing-software.html#code-conventions"><i class="fa fa-check"></i><b>1.1.6</b> Code conventions</a></li>
 <li class="chapter" data-level="1.1.7" data-path="installing-software.html"><a href="installing-software.html#getting-help"><i class="fa fa-check"></i><b>1.1.7</b> Getting Help</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="getting-the-course-data.html"><a href="getting-the-course-data.html"><i class="fa fa-check"></i><b>1.2</b> Getting the course data</a></li>
+<li class="chapter" data-level="1.3" data-path="r-tutorial-for-beginners-optional.html"><a href="r-tutorial-for-beginners-optional.html"><i class="fa fa-check"></i><b>1.3</b> R tutorial for beginners (optional)</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="r-tutorial-for-beginners-optional.html"><a href="r-tutorial-for-beginners-optional.html#who-r-you"><i class="fa fa-check"></i><b>1.3.1</b> Who R you?</a></li>
+<li class="chapter" data-level="1.3.2" data-path="r-tutorial-for-beginners-optional.html"><a href="r-tutorial-for-beginners-optional.html#rstudio"><i class="fa fa-check"></i><b>1.3.2</b> RStudio</a></li>
+<li class="chapter" data-level="1.3.3" data-path="r-tutorial-for-beginners-optional.html"><a href="r-tutorial-for-beginners-optional.html#loading-data"><i class="fa fa-check"></i><b>1.3.3</b> Loading data</a></li>
+<li class="chapter" data-level="1.3.4" data-path="r-tutorial-for-beginners-optional.html"><a href="r-tutorial-for-beginners-optional.html#explore-your-data"><i class="fa fa-check"></i><b>1.3.4</b> Explore your data</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="plotting-the-data-optional.html"><a href="plotting-the-data-optional.html"><i class="fa fa-check"></i><b>1.4</b> Plotting the data (optional)</a><ul>
+<li class="chapter" data-level="1.4.1" data-path="plotting-the-data-optional.html"><a href="plotting-the-data-optional.html#a-histogram"><i class="fa fa-check"></i><b>1.4.1</b> A histogram</a></li>
+<li class="chapter" data-level="1.4.2" data-path="plotting-the-data-optional.html"><a href="plotting-the-data-optional.html#a-boxplot"><i class="fa fa-check"></i><b>1.4.2</b> A boxplot</a></li>
+<li class="chapter" data-level="1.4.3" data-path="plotting-the-data-optional.html"><a href="plotting-the-data-optional.html#scatterplot"><i class="fa fa-check"></i><b>1.4.3</b> Scatterplot</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="getting-your-data-into-r.html"><a href="getting-your-data-into-r.html"><i class="fa fa-check"></i><b>2</b> Getting your data into R</a><ul>
@@ -164,7 +179,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.0.6" data-path="week-1-home.html"><a href="week-1-home.html#question-1.f."><i class="fa fa-check"></i><b>3.0.6</b> Question 1.f.</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="week-1-class.html"><a href="week-1-class.html"><i class="fa fa-check"></i><b>4</b> Week 1 - Class</a><ul>
-<li class="chapter" data-level="4.1" data-path="loading-data.html"><a href="loading-data.html"><i class="fa fa-check"></i><b>4.1</b> Loading data</a></li>
+<li class="chapter" data-level="4.1" data-path="loading-data-1.html"><a href="loading-data-1.html"><i class="fa fa-check"></i><b>4.1</b> Loading data</a></li>
 <li class="chapter" data-level="4.2" data-path="section-1.html"><a href="section-1.html"><i class="fa fa-check"></i><b>4.2</b> Section 1</a><ul>
 <li class="chapter" data-level="4.2.1" data-path="section-1.html"><a href="section-1.html#question-1.a-1"><i class="fa fa-check"></i><b>4.2.1</b> Question 1.a</a></li>
 <li class="chapter" data-level="4.2.2" data-path="section-1.html"><a href="section-1.html#question-1.b-1"><i class="fa fa-check"></i><b>4.2.2</b> Question 1.b</a></li>
@@ -219,19 +234,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.0.10" data-path="week-2-home.html"><a href="week-2-home.html#question-1.j-1"><i class="fa fa-check"></i><b>5.0.10</b> Question 1.j</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="week-2-class.html"><a href="week-2-class.html"><i class="fa fa-check"></i><b>6</b> Week 2 - Class</a><ul>
-<li class="chapter" data-level="6.1" data-path="loading-data-1.html"><a href="loading-data-1.html"><i class="fa fa-check"></i><b>6.1</b> Loading data</a><ul>
-<li class="chapter" data-level="6.1.1" data-path="loading-data-1.html"><a href="loading-data-1.html#question-1"><i class="fa fa-check"></i><b>6.1.1</b> Question 1</a></li>
-<li class="chapter" data-level="6.1.2" data-path="loading-data-1.html"><a href="loading-data-1.html#question-2"><i class="fa fa-check"></i><b>6.1.2</b> Question 2</a></li>
-<li class="chapter" data-level="6.1.3" data-path="loading-data-1.html"><a href="loading-data-1.html#question-3"><i class="fa fa-check"></i><b>6.1.3</b> Question 3</a></li>
-<li class="chapter" data-level="6.1.4" data-path="loading-data-1.html"><a href="loading-data-1.html#question-4"><i class="fa fa-check"></i><b>6.1.4</b> Question 4</a></li>
-<li class="chapter" data-level="6.1.5" data-path="loading-data-1.html"><a href="loading-data-1.html#question-5"><i class="fa fa-check"></i><b>6.1.5</b> Question 5</a></li>
-<li class="chapter" data-level="6.1.6" data-path="loading-data-1.html"><a href="loading-data-1.html#question-6"><i class="fa fa-check"></i><b>6.1.6</b> Question 6</a></li>
-<li class="chapter" data-level="6.1.7" data-path="loading-data-1.html"><a href="loading-data-1.html#question-7"><i class="fa fa-check"></i><b>6.1.7</b> Question 7</a></li>
-<li class="chapter" data-level="6.1.8" data-path="loading-data-1.html"><a href="loading-data-1.html#question-8"><i class="fa fa-check"></i><b>6.1.8</b> Question 8</a></li>
-<li class="chapter" data-level="6.1.9" data-path="loading-data-1.html"><a href="loading-data-1.html#question-9"><i class="fa fa-check"></i><b>6.1.9</b> Question 9</a></li>
-<li class="chapter" data-level="6.1.10" data-path="loading-data-1.html"><a href="loading-data-1.html#question-10"><i class="fa fa-check"></i><b>6.1.10</b> Question 10</a></li>
-<li class="chapter" data-level="6.1.11" data-path="loading-data-1.html"><a href="loading-data-1.html#question-11"><i class="fa fa-check"></i><b>6.1.11</b> Question 11</a></li>
-</ul></li>
+<li class="chapter" data-level="6.0.1" data-path="week-2-class.html"><a href="week-2-class.html#loading-the-data"><i class="fa fa-check"></i><b>6.0.1</b> Loading the data</a></li>
+<li class="chapter" data-level="6.0.2" data-path="week-2-class.html"><a href="week-2-class.html#question-1"><i class="fa fa-check"></i><b>6.0.2</b> Question 1</a></li>
+<li class="chapter" data-level="6.0.3" data-path="week-2-class.html"><a href="week-2-class.html#question-2"><i class="fa fa-check"></i><b>6.0.3</b> Question 2</a></li>
+<li class="chapter" data-level="6.0.4" data-path="week-2-class.html"><a href="week-2-class.html#question-3"><i class="fa fa-check"></i><b>6.0.4</b> Question 3</a></li>
+<li class="chapter" data-level="6.0.5" data-path="week-2-class.html"><a href="week-2-class.html#question-4"><i class="fa fa-check"></i><b>6.0.5</b> Question 4</a></li>
+<li class="chapter" data-level="6.0.6" data-path="week-2-class.html"><a href="week-2-class.html#question-5"><i class="fa fa-check"></i><b>6.0.6</b> Question 5</a></li>
+<li class="chapter" data-level="6.0.7" data-path="week-2-class.html"><a href="week-2-class.html#question-6"><i class="fa fa-check"></i><b>6.0.7</b> Question 6</a></li>
+<li class="chapter" data-level="6.0.8" data-path="week-2-class.html"><a href="week-2-class.html#question-7"><i class="fa fa-check"></i><b>6.0.8</b> Question 7</a></li>
+<li class="chapter" data-level="6.0.9" data-path="week-2-class.html"><a href="week-2-class.html#question-8"><i class="fa fa-check"></i><b>6.0.9</b> Question 8</a></li>
+<li class="chapter" data-level="6.0.10" data-path="week-2-class.html"><a href="week-2-class.html#question-9"><i class="fa fa-check"></i><b>6.0.10</b> Question 9</a></li>
+<li class="chapter" data-level="6.0.11" data-path="week-2-class.html"><a href="week-2-class.html#question-10"><i class="fa fa-check"></i><b>6.0.11</b> Question 10</a></li>
+<li class="chapter" data-level="6.0.12" data-path="week-2-class.html"><a href="week-2-class.html#question-11"><i class="fa fa-check"></i><b>6.0.12</b> Question 11</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="week-3-home.html"><a href="week-3-home.html"><i class="fa fa-check"></i><b>7</b> Week 3 - Home</a><ul>
 <li class="chapter" data-level="7.0.1" data-path="week-3-home.html"><a href="week-3-home.html#get-started-with-lavaan"><i class="fa fa-check"></i><b>7.0.1</b> Get started with lavaan</a></li>
@@ -334,7 +348,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="14.0.14" data-path="week-6-class.html"><a href="week-6-class.html#question-13"><i class="fa fa-check"></i><b>14.0.14</b> Question 13</a></li>
 </ul></li>
 <li class="chapter" data-level="15" data-path="week-7-putting-it-all-together.html"><a href="week-7-putting-it-all-together.html"><i class="fa fa-check"></i><b>15</b> Week 7 - Putting it all together</a><ul>
-<li class="chapter" data-level="15.0.1" data-path="week-7-putting-it-all-together.html"><a href="week-7-putting-it-all-together.html#loading-the-data"><i class="fa fa-check"></i><b>15.0.1</b> Loading the data</a></li>
+<li class="chapter" data-level="15.0.1" data-path="week-7-putting-it-all-together.html"><a href="week-7-putting-it-all-together.html#loading-the-data-1"><i class="fa fa-check"></i><b>15.0.1</b> Loading the data</a></li>
 <li class="chapter" data-level="15.0.2" data-path="week-7-putting-it-all-together.html"><a href="week-7-putting-it-all-together.html#question-1-8"><i class="fa fa-check"></i><b>15.0.2</b> Question 1</a></li>
 <li class="chapter" data-level="15.0.3" data-path="week-7-putting-it-all-together.html"><a href="week-7-putting-it-all-together.html#question-2-8"><i class="fa fa-check"></i><b>15.0.3</b> Question 2</a></li>
 <li class="chapter" data-level="15.0.4" data-path="week-7-putting-it-all-together.html"><a href="week-7-putting-it-all-together.html#question-3-8"><i class="fa fa-check"></i><b>15.0.4</b> Question 3</a></li>
@@ -381,17 +395,17 @@ Because we can investigate 1) whether the model itself is different for boys and
 <p>Estimate a multi-group model, with gender as grouping variable. In case you forgot how to do this, see the first of the class exercise from week 4. Look at the fit of the model, what do you find?</p>
 <details>
 <p><summary>Click for explanation</summary></p>
-<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb255-1" title="1">model &lt;-<span class="st"> &quot;</span></a>
-<a class="sourceLine" id="cb255-2" title="2"><span class="st">suirisk ~ hopeless + depression + subabuse</span></a>
-<a class="sourceLine" id="cb255-3" title="3"><span class="st">hopeless ~ depression + selfesteem</span></a>
-<a class="sourceLine" id="cb255-4" title="4"><span class="st">selfesteem ~ depression</span></a>
-<a class="sourceLine" id="cb255-5" title="5"><span class="st">subabuse ~~ 0*depression</span></a>
-<a class="sourceLine" id="cb255-6" title="6"><span class="st">&quot;</span></a>
-<a class="sourceLine" id="cb255-7" title="7"></a>
-<a class="sourceLine" id="cb255-8" title="8">fit &lt;-<span class="st"> </span><span class="kw">sem</span>(model, data, </a>
-<a class="sourceLine" id="cb255-9" title="9">                   <span class="dt">group =</span> <span class="st">&quot;gender&quot;</span>)</a>
-<a class="sourceLine" id="cb255-10" title="10"><span class="kw">summary</span>(fit, <span class="dt">fit.measures =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
-<pre><code>## lavaan 0.6-5 ended normally after 71 iterations
+<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb274-1" title="1">model &lt;-<span class="st"> &quot;</span></a>
+<a class="sourceLine" id="cb274-2" title="2"><span class="st">suirisk ~ hopeless + depression + subabuse</span></a>
+<a class="sourceLine" id="cb274-3" title="3"><span class="st">hopeless ~ depression + selfesteem</span></a>
+<a class="sourceLine" id="cb274-4" title="4"><span class="st">selfesteem ~ depression</span></a>
+<a class="sourceLine" id="cb274-5" title="5"><span class="st">subabuse ~~ 0*depression</span></a>
+<a class="sourceLine" id="cb274-6" title="6"><span class="st">&quot;</span></a>
+<a class="sourceLine" id="cb274-7" title="7"></a>
+<a class="sourceLine" id="cb274-8" title="8">fit &lt;-<span class="st"> </span><span class="kw">sem</span>(model, data, </a>
+<a class="sourceLine" id="cb274-9" title="9">                   <span class="dt">group =</span> <span class="st">&quot;gender&quot;</span>)</a>
+<a class="sourceLine" id="cb274-10" title="10"><span class="kw">summary</span>(fit, <span class="dt">fit.measures =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<pre><code>## lavaan 0.6-6 ended normally after 71 iterations
 ## 
 ##   Estimator                                         ML
 ##   Optimization method                           NLMINB
@@ -443,9 +457,9 @@ Because we can investigate 1) whether the model itself is different for boys and
 ## 
 ## Parameter Estimates:
 ## 
+##   Standard errors                             Standard
 ##   Information                                 Expected
 ##   Information saturated (h1) model          Structured
-##   Standard errors                             Standard
 ## 
 ## 
 ## Group 1 [males]:
@@ -525,18 +539,18 @@ Because we can investigate 1) whether the model itself is different for boys and
 <p>Mehta et al. (1998) state that their model can be improved post-hoc by adding and removing a path to this model. Follow their procedure, and first add a path for both males and females, and secondly, remove a nonsignificant path.</p>
 <details>
 <p><summary>Click for explanation</summary></p>
-<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb257-1" title="1">model_exploratory &lt;-<span class="st"> &quot;</span></a>
-<a class="sourceLine" id="cb257-2" title="2"><span class="st">suirisk ~ depression + subabuse</span></a>
-<a class="sourceLine" id="cb257-3" title="3"><span class="st">hopeless ~ depression + selfesteem</span></a>
-<a class="sourceLine" id="cb257-4" title="4"><span class="st">selfesteem ~ depression</span></a>
-<a class="sourceLine" id="cb257-5" title="5"><span class="st">subabuse ~ hopeless</span></a>
-<a class="sourceLine" id="cb257-6" title="6"><span class="st">subabuse ~~ 0*depression</span></a>
-<a class="sourceLine" id="cb257-7" title="7"><span class="st">&quot;</span></a>
-<a class="sourceLine" id="cb257-8" title="8"></a>
-<a class="sourceLine" id="cb257-9" title="9">fit_exploratory &lt;-<span class="st"> </span><span class="kw">sem</span>(model_exploratory, data, </a>
-<a class="sourceLine" id="cb257-10" title="10">                   <span class="dt">group =</span> <span class="st">&quot;gender&quot;</span>)</a>
-<a class="sourceLine" id="cb257-11" title="11"><span class="kw">summary</span>(fit_exploratory, <span class="dt">fit.measures =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
-<pre><code>## lavaan 0.6-5 ended normally after 89 iterations
+<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb276-1" title="1">model_exploratory &lt;-<span class="st"> &quot;</span></a>
+<a class="sourceLine" id="cb276-2" title="2"><span class="st">suirisk ~ depression + subabuse</span></a>
+<a class="sourceLine" id="cb276-3" title="3"><span class="st">hopeless ~ depression + selfesteem</span></a>
+<a class="sourceLine" id="cb276-4" title="4"><span class="st">selfesteem ~ depression</span></a>
+<a class="sourceLine" id="cb276-5" title="5"><span class="st">subabuse ~ hopeless</span></a>
+<a class="sourceLine" id="cb276-6" title="6"><span class="st">subabuse ~~ 0*depression</span></a>
+<a class="sourceLine" id="cb276-7" title="7"><span class="st">&quot;</span></a>
+<a class="sourceLine" id="cb276-8" title="8"></a>
+<a class="sourceLine" id="cb276-9" title="9">fit_exploratory &lt;-<span class="st"> </span><span class="kw">sem</span>(model_exploratory, data, </a>
+<a class="sourceLine" id="cb276-10" title="10">                   <span class="dt">group =</span> <span class="st">&quot;gender&quot;</span>)</a>
+<a class="sourceLine" id="cb276-11" title="11"><span class="kw">summary</span>(fit_exploratory, <span class="dt">fit.measures =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<pre><code>## lavaan 0.6-6 ended normally after 89 iterations
 ## 
 ##   Estimator                                         ML
 ##   Optimization method                           NLMINB
@@ -588,9 +602,9 @@ Because we can investigate 1) whether the model itself is different for boys and
 ## 
 ## Parameter Estimates:
 ## 
+##   Standard errors                             Standard
 ##   Information                                 Expected
 ##   Information saturated (h1) model          Structured
-##   Standard errors                             Standard
 ## 
 ## 
 ## Group 1 [males]:
@@ -672,8 +686,8 @@ Because we can investigate 1) whether the model itself is different for boys and
 <p>Evaluate the path coefficients of both males and females (tip: look at both the unstandardized and standardized coefficients). Can you explain how the two groups differ?</p>
 <details>
 <p><summary>Click for explanation</summary></p>
-<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb259-1" title="1"><span class="kw">summary</span>(fit, <span class="dt">fit.measures =</span> <span class="ot">FALSE</span>, <span class="dt">standardized =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
-<pre><code>## lavaan 0.6-5 ended normally after 71 iterations
+<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb278-1" title="1"><span class="kw">summary</span>(fit, <span class="dt">fit.measures =</span> <span class="ot">FALSE</span>, <span class="dt">standardized =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<pre><code>## lavaan 0.6-6 ended normally after 71 iterations
 ## 
 ##   Estimator                                         ML
 ##   Optimization method                           NLMINB
@@ -694,9 +708,9 @@ Because we can investigate 1) whether the model itself is different for boys and
 ## 
 ## Parameter Estimates:
 ## 
+##   Standard errors                             Standard
 ##   Information                                 Expected
 ##   Information saturated (h1) model          Structured
-##   Standard errors                             Standard
 ## 
 ## 
 ## Group 1 [males]:
@@ -790,17 +804,16 @@ Even if we observe differences, we do not know whether they are significantly di
 <details>
 <p><summary>Click for explanation</summary>
 First, estimate the constrained model. We can use the <code>model</code> from the first exercise:</p>
-<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb261-1" title="1">fit_fix_reg &lt;-<span class="st"> </span><span class="kw">sem</span>(model, data,</a>
-<a class="sourceLine" id="cb261-2" title="2">                   <span class="dt">group =</span> <span class="st">&quot;gender&quot;</span>,</a>
-<a class="sourceLine" id="cb261-3" title="3">                   <span class="dt">group.equal =</span> <span class="st">&quot;regressions&quot;</span>)</a>
-<a class="sourceLine" id="cb261-4" title="4"><span class="kw">summary</span>(fit_fix_reg, <span class="dt">fit.measures =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
-<pre><code>## lavaan 0.6-5 ended normally after 49 iterations
+<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb280-1" title="1">fit_fix_reg &lt;-<span class="st"> </span><span class="kw">sem</span>(model, data,</a>
+<a class="sourceLine" id="cb280-2" title="2">                   <span class="dt">group =</span> <span class="st">&quot;gender&quot;</span>,</a>
+<a class="sourceLine" id="cb280-3" title="3">                   <span class="dt">group.equal =</span> <span class="st">&quot;regressions&quot;</span>)</a>
+<a class="sourceLine" id="cb280-4" title="4"><span class="kw">summary</span>(fit_fix_reg, <span class="dt">fit.measures =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<pre><code>## lavaan 0.6-6 ended normally after 49 iterations
 ## 
 ##   Estimator                                         ML
 ##   Optimization method                           NLMINB
 ##   Number of free parameters                         32
 ##   Number of equality constraints                     6
-##   Row rank of the constraints matrix                 6
 ##                                                       
 ##   Number of observations per group:                   
 ##     males                                          192
@@ -848,9 +861,9 @@ First, estimate the constrained model. We can use the <code>model</code> from th
 ## 
 ## Parameter Estimates:
 ## 
+##   Standard errors                             Standard
 ##   Information                                 Expected
 ##   Information saturated (h1) model          Structured
-##   Standard errors                             Standard
 ## 
 ## 
 ## Group 1 [males]:
@@ -924,9 +937,9 @@ First, estimate the constrained model. We can use the <code>model</code> from th
 ##     depression       57.515    4.484   12.826    0.000
 ##     subabuse         41.461    3.233   12.826    0.000</code></pre>
 <p>Then, compare the two models. I like to use <code>semTools::compareFit()</code>:</p>
-<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb263-1" title="1"><span class="kw">library</span>(semTools)</a>
-<a class="sourceLine" id="cb263-2" title="2"><span class="kw">compareFit</span>(<span class="dt">Free =</span> fit,</a>
-<a class="sourceLine" id="cb263-3" title="3">           <span class="dt">Constrained =</span> fit_fix_reg)</a></code></pre></div>
+<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb282-1" title="1"><span class="kw">library</span>(semTools)</a>
+<a class="sourceLine" id="cb282-2" title="2"><span class="kw">compareFit</span>(<span class="dt">Free =</span> fit,</a>
+<a class="sourceLine" id="cb282-3" title="3">           <span class="dt">Constrained =</span> fit_fix_reg)</a></code></pre></div>
 <pre><code>## ################### Nested Model Comparison #########################
 ## Chi-Squared Difference Test
 ## 
@@ -937,12 +950,9 @@ First, estimate the constrained model. We can use the <code>model</code> from th
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
 ## ####################### Model Fit Indices ###########################
-##               chisq df pvalue   cfi   tli        aic        bic rmsea
-## Free        75.329†  8   .000 .917† .792  13858.956† 13995.140  .180 
-## Constrained 98.420  14   .000 .896  .851† 13870.048  13980.697† .152†
-##              srmr
-## Free        .124†
-## Constrained .136 
+##               chisq df pvalue   cfi   tli        aic        bic rmsea  srmr
+## Free        75.329†  8   .000 .917† .792  13858.956† 13995.140  .180  .124†
+## Constrained 98.420  14   .000 .896  .851† 13870.048  13980.697† .152† .136 
 ## 
 ## ################## Differences in Fit Indices #######################
 ##                    df    cfi   tli    aic     bic  rmsea  srmr
@@ -959,29 +969,29 @@ First, estimate the constrained model. We can use the <code>model</code> from th
 <li>Label every path in your model</li>
 <li>Define new parameters as the difference between corresponding parameters for men and women</li>
 </ol>
-<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb265-1" title="1">model_diff &lt;-<span class="st"> &quot;</span></a>
-<a class="sourceLine" id="cb265-2" title="2"><span class="st">suirisk ~ c(m1, f1)*hopeless + c(m2, f2)*depression + c(m3, f3)*subabuse</span></a>
-<a class="sourceLine" id="cb265-3" title="3"><span class="st">hopeless ~ c(m4, f4)*depression + c(m5, f5)*selfesteem</span></a>
-<a class="sourceLine" id="cb265-4" title="4"><span class="st">selfesteem ~ c(m6, f6)*depression</span></a>
-<a class="sourceLine" id="cb265-5" title="5"><span class="st">subabuse ~~ depression</span></a>
-<a class="sourceLine" id="cb265-6" title="6"></a>
-<a class="sourceLine" id="cb265-7" title="7"><span class="st">D1 := m1-f1</span></a>
-<a class="sourceLine" id="cb265-8" title="8"><span class="st">D2 := m2-f2</span></a>
-<a class="sourceLine" id="cb265-9" title="9"><span class="st">D3 := m3-f3</span></a>
-<a class="sourceLine" id="cb265-10" title="10"><span class="st">D4 := m4-f4</span></a>
-<a class="sourceLine" id="cb265-11" title="11"><span class="st">D5 := m5-f5</span></a>
-<a class="sourceLine" id="cb265-12" title="12"><span class="st">D6 := m6-f6</span></a>
-<a class="sourceLine" id="cb265-13" title="13"><span class="st">&quot;</span></a></code></pre></div>
+<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb284-1" title="1">model_diff &lt;-<span class="st"> &quot;</span></a>
+<a class="sourceLine" id="cb284-2" title="2"><span class="st">suirisk ~ c(m1, f1)*hopeless + c(m2, f2)*depression + c(m3, f3)*subabuse</span></a>
+<a class="sourceLine" id="cb284-3" title="3"><span class="st">hopeless ~ c(m4, f4)*depression + c(m5, f5)*selfesteem</span></a>
+<a class="sourceLine" id="cb284-4" title="4"><span class="st">selfesteem ~ c(m6, f6)*depression</span></a>
+<a class="sourceLine" id="cb284-5" title="5"><span class="st">subabuse ~~ depression</span></a>
+<a class="sourceLine" id="cb284-6" title="6"></a>
+<a class="sourceLine" id="cb284-7" title="7"><span class="st">D1 := m1-f1</span></a>
+<a class="sourceLine" id="cb284-8" title="8"><span class="st">D2 := m2-f2</span></a>
+<a class="sourceLine" id="cb284-9" title="9"><span class="st">D3 := m3-f3</span></a>
+<a class="sourceLine" id="cb284-10" title="10"><span class="st">D4 := m4-f4</span></a>
+<a class="sourceLine" id="cb284-11" title="11"><span class="st">D5 := m5-f5</span></a>
+<a class="sourceLine" id="cb284-12" title="12"><span class="st">D6 := m6-f6</span></a>
+<a class="sourceLine" id="cb284-13" title="13"><span class="st">&quot;</span></a></code></pre></div>
 </div>
 <div id="question-7-6" class="section level3">
 <h3><span class="header-section-number">14.0.8</span> Question 7</h3>
 <p>Fit this model, and inspect the results for the defined parameters. What are your conclusions?</p>
 <details>
 <p><summary>Click for explanation</summary></p>
-<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb266-1" title="1">fit_dif &lt;-<span class="st"> </span><span class="kw">sem</span>(model_diff, data, </a>
-<a class="sourceLine" id="cb266-2" title="2">                   <span class="dt">group =</span> <span class="st">&quot;gender&quot;</span>)</a>
-<a class="sourceLine" id="cb266-3" title="3"><span class="kw">summary</span>(fit_dif)</a></code></pre></div>
-<pre><code>## lavaan 0.6-5 ended normally after 95 iterations
+<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb285-1" title="1">fit_dif &lt;-<span class="st"> </span><span class="kw">sem</span>(model_diff, data, </a>
+<a class="sourceLine" id="cb285-2" title="2">                   <span class="dt">group =</span> <span class="st">&quot;gender&quot;</span>)</a>
+<a class="sourceLine" id="cb285-3" title="3"><span class="kw">summary</span>(fit_dif)</a></code></pre></div>
+<pre><code>## lavaan 0.6-6 ended normally after 95 iterations
 ## 
 ##   Estimator                                         ML
 ##   Optimization method                           NLMINB
@@ -1002,9 +1012,9 @@ First, estimate the constrained model. We can use the <code>model</code> from th
 ## 
 ## Parameter Estimates:
 ## 
+##   Standard errors                             Standard
 ##   Information                                 Expected
 ##   Information saturated (h1) model          Structured
-##   Standard errors                             Standard
 ## 
 ## 
 ## Group 1 [males]:
@@ -1100,20 +1110,20 @@ You should consider the potential risk of multiple testing, and whether the assu
 <div id="results-table" class="section level3">
 <h3><span class="header-section-number">14.0.10</span> Results table</h3>
 <p>When you want to include your results in a paper, it’s a lot of work to copy-paste everything. There are many ways to get R results directly into a paper, including writing the entire paper in R and automatically updating the results. I will show you a very basic way to make a table and export it to a spreadsheet. We will use the functions <code>parameterEstimates(fit, standardized = TRUE)</code> to get the unstandardized and standardized estimates, and then put them into a nice table:</p>
-<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb268-1" title="1">table_results &lt;-<span class="st"> </span><span class="kw">parameterEstimates</span>(fit, <span class="dt">standardized =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb268-2" title="2"><span class="kw">head</span>(table_results)</a></code></pre></div>
+<div class="sourceCode" id="cb287"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb287-1" title="1">table_results &lt;-<span class="st"> </span><span class="kw">parameterEstimates</span>(fit, <span class="dt">standardized =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb287-2" title="2"><span class="kw">head</span>(table_results)</a></code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["lhs"],"name":[1],"type":["chr"],"align":["left"]},{"label":["op"],"name":[2],"type":["chr"],"align":["left"]},{"label":["rhs"],"name":[3],"type":["chr"],"align":["left"]},{"label":["block"],"name":[4],"type":["int"],"align":["right"]},{"label":["group"],"name":[5],"type":["int"],"align":["right"]},{"label":["est"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["se"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["z"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["pvalue"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["ci.lower"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["ci.upper"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["std.lv"],"name":[12],"type":["dbl"],"align":["right"]},{"label":["std.all"],"name":[13],"type":["dbl"],"align":["right"]},{"label":["std.nox"],"name":[14],"type":["dbl"],"align":["right"]}],"data":[{"1":"suirisk","2":"~","3":"hopeless","4":"1","5":"1","6":"0.02522036","7":"0.05559944","8":"0.4536081","9":"6.501109e-01","10":"-0.08375254","11":"0.1341933","12":"0.02522036","13":"0.03850758","14":"0.03850758","_rn_":"1"},{"1":"suirisk","2":"~","3":"depression","4":"1","5":"1","6":"0.11102741","7":"0.01967101","8":"5.6442144","9":"1.659372e-08","10":"0.07247294","11":"0.1495819","12":"0.11102741","13":"0.47914712","14":"0.47914712","_rn_":"2"},{"1":"suirisk","2":"~","3":"subabuse","4":"1","5":"1","6":"0.12079071","7":"0.04057289","8":"2.9771284","9":"2.909621e-03","10":"0.04126930","11":"0.2003121","12":"0.12079071","13":"0.18109167","14":"0.18109167","_rn_":"3"},{"1":"hopeless","2":"~","3":"depression","4":"1","5":"1","6":"0.16144616","7":"0.02431305","8":"6.6403098","9":"3.130252e-11","10":"0.11379346","11":"0.2090989","12":"0.16144616","13":"0.45632199","14":"0.45632199","_rn_":"4"},{"1":"hopeless","2":"~","3":"selfesteem","4":"1","5":"1","6":"-0.16614129","7":"0.03341152","8":"-4.9725745","9":"6.606956e-07","10":"-0.23162667","11":"-0.1006559","12":"-0.16614129","13":"-0.34171524","14":"-0.34171524","_rn_":"5"},{"1":"selfesteem","2":"~","3":"depression","4":"1","5":"1","6":"-0.51370560","7":"0.03719538","8":"-13.8110074","9":"0.000000e+00","10":"-0.58660719","11":"-0.4408040","12":"-0.51370560","13":"-0.70594555","14":"-0.70594555","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 <p>Then, we take only the labeled parameters (which are the regression coefficients and difference parameters):</p>
-<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb269-1" title="1">table_results &lt;-<span class="st"> </span>table_results[table_results<span class="op">$</span>label <span class="op">!=</span><span class="st"> &quot;&quot;</span>, ]</a>
-<a class="sourceLine" id="cb269-2" title="2">table_results &lt;-<span class="st"> </span><span class="kw">cbind</span>(table_results[<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">3</span>],</a>
-<a class="sourceLine" id="cb269-3" title="3">               <span class="dt">Est_men =</span> table_results[<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>, <span class="st">&quot;std.all&quot;</span>],</a>
-<a class="sourceLine" id="cb269-4" title="4">               <span class="dt">Est_women =</span> table_results[<span class="dv">7</span><span class="op">:</span><span class="dv">12</span>, <span class="st">&quot;std.all&quot;</span>],</a>
-<a class="sourceLine" id="cb269-5" title="5">               <span class="dt">p_diff =</span> table_results[<span class="dv">13</span><span class="op">:</span><span class="dv">18</span>, <span class="st">&quot;pvalue&quot;</span>])</a>
-<a class="sourceLine" id="cb269-6" title="6"><span class="kw">write.csv</span>(table_results, <span class="st">&quot;table_results.csv&quot;</span>, <span class="dt">row.names =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb288-1" title="1">table_results &lt;-<span class="st"> </span>table_results[table_results<span class="op">$</span>label <span class="op">!=</span><span class="st"> &quot;&quot;</span>, ]</a>
+<a class="sourceLine" id="cb288-2" title="2">table_results &lt;-<span class="st"> </span><span class="kw">cbind</span>(table_results[<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">3</span>],</a>
+<a class="sourceLine" id="cb288-3" title="3">               <span class="dt">Est_men =</span> table_results[<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>, <span class="st">&quot;std.all&quot;</span>],</a>
+<a class="sourceLine" id="cb288-4" title="4">               <span class="dt">Est_women =</span> table_results[<span class="dv">7</span><span class="op">:</span><span class="dv">12</span>, <span class="st">&quot;std.all&quot;</span>],</a>
+<a class="sourceLine" id="cb288-5" title="5">               <span class="dt">p_diff =</span> table_results[<span class="dv">13</span><span class="op">:</span><span class="dv">18</span>, <span class="st">&quot;pvalue&quot;</span>])</a>
+<a class="sourceLine" id="cb288-6" title="6"><span class="kw">write.csv</span>(table_results, <span class="st">&quot;table_results.csv&quot;</span>, <span class="dt">row.names =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
 </div>
 <div id="question-9-4" class="section level3">
 <h3><span class="header-section-number">14.0.11</span> Question 9</h3>
@@ -1124,8 +1134,8 @@ You should consider the potential risk of multiple testing, and whether the assu
 <p>Evaluate R-square for suicide risk for males and females. What do you find?</p>
 <details>
 <p><summary>Click for explanation</summary></p>
-<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb270-1" title="1"><span class="kw">summary</span>(fit, <span class="dt">rsquare =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
-<pre><code>## lavaan 0.6-5 ended normally after 71 iterations
+<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb289-1" title="1"><span class="kw">summary</span>(fit, <span class="dt">rsquare =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<pre><code>## lavaan 0.6-6 ended normally after 71 iterations
 ## 
 ##   Estimator                                         ML
 ##   Optimization method                           NLMINB
@@ -1146,9 +1156,9 @@ You should consider the potential risk of multiple testing, and whether the assu
 ## 
 ## Parameter Estimates:
 ## 
+##   Standard errors                             Standard
 ##   Information                                 Expected
 ##   Information saturated (h1) model          Structured
-##   Standard errors                             Standard
 ## 
 ## 
 ## Group 1 [males]:
@@ -1266,11 +1276,13 @@ Should be different: They do not test moderation explicitly, and report differen
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -1278,12 +1290,11 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -1295,6 +1306,10 @@ gitbook.start({
 "text": null
 },
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },
