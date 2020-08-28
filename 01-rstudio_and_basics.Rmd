@@ -177,7 +177,7 @@ The four panes really help become organized. In RStudio, you can do everything a
 ### Loading data
 
 -	Statistical analysis cannot happen without data. In R, you can load data in various ways. Let’s see the easiest way.
-- To download the dataset (``LifeSat``) for this tutorial, click [here](https://github.com/Rensvandeschoot/Tutorials/raw/master/R/LifeSat.sav).
+- To download the dataset (``LifeSat``) for this tutorial, see the Chapter [Getting the course data].
 
 #### Mouse clicks
 
