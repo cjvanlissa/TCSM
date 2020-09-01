@@ -287,7 +287,7 @@ LifeSat[1:2, c("age", "educ")]
 str(LifeSat)
 ```
 
--	According to the output in the console pane, the dataset consists of 1,491 observations and 6 variables. This means that our dataset has 1,491 rows and 6 columns.
+-	According to the output in the console pane, the dataset consists of 98 observations and 8 variables.  variables. This means that our dataset has 98 rows and 8 columns.
 -	It is written that respnr: num 1 2 3 4 5 6 7 8 9 10 … It means that the respnr variable is a number (abbreviated as num), and 1 is the value in the first row, 2 is the value in the second row, 3 is the value in the third row, and so on.
 
 #### summary()
