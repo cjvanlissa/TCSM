@@ -1,0 +1,96 @@
+# Week 2 - Reading questions
+
+```{r include=FALSE}
+knitr::opts_chunk$set(warning=FALSE, message=FALSE)
+config <- yaml::yaml.load_file("config.yml")
+```
+
+#### Reference {-}
+
+[Preacher, Kristopher J. and MacCullum, Robert C. (2003) Repairing Tom Swift’s Electric Factor Analysis Machine, Understanding Statistics 2(1) 13-43.](http://kuscholarworks.ku.edu/dspace/bitstream/1808/1492/1/preacher_maccallum_2003.pdf)
+
+#### Questions {-}
+
+1. What is a latent variable? 
+1. What is factor analysis and what can you investigate using this method? 
+1. In the introduction, Preacher and Maccallum talk about a “little jiffy” method of doing factor analysis. Can you shortly list what this litlle jiffy – or bad practice – method of factor analysis is? 
+1. What are in short the differences between Principal Component Analyses and Exploratory Factor Analyses? 
+1. What is the purpose of factor rotation? 
+
+
+```{r echo=FALSE, results = 'asis', eval = config$show_text}
+cat("#### Answers {-}
+
+1. A latent variable is a variable (i.e. something that varies across our 
+research subjects) that we cannot observe directly, but that we can 
+infer by using some combination of observed variables that each tap a 
+separate aspect of the latent variable (PL: own definition). Examples 
+are IQ, personality, trust, math ability, etc. 
+1. “Factor analysis (in the EFA context) is a method of discovering the 
+number and nature of Latent variables that explain the variation and 
+covariation in a set of measured variables” I..e. the method top 
+investigate whether some set of observed variables together measure 
+one or more latent variables.  
+1. doing Principal component analysis, with no rotation, or varimax 
+rotation, and retention of components with eigenvalues greater than 
+1.0. These are the SPSS defaults, but they most often do not give a 
+meaningful answer to a substantial research question. 
+1. Main difference
+    * PCA – summary of common variance (i.e. explained variance =100%) 
+    * EFA – every factor has unique variance (i.e. explained variance =not 
+100%) 
+1. The procedure of rotating the factor axes to make sure items load as 
+much on only one factor as possible There are two methods. 
+Orthogonal rotation, in which two latent factors are not allowed to 
+correlate (i.e. the axes describe a 90 degree angle), and oblique 
+(oblimin or promax) rotation, in which the axes are allowed to 
+correlate.  
+")
+```
+
+#### Reference {-}
+
+[Kestilä, Elina (2006) Is There Demand for Radical Right Populism in the 
+Finnish Electorate? Scandinavian Political Studies 29(3),169-191](http://onlinelibrary.wiley.com/doi/10.1111/j.1467-
+9477.2006.00148.x/pdf)
+
+#### Questions {-}
+
+1. What is the research question that the author tries to answer? 
+2. Describe shortly the characteristics of the Radical Right Parties (RRP) in 
+Europe. 
+3. What are the two main explanations of support for RRP that this paper 
+focuses on? Does the empirical part of the paper reflect the theoretical 
+framework well?  
+4. Is Finland very different from other European countries in on the main 
+dependent variables according to the author? 
+5. What is the conclusion by the author; i.e. what is the answer to the 
+research question? 
+
+```{r echo=FALSE, results = 'asis', eval = config$show_text}
+cat("#### Answers {-}
+
+1. There is no literal passage that can be used, but the research problem 
+is stated as “why there is no Radical Right Party in Finland”. The 
+question this paper poses is whether the attitudes the Finnish 
+electorate holds about trust in politics and immigration is similar to or 
+different from the other Western-European countries. 
+2. pages 175-177 provide information on this. In short RRP emphasize 
+anti-immigrant attitudes and connect immigrations to feelings of 
+insecurity, spurring debates about crime. They are protest, anti-elitist 
+parties, that often push for lower taxes, while protecting the welfare 
+state. They can be clearly placed along the new cleavage in politics 
+that is about materialism vs. post-materialism, and reflect the antonym 
+of green parties. Finally, they represent the ‘losers’ of modernization 
+and emphasize traditional moral values, social norms, the role of the 
+family and the importance of a national culture. 
+3. the anti-immigration issue and protest voting. 
+4. No, Finland is very similar to other (Nordic) European countries. Some 
+countries with the most anti-immigrant and anti-politics attitudes, still 
+host a RRP. 
+5. Anti-immigrant and anti-politics attitudes cannot explain why there is 
+no RRP in Finland. The author find the reason for this in history, and 
+the fact that politicians from mainstream political parties have caught 
+the populist voters. 
+")
+```

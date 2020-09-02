@@ -1,0 +1,79 @@
+# Week 2 - Reading questions
+
+```{r include=FALSE}
+knitr::opts_chunk$set(warning=FALSE, message=FALSE)
+config <- yaml::yaml.load_file("config.yml")
+```
+
+#### Reference {-}
+
+[Byrne, Barbara (2005) Factor Analytic Models: Viewing the Structure of an 
+Assessment Instrument From Three Perspectives, Journal of Personality 
+Assessment 85(1), 17-32](https://www.tandfonline.com/doi/pdf/10.1207/s15327752jpa8501_02)
+
+#### Questions {-}
+
+1. What are the main differences between exploratory factor analysis 
+(EFA) and confirmatory factor analysis (CFA)? 
+1. In what circumstances should a researcher use EFA and when CFA? 
+1. What are the 5 main limitations of EFA, that CFA models overcome? 
+1. In what circumstances can a second order CFA be useful? 
+1. Compare the four factor analysis techniques we have now discussed: 
+PCA (see last week) and the models on page 21 (EFA), page 19/24 
+(CFA) and page 26 (second order CFA). Consider the following three 
+research situations: which factor analysis technqiue would you prefer 
+for each situation and why? 
+    a. A researcher has developed a new questionnaire that should 
+measure someone’s personality and wants to know how many 
+factors there are.
+    b. A researcher has used seven items that have been used since 
+the 1960 to measure one concept: authoritarianism 
+    c. A researcher has recorded someon’s highest completed 
+education, the number of years of education someone has taken 
+and highest education followed for all respondents in a survey, 
+and is unsure which variable to use to measure the concept 
+‘education’
+
+```{r echo=FALSE, results = 'asis', eval = config$show_text}
+cat("#### Answers {-}
+
+1. p. 17/2 “EFA is primarily a data-driven approach, whereas CFA is 
+theoretically grounded” 
+1. p. 17/2 “EFA is most appropriately used when links between the 
+observed variables and their underlying factors are unknown or 
+uncertain (…) One logical application of EFA would be in the 
+development of a new assessment measure. (…) In contrast, CFA is 
+appropriately used when the researcher has some knowledge of the 
+underlying latent variable structure. Based on theory (..) he or she 
+postulates relations between the observed measures and the 
+underlying factors a priori and then tests this hypothesized structure 
+statistically”. 
+1. page 18: 
+    * in EFA all common factors are either uncorrelated (orthogonal) or 
+correlated (oblique). In CFA, this can be specified by the researcher 
+    * in EFA all observed variables are influences by all latent variables, in 
+CFA, all observed variables are typically only explained by one latent 
+variable 
+    * in EFA, the unique factors are always uncorrelated when orthogonal 
+rotation methods are chosen. In CFA, factors are almost always 
+correlated (unless the user puts in an additional constraint) 
+    * there is usually no test of model misfit in EFA, in CFA this is always 
+the case 
+    * in EFA, you cannot test whether factor structure, or loadings are the 
+same across groups, whereas in CFA you can 
+    * When there are multiple factors (ideally more than two (PL: because of 
+model identification)), which can be explained by some common 
+theoretical latent construct. 
+1. Answers:
+    * EFA: there seem to be no clear latent variables, so the structure is 
+not clear. I would choose oblique rotation, as [personality is multi-
+dimensional, and separate dimensions are likely to be correlated.  
+    * CFA or PCA, or EFA could all work. With PCA and EFA one can test 
+whether there truly is one factor structure, whereas in CFA, one can 
+use model fit statistics to test this. EFA and CFA have the advantage 
+that they show how much of the variance is explained.
+    * CFA would be the method here. The researcher can use the latent 
+variable in any subsequent analysis, and does not have to reply on 
+factor scores that partly consist of measurement errors.  
+")
+```
