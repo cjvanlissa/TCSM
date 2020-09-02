@@ -205,12 +205,12 @@ The four panes really help become organized. In RStudio, you can do everything a
 -	In this course, we use the `read.spss` function from the `library(foreign)`. It works best with all exercises.
 - Write the following code in an R-script:
 
-```{r, echo = TRUE, eval = FALSE}
+```{r, echo = FALSE, eval = TRUE}
 library(foreign)
 LifeSat <- read.spss("TCSM_student/LifeSat.sav", to.data.frame = TRUE, use.value.labels = FALSE)
 View(LifeSat)
 ```
-```{r, echo = FALSE, eval = TRUE}
+```{r, echo = TRUE, eval = FALSE}
 library(foreign)
 LifeSat <- read.spss("LifeSat.sav", to.data.frame = TRUE, use.value.labels = FALSE)
 ```
