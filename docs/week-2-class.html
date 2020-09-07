@@ -429,7 +429,7 @@ Based on your reading of Preacher and MacCallum (2003), do you agree with this p
 <p>Another common approach is to make a scree plot. All that is required for this, is to pass the eigenvalues to the <code>qplot()</code> function and add a geom_path:</p>
 <div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb115-1" title="1"><span class="kw">library</span>(ggplot2)</a>
 <a class="sourceLine" id="cb115-2" title="2"><span class="kw">qplot</span>(<span class="dt">y =</span> efa_trust<span class="op">$</span>values) <span class="op">+</span><span class="st"> </span><span class="kw">geom_path</span>()</a></code></pre></div>
-<p><img src="TCSM_files/figure-html/unnamed-chunk-106-1.png" width="672" /></p>
+<p><img src="TCSM_files/figure-html/unnamed-chunk-107-1.png" width="672" /></p>
 <p>You can do the same for the attitude variables:</p>
 <div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb116-1" title="1">efa_att &lt;-<span class="st"> </span><span class="kw">fa</span>(df[, <span class="dv">20</span><span class="op">:</span><span class="dv">44</span>], <span class="dt">nfactors =</span> <span class="dv">5</span>, <span class="dt">rotate =</span> <span class="st">&quot;promax&quot;</span>, <span class="dt">fm =</span> <span class="st">&quot;ml&quot;</span>, <span class="dt">scores =</span> <span class="st">&quot;Bartlett&quot;</span>)</a>
 <a class="sourceLine" id="cb116-2" title="2"><span class="kw">round</span>(efa_att<span class="op">$</span>values, <span class="dt">digits =</span> <span class="dv">3</span>)</a></code></pre></div>
@@ -437,7 +437,7 @@ Based on your reading of Preacher and MacCallum (2003), do you agree with this p
 ## [11]  0.043  0.028  0.022  0.008 -0.018 -0.028 -0.032 -0.056 -0.066 -0.083
 ## [21] -0.089 -0.119 -0.132 -0.146 -0.266</code></pre>
 <div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb118-1" title="1"><span class="kw">qplot</span>(<span class="dt">y =</span> efa_att<span class="op">$</span>values) <span class="op">+</span><span class="st"> </span><span class="kw">geom_path</span>()</a></code></pre></div>
-<p><img src="TCSM_files/figure-html/unnamed-chunk-107-1.png" width="672" /></p>
+<p><img src="TCSM_files/figure-html/unnamed-chunk-108-1.png" width="672" /></p>
 
 </div>
 <div id="question-4" class="section level3">
@@ -590,7 +590,7 @@ The <em>cumulative var</em> indicates how much variance the factors explain, in 
 <div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb128-1" title="1"><span class="kw">library</span>(ggplot2)</a>
 <a class="sourceLine" id="cb128-2" title="2"><span class="kw">ggplot</span>(<span class="dt">data =</span> df) <span class="op">+</span></a>
 <a class="sourceLine" id="cb128-3" title="3"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> EFA_trust1, <span class="dt">y =</span> PCA_Trust1))</a></code></pre></div>
-<p><img src="TCSM_files/figure-html/unnamed-chunk-114-1.png" width="672" /></p>
+<p><img src="TCSM_files/figure-html/unnamed-chunk-115-1.png" width="672" /></p>
 
 </div>
 <div id="question-8" class="section level3">

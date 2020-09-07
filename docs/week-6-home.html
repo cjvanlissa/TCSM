@@ -447,7 +447,7 @@ A basic correlation matrix for the first 5 variables:</p>
 <a class="sourceLine" id="cb249-2" title="2">             <span class="dt">density =</span> <span class="ot">TRUE</span>, <span class="co"># show density plots</span></a>
 <a class="sourceLine" id="cb249-3" title="3">             <span class="dt">ellipses =</span> <span class="ot">TRUE</span> <span class="co"># show correlation ellipses</span></a>
 <a class="sourceLine" id="cb249-4" title="4">             )</a></code></pre></div>
-<p><img src="TCSM_files/figure-html/unnamed-chunk-206-1.png" width="672" /></p>
+<p><img src="TCSM_files/figure-html/unnamed-chunk-207-1.png" width="672" /></p>
 </div>
 <div id="ggplot-to-build-plots" class="section level4">
 <h4><span class="header-section-number">16.0.3.2</span> Ggplot to build plots</h4>
@@ -457,7 +457,7 @@ A basic correlation matrix for the first 5 variables:</p>
 <a class="sourceLine" id="cb250-3" title="3"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st">  </span><span class="co"># Add scatter</span></a>
 <a class="sourceLine" id="cb250-4" title="4"><span class="st">  </span><span class="kw">geom_smooth</span>() <span class="op">+</span><span class="st"> </span><span class="co"># Add smooth trend</span></a>
 <a class="sourceLine" id="cb250-5" title="5"><span class="st">  </span><span class="kw">theme_bw</span>()      <span class="co"># Add black/white theme</span></a></code></pre></div>
-<p><img src="TCSM_files/figure-html/unnamed-chunk-207-1.png" width="672" /></p>
+<p><img src="TCSM_files/figure-html/unnamed-chunk-208-1.png" width="672" /></p>
 <p>You could also add a linear trend line:</p>
 <div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb251-1" title="1"><span class="kw">ggplot</span>(data, <span class="kw">aes</span>(<span class="dt">x =</span> subabuse, <span class="dt">y =</span> suirisk)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb251-2" title="2"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st">  </span><span class="co"># Add scatter</span></a>
@@ -465,7 +465,7 @@ A basic correlation matrix for the first 5 variables:</p>
 <a class="sourceLine" id="cb251-4" title="4"><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span><span class="st">    </span><span class="co"># Add black/white theme</span></a>
 <a class="sourceLine" id="cb251-5" title="5"><span class="st">  </span><span class="co"># Add linear trend line (without confidence bound and red in color)</span></a>
 <a class="sourceLine" id="cb251-6" title="6"><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
-<p><img src="TCSM_files/figure-html/unnamed-chunk-208-1.png" width="672" /></p>
+<p><img src="TCSM_files/figure-html/unnamed-chunk-209-1.png" width="672" /></p>
 <p>This seems linear; you can check the other variables!
 </p>
 </div>
@@ -479,13 +479,13 @@ A basic correlation matrix for the first 5 variables:</p>
 <h4><span class="header-section-number">16.0.4.1</span> A psych solution</h4>
 <p>Again, <code>psych</code> has a standard solution for this situation:</p>
 <div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb252-1" title="1"><span class="kw">pairs.panels</span>(data[, <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>], <span class="dt">bg =</span> <span class="kw">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;blue&quot;</span>)[data<span class="op">$</span>gender], <span class="dt">pch =</span> <span class="dv">21</span>)</a></code></pre></div>
-<p><img src="TCSM_files/figure-html/unnamed-chunk-209-1.png" width="672" /></p>
+<p><img src="TCSM_files/figure-html/unnamed-chunk-210-1.png" width="672" /></p>
 <p>In ggplot, we can make the plots more detailed. We can map gender to the color of the dots and smooth line using <code>aes(colour = gender)</code>:</p>
 <div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb253-1" title="1"><span class="kw">ggplot</span>(data, <span class="kw">aes</span>(<span class="dt">x =</span> subabuse, <span class="dt">y =</span> suirisk, <span class="dt">colour =</span> gender)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb253-2" title="2"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st">  </span><span class="co"># Add scatter</span></a>
 <a class="sourceLine" id="cb253-3" title="3"><span class="st">  </span><span class="kw">geom_smooth</span>() <span class="op">+</span><span class="st"> </span><span class="co"># Add smooth trend</span></a>
 <a class="sourceLine" id="cb253-4" title="4"><span class="st">  </span><span class="kw">theme_bw</span>()      <span class="co"># Add black/white theme</span></a></code></pre></div>
-<p><img src="TCSM_files/figure-html/unnamed-chunk-210-1.png" width="672" /></p>
+<p><img src="TCSM_files/figure-html/unnamed-chunk-211-1.png" width="672" /></p>
 <p>This seems linear; you can check the other variables! There are also some differences by gender, in range and steepness.
 </p>
 </div>
@@ -745,7 +745,7 @@ Yes, all assumptions hold, so fine to do it.
 ##    .suirisk           2.636    0.163   16.140    0.000</code></pre>
 <div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb270-1" title="1"><span class="kw">library</span>(semPlot)</a>
 <a class="sourceLine" id="cb270-2" title="2"><span class="kw">semPaths</span>(fit, <span class="dt">whatLabels =</span> <span class="st">&quot;est&quot;</span>, <span class="dt">rotation =</span> <span class="dv">2</span>)</a></code></pre></div>
-<p><img src="TCSM_files/figure-html/unnamed-chunk-217-1.png" width="672" /></p>
+<p><img src="TCSM_files/figure-html/unnamed-chunk-218-1.png" width="672" /></p>
 <p>Same results, except for a small difference in the standard errors, that results from the fact we use Ordinary Least Squares (OLS)-estimation in R and Maximum Likelihood (ML) in lavaan. Apart from that, we can also estimate the correlations/covariances between the independent variables in lavaan, that we cannot estimate in R.
 </p>
 </div>
@@ -849,7 +849,7 @@ The model fits when a covariance is added between substance use and depression (
 ##     depression       58.346    3.615   16.140    0.000
 ##     subabuse         29.912    1.853   16.140    0.000</code></pre>
 <div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb273-1" title="1"><span class="kw">semPaths</span>(fit, <span class="dt">whatLabels =</span> <span class="st">&quot;est&quot;</span>, <span class="dt">rotation =</span> <span class="dv">2</span>)</a></code></pre></div>
-<p><img src="TCSM_files/figure-html/unnamed-chunk-218-1.png" width="672" />
+<p><img src="TCSM_files/figure-html/unnamed-chunk-219-1.png" width="672" />
 </p>
 
 </div>

@@ -526,7 +526,37 @@ anova(results_main, results_interaction)
 
 ### Question 3.g
 
-Sketch path models of both steps of the regression analysis (on paper). 
+```{r, echo = FALSE}
+library(tidySEM)
+library(lavaan)
+tmp <- data.frame(model.matrix(~.-1, data))
+res <- sem("POSTNUMB ~ VIEWCAT2 + VIEWCAT3 + VIEWCAT4 + AGE", data = tmp)
+set.seed(6)
+p <- prepare_graph(res, angle = 179)
+edges(p) <- edges(p)[!(edges(p)$from == edges(p)$to | !is.na(edges(p)$curvature)), ]
+ggsave("3_g1.png", plot(p))
+
+tmp <- data.frame(POSTNUMB = data$POSTNUMB, model.matrix(POSTNUMB~-1+VIEWCAT *AGE, data))
+res <- sem("POSTNUMB ~ VIEWCAT2 + VIEWCAT3 + VIEWCAT4 + AGE + VIEWCAT2.AGE + VIEWCAT3.AGE + VIEWCAT4.AGE", data = tmp)
+set.seed(6)
+p <- prepare_graph(res, angle = 179)
+edges(p) <- edges(p)[!(edges(p)$from == edges(p)$to | !is.na(edges(p)$curvature)), ]
+ggsave("3_g2.png", plot(p))
+```
+Sketch path models of both steps of the regression analysis (on paper).
+
+<details>
+<summary>Click for explanation</summary>
+
+Step 1:
+
+![](3_g1.png)
+
+Step 2:
+
+![](3_g2.png)
+
+<\details>
 
 ### Question 3.h
 
@@ -535,9 +565,17 @@ Write down the regression equations of both steps of the sequential analysis.
 
 <details>
   <summary>Click for explanation</summary>
+  
 $Postnumb_i = b_0 + b_1D_{view2i} + b_2D_{view3i} + b_3D_{view4i} + b_4Age_i + \epsilon_i$
 
-$Postnumb_i = b_0 + b_1D_{view2i} + b_2D_{view3i} + b_3D_{view4i} + b_4Age_i + b_5D_{view2i}Age_i + b_6D_{view3i}Age_i + b_7D_{view4i}Age_i + \epsilon_i$
+$$
+\begin{aligned}
+Postnumb_i = b_0 + &b_1D_{view2i} + b_2D_{view3i} + b_3D_{view4i} + b_4Age_i +\\
+&b_5D_{view2i}Age_i + b_6D_{view3i}Age_i + b_7D_{view4i}Age_i + \epsilon_i
+\end{aligned}
+$$
+
+
 
 <\details>
 
@@ -547,12 +585,36 @@ Write down the null hypothesis that is tested to determine whether there is an i
 
 <details>
   <summary>Click for explanation</summary>
-$H_0: \Delta\rho^2 = 0$
+$H_0: b_5 = b_6 = b_7 = 0$
 <\details>
 
 ### Question 3.j
 
 Indicate for each parameter in the second regression model what it means. Also write down the regression equation for each of the four categories of viewcat separately.
+
+
+<details>
+  <summary>Click for explanation</summary>
+
+| Parameter | Meaning |
+|---|---|
+| b_0   | Intercept; the predicted value of postnumb for someone of age 0 in viewcat 1 |
+| b_1  | Slope of the dummy for viewcat 2; difference in the predicted value of postnumb for someone aged 0 in category 2, compared to category 1  |
+| b_4  | The effect of age for someone in viewcat 1 |
+| b_5  | Difference in the effect of age for someone in viewcat 2, compared to viewcat 1 |
+| b_7  | Difference in the effect of age for someone in viewcat 4, compared to viewcat 1 |
+
+For viewcat 1:
+
+$Postnumb_i = b_0 + b_4Age_i + \epsilon_i$
+
+For viewcat 2:
+
+$Postnumb_i = b_0 + b_4Age_i + b_1D_{view2i} + b_4Age_i + b_5D_{view2i}Age_i + \epsilon_i$
+
+Etc.
+
+<\details>
 
 ### Question 3.k
 

@@ -501,14 +501,26 @@ We will use ggplot again:</p>
 <div id="question-3.g" class="section level3">
 <h3><span class="header-section-number">5.4.7</span> Question 3.g</h3>
 <p>Sketch path models of both steps of the regression analysis (on paper).</p>
+<details>
+<p><summary>Click for explanation</summary></p>
+<p>Step 1:</p>
+<p><img src="3_g1.png" /></p>
+<p>Step 2:</p>
+<p><img src="3_g2.png" /></p>
+<p>&lt;&gt;</p>
 </div>
 <div id="question-3.h" class="section level3">
 <h3><span class="header-section-number">5.4.8</span> Question 3.h</h3>
 <p>Write down the regression equations of both steps of the sequential analysis.</p>
 <details>
-<p><summary>Click for explanation</summary>
-<span class="math inline">\(Postnumb_i = b_0 + b_1D_{view2i} + b_2D_{view3i} + b_3D_{view4i} + b_4Age_i + \epsilon_i\)</span></p>
-<p><span class="math inline">\(Postnumb_i = b_0 + b_1D_{view2i} + b_2D_{view3i} + b_3D_{view4i} + b_4Age_i + b_5D_{view2i}Age_i + b_6D_{view3i}Age_i + b_7D_{view4i}Age_i + \epsilon_i\)</span></p>
+<p><summary>Click for explanation</summary></p>
+<p><span class="math inline">\(Postnumb_i = b_0 + b_1D_{view2i} + b_2D_{view3i} + b_3D_{view4i} + b_4Age_i + \epsilon_i\)</span></p>
+<p><span class="math display">\[
+\begin{aligned}
+Postnumb_i = b_0 + &amp;b_1D_{view2i} + b_2D_{view3i} + b_3D_{view4i} + b_4Age_i +\\
+&amp;b_5D_{view2i}Age_i + b_6D_{view3i}Age_i + b_7D_{view4i}Age_i + \epsilon_i
+\end{aligned}
+\]</span></p>
 <p>&lt;&gt;</p>
 </div>
 <div id="question-3.i" class="section level3">
@@ -516,12 +528,54 @@ We will use ggplot again:</p>
 <p>Write down the null hypothesis that is tested to determine whether there is an interaction between age and viewcat.</p>
 <details>
 <p><summary>Click for explanation</summary>
-<span class="math inline">\(H_0: \Delta\rho^2 = 0\)</span>
+<span class="math inline">\(H_0: b_5 = b_6 = b_7 = 0\)</span>
 &lt;&gt;</p>
 </div>
 <div id="question-3.j" class="section level3">
 <h3><span class="header-section-number">5.4.10</span> Question 3.j</h3>
 <p>Indicate for each parameter in the second regression model what it means. Also write down the regression equation for each of the four categories of viewcat separately.</p>
+<details>
+<p><summary>Click for explanation</summary></p>
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>b_0</td>
+<td>Intercept; the predicted value of postnumb for someone of age 0 in viewcat 1</td>
+</tr>
+<tr class="even">
+<td>b_1</td>
+<td>Slope of the dummy for viewcat 2; difference in the predicted value of postnumb for someone aged 0 in category 2, compared to category 1</td>
+</tr>
+<tr class="odd">
+<td>b_4</td>
+<td>The effect of age for someone in viewcat 1</td>
+</tr>
+<tr class="even">
+<td>b_5</td>
+<td>Difference in the effect of age for someone in viewcat 2, compared to viewcat 1</td>
+</tr>
+<tr class="odd">
+<td>b_7</td>
+<td>Difference in the effect of age for someone in viewcat 4, compared to viewcat 1</td>
+</tr>
+</tbody>
+</table>
+<p>For viewcat 1:</p>
+<p><span class="math inline">\(Postnumb_i = b_0 + b_4Age_i + \epsilon_i\)</span></p>
+<p>For viewcat 2:</p>
+<p><span class="math inline">\(Postnumb_i = b_0 + b_4Age_i + b_1D_{view2i} + b_4Age_i + b_5D_{view2i}Age_i + \epsilon_i\)</span></p>
+<p>Etc.</p>
+<p>&lt;&gt;</p>
 </div>
 <div id="question-3.k" class="section level3">
 <h3><span class="header-section-number">5.4.11</span> Question 3.k</h3>
