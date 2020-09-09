@@ -398,16 +398,16 @@ Because we can investigate 1) whether the model itself is different for boys and
 <p>Estimate a multi-group model, with gender as grouping variable. In case you forgot how to do this, see the first of the class exercise from week 4. Look at the fit of the model, what do you find?</p>
 <details>
 <p><summary>Click for explanation</summary></p>
-<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb274-1" title="1">model &lt;-<span class="st"> &quot;</span></a>
-<a class="sourceLine" id="cb274-2" title="2"><span class="st">suirisk ~ hopeless + depression + subabuse</span></a>
-<a class="sourceLine" id="cb274-3" title="3"><span class="st">hopeless ~ depression + selfesteem</span></a>
-<a class="sourceLine" id="cb274-4" title="4"><span class="st">selfesteem ~ depression</span></a>
-<a class="sourceLine" id="cb274-5" title="5"><span class="st">subabuse ~~ 0*depression</span></a>
-<a class="sourceLine" id="cb274-6" title="6"><span class="st">&quot;</span></a>
-<a class="sourceLine" id="cb274-7" title="7"></a>
-<a class="sourceLine" id="cb274-8" title="8">fit &lt;-<span class="st"> </span><span class="kw">sem</span>(model, data, </a>
-<a class="sourceLine" id="cb274-9" title="9">                   <span class="dt">group =</span> <span class="st">&quot;gender&quot;</span>)</a>
-<a class="sourceLine" id="cb274-10" title="10"><span class="kw">summary</span>(fit, <span class="dt">fit.measures =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb276-1" title="1">model &lt;-<span class="st"> &quot;</span></a>
+<a class="sourceLine" id="cb276-2" title="2"><span class="st">suirisk ~ hopeless + depression + subabuse</span></a>
+<a class="sourceLine" id="cb276-3" title="3"><span class="st">hopeless ~ depression + selfesteem</span></a>
+<a class="sourceLine" id="cb276-4" title="4"><span class="st">selfesteem ~ depression</span></a>
+<a class="sourceLine" id="cb276-5" title="5"><span class="st">subabuse ~~ 0*depression</span></a>
+<a class="sourceLine" id="cb276-6" title="6"><span class="st">&quot;</span></a>
+<a class="sourceLine" id="cb276-7" title="7"></a>
+<a class="sourceLine" id="cb276-8" title="8">fit &lt;-<span class="st"> </span><span class="kw">sem</span>(model, data, </a>
+<a class="sourceLine" id="cb276-9" title="9">                   <span class="dt">group =</span> <span class="st">&quot;gender&quot;</span>)</a>
+<a class="sourceLine" id="cb276-10" title="10"><span class="kw">summary</span>(fit, <span class="dt">fit.measures =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <pre><code>## lavaan 0.6-6 ended normally after 71 iterations
 ## 
 ##   Estimator                                         ML
@@ -542,17 +542,17 @@ Because we can investigate 1) whether the model itself is different for boys and
 <p>Mehta et al. (1998) state that their model can be improved post-hoc by adding and removing a path to this model. Follow their procedure, and first add a path for both males and females, and secondly, remove a nonsignificant path.</p>
 <details>
 <p><summary>Click for explanation</summary></p>
-<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb276-1" title="1">model_exploratory &lt;-<span class="st"> &quot;</span></a>
-<a class="sourceLine" id="cb276-2" title="2"><span class="st">suirisk ~ depression + subabuse</span></a>
-<a class="sourceLine" id="cb276-3" title="3"><span class="st">hopeless ~ depression + selfesteem</span></a>
-<a class="sourceLine" id="cb276-4" title="4"><span class="st">selfesteem ~ depression</span></a>
-<a class="sourceLine" id="cb276-5" title="5"><span class="st">subabuse ~ hopeless</span></a>
-<a class="sourceLine" id="cb276-6" title="6"><span class="st">subabuse ~~ 0*depression</span></a>
-<a class="sourceLine" id="cb276-7" title="7"><span class="st">&quot;</span></a>
-<a class="sourceLine" id="cb276-8" title="8"></a>
-<a class="sourceLine" id="cb276-9" title="9">fit_exploratory &lt;-<span class="st"> </span><span class="kw">sem</span>(model_exploratory, data, </a>
-<a class="sourceLine" id="cb276-10" title="10">                   <span class="dt">group =</span> <span class="st">&quot;gender&quot;</span>)</a>
-<a class="sourceLine" id="cb276-11" title="11"><span class="kw">summary</span>(fit_exploratory, <span class="dt">fit.measures =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb278-1" title="1">model_exploratory &lt;-<span class="st"> &quot;</span></a>
+<a class="sourceLine" id="cb278-2" title="2"><span class="st">suirisk ~ depression + subabuse</span></a>
+<a class="sourceLine" id="cb278-3" title="3"><span class="st">hopeless ~ depression + selfesteem</span></a>
+<a class="sourceLine" id="cb278-4" title="4"><span class="st">selfesteem ~ depression</span></a>
+<a class="sourceLine" id="cb278-5" title="5"><span class="st">subabuse ~ hopeless</span></a>
+<a class="sourceLine" id="cb278-6" title="6"><span class="st">subabuse ~~ 0*depression</span></a>
+<a class="sourceLine" id="cb278-7" title="7"><span class="st">&quot;</span></a>
+<a class="sourceLine" id="cb278-8" title="8"></a>
+<a class="sourceLine" id="cb278-9" title="9">fit_exploratory &lt;-<span class="st"> </span><span class="kw">sem</span>(model_exploratory, data, </a>
+<a class="sourceLine" id="cb278-10" title="10">                   <span class="dt">group =</span> <span class="st">&quot;gender&quot;</span>)</a>
+<a class="sourceLine" id="cb278-11" title="11"><span class="kw">summary</span>(fit_exploratory, <span class="dt">fit.measures =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <pre><code>## lavaan 0.6-6 ended normally after 89 iterations
 ## 
 ##   Estimator                                         ML
@@ -689,7 +689,7 @@ Because we can investigate 1) whether the model itself is different for boys and
 <p>Evaluate the path coefficients of both males and females (tip: look at both the unstandardized and standardized coefficients). Can you explain how the two groups differ?</p>
 <details>
 <p><summary>Click for explanation</summary></p>
-<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb278-1" title="1"><span class="kw">summary</span>(fit, <span class="dt">fit.measures =</span> <span class="ot">FALSE</span>, <span class="dt">standardized =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb280-1" title="1"><span class="kw">summary</span>(fit, <span class="dt">fit.measures =</span> <span class="ot">FALSE</span>, <span class="dt">standardized =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <pre><code>## lavaan 0.6-6 ended normally after 71 iterations
 ## 
 ##   Estimator                                         ML
@@ -807,10 +807,10 @@ Even if we observe differences, we do not know whether they are significantly di
 <details>
 <p><summary>Click for explanation</summary>
 First, estimate the constrained model. We can use the <code>model</code> from the first exercise:</p>
-<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb280-1" title="1">fit_fix_reg &lt;-<span class="st"> </span><span class="kw">sem</span>(model, data,</a>
-<a class="sourceLine" id="cb280-2" title="2">                   <span class="dt">group =</span> <span class="st">&quot;gender&quot;</span>,</a>
-<a class="sourceLine" id="cb280-3" title="3">                   <span class="dt">group.equal =</span> <span class="st">&quot;regressions&quot;</span>)</a>
-<a class="sourceLine" id="cb280-4" title="4"><span class="kw">summary</span>(fit_fix_reg, <span class="dt">fit.measures =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb282-1" title="1">fit_fix_reg &lt;-<span class="st"> </span><span class="kw">sem</span>(model, data,</a>
+<a class="sourceLine" id="cb282-2" title="2">                   <span class="dt">group =</span> <span class="st">&quot;gender&quot;</span>,</a>
+<a class="sourceLine" id="cb282-3" title="3">                   <span class="dt">group.equal =</span> <span class="st">&quot;regressions&quot;</span>)</a>
+<a class="sourceLine" id="cb282-4" title="4"><span class="kw">summary</span>(fit_fix_reg, <span class="dt">fit.measures =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <pre><code>## lavaan 0.6-6 ended normally after 49 iterations
 ## 
 ##   Estimator                                         ML
@@ -940,9 +940,9 @@ First, estimate the constrained model. We can use the <code>model</code> from th
 ##     depression       57.515    4.484   12.826    0.000
 ##     subabuse         41.461    3.233   12.826    0.000</code></pre>
 <p>Then, compare the two models. I like to use <code>semTools::compareFit()</code>:</p>
-<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb282-1" title="1"><span class="kw">library</span>(semTools)</a>
-<a class="sourceLine" id="cb282-2" title="2"><span class="kw">compareFit</span>(<span class="dt">Free =</span> fit,</a>
-<a class="sourceLine" id="cb282-3" title="3">           <span class="dt">Constrained =</span> fit_fix_reg)</a></code></pre></div>
+<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb284-1" title="1"><span class="kw">library</span>(semTools)</a>
+<a class="sourceLine" id="cb284-2" title="2"><span class="kw">compareFit</span>(<span class="dt">Free =</span> fit,</a>
+<a class="sourceLine" id="cb284-3" title="3">           <span class="dt">Constrained =</span> fit_fix_reg)</a></code></pre></div>
 <pre><code>## ################### Nested Model Comparison #########################
 ## Chi-Squared Difference Test
 ## 
@@ -972,28 +972,28 @@ First, estimate the constrained model. We can use the <code>model</code> from th
 <li>Label every path in your model</li>
 <li>Define new parameters as the difference between corresponding parameters for men and women</li>
 </ol>
-<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb284-1" title="1">model_diff &lt;-<span class="st"> &quot;</span></a>
-<a class="sourceLine" id="cb284-2" title="2"><span class="st">suirisk ~ c(m1, f1)*hopeless + c(m2, f2)*depression + c(m3, f3)*subabuse</span></a>
-<a class="sourceLine" id="cb284-3" title="3"><span class="st">hopeless ~ c(m4, f4)*depression + c(m5, f5)*selfesteem</span></a>
-<a class="sourceLine" id="cb284-4" title="4"><span class="st">selfesteem ~ c(m6, f6)*depression</span></a>
-<a class="sourceLine" id="cb284-5" title="5"><span class="st">subabuse ~~ depression</span></a>
-<a class="sourceLine" id="cb284-6" title="6"></a>
-<a class="sourceLine" id="cb284-7" title="7"><span class="st">D1 := m1-f1</span></a>
-<a class="sourceLine" id="cb284-8" title="8"><span class="st">D2 := m2-f2</span></a>
-<a class="sourceLine" id="cb284-9" title="9"><span class="st">D3 := m3-f3</span></a>
-<a class="sourceLine" id="cb284-10" title="10"><span class="st">D4 := m4-f4</span></a>
-<a class="sourceLine" id="cb284-11" title="11"><span class="st">D5 := m5-f5</span></a>
-<a class="sourceLine" id="cb284-12" title="12"><span class="st">D6 := m6-f6</span></a>
-<a class="sourceLine" id="cb284-13" title="13"><span class="st">&quot;</span></a></code></pre></div>
+<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb286-1" title="1">model_diff &lt;-<span class="st"> &quot;</span></a>
+<a class="sourceLine" id="cb286-2" title="2"><span class="st">suirisk ~ c(m1, f1)*hopeless + c(m2, f2)*depression + c(m3, f3)*subabuse</span></a>
+<a class="sourceLine" id="cb286-3" title="3"><span class="st">hopeless ~ c(m4, f4)*depression + c(m5, f5)*selfesteem</span></a>
+<a class="sourceLine" id="cb286-4" title="4"><span class="st">selfesteem ~ c(m6, f6)*depression</span></a>
+<a class="sourceLine" id="cb286-5" title="5"><span class="st">subabuse ~~ depression</span></a>
+<a class="sourceLine" id="cb286-6" title="6"></a>
+<a class="sourceLine" id="cb286-7" title="7"><span class="st">D1 := m1-f1</span></a>
+<a class="sourceLine" id="cb286-8" title="8"><span class="st">D2 := m2-f2</span></a>
+<a class="sourceLine" id="cb286-9" title="9"><span class="st">D3 := m3-f3</span></a>
+<a class="sourceLine" id="cb286-10" title="10"><span class="st">D4 := m4-f4</span></a>
+<a class="sourceLine" id="cb286-11" title="11"><span class="st">D5 := m5-f5</span></a>
+<a class="sourceLine" id="cb286-12" title="12"><span class="st">D6 := m6-f6</span></a>
+<a class="sourceLine" id="cb286-13" title="13"><span class="st">&quot;</span></a></code></pre></div>
 </div>
 <div id="question-7-6" class="section level3">
 <h3><span class="header-section-number">17.0.8</span> Question 7</h3>
 <p>Fit this model, and inspect the results for the defined parameters. What are your conclusions?</p>
 <details>
 <p><summary>Click for explanation</summary></p>
-<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb285-1" title="1">fit_dif &lt;-<span class="st"> </span><span class="kw">sem</span>(model_diff, data, </a>
-<a class="sourceLine" id="cb285-2" title="2">                   <span class="dt">group =</span> <span class="st">&quot;gender&quot;</span>)</a>
-<a class="sourceLine" id="cb285-3" title="3"><span class="kw">summary</span>(fit_dif)</a></code></pre></div>
+<div class="sourceCode" id="cb287"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb287-1" title="1">fit_dif &lt;-<span class="st"> </span><span class="kw">sem</span>(model_diff, data, </a>
+<a class="sourceLine" id="cb287-2" title="2">                   <span class="dt">group =</span> <span class="st">&quot;gender&quot;</span>)</a>
+<a class="sourceLine" id="cb287-3" title="3"><span class="kw">summary</span>(fit_dif)</a></code></pre></div>
 <pre><code>## lavaan 0.6-6 ended normally after 95 iterations
 ## 
 ##   Estimator                                         ML
@@ -1113,20 +1113,20 @@ You should consider the potential risk of multiple testing, and whether the assu
 <div id="results-table" class="section level3">
 <h3><span class="header-section-number">17.0.10</span> Results table</h3>
 <p>When you want to include your results in a paper, it’s a lot of work to copy-paste everything. There are many ways to get R results directly into a paper, including writing the entire paper in R and automatically updating the results. I will show you a very basic way to make a table and export it to a spreadsheet. We will use the functions <code>parameterEstimates(fit, standardized = TRUE)</code> to get the unstandardized and standardized estimates, and then put them into a nice table:</p>
-<div class="sourceCode" id="cb287"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb287-1" title="1">table_results &lt;-<span class="st"> </span><span class="kw">parameterEstimates</span>(fit, <span class="dt">standardized =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb287-2" title="2"><span class="kw">head</span>(table_results)</a></code></pre></div>
+<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb289-1" title="1">table_results &lt;-<span class="st"> </span><span class="kw">parameterEstimates</span>(fit, <span class="dt">standardized =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb289-2" title="2"><span class="kw">head</span>(table_results)</a></code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["lhs"],"name":[1],"type":["chr"],"align":["left"]},{"label":["op"],"name":[2],"type":["chr"],"align":["left"]},{"label":["rhs"],"name":[3],"type":["chr"],"align":["left"]},{"label":["block"],"name":[4],"type":["int"],"align":["right"]},{"label":["group"],"name":[5],"type":["int"],"align":["right"]},{"label":["est"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["se"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["z"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["pvalue"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["ci.lower"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["ci.upper"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["std.lv"],"name":[12],"type":["dbl"],"align":["right"]},{"label":["std.all"],"name":[13],"type":["dbl"],"align":["right"]},{"label":["std.nox"],"name":[14],"type":["dbl"],"align":["right"]}],"data":[{"1":"suirisk","2":"~","3":"hopeless","4":"1","5":"1","6":"0.02522036","7":"0.05559944","8":"0.4536081","9":"6.501109e-01","10":"-0.08375254","11":"0.1341933","12":"0.02522036","13":"0.03850758","14":"0.03850758","_rn_":"1"},{"1":"suirisk","2":"~","3":"depression","4":"1","5":"1","6":"0.11102741","7":"0.01967101","8":"5.6442144","9":"1.659372e-08","10":"0.07247294","11":"0.1495819","12":"0.11102741","13":"0.47914712","14":"0.47914712","_rn_":"2"},{"1":"suirisk","2":"~","3":"subabuse","4":"1","5":"1","6":"0.12079071","7":"0.04057289","8":"2.9771284","9":"2.909621e-03","10":"0.04126930","11":"0.2003121","12":"0.12079071","13":"0.18109167","14":"0.18109167","_rn_":"3"},{"1":"hopeless","2":"~","3":"depression","4":"1","5":"1","6":"0.16144616","7":"0.02431305","8":"6.6403098","9":"3.130252e-11","10":"0.11379346","11":"0.2090989","12":"0.16144616","13":"0.45632199","14":"0.45632199","_rn_":"4"},{"1":"hopeless","2":"~","3":"selfesteem","4":"1","5":"1","6":"-0.16614129","7":"0.03341152","8":"-4.9725745","9":"6.606956e-07","10":"-0.23162667","11":"-0.1006559","12":"-0.16614129","13":"-0.34171524","14":"-0.34171524","_rn_":"5"},{"1":"selfesteem","2":"~","3":"depression","4":"1","5":"1","6":"-0.51370560","7":"0.03719538","8":"-13.8110074","9":"0.000000e+00","10":"-0.58660719","11":"-0.4408040","12":"-0.51370560","13":"-0.70594555","14":"-0.70594555","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 <p>Then, we take only the labeled parameters (which are the regression coefficients and difference parameters):</p>
-<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb288-1" title="1">table_results &lt;-<span class="st"> </span>table_results[table_results<span class="op">$</span>label <span class="op">!=</span><span class="st"> &quot;&quot;</span>, ]</a>
-<a class="sourceLine" id="cb288-2" title="2">table_results &lt;-<span class="st"> </span><span class="kw">cbind</span>(table_results[<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">3</span>],</a>
-<a class="sourceLine" id="cb288-3" title="3">               <span class="dt">Est_men =</span> table_results[<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>, <span class="st">&quot;std.all&quot;</span>],</a>
-<a class="sourceLine" id="cb288-4" title="4">               <span class="dt">Est_women =</span> table_results[<span class="dv">7</span><span class="op">:</span><span class="dv">12</span>, <span class="st">&quot;std.all&quot;</span>],</a>
-<a class="sourceLine" id="cb288-5" title="5">               <span class="dt">p_diff =</span> table_results[<span class="dv">13</span><span class="op">:</span><span class="dv">18</span>, <span class="st">&quot;pvalue&quot;</span>])</a>
-<a class="sourceLine" id="cb288-6" title="6"><span class="kw">write.csv</span>(table_results, <span class="st">&quot;table_results.csv&quot;</span>, <span class="dt">row.names =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb290-1" title="1">table_results &lt;-<span class="st"> </span>table_results[table_results<span class="op">$</span>label <span class="op">!=</span><span class="st"> &quot;&quot;</span>, ]</a>
+<a class="sourceLine" id="cb290-2" title="2">table_results &lt;-<span class="st"> </span><span class="kw">cbind</span>(table_results[<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">3</span>],</a>
+<a class="sourceLine" id="cb290-3" title="3">               <span class="dt">Est_men =</span> table_results[<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>, <span class="st">&quot;std.all&quot;</span>],</a>
+<a class="sourceLine" id="cb290-4" title="4">               <span class="dt">Est_women =</span> table_results[<span class="dv">7</span><span class="op">:</span><span class="dv">12</span>, <span class="st">&quot;std.all&quot;</span>],</a>
+<a class="sourceLine" id="cb290-5" title="5">               <span class="dt">p_diff =</span> table_results[<span class="dv">13</span><span class="op">:</span><span class="dv">18</span>, <span class="st">&quot;pvalue&quot;</span>])</a>
+<a class="sourceLine" id="cb290-6" title="6"><span class="kw">write.csv</span>(table_results, <span class="st">&quot;table_results.csv&quot;</span>, <span class="dt">row.names =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
 </div>
 <div id="question-9-4" class="section level3">
 <h3><span class="header-section-number">17.0.11</span> Question 9</h3>
@@ -1137,7 +1137,7 @@ You should consider the potential risk of multiple testing, and whether the assu
 <p>Evaluate R-square for suicide risk for males and females. What do you find?</p>
 <details>
 <p><summary>Click for explanation</summary></p>
-<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb289-1" title="1"><span class="kw">summary</span>(fit, <span class="dt">rsquare =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb291-1" title="1"><span class="kw">summary</span>(fit, <span class="dt">rsquare =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <pre><code>## lavaan 0.6-6 ended normally after 71 iterations
 ## 
 ##   Estimator                                         ML

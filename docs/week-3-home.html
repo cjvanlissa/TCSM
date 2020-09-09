@@ -416,10 +416,10 @@ measurements will be used in this tutorial:</p>
 <p><em>Hint: Use</em> <code>read.csv()</code> <em>or</em> <code>readxl::read_excel()</code></p>
 <details>
 <p><summary>Click for explanation</summary></p>
-<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb149-1" title="1"><span class="kw">library</span>(readxl)</a>
-<a class="sourceLine" id="cb149-2" title="2">df &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">&quot;Hamilton.xls&quot;</span>, <span class="dv">1</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb151-1" title="1"><span class="kw">library</span>(readxl)</a>
+<a class="sourceLine" id="cb151-2" title="2">df &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">&quot;Hamilton.xls&quot;</span>, <span class="dv">1</span>)</a></code></pre></div>
 <p>Or</p>
-<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb150-1" title="1">df &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;Hamilton.csv&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb152-1" title="1">df &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;Hamilton.csv&quot;</span>)</a></code></pre></div>
 
 </div>
 <div id="conceptual-model" class="section level3">
@@ -439,12 +439,12 @@ figure specifies that Other must have a weight of 1 in the prediction of SAT. Th
 <details>
 <p><summary>Click for explanation</summary>
 The syntax for this model is:</p>
-<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb151-1" title="1"><span class="st">&quot;SAT ~ Income + Education</span></a>
-<a class="sourceLine" id="cb151-2" title="2"><span class="st">Income ~~ Education&quot;</span></a></code></pre></div>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb153-1" title="1"><span class="st">&quot;SAT ~ Income + Education</span></a>
+<a class="sourceLine" id="cb153-2" title="2"><span class="st">Income ~~ Education&quot;</span></a></code></pre></div>
 <p>Or, equivalently:</p>
-<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb152-1" title="1"><span class="st">&quot;SAT ~ Income </span></a>
-<a class="sourceLine" id="cb152-2" title="2"><span class="st">SAT ~ Education</span></a>
-<a class="sourceLine" id="cb152-3" title="3"><span class="st">Income ~~ Education&quot;</span></a></code></pre></div>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb154-1" title="1"><span class="st">&quot;SAT ~ Income </span></a>
+<a class="sourceLine" id="cb154-2" title="2"><span class="st">SAT ~ Education</span></a>
+<a class="sourceLine" id="cb154-3" title="3"><span class="st">Income ~~ Education&quot;</span></a></code></pre></div>
 <p>This syntax specifies two regression equations and one covariance. However, three more parameters are included by lavaan per default:</p>
 <ol style="list-style-type: decimal">
 <li>The <strong>residual</strong> (unexplained) variance in SAT</li>
@@ -452,11 +452,11 @@ The syntax for this model is:</p>
 <li>The variance of Education</li>
 </ol>
 <p>So, strictly speaking, if you don’t want to rely on the default settings, the syntax would be:</p>
-<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb153-1" title="1"><span class="st">&quot;SAT ~ Income + Education</span></a>
-<a class="sourceLine" id="cb153-2" title="2"><span class="st">Income ~~ Education</span></a>
-<a class="sourceLine" id="cb153-3" title="3"><span class="st">SAT~~SAT</span></a>
-<a class="sourceLine" id="cb153-4" title="4"><span class="st">Income~~Income</span></a>
-<a class="sourceLine" id="cb153-5" title="5"><span class="st">Education~~Education&quot;</span></a></code></pre></div>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb155-1" title="1"><span class="st">&quot;SAT ~ Income + Education</span></a>
+<a class="sourceLine" id="cb155-2" title="2"><span class="st">Income ~~ Education</span></a>
+<a class="sourceLine" id="cb155-3" title="3"><span class="st">SAT~~SAT</span></a>
+<a class="sourceLine" id="cb155-4" title="4"><span class="st">Income~~Income</span></a>
+<a class="sourceLine" id="cb155-5" title="5"><span class="st">Education~~Education&quot;</span></a></code></pre></div>
 
 </div>
 <div id="performing-the-analysis" class="section level3">
@@ -464,12 +464,12 @@ The syntax for this model is:</p>
 <p>In <code>lavaan</code>, models are fit using the <code>sem()</code> function. Run the command <code>?sem</code> to open the help file for this function. Try to figure out how to take the syntax you wrote for the previous question, and fit it to the Hamilton data.</p>
 <details>
 <p><summary>Click for explanation</summary></p>
-<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb154-1" title="1"><span class="co"># Load the lavaan package</span></a>
-<a class="sourceLine" id="cb154-2" title="2"><span class="kw">library</span>(lavaan)</a>
-<a class="sourceLine" id="cb154-3" title="3"><span class="co"># Fit the model to df, and store the result in an object called &#39;fit&#39;</span></a>
-<a class="sourceLine" id="cb154-4" title="4">fit &lt;-<span class="st"> </span><span class="kw">sem</span>(<span class="dt">model =</span> <span class="st">&quot;SAT ~ Income + Education</span></a>
-<a class="sourceLine" id="cb154-5" title="5"><span class="st">                    Income ~~ Education&quot;</span>,</a>
-<a class="sourceLine" id="cb154-6" title="6">           <span class="dt">data =</span> df)</a></code></pre></div>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb156-1" title="1"><span class="co"># Load the lavaan package</span></a>
+<a class="sourceLine" id="cb156-2" title="2"><span class="kw">library</span>(lavaan)</a>
+<a class="sourceLine" id="cb156-3" title="3"><span class="co"># Fit the model to df, and store the result in an object called &#39;fit&#39;</span></a>
+<a class="sourceLine" id="cb156-4" title="4">fit &lt;-<span class="st"> </span><span class="kw">sem</span>(<span class="dt">model =</span> <span class="st">&quot;SAT ~ Income + Education</span></a>
+<a class="sourceLine" id="cb156-5" title="5"><span class="st">                    Income ~~ Education&quot;</span>,</a>
+<a class="sourceLine" id="cb156-6" title="6">           <span class="dt">data =</span> df)</a></code></pre></div>
 <p>This will result in a warning about the variances. You can ignore this.
 </p>
 </div>
@@ -478,7 +478,7 @@ The syntax for this model is:</p>
 <p>Most of the relevant output of a <code>lavaan</code> analysis can be extracted using the <code>summary()</code> function. Get a summary for the analysis now. Do either of the predictors have a significant effect on SA? By specifying the option <code>rsquare = TRUE</code> in the <code>summary()</code> function, you can additionally get squared multiple correlations for the dependent variables.</p>
 <details>
 <p><summary>Click for explanation</summary></p>
-<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb155-1" title="1"><span class="kw">summary</span>(fit, <span class="dt">rsquare =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb157-1" title="1"><span class="kw">summary</span>(fit, <span class="dt">rsquare =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <pre><code>## lavaan 0.6-6 ended normally after 48 iterations
 ## 
 ##   Estimator                                         ML
@@ -523,13 +523,13 @@ The syntax for this model is:</p>
 <div id="plotting-the-output" class="section level3">
 <h3><span class="header-section-number">10.0.7</span> Plotting the output</h3>
 <p>The package <code>semPlot</code> can automatically plot simple SEM models, like path models and CFA models. To visualize this SEM model, install the semPlot package, and use the function <code>semPaths</code>:</p>
-<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb157-1" title="1"><span class="kw">install.packages</span>(<span class="st">&quot;semPlot&quot;</span>)</a>
-<a class="sourceLine" id="cb157-2" title="2"><span class="kw">library</span>(semPlot)</a>
-<a class="sourceLine" id="cb157-3" title="3"><span class="kw">semPaths</span>(fit)</a></code></pre></div>
-<p><img src="TCSM_files/figure-html/unnamed-chunk-137-1.png" width="672" /></p>
-<p>The default plot can be improved upon, for example, by plotting the parameter estimates onto the paths, and rotating it to match our initial conceptual model at the start of this tutorial:</p>
-<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb158-1" title="1"><span class="kw">semPaths</span>(fit, <span class="dt">whatLabels =</span> <span class="st">&quot;est&quot;</span>, <span class="dt">rotation =</span> <span class="dv">2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb159-1" title="1"><span class="kw">install.packages</span>(<span class="st">&quot;semPlot&quot;</span>)</a>
+<a class="sourceLine" id="cb159-2" title="2"><span class="kw">library</span>(semPlot)</a>
+<a class="sourceLine" id="cb159-3" title="3"><span class="kw">semPaths</span>(fit)</a></code></pre></div>
 <p><img src="TCSM_files/figure-html/unnamed-chunk-138-1.png" width="672" /></p>
+<p>The default plot can be improved upon, for example, by plotting the parameter estimates onto the paths, and rotating it to match our initial conceptual model at the start of this tutorial:</p>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb160-1" title="1"><span class="kw">semPaths</span>(fit, <span class="dt">whatLabels =</span> <span class="st">&quot;est&quot;</span>, <span class="dt">rotation =</span> <span class="dv">2</span>)</a></code></pre></div>
+<p><img src="TCSM_files/figure-html/unnamed-chunk-139-1.png" width="672" /></p>
 
 </div>
 </div>

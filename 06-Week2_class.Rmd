@@ -80,6 +80,15 @@ round(efa_att$values, digits = 3)
 qplot(y = efa_att$values) + geom_path()
 ```
 
+As recommended in the lecture, a better and more quantified way to establish the number of factors is "parallel analysis" (Horn, 1965). Here's how to do it in R:
+
+```{r}
+fa.parallel(df[, 7:19])
+```
+
+Note that, in this case, parallel analysis recommends as many as 6 factors.
+
+
 \details
 
 

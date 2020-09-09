@@ -390,7 +390,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The TORA data are an artificial data set following results found by Reinecke (1998). The behavior under investigation is condom use by 16-24 year adolescents. The dependent variable ‘condom use’ is measured on a 5-point frequency scale (How often do you…), and the behavioral intention on a similar 5-point scale (In general do you intend to…). There are three attitude items about condom use (e.g., using a condom is awkward), three normative items (e.g., I think most of my friends would use…), and three control items (e.g., I know well how to use a condom), all measured on a 5-point Likert-type scale.</p>
 <details>
 <p><summary>Click for explanation</summary></p>
-<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb291-1" title="1">df &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;TCSM_student/toradata.csv&quot;</span>, <span class="dt">stringsAsFactors =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb293"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb293-1" title="1">df &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;TCSM_student/toradata.csv&quot;</span>, <span class="dt">stringsAsFactors =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 
 </div>
 <div id="question-1-8" class="section level3">
@@ -399,14 +399,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!--*Hint: Use* `[]; %in%`-->
 <details>
 <p><summary>Click for explanation</summary></p>
-<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb292-1" title="1"><span class="kw">library</span>(lavaan)</a>
-<a class="sourceLine" id="cb292-2" title="2">TORA_cfa &lt;-<span class="st"> &#39;attit =~ attit_1 + attit_2 + attit_3</span></a>
-<a class="sourceLine" id="cb292-3" title="3"><span class="st">             norm =~ norm_1 + norm_2 + norm_3</span></a>
-<a class="sourceLine" id="cb292-4" title="4"><span class="st">             control =~ control_1 + control_2 + control_3&#39;</span></a>
-<a class="sourceLine" id="cb292-5" title="5"></a>
-<a class="sourceLine" id="cb292-6" title="6">fit &lt;-<span class="st"> </span><span class="kw">cfa</span>(TORA_cfa, <span class="dt">data =</span> df)</a>
-<a class="sourceLine" id="cb292-7" title="7"></a>
-<a class="sourceLine" id="cb292-8" title="8"><span class="kw">summary</span>(fit, <span class="dt">fit.measures=</span><span class="ot">TRUE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb294-1" title="1"><span class="kw">library</span>(lavaan)</a>
+<a class="sourceLine" id="cb294-2" title="2">TORA_cfa &lt;-<span class="st"> &#39;attit =~ attit_1 + attit_2 + attit_3</span></a>
+<a class="sourceLine" id="cb294-3" title="3"><span class="st">             norm =~ norm_1 + norm_2 + norm_3</span></a>
+<a class="sourceLine" id="cb294-4" title="4"><span class="st">             control =~ control_1 + control_2 + control_3&#39;</span></a>
+<a class="sourceLine" id="cb294-5" title="5"></a>
+<a class="sourceLine" id="cb294-6" title="6">fit &lt;-<span class="st"> </span><span class="kw">cfa</span>(TORA_cfa, <span class="dt">data =</span> df)</a>
+<a class="sourceLine" id="cb294-7" title="7"></a>
+<a class="sourceLine" id="cb294-8" title="8"><span class="kw">summary</span>(fit, <span class="dt">fit.measures=</span><span class="ot">TRUE</span>)</a></code></pre></div>
 <pre><code>## lavaan 0.6-6 ended normally after 29 iterations
 ## 
 ##   Estimator                                         ML
@@ -502,15 +502,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Set up a TORA model with attitude and norms as latent variables, both predicting behavorial intention and behavior. Analyze it. Interpret the model fit. If you find the model to fit, look at the results. How much variance does the model explain?</p>
 <details>
 <p><summary>Click for explanation</summary></p>
-<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb294-1" title="1">TORA_sem &lt;-<span class="st"> &#39;attit =~ attit_1 + attit_2 + attit_3</span></a>
-<a class="sourceLine" id="cb294-2" title="2"><span class="st">             norm =~ norm_1 + norm_2 + norm_3</span></a>
-<a class="sourceLine" id="cb294-3" title="3"><span class="st">             </span></a>
-<a class="sourceLine" id="cb294-4" title="4"><span class="st">             intent ~ attit + norm</span></a>
-<a class="sourceLine" id="cb294-5" title="5"><span class="st">             behavior ~ intent&#39;</span></a>
-<a class="sourceLine" id="cb294-6" title="6"></a>
-<a class="sourceLine" id="cb294-7" title="7">fit &lt;-<span class="st"> </span><span class="kw">sem</span>(TORA_sem, <span class="dt">data =</span> df)</a>
-<a class="sourceLine" id="cb294-8" title="8"></a>
-<a class="sourceLine" id="cb294-9" title="9"><span class="kw">summary</span>(fit, <span class="dt">fit.measures =</span> <span class="ot">TRUE</span>, <span class="dt">rsquare =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb296-1" title="1">TORA_sem &lt;-<span class="st"> &#39;attit =~ attit_1 + attit_2 + attit_3</span></a>
+<a class="sourceLine" id="cb296-2" title="2"><span class="st">             norm =~ norm_1 + norm_2 + norm_3</span></a>
+<a class="sourceLine" id="cb296-3" title="3"><span class="st">             </span></a>
+<a class="sourceLine" id="cb296-4" title="4"><span class="st">             intent ~ attit + norm</span></a>
+<a class="sourceLine" id="cb296-5" title="5"><span class="st">             behavior ~ intent&#39;</span></a>
+<a class="sourceLine" id="cb296-6" title="6"></a>
+<a class="sourceLine" id="cb296-7" title="7">fit &lt;-<span class="st"> </span><span class="kw">sem</span>(TORA_sem, <span class="dt">data =</span> df)</a>
+<a class="sourceLine" id="cb296-8" title="8"></a>
+<a class="sourceLine" id="cb296-9" title="9"><span class="kw">summary</span>(fit, <span class="dt">fit.measures =</span> <span class="ot">TRUE</span>, <span class="dt">rsquare =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <pre><code>## lavaan 0.6-6 ended normally after 24 iterations
 ## 
 ##   Estimator                                         ML
@@ -617,16 +617,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <details>
 <p><summary>Click for explanation</summary></p>
 <p>The option <code>rsquare = TRUE</code> tells us how much variance is explained in each dependent variable:</p>
-<div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb296-1" title="1">TORA_sem &lt;-<span class="st"> &#39;attit =~ attit_1 + attit_2 + attit_3</span></a>
-<a class="sourceLine" id="cb296-2" title="2"><span class="st">             norm =~ norm_1 + norm_2 + norm_3</span></a>
-<a class="sourceLine" id="cb296-3" title="3"><span class="st">             control =~ control_1 + control_2 + control_3</span></a>
-<a class="sourceLine" id="cb296-4" title="4"><span class="st">             </span></a>
-<a class="sourceLine" id="cb296-5" title="5"><span class="st">             intent ~ attit + norm + control</span></a>
-<a class="sourceLine" id="cb296-6" title="6"><span class="st">             behavior ~ intent&#39;</span></a>
-<a class="sourceLine" id="cb296-7" title="7"></a>
-<a class="sourceLine" id="cb296-8" title="8">fit &lt;-<span class="st"> </span><span class="kw">sem</span>(TORA_sem, <span class="dt">data =</span> df)</a>
-<a class="sourceLine" id="cb296-9" title="9"></a>
-<a class="sourceLine" id="cb296-10" title="10"><span class="kw">summary</span>(fit, <span class="dt">fit.measures =</span> <span class="ot">TRUE</span>, <span class="dt">rsquare =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb298-1" title="1">TORA_sem &lt;-<span class="st"> &#39;attit =~ attit_1 + attit_2 + attit_3</span></a>
+<a class="sourceLine" id="cb298-2" title="2"><span class="st">             norm =~ norm_1 + norm_2 + norm_3</span></a>
+<a class="sourceLine" id="cb298-3" title="3"><span class="st">             control =~ control_1 + control_2 + control_3</span></a>
+<a class="sourceLine" id="cb298-4" title="4"><span class="st">             </span></a>
+<a class="sourceLine" id="cb298-5" title="5"><span class="st">             intent ~ attit + norm + control</span></a>
+<a class="sourceLine" id="cb298-6" title="6"><span class="st">             behavior ~ intent&#39;</span></a>
+<a class="sourceLine" id="cb298-7" title="7"></a>
+<a class="sourceLine" id="cb298-8" title="8">fit &lt;-<span class="st"> </span><span class="kw">sem</span>(TORA_sem, <span class="dt">data =</span> df)</a>
+<a class="sourceLine" id="cb298-9" title="9"></a>
+<a class="sourceLine" id="cb298-10" title="10"><span class="kw">summary</span>(fit, <span class="dt">fit.measures =</span> <span class="ot">TRUE</span>, <span class="dt">rsquare =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <pre><code>## lavaan 0.6-6 ended normally after 33 iterations
 ## 
 ##   Estimator                                         ML
@@ -749,31 +749,31 @@ behavior; the effect should be mediated totally by the behavioral intention. The
 control can be either direct or indirect; the TORA does not specify which. Test a model with both a direct and indirect effect of control on TORA and decide whether you want to keep or remove them. Decide which model you accept as the best model for these data, and explain how you decided to keep this model.</p>
 <details>
 <p><summary>Click for explanation</summary></p>
-<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb298-1" title="1">TORA_dir &lt;-<span class="st"> &#39;attit =~ attit_1 + attit_2 + attit_3</span></a>
-<a class="sourceLine" id="cb298-2" title="2"><span class="st">             norm =~ norm_1 + norm_2 + norm_3</span></a>
-<a class="sourceLine" id="cb298-3" title="3"><span class="st">             control =~ control_1 + control_2 + control_3</span></a>
-<a class="sourceLine" id="cb298-4" title="4"><span class="st">             </span></a>
-<a class="sourceLine" id="cb298-5" title="5"><span class="st">             intent ~ attit + norm + control</span></a>
-<a class="sourceLine" id="cb298-6" title="6"><span class="st">             behavior ~ intent&#39;</span></a>
-<a class="sourceLine" id="cb298-7" title="7"></a>
-<a class="sourceLine" id="cb298-8" title="8">TORA_ind &lt;-<span class="st"> &#39;attit =~ attit_1 + attit_2 + attit_3</span></a>
-<a class="sourceLine" id="cb298-9" title="9"><span class="st">             norm =~ norm_1 + norm_2 + norm_3</span></a>
-<a class="sourceLine" id="cb298-10" title="10"><span class="st">             control =~ control_1 + control_2 + control_3</span></a>
-<a class="sourceLine" id="cb298-11" title="11"><span class="st">             </span></a>
-<a class="sourceLine" id="cb298-12" title="12"><span class="st">             intent ~ attit + norm + control</span></a>
-<a class="sourceLine" id="cb298-13" title="13"><span class="st">             behavior ~ intent + control&#39;</span></a>
-<a class="sourceLine" id="cb298-14" title="14"></a>
-<a class="sourceLine" id="cb298-15" title="15">fit_dir &lt;-<span class="st"> </span><span class="kw">sem</span>(TORA_dir, <span class="dt">data =</span> df)</a>
-<a class="sourceLine" id="cb298-16" title="16">fit_ind &lt;-<span class="st"> </span><span class="kw">sem</span>(TORA_ind, <span class="dt">data =</span> df)</a></code></pre></div>
+<div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb300-1" title="1">TORA_dir &lt;-<span class="st"> &#39;attit =~ attit_1 + attit_2 + attit_3</span></a>
+<a class="sourceLine" id="cb300-2" title="2"><span class="st">             norm =~ norm_1 + norm_2 + norm_3</span></a>
+<a class="sourceLine" id="cb300-3" title="3"><span class="st">             control =~ control_1 + control_2 + control_3</span></a>
+<a class="sourceLine" id="cb300-4" title="4"><span class="st">             </span></a>
+<a class="sourceLine" id="cb300-5" title="5"><span class="st">             intent ~ attit + norm + control</span></a>
+<a class="sourceLine" id="cb300-6" title="6"><span class="st">             behavior ~ intent&#39;</span></a>
+<a class="sourceLine" id="cb300-7" title="7"></a>
+<a class="sourceLine" id="cb300-8" title="8">TORA_ind &lt;-<span class="st"> &#39;attit =~ attit_1 + attit_2 + attit_3</span></a>
+<a class="sourceLine" id="cb300-9" title="9"><span class="st">             norm =~ norm_1 + norm_2 + norm_3</span></a>
+<a class="sourceLine" id="cb300-10" title="10"><span class="st">             control =~ control_1 + control_2 + control_3</span></a>
+<a class="sourceLine" id="cb300-11" title="11"><span class="st">             </span></a>
+<a class="sourceLine" id="cb300-12" title="12"><span class="st">             intent ~ attit + norm + control</span></a>
+<a class="sourceLine" id="cb300-13" title="13"><span class="st">             behavior ~ intent + control&#39;</span></a>
+<a class="sourceLine" id="cb300-14" title="14"></a>
+<a class="sourceLine" id="cb300-15" title="15">fit_dir &lt;-<span class="st"> </span><span class="kw">sem</span>(TORA_dir, <span class="dt">data =</span> df)</a>
+<a class="sourceLine" id="cb300-16" title="16">fit_ind &lt;-<span class="st"> </span><span class="kw">sem</span>(TORA_ind, <span class="dt">data =</span> df)</a></code></pre></div>
 <p>To compare the models, we can use a <span class="math inline">\(\chi^2\)</span>-difference test, using the <code>anova()</code> function or `<code>semTools::compareFits</code>:</p>
-<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb299-1" title="1"><span class="kw">anova</span>(fit_dir, fit_ind)</a></code></pre></div>
+<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb301-1" title="1"><span class="kw">anova</span>(fit_dir, fit_ind)</a></code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Df"],"name":[1],"type":["int"],"align":["right"]},{"label":["AIC"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["BIC"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Chisq"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Chisq diff"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["Df diff"],"name":[6],"type":["int"],"align":["right"]},{"label":["Pr(>Chisq)"],"name":[7],"type":["dbl"],"align":["right"]}],"data":[{"1":"38","2":"7156.952","3":"7255.553","4":"47.38864","5":"NA","6":"NA","7":"NA","_rn_":"fit_ind"},{"1":"39","2":"7170.360","3":"7265.439","4":"62.79676","5":"15.40812","6":"1","7":"8.661552e-05","_rn_":"fit_dir"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
-<div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb300-1" title="1"><span class="kw">library</span>(semTools)</a>
-<a class="sourceLine" id="cb300-2" title="2"><span class="kw">compareFit</span>(<span class="dt">Direct =</span> fit_dir, <span class="dt">Indirect =</span> fit_ind)</a></code></pre></div>
+<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb302-1" title="1"><span class="kw">library</span>(semTools)</a>
+<a class="sourceLine" id="cb302-2" title="2"><span class="kw">compareFit</span>(<span class="dt">Direct =</span> fit_dir, <span class="dt">Indirect =</span> fit_ind)</a></code></pre></div>
 <pre><code>## ################### Nested Model Comparison #########################
 ## Chi-Squared Difference Test
 ## 
@@ -798,22 +798,22 @@ control can be either direct or indirect; the TORA does not specify which. Test 
 <p>Use <code>tidySEM::graph_sem()</code> to plot both models, and check whether the picture corresponds with theory and with the way you intended to specify the model.</p>
 <details>
 <p><summary>Click for explanation</summary></p>
-<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb302-1" title="1"><span class="kw">library</span>(tidySEM)</a>
-<a class="sourceLine" id="cb302-2" title="2"><span class="kw">graph_sem</span>(fit_dir)</a></code></pre></div>
-<p><img src="TCSM_files/figure-html/unnamed-chunk-237-1.png" width="672" /></p>
-<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb303-1" title="1"><span class="kw">graph_sem</span>(fit_ind)</a></code></pre></div>
-<p><img src="TCSM_files/figure-html/unnamed-chunk-237-2.png" width="672" />
+<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb304-1" title="1"><span class="kw">library</span>(tidySEM)</a>
+<a class="sourceLine" id="cb304-2" title="2"><span class="kw">graph_sem</span>(fit_dir)</a></code></pre></div>
+<p><img src="TCSM_files/figure-html/unnamed-chunk-238-1.png" width="672" /></p>
+<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb305-1" title="1"><span class="kw">graph_sem</span>(fit_ind)</a></code></pre></div>
+<p><img src="TCSM_files/figure-html/unnamed-chunk-238-2.png" width="672" />
 </p>
 </div>
 <div id="question-6-8" class="section level3">
 <h3><span class="header-section-number">18.0.7</span> Question 6</h3>
 <p>Before you learned about latent variables, you might have analyzed these data by computing sum or mean scores for attitude, norms, and control, and using these as observed variables in a path model. It is possible to obtain mean scale scores using <code>tidySEM</code>, as follows:</p>
-<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb304-1" title="1"><span class="kw">library</span>(dplyr)</a>
-<a class="sourceLine" id="cb304-2" title="2">df[,<span class="kw">c</span>(<span class="dv">2</span><span class="op">:</span><span class="dv">7</span>, <span class="dv">10</span><span class="op">:</span><span class="dv">12</span>)] <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb304-3" title="3"><span class="st">  </span><span class="kw">tidy_sem</span>() <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb304-4" title="4"><span class="st">  </span><span class="kw">create_scales</span>() -&gt;<span class="st"> </span>scales</a></code></pre></div>
+<div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb306-1" title="1"><span class="kw">library</span>(dplyr)</a>
+<a class="sourceLine" id="cb306-2" title="2">df[,<span class="kw">c</span>(<span class="dv">2</span><span class="op">:</span><span class="dv">7</span>, <span class="dv">10</span><span class="op">:</span><span class="dv">12</span>)] <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb306-3" title="3"><span class="st">  </span><span class="kw">tidy_sem</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb306-4" title="4"><span class="st">  </span><span class="kw">create_scales</span>() -&gt;<span class="st"> </span>scales</a></code></pre></div>
 <p>The <code>scales</code> object contains a table with scale descriptive statistics:</p>
-<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb305-1" title="1">scales<span class="op">$</span>descriptives</a></code></pre></div>
+<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb307-1" title="1">scales<span class="op">$</span>descriptives</a></code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":["Subscale"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Items"],"name":[2],"type":["chr"],"align":["left"]},{"label":["n"],"name":[3],"type":["chr"],"align":["left"]},{"label":["mean"],"name":[4],"type":["chr"],"align":["left"]},{"label":["sd"],"name":[5],"type":["chr"],"align":["left"]},{"label":["min"],"name":[6],"type":["chr"],"align":["left"]},{"label":["max"],"name":[7],"type":["chr"],"align":["left"]},{"label":["skew"],"name":[8],"type":["chr"],"align":["left"]},{"label":["skew_2se"],"name":[9],"type":["chr"],"align":["left"]},{"label":["kurt"],"name":[10],"type":["chr"],"align":["left"]},{"label":["kurt_2se"],"name":[11],"type":["chr"],"align":["left"]},{"label":["Reliability"],"name":[12],"type":["chr"],"align":["left"]},{"label":["Interpret"],"name":[13],"type":["chr"],"align":["left"]},{"label":["min_load"],"name":[14],"type":["chr"],"align":["left"]},{"label":["max_load"],"name":[15],"type":["chr"],"align":["left"]}],"data":[{"1":"attit","2":"3.00","3":"250.00","4":"2.99","5":"1.02","6":"1.00","7":"5.00","8":"-0.09","9":"-0.30","10":"-0.60","11":"-0.97","12":"0.88","13":"Good","14":"0.82","15":"0.89"},{"1":"norm","2":"3.00","3":"250.00","4":"2.99","5":"0.95","6":"1.00","7":"5.00","8":"-0.03","9":"-0.09","10":"-0.53","11":"-0.87","12":"0.80","13":"Good","14":"0.69","15":"0.82"},{"1":"control","2":"3.00","3":"250.00","4":"2.97","5":"0.83","6":"1.00","7":"5.00","8":"-0.20","9":"-0.65","10":"-0.35","11":"-0.57","12":"0.64","13":"Questionable","14":"0.54","15":"0.74"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -825,24 +825,24 @@ Which model would you prefer, and why?</p>
 <p><em>Hint: Use</em> <code>cbind()</code> <em>to add the scale scores to</em> <code>df</code></p>
 <details>
 <p><summary>Click for explanation</summary></p>
-<div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb306-1" title="1"><span class="kw">library</span>(dplyr)</a>
-<a class="sourceLine" id="cb306-2" title="2"><span class="kw">names</span>(df)</a></code></pre></div>
+<div class="sourceCode" id="cb308"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb308-1" title="1"><span class="kw">library</span>(dplyr)</a>
+<a class="sourceLine" id="cb308-2" title="2"><span class="kw">names</span>(df)</a></code></pre></div>
 <pre><code>##  [1] &quot;respnr&quot;    &quot;attit_1&quot;   &quot;attit_2&quot;   &quot;attit_3&quot;   &quot;norm_1&quot;    &quot;norm_2&quot;   
 ##  [7] &quot;norm_3&quot;    &quot;intent&quot;    &quot;behavior&quot;  &quot;control_1&quot; &quot;control_2&quot; &quot;control_3&quot;
 ## [13] &quot;sex&quot;</code></pre>
-<div class="sourceCode" id="cb308"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb308-1" title="1">df <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb308-2" title="2"><span class="st">  </span><span class="kw">tidy_sem</span>() <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb308-3" title="3"><span class="st">  </span>tidySEM<span class="op">::</span><span class="kw">create_scales</span>() -&gt;<span class="st"> </span>scales</a>
-<a class="sourceLine" id="cb308-4" title="4">df_obs &lt;-<span class="st"> </span><span class="kw">cbind</span>(df, scales<span class="op">$</span>scores)</a>
-<a class="sourceLine" id="cb308-5" title="5"></a>
-<a class="sourceLine" id="cb308-6" title="6">TORA_obs &lt;-<span class="st"> &#39;intent ~ attit + norm + control</span></a>
-<a class="sourceLine" id="cb308-7" title="7"><span class="st">             behavior ~ intent&#39;</span></a>
-<a class="sourceLine" id="cb308-8" title="8">fit_obs &lt;-<span class="st"> </span><span class="kw">sem</span>(TORA_obs, df_obs)</a></code></pre></div>
+<div class="sourceCode" id="cb310"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb310-1" title="1">df <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb310-2" title="2"><span class="st">  </span><span class="kw">tidy_sem</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb310-3" title="3"><span class="st">  </span>tidySEM<span class="op">::</span><span class="kw">create_scales</span>() -&gt;<span class="st"> </span>scales</a>
+<a class="sourceLine" id="cb310-4" title="4">df_obs &lt;-<span class="st"> </span><span class="kw">cbind</span>(df, scales<span class="op">$</span>scores)</a>
+<a class="sourceLine" id="cb310-5" title="5"></a>
+<a class="sourceLine" id="cb310-6" title="6">TORA_obs &lt;-<span class="st"> &#39;intent ~ attit + norm + control</span></a>
+<a class="sourceLine" id="cb310-7" title="7"><span class="st">             behavior ~ intent&#39;</span></a>
+<a class="sourceLine" id="cb310-8" title="8">fit_obs &lt;-<span class="st"> </span><span class="kw">sem</span>(TORA_obs, df_obs)</a></code></pre></div>
 <p>The fit of this new model is worse than the model that included latent variables.
 However, note that these models are <strong>not nested</strong>, so we cannot directly compare fit indices.
 They are estimated on different variables. We will get a warning to emphasize this point. We can only interpret the Model Fit Indices table, and the Differences in Fit Indices, but not the Nested Model Comparison.</p>
-<div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb309-1" title="1"><span class="kw">compareFit</span>(<span class="dt">Latent =</span> fit_dir,</a>
-<a class="sourceLine" id="cb309-2" title="2">           <span class="dt">Observed =</span> fit_obs)</a></code></pre></div>
+<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb311-1" title="1"><span class="kw">compareFit</span>(<span class="dt">Latent =</span> fit_dir,</a>
+<a class="sourceLine" id="cb311-2" title="2">           <span class="dt">Observed =</span> fit_obs)</a></code></pre></div>
 <pre><code>## ################### Nested Model Comparison #########################
 ## Chi-Squared Difference Test
 ## 
@@ -861,15 +861,15 @@ They are estimated on different variables. We will get a warning to emphasize th
 ##                   df   cfi   tli      aic      bic  rmsea  srmr
 ## Latent - Observed 36 0.012 0.045 6039.757 6113.707 -0.079 0.001</code></pre>
 <p>We can also inspect the regression coefficients in both models:</p>
-<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb311-1" title="1"><span class="kw">table_results</span>(fit_dir) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb311-2" title="2"><span class="st">  </span><span class="kw">filter</span>(<span class="kw">grepl</span>(<span class="st">&quot;ON&quot;</span>, label))</a></code></pre></div>
+<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb313-1" title="1"><span class="kw">table_results</span>(fit_dir) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb313-2" title="2"><span class="st">  </span><span class="kw">filter</span>(<span class="kw">grepl</span>(<span class="st">&quot;ON&quot;</span>, label))</a></code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":["label"],"name":[1],"type":["chr"],"align":["left"]},{"label":["est_sig"],"name":[2],"type":["chr"],"align":["left"]},{"label":["se"],"name":[3],"type":["chr"],"align":["left"]},{"label":["confint"],"name":[4],"type":["chr"],"align":["left"]}],"data":[{"1":"intent.ON.attit","2":"0.35***","3":"0.10","4":"[0.16, 0.54]"},{"1":"intent.ON.norm","2":"0.64***","3":"0.09","4":"[0.47, 0.82]"},{"1":"intent.ON.control","2":"0.21","3":"0.16","4":"[-0.11, 0.53]"},{"1":"behavior.ON.intent","2":"0.75***","3":"0.05","4":"[0.66, 0.83]"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
-<div class="sourceCode" id="cb312"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb312-1" title="1"><span class="kw">table_results</span>(fit_obs) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb312-2" title="2"><span class="st">  </span><span class="kw">filter</span>(<span class="kw">grepl</span>(<span class="st">&quot;ON&quot;</span>, label))</a></code></pre></div>
+<div class="sourceCode" id="cb314"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb314-1" title="1"><span class="kw">table_results</span>(fit_obs) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb314-2" title="2"><span class="st">  </span><span class="kw">filter</span>(<span class="kw">grepl</span>(<span class="st">&quot;ON&quot;</span>, label))</a></code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":["label"],"name":[1],"type":["chr"],"align":["left"]},{"label":["est_sig"],"name":[2],"type":["chr"],"align":["left"]},{"label":["se"],"name":[3],"type":["chr"],"align":["left"]},{"label":["confint"],"name":[4],"type":["chr"],"align":["left"]}],"data":[{"1":"intent.ON.attit","2":"0.36***","3":"0.05","4":"[0.25, 0.46]"},{"1":"intent.ON.norm","2":"0.54***","3":"0.05","4":"[0.43, 0.64]"},{"1":"intent.ON.control","2":"0.19**","3":"0.07","4":"[0.06, 0.32]"},{"1":"behavior.ON.intent","2":"0.75***","3":"0.05","4":"[0.66, 0.83]"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -886,9 +886,9 @@ They are estimated on different variables. We will get a warning to emphasize th
 <p>Estimate the sex moderated model. What happened to the fit of the model when you compare it to your earlier model that didn’t include sex?</p>
 <details>
 <p><summary>Click for explanation</summary></p>
-<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb313-1" title="1">fit_mod &lt;-<span class="st"> </span><span class="kw">sem</span>(TORA_sem, <span class="dt">data =</span> df, <span class="dt">group =</span> <span class="st">&quot;sex&quot;</span>)</a>
-<a class="sourceLine" id="cb313-2" title="2"></a>
-<a class="sourceLine" id="cb313-3" title="3"><span class="kw">summary</span>(fit_mod, <span class="dt">fit.measures =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb315-1" title="1">fit_mod &lt;-<span class="st"> </span><span class="kw">sem</span>(TORA_sem, <span class="dt">data =</span> df, <span class="dt">group =</span> <span class="st">&quot;sex&quot;</span>)</a>
+<a class="sourceLine" id="cb315-2" title="2"></a>
+<a class="sourceLine" id="cb315-3" title="3"><span class="kw">summary</span>(fit_mod, <span class="dt">fit.measures =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <pre><code>## lavaan 0.6-6 ended normally after 71 iterations
 ## 
 ##   Estimator                                         ML
@@ -1093,15 +1093,15 @@ They are estimated on different variables. We will get a warning to emphasize th
 <li>Scalar: Same factor loadings, and intercepts for the indicators.</li>
 </ol>
 <p>We can specify these models with <code>groups.equal</code> constraints and then use <code>compareFit()</code>:</p>
-<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb315-1" title="1"><span class="kw">library</span>(semTools)</a>
-<a class="sourceLine" id="cb315-2" title="2">fit.config &lt;-<span class="st"> </span><span class="kw">cfa</span>(TORA_cfa, <span class="dt">data =</span> df, <span class="dt">group =</span> <span class="st">&quot;sex&quot;</span>)</a>
-<a class="sourceLine" id="cb315-3" title="3">fit.metric &lt;-<span class="st"> </span><span class="kw">cfa</span>(TORA_cfa, <span class="dt">data =</span> df, <span class="dt">group =</span> <span class="st">&quot;sex&quot;</span>,</a>
-<a class="sourceLine" id="cb315-4" title="4">                  <span class="dt">group.equal =</span> <span class="st">&quot;loadings&quot;</span>)</a>
-<a class="sourceLine" id="cb315-5" title="5">fit.scalar &lt;-<span class="st"> </span><span class="kw">cfa</span>(TORA_cfa, <span class="dt">data =</span> df, <span class="dt">group =</span> <span class="st">&quot;sex&quot;</span>,</a>
-<a class="sourceLine" id="cb315-6" title="6">                  <span class="dt">group.equal =</span> <span class="kw">c</span>(<span class="st">&quot;loadings&quot;</span>, <span class="st">&quot;intercepts&quot;</span>))</a>
-<a class="sourceLine" id="cb315-7" title="7"><span class="kw">compareFit</span>(<span class="dt">Configural =</span> fit.config, </a>
-<a class="sourceLine" id="cb315-8" title="8">           <span class="dt">Metric =</span> fit.metric, </a>
-<a class="sourceLine" id="cb315-9" title="9">           <span class="dt">Scalar =</span> fit.scalar)</a></code></pre></div>
+<div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb317-1" title="1"><span class="kw">library</span>(semTools)</a>
+<a class="sourceLine" id="cb317-2" title="2">fit.config &lt;-<span class="st"> </span><span class="kw">cfa</span>(TORA_cfa, <span class="dt">data =</span> df, <span class="dt">group =</span> <span class="st">&quot;sex&quot;</span>)</a>
+<a class="sourceLine" id="cb317-3" title="3">fit.metric &lt;-<span class="st"> </span><span class="kw">cfa</span>(TORA_cfa, <span class="dt">data =</span> df, <span class="dt">group =</span> <span class="st">&quot;sex&quot;</span>,</a>
+<a class="sourceLine" id="cb317-4" title="4">                  <span class="dt">group.equal =</span> <span class="st">&quot;loadings&quot;</span>)</a>
+<a class="sourceLine" id="cb317-5" title="5">fit.scalar &lt;-<span class="st"> </span><span class="kw">cfa</span>(TORA_cfa, <span class="dt">data =</span> df, <span class="dt">group =</span> <span class="st">&quot;sex&quot;</span>,</a>
+<a class="sourceLine" id="cb317-6" title="6">                  <span class="dt">group.equal =</span> <span class="kw">c</span>(<span class="st">&quot;loadings&quot;</span>, <span class="st">&quot;intercepts&quot;</span>))</a>
+<a class="sourceLine" id="cb317-7" title="7"><span class="kw">compareFit</span>(<span class="dt">Configural =</span> fit.config, </a>
+<a class="sourceLine" id="cb317-8" title="8">           <span class="dt">Metric =</span> fit.metric, </a>
+<a class="sourceLine" id="cb317-9" title="9">           <span class="dt">Scalar =</span> fit.scalar)</a></code></pre></div>
 <pre><code>## ################### Nested Model Comparison #########################
 ## Chi-Squared Difference Test
 ## 
@@ -1127,15 +1127,15 @@ They are estimated on different variables. We will get a warning to emphasize th
 <p>Going back to the multi-group model, impose scalar invariance, and then determine whether it makes sense to constrain all the regression coefficients to be equal. Does it?</p>
 <details>
 <p><summary>Click for explanation</summary></p>
-<div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb317-1" title="1">fit_mod_invar &lt;-<span class="st"> </span><span class="kw">sem</span>(TORA_sem, <span class="dt">data =</span> df, </a>
-<a class="sourceLine" id="cb317-2" title="2">                     <span class="dt">group =</span> <span class="st">&quot;sex&quot;</span>, </a>
-<a class="sourceLine" id="cb317-3" title="3">                     <span class="dt">group.equal =</span> <span class="kw">c</span>(<span class="st">&quot;loadings&quot;</span>, <span class="st">&quot;intercepts&quot;</span>))</a>
-<a class="sourceLine" id="cb317-4" title="4">fit_mod_invar_reg &lt;-<span class="st"> </span><span class="kw">sem</span>(TORA_sem, <span class="dt">data =</span> df, </a>
-<a class="sourceLine" id="cb317-5" title="5">                         <span class="dt">group =</span> <span class="st">&quot;sex&quot;</span>, </a>
-<a class="sourceLine" id="cb317-6" title="6">                         <span class="dt">group.equal =</span> <span class="kw">c</span>(<span class="st">&quot;loadings&quot;</span>, <span class="st">&quot;intercepts&quot;</span>, <span class="st">&quot;regressions&quot;</span>))</a>
-<a class="sourceLine" id="cb317-7" title="7"></a>
-<a class="sourceLine" id="cb317-8" title="8"><span class="kw">compareFit</span>(<span class="dt">Multigroup =</span> fit_mod_invar,</a>
-<a class="sourceLine" id="cb317-9" title="9">           <span class="dt">Constrain_regressions =</span> fit_mod_invar_reg)</a></code></pre></div>
+<div class="sourceCode" id="cb319"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb319-1" title="1">fit_mod_invar &lt;-<span class="st"> </span><span class="kw">sem</span>(TORA_sem, <span class="dt">data =</span> df, </a>
+<a class="sourceLine" id="cb319-2" title="2">                     <span class="dt">group =</span> <span class="st">&quot;sex&quot;</span>, </a>
+<a class="sourceLine" id="cb319-3" title="3">                     <span class="dt">group.equal =</span> <span class="kw">c</span>(<span class="st">&quot;loadings&quot;</span>, <span class="st">&quot;intercepts&quot;</span>))</a>
+<a class="sourceLine" id="cb319-4" title="4">fit_mod_invar_reg &lt;-<span class="st"> </span><span class="kw">sem</span>(TORA_sem, <span class="dt">data =</span> df, </a>
+<a class="sourceLine" id="cb319-5" title="5">                         <span class="dt">group =</span> <span class="st">&quot;sex&quot;</span>, </a>
+<a class="sourceLine" id="cb319-6" title="6">                         <span class="dt">group.equal =</span> <span class="kw">c</span>(<span class="st">&quot;loadings&quot;</span>, <span class="st">&quot;intercepts&quot;</span>, <span class="st">&quot;regressions&quot;</span>))</a>
+<a class="sourceLine" id="cb319-7" title="7"></a>
+<a class="sourceLine" id="cb319-8" title="8"><span class="kw">compareFit</span>(<span class="dt">Multigroup =</span> fit_mod_invar,</a>
+<a class="sourceLine" id="cb319-9" title="9">           <span class="dt">Constrain_regressions =</span> fit_mod_invar_reg)</a></code></pre></div>
 <pre><code>## ################### Nested Model Comparison #########################
 ## Chi-Squared Difference Test
 ## 
