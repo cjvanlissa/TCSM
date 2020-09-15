@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 8 Week 2 - Class | Theory Construction and Statistical Modeling</title>
   <meta name="description" content="This is a guide for the elective course TCSM." />
-  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 8 Week 2 - Class | Theory Construction and Statistical Modeling" />
   <meta property="og:type" content="book" />
@@ -51,12 +51,13 @@
 
 <link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
 <script src="libs/pagedtable-1.1/js/pagedtable.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
@@ -65,16 +66,14 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
+    border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -83,9 +82,9 @@ pre.numberSource code > span > a:first-child::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {   }
+  {  }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+a.sourceLine::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -390,7 +389,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>If you don’t know how to load the data, click below.</p>
 <details>
 <p><summary>Click for explanation</summary></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="week-2-class.html#cb1-1"></a>df &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;ESSround1-b.csv&quot;</span>, <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb111-1" title="1">df &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;ESSround1-b.csv&quot;</span>, <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
 
 </div>
 <div id="question-1" class="section level3">
@@ -419,29 +418,29 @@ Based on your reading of Preacher and MacCallum (2003), do you agree with this p
 <details>
 <p><summary>Click for explanation</summary></p>
 <p>To perform an exploratory factor analysis, you can use the function <code>fa</code> of the package <code>psych</code>. You will have to specify the data, and the variables that you want to include in the factor analyses. Furthermore, you will have to specify the number of factors that you want to extract, the rotation method and the estimation method.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="week-2-class.html#cb2-1"></a><span class="kw">library</span>(psych)</span>
-<span id="cb2-2"><a href="week-2-class.html#cb2-2"></a><span class="kw">library</span>(GPArotation)</span>
-<span id="cb2-3"><a href="week-2-class.html#cb2-3"></a></span>
-<span id="cb2-4"><a href="week-2-class.html#cb2-4"></a>efa_trust &lt;-<span class="st"> </span><span class="kw">fa</span>(df[, <span class="dv">7</span><span class="op">:</span><span class="dv">19</span>], <span class="dt">nfactors =</span> <span class="dv">3</span>, <span class="dt">rotate =</span> <span class="st">&quot;promax&quot;</span>, <span class="dt">fm =</span> <span class="st">&quot;ml&quot;</span>, <span class="dt">scores =</span> <span class="st">&quot;Bartlett&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb112-1" title="1"><span class="kw">library</span>(psych)</a>
+<a class="sourceLine" id="cb112-2" title="2"><span class="kw">library</span>(GPArotation)</a>
+<a class="sourceLine" id="cb112-3" title="3"></a>
+<a class="sourceLine" id="cb112-4" title="4">efa_trust &lt;-<span class="st"> </span><span class="kw">fa</span>(df[, <span class="dv">7</span><span class="op">:</span><span class="dv">19</span>], <span class="dt">nfactors =</span> <span class="dv">3</span>, <span class="dt">rotate =</span> <span class="st">&quot;promax&quot;</span>, <span class="dt">fm =</span> <span class="st">&quot;ml&quot;</span>, <span class="dt">scores =</span> <span class="st">&quot;Bartlett&quot;</span>)</a></code></pre></div>
 <p>In order to determine the number of factors to extract, you might want to look at the eigenvalues of the factors, which can be accessed by using the following code:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="week-2-class.html#cb3-1"></a><span class="kw">round</span>(efa_trust<span class="op">$</span>values, <span class="dt">digits =</span> <span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb113-1" title="1"><span class="kw">round</span>(efa_trust<span class="op">$</span>values, <span class="dt">digits =</span> <span class="dv">3</span>)</a></code></pre></div>
 <pre><code>##  [1]  5.054  0.874  0.687  0.304  0.185  0.076  0.014  0.008 -0.060 -0.078
 ## [11] -0.123 -0.149 -0.191</code></pre>
 <p>Another common approach is to make a scree plot. All that is required for this, is to pass the eigenvalues to the <code>qplot()</code> function and add a geom_path:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="week-2-class.html#cb5-1"></a><span class="kw">library</span>(ggplot2)</span>
-<span id="cb5-2"><a href="week-2-class.html#cb5-2"></a><span class="kw">qplot</span>(<span class="dt">y =</span> efa_trust<span class="op">$</span>values) <span class="op">+</span><span class="st"> </span><span class="kw">geom_path</span>()</span></code></pre></div>
-<p><img src="TCSM_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb115-1" title="1"><span class="kw">library</span>(ggplot2)</a>
+<a class="sourceLine" id="cb115-2" title="2"><span class="kw">qplot</span>(<span class="dt">y =</span> efa_trust<span class="op">$</span>values) <span class="op">+</span><span class="st"> </span><span class="kw">geom_path</span>()</a></code></pre></div>
+<p><img src="TCSM_files/figure-html/unnamed-chunk-107-1.png" width="672" /></p>
 <p>You can do the same for the attitude variables:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="week-2-class.html#cb6-1"></a>efa_att &lt;-<span class="st"> </span><span class="kw">fa</span>(df[, <span class="dv">20</span><span class="op">:</span><span class="dv">44</span>], <span class="dt">nfactors =</span> <span class="dv">5</span>, <span class="dt">rotate =</span> <span class="st">&quot;promax&quot;</span>, <span class="dt">fm =</span> <span class="st">&quot;ml&quot;</span>, <span class="dt">scores =</span> <span class="st">&quot;Bartlett&quot;</span>)</span>
-<span id="cb6-2"><a href="week-2-class.html#cb6-2"></a><span class="kw">round</span>(efa_att<span class="op">$</span>values, <span class="dt">digits =</span> <span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb116-1" title="1">efa_att &lt;-<span class="st"> </span><span class="kw">fa</span>(df[, <span class="dv">20</span><span class="op">:</span><span class="dv">44</span>], <span class="dt">nfactors =</span> <span class="dv">5</span>, <span class="dt">rotate =</span> <span class="st">&quot;promax&quot;</span>, <span class="dt">fm =</span> <span class="st">&quot;ml&quot;</span>, <span class="dt">scores =</span> <span class="st">&quot;Bartlett&quot;</span>)</a>
+<a class="sourceLine" id="cb116-2" title="2"><span class="kw">round</span>(efa_att<span class="op">$</span>values, <span class="dt">digits =</span> <span class="dv">3</span>)</a></code></pre></div>
 <pre><code>##  [1]  8.016  1.702  1.051  0.697  0.500  0.389  0.218  0.162  0.091  0.046
 ## [11]  0.043  0.028  0.022  0.008 -0.018 -0.028 -0.032 -0.056 -0.066 -0.083
 ## [21] -0.089 -0.119 -0.132 -0.146 -0.266</code></pre>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="week-2-class.html#cb8-1"></a><span class="kw">qplot</span>(<span class="dt">y =</span> efa_att<span class="op">$</span>values) <span class="op">+</span><span class="st"> </span><span class="kw">geom_path</span>()</span></code></pre></div>
-<p><img src="TCSM_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb118-1" title="1"><span class="kw">qplot</span>(<span class="dt">y =</span> efa_att<span class="op">$</span>values) <span class="op">+</span><span class="st"> </span><span class="kw">geom_path</span>()</a></code></pre></div>
+<p><img src="TCSM_files/figure-html/unnamed-chunk-108-1.png" width="672" /></p>
 <p>As recommended in the lecture, a better and more quantified way to establish the number of factors is “parallel analysis” (Horn, 1965). Here’s how to do it in R:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="week-2-class.html#cb9-1"></a><span class="kw">fa.parallel</span>(df[, <span class="dv">7</span><span class="op">:</span><span class="dv">19</span>])</span></code></pre></div>
-<p><img src="TCSM_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb119-1" title="1"><span class="kw">fa.parallel</span>(df[, <span class="dv">7</span><span class="op">:</span><span class="dv">19</span>])</a></code></pre></div>
+<p><img src="TCSM_files/figure-html/unnamed-chunk-109-1.png" width="672" /></p>
 <pre><code>## Parallel analysis suggests that the number of factors =  6  and the number of components =  3</code></pre>
 <p>Note that, in this case, parallel analysis recommends as many as 6 factors. However, in order to be able to compare our results with those from Kestilä, we might consider aligning ourselves with the literature and choosing the same number of factors for our analyses as components in the article.</p>
 
@@ -452,7 +451,7 @@ Based on your reading of Preacher and MacCallum (2003), do you agree with this p
 <details>
 <p><summary>Click for explanation</summary></p>
 <p>You can find the factor loadings by means of the ‘print’-function used in the take-home exercise, or you can search for the variable ‘loadings’, which is inside the results object, to end up with just the information you are searching for.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="week-2-class.html#cb11-1"></a>efa_trust<span class="op">$</span>loadings</span></code></pre></div>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb121-1" title="1">efa_trust<span class="op">$</span>loadings</a></code></pre></div>
 <pre><code>## 
 ## Loadings:
 ##         ML1    ML2    ML3   
@@ -474,7 +473,7 @@ Based on your reading of Preacher and MacCallum (2003), do you agree with this p
 ## SS loadings    2.518 2.035 1.725
 ## Proportion Var 0.194 0.157 0.133
 ## Cumulative Var 0.194 0.350 0.483</code></pre>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="week-2-class.html#cb13-1"></a>efa_att<span class="op">$</span>loadings</span></code></pre></div>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb123-1" title="1">efa_att<span class="op">$</span>loadings</a></code></pre></div>
 <pre><code>## 
 ## Loadings:
 ##         ML3    ML1    ML5    ML4    ML2   
@@ -514,7 +513,7 @@ Below the matrix of loadings, we see a second matrix, which indicates (amongst o
 Each subsequent factor explains slightly less variance than the ones before it (this is a property of exploratory factor analysis).
 The <em>cumulative var</em> indicates how much variance the factors explain, in total. If you estimated as many factors as items, then the last value for <em>cumulative var</em> would be <code>1.00</code> (100%).</p>
 <p>The factor loading matrix is slightly hard to read, due to the jumble of factor loadings. To create more clarity, it is convenient to suppress the factor loadings that are lower than .30.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="week-2-class.html#cb15-1"></a><span class="kw">print</span>(efa_trust<span class="op">$</span>loadings, <span class="dt">cut =</span> <span class="fl">.30</span>, <span class="dt">digits =</span> <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb125-1" title="1"><span class="kw">print</span>(efa_trust<span class="op">$</span>loadings, <span class="dt">cut =</span> <span class="fl">.30</span>, <span class="dt">digits =</span> <span class="dv">2</span>)</a></code></pre></div>
 <pre><code>## 
 ## Loadings:
 ##         ML1   ML2   ML3  
@@ -537,7 +536,7 @@ The <em>cumulative var</em> indicates how much variance the factors explain, in 
 ## Proportion Var 0.19 0.16 0.13
 ## Cumulative Var 0.19 0.35 0.48</code></pre>
 <p>Furthermore, if you want to perform a factor analysis without, say, <code>stfedu</code>, while you want all other variables included in your factor analysis, you can simply leave the column number of <code>stfedu</code>, which is 13, out of the command:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="week-2-class.html#cb17-1"></a>efa_trust_without_stfedu &lt;-<span class="st"> </span><span class="kw">fa</span>(df[, <span class="kw">c</span>(<span class="dv">7</span><span class="op">:</span><span class="dv">12</span>, <span class="dv">14</span><span class="op">:</span><span class="dv">19</span>)], <span class="dt">nfactors =</span> <span class="dv">3</span>, <span class="dt">rotate =</span> <span class="st">&quot;promax&quot;</span>, <span class="dt">fm =</span> <span class="st">&quot;ml&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb127-1" title="1">efa_trust_without_stfedu &lt;-<span class="st"> </span><span class="kw">fa</span>(df[, <span class="kw">c</span>(<span class="dv">7</span><span class="op">:</span><span class="dv">12</span>, <span class="dv">14</span><span class="op">:</span><span class="dv">19</span>)], <span class="dt">nfactors =</span> <span class="dv">3</span>, <span class="dt">rotate =</span> <span class="st">&quot;promax&quot;</span>, <span class="dt">fm =</span> <span class="st">&quot;ml&quot;</span>)</a></code></pre></div>
 
 </div>
 <div id="question-5" class="section level3">
@@ -556,9 +555,9 @@ The <em>cumulative var</em> indicates how much variance the factors explain, in 
 <p><summary>Click for explanation</summary></p>
 <p>If you want to assess the reliability of the variables <code>pltcare</code>, <code>pltinvt</code>, <code>trstprl</code>, <code>trstplt</code>, and <code>trstep</code> you can run a reliability analysis as follows.</p>
 <p><em>Hint: name the new objects substantively, instead of numbering them.</em></p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="week-2-class.html#cb18-1"></a><span class="kw">library</span>(psych)</span>
-<span id="cb18-2"><a href="week-2-class.html#cb18-2"></a>reli_<span class="dv">1</span> &lt;-<span class="st"> </span>psych<span class="op">::</span><span class="kw">alpha</span>(df_with_scores[, <span class="kw">c</span>(<span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">12</span>, <span class="dv">13</span>)])</span>
-<span id="cb18-3"><a href="week-2-class.html#cb18-3"></a>reli_<span class="dv">1</span></span></code></pre></div>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb128-1" title="1"><span class="kw">library</span>(psych)</a>
+<a class="sourceLine" id="cb128-2" title="2">reli_<span class="dv">1</span> &lt;-<span class="st"> </span>psych<span class="op">::</span><span class="kw">alpha</span>(df_with_scores[, <span class="kw">c</span>(<span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">12</span>, <span class="dv">13</span>)])</a>
+<a class="sourceLine" id="cb128-3" title="3">reli_<span class="dv">1</span></a></code></pre></div>
 <pre><code>## 
 ## Reliability analysis   
 ## Call: psych::alpha(x = df_with_scores[, c(7, 8, 9, 12, 13)])
@@ -594,10 +593,10 @@ The <em>cumulative var</em> indicates how much variance the factors explain, in 
 <details>
 <p><summary>Click for explanation</summary></p>
 <p><em>Make sure to adjust the arguments <code>x = EFA_trust1</code> and <code>y = PCA_Trust1</code> to align with <em>your own</em> EFA factor column name and a PCA component column name <em>from the data</em> respectively</em></p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="week-2-class.html#cb20-1"></a><span class="kw">library</span>(ggplot2)</span>
-<span id="cb20-2"><a href="week-2-class.html#cb20-2"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> df_with_scores) <span class="op">+</span></span>
-<span id="cb20-3"><a href="week-2-class.html#cb20-3"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> EFA_Trust1, <span class="dt">y =</span> PCA_Trust1))</span></code></pre></div>
-<p><img src="TCSM_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb130-1" title="1"><span class="kw">library</span>(ggplot2)</a>
+<a class="sourceLine" id="cb130-2" title="2"><span class="kw">ggplot</span>(<span class="dt">data =</span> df_with_scores) <span class="op">+</span></a>
+<a class="sourceLine" id="cb130-3" title="3"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> EFA_Trust1, <span class="dt">y =</span> PCA_Trust1))</a></code></pre></div>
+<p><img src="TCSM_files/figure-html/unnamed-chunk-116-1.png" width="672" /></p>
 
 </div>
 <div id="question-8" class="section level3">
@@ -607,7 +606,7 @@ The <em>cumulative var</em> indicates how much variance the factors explain, in 
 <p><summary>Click for explanation</summary></p>
 <p><em>Hint: Name the new objects substantively once again.</em></p>
 <p>Example for trust in politics:</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="week-2-class.html#cb21-1"></a><span class="kw">cor</span>(df_with_scores<span class="op">$</span>EFA_Trust1, df_with_scores<span class="op">$</span>PCA_Trust1, <span class="dt">use =</span> <span class="st">&quot;complete.obs&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb131-1" title="1"><span class="kw">cor</span>(df_with_scores<span class="op">$</span>EFA_Trust1, df_with_scores<span class="op">$</span>PCA_Trust1, <span class="dt">use =</span> <span class="st">&quot;complete.obs&quot;</span>)</a></code></pre></div>
 <pre><code>## [1] 0.9375965</code></pre>
 
 </div>
@@ -617,8 +616,8 @@ The <em>cumulative var</em> indicates how much variance the factors explain, in 
 <details>
 <p><summary>Click for explanation</summary></p>
 <p>We can use an ANOVA to test whether the countries differ in the amount of political trust the participants have.</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="week-2-class.html#cb23-1"></a>fit_ANOVA &lt;-<span class="st"> </span><span class="kw">aov</span>(trustinstEFA <span class="op">~</span><span class="st"> </span>cntry, <span class="dt">data =</span> df_with_scores)</span>
-<span id="cb23-2"><a href="week-2-class.html#cb23-2"></a><span class="kw">summary</span>(fit_ANOVA)</span></code></pre></div>
+<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb133-1" title="1">fit_ANOVA &lt;-<span class="st"> </span><span class="kw">aov</span>(trustinstEFA <span class="op">~</span><span class="st"> </span>cntry, <span class="dt">data =</span> df_with_scores)</a>
+<a class="sourceLine" id="cb133-2" title="2"><span class="kw">summary</span>(fit_ANOVA)</a></code></pre></div>
 <pre><code>##                Df Sum Sq Mean Sq F value Pr(&gt;F)    
 ## cntry           8   1740  217.55   199.6 &lt;2e-16 ***
 ## Residuals   14769  16100    1.09                   
@@ -626,8 +625,8 @@ The <em>cumulative var</em> indicates how much variance the factors explain, in 
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 3409 observations deleted due to missingness</code></pre>
 <p>In which <code>trustinstEFA</code> is the dependent variable, <code>cntry</code> is the grouping variable, and <code>df</code> is the name of the dataset; <code>summary</code> will provide the results. However, it will only indicate whether the variable <code>cntry</code> is significant or not, so you will be unable to tell which countries differ in terms of their political trust. To tell which countries differ, you can do a pairwise comparison test, with a Bonferroni adjustment for multiple testing.</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="week-2-class.html#cb25-1"></a>pair_comparison &lt;-<span class="st"> </span><span class="kw">pairwise.t.test</span>(df_with_scores<span class="op">$</span>trustinstEFA, df_with_scores<span class="op">$</span>cntry, <span class="dt">p.adjust.method =</span> <span class="st">&quot;bonf&quot;</span>, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</span>
-<span id="cb25-2"><a href="week-2-class.html#cb25-2"></a><span class="kw">round</span>(pair_comparison<span class="op">$</span>p.value, <span class="dt">digits =</span> <span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb135-1" title="1">pair_comparison &lt;-<span class="st"> </span><span class="kw">pairwise.t.test</span>(df_with_scores<span class="op">$</span>trustinstEFA, df_with_scores<span class="op">$</span>cntry, <span class="dt">p.adjust.method =</span> <span class="st">&quot;bonf&quot;</span>, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb135-2" title="2"><span class="kw">round</span>(pair_comparison<span class="op">$</span>p.value, <span class="dt">digits =</span> <span class="dv">3</span>)</a></code></pre></div>
 <pre><code>##             Austria Belgium Denmark Finland Germany Italy Netherlands Norway
 ## Belgium       0.000      NA      NA      NA      NA    NA          NA     NA
 ## Denmark       0.000       0      NA      NA      NA    NA          NA     NA
@@ -645,7 +644,7 @@ The <em>cumulative var</em> indicates how much variance the factors explain, in 
 <details>
 <p><summary>Click for explanation</summary></p>
 <p>To select the Finnish cases only, select rows for which <code>$cntry</code> is equal to (<code>==</code>) Finland:</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="week-2-class.html#cb27-1"></a>df_finland &lt;-<span class="st"> </span>df_with_scores[df_with_scores<span class="op">$</span>cntry <span class="op">==</span><span class="st"> &quot;Finland&quot;</span>, ]</span></code></pre></div>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb137-1" title="1">df_finland &lt;-<span class="st"> </span>df_with_scores[df_with_scores<span class="op">$</span>cntry <span class="op">==</span><span class="st"> &quot;Finland&quot;</span>, ]</a></code></pre></div>
 
 <p>After selecting the Finnish cases, we have to prepare our variables for analysis.
 Thanks to the factor analyses above, our dependent variables are taken care of.
@@ -654,47 +653,47 @@ and do any recoding necessary before we can run multiple regression. The indepen
 <code>c("gndr", "yrbrn", "eduyrs", "polintr", "lrscale")</code>.</p>
 <details>
 <p><summary>Click for explanation</summary></p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="week-2-class.html#cb28-1"></a><span class="kw">library</span>(tidySEM)</span>
-<span id="cb28-2"><a href="week-2-class.html#cb28-2"></a><span class="kw">descriptives</span>(df_finland[, <span class="kw">c</span>(<span class="st">&quot;gndr&quot;</span>, <span class="st">&quot;yrbrn&quot;</span>, <span class="st">&quot;eduyrs&quot;</span>, <span class="st">&quot;polintr&quot;</span>, <span class="st">&quot;lrscale&quot;</span>)])</span></code></pre></div>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb138-1" title="1"><span class="kw">library</span>(tidySEM)</a>
+<a class="sourceLine" id="cb138-2" title="2"><span class="kw">descriptives</span>(df_finland[, <span class="kw">c</span>(<span class="st">&quot;gndr&quot;</span>, <span class="st">&quot;yrbrn&quot;</span>, <span class="st">&quot;eduyrs&quot;</span>, <span class="st">&quot;polintr&quot;</span>, <span class="st">&quot;lrscale&quot;</span>)])</a></code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["name"],"name":[1],"type":["chr"],"align":["left"]},{"label":["type"],"name":[2],"type":["chr"],"align":["left"]},{"label":["n"],"name":[3],"type":["int"],"align":["right"]},{"label":["unique"],"name":[4],"type":["int"],"align":["right"]},{"label":["mean"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["median"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["mode"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["mode_value"],"name":[8],"type":["chr"],"align":["left"]},{"label":["sd"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["v"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["min"],"name":[11],"type":["int"],"align":["right"]},{"label":["max"],"name":[12],"type":["int"],"align":["right"]},{"label":["range"],"name":[13],"type":["int"],"align":["right"]},{"label":["skew"],"name":[14],"type":["dbl"],"align":["right"]},{"label":["skew_2se"],"name":[15],"type":["dbl"],"align":["right"]},{"label":["kurt"],"name":[16],"type":["dbl"],"align":["right"]},{"label":["kurt_2se"],"name":[17],"type":["dbl"],"align":["right"]}],"data":[{"1":"gndr","2":"character","3":"2000","4":"2","5":"NA","6":"NA","7":"1040","8":"Female","9":"NA","10":"0.4992000","11":"NA","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA"},{"1":"yrbrn","2":"integer","3":"2000","4":"79","5":"1956.36950","6":"1957","7":"1957","8":"NA","9":"18.491510","10":"NA","11":"1906","12":"1987","13":"81","14":"-0.1584100","15":"-1.447163","16":"-0.8888179","17":"-4.0619431"},{"1":"eduyrs","2":"integer","3":"1997","4":"28","5":"11.95643","6":"12","7":"12","8":"NA","9":"3.900645","10":"NA","11":"0","12":"26","13":"26","14":"0.2946392","15":"2.689675","16":"-0.1854030","17":"-0.8466672"},{"1":"polintr","2":"character","3":"1999","4":"4","5":"NA","6":"NA","7":"842","8":"Hardly interested","9":"NA","10":"0.6501730","11":"NA","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA"},{"1":"lrscale","2":"character","3":"1891","4":"11","5":"NA","6":"NA","7":"599","8":"5","9":"NA","10":"0.8312956","11":"NA","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["name"],"name":[1],"type":["chr"],"align":["left"]},{"label":["type"],"name":[2],"type":["chr"],"align":["left"]},{"label":["n"],"name":[3],"type":["int"],"align":["right"]},{"label":["missing"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["unique"],"name":[5],"type":["int"],"align":["right"]},{"label":["mean"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["median"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["mode"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["mode_value"],"name":[9],"type":["chr"],"align":["left"]},{"label":["sd"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["v"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["min"],"name":[12],"type":["int"],"align":["right"]},{"label":["max"],"name":[13],"type":["int"],"align":["right"]},{"label":["range"],"name":[14],"type":["int"],"align":["right"]},{"label":["skew"],"name":[15],"type":["dbl"],"align":["right"]},{"label":["skew_2se"],"name":[16],"type":["dbl"],"align":["right"]},{"label":["kurt"],"name":[17],"type":["dbl"],"align":["right"]},{"label":["kurt_2se"],"name":[18],"type":["dbl"],"align":["right"]}],"data":[{"1":"gndr","2":"character","3":"2000","4":"0.0000","5":"3","6":"NA","7":"NA","8":"1040","9":"Female","10":"NA","11":"0.4992000","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA","18":"NA"},{"1":"yrbrn","2":"integer","3":"2000","4":"0.0000","5":"79","6":"1956.36950","7":"1957","8":"1957","9":"NA","10":"18.491510","11":"NA","12":"1906","13":"1987","14":"81","15":"-0.1584100","16":"-1.447163","17":"-0.8888179","18":"-4.0619431"},{"1":"eduyrs","2":"integer","3":"1997","4":"0.0015","5":"28","6":"11.95643","7":"12","8":"12","9":"NA","10":"3.900645","11":"NA","12":"0","13":"26","14":"26","15":"0.2946392","16":"2.689675","17":"-0.1854030","18":"-0.8466672"},{"1":"polintr","2":"character","3":"1999","4":"0.0005","5":"5","6":"NA","7":"NA","8":"842","9":"Hardly interested","10":"NA","11":"0.6501730","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA","18":"NA"},{"1":"lrscale","2":"character","3":"1891","4":"0.0545","5":"12","6":"NA","7":"NA","8":"599","9":"5","10":"NA","11":"0.8312956","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA","18":"NA"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 <p>Note that we still have to do some recoding. For example, the data contains participants’ year of birth instead of their age. We have to recode this variable. The data were collected in 2002, so we can simply subtract the year of birth of every participant from the year 2002.</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="week-2-class.html#cb29-1"></a>df_finland<span class="op">$</span>age &lt;-<span class="st"> </span>(<span class="dv">2002</span> <span class="op">-</span><span class="st"> </span>df_finland<span class="op">$</span>yrbrn)</span></code></pre></div>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb139-1" title="1">df_finland<span class="op">$</span>age &lt;-<span class="st"> </span>(<span class="dv">2002</span> <span class="op">-</span><span class="st"> </span>df_finland<span class="op">$</span>yrbrn)</a></code></pre></div>
 <p>Furthermore, the variables <code>polintr</code> and <code>lrscale</code> are currently coded as character variables. If you analyze them like that, R will make dummies for all distinct values on these variables. Let’s recode those, too! The main challenge is to get the levels of these variables in the correct order, and convert them to numbers. We demonstrate two ways to do this, one way for each of the two variables.</p>
 <p>For political interest, we convert the character variable to an ordered categorical variable, and we specify the correct order of labels. Then, we convert it to a numeric variable.</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="week-2-class.html#cb30-1"></a><span class="kw">table</span>(df_finland<span class="op">$</span>polintr)</span></code></pre></div>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb140-1" title="1"><span class="kw">table</span>(df_finland<span class="op">$</span>polintr)</a></code></pre></div>
 <pre><code>## 
 ##     Hardly interested Not at all interested      Quite interested 
 ##                   842                   228                   785 
 ##       Very interested 
 ##                   144</code></pre>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="week-2-class.html#cb32-1"></a>df_finland<span class="op">$</span>polintr &lt;-<span class="st"> </span><span class="kw">ordered</span>(df_finland<span class="op">$</span>polintr, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;Not at all interested&quot;</span>, <span class="st">&quot;Hardly interested&quot;</span>, <span class="st">&quot;Quite interested&quot;</span>, <span class="st">&quot;Very interested&quot;</span>))</span>
-<span id="cb32-2"><a href="week-2-class.html#cb32-2"></a><span class="kw">table</span>(df_finland<span class="op">$</span>polintr)</span></code></pre></div>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb142-1" title="1">df_finland<span class="op">$</span>polintr &lt;-<span class="st"> </span><span class="kw">ordered</span>(df_finland<span class="op">$</span>polintr, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;Not at all interested&quot;</span>, <span class="st">&quot;Hardly interested&quot;</span>, <span class="st">&quot;Quite interested&quot;</span>, <span class="st">&quot;Very interested&quot;</span>))</a>
+<a class="sourceLine" id="cb142-2" title="2"><span class="kw">table</span>(df_finland<span class="op">$</span>polintr)</a></code></pre></div>
 <pre><code>## 
 ## Not at all interested     Hardly interested      Quite interested 
 ##                   228                   842                   785 
 ##       Very interested 
 ##                   144</code></pre>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="week-2-class.html#cb34-1"></a>df_finland<span class="op">$</span>polintr &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(df_finland<span class="op">$</span>polintr)</span></code></pre></div>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb144-1" title="1">df_finland<span class="op">$</span>polintr &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(df_finland<span class="op">$</span>polintr)</a></code></pre></div>
 <p>For political orientation, only the two extreme values of the scale are labeled as text. Thus, we can replace these labels with numbers, and then convert the entire variable to numeric.</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="week-2-class.html#cb35-1"></a><span class="kw">table</span>(df_finland<span class="op">$</span>lrscale)</span></code></pre></div>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb145-1" title="1"><span class="kw">table</span>(df_finland<span class="op">$</span>lrscale)</a></code></pre></div>
 <pre><code>## 
 ##     1     2     3    4      5     6     7     8     9  Left Right 
 ##    25    62   148   183   599   199   296   217    79    24    59</code></pre>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="week-2-class.html#cb37-1"></a>df_finland<span class="op">$</span>lrscale[df_finland<span class="op">$</span>lrscale <span class="op">==</span><span class="st"> &quot;Left&quot;</span>] &lt;-<span class="st"> </span><span class="dv">0</span></span>
-<span id="cb37-2"><a href="week-2-class.html#cb37-2"></a>df_finland<span class="op">$</span>lrscale[df_finland<span class="op">$</span>lrscale <span class="op">==</span><span class="st"> &quot;Right&quot;</span>] &lt;-<span class="st"> </span><span class="dv">10</span></span>
-<span id="cb37-3"><a href="week-2-class.html#cb37-3"></a>df_finland<span class="op">$</span>lrscale &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(df_finland<span class="op">$</span>lrscale)</span></code></pre></div>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb147-1" title="1">df_finland<span class="op">$</span>lrscale[df_finland<span class="op">$</span>lrscale <span class="op">==</span><span class="st"> &quot;Left&quot;</span>] &lt;-<span class="st"> </span><span class="dv">0</span></a>
+<a class="sourceLine" id="cb147-2" title="2">df_finland<span class="op">$</span>lrscale[df_finland<span class="op">$</span>lrscale <span class="op">==</span><span class="st"> &quot;Right&quot;</span>] &lt;-<span class="st"> </span><span class="dv">10</span></a>
+<a class="sourceLine" id="cb147-3" title="3">df_finland<span class="op">$</span>lrscale &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(df_finland<span class="op">$</span>lrscale)</a></code></pre></div>
 <p>Furthermore, Kestilä recoded <code>polintr</code> in such a way that there are only two categories. The lowest two and highest two categories were combined. Here is how to do this in R, so you can replicate their analysis:</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="week-2-class.html#cb38-1"></a>df_finland<span class="op">$</span>polintr_dummy &lt;-<span class="st"> </span><span class="kw">ifelse</span>(df_finland<span class="op">$</span>polintr <span class="op">&lt;=</span><span class="st"> </span><span class="dv">2</span>,</span>
-<span id="cb38-2"><a href="week-2-class.html#cb38-2"></a>                                   <span class="st">&quot;Not or hardly interested&quot;</span>,</span>
-<span id="cb38-3"><a href="week-2-class.html#cb38-3"></a>                                   <span class="st">&quot;Quite or very interested&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb148-1" title="1">df_finland<span class="op">$</span>polintr_dummy &lt;-<span class="st"> </span><span class="kw">ifelse</span>(df_finland<span class="op">$</span>polintr <span class="op">&lt;=</span><span class="st"> </span><span class="dv">2</span>,</a>
+<a class="sourceLine" id="cb148-2" title="2">                                   <span class="st">&quot;Not or hardly interested&quot;</span>,</a>
+<a class="sourceLine" id="cb148-3" title="3">                                   <span class="st">&quot;Quite or very interested&quot;</span>)</a></code></pre></div>
 <p>Next, run a number of multiple linear regression analyses with the (sub-)scales of attitudes towards immigrants and political trust as subsequent dependent variables, and the same predictors as Kestilä. Inspect your output.</p>
 <p>Compare your results with the results from Kestilä. How do your results differ or agree with the results by Kestilä?</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="week-2-class.html#cb39-1"></a>fit_trust1 &lt;-<span class="st"> </span><span class="kw">lm</span>(trustinstEFA <span class="op">~</span><span class="st"> </span>gndr <span class="op">+</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>eduyrs <span class="op">+</span><span class="st"> </span>polintr_dummy <span class="op">+</span><span class="st"> </span>lrscale, <span class="dt">data =</span> df_finland, <span class="dt">na.action =</span> na.omit)</span>
-<span id="cb39-2"><a href="week-2-class.html#cb39-2"></a><span class="kw">summary</span>(fit_trust1)</span></code></pre></div>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb149-1" title="1">fit_trust1 &lt;-<span class="st"> </span><span class="kw">lm</span>(trustinstEFA <span class="op">~</span><span class="st"> </span>gndr <span class="op">+</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>eduyrs <span class="op">+</span><span class="st"> </span>polintr_dummy <span class="op">+</span><span class="st"> </span>lrscale, <span class="dt">data =</span> df_finland, <span class="dt">na.action =</span> na.omit)</a>
+<a class="sourceLine" id="cb149-2" title="2"><span class="kw">summary</span>(fit_trust1)</a></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = trustinstEFA ~ gndr + age + eduyrs + polintr_dummy + 
@@ -784,6 +783,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>
