@@ -86,11 +86,9 @@ As recommended in the lecture, a better and more quantified way to establish the
 fa.parallel(df[, 7:19])
 ```
 
-Note that, in this case, parallel analysis recommends as many as 6 factors.
-
+Note that, in this case, parallel analysis recommends as many as 6 factors. However, in order to be able to compare our results with those from Kestilä, we might consider aligning ourselves with the literature and choosing the same number of factors for our analyses as components in the article.
 
 \details
-
 
 
 ### Question 4
@@ -120,7 +118,7 @@ The factor loading matrix is slightly hard to read, due to the jumble of factor 
 print(efa_trust$loadings, cut = .30, digits = 2)
 ```
 
-Furthermore, if you want to perform a factor analysis without, say, `trstep`, while you want all other variables included in your factor analysis, you can simply leave the column number of `trstep`, which is 13, out of the command:
+Furthermore, if you want to perform a factor analysis without, say, `stfedu`, while you want all other variables included in your factor analysis, you can simply leave the column number of `stfedu`, which is 13, out of the command:
 
 ```{r, eval = FALSE}
 efa_trust_without_stfedu <- fa(df[, c(7:12, 14:19)], nfactors = 3, rotate = "promax", fm = "ml")
@@ -143,7 +141,7 @@ Furthermore, after you named the factor scores accordingly, extract them from th
 colnames(efa_trust$scores) <- c("trustpolEFA", "satcntryEFA", "trustinstEFA")
 colnames(efa_att$scores) <- c("effectimmiEFA", "allowimmiEFA", "allowrefEFA", "ethnicEFA", "immieurEFA")
 # Add columns
-df <- cbind(df, efa_trust$scores, efa_att$scores)
+df_with_scores <- cbind(df, efa_trust$scores, efa_att$scores)
 ```
 
 ### Question 6
@@ -163,7 +161,7 @@ If you want to assess the reliability of the variables `pltcare`, `pltinvt`, `tr
 
 ```{r}
 library(psych)
-reli_1 <- psych::alpha(df[, c(7, 8, 9, 12, 13)])
+reli_1 <- psych::alpha(df_with_scores[, c(7, 8, 9, 12, 13)])
 reli_1
 ```
 
@@ -173,22 +171,26 @@ Sometimes, the table "Reliability if an item is dropped" will indicate that Cron
 
 ### Question 7
 
-Now you can analyze the differences between the factor scores for the PCA analysis (take-home exercise 2) and the EFA by plotting them in a series of scatterplots (bivariate) using `ggplot2`. The PCA factor scores are already stored in the dataset `ESSround1-b.csv`.
+Now you can analyze the differences between the factor scores for the PCA analysis (take-home exercise 2) and the EFA by plotting them in a series of scatterplots (bivariate) using `ggplot2`. The PCA factor scores are already stored in the dataset `ESSround1-b.csv` in columns 45 through 52 (`df[, 45:52]`). 
+
+Plot the scores for one of your new factors on the x axis, and try to match it with a corresponding PCA component in the dataset. Note that if you went with a different number of factors than Kestilä's components (5 for 'trust  in politics' and 3 for 'attitudes towards immigration'), you may find little correlation between any factors.
 
 <details>
   <summary>Click for explanation</summary>
 
-*Make sure to adjust the variable names to the variables names you used.*
+*Make sure to adjust the arguments `x = EFA_trust1` and `y = PCA_Trust1` to align with _your own_ EFA factor column name and a PCA component column name _from the data_ respectively*
+
+
 
 ```{r, eval = FALSE}
 library(ggplot2)
-ggplot(data = df) +
-  geom_point(mapping = aes(x = EFA_trust1, y = PCA_Trust1))
+ggplot(data = df_with_scores) +
+  geom_point(mapping = aes(x = EFA_Trust1, y = PCA_Trust1))
 ```
 
 ```{r, echo = FALSE, warning = FALSE, message = FALSE}
 library(ggplot2)
-ggplot(data = df) +
+ggplot(data = df_with_scores) +
   geom_point(mapping = aes(x = trustinstEFA, y = trustinst)) +
   labs(x = "EFA_Trust1",
        y = "PCA_Trust1")
@@ -208,10 +210,10 @@ Examine the correlations between the PCA and EFA scales for the 'trust in politi
 Example for trust in politics:
 
 ```{r, eval = FALSE}
-cor(df$EFA_Trust1, df$PCA_Trust1, use = "complete.obs")
+cor(df_with_scores$EFA_Trust1, df_with_scores$PCA_Trust1, use = "complete.obs")
 ```
 ```{r, echo = FALSE, warning = FALSE}
-cor(df$trustinstEFA, df$trustinst, use = "complete.obs") 
+cor(df_with_scores$trustinstEFA, df_with_scores$trustinst, use = "complete.obs") 
 ```
 
 \details
@@ -226,7 +228,7 @@ Kestila uses the PCA factor scores to evaluate country level differences in 1. A
 
 We can use an ANOVA to test whether the countries differ in the amount of political trust the participants have.
 ```{r}
-fit_ANOVA <- aov(trustinstEFA ~ cntry, data = df)
+fit_ANOVA <- aov(trustinstEFA ~ cntry, data = df_with_scores)
 summary(fit_ANOVA)
 ```
 
@@ -234,7 +236,7 @@ In which `trustinstEFA` is the dependent variable, `cntry` is the grouping varia
 
 
 ```{r}
-pair_comparison <- pairwise.t.test(df$trustinstEFA, df$cntry, p.adjust.method = "bonf", na.rm = TRUE)
+pair_comparison <- pairwise.t.test(df_with_scores$trustinstEFA, df_with_scores$cntry, p.adjust.method = "bonf", na.rm = TRUE)
 round(pair_comparison$p.value, digits = 3)
 ```
 
@@ -249,7 +251,7 @@ The second goal of Kestilä is to show how socio-demographic characteristics aff
   
 To select the Finnish cases only, select rows for which `$cntry` is equal to (`==`) Finland:
 ```{r}
-df_finland <- df[df$cntry == "Finland", ]
+df_finland <- df_with_scores[df_with_scores$cntry == "Finland", ]
 ```
 
 \details
