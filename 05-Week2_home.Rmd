@@ -14,7 +14,7 @@ This is a repeated cross-sectional survey across 32 European countries. The firs
 was held in 2002, and since then, subsequent rounds of data-collection are held bi-
 anually. More info, as well as access to all data -> www.europeansocialsurvey.org. 
 
-The raw, first round data can also be found on blackboard. The file is called ESSround1-
+The raw, first round data can also be found [here](https://github.com/cjvanlissa/TCSM_student). The file is called ESSround1-
 a.sav. This file contains data for all respondents, but only those variables are included 
 that you will need in this exercise. 
 
@@ -22,7 +22,7 @@ that you will need in this exercise.
 
 Download the file, and import it in R. Inspect the file (no. of cases and no. of variables) to see if the file opened well. 
 
-```{r, message=FALSE, warning=FALSE}
+```{r, message=FALSE, warning=FALSE, eval=FALSE}
 library(foreign)
 data <- read.spss("ESSround1-a.sav", to.data.frame = TRUE)
 ```

@@ -1,6 +1,6 @@
 # Week 6 - Home
 
-```{r echo = FALSE, warning=FALSE, message=FALSE}
+```{r echo = FALSE, warning=FALSE, message=FALSE, eval=FALSE}
 library(haven)
 library(labelled)
 library(semTools)
@@ -16,14 +16,14 @@ library(semTools)
 library(kableExtra)
 library(lavaan)
 library(psych)
-data <- unlabelled(read_sav("suiciderisk.sav"))
+data <- unlabelled(read_sav("TCSM_student/suiciderisk.sav"))
 ```
 
 Exercise based on: 
 
 Metha, A., Chen, E, Mulvenon, S. and Dode, I. (1998). A Theoretical Model of Suicide Risk. *Archives of Suicide Research, 4*, p.  115-133.
 
-Download the dataset “suiciderisk.sav” from blackboard. This is a dataset that was simulated from the covariance matrices in the original paper presented on p.123. The idea behind simulation is that you can recreate the dataset from some summary statistics. The covariance matrix suffices for doing this, as it summarizes all relations between all variables (see http://en.wikipedia.org/wiki/Computer_simulation for an introduction).
+Download the dataset “suiciderisk.sav”  [here](https://github.com/cjvanlissa/TCSM_student). This is a dataset that was simulated from the covariance matrices in the original paper presented on p.123. The idea behind simulation is that you can recreate the dataset from some summary statistics. The covariance matrix suffices for doing this, as it summarizes all relations between all variables (see http://en.wikipedia.org/wiki/Computer_simulation for an introduction).
 The new data matrix almost exactly corresponds to the data as presented in the paper, albeit that there are inconsistent data cells (negative- or our of range values for the scale of the original variables). You don’t have to worry about this now.
 
 In the take home- and class exercise we will investigate the dataset on suicidesisk and test whether there is a possible moderation of gender.

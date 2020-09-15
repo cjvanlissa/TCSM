@@ -23,7 +23,7 @@ To get started with lavaan, read and run the following two chapters of the offic
 
 ### Regression models in lavaan
 
-Download the data file *Hamilton.csv*, or *Hamilton.xls* from blackboard. The data are as follows:
+Download the data file *Hamilton.csv*, or *Hamilton.xls* [here](https://github.com/cjvanlissa/TCSM_student). The data are as follows:
 
 Hamilton (1990) provided several measurements on each of 21 states. Three of the
 measurements will be used in this tutorial:
@@ -38,9 +38,14 @@ Load the data from the .csv or .xls file into R.
 
 <details>
   <summary>Click for explanation</summary>
-```{r, message=FALSE}
+```{r, message=FALSE, eval=FALSE}
 library(readxl)
-df <- read_excel("Hamilton.xls", 1)
+df <- read_excel("Hamilton.xlsx", 1)
+```
+
+```{r, message=FALSE, echo=FALSE}
+library(readxl)
+df <- read_excel("TCSM_student/Hamilton.xlsx", 1)
 ```
 
 Or 

@@ -60,7 +60,7 @@ You can also have a look at the contents of `df` by **clicking** the object in t
 
 ## Importing SPSS Files
 
-SPSS files can be loaded using the `foreign` package. All SPSS files for this course are available on Blackboard.
+SPSS files can be loaded using the `foreign` package. All SPSS files for this course are available for download [here](https://github.com/cjvanlissa/TCSM_student).
 
 <!--[here](https://github.com/cjvanlissa/Doing-Meta-Analysis-in-R/blob/master/Problem2.sav?raw=true).-->
 
@@ -79,7 +79,7 @@ df <- read.spss("sesam2.sav",
 library(foreign)
 
 # Read the SPSS data
-df <- read.spss("sesam2.sav",
+df <- read.spss("TCSM_student/sesam2.sav",
                      to.data.frame = TRUE)
 ```
 
