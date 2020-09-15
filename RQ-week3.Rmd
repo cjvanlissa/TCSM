@@ -1,4 +1,4 @@
-# Week 2 - Reading questions
+# Week 3 - Reading questions
 
 ```{r include=FALSE}
 knitr::opts_chunk$set(warning=FALSE, message=FALSE)
