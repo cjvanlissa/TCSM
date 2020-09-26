@@ -1,4 +1,4 @@
-# Week 2 - Reading questions
+# Week 4 - Reading questions
 
 ```{r include=FALSE}
 knitr::opts_chunk$set(warning=FALSE, message=FALSE)
@@ -7,73 +7,59 @@ config <- yaml::yaml.load_file("config.yml")
 
 #### Reference {-}
 
-[Byrne, Barbara (2005) Factor Analytic Models: Viewing the Structure of an 
-Assessment Instrument From Three Perspectives, Journal of Personality 
-Assessment 85(1), 17-32](https://www.tandfonline.com/doi/pdf/10.1207/s15327752jpa8501_02)
+[Miller, G. A., & Chapman, J. P. (2001). Misunderstanding 
+analysis of covariance. Journal of Abnormal Psychology, 110(1), 40-48.](https://pdfs.semanticscholar.org/e6d5/8a8a0dd660f6bbaba8d88137735d40124b05.pdf)
 
 #### Questions: {-}
 
-1. What are the main differences between exploratory factor analysis 
-(EFA) and confirmatory factor analysis (CFA)? 
-1. In what circumstances should a researcher use EFA and when CFA? 
-1. What are the 5 main limitations of EFA, that CFA models overcome? 
-1. In what circumstances can a second order CFA be useful? 
-1. Compare the four factor analysis techniques we have now discussed: 
-PCA (see last week) and the models on page 21 (EFA), page 19/24 
-(CFA) and page 26 (second order CFA). Consider the following three 
-research situations: which factor analysis technqiue would you prefer 
-for each situation and why? 
-    a. A researcher has developed a new questionnaire that should 
-measure someone’s personality and wants to know how many 
-factors there are.
-    b. A researcher has used seven items that have been used since 
-the 1960 to measure one concept: authoritarianism 
-    c. A researcher has recorded someon’s highest completed 
-education, the number of years of education someone has taken 
-and highest education followed for all respondents in a survey, 
-and is unsure which variable to use to measure the concept 
-‘education’
+1. What was the original purpose of ANCOVA?
+1. In the intro two problems are mentioned which may arise when ANCOVA is 
+used in the context of existing groups. Which problems are these, and why are 
+these problems?
+1. On p. 44 a hypothetical statistician is discussed (introduced by Lord) who uses 
+ANCOVA to compare the weight of boys and girls, while using initial weight as a 
+covariate. How does this statistician use ANCOVA exactly, and why is this wrong?
+1. Why is comparing young women to old men problematic (p. 44)?
+1. In the example discussed on p. 46 (first column), what is the DV, the 
+covariate(s) and the grouping variable? Is this a good example of the problem the 
+authors try to point out, and why do you think it is/is not?
 
 ```{r echo=FALSE, results = 'asis', eval = config$show_text}
 cat("#### Answers {-}
 
-1. p. 17/2 “EFA is primarily a data-driven approach, whereas CFA is 
-theoretically grounded” 
-1. p. 17/2 “EFA is most appropriately used when links between the 
-observed variables and their underlying factors are unknown or 
-uncertain (…) One logical application of EFA would be in the 
-development of a new assessment measure. (…) In contrast, CFA is 
-appropriately used when the researcher has some knowledge of the 
-underlying latent variable structure. Based on theory (..) he or she 
-postulates relations between the observed measures and the 
-underlying factors a priori and then tests this hypothesized structure 
-statistically”. 
-1. page 18: 
-    * in EFA all common factors are either uncorrelated (orthogonal) or 
-correlated (oblique). In CFA, this can be specified by the researcher 
-    * in EFA all observed variables are influences by all latent variables, in 
-CFA, all observed variables are typically only explained by one latent 
-variable 
-    * in EFA, the unique factors are always uncorrelated when orthogonal 
-rotation methods are chosen. In CFA, factors are almost always 
-correlated (unless the user puts in an additional constraint) 
-    * there is usually no test of model misfit in EFA, in CFA this is always 
-the case 
-    * in EFA, you cannot test whether factor structure, or loadings are the 
-same across groups, whereas in CFA you can 
-    * When there are multiple factors (ideally more than two (PL: because of 
-model identification)), which can be explained by some common 
-theoretical latent construct. 
-1. Answers:
-    * EFA: there seem to be no clear latent variables, so the structure is 
-not clear. I would choose oblique rotation, as [personality is multi-
-dimensional, and separate dimensions are likely to be correlated.  
-    * CFA or PCA, or EFA could all work. With PCA and EFA one can test 
-whether there truly is one factor structure, whereas in CFA, one can 
-use model fit statistics to test this. EFA and CFA have the advantage 
-that they show how much of the variance is explained.
-    * CFA would be the method here. The researcher can use the latent 
-variable in any subsequent analysis, and does not have to reply on 
-factor scores that partly consist of measurement errors.  
+1. ANCOVA was developed to improve the power of the test of the independent 
+variable, not to “control” for anything.
+1. In the intro two problems are mentioned which may arise when ANCOVA is 
+used in the context of existing groups. Which problems are these, and why are 
+these problems? 
+    * Removal of variance related to the covariate might also remove variance 
+related to the factor of interest, therefore deflating the effect of the factor 
+on the DV. 
+    * Additional problem is that preexisting groups might differ on more than 
+one covariate (not all might be measured) and therefore differences 
+remain intact. 
+1. The statistician selects two groups, one with boys and one with girls that have 
+identical frequency distributions of initial weight. By selecting these groups the 
+statistician wants to look at the effect of a certain diet on the increase in weight 
+by taking out the effect of initial weight (when you were heavier to start with, you 
+are probably heavier later on). But by selecting a group of boys that is equal in 
+weight as a group of girls, you will select girls that are heavier that the average 
+girl, and boys that are lower in weight than the average boy. By regression to the 
+mean, these boys will regress to the mean of the boys (and therefore increase 
+more than other boys), and girls will increase less than other girls. 
+1. Because all the women are young (in this example) and all men are old, you 
+cannot conclude whether an effect is related to age or gender, because they are 
+entwined.  
+1. DV = performance on reading test  
+Grouping variable = district (White vs. Black)  
+Covariates = poverty, parent education, class size  
+What is Quality in teaching staff? Also covariate, but treated as important 
+predictor.  
+They want to point out that you cannot separate the effects of district, poverty, 
+parent education etc. on the performance, because these IVs are highly 
+correlated. I don’t think this is a very good example, because the way the results 
+are formulated does not clearly imply what kind of analysis is done. Besides that,
+the point that numerous variables are correlated and therefore the effects (on the 
+DV) cannot easily be separated, is true.
 ")
 ```

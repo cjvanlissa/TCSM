@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 8 Week 2 - Class | Theory Construction and Statistical Modeling</title>
+  <title>Chapter 15 Week 5 - Reading questions | Theory Construction and Statistical Modeling</title>
   <meta name="description" content="This is a guide for the elective course TCSM." />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 8 Week 2 - Class | Theory Construction and Statistical Modeling" />
+  <meta property="og:title" content="Chapter 15 Week 5 - Reading questions | Theory Construction and Statistical Modeling" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 8 Week 2 - Class | Theory Construction and Statistical Modeling" />
+  <meta name="twitter:title" content="Chapter 15 Week 5 - Reading questions | Theory Construction and Statistical Modeling" />
   
   <meta name="twitter:description" content="This is a guide for the elective course TCSM." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="week-2-home.html"/>
-<link rel="next" href="week-3-reading-questions.html"/>
+<link rel="prev" href="week-4-class.html"/>
+<link rel="next" href="week-5-home.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -384,348 +384,91 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="week-2---class" class="section level1">
-<h1><span class="header-section-number">Chapter 8</span> Week 2 - Class</h1>
-<p>In the unlikely event that you were able to replicate the results of Kestilä in the take-home exercise, rerun your analysis script. If you did not manage to replicate the results, load the dataset <code>ESSround1-b.csv</code> into RStudio.</p>
-<div id="loading-the-data" class="section level3">
-<h3><span class="header-section-number">8.0.1</span> Loading the data</h3>
-<p>If you don’t know how to load the data, click below.</p>
-<details>
-<p><summary>Click for explanation</summary></p>
-<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb111-1" title="1">df &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;ESSround1-b.csv&quot;</span>, <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
-
+<div id="week-5---reading-questions" class="section level1">
+<h1><span class="header-section-number">Chapter 15</span> Week 5 - Reading questions</h1>
+<div id="reference" class="section level4 unnumbered">
+<h4>Reference</h4>
+<p><a href="https://www.researchgate.net/profile/Gulnaz_Anjum2/post/Is_it_still_mediation_if_there_is_no_relationship_between_the_IV_DV/attachment/5e8c3227f155db0001f34b05/AS%3A877594253721600%401586246183233/download/2009-Hayes-BeyondBaronandKennyStatisticalmediationanalysisinthenewmillennium.pdf">Andrew F. Hayes (2009) Beyond Baron and Kenny: Statistical Mediation
+Analysis in the New Millennium, Communication Monographs, 76:4, 408-420.</a></p>
 </div>
-<div id="question-1" class="section level3">
-<h3><span class="header-section-number">8.0.2</span> Question 1</h3>
-<p>Kestilä states that running a Principal Components Analysis is a good way to test whether the survey questions in the ESS measure attitudes towards immigration and trust in politics.
-Based on your reading of Preacher and MacCallum (2003), do you agree with this position?</p>
+<div id="questions" class="section level4 unnumbered">
+<h4>Questions:</h4>
+<ol style="list-style-type: decimal">
+<li>What is an indirect or mediated effect?</li>
+<li>What is the difference between the total and direct effect?</li>
+<li>What is the problem with the “Barron &amp; Kenny steps”?</li>
+<li>What is bootstrapping, and why is it superior to Sobel’s test?</li>
+<li>Explain how it is possible that “effects that don’t exist can be mediated”.
+<!--config$show_text--></li>
+</ol>
 </div>
-<div id="question-2" class="section level3">
-<h3><span class="header-section-number">8.0.3</span> Question 2</h3>
-<p>If you would have to choose a method for constructing the ‘trust in politics’ and ‘attitude towards immigration’ scales based on the theory and background information in the Kestilä article, what type of factor analysis would you choose? What key factors influence your decision?</p>
-<details>
-<p><summary>Click for information</summary></p>
-<p>Key factors include:</p>
-<ul>
-<li>Theory-driven or exploratory?</li>
-<li>Estimation method</li>
-<li>Rotation method</li>
-<li>Method to establish how many factors are needed
-</li>
-</ul>
+<div id="answers" class="section level4 unnumbered">
+<h4>Answers</h4>
+<ol style="list-style-type: decimal">
+<li>The indirect effect is interpreted as the part of the effect of X on Y that is explained by the
+pathway through M. It is computed by multiplying the effect of X on M (a), wich the effect of M on Y (b), so: Indirect effect = a * b.</li>
+<li>The total effect is a simple bivariate regression of X on Y. The direct effect is the effect of X on Y while controlling for M; it could be obtained by running a multiple regression with X and M as predictors of Y.</li>
+<li>These steps make decisions about the existence of mediation based on the significance of coefficients in multiple consecutive regression analyses. The repeated testing causes this method to have low power. Moreover, if no significant total effect is found between X and Y, researchers might incorrectly assume that no indirect effect exists either.</li>
+<li>Bootstrapping constructs an empirical sampling distribution for a parameter by resampling the original data (e.g., 1000 times), and conducting the same analysis on each of these 1000 samples. The distribution of the estimated parameter values is used as an empirical sampling distribution. This sampling distribution can be used to derive confidence intervals (take the 2.5 and 97.5 percentiles of the distribution), compute standard errors (the standard deviation of this distribution), etc. It is superior to Sobel’s test because Sobel’s test assumes normality and this is typically violated by the product of two regression coefficients. Bootstrapping does not assume any type of distribution for the sampling distribution.</li>
+<li>Cited from the paper: <em>That X can exert an indirect effect on Y through M in the absence of an association
+between X and Y becomes explicable once you consider that a total effect is the sum
+of many different paths of influence, direct and indirect, not all of which may be a
+part of the formal model. For example, it could be that two or more indirect paths
+carry the effect from X through Y, and those paths operate in opposite directions (cf.,
+MacKinnon, Krull, &amp; Lockwood, 2000). Much as a main effect in 2x2 ANOVA
+might be nonsignificant if the simple effects are opposite in sign (i.e., a crossover
+interaction), two or more indirect effects with opposite signs can cancel each other
+out, producing a total effect and perhaps even a total indirect effect that is not
+detectably different from zero, in spite of the existence of specific indirect effects that
+are not zero.</em></li>
+</ol>
 </div>
-<div id="question-3" class="section level3">
-<h3><span class="header-section-number">8.0.4</span> Question 3</h3>
-<p>Run two factor analyses, one for each PCA of the original article. Inspect the number of factors necessary, evaluate the rotation method, and if necessary, run the factor analysis again with adapted settings (rotation method and/or different number of factors). How many factors are there?</p>
-<p><em>Hint: Examing the help file for</em> <code>?psych::fa</code></p>
-<details>
-<p><summary>Click for explanation</summary></p>
-<p>To perform an exploratory factor analysis, you can use the function <code>fa</code> of the package <code>psych</code>. You will have to specify the data, and the variables that you want to include in the factor analyses. Furthermore, you will have to specify the number of factors that you want to extract, the rotation method and the estimation method.</p>
-<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb112-1" title="1"><span class="kw">library</span>(psych)</a>
-<a class="sourceLine" id="cb112-2" title="2"><span class="kw">library</span>(GPArotation)</a>
-<a class="sourceLine" id="cb112-3" title="3"></a>
-<a class="sourceLine" id="cb112-4" title="4">efa_trust &lt;-<span class="st"> </span><span class="kw">fa</span>(df[, <span class="dv">7</span><span class="op">:</span><span class="dv">19</span>], <span class="dt">nfactors =</span> <span class="dv">3</span>, <span class="dt">rotate =</span> <span class="st">&quot;promax&quot;</span>, <span class="dt">fm =</span> <span class="st">&quot;ml&quot;</span>, <span class="dt">scores =</span> <span class="st">&quot;Bartlett&quot;</span>)</a></code></pre></div>
-<p>In order to determine the number of factors to extract, you might want to look at the eigenvalues of the factors, which can be accessed by using the following code:</p>
-<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb113-1" title="1"><span class="kw">round</span>(efa_trust<span class="op">$</span>values, <span class="dt">digits =</span> <span class="dv">3</span>)</a></code></pre></div>
-<pre><code>##  [1]  5.054  0.874  0.687  0.304  0.185  0.076  0.014  0.008 -0.060 -0.078
-## [11] -0.123 -0.149 -0.191</code></pre>
-<p>Another common approach is to make a scree plot. All that is required for this, is to pass the eigenvalues to the <code>qplot()</code> function and add a geom_path:</p>
-<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb115-1" title="1"><span class="kw">library</span>(ggplot2)</a>
-<a class="sourceLine" id="cb115-2" title="2"><span class="kw">qplot</span>(<span class="dt">y =</span> efa_trust<span class="op">$</span>values) <span class="op">+</span><span class="st"> </span><span class="kw">geom_path</span>()</a></code></pre></div>
-<p><img src="TCSM_files/figure-html/unnamed-chunk-107-1.png" width="672" /></p>
-<p>You can do the same for the attitude variables:</p>
-<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb116-1" title="1">efa_att &lt;-<span class="st"> </span><span class="kw">fa</span>(df[, <span class="dv">20</span><span class="op">:</span><span class="dv">44</span>], <span class="dt">nfactors =</span> <span class="dv">5</span>, <span class="dt">rotate =</span> <span class="st">&quot;promax&quot;</span>, <span class="dt">fm =</span> <span class="st">&quot;ml&quot;</span>, <span class="dt">scores =</span> <span class="st">&quot;Bartlett&quot;</span>)</a>
-<a class="sourceLine" id="cb116-2" title="2"><span class="kw">round</span>(efa_att<span class="op">$</span>values, <span class="dt">digits =</span> <span class="dv">3</span>)</a></code></pre></div>
-<pre><code>##  [1]  8.016  1.702  1.051  0.697  0.500  0.389  0.218  0.162  0.091  0.046
-## [11]  0.043  0.028  0.022  0.008 -0.018 -0.028 -0.032 -0.056 -0.066 -0.083
-## [21] -0.089 -0.119 -0.132 -0.146 -0.266</code></pre>
-<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb118-1" title="1"><span class="kw">qplot</span>(<span class="dt">y =</span> efa_att<span class="op">$</span>values) <span class="op">+</span><span class="st"> </span><span class="kw">geom_path</span>()</a></code></pre></div>
-<p><img src="TCSM_files/figure-html/unnamed-chunk-108-1.png" width="672" /></p>
-<p>As recommended in the lecture, a better and more quantified way to establish the number of factors is “parallel analysis” (Horn, 1965). Here’s how to do it in R:</p>
-<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb119-1" title="1"><span class="kw">fa.parallel</span>(df[, <span class="dv">7</span><span class="op">:</span><span class="dv">19</span>])</a></code></pre></div>
-<p><img src="TCSM_files/figure-html/unnamed-chunk-109-1.png" width="672" /></p>
-<pre><code>## Parallel analysis suggests that the number of factors =  6  and the number of components =  3</code></pre>
-<p>Note that, in this case, parallel analysis recommends as many as 6 factors. However, in order to be able to compare our results with those from Kestilä, we might consider aligning ourselves with the literature and choosing the same number of factors for our analyses as components in the article.</p>
-
+<div id="reference-1" class="section level4 unnumbered">
+<h4>Reference</h4>
+<p><a href="http://www.academia.edu/download/30909266/JOBEM.pdf">Holbert, R. L. &amp; Stephenson, M. T. (2003). The
+importance of indirect effects in media effects research: Testing for mediation in
+structural equation modeling. Journal of Broadcasting &amp; Electronic Media, 47,
+556-572.</a></p>
 </div>
-<div id="question-4" class="section level3">
-<h3><span class="header-section-number">8.0.5</span> Question 4</h3>
-<p>Apart from the number of factors, you also want to look at the factor loadings. They can be found in the “pattern matrix”. The higher the factor loadings are, the more indicative an item is for the latent factor. If you find some items to have only very low loadings (indicating that the items do not provide much information about the factor), you may choose not to include them in your analysis. This means you have to rerun the analysis under question 3.</p>
-<details>
-<p><summary>Click for explanation</summary></p>
-<p>You can find the factor loadings by means of the ‘print’-function used in the take-home exercise, or you can search for the variable ‘loadings’, which is inside the results object, to end up with just the information you are searching for.</p>
-<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb121-1" title="1">efa_trust<span class="op">$</span>loadings</a></code></pre></div>
-<pre><code>## 
-## Loadings:
-##         ML1    ML2    ML3   
-## pltcare  0.784        -0.126
-## pltinvt  0.783        -0.131
-## trstprl  0.528  0.101  0.258
-## trstlgl                0.827
-## trstplc -0.157         0.800
-## trstplt  0.713         0.116
-## trstep   0.432         0.303
-## trstun   0.343         0.366
-## stfeco   0.128  0.725 -0.129
-## stfgov   0.270  0.640 -0.132
-## stfdem   0.201  0.479  0.129
-## stfedu  -0.166  0.665  0.104
-## stfhlth -0.137  0.632       
-## 
-##                  ML1   ML2   ML3
-## SS loadings    2.518 2.035 1.725
-## Proportion Var 0.194 0.157 0.133
-## Cumulative Var 0.194 0.350 0.483</code></pre>
-<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb123-1" title="1">efa_att<span class="op">$</span>loadings</a></code></pre></div>
-<pre><code>## 
-## Loadings:
-##         ML3    ML1    ML5    ML4    ML2   
-## imsmetn         0.479                0.403
-## imdfetn         0.321                0.563
-## eimrcnt         1.110               -0.187
-## eimpcnt         0.345                0.665
-## imrcntr         0.798                     
-## impcntr         0.259                0.727
-## qfimchr  0.126                0.867       
-## qfimwht  0.114                0.749       
-## imwgdwn  0.511         0.182              
-## imhecop  0.560         0.153              
-## imtcjob  0.712                0.138       
-## imbleco  0.702                0.162       
-## imbgeco  0.740                            
-## imueclt  0.470        -0.166 -0.166       
-## imwbcnt  0.639        -0.169              
-## imwbcrm  0.515        -0.177  0.101       
-## imrsprc                0.534         0.159
-## pplstrd  0.245               -0.365       
-## vrtrlg  -0.115         0.186  0.270       
-## shrrfg   0.302        -0.280              
-## rfgawrk                0.474              
-## gvrfgap                0.752              
-## rfgfrpc  0.219        -0.255              
-## rfggvfn                0.489              
-## rfgbfml                0.632              
-## 
-##                  ML3   ML1   ML5   ML4   ML2
-## SS loadings    3.271 2.397 2.061 1.648 1.549
-## Proportion Var 0.131 0.096 0.082 0.066 0.062
-## Cumulative Var 0.131 0.227 0.309 0.375 0.437</code></pre>
-<p>The matrix of loadings indicates how strongly each factor (columns) is associated with the items (rows).
-Below the matrix of loadings, we see a second matrix, which indicates (amongst other things) the
-<em>proportion var</em>: How much variance in the items is explained by each of the factors.
-Each subsequent factor explains slightly less variance than the ones before it (this is a property of exploratory factor analysis).
-The <em>cumulative var</em> indicates how much variance the factors explain, in total. If you estimated as many factors as items, then the last value for <em>cumulative var</em> would be <code>1.00</code> (100%).</p>
-<p>The factor loading matrix is slightly hard to read, due to the jumble of factor loadings. To create more clarity, it is convenient to suppress the factor loadings that are lower than .30.</p>
-<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb125-1" title="1"><span class="kw">print</span>(efa_trust<span class="op">$</span>loadings, <span class="dt">cut =</span> <span class="fl">.30</span>, <span class="dt">digits =</span> <span class="dv">2</span>)</a></code></pre></div>
-<pre><code>## 
-## Loadings:
-##         ML1   ML2   ML3  
-## pltcare  0.78            
-## pltinvt  0.78            
-## trstprl  0.53            
-## trstlgl              0.83
-## trstplc              0.80
-## trstplt  0.71            
-## trstep   0.43        0.30
-## trstun   0.34        0.37
-## stfeco         0.73      
-## stfgov         0.64      
-## stfdem         0.48      
-## stfedu         0.67      
-## stfhlth        0.63      
-## 
-##                 ML1  ML2  ML3
-## SS loadings    2.52 2.03 1.72
-## Proportion Var 0.19 0.16 0.13
-## Cumulative Var 0.19 0.35 0.48</code></pre>
-<p>Furthermore, if you want to perform a factor analysis without, say, <code>stfedu</code>, while you want all other variables included in your factor analysis, you can simply leave the column number of <code>stfedu</code>, which is 13, out of the command:</p>
-<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb127-1" title="1">efa_trust_without_stfedu &lt;-<span class="st"> </span><span class="kw">fa</span>(df[, <span class="kw">c</span>(<span class="dv">7</span><span class="op">:</span><span class="dv">12</span>, <span class="dv">14</span><span class="op">:</span><span class="dv">19</span>)], <span class="dt">nfactors =</span> <span class="dv">3</span>, <span class="dt">rotate =</span> <span class="st">&quot;promax&quot;</span>, <span class="dt">fm =</span> <span class="st">&quot;ml&quot;</span>)</a></code></pre></div>
-
+<div id="questions-1" class="section level4 unnumbered">
+<h4>Questions:</h4>
+<ol style="list-style-type: decimal">
+<li>On p. 560 the four steps for complex mediation are discussed. The first three
+steps are for partial mediation. What is the difference between these two forms of
+mediation?</li>
+<li>What is the advantage of the Product of Coefficient approach (p. 561-562) in
+comparison to the Causal Step approach (p. 560-561) and the Differences in
+Coefficients approach (p. 561) if you want to know whether or not an effect is
+mediated?</li>
+<li>How does the Product of Coefficient approach work and why is it problematic?</li>
+<li>How many effects are there from Debate Viewing on Political Participation?
+Which effects can you easily obtain from SEM software?</li>
+</ol>
 </div>
-<div id="question-5" class="section level3">
-<h3><span class="header-section-number">8.0.6</span> Question 5</h3>
-<p>Give the factor scores an appropriate name. You can do this by inspecting the items that load on one factor. What do these items have in common substantively? The goal of a factor analysis usually is to create interpretable factors. If you have trouble interpreting the factors, you can choose to tweak the analysis by changing the options, or including/excluding more items.</p>
-<p>Furthermore, after you named the factor scores accordingly, extract them from the results object and add them to the data.frame.</p>
-<p><em>Hint: If you do not know how to do this, have a look at question 1.h from the take-home exercise of week 2.</em></p>
-<p><strong>Please note that the <code>colnames</code> will be specified from left to right, and not, for example, from ML1 to ML5.</strong></p>
-</div>
-<div id="question-6" class="section level3">
-<h3><span class="header-section-number">8.0.7</span> Question 6</h3>
-<p>The next step is to assert whether the items that together form one factor, also form a reliable scale. Run separate reliability analyses by means of the function <code>alpha</code> for the items that together form one factor, and evaluate Cronbach’s alpha to see whether the scales are internally consistent. The “Reliability if an item is dropped (alpha.drop)” information may be handy to inspect what would happen if you would delete one item; you can find it inside the reliability analysis object. If Cronbach’s alpha is not ok, deselect one survey item and run the analyses under question 4 and question 5 again.</p>
-<p><em>Hint: Cronbach’s alpha &gt; .7 are deemed to be ok, &gt; .8 is good.</em></p>
-<p>If Cronbach’s alpha is not ok, deselect one survey item and run the analyses under question 4 and question 5 again.</p>
-<details>
-<p><summary>Click for explanation</summary></p>
-<p>If you want to assess the reliability of the variables <code>pltcare</code>, <code>pltinvt</code>, <code>trstprl</code>, <code>trstplt</code>, and <code>trstep</code> you can run a reliability analysis as follows.</p>
-<p><em>Hint: name the new objects substantively, instead of numbering them.</em></p>
-<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb128-1" title="1"><span class="kw">library</span>(psych)</a>
-<a class="sourceLine" id="cb128-2" title="2">reli_<span class="dv">1</span> &lt;-<span class="st"> </span>psych<span class="op">::</span><span class="kw">alpha</span>(df_with_scores[, <span class="kw">c</span>(<span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">12</span>, <span class="dv">13</span>)])</a>
-<a class="sourceLine" id="cb128-3" title="3">reli_<span class="dv">1</span></a></code></pre></div>
-<pre><code>## 
-## Reliability analysis   
-## Call: psych::alpha(x = df_with_scores[, c(7, 8, 9, 12, 13)])
-## 
-##   raw_alpha std.alpha G6(smc) average_r S/N    ase mean  sd median_r
-##        0.8      0.83    0.82      0.49 4.8 0.0019  4.4 1.4     0.52
-## 
-##  lower alpha upper     95% confidence boundaries
-## 0.8 0.8 0.81 
-## 
-##  Reliability if an item is dropped:
-##         raw_alpha std.alpha G6(smc) average_r S/N alpha se var.r med.r
-## pltcare      0.79      0.80    0.77      0.50 4.0   0.0021 0.017  0.52
-## pltinvt      0.80      0.81    0.78      0.51 4.2   0.0021 0.016  0.53
-## trstprl      0.73      0.78    0.76      0.47 3.6   0.0027 0.018  0.52
-## trstplt      0.70      0.75    0.73      0.43 3.1   0.0031 0.014  0.43
-## trstep       0.78      0.82    0.80      0.53 4.6   0.0021 0.010  0.52
-## 
-##  Item statistics 
-##             n raw.r std.r r.cor r.drop mean  sd
-## pltcare 17975  0.66  0.75  0.67   0.56  2.6 1.1
-## pltinvt 17971  0.64  0.74  0.65   0.54  2.4 1.1
-## trstprl 17753  0.84  0.80  0.74   0.69  6.3 2.3
-## trstplt 17966  0.88  0.86  0.83   0.77  5.3 2.2
-## trstep  16390  0.77  0.70  0.59   0.57  5.6 2.3</code></pre>
-<p>Sometimes, the table “Reliability if an item is dropped” will indicate that Cronbach’s alpha increases when you drop a variable out of the analysis. Note, however, that doing so is an exploratory approach to analysis, and it may make your work incomparable to other publications using the same scale.</p>
-
-</div>
-<div id="question-7" class="section level3">
-<h3><span class="header-section-number">8.0.8</span> Question 7</h3>
-<p>Now you can analyze the differences between the factor scores for the PCA analysis (take-home exercise 2) and the EFA by plotting them in a series of scatterplots (bivariate) using <code>ggplot2</code>. The PCA factor scores are already stored in the dataset <code>ESSround1-b.csv</code> in columns 45 through 52 (<code>df[, 45:52]</code>).</p>
-<p>Plot the scores for one of your new factors on the x axis, and try to match it with a corresponding PCA component in the dataset. Note that if you went with a different number of factors than Kestilä’s components (5 for ‘trust in politics’ and 3 for ‘attitudes towards immigration’), you may find little correlation between any factors.</p>
-<details>
-<p><summary>Click for explanation</summary></p>
-<p><em>Make sure to adjust the arguments <code>x = EFA_trust1</code> and <code>y = PCA_Trust1</code> to align with <em>your own</em> EFA factor column name and a PCA component column name <em>from the data</em> respectively</em></p>
-<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb130-1" title="1"><span class="kw">library</span>(ggplot2)</a>
-<a class="sourceLine" id="cb130-2" title="2"><span class="kw">ggplot</span>(<span class="dt">data =</span> df_with_scores) <span class="op">+</span></a>
-<a class="sourceLine" id="cb130-3" title="3"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> EFA_Trust1, <span class="dt">y =</span> PCA_Trust1))</a></code></pre></div>
-<p><img src="TCSM_files/figure-html/unnamed-chunk-116-1.png" width="672" /></p>
-
-</div>
-<div id="question-8" class="section level3">
-<h3><span class="header-section-number">8.0.9</span> Question 8</h3>
-<p>Examine the correlations between the PCA and EFA scales for the ‘trust in politics’ scores, and for the ‘immigration’ scores. What is your conclusion: is there a difference between them?</p>
-<details>
-<p><summary>Click for explanation</summary></p>
-<p><em>Hint: Name the new objects substantively once again.</em></p>
-<p>Example for trust in politics:</p>
-<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb131-1" title="1"><span class="kw">cor</span>(df_with_scores<span class="op">$</span>EFA_Trust1, df_with_scores<span class="op">$</span>PCA_Trust1, <span class="dt">use =</span> <span class="st">&quot;complete.obs&quot;</span>)</a></code></pre></div>
-<pre><code>## [1] 0.9375965</code></pre>
-
-</div>
-<div id="question-9" class="section level3">
-<h3><span class="header-section-number">8.0.10</span> Question 9</h3>
-<p>Kestila uses the PCA factor scores to evaluate country level differences in 1. Attitudes towards immigration and 2. Political trust. Repeat her analyses using the factor scores you saved in step 5. Think about the statistical test you would like to use. Do you draw similar or different conclusions?</p>
-<details>
-<p><summary>Click for explanation</summary></p>
-<p>We can use an ANOVA to test whether the countries differ in the amount of political trust the participants have.</p>
-<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb133-1" title="1">fit_ANOVA &lt;-<span class="st"> </span><span class="kw">aov</span>(trustinstEFA <span class="op">~</span><span class="st"> </span>cntry, <span class="dt">data =</span> df_with_scores)</a>
-<a class="sourceLine" id="cb133-2" title="2"><span class="kw">summary</span>(fit_ANOVA)</a></code></pre></div>
-<pre><code>##                Df Sum Sq Mean Sq F value Pr(&gt;F)    
-## cntry           8   1740  217.55   199.6 &lt;2e-16 ***
-## Residuals   14769  16100    1.09                   
-## ---
-## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
-## 3409 observations deleted due to missingness</code></pre>
-<p>In which <code>trustinstEFA</code> is the dependent variable, <code>cntry</code> is the grouping variable, and <code>df</code> is the name of the dataset; <code>summary</code> will provide the results. However, it will only indicate whether the variable <code>cntry</code> is significant or not, so you will be unable to tell which countries differ in terms of their political trust. To tell which countries differ, you can do a pairwise comparison test, with a Bonferroni adjustment for multiple testing.</p>
-<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb135-1" title="1">pair_comparison &lt;-<span class="st"> </span><span class="kw">pairwise.t.test</span>(df_with_scores<span class="op">$</span>trustinstEFA, df_with_scores<span class="op">$</span>cntry, <span class="dt">p.adjust.method =</span> <span class="st">&quot;bonf&quot;</span>, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb135-2" title="2"><span class="kw">round</span>(pair_comparison<span class="op">$</span>p.value, <span class="dt">digits =</span> <span class="dv">3</span>)</a></code></pre></div>
-<pre><code>##             Austria Belgium Denmark Finland Germany Italy Netherlands Norway
-## Belgium       0.000      NA      NA      NA      NA    NA          NA     NA
-## Denmark       0.000       0      NA      NA      NA    NA          NA     NA
-## Finland       0.000       0   0.085      NA      NA    NA          NA     NA
-## Germany       0.033       0   0.000       0      NA    NA          NA     NA
-## Italy         1.000       0   0.000       0       1    NA          NA     NA
-## Netherlands   0.000       0   0.000       0       0 0.000          NA     NA
-## Norway        0.000       0   0.000       0       0 0.000           0     NA
-## Sweden        0.231       0   0.000       0       0 0.144           0  0.005</code></pre>
-
-</div>
-<div id="question-10" class="section level3">
-<h3><span class="header-section-number">8.0.11</span> Question 10</h3>
-<p>The second goal of Kestilä is to show how socio-demographic characteristics affect attitudes towards immigrants and trust in politics in Finland. Select only the Finnish cases using the variable <code>cntry</code>.</p>
-<details>
-<p><summary>Click for explanation</summary></p>
-<p>To select the Finnish cases only, select rows for which <code>$cntry</code> is equal to (<code>==</code>) Finland:</p>
-<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb137-1" title="1">df_finland &lt;-<span class="st"> </span>df_with_scores[df_with_scores<span class="op">$</span>cntry <span class="op">==</span><span class="st"> &quot;Finland&quot;</span>, ]</a></code></pre></div>
-
-<p>After selecting the Finnish cases, we have to prepare our variables for analysis.
-Thanks to the factor analyses above, our dependent variables are taken care of.
-However, we should examine the independent variables to make sure there are no surprises,
-and do any recoding necessary before we can run multiple regression. The independent variables are
-<code>c("gndr", "yrbrn", "eduyrs", "polintr", "lrscale")</code>.</p>
-<details>
-<p><summary>Click for explanation</summary></p>
-<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb138-1" title="1"><span class="kw">library</span>(tidySEM)</a>
-<a class="sourceLine" id="cb138-2" title="2"><span class="kw">descriptives</span>(df_finland[, <span class="kw">c</span>(<span class="st">&quot;gndr&quot;</span>, <span class="st">&quot;yrbrn&quot;</span>, <span class="st">&quot;eduyrs&quot;</span>, <span class="st">&quot;polintr&quot;</span>, <span class="st">&quot;lrscale&quot;</span>)])</a></code></pre></div>
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["name"],"name":[1],"type":["chr"],"align":["left"]},{"label":["type"],"name":[2],"type":["chr"],"align":["left"]},{"label":["n"],"name":[3],"type":["int"],"align":["right"]},{"label":["missing"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["unique"],"name":[5],"type":["int"],"align":["right"]},{"label":["mean"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["median"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["mode"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["mode_value"],"name":[9],"type":["chr"],"align":["left"]},{"label":["sd"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["v"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["min"],"name":[12],"type":["int"],"align":["right"]},{"label":["max"],"name":[13],"type":["int"],"align":["right"]},{"label":["range"],"name":[14],"type":["int"],"align":["right"]},{"label":["skew"],"name":[15],"type":["dbl"],"align":["right"]},{"label":["skew_2se"],"name":[16],"type":["dbl"],"align":["right"]},{"label":["kurt"],"name":[17],"type":["dbl"],"align":["right"]},{"label":["kurt_2se"],"name":[18],"type":["dbl"],"align":["right"]}],"data":[{"1":"gndr","2":"character","3":"2000","4":"0.0000","5":"3","6":"NA","7":"NA","8":"1040","9":"Female","10":"NA","11":"0.4992000","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA","18":"NA"},{"1":"yrbrn","2":"integer","3":"2000","4":"0.0000","5":"79","6":"1956.36950","7":"1957","8":"1957","9":"NA","10":"18.491510","11":"NA","12":"1906","13":"1987","14":"81","15":"-0.1584100","16":"-1.447163","17":"-0.8888179","18":"-4.0619431"},{"1":"eduyrs","2":"integer","3":"1997","4":"0.0015","5":"28","6":"11.95643","7":"12","8":"12","9":"NA","10":"3.900645","11":"NA","12":"0","13":"26","14":"26","15":"0.2946392","16":"2.689675","17":"-0.1854030","18":"-0.8466672"},{"1":"polintr","2":"character","3":"1999","4":"0.0005","5":"5","6":"NA","7":"NA","8":"842","9":"Hardly interested","10":"NA","11":"0.6501730","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA","18":"NA"},{"1":"lrscale","2":"character","3":"1891","4":"0.0545","5":"12","6":"NA","7":"NA","8":"599","9":"5","10":"NA","11":"0.8312956","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA","18":"NA"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
-</div>
-<p>Note that we still have to do some recoding. For example, the data contains participants’ year of birth instead of their age. We have to recode this variable. The data were collected in 2002, so we can simply subtract the year of birth of every participant from the year 2002.</p>
-<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb139-1" title="1">df_finland<span class="op">$</span>age &lt;-<span class="st"> </span>(<span class="dv">2002</span> <span class="op">-</span><span class="st"> </span>df_finland<span class="op">$</span>yrbrn)</a></code></pre></div>
-<p>Furthermore, the variables <code>polintr</code> and <code>lrscale</code> are currently coded as character variables. If you analyze them like that, R will make dummies for all distinct values on these variables. Let’s recode those, too! The main challenge is to get the levels of these variables in the correct order, and convert them to numbers. We demonstrate two ways to do this, one way for each of the two variables.</p>
-<p>For political interest, we convert the character variable to an ordered categorical variable, and we specify the correct order of labels. Then, we convert it to a numeric variable.</p>
-<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb140-1" title="1"><span class="kw">table</span>(df_finland<span class="op">$</span>polintr)</a></code></pre></div>
-<pre><code>## 
-##     Hardly interested Not at all interested      Quite interested 
-##                   842                   228                   785 
-##       Very interested 
-##                   144</code></pre>
-<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb142-1" title="1">df_finland<span class="op">$</span>polintr &lt;-<span class="st"> </span><span class="kw">ordered</span>(df_finland<span class="op">$</span>polintr, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;Not at all interested&quot;</span>, <span class="st">&quot;Hardly interested&quot;</span>, <span class="st">&quot;Quite interested&quot;</span>, <span class="st">&quot;Very interested&quot;</span>))</a>
-<a class="sourceLine" id="cb142-2" title="2"><span class="kw">table</span>(df_finland<span class="op">$</span>polintr)</a></code></pre></div>
-<pre><code>## 
-## Not at all interested     Hardly interested      Quite interested 
-##                   228                   842                   785 
-##       Very interested 
-##                   144</code></pre>
-<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb144-1" title="1">df_finland<span class="op">$</span>polintr &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(df_finland<span class="op">$</span>polintr)</a></code></pre></div>
-<p>For political orientation, only the two extreme values of the scale are labeled as text. Thus, we can replace these labels with numbers, and then convert the entire variable to numeric.</p>
-<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb145-1" title="1"><span class="kw">table</span>(df_finland<span class="op">$</span>lrscale)</a></code></pre></div>
-<pre><code>## 
-##     1     2     3    4      5     6     7     8     9  Left Right 
-##    25    62   148   183   599   199   296   217    79    24    59</code></pre>
-<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb147-1" title="1">df_finland<span class="op">$</span>lrscale[df_finland<span class="op">$</span>lrscale <span class="op">==</span><span class="st"> &quot;Left&quot;</span>] &lt;-<span class="st"> </span><span class="dv">0</span></a>
-<a class="sourceLine" id="cb147-2" title="2">df_finland<span class="op">$</span>lrscale[df_finland<span class="op">$</span>lrscale <span class="op">==</span><span class="st"> &quot;Right&quot;</span>] &lt;-<span class="st"> </span><span class="dv">10</span></a>
-<a class="sourceLine" id="cb147-3" title="3">df_finland<span class="op">$</span>lrscale &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(df_finland<span class="op">$</span>lrscale)</a></code></pre></div>
-<p>Furthermore, Kestilä recoded <code>polintr</code> in such a way that there are only two categories. The lowest two and highest two categories were combined. Here is how to do this in R, so you can replicate their analysis:</p>
-<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb148-1" title="1">df_finland<span class="op">$</span>polintr_dummy &lt;-<span class="st"> </span><span class="kw">ifelse</span>(df_finland<span class="op">$</span>polintr <span class="op">&lt;=</span><span class="st"> </span><span class="dv">2</span>,</a>
-<a class="sourceLine" id="cb148-2" title="2">                                   <span class="st">&quot;Not or hardly interested&quot;</span>,</a>
-<a class="sourceLine" id="cb148-3" title="3">                                   <span class="st">&quot;Quite or very interested&quot;</span>)</a></code></pre></div>
-<p>Next, run a number of multiple linear regression analyses with the (sub-)scales of attitudes towards immigrants and political trust as subsequent dependent variables, and the same predictors as Kestilä. Inspect your output.</p>
-<p>Compare your results with the results from Kestilä. How do your results differ or agree with the results by Kestilä?</p>
-<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb149-1" title="1">fit_trust1 &lt;-<span class="st"> </span><span class="kw">lm</span>(trustinstEFA <span class="op">~</span><span class="st"> </span>gndr <span class="op">+</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>eduyrs <span class="op">+</span><span class="st"> </span>polintr_dummy <span class="op">+</span><span class="st"> </span>lrscale, <span class="dt">data =</span> df_finland, <span class="dt">na.action =</span> na.omit)</a>
-<a class="sourceLine" id="cb149-2" title="2"><span class="kw">summary</span>(fit_trust1)</a></code></pre></div>
-<pre><code>## 
-## Call:
-## lm(formula = trustinstEFA ~ gndr + age + eduyrs + polintr_dummy + 
-##     lrscale, data = df_finland, na.action = na.omit)
-## 
-## Residuals:
-##     Min      1Q  Median      3Q     Max 
-## -4.0364 -0.4740  0.1394  0.6379  2.3394 
-## 
-## Coefficients:
-##                                        Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept)                           -0.100441   0.125066  -0.803   0.4220    
-## gndrMale                               0.010228   0.044386   0.230   0.8178    
-## age                                   -0.001053   0.001356  -0.776   0.4377    
-## eduyrs                                 0.027904   0.006277   4.445 9.34e-06 ***
-## polintr_dummyQuite or very interested  0.090948   0.045642   1.993   0.0465 *  
-## lrscale                                0.051650   0.011037   4.680 3.10e-06 ***
-## ---
-## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
-## 
-## Residual standard error: 0.9159 on 1734 degrees of freedom
-##   (260 observations deleted due to missingness)
-## Multiple R-squared:  0.03377,	Adjusted R-squared:  0.03099 
-## F-statistic: 12.12 on 5 and 1734 DF,  p-value: 1.454e-11</code></pre>
-
-</div>
-<div id="question-11" class="section level3">
-<h3><span class="header-section-number">8.0.12</span> Question 11</h3>
-<p>Save your syntax and your data, you will need it next week.</p>
+<div id="answers-1" class="section level4 unnumbered">
+<h4>Answers</h4>
+<ol style="list-style-type: decimal">
+<li><em>On p. 560 the four steps for complex mediation are discussed. The first
+three steps are for partial mediation. What is the difference between
+these two forms of mediation?</em><br />
+Step 1: X should predict Y<br />
+Step 2: M should be correlated with X<br />
+Step 3: M should predict Y<br />
+Step 4: X is no longer a significant predictor of Y once M is included.<br />
+Partial mediation: there is still a direct effect of X on Y.<br />
+Full mediation: the entire effect of X on Y runs through M.</li>
+<li><em>What is the advantage of the Product of Coefficient approach (p. 561-562) in comparison to the Causal Step approach (p. 560-561) and the Differences in Coefficients approach (p. 561) if you want to know whether or not an effect is mediated?</em><br />
+It leads to an actual p-value.</li>
+<li><em>How does the Product of Coefficient approach work and why is it problematic?</em><br />
+Uses the product of paths, and divides this by the estimate of the standard error.
+Resulting quantity is then compared to a z-distribution. However, the product is
+not normally distributed: hence the tests (Sobel test etc.) which are based on
+assuming a normal distribution are incorrect.</li>
+<li><em>How many effects are there from Debate Viewing on Political Participation? Which effects can you easily obtain from SEM software?</em><br />
+1 direct effect, and 2 indirect effects.<br />
+SEM will give you the direct, (total) indirect, and total (direct + all indirect)
+effects.</li>
+</ol>
 
 </div>
 </div>
@@ -734,8 +477,8 @@ and do any recoding necessary before we can run multiple regression. The indepen
           </div>
         </div>
       </div>
-<a href="week-2-home.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="week-3-reading-questions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="week-4-class.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="week-5-home.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

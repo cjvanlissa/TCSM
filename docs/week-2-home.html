@@ -49,7 +49,6 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
 <script src="libs/pagedtable-1.1/js/pagedtable.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
@@ -57,9 +56,9 @@
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
@@ -68,16 +67,14 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
+    border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -86,9 +83,9 @@ pre.numberSource code > span > a:first-child::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {   }
+  {  }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+a.sourceLine::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -276,97 +273,99 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="11.0.10" data-path="week-3-class.html"><a href="week-3-class.html#optional"><i class="fa fa-check"></i><b>11.0.10</b> Optional</a></li>
 <li class="chapter" data-level="11.0.11" data-path="week-2-class.html"><a href="week-2-class.html#question-10"><i class="fa fa-check"></i><b>11.0.11</b> Question 10</a></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="week-4-home.html"><a href="week-4-home.html"><i class="fa fa-check"></i><b>12</b> Week 4 - Home</a><ul>
-<li class="chapter" data-level="12.0.1" data-path="week-2-class.html"><a href="week-2-class.html#question-1"><i class="fa fa-check"></i><b>12.0.1</b> Question 1</a></li>
-<li class="chapter" data-level="12.0.2" data-path="week-2-class.html"><a href="week-2-class.html#question-2"><i class="fa fa-check"></i><b>12.0.2</b> Question 2</a></li>
-<li class="chapter" data-level="12.0.3" data-path="week-2-class.html"><a href="week-2-class.html#question-3"><i class="fa fa-check"></i><b>12.0.3</b> Question 3</a></li>
-<li class="chapter" data-level="12.0.4" data-path="week-2-class.html"><a href="week-2-class.html#question-4"><i class="fa fa-check"></i><b>12.0.4</b> Question 4</a></li>
-<li class="chapter" data-level="12.0.5" data-path="week-2-class.html"><a href="week-2-class.html#question-5"><i class="fa fa-check"></i><b>12.0.5</b> Question 5</a></li>
-<li class="chapter" data-level="12.0.6" data-path="week-2-class.html"><a href="week-2-class.html#question-6"><i class="fa fa-check"></i><b>12.0.6</b> Question 6</a></li>
-<li class="chapter" data-level="12.0.7" data-path="week-2-class.html"><a href="week-2-class.html#question-7"><i class="fa fa-check"></i><b>12.0.7</b> Question 7</a></li>
-<li class="chapter" data-level="12.0.8" data-path="week-2-class.html"><a href="week-2-class.html#question-8"><i class="fa fa-check"></i><b>12.0.8</b> Question 8</a></li>
-<li class="chapter" data-level="12.0.9" data-path="week-4-home.html"><a href="week-4-home.html#additional-options"><i class="fa fa-check"></i><b>12.0.9</b> Additional options</a></li>
-<li class="chapter" data-level="12.0.10" data-path="week-2-class.html"><a href="week-2-class.html#question-9"><i class="fa fa-check"></i><b>12.0.10</b> Question 9</a></li>
-<li class="chapter" data-level="12.0.11" data-path="week-2-class.html"><a href="week-2-class.html#question-10"><i class="fa fa-check"></i><b>12.0.11</b> Question 10</a></li>
+<li class="chapter" data-level="12" data-path="week-4-reading-questions.html"><a href="week-4-reading-questions.html"><i class="fa fa-check"></i><b>12</b> Week 4 - Reading questions</a></li>
+<li class="chapter" data-level="13" data-path="week-4-home.html"><a href="week-4-home.html"><i class="fa fa-check"></i><b>13</b> Week 4 - Home</a><ul>
+<li class="chapter" data-level="13.0.1" data-path="week-2-class.html"><a href="week-2-class.html#question-1"><i class="fa fa-check"></i><b>13.0.1</b> Question 1</a></li>
+<li class="chapter" data-level="13.0.2" data-path="week-2-class.html"><a href="week-2-class.html#question-2"><i class="fa fa-check"></i><b>13.0.2</b> Question 2</a></li>
+<li class="chapter" data-level="13.0.3" data-path="week-2-class.html"><a href="week-2-class.html#question-3"><i class="fa fa-check"></i><b>13.0.3</b> Question 3</a></li>
+<li class="chapter" data-level="13.0.4" data-path="week-2-class.html"><a href="week-2-class.html#question-4"><i class="fa fa-check"></i><b>13.0.4</b> Question 4</a></li>
+<li class="chapter" data-level="13.0.5" data-path="week-2-class.html"><a href="week-2-class.html#question-5"><i class="fa fa-check"></i><b>13.0.5</b> Question 5</a></li>
+<li class="chapter" data-level="13.0.6" data-path="week-2-class.html"><a href="week-2-class.html#question-6"><i class="fa fa-check"></i><b>13.0.6</b> Question 6</a></li>
+<li class="chapter" data-level="13.0.7" data-path="week-2-class.html"><a href="week-2-class.html#question-7"><i class="fa fa-check"></i><b>13.0.7</b> Question 7</a></li>
+<li class="chapter" data-level="13.0.8" data-path="week-2-class.html"><a href="week-2-class.html#question-8"><i class="fa fa-check"></i><b>13.0.8</b> Question 8</a></li>
+<li class="chapter" data-level="13.0.9" data-path="week-4-home.html"><a href="week-4-home.html#additional-options"><i class="fa fa-check"></i><b>13.0.9</b> Additional options</a></li>
+<li class="chapter" data-level="13.0.10" data-path="week-2-class.html"><a href="week-2-class.html#question-9"><i class="fa fa-check"></i><b>13.0.10</b> Question 9</a></li>
+<li class="chapter" data-level="13.0.11" data-path="week-2-class.html"><a href="week-2-class.html#question-10"><i class="fa fa-check"></i><b>13.0.11</b> Question 10</a></li>
 </ul></li>
-<li class="chapter" data-level="13" data-path="week-4-class.html"><a href="week-4-class.html"><i class="fa fa-check"></i><b>13</b> Week 4 - Class</a><ul>
-<li class="chapter" data-level="13.0.1" data-path="week-4-class.html"><a href="week-4-class.html#specify-basic-model"><i class="fa fa-check"></i><b>13.0.1</b> Specify basic model</a></li>
-<li class="chapter" data-level="13.0.2" data-path="week-4-class.html"><a href="week-4-class.html#how-to-run-multi-group-model"><i class="fa fa-check"></i><b>13.0.2</b> How to run multi-group model</a></li>
-<li class="chapter" data-level="13.0.3" data-path="week-2-class.html"><a href="week-2-class.html#question-1"><i class="fa fa-check"></i><b>13.0.3</b> Question 1</a></li>
-<li class="chapter" data-level="13.0.4" data-path="week-2-class.html"><a href="week-2-class.html#question-2"><i class="fa fa-check"></i><b>13.0.4</b> Question 2</a></li>
-<li class="chapter" data-level="13.0.5" data-path="week-2-class.html"><a href="week-2-class.html#question-3"><i class="fa fa-check"></i><b>13.0.5</b> Question 3</a></li>
-<li class="chapter" data-level="13.0.6" data-path="week-2-class.html"><a href="week-2-class.html#question-4"><i class="fa fa-check"></i><b>13.0.6</b> Question 4</a></li>
-<li class="chapter" data-level="13.0.7" data-path="week-4-class.html"><a href="week-4-class.html#imposing-constraints"><i class="fa fa-check"></i><b>13.0.7</b> Imposing constraints</a></li>
-<li class="chapter" data-level="13.0.8" data-path="week-4-class.html"><a href="week-4-class.html#stepwise-approach"><i class="fa fa-check"></i><b>13.0.8</b> Stepwise approach</a></li>
-<li class="chapter" data-level="13.0.9" data-path="week-2-class.html"><a href="week-2-class.html#question-5"><i class="fa fa-check"></i><b>13.0.9</b> Question 5</a></li>
-<li class="chapter" data-level="13.0.10" data-path="week-2-class.html"><a href="week-2-class.html#question-6"><i class="fa fa-check"></i><b>13.0.10</b> Question 6</a></li>
-</ul></li>
-<li class="chapter" data-level="14" data-path="week-5-home.html"><a href="week-5-home.html"><i class="fa fa-check"></i><b>14</b> Week 5 - Home</a><ul>
-<li class="chapter" data-level="14.0.1" data-path="week-5-home.html"><a href="week-5-home.html#specify-model"><i class="fa fa-check"></i><b>14.0.1</b> Specify model</a></li>
-<li class="chapter" data-level="14.0.2" data-path="week-2-class.html"><a href="week-2-class.html#question-1"><i class="fa fa-check"></i><b>14.0.2</b> Question 1</a></li>
-<li class="chapter" data-level="14.0.3" data-path="week-2-class.html"><a href="week-2-class.html#question-2"><i class="fa fa-check"></i><b>14.0.3</b> Question 2</a></li>
-<li class="chapter" data-level="14.0.4" data-path="week-2-class.html"><a href="week-2-class.html#question-3"><i class="fa fa-check"></i><b>14.0.4</b> Question 3</a></li>
-<li class="chapter" data-level="14.0.5" data-path="week-5-home.html"><a href="week-5-home.html#estimating-indirect-effects"><i class="fa fa-check"></i><b>14.0.5</b> Estimating indirect effects</a></li>
+<li class="chapter" data-level="14" data-path="week-4-class.html"><a href="week-4-class.html"><i class="fa fa-check"></i><b>14</b> Week 4 - Class</a><ul>
+<li class="chapter" data-level="14.0.1" data-path="week-4-class.html"><a href="week-4-class.html#specify-basic-model"><i class="fa fa-check"></i><b>14.0.1</b> Specify basic model</a></li>
+<li class="chapter" data-level="14.0.2" data-path="week-4-class.html"><a href="week-4-class.html#how-to-run-multi-group-model"><i class="fa fa-check"></i><b>14.0.2</b> How to run multi-group model</a></li>
+<li class="chapter" data-level="14.0.3" data-path="week-2-class.html"><a href="week-2-class.html#question-1"><i class="fa fa-check"></i><b>14.0.3</b> Question 1</a></li>
+<li class="chapter" data-level="14.0.4" data-path="week-2-class.html"><a href="week-2-class.html#question-2"><i class="fa fa-check"></i><b>14.0.4</b> Question 2</a></li>
+<li class="chapter" data-level="14.0.5" data-path="week-2-class.html"><a href="week-2-class.html#question-3"><i class="fa fa-check"></i><b>14.0.5</b> Question 3</a></li>
 <li class="chapter" data-level="14.0.6" data-path="week-2-class.html"><a href="week-2-class.html#question-4"><i class="fa fa-check"></i><b>14.0.6</b> Question 4</a></li>
-<li class="chapter" data-level="14.0.7" data-path="week-2-class.html"><a href="week-2-class.html#question-5"><i class="fa fa-check"></i><b>14.0.7</b> Question 5</a></li>
-<li class="chapter" data-level="14.0.8" data-path="week-2-class.html"><a href="week-2-class.html#question-6"><i class="fa fa-check"></i><b>14.0.8</b> Question 6</a></li>
-<li class="chapter" data-level="14.0.9" data-path="week-5-home.html"><a href="week-5-home.html#difference-between-parameters"><i class="fa fa-check"></i><b>14.0.9</b> Difference between parameters</a></li>
-<li class="chapter" data-level="14.0.10" data-path="week-5-home.html"><a href="week-5-home.html#bootstrapping"><i class="fa fa-check"></i><b>14.0.10</b> Bootstrapping</a></li>
-<li class="chapter" data-level="14.0.11" data-path="week-2-class.html"><a href="week-2-class.html#question-7"><i class="fa fa-check"></i><b>14.0.11</b> Question 7</a></li>
+<li class="chapter" data-level="14.0.7" data-path="week-4-class.html"><a href="week-4-class.html#imposing-constraints"><i class="fa fa-check"></i><b>14.0.7</b> Imposing constraints</a></li>
+<li class="chapter" data-level="14.0.8" data-path="week-4-class.html"><a href="week-4-class.html#stepwise-approach"><i class="fa fa-check"></i><b>14.0.8</b> Stepwise approach</a></li>
+<li class="chapter" data-level="14.0.9" data-path="week-2-class.html"><a href="week-2-class.html#question-5"><i class="fa fa-check"></i><b>14.0.9</b> Question 5</a></li>
+<li class="chapter" data-level="14.0.10" data-path="week-2-class.html"><a href="week-2-class.html#question-6"><i class="fa fa-check"></i><b>14.0.10</b> Question 6</a></li>
 </ul></li>
-<li class="chapter" data-level="15" data-path="week-5-class.html"><a href="week-5-class.html"><i class="fa fa-check"></i><b>15</b> Week 5 - Class</a><ul>
-<li class="chapter" data-level="15.0.1" data-path="week-5-class.html"><a href="week-5-class.html#the-analysis"><i class="fa fa-check"></i><b>15.0.1</b> The analysis</a></li>
-<li class="chapter" data-level="15.0.2" data-path="week-2-class.html"><a href="week-2-class.html#question-1"><i class="fa fa-check"></i><b>15.0.2</b> Question 1</a></li>
-<li class="chapter" data-level="15.0.3" data-path="week-5-class.html"><a href="week-5-class.html#dummy-coding"><i class="fa fa-check"></i><b>15.0.3</b> Dummy coding</a></li>
-<li class="chapter" data-level="15.0.4" data-path="week-2-class.html"><a href="week-2-class.html#question-2"><i class="fa fa-check"></i><b>15.0.4</b> Question 2</a></li>
-<li class="chapter" data-level="15.0.5" data-path="week-2-class.html"><a href="week-2-class.html#question-3"><i class="fa fa-check"></i><b>15.0.5</b> Question 3</a></li>
-<li class="chapter" data-level="15.0.6" data-path="week-2-class.html"><a href="week-2-class.html#question-4"><i class="fa fa-check"></i><b>15.0.6</b> Question 4</a></li>
-<li class="chapter" data-level="15.0.7" data-path="week-2-class.html"><a href="week-2-class.html#question-5"><i class="fa fa-check"></i><b>15.0.7</b> Question 5</a></li>
-<li class="chapter" data-level="15.0.8" data-path="week-2-class.html"><a href="week-2-class.html#question-6"><i class="fa fa-check"></i><b>15.0.8</b> Question 6</a></li>
-<li class="chapter" data-level="15.0.9" data-path="week-2-class.html"><a href="week-2-class.html#question-7"><i class="fa fa-check"></i><b>15.0.9</b> Question 7</a></li>
+<li class="chapter" data-level="15" data-path="week-5-reading-questions.html"><a href="week-5-reading-questions.html"><i class="fa fa-check"></i><b>15</b> Week 5 - Reading questions</a></li>
+<li class="chapter" data-level="16" data-path="week-5-home.html"><a href="week-5-home.html"><i class="fa fa-check"></i><b>16</b> Week 5 - Home</a><ul>
+<li class="chapter" data-level="16.0.1" data-path="week-5-home.html"><a href="week-5-home.html#specify-model"><i class="fa fa-check"></i><b>16.0.1</b> Specify model</a></li>
+<li class="chapter" data-level="16.0.2" data-path="week-2-class.html"><a href="week-2-class.html#question-1"><i class="fa fa-check"></i><b>16.0.2</b> Question 1</a></li>
+<li class="chapter" data-level="16.0.3" data-path="week-2-class.html"><a href="week-2-class.html#question-2"><i class="fa fa-check"></i><b>16.0.3</b> Question 2</a></li>
+<li class="chapter" data-level="16.0.4" data-path="week-2-class.html"><a href="week-2-class.html#question-3"><i class="fa fa-check"></i><b>16.0.4</b> Question 3</a></li>
+<li class="chapter" data-level="16.0.5" data-path="week-5-home.html"><a href="week-5-home.html#estimating-indirect-effects"><i class="fa fa-check"></i><b>16.0.5</b> Estimating indirect effects</a></li>
+<li class="chapter" data-level="16.0.6" data-path="week-2-class.html"><a href="week-2-class.html#question-4"><i class="fa fa-check"></i><b>16.0.6</b> Question 4</a></li>
+<li class="chapter" data-level="16.0.7" data-path="week-2-class.html"><a href="week-2-class.html#question-5"><i class="fa fa-check"></i><b>16.0.7</b> Question 5</a></li>
+<li class="chapter" data-level="16.0.8" data-path="week-2-class.html"><a href="week-2-class.html#question-6"><i class="fa fa-check"></i><b>16.0.8</b> Question 6</a></li>
+<li class="chapter" data-level="16.0.9" data-path="week-5-home.html"><a href="week-5-home.html#difference-between-parameters"><i class="fa fa-check"></i><b>16.0.9</b> Difference between parameters</a></li>
+<li class="chapter" data-level="16.0.10" data-path="week-5-home.html"><a href="week-5-home.html#bootstrapping"><i class="fa fa-check"></i><b>16.0.10</b> Bootstrapping</a></li>
+<li class="chapter" data-level="16.0.11" data-path="week-2-class.html"><a href="week-2-class.html#question-7"><i class="fa fa-check"></i><b>16.0.11</b> Question 7</a></li>
 </ul></li>
-<li class="chapter" data-level="16" data-path="week-6-home.html"><a href="week-6-home.html"><i class="fa fa-check"></i><b>16</b> Week 6 - Home</a><ul>
-<li class="chapter" data-level="16.0.1" data-path="week-2-class.html"><a href="week-2-class.html#question-1"><i class="fa fa-check"></i><b>16.0.1</b> Question 1</a></li>
-<li class="chapter" data-level="16.0.2" data-path="week-2-class.html"><a href="week-2-class.html#question-2"><i class="fa fa-check"></i><b>16.0.2</b> Question 2</a></li>
-<li class="chapter" data-level="16.0.3" data-path="week-2-class.html"><a href="week-2-class.html#question-3"><i class="fa fa-check"></i><b>16.0.3</b> Question 3</a></li>
-<li class="chapter" data-level="16.0.4" data-path="week-2-class.html"><a href="week-2-class.html#question-4"><i class="fa fa-check"></i><b>16.0.4</b> Question 4</a></li>
-<li class="chapter" data-level="16.0.5" data-path="week-2-class.html"><a href="week-2-class.html#question-5"><i class="fa fa-check"></i><b>16.0.5</b> Question 5</a></li>
-<li class="chapter" data-level="16.0.6" data-path="week-2-class.html"><a href="week-2-class.html#question-6"><i class="fa fa-check"></i><b>16.0.6</b> Question 6</a></li>
-<li class="chapter" data-level="16.0.7" data-path="week-2-class.html"><a href="week-2-class.html#question-7"><i class="fa fa-check"></i><b>16.0.7</b> Question 7</a></li>
-<li class="chapter" data-level="16.0.8" data-path="week-2-class.html"><a href="week-2-class.html#question-8"><i class="fa fa-check"></i><b>16.0.8</b> Question 8</a></li>
-<li class="chapter" data-level="16.0.9" data-path="week-2-class.html"><a href="week-2-class.html#question-9"><i class="fa fa-check"></i><b>16.0.9</b> Question 9</a></li>
-<li class="chapter" data-level="16.0.10" data-path="week-2-class.html"><a href="week-2-class.html#question-10"><i class="fa fa-check"></i><b>16.0.10</b> Question 10</a></li>
-<li class="chapter" data-level="16.0.11" data-path="week-2-class.html"><a href="week-2-class.html#question-11"><i class="fa fa-check"></i><b>16.0.11</b> Question 11</a></li>
+<li class="chapter" data-level="17" data-path="week-5-class.html"><a href="week-5-class.html"><i class="fa fa-check"></i><b>17</b> Week 5 - Class</a><ul>
+<li class="chapter" data-level="17.0.1" data-path="week-5-class.html"><a href="week-5-class.html#the-analysis"><i class="fa fa-check"></i><b>17.0.1</b> The analysis</a></li>
+<li class="chapter" data-level="17.0.2" data-path="week-2-class.html"><a href="week-2-class.html#question-1"><i class="fa fa-check"></i><b>17.0.2</b> Question 1</a></li>
+<li class="chapter" data-level="17.0.3" data-path="week-5-class.html"><a href="week-5-class.html#dummy-coding"><i class="fa fa-check"></i><b>17.0.3</b> Dummy coding</a></li>
+<li class="chapter" data-level="17.0.4" data-path="week-2-class.html"><a href="week-2-class.html#question-2"><i class="fa fa-check"></i><b>17.0.4</b> Question 2</a></li>
+<li class="chapter" data-level="17.0.5" data-path="week-2-class.html"><a href="week-2-class.html#question-3"><i class="fa fa-check"></i><b>17.0.5</b> Question 3</a></li>
+<li class="chapter" data-level="17.0.6" data-path="week-2-class.html"><a href="week-2-class.html#question-4"><i class="fa fa-check"></i><b>17.0.6</b> Question 4</a></li>
+<li class="chapter" data-level="17.0.7" data-path="week-2-class.html"><a href="week-2-class.html#question-5"><i class="fa fa-check"></i><b>17.0.7</b> Question 5</a></li>
+<li class="chapter" data-level="17.0.8" data-path="week-2-class.html"><a href="week-2-class.html#question-6"><i class="fa fa-check"></i><b>17.0.8</b> Question 6</a></li>
+<li class="chapter" data-level="17.0.9" data-path="week-2-class.html"><a href="week-2-class.html#question-7"><i class="fa fa-check"></i><b>17.0.9</b> Question 7</a></li>
 </ul></li>
-<li class="chapter" data-level="17" data-path="week-6-class.html"><a href="week-6-class.html"><i class="fa fa-check"></i><b>17</b> Week 6 - Class</a><ul>
-<li class="chapter" data-level="17.0.1" data-path="week-2-class.html"><a href="week-2-class.html#question-1"><i class="fa fa-check"></i><b>17.0.1</b> Question 1</a></li>
-<li class="chapter" data-level="17.0.2" data-path="week-2-class.html"><a href="week-2-class.html#question-2"><i class="fa fa-check"></i><b>17.0.2</b> Question 2</a></li>
-<li class="chapter" data-level="17.0.3" data-path="week-2-class.html"><a href="week-2-class.html#question-3"><i class="fa fa-check"></i><b>17.0.3</b> Question 3</a></li>
-<li class="chapter" data-level="17.0.4" data-path="week-2-class.html"><a href="week-2-class.html#question-4"><i class="fa fa-check"></i><b>17.0.4</b> Question 4</a></li>
-<li class="chapter" data-level="17.0.5" data-path="week-2-class.html"><a href="week-2-class.html#question-5"><i class="fa fa-check"></i><b>17.0.5</b> Question 5</a></li>
-<li class="chapter" data-level="17.0.6" data-path="week-2-class.html"><a href="week-2-class.html#question-6"><i class="fa fa-check"></i><b>17.0.6</b> Question 6</a></li>
-<li class="chapter" data-level="17.0.7" data-path="week-6-class.html"><a href="week-6-class.html#specific-differences"><i class="fa fa-check"></i><b>17.0.7</b> Specific differences</a></li>
-<li class="chapter" data-level="17.0.8" data-path="week-2-class.html"><a href="week-2-class.html#question-7"><i class="fa fa-check"></i><b>17.0.8</b> Question 7</a></li>
-<li class="chapter" data-level="17.0.9" data-path="week-2-class.html"><a href="week-2-class.html#question-8"><i class="fa fa-check"></i><b>17.0.9</b> Question 8</a></li>
-<li class="chapter" data-level="17.0.10" data-path="week-6-class.html"><a href="week-6-class.html#results-table"><i class="fa fa-check"></i><b>17.0.10</b> Results table</a></li>
-<li class="chapter" data-level="17.0.11" data-path="week-2-class.html"><a href="week-2-class.html#question-9"><i class="fa fa-check"></i><b>17.0.11</b> Question 9</a></li>
-<li class="chapter" data-level="17.0.12" data-path="week-2-class.html"><a href="week-2-class.html#question-10"><i class="fa fa-check"></i><b>17.0.12</b> Question 10</a></li>
-<li class="chapter" data-level="17.0.13" data-path="week-6-class.html"><a href="week-6-class.html#question-12"><i class="fa fa-check"></i><b>17.0.13</b> Question 12</a></li>
-<li class="chapter" data-level="17.0.14" data-path="week-6-class.html"><a href="week-6-class.html#question-13"><i class="fa fa-check"></i><b>17.0.14</b> Question 13</a></li>
+<li class="chapter" data-level="18" data-path="week-6-home.html"><a href="week-6-home.html"><i class="fa fa-check"></i><b>18</b> Week 6 - Home</a><ul>
+<li class="chapter" data-level="18.0.1" data-path="week-2-class.html"><a href="week-2-class.html#question-1"><i class="fa fa-check"></i><b>18.0.1</b> Question 1</a></li>
+<li class="chapter" data-level="18.0.2" data-path="week-2-class.html"><a href="week-2-class.html#question-2"><i class="fa fa-check"></i><b>18.0.2</b> Question 2</a></li>
+<li class="chapter" data-level="18.0.3" data-path="week-2-class.html"><a href="week-2-class.html#question-3"><i class="fa fa-check"></i><b>18.0.3</b> Question 3</a></li>
+<li class="chapter" data-level="18.0.4" data-path="week-2-class.html"><a href="week-2-class.html#question-4"><i class="fa fa-check"></i><b>18.0.4</b> Question 4</a></li>
+<li class="chapter" data-level="18.0.5" data-path="week-2-class.html"><a href="week-2-class.html#question-5"><i class="fa fa-check"></i><b>18.0.5</b> Question 5</a></li>
+<li class="chapter" data-level="18.0.6" data-path="week-2-class.html"><a href="week-2-class.html#question-6"><i class="fa fa-check"></i><b>18.0.6</b> Question 6</a></li>
+<li class="chapter" data-level="18.0.7" data-path="week-2-class.html"><a href="week-2-class.html#question-7"><i class="fa fa-check"></i><b>18.0.7</b> Question 7</a></li>
+<li class="chapter" data-level="18.0.8" data-path="week-2-class.html"><a href="week-2-class.html#question-8"><i class="fa fa-check"></i><b>18.0.8</b> Question 8</a></li>
+<li class="chapter" data-level="18.0.9" data-path="week-2-class.html"><a href="week-2-class.html#question-9"><i class="fa fa-check"></i><b>18.0.9</b> Question 9</a></li>
+<li class="chapter" data-level="18.0.10" data-path="week-2-class.html"><a href="week-2-class.html#question-10"><i class="fa fa-check"></i><b>18.0.10</b> Question 10</a></li>
+<li class="chapter" data-level="18.0.11" data-path="week-2-class.html"><a href="week-2-class.html#question-11"><i class="fa fa-check"></i><b>18.0.11</b> Question 11</a></li>
 </ul></li>
-<li class="chapter" data-level="18" data-path="week-7-putting-it-all-together.html"><a href="week-7-putting-it-all-together.html"><i class="fa fa-check"></i><b>18</b> Week 7 - Putting it all together</a><ul>
-<li class="chapter" data-level="18.0.1" data-path="week-2-class.html"><a href="week-2-class.html#loading-the-data"><i class="fa fa-check"></i><b>18.0.1</b> Loading the data</a></li>
-<li class="chapter" data-level="18.0.2" data-path="week-2-class.html"><a href="week-2-class.html#question-1"><i class="fa fa-check"></i><b>18.0.2</b> Question 1</a></li>
-<li class="chapter" data-level="18.0.3" data-path="week-2-class.html"><a href="week-2-class.html#question-2"><i class="fa fa-check"></i><b>18.0.3</b> Question 2</a></li>
-<li class="chapter" data-level="18.0.4" data-path="week-2-class.html"><a href="week-2-class.html#question-3"><i class="fa fa-check"></i><b>18.0.4</b> Question 3</a></li>
-<li class="chapter" data-level="18.0.5" data-path="week-2-class.html"><a href="week-2-class.html#question-4"><i class="fa fa-check"></i><b>18.0.5</b> Question 4</a></li>
-<li class="chapter" data-level="18.0.6" data-path="week-2-class.html"><a href="week-2-class.html#question-5"><i class="fa fa-check"></i><b>18.0.6</b> Question 5</a></li>
-<li class="chapter" data-level="18.0.7" data-path="week-2-class.html"><a href="week-2-class.html#question-6"><i class="fa fa-check"></i><b>18.0.7</b> Question 6</a></li>
-<li class="chapter" data-level="18.0.8" data-path="week-7-putting-it-all-together.html"><a href="week-7-putting-it-all-together.html#moderated-mediation"><i class="fa fa-check"></i><b>18.0.8</b> Moderated mediation</a></li>
-<li class="chapter" data-level="18.0.9" data-path="week-2-class.html"><a href="week-2-class.html#question-7"><i class="fa fa-check"></i><b>18.0.9</b> Question 7</a></li>
-<li class="chapter" data-level="18.0.10" data-path="week-7-putting-it-all-together.html"><a href="week-7-putting-it-all-together.html#measurement-invariance"><i class="fa fa-check"></i><b>18.0.10</b> Measurement invariance</a></li>
-<li class="chapter" data-level="18.0.11" data-path="week-2-class.html"><a href="week-2-class.html#question-8"><i class="fa fa-check"></i><b>18.0.11</b> Question 8</a></li>
-<li class="chapter" data-level="18.0.12" data-path="week-2-class.html"><a href="week-2-class.html#question-9"><i class="fa fa-check"></i><b>18.0.12</b> Question 9</a></li>
+<li class="chapter" data-level="19" data-path="week-6-class.html"><a href="week-6-class.html"><i class="fa fa-check"></i><b>19</b> Week 6 - Class</a><ul>
+<li class="chapter" data-level="19.0.1" data-path="week-2-class.html"><a href="week-2-class.html#question-1"><i class="fa fa-check"></i><b>19.0.1</b> Question 1</a></li>
+<li class="chapter" data-level="19.0.2" data-path="week-2-class.html"><a href="week-2-class.html#question-2"><i class="fa fa-check"></i><b>19.0.2</b> Question 2</a></li>
+<li class="chapter" data-level="19.0.3" data-path="week-2-class.html"><a href="week-2-class.html#question-3"><i class="fa fa-check"></i><b>19.0.3</b> Question 3</a></li>
+<li class="chapter" data-level="19.0.4" data-path="week-2-class.html"><a href="week-2-class.html#question-4"><i class="fa fa-check"></i><b>19.0.4</b> Question 4</a></li>
+<li class="chapter" data-level="19.0.5" data-path="week-2-class.html"><a href="week-2-class.html#question-5"><i class="fa fa-check"></i><b>19.0.5</b> Question 5</a></li>
+<li class="chapter" data-level="19.0.6" data-path="week-2-class.html"><a href="week-2-class.html#question-6"><i class="fa fa-check"></i><b>19.0.6</b> Question 6</a></li>
+<li class="chapter" data-level="19.0.7" data-path="week-6-class.html"><a href="week-6-class.html#specific-differences"><i class="fa fa-check"></i><b>19.0.7</b> Specific differences</a></li>
+<li class="chapter" data-level="19.0.8" data-path="week-2-class.html"><a href="week-2-class.html#question-7"><i class="fa fa-check"></i><b>19.0.8</b> Question 7</a></li>
+<li class="chapter" data-level="19.0.9" data-path="week-2-class.html"><a href="week-2-class.html#question-8"><i class="fa fa-check"></i><b>19.0.9</b> Question 8</a></li>
+<li class="chapter" data-level="19.0.10" data-path="week-6-class.html"><a href="week-6-class.html#results-table"><i class="fa fa-check"></i><b>19.0.10</b> Results table</a></li>
+<li class="chapter" data-level="19.0.11" data-path="week-2-class.html"><a href="week-2-class.html#question-9"><i class="fa fa-check"></i><b>19.0.11</b> Question 9</a></li>
+<li class="chapter" data-level="19.0.12" data-path="week-2-class.html"><a href="week-2-class.html#question-10"><i class="fa fa-check"></i><b>19.0.12</b> Question 10</a></li>
+<li class="chapter" data-level="19.0.13" data-path="week-6-class.html"><a href="week-6-class.html#question-12"><i class="fa fa-check"></i><b>19.0.13</b> Question 12</a></li>
+<li class="chapter" data-level="19.0.14" data-path="week-6-class.html"><a href="week-6-class.html#question-13"><i class="fa fa-check"></i><b>19.0.14</b> Question 13</a></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="week-7-putting-it-all-together.html"><a href="week-7-putting-it-all-together.html"><i class="fa fa-check"></i><b>20</b> Week 7 - Putting it all together</a><ul>
+<li class="chapter" data-level="20.0.1" data-path="week-2-class.html"><a href="week-2-class.html#loading-the-data"><i class="fa fa-check"></i><b>20.0.1</b> Loading the data</a></li>
+<li class="chapter" data-level="20.0.2" data-path="week-2-class.html"><a href="week-2-class.html#question-1"><i class="fa fa-check"></i><b>20.0.2</b> Question 1</a></li>
+<li class="chapter" data-level="20.0.3" data-path="week-2-class.html"><a href="week-2-class.html#question-2"><i class="fa fa-check"></i><b>20.0.3</b> Question 2</a></li>
+<li class="chapter" data-level="20.0.4" data-path="week-2-class.html"><a href="week-2-class.html#question-3"><i class="fa fa-check"></i><b>20.0.4</b> Question 3</a></li>
+<li class="chapter" data-level="20.0.5" data-path="week-2-class.html"><a href="week-2-class.html#question-4"><i class="fa fa-check"></i><b>20.0.5</b> Question 4</a></li>
+<li class="chapter" data-level="20.0.6" data-path="week-2-class.html"><a href="week-2-class.html#question-5"><i class="fa fa-check"></i><b>20.0.6</b> Question 5</a></li>
+<li class="chapter" data-level="20.0.7" data-path="week-2-class.html"><a href="week-2-class.html#question-6"><i class="fa fa-check"></i><b>20.0.7</b> Question 6</a></li>
+<li class="chapter" data-level="20.0.8" data-path="week-7-putting-it-all-together.html"><a href="week-7-putting-it-all-together.html#moderated-mediation"><i class="fa fa-check"></i><b>20.0.8</b> Moderated mediation</a></li>
+<li class="chapter" data-level="20.0.9" data-path="week-2-class.html"><a href="week-2-class.html#question-7"><i class="fa fa-check"></i><b>20.0.9</b> Question 7</a></li>
+<li class="chapter" data-level="20.0.10" data-path="week-7-putting-it-all-together.html"><a href="week-7-putting-it-all-together.html#measurement-invariance"><i class="fa fa-check"></i><b>20.0.10</b> Measurement invariance</a></li>
+<li class="chapter" data-level="20.0.11" data-path="week-2-class.html"><a href="week-2-class.html#question-8"><i class="fa fa-check"></i><b>20.0.11</b> Question 8</a></li>
+<li class="chapter" data-level="20.0.12" data-path="week-2-class.html"><a href="week-2-class.html#question-9"><i class="fa fa-check"></i><b>20.0.12</b> Question 9</a></li>
 </ul></li>
 </ul>
 
@@ -401,8 +400,8 @@ that you will need in this exercise.</p>
 <div id="question-1.a" class="section level3">
 <h3><span class="header-section-number">7.0.1</span> Question 1.a</h3>
 <p>Download the file, and import it in R. Inspect the file (no. of cases and no. of variables) to see if the file opened well.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="week-2-home.html#cb1-1"></a><span class="kw">library</span>(foreign)</span>
-<span id="cb1-2"><a href="week-2-home.html#cb1-2"></a>data &lt;-<span class="st"> </span><span class="kw">read.spss</span>(<span class="st">&quot;ESSround1-a.sav&quot;</span>, <span class="dt">to.data.frame =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb93-1" title="1"><span class="kw">library</span>(foreign)</a>
+<a class="sourceLine" id="cb93-2" title="2">data &lt;-<span class="st"> </span><span class="kw">read.spss</span>(<span class="st">&quot;ESSround1-a.sav&quot;</span>, <span class="dt">to.data.frame =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <details>
 <summary><b>For a description of all variables in the dataset, click here!</b></summary>
 <table class="table table-striped table-hover" style="margin-left: auto; margin-right: auto;">
@@ -830,7 +829,7 @@ manageable, and make sure our results pertain to our target population.</p>
 <p><em>Hint: Use</em> <code>[]; %in%</code></p>
 <details>
 <p><summary>Click for explanation</summary></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="week-2-home.html#cb2-1"></a>df &lt;-<span class="st"> </span>data[data<span class="op">$</span>cntry <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Austria&quot;</span>, <span class="st">&quot;Belgium&quot;</span>, <span class="st">&quot;Denmark&quot;</span>, <span class="st">&quot;Finland&quot;</span>, <span class="st">&quot;France&quot;</span>, <span class="st">&quot;Germany&quot;</span>, <span class="st">&quot;Italy&quot;</span>, <span class="st">&quot;Netherlands&quot;</span>, <span class="st">&quot;Norway&quot;</span>, <span class="st">&quot;Sweden&quot;</span>), ]</span></code></pre></div>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb94-1" title="1">df &lt;-<span class="st"> </span>data[data<span class="op">$</span>cntry <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Austria&quot;</span>, <span class="st">&quot;Belgium&quot;</span>, <span class="st">&quot;Denmark&quot;</span>, <span class="st">&quot;Finland&quot;</span>, <span class="st">&quot;France&quot;</span>, <span class="st">&quot;Germany&quot;</span>, <span class="st">&quot;Italy&quot;</span>, <span class="st">&quot;Netherlands&quot;</span>, <span class="st">&quot;Norway&quot;</span>, <span class="st">&quot;Sweden&quot;</span>), ]</a></code></pre></div>
 
 </div>
 <div id="question-1.c" class="section level3">
@@ -845,14 +844,14 @@ statistics-courses)?</p>
 <details>
 <p><summary>Click for explanation</summary>
 This question is open to interpretation. One thing you might notice is that all variables the authors used are currently coded as factor variables (e.g., “Factor w/ 11 levels”):</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="week-2-home.html#cb3-1"></a><span class="kw">library</span>(tidySEM)</span>
-<span id="cb3-2"><a href="week-2-home.html#cb3-2"></a><span class="kw">descriptives</span>(df)</span></code></pre></div>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb95-1" title="1"><span class="kw">library</span>(tidySEM)</a>
+<a class="sourceLine" id="cb95-2" title="2"><span class="kw">descriptives</span>(df)</a></code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["name"],"name":[1],"type":["chr"],"align":["left"]},{"label":["type"],"name":[2],"type":["chr"],"align":["left"]},{"label":["n"],"name":[3],"type":["int"],"align":["right"]},{"label":["unique"],"name":[4],"type":["int"],"align":["right"]},{"label":["mean"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["median"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["mode"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["mode_value"],"name":[8],"type":["chr"],"align":["left"]},{"label":["sd"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["v"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["min"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["max"],"name":[12],"type":["dbl"],"align":["right"]},{"label":["range"],"name":[13],"type":["dbl"],"align":["right"]},{"label":["skew"],"name":[14],"type":["dbl"],"align":["right"]},{"label":["skew_2se"],"name":[15],"type":["dbl"],"align":["right"]},{"label":["kurt"],"name":[16],"type":["dbl"],"align":["right"]},{"label":["kurt_2se"],"name":[17],"type":["dbl"],"align":["right"]}],"data":[{"1":"name","2":"character","3":"19690","4":"1","5":"NA","6":"NA","7":"19690","8":"ESS1e06_1","9":"NA","10":"0.0000000","11":"NA","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA"},{"1":"essround","2":"numeric","3":"19690","4":"1","5":"1.0","6":"1","7":"1","8":"NA","9":"0.0","10":"NA","11":"1","12":"1","13":"0","14":"NaN","15":"NaN","16":"NaN","17":"NaN"},{"1":"edition","2":"character","3":"19690","4":"1","5":"NA","6":"NA","7":"19690","8":"6.1","9":"NA","10":"0.0000000","11":"NA","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA"},{"1":"proddate","2":"character","3":"19690","4":"1","5":"NA","6":"NA","7":"19690","8":"03.10.2008","9":"NA","10":"0.0000000","11":"NA","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA"},{"1":"cntry","2":"factor","3":"19690","4":"10","5":"NA","6":"NA","7":"2919","8":"Germany","9":"NA","10":"0.8944160","11":"NA","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA"},{"1":"idno","2":"numeric","3":"19690","4":"15220","5":"373711.5","6":"12611","7":"12611","8":"NA","9":"828081.4","10":"NA","11":"1","12":"4136400","13":"4136399","14":"2.906626","15":"83.26059","16":"7.686043","17":"110.0893"},{"1":"trstlgl","2":"factor","3":"19380","4":"11","5":"NA","6":"NA","7":"3266","8":"8","9":"NA","10":"0.8789684","11":"NA","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA"},{"1":"trstplc","2":"factor","3":"19560","4":"11","5":"NA","6":"NA","7":"4318","8":"8","9":"NA","10":"0.8608062","11":"NA","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA"},{"1":"trstun","2":"factor","3":"18450","4":"11","5":"NA","6":"NA","7":"3347","8":"5","9":"NA","10":"0.8748756","11":"NA","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA"},{"1":"trstep","2":"factor","3":"17825","4":"11","5":"NA","6":"NA","7":"4265","8":"5","9":"NA","10":"0.8662044","11":"NA","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA"},{"1":"trstprl","2":"factor","3":"19228","4":"11","5":"NA","6":"NA","7":"4139","8":"5","9":"NA","10":"0.8713378","11":"NA","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA"},{"1":"stfhlth","2":"factor","3":"19481","4":"11","5":"NA","6":"NA","7":"3450","8":"7","9":"NA","10":"0.8748756","11":"NA","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA"},{"1":"stfedu","2":"factor","3":"18844","4":"11","5":"NA","6":"NA","7":"3424","8":"7","9":"NA","10":"0.8728407","11":"NA","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA"},{"1":"stfeco","2":"factor","3":"19211","4":"11","5":"NA","6":"NA","7":"3183","8":"5","9":"NA","10":"0.8811399","11":"NA","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA"},{"1":"stfgov","2":"factor","3":"19106","4":"11","5":"NA","6":"NA","7":"3511","8":"5","9":"NA","10":"0.8784157","11":"NA","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA"},{"1":"stfdem","2":"factor","3":"19106","4":"11","5":"NA","6":"NA","7":"3510","8":"7","9":"NA","10":"0.8695498","11":"NA","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA"},{"1":"pltinvt","2":"factor","3":"17971","4":"5","5":"NA","6":"NA","7":"5743","8":"Some just interested in votes","9":"NA","10":"0.7420247","11":"NA","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA"},{"1":"pltcare","2":"factor","3":"19471","4":"5","5":"NA","6":"NA","7":"7325","8":"Some care","9":"NA","10":"0.7307648","11":"NA","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA"},{"1":"trstplt","2":"factor","3":"19464","4":"11","5":"NA","6":"NA","7":"4129","8":"5","9":"NA","10":"0.8702633","11":"NA","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA"},{"1":"imsmetn","2":"factor","3":"18953","4":"4","5":"NA","6":"NA","7":"9580","8":"Allow some","9":"NA","10":"0.6353649","11":"NA","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA"},{"1":"imdfetn","2":"factor","3":"18974","4":"4","5":"NA","6":"NA","7":"8211","8":"Allow some","9":"NA","10":"0.6556632","11":"NA","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA"},{"1":"eimrcnt","2":"factor","3":"18883","4":"4","5":"NA","6":"NA","7":"8417","8":"Allow some","9":"NA","10":"0.6741836","11":"NA","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA"},{"1":"eimpcnt","2":"factor","3":"19022","4":"4","5":"NA","6":"NA","7":"8871","8":"Allow some","9":"NA","10":"0.6477789","11":"NA","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA"},{"1":"imrcntr","2":"factor","3":"18877","4":"4","5":"NA","6":"NA","7":"7888","8":"Allow some","9":"NA","10":"0.6739428","11":"NA","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA"},{"1":"impcntr","2":"factor","3":"18944","4":"4","5":"NA","6":"NA","7":"8214","8":"Allow some","9":"NA","10":"0.6566178","11":"NA","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA"},{"1":"qfimchr","2":"factor","3":"19690","4":"14","5":"NA","6":"NA","7":"6225","8":"Extremely unimportant","9":"NA","10":"0.8445259","11":"NA","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA"},{"1":"qfimwht","2":"factor","3":"19690","4":"14","5":"NA","6":"NA","7":"9475","8":"Extremely unimportant","9":"NA","10":"0.7321678","11":"NA","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA"},{"1":"imwgdwn","2":"factor","3":"18515","4":"5","5":"NA","6":"NA","7":"6580","8":"Disagree","9":"NA","10":"0.7418747","11":"NA","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA"},{"1":"imhecop","2":"factor","3":"18632","4":"5","5":"NA","6":"NA","7":"6202","8":"Agree","9":"NA","10":"0.7433170","11":"NA","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA"},{"1":"imtcjob","2":"factor","3":"18897","4":"11","5":"NA","6":"NA","7":"7202","8":"5","9":"NA","10":"0.8040579","11":"NA","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA"},{"1":"imbleco","2":"factor","3":"18783","4":"11","5":"NA","6":"NA","7":"5776","8":"5","9":"NA","10":"0.8406950","11":"NA","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA"},{"1":"imbgeco","2":"factor","3":"18798","4":"11","5":"NA","6":"NA","7":"5449","8":"5","9":"NA","10":"0.8504046","11":"NA","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA"},{"1":"imueclt","2":"factor","3":"19036","4":"11","5":"NA","6":"NA","7":"3894","8":"5","9":"NA","10":"0.8659707","11":"NA","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA"},{"1":"imwbcnt","2":"factor","3":"19053","4":"11","5":"NA","6":"NA","7":"6672","8":"5","9":"NA","10":"0.8239317","11":"NA","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA"},{"1":"imwbcrm","2":"factor","3":"19165","4":"11","5":"NA","6":"NA","7":"3792","8":"3","9":"NA","10":"0.8513989","11":"NA","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA"},{"1":"imrsprc","2":"factor","3":"19254","4":"5","5":"NA","6":"NA","7":"8113","8":"Agree","9":"NA","10":"0.7182154","11":"NA","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA"},{"1":"pplstrd","2":"factor","3":"19432","4":"5","5":"NA","6":"NA","7":"6273","8":"Agree","9":"NA","10":"0.7531543","11":"NA","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA"},{"1":"vrtrlg","2":"factor","3":"19190","4":"5","5":"NA","6":"NA","7":"6279","8":"Agree","9":"NA","10":"0.7371280","11":"NA","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA"},{"1":"shrrfg","2":"factor","3":"18125","4":"5","5":"NA","6":"NA","7":"7485","8":"Agree","9":"NA","10":"0.7238031","11":"NA","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA"},{"1":"rfgawrk","2":"factor","3":"19141","4":"5","5":"NA","6":"NA","7":"10058","8":"Agree","9":"NA","10":"0.6597333","11":"NA","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA"},{"1":"gvrfgap","2":"factor","3":"19117","4":"5","5":"NA","6":"NA","7":"6768","8":"Disagree","9":"NA","10":"0.7440341","11":"NA","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA"},{"1":"rfgfrpc","2":"factor","3":"17640","4":"5","5":"NA","6":"NA","7":"5471","8":"Agree","9":"NA","10":"0.7366097","11":"NA","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA"},{"1":"rfggvfn","2":"factor","3":"19102","4":"5","5":"NA","6":"NA","7":"8517","8":"Agree","9":"NA","10":"0.7013989","11":"NA","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA"},{"1":"rfgbfml","2":"factor","3":"19133","4":"5","5":"NA","6":"NA","7":"7033","8":"Agree","9":"NA","10":"0.7454417","11":"NA","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA"},{"1":"gndr","2":"factor","3":"19653","4":"2","5":"NA","6":"NA","7":"10133","8":"Female","9":"NA","10":"0.4995136","11":"NA","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA"},{"1":"yrbrn","2":"factor","3":"19568","4":"86","5":"NA","6":"NA","7":"428","8":"1963","9":"NA","10":"0.9844786","11":"NA","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA"},{"1":"edulvl","2":"factor","3":"17338","4":"7","5":"NA","6":"NA","7":"6459","8":"Upper secondary","9":"NA","10":"0.7644261","11":"NA","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA"},{"1":"eduyrs","2":"factor","3":"19483","4":"35","5":"NA","6":"NA","7":"2745","8":"12","9":"NA","10":"0.9209349","11":"NA","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA"},{"1":"polintr","2":"factor","3":"19644","4":"4","5":"NA","6":"NA","7":"8083","8":"Quite interested","9":"NA","10":"0.6854263","11":"NA","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA"},{"1":"lrscale","2":"factor","3":"18053","4":"11","5":"NA","6":"NA","7":"5618","8":"5","9":"NA","10":"0.8393710","11":"NA","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["name"],"name":[1],"type":["chr"],"align":["left"]},{"label":["type"],"name":[2],"type":["chr"],"align":["left"]},{"label":["n"],"name":[3],"type":["int"],"align":["right"]},{"label":["missing"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["unique"],"name":[5],"type":["int"],"align":["right"]},{"label":["mean"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["median"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["mode"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["mode_value"],"name":[9],"type":["chr"],"align":["left"]},{"label":["sd"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["v"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["min"],"name":[12],"type":["dbl"],"align":["right"]},{"label":["max"],"name":[13],"type":["dbl"],"align":["right"]},{"label":["range"],"name":[14],"type":["dbl"],"align":["right"]},{"label":["skew"],"name":[15],"type":["dbl"],"align":["right"]},{"label":["skew_2se"],"name":[16],"type":["dbl"],"align":["right"]},{"label":["kurt"],"name":[17],"type":["dbl"],"align":["right"]},{"label":["kurt_2se"],"name":[18],"type":["dbl"],"align":["right"]}],"data":[{"1":"name","2":"character","3":"19690","4":"0.000000000","5":"2","6":"NA","7":"NA","8":"19690","9":"ESS1e06_1","10":"NA","11":"0.0000000","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA","18":"NA"},{"1":"essround","2":"numeric","3":"19690","4":"0.000000000","5":"1","6":"1.0","7":"1","8":"1","9":"NA","10":"0.0","11":"NA","12":"1","13":"1","14":"0","15":"NaN","16":"NaN","17":"NaN","18":"NaN"},{"1":"edition","2":"character","3":"19690","4":"0.000000000","5":"2","6":"NA","7":"NA","8":"19690","9":"6.1","10":"NA","11":"0.0000000","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA","18":"NA"},{"1":"proddate","2":"character","3":"19690","4":"0.000000000","5":"2","6":"NA","7":"NA","8":"19690","9":"03.10.2008","10":"NA","11":"0.0000000","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA","18":"NA"},{"1":"cntry","2":"factor","3":"19690","4":"0.000000000","5":"11","6":"NA","7":"NA","8":"2919","9":"Germany","10":"NA","11":"0.8944160","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA","18":"NA"},{"1":"idno","2":"numeric","3":"19690","4":"0.000000000","5":"15220","6":"373711.5","7":"12611","8":"12611","9":"NA","10":"828081.4","11":"NA","12":"1","13":"4136400","14":"4136399","15":"2.906626","16":"83.26059","17":"7.686043","18":"110.0893"},{"1":"trstlgl","2":"factor","3":"19380","4":"0.015744033","5":"12","6":"NA","7":"NA","8":"3266","9":"8","10":"NA","11":"0.8789684","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA","18":"NA"},{"1":"trstplc","2":"factor","3":"19560","4":"0.006602336","5":"12","6":"NA","7":"NA","8":"4318","9":"8","10":"NA","11":"0.8608062","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA","18":"NA"},{"1":"trstun","2":"factor","3":"18450","4":"0.062976130","5":"12","6":"NA","7":"NA","8":"3347","9":"5","10":"NA","11":"0.8748756","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA","18":"NA"},{"1":"trstep","2":"factor","3":"17825","4":"0.094718131","5":"12","6":"NA","7":"NA","8":"4265","9":"5","10":"NA","11":"0.8662044","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA","18":"NA"},{"1":"trstprl","2":"factor","3":"19228","4":"0.023463687","5":"12","6":"NA","7":"NA","8":"4139","9":"5","10":"NA","11":"0.8713378","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA","18":"NA"},{"1":"stfhlth","2":"factor","3":"19481","4":"0.010614525","5":"12","6":"NA","7":"NA","8":"3450","9":"7","10":"NA","11":"0.8748756","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA","18":"NA"},{"1":"stfedu","2":"factor","3":"18844","4":"0.042965973","5":"12","6":"NA","7":"NA","8":"3424","9":"7","10":"NA","11":"0.8728407","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA","18":"NA"},{"1":"stfeco","2":"factor","3":"19211","4":"0.024327070","5":"12","6":"NA","7":"NA","8":"3183","9":"5","10":"NA","11":"0.8811399","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA","18":"NA"},{"1":"stfgov","2":"factor","3":"19106","4":"0.029659726","5":"12","6":"NA","7":"NA","8":"3511","9":"5","10":"NA","11":"0.8784157","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA","18":"NA"},{"1":"stfdem","2":"factor","3":"19106","4":"0.029659726","5":"12","6":"NA","7":"NA","8":"3510","9":"7","10":"NA","11":"0.8695498","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA","18":"NA"},{"1":"pltinvt","2":"factor","3":"17971","4":"0.087303200","5":"6","6":"NA","7":"NA","8":"5743","9":"Some just interested in votes","10":"NA","11":"0.7420247","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA","18":"NA"},{"1":"pltcare","2":"factor","3":"19471","4":"0.011122397","5":"6","6":"NA","7":"NA","8":"7325","9":"Some care","10":"NA","11":"0.7307648","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA","18":"NA"},{"1":"trstplt","2":"factor","3":"19464","4":"0.011477908","5":"12","6":"NA","7":"NA","8":"4129","9":"5","10":"NA","11":"0.8702633","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA","18":"NA"},{"1":"imsmetn","2":"factor","3":"18953","4":"0.037430168","5":"5","6":"NA","7":"NA","8":"9580","9":"Allow some","10":"NA","11":"0.6353649","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA","18":"NA"},{"1":"imdfetn","2":"factor","3":"18974","4":"0.036363636","5":"5","6":"NA","7":"NA","8":"8211","9":"Allow some","10":"NA","11":"0.6556632","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA","18":"NA"},{"1":"eimrcnt","2":"factor","3":"18883","4":"0.040985272","5":"5","6":"NA","7":"NA","8":"8417","9":"Allow some","10":"NA","11":"0.6741836","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA","18":"NA"},{"1":"eimpcnt","2":"factor","3":"19022","4":"0.033925851","5":"5","6":"NA","7":"NA","8":"8871","9":"Allow some","10":"NA","11":"0.6477789","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA","18":"NA"},{"1":"imrcntr","2":"factor","3":"18877","4":"0.041289995","5":"5","6":"NA","7":"NA","8":"7888","9":"Allow some","10":"NA","11":"0.6739428","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA","18":"NA"},{"1":"impcntr","2":"factor","3":"18944","4":"0.037887252","5":"5","6":"NA","7":"NA","8":"8214","9":"Allow some","10":"NA","11":"0.6566178","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA","18":"NA"},{"1":"qfimchr","2":"factor","3":"19690","4":"0.000000000","5":"15","6":"NA","7":"NA","8":"6225","9":"Extremely unimportant","10":"NA","11":"0.8445259","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA","18":"NA"},{"1":"qfimwht","2":"factor","3":"19690","4":"0.000000000","5":"15","6":"NA","7":"NA","8":"9475","9":"Extremely unimportant","10":"NA","11":"0.7321678","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA","18":"NA"},{"1":"imwgdwn","2":"factor","3":"18515","4":"0.059674962","5":"6","6":"NA","7":"NA","8":"6580","9":"Disagree","10":"NA","11":"0.7418747","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA","18":"NA"},{"1":"imhecop","2":"factor","3":"18632","4":"0.053732859","5":"6","6":"NA","7":"NA","8":"6202","9":"Agree","10":"NA","11":"0.7433170","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA","18":"NA"},{"1":"imtcjob","2":"factor","3":"18897","4":"0.040274251","5":"12","6":"NA","7":"NA","8":"7202","9":"5","10":"NA","11":"0.8040579","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA","18":"NA"},{"1":"imbleco","2":"factor","3":"18783","4":"0.046063992","5":"12","6":"NA","7":"NA","8":"5776","9":"5","10":"NA","11":"0.8406950","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA","18":"NA"},{"1":"imbgeco","2":"factor","3":"18798","4":"0.045302184","5":"12","6":"NA","7":"NA","8":"5449","9":"5","10":"NA","11":"0.8504046","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA","18":"NA"},{"1":"imueclt","2":"factor","3":"19036","4":"0.033214830","5":"12","6":"NA","7":"NA","8":"3894","9":"5","10":"NA","11":"0.8659707","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA","18":"NA"},{"1":"imwbcnt","2":"factor","3":"19053","4":"0.032351447","5":"12","6":"NA","7":"NA","8":"6672","9":"5","10":"NA","11":"0.8239317","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA","18":"NA"},{"1":"imwbcrm","2":"factor","3":"19165","4":"0.026663281","5":"12","6":"NA","7":"NA","8":"3792","9":"3","10":"NA","11":"0.8513989","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA","18":"NA"},{"1":"imrsprc","2":"factor","3":"19254","4":"0.022143220","5":"6","6":"NA","7":"NA","8":"8113","9":"Agree","10":"NA","11":"0.7182154","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA","18":"NA"},{"1":"pplstrd","2":"factor","3":"19432","4":"0.013103098","5":"6","6":"NA","7":"NA","8":"6273","9":"Agree","10":"NA","11":"0.7531543","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA","18":"NA"},{"1":"vrtrlg","2":"factor","3":"19190","4":"0.025393601","5":"6","6":"NA","7":"NA","8":"6279","9":"Agree","10":"NA","11":"0.7371280","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA","18":"NA"},{"1":"shrrfg","2":"factor","3":"18125","4":"0.079481971","5":"6","6":"NA","7":"NA","8":"7485","9":"Agree","10":"NA","11":"0.7238031","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA","18":"NA"},{"1":"rfgawrk","2":"factor","3":"19141","4":"0.027882174","5":"6","6":"NA","7":"NA","8":"10058","9":"Agree","10":"NA","11":"0.6597333","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA","18":"NA"},{"1":"gvrfgap","2":"factor","3":"19117","4":"0.029101067","5":"6","6":"NA","7":"NA","8":"6768","9":"Disagree","10":"NA","11":"0.7440341","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA","18":"NA"},{"1":"rfgfrpc","2":"factor","3":"17640","4":"0.104113763","5":"6","6":"NA","7":"NA","8":"5471","9":"Agree","10":"NA","11":"0.7366097","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA","18":"NA"},{"1":"rfggvfn","2":"factor","3":"19102","4":"0.029862875","5":"6","6":"NA","7":"NA","8":"8517","9":"Agree","10":"NA","11":"0.7013989","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA","18":"NA"},{"1":"rfgbfml","2":"factor","3":"19133","4":"0.028288471","5":"6","6":"NA","7":"NA","8":"7033","9":"Agree","10":"NA","11":"0.7454417","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA","18":"NA"},{"1":"gndr","2":"factor","3":"19653","4":"0.001879126","5":"3","6":"NA","7":"NA","8":"10133","9":"Female","10":"NA","11":"0.4995136","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA","18":"NA"},{"1":"yrbrn","2":"factor","3":"19568","4":"0.006196039","5":"87","6":"NA","7":"NA","8":"428","9":"1963","10":"NA","11":"0.9844786","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA","18":"NA"},{"1":"edulvl","2":"factor","3":"17338","4":"0.119451498","5":"8","6":"NA","7":"NA","8":"6459","9":"Upper secondary","10":"NA","11":"0.7644261","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA","18":"NA"},{"1":"eduyrs","2":"factor","3":"19483","4":"0.010512951","5":"36","6":"NA","7":"NA","8":"2745","9":"12","10":"NA","11":"0.9209349","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA","18":"NA"},{"1":"polintr","2":"factor","3":"19644","4":"0.002336211","5":"5","6":"NA","7":"NA","8":"8083","9":"Quite interested","10":"NA","11":"0.6854263","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA","18":"NA"},{"1":"lrscale","2":"factor","3":"18053","4":"0.083138649","5":"12","6":"NA","7":"NA","8":"5618","9":"5","10":"NA","11":"0.8393710","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA","18":"NA"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="week-2-home.html#cb4-1"></a><span class="kw">levels</span>(df<span class="op">$</span>trstlgl)</span></code></pre></div>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb96-1" title="1"><span class="kw">levels</span>(df<span class="op">$</span>trstlgl)</a></code></pre></div>
 <pre><code>##  [1] &quot;No trust at all&quot; &quot;1&quot;               &quot;2&quot;               &quot;3&quot;              
 ##  [5] &quot;4 &quot;              &quot;5&quot;               &quot;6&quot;               &quot;7&quot;              
 ##  [9] &quot;8&quot;               &quot;9&quot;               &quot;Complete trust&quot;</code></pre>
@@ -861,16 +860,16 @@ This question is open to interpretation. One thing you might notice is that all 
 <h4><span class="header-section-number">7.0.4.1</span> Re-coding factors to numeric</h4>
 <p>We can convert a factor to numeric using the function <code>as.numeric()</code>. However, in this case, we have 38 variables to convert - that’s a lot of code.</p>
 <p>Thankfully, there is a function to apply this transformation to each column of the data: <code>lapply()</code>, short for list apply. This function takes each list element (column of the <code>data.frame</code>), and applies the function <code>as.numeric()</code> to it:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="week-2-home.html#cb6-1"></a>df[<span class="dv">7</span><span class="op">:</span><span class="dv">44</span>] &lt;-<span class="st"> </span><span class="kw">lapply</span>(df[<span class="dv">7</span><span class="op">:</span><span class="dv">44</span>], as.numeric)</span></code></pre></div>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb98-1" title="1">df[<span class="dv">7</span><span class="op">:</span><span class="dv">44</span>] &lt;-<span class="st"> </span><span class="kw">lapply</span>(df[<span class="dv">7</span><span class="op">:</span><span class="dv">44</span>], as.numeric)</a></code></pre></div>
 </div>
 <div id="reading-data-without-coding-factors" class="section level4">
 <h4><span class="header-section-number">7.0.4.2</span> Reading data without coding factors</h4>
 <p>An alternative solution is to prevent the function <code>read.spss()</code> from using value labels to code variables as factors when the data are loaded. However, we’re not going to use this right now, so the information below is merely illustrative:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="week-2-home.html#cb7-1"></a><span class="co"># The option use.value.labels = FALSE stops the function from coding factors:</span></span>
-<span id="cb7-2"><a href="week-2-home.html#cb7-2"></a>data &lt;-<span class="st"> </span><span class="kw">read.spss</span>(<span class="st">&quot;ESSround1-a.sav&quot;</span>, <span class="dt">to.data.frame =</span> <span class="ot">TRUE</span>, <span class="dt">use.value.labels =</span> <span class="ot">FALSE</span>)</span>
-<span id="cb7-3"><a href="week-2-home.html#cb7-3"></a><span class="co"># Then, re-select the subset of data. The countries are now also unlabeled, so</span></span>
-<span id="cb7-4"><a href="week-2-home.html#cb7-4"></a><span class="co"># we select them by number:</span></span>
-<span id="cb7-5"><a href="week-2-home.html#cb7-5"></a>df &lt;-<span class="st"> </span>data[data<span class="op">$</span>cntry <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">21</span>,<span class="dv">18</span>,<span class="dv">17</span>,<span class="dv">15</span>,<span class="dv">9</span>,<span class="dv">8</span>,<span class="dv">6</span>,<span class="dv">5</span>,<span class="dv">2</span>,<span class="dv">1</span>), ]</span></code></pre></div>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb99-1" title="1"><span class="co"># The option use.value.labels = FALSE stops the function from coding factors:</span></a>
+<a class="sourceLine" id="cb99-2" title="2">data &lt;-<span class="st"> </span><span class="kw">read.spss</span>(<span class="st">&quot;ESSround1-a.sav&quot;</span>, <span class="dt">to.data.frame =</span> <span class="ot">TRUE</span>, <span class="dt">use.value.labels =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb99-3" title="3"><span class="co"># Then, re-select the subset of data. The countries are now also unlabeled, so</span></a>
+<a class="sourceLine" id="cb99-4" title="4"><span class="co"># we select them by number:</span></a>
+<a class="sourceLine" id="cb99-5" title="5">df &lt;-<span class="st"> </span>data[data<span class="op">$</span>cntry <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">21</span>,<span class="dv">18</span>,<span class="dv">17</span>,<span class="dv">15</span>,<span class="dv">9</span>,<span class="dv">8</span>,<span class="dv">6</span>,<span class="dv">5</span>,<span class="dv">2</span>,<span class="dv">1</span>), ]</a></code></pre></div>
 
 </div>
 </div>
@@ -883,16 +882,16 @@ into “long format” (one column with the variable names, one column with the 
 The package <code>tidyr</code> has a convenient function to reshape data to long format:
 <code>pivot_longer()</code>.</p>
 <p>First, make a long data.frame containing variables 7:44.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="week-2-home.html#cb8-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;tidyr&quot;</span>)</span>
-<span id="cb8-2"><a href="week-2-home.html#cb8-2"></a><span class="kw">library</span>(tidyr)</span>
-<span id="cb8-3"><a href="week-2-home.html#cb8-3"></a>df_plot &lt;-<span class="st"> </span>df[<span class="dv">7</span><span class="op">:</span><span class="dv">44</span>]</span>
-<span id="cb8-4"><a href="week-2-home.html#cb8-4"></a>df_plot &lt;-<span class="st"> </span><span class="kw">pivot_longer</span>(df_plot, <span class="kw">names</span>(df_plot))</span></code></pre></div>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb100-1" title="1"><span class="kw">install.packages</span>(<span class="st">&quot;tidyr&quot;</span>)</a>
+<a class="sourceLine" id="cb100-2" title="2"><span class="kw">library</span>(tidyr)</a>
+<a class="sourceLine" id="cb100-3" title="3">df_plot &lt;-<span class="st"> </span>df[<span class="dv">7</span><span class="op">:</span><span class="dv">44</span>]</a>
+<a class="sourceLine" id="cb100-4" title="4">df_plot &lt;-<span class="st"> </span><span class="kw">pivot_longer</span>(df_plot, <span class="kw">names</span>(df_plot))</a></code></pre></div>
 <p>Next, we can plot the data - using <code>geom_histogram()</code>, <code>geom_density()</code> or <code>geom_boxplot()</code> as before. A new additional function allows us to make separate plots for each variable: <code>+ facet_wrap(~name, scales = "free_x")</code>.</p>
 <details>
 <p><summary>Click for explanation</summary></p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="week-2-home.html#cb9-1"></a><span class="kw">library</span>(ggplot2)</span>
-<span id="cb9-2"><a href="week-2-home.html#cb9-2"></a><span class="kw">ggplot</span>(df_plot, <span class="kw">aes</span>(<span class="dt">x =</span> value)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>() <span class="op">+</span><span class="st"> </span><span class="kw">facet_wrap</span>(<span class="op">~</span>name, <span class="dt">scales =</span> <span class="st">&quot;free_x&quot;</span>)</span></code></pre></div>
-<p><img src="TCSM_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb101-1" title="1"><span class="kw">library</span>(ggplot2)</a>
+<a class="sourceLine" id="cb101-2" title="2"><span class="kw">ggplot</span>(df_plot, <span class="kw">aes</span>(<span class="dt">x =</span> value)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>() <span class="op">+</span><span class="st"> </span><span class="kw">facet_wrap</span>(<span class="op">~</span>name, <span class="dt">scales =</span> <span class="st">&quot;free_x&quot;</span>)</a></code></pre></div>
+<p><img src="TCSM_files/figure-html/unnamed-chunk-97-1.png" width="672" /></p>
 <p>Notice the fact that you can see that the scales are actually categorical (because of the gaps between bars), and that most variables look relatively normally distributed despite being categorical. It’s probably fine to treat them as continuous.
 </p>
 </div>
@@ -913,9 +912,9 @@ rotation etc. Do two analyses: one for trust in politics, and one for attitudes 
 <div id="trust-in-politics" class="section level4">
 <h4><span class="header-section-number">7.0.7.1</span> Trust in politics</h4>
 <p>Kestilä extracted three components, with VARIMAX rotation. When we print the results, we can hide all factor loadings smaller than the smallest one in their table, to make it easier to read:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="week-2-home.html#cb10-1"></a><span class="kw">library</span>(psych)</span>
-<span id="cb10-2"><a href="week-2-home.html#cb10-2"></a>pca_trust &lt;-<span class="st"> </span><span class="kw">principal</span>(df[, <span class="dv">7</span><span class="op">:</span><span class="dv">19</span>], <span class="dt">nfactors =</span> <span class="dv">3</span>, <span class="dt">rotate =</span> <span class="st">&quot;varimax&quot;</span>)</span>
-<span id="cb10-3"><a href="week-2-home.html#cb10-3"></a><span class="kw">print</span>(pca_trust, <span class="dt">cut =</span> <span class="fl">.3</span>, <span class="dt">digits =</span><span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb102-1" title="1"><span class="kw">library</span>(psych)</a>
+<a class="sourceLine" id="cb102-2" title="2">pca_trust &lt;-<span class="st"> </span><span class="kw">principal</span>(df[, <span class="dv">7</span><span class="op">:</span><span class="dv">19</span>], <span class="dt">nfactors =</span> <span class="dv">3</span>, <span class="dt">rotate =</span> <span class="st">&quot;varimax&quot;</span>)</a>
+<a class="sourceLine" id="cb102-3" title="3"><span class="kw">print</span>(pca_trust, <span class="dt">cut =</span> <span class="fl">.3</span>, <span class="dt">digits =</span><span class="dv">3</span>)</a></code></pre></div>
 <pre><code>## Principal Components Analysis
 ## Call: principal(r = df[, 7:19], nfactors = 3, rotate = &quot;varimax&quot;)
 ## Standardized loadings (pattern matrix) based upon correlation matrix
@@ -949,9 +948,9 @@ rotation etc. Do two analyses: one for trust in politics, and one for attitudes 
 ## 
 ## Fit based upon off diagonal values = 0.967</code></pre>
 <p>For attitude towards immigration, Kestilä extracted five components, with VARIMAX rotation:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="week-2-home.html#cb12-1"></a><span class="kw">library</span>(psych)</span>
-<span id="cb12-2"><a href="week-2-home.html#cb12-2"></a>pca_att &lt;-<span class="st"> </span><span class="kw">principal</span>(df[, <span class="dv">20</span><span class="op">:</span><span class="dv">44</span>], <span class="dt">nfactors =</span> <span class="dv">5</span>, <span class="dt">rotate =</span> <span class="st">&quot;varimax&quot;</span>)</span>
-<span id="cb12-3"><a href="week-2-home.html#cb12-3"></a><span class="kw">print</span>(pca_att, <span class="dt">cut =</span> <span class="fl">.3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb104-1" title="1"><span class="kw">library</span>(psych)</a>
+<a class="sourceLine" id="cb104-2" title="2">pca_att &lt;-<span class="st"> </span><span class="kw">principal</span>(df[, <span class="dv">20</span><span class="op">:</span><span class="dv">44</span>], <span class="dt">nfactors =</span> <span class="dv">5</span>, <span class="dt">rotate =</span> <span class="st">&quot;varimax&quot;</span>)</a>
+<a class="sourceLine" id="cb104-3" title="3"><span class="kw">print</span>(pca_att, <span class="dt">cut =</span> <span class="fl">.3</span>)</a></code></pre></div>
 <pre><code>## Principal Components Analysis
 ## Call: principal(r = df[, 20:44], nfactors = 5, rotate = &quot;varimax&quot;)
 ## Standardized loadings (pattern matrix) based upon correlation matrix
@@ -1008,7 +1007,7 @@ rotation etc. Do two analyses: one for trust in politics, and one for attitudes 
 <p><summary>Click for explanation</summary>
 Extracting factor scores</p>
 <p>The factor scores are inside of the results objects. Use the <code>$</code> operator to access them:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="week-2-home.html#cb14-1"></a><span class="kw">head</span>(pca_att<span class="op">$</span>scores)</span></code></pre></div>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb106-1" title="1"><span class="kw">head</span>(pca_att<span class="op">$</span>scores)</a></code></pre></div>
 <pre><code>##           RC2        RC1        RC5         RC3         RC4
 ## 1   1.9920289  1.3140238 -0.8305392 -0.06329775 -0.08837693
 ## 4   0.1708174 -1.2167781 -0.4974957 -0.23766146  0.67364069
@@ -1017,14 +1016,14 @@ Extracting factor scores</p>
 ## 17 -0.1136716 -0.7869911 -1.4664715 -0.07112144  0.41078167
 ## 20 -0.9188606  2.8264230 -0.3477484 -0.73788338 -1.32089442</code></pre>
 <p>We’re going to give these factor scores some informative names, and add them to our data.frame. <strong>You should give them different, informative names based on the meaning of the factors!</strong></p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="week-2-home.html#cb16-1"></a><span class="co"># Print names</span></span>
-<span id="cb16-2"><a href="week-2-home.html#cb16-2"></a><span class="kw">colnames</span>(pca_att<span class="op">$</span>scores)</span></code></pre></div>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb108-1" title="1"><span class="co"># Print names</span></a>
+<a class="sourceLine" id="cb108-2" title="2"><span class="kw">colnames</span>(pca_att<span class="op">$</span>scores)</a></code></pre></div>
 <pre><code>## [1] &quot;RC2&quot; &quot;RC1&quot; &quot;RC5&quot; &quot;RC3&quot; &quot;RC4&quot;</code></pre>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="week-2-home.html#cb18-1"></a><span class="co"># Change names</span></span>
-<span id="cb18-2"><a href="week-2-home.html#cb18-2"></a><span class="kw">colnames</span>(pca_att<span class="op">$</span>scores) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Att1&quot;</span>, <span class="st">&quot;Att2&quot;</span>, <span class="st">&quot;Att3&quot;</span>, <span class="st">&quot;Att4&quot;</span>, <span class="st">&quot;Att5&quot;</span>)</span>
-<span id="cb18-3"><a href="week-2-home.html#cb18-3"></a><span class="kw">colnames</span>(pca_trust<span class="op">$</span>scores) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Trust1&quot;</span>, <span class="st">&quot;Trust2&quot;</span>, <span class="st">&quot;Trust3&quot;</span>)</span>
-<span id="cb18-4"><a href="week-2-home.html#cb18-4"></a><span class="co"># Add columns</span></span>
-<span id="cb18-5"><a href="week-2-home.html#cb18-5"></a>df &lt;-<span class="st"> </span><span class="kw">cbind</span>(df, pca_trust<span class="op">$</span>scores, pca_att<span class="op">$</span>scores)</span></code></pre></div>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb110-1" title="1"><span class="co"># Change names</span></a>
+<a class="sourceLine" id="cb110-2" title="2"><span class="kw">colnames</span>(pca_att<span class="op">$</span>scores) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Att1&quot;</span>, <span class="st">&quot;Att2&quot;</span>, <span class="st">&quot;Att3&quot;</span>, <span class="st">&quot;Att4&quot;</span>, <span class="st">&quot;Att5&quot;</span>)</a>
+<a class="sourceLine" id="cb110-3" title="3"><span class="kw">colnames</span>(pca_trust<span class="op">$</span>scores) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Trust1&quot;</span>, <span class="st">&quot;Trust2&quot;</span>, <span class="st">&quot;Trust3&quot;</span>)</a>
+<a class="sourceLine" id="cb110-4" title="4"><span class="co"># Add columns</span></a>
+<a class="sourceLine" id="cb110-5" title="5">df &lt;-<span class="st"> </span><span class="kw">cbind</span>(df, pca_trust<span class="op">$</span>scores, pca_att<span class="op">$</span>scores)</a></code></pre></div>
 
 </div>
 <div id="question-1.i" class="section level3">
@@ -1098,6 +1097,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

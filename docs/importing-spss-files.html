@@ -49,15 +49,16 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
 <script src="libs/pagedtable-1.1/js/pagedtable.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
@@ -66,16 +67,14 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
+    border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -84,9 +83,9 @@ pre.numberSource code > span > a:first-child::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {   }
+  {  }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+a.sourceLine::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -274,97 +273,99 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="11.0.10" data-path="week-3-class.html"><a href="week-3-class.html#optional"><i class="fa fa-check"></i><b>11.0.10</b> Optional</a></li>
 <li class="chapter" data-level="11.0.11" data-path="week-2-class.html"><a href="week-2-class.html#question-10"><i class="fa fa-check"></i><b>11.0.11</b> Question 10</a></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="week-4-home.html"><a href="week-4-home.html"><i class="fa fa-check"></i><b>12</b> Week 4 - Home</a><ul>
-<li class="chapter" data-level="12.0.1" data-path="week-2-class.html"><a href="week-2-class.html#question-1"><i class="fa fa-check"></i><b>12.0.1</b> Question 1</a></li>
-<li class="chapter" data-level="12.0.2" data-path="week-2-class.html"><a href="week-2-class.html#question-2"><i class="fa fa-check"></i><b>12.0.2</b> Question 2</a></li>
-<li class="chapter" data-level="12.0.3" data-path="week-2-class.html"><a href="week-2-class.html#question-3"><i class="fa fa-check"></i><b>12.0.3</b> Question 3</a></li>
-<li class="chapter" data-level="12.0.4" data-path="week-2-class.html"><a href="week-2-class.html#question-4"><i class="fa fa-check"></i><b>12.0.4</b> Question 4</a></li>
-<li class="chapter" data-level="12.0.5" data-path="week-2-class.html"><a href="week-2-class.html#question-5"><i class="fa fa-check"></i><b>12.0.5</b> Question 5</a></li>
-<li class="chapter" data-level="12.0.6" data-path="week-2-class.html"><a href="week-2-class.html#question-6"><i class="fa fa-check"></i><b>12.0.6</b> Question 6</a></li>
-<li class="chapter" data-level="12.0.7" data-path="week-2-class.html"><a href="week-2-class.html#question-7"><i class="fa fa-check"></i><b>12.0.7</b> Question 7</a></li>
-<li class="chapter" data-level="12.0.8" data-path="week-2-class.html"><a href="week-2-class.html#question-8"><i class="fa fa-check"></i><b>12.0.8</b> Question 8</a></li>
-<li class="chapter" data-level="12.0.9" data-path="week-4-home.html"><a href="week-4-home.html#additional-options"><i class="fa fa-check"></i><b>12.0.9</b> Additional options</a></li>
-<li class="chapter" data-level="12.0.10" data-path="week-2-class.html"><a href="week-2-class.html#question-9"><i class="fa fa-check"></i><b>12.0.10</b> Question 9</a></li>
-<li class="chapter" data-level="12.0.11" data-path="week-2-class.html"><a href="week-2-class.html#question-10"><i class="fa fa-check"></i><b>12.0.11</b> Question 10</a></li>
+<li class="chapter" data-level="12" data-path="week-4-reading-questions.html"><a href="week-4-reading-questions.html"><i class="fa fa-check"></i><b>12</b> Week 4 - Reading questions</a></li>
+<li class="chapter" data-level="13" data-path="week-4-home.html"><a href="week-4-home.html"><i class="fa fa-check"></i><b>13</b> Week 4 - Home</a><ul>
+<li class="chapter" data-level="13.0.1" data-path="week-2-class.html"><a href="week-2-class.html#question-1"><i class="fa fa-check"></i><b>13.0.1</b> Question 1</a></li>
+<li class="chapter" data-level="13.0.2" data-path="week-2-class.html"><a href="week-2-class.html#question-2"><i class="fa fa-check"></i><b>13.0.2</b> Question 2</a></li>
+<li class="chapter" data-level="13.0.3" data-path="week-2-class.html"><a href="week-2-class.html#question-3"><i class="fa fa-check"></i><b>13.0.3</b> Question 3</a></li>
+<li class="chapter" data-level="13.0.4" data-path="week-2-class.html"><a href="week-2-class.html#question-4"><i class="fa fa-check"></i><b>13.0.4</b> Question 4</a></li>
+<li class="chapter" data-level="13.0.5" data-path="week-2-class.html"><a href="week-2-class.html#question-5"><i class="fa fa-check"></i><b>13.0.5</b> Question 5</a></li>
+<li class="chapter" data-level="13.0.6" data-path="week-2-class.html"><a href="week-2-class.html#question-6"><i class="fa fa-check"></i><b>13.0.6</b> Question 6</a></li>
+<li class="chapter" data-level="13.0.7" data-path="week-2-class.html"><a href="week-2-class.html#question-7"><i class="fa fa-check"></i><b>13.0.7</b> Question 7</a></li>
+<li class="chapter" data-level="13.0.8" data-path="week-2-class.html"><a href="week-2-class.html#question-8"><i class="fa fa-check"></i><b>13.0.8</b> Question 8</a></li>
+<li class="chapter" data-level="13.0.9" data-path="week-4-home.html"><a href="week-4-home.html#additional-options"><i class="fa fa-check"></i><b>13.0.9</b> Additional options</a></li>
+<li class="chapter" data-level="13.0.10" data-path="week-2-class.html"><a href="week-2-class.html#question-9"><i class="fa fa-check"></i><b>13.0.10</b> Question 9</a></li>
+<li class="chapter" data-level="13.0.11" data-path="week-2-class.html"><a href="week-2-class.html#question-10"><i class="fa fa-check"></i><b>13.0.11</b> Question 10</a></li>
 </ul></li>
-<li class="chapter" data-level="13" data-path="week-4-class.html"><a href="week-4-class.html"><i class="fa fa-check"></i><b>13</b> Week 4 - Class</a><ul>
-<li class="chapter" data-level="13.0.1" data-path="week-4-class.html"><a href="week-4-class.html#specify-basic-model"><i class="fa fa-check"></i><b>13.0.1</b> Specify basic model</a></li>
-<li class="chapter" data-level="13.0.2" data-path="week-4-class.html"><a href="week-4-class.html#how-to-run-multi-group-model"><i class="fa fa-check"></i><b>13.0.2</b> How to run multi-group model</a></li>
-<li class="chapter" data-level="13.0.3" data-path="week-2-class.html"><a href="week-2-class.html#question-1"><i class="fa fa-check"></i><b>13.0.3</b> Question 1</a></li>
-<li class="chapter" data-level="13.0.4" data-path="week-2-class.html"><a href="week-2-class.html#question-2"><i class="fa fa-check"></i><b>13.0.4</b> Question 2</a></li>
-<li class="chapter" data-level="13.0.5" data-path="week-2-class.html"><a href="week-2-class.html#question-3"><i class="fa fa-check"></i><b>13.0.5</b> Question 3</a></li>
-<li class="chapter" data-level="13.0.6" data-path="week-2-class.html"><a href="week-2-class.html#question-4"><i class="fa fa-check"></i><b>13.0.6</b> Question 4</a></li>
-<li class="chapter" data-level="13.0.7" data-path="week-4-class.html"><a href="week-4-class.html#imposing-constraints"><i class="fa fa-check"></i><b>13.0.7</b> Imposing constraints</a></li>
-<li class="chapter" data-level="13.0.8" data-path="week-4-class.html"><a href="week-4-class.html#stepwise-approach"><i class="fa fa-check"></i><b>13.0.8</b> Stepwise approach</a></li>
-<li class="chapter" data-level="13.0.9" data-path="week-2-class.html"><a href="week-2-class.html#question-5"><i class="fa fa-check"></i><b>13.0.9</b> Question 5</a></li>
-<li class="chapter" data-level="13.0.10" data-path="week-2-class.html"><a href="week-2-class.html#question-6"><i class="fa fa-check"></i><b>13.0.10</b> Question 6</a></li>
-</ul></li>
-<li class="chapter" data-level="14" data-path="week-5-home.html"><a href="week-5-home.html"><i class="fa fa-check"></i><b>14</b> Week 5 - Home</a><ul>
-<li class="chapter" data-level="14.0.1" data-path="week-5-home.html"><a href="week-5-home.html#specify-model"><i class="fa fa-check"></i><b>14.0.1</b> Specify model</a></li>
-<li class="chapter" data-level="14.0.2" data-path="week-2-class.html"><a href="week-2-class.html#question-1"><i class="fa fa-check"></i><b>14.0.2</b> Question 1</a></li>
-<li class="chapter" data-level="14.0.3" data-path="week-2-class.html"><a href="week-2-class.html#question-2"><i class="fa fa-check"></i><b>14.0.3</b> Question 2</a></li>
-<li class="chapter" data-level="14.0.4" data-path="week-2-class.html"><a href="week-2-class.html#question-3"><i class="fa fa-check"></i><b>14.0.4</b> Question 3</a></li>
-<li class="chapter" data-level="14.0.5" data-path="week-5-home.html"><a href="week-5-home.html#estimating-indirect-effects"><i class="fa fa-check"></i><b>14.0.5</b> Estimating indirect effects</a></li>
+<li class="chapter" data-level="14" data-path="week-4-class.html"><a href="week-4-class.html"><i class="fa fa-check"></i><b>14</b> Week 4 - Class</a><ul>
+<li class="chapter" data-level="14.0.1" data-path="week-4-class.html"><a href="week-4-class.html#specify-basic-model"><i class="fa fa-check"></i><b>14.0.1</b> Specify basic model</a></li>
+<li class="chapter" data-level="14.0.2" data-path="week-4-class.html"><a href="week-4-class.html#how-to-run-multi-group-model"><i class="fa fa-check"></i><b>14.0.2</b> How to run multi-group model</a></li>
+<li class="chapter" data-level="14.0.3" data-path="week-2-class.html"><a href="week-2-class.html#question-1"><i class="fa fa-check"></i><b>14.0.3</b> Question 1</a></li>
+<li class="chapter" data-level="14.0.4" data-path="week-2-class.html"><a href="week-2-class.html#question-2"><i class="fa fa-check"></i><b>14.0.4</b> Question 2</a></li>
+<li class="chapter" data-level="14.0.5" data-path="week-2-class.html"><a href="week-2-class.html#question-3"><i class="fa fa-check"></i><b>14.0.5</b> Question 3</a></li>
 <li class="chapter" data-level="14.0.6" data-path="week-2-class.html"><a href="week-2-class.html#question-4"><i class="fa fa-check"></i><b>14.0.6</b> Question 4</a></li>
-<li class="chapter" data-level="14.0.7" data-path="week-2-class.html"><a href="week-2-class.html#question-5"><i class="fa fa-check"></i><b>14.0.7</b> Question 5</a></li>
-<li class="chapter" data-level="14.0.8" data-path="week-2-class.html"><a href="week-2-class.html#question-6"><i class="fa fa-check"></i><b>14.0.8</b> Question 6</a></li>
-<li class="chapter" data-level="14.0.9" data-path="week-5-home.html"><a href="week-5-home.html#difference-between-parameters"><i class="fa fa-check"></i><b>14.0.9</b> Difference between parameters</a></li>
-<li class="chapter" data-level="14.0.10" data-path="week-5-home.html"><a href="week-5-home.html#bootstrapping"><i class="fa fa-check"></i><b>14.0.10</b> Bootstrapping</a></li>
-<li class="chapter" data-level="14.0.11" data-path="week-2-class.html"><a href="week-2-class.html#question-7"><i class="fa fa-check"></i><b>14.0.11</b> Question 7</a></li>
+<li class="chapter" data-level="14.0.7" data-path="week-4-class.html"><a href="week-4-class.html#imposing-constraints"><i class="fa fa-check"></i><b>14.0.7</b> Imposing constraints</a></li>
+<li class="chapter" data-level="14.0.8" data-path="week-4-class.html"><a href="week-4-class.html#stepwise-approach"><i class="fa fa-check"></i><b>14.0.8</b> Stepwise approach</a></li>
+<li class="chapter" data-level="14.0.9" data-path="week-2-class.html"><a href="week-2-class.html#question-5"><i class="fa fa-check"></i><b>14.0.9</b> Question 5</a></li>
+<li class="chapter" data-level="14.0.10" data-path="week-2-class.html"><a href="week-2-class.html#question-6"><i class="fa fa-check"></i><b>14.0.10</b> Question 6</a></li>
 </ul></li>
-<li class="chapter" data-level="15" data-path="week-5-class.html"><a href="week-5-class.html"><i class="fa fa-check"></i><b>15</b> Week 5 - Class</a><ul>
-<li class="chapter" data-level="15.0.1" data-path="week-5-class.html"><a href="week-5-class.html#the-analysis"><i class="fa fa-check"></i><b>15.0.1</b> The analysis</a></li>
-<li class="chapter" data-level="15.0.2" data-path="week-2-class.html"><a href="week-2-class.html#question-1"><i class="fa fa-check"></i><b>15.0.2</b> Question 1</a></li>
-<li class="chapter" data-level="15.0.3" data-path="week-5-class.html"><a href="week-5-class.html#dummy-coding"><i class="fa fa-check"></i><b>15.0.3</b> Dummy coding</a></li>
-<li class="chapter" data-level="15.0.4" data-path="week-2-class.html"><a href="week-2-class.html#question-2"><i class="fa fa-check"></i><b>15.0.4</b> Question 2</a></li>
-<li class="chapter" data-level="15.0.5" data-path="week-2-class.html"><a href="week-2-class.html#question-3"><i class="fa fa-check"></i><b>15.0.5</b> Question 3</a></li>
-<li class="chapter" data-level="15.0.6" data-path="week-2-class.html"><a href="week-2-class.html#question-4"><i class="fa fa-check"></i><b>15.0.6</b> Question 4</a></li>
-<li class="chapter" data-level="15.0.7" data-path="week-2-class.html"><a href="week-2-class.html#question-5"><i class="fa fa-check"></i><b>15.0.7</b> Question 5</a></li>
-<li class="chapter" data-level="15.0.8" data-path="week-2-class.html"><a href="week-2-class.html#question-6"><i class="fa fa-check"></i><b>15.0.8</b> Question 6</a></li>
-<li class="chapter" data-level="15.0.9" data-path="week-2-class.html"><a href="week-2-class.html#question-7"><i class="fa fa-check"></i><b>15.0.9</b> Question 7</a></li>
+<li class="chapter" data-level="15" data-path="week-5-reading-questions.html"><a href="week-5-reading-questions.html"><i class="fa fa-check"></i><b>15</b> Week 5 - Reading questions</a></li>
+<li class="chapter" data-level="16" data-path="week-5-home.html"><a href="week-5-home.html"><i class="fa fa-check"></i><b>16</b> Week 5 - Home</a><ul>
+<li class="chapter" data-level="16.0.1" data-path="week-5-home.html"><a href="week-5-home.html#specify-model"><i class="fa fa-check"></i><b>16.0.1</b> Specify model</a></li>
+<li class="chapter" data-level="16.0.2" data-path="week-2-class.html"><a href="week-2-class.html#question-1"><i class="fa fa-check"></i><b>16.0.2</b> Question 1</a></li>
+<li class="chapter" data-level="16.0.3" data-path="week-2-class.html"><a href="week-2-class.html#question-2"><i class="fa fa-check"></i><b>16.0.3</b> Question 2</a></li>
+<li class="chapter" data-level="16.0.4" data-path="week-2-class.html"><a href="week-2-class.html#question-3"><i class="fa fa-check"></i><b>16.0.4</b> Question 3</a></li>
+<li class="chapter" data-level="16.0.5" data-path="week-5-home.html"><a href="week-5-home.html#estimating-indirect-effects"><i class="fa fa-check"></i><b>16.0.5</b> Estimating indirect effects</a></li>
+<li class="chapter" data-level="16.0.6" data-path="week-2-class.html"><a href="week-2-class.html#question-4"><i class="fa fa-check"></i><b>16.0.6</b> Question 4</a></li>
+<li class="chapter" data-level="16.0.7" data-path="week-2-class.html"><a href="week-2-class.html#question-5"><i class="fa fa-check"></i><b>16.0.7</b> Question 5</a></li>
+<li class="chapter" data-level="16.0.8" data-path="week-2-class.html"><a href="week-2-class.html#question-6"><i class="fa fa-check"></i><b>16.0.8</b> Question 6</a></li>
+<li class="chapter" data-level="16.0.9" data-path="week-5-home.html"><a href="week-5-home.html#difference-between-parameters"><i class="fa fa-check"></i><b>16.0.9</b> Difference between parameters</a></li>
+<li class="chapter" data-level="16.0.10" data-path="week-5-home.html"><a href="week-5-home.html#bootstrapping"><i class="fa fa-check"></i><b>16.0.10</b> Bootstrapping</a></li>
+<li class="chapter" data-level="16.0.11" data-path="week-2-class.html"><a href="week-2-class.html#question-7"><i class="fa fa-check"></i><b>16.0.11</b> Question 7</a></li>
 </ul></li>
-<li class="chapter" data-level="16" data-path="week-6-home.html"><a href="week-6-home.html"><i class="fa fa-check"></i><b>16</b> Week 6 - Home</a><ul>
-<li class="chapter" data-level="16.0.1" data-path="week-2-class.html"><a href="week-2-class.html#question-1"><i class="fa fa-check"></i><b>16.0.1</b> Question 1</a></li>
-<li class="chapter" data-level="16.0.2" data-path="week-2-class.html"><a href="week-2-class.html#question-2"><i class="fa fa-check"></i><b>16.0.2</b> Question 2</a></li>
-<li class="chapter" data-level="16.0.3" data-path="week-2-class.html"><a href="week-2-class.html#question-3"><i class="fa fa-check"></i><b>16.0.3</b> Question 3</a></li>
-<li class="chapter" data-level="16.0.4" data-path="week-2-class.html"><a href="week-2-class.html#question-4"><i class="fa fa-check"></i><b>16.0.4</b> Question 4</a></li>
-<li class="chapter" data-level="16.0.5" data-path="week-2-class.html"><a href="week-2-class.html#question-5"><i class="fa fa-check"></i><b>16.0.5</b> Question 5</a></li>
-<li class="chapter" data-level="16.0.6" data-path="week-2-class.html"><a href="week-2-class.html#question-6"><i class="fa fa-check"></i><b>16.0.6</b> Question 6</a></li>
-<li class="chapter" data-level="16.0.7" data-path="week-2-class.html"><a href="week-2-class.html#question-7"><i class="fa fa-check"></i><b>16.0.7</b> Question 7</a></li>
-<li class="chapter" data-level="16.0.8" data-path="week-2-class.html"><a href="week-2-class.html#question-8"><i class="fa fa-check"></i><b>16.0.8</b> Question 8</a></li>
-<li class="chapter" data-level="16.0.9" data-path="week-2-class.html"><a href="week-2-class.html#question-9"><i class="fa fa-check"></i><b>16.0.9</b> Question 9</a></li>
-<li class="chapter" data-level="16.0.10" data-path="week-2-class.html"><a href="week-2-class.html#question-10"><i class="fa fa-check"></i><b>16.0.10</b> Question 10</a></li>
-<li class="chapter" data-level="16.0.11" data-path="week-2-class.html"><a href="week-2-class.html#question-11"><i class="fa fa-check"></i><b>16.0.11</b> Question 11</a></li>
+<li class="chapter" data-level="17" data-path="week-5-class.html"><a href="week-5-class.html"><i class="fa fa-check"></i><b>17</b> Week 5 - Class</a><ul>
+<li class="chapter" data-level="17.0.1" data-path="week-5-class.html"><a href="week-5-class.html#the-analysis"><i class="fa fa-check"></i><b>17.0.1</b> The analysis</a></li>
+<li class="chapter" data-level="17.0.2" data-path="week-2-class.html"><a href="week-2-class.html#question-1"><i class="fa fa-check"></i><b>17.0.2</b> Question 1</a></li>
+<li class="chapter" data-level="17.0.3" data-path="week-5-class.html"><a href="week-5-class.html#dummy-coding"><i class="fa fa-check"></i><b>17.0.3</b> Dummy coding</a></li>
+<li class="chapter" data-level="17.0.4" data-path="week-2-class.html"><a href="week-2-class.html#question-2"><i class="fa fa-check"></i><b>17.0.4</b> Question 2</a></li>
+<li class="chapter" data-level="17.0.5" data-path="week-2-class.html"><a href="week-2-class.html#question-3"><i class="fa fa-check"></i><b>17.0.5</b> Question 3</a></li>
+<li class="chapter" data-level="17.0.6" data-path="week-2-class.html"><a href="week-2-class.html#question-4"><i class="fa fa-check"></i><b>17.0.6</b> Question 4</a></li>
+<li class="chapter" data-level="17.0.7" data-path="week-2-class.html"><a href="week-2-class.html#question-5"><i class="fa fa-check"></i><b>17.0.7</b> Question 5</a></li>
+<li class="chapter" data-level="17.0.8" data-path="week-2-class.html"><a href="week-2-class.html#question-6"><i class="fa fa-check"></i><b>17.0.8</b> Question 6</a></li>
+<li class="chapter" data-level="17.0.9" data-path="week-2-class.html"><a href="week-2-class.html#question-7"><i class="fa fa-check"></i><b>17.0.9</b> Question 7</a></li>
 </ul></li>
-<li class="chapter" data-level="17" data-path="week-6-class.html"><a href="week-6-class.html"><i class="fa fa-check"></i><b>17</b> Week 6 - Class</a><ul>
-<li class="chapter" data-level="17.0.1" data-path="week-2-class.html"><a href="week-2-class.html#question-1"><i class="fa fa-check"></i><b>17.0.1</b> Question 1</a></li>
-<li class="chapter" data-level="17.0.2" data-path="week-2-class.html"><a href="week-2-class.html#question-2"><i class="fa fa-check"></i><b>17.0.2</b> Question 2</a></li>
-<li class="chapter" data-level="17.0.3" data-path="week-2-class.html"><a href="week-2-class.html#question-3"><i class="fa fa-check"></i><b>17.0.3</b> Question 3</a></li>
-<li class="chapter" data-level="17.0.4" data-path="week-2-class.html"><a href="week-2-class.html#question-4"><i class="fa fa-check"></i><b>17.0.4</b> Question 4</a></li>
-<li class="chapter" data-level="17.0.5" data-path="week-2-class.html"><a href="week-2-class.html#question-5"><i class="fa fa-check"></i><b>17.0.5</b> Question 5</a></li>
-<li class="chapter" data-level="17.0.6" data-path="week-2-class.html"><a href="week-2-class.html#question-6"><i class="fa fa-check"></i><b>17.0.6</b> Question 6</a></li>
-<li class="chapter" data-level="17.0.7" data-path="week-6-class.html"><a href="week-6-class.html#specific-differences"><i class="fa fa-check"></i><b>17.0.7</b> Specific differences</a></li>
-<li class="chapter" data-level="17.0.8" data-path="week-2-class.html"><a href="week-2-class.html#question-7"><i class="fa fa-check"></i><b>17.0.8</b> Question 7</a></li>
-<li class="chapter" data-level="17.0.9" data-path="week-2-class.html"><a href="week-2-class.html#question-8"><i class="fa fa-check"></i><b>17.0.9</b> Question 8</a></li>
-<li class="chapter" data-level="17.0.10" data-path="week-6-class.html"><a href="week-6-class.html#results-table"><i class="fa fa-check"></i><b>17.0.10</b> Results table</a></li>
-<li class="chapter" data-level="17.0.11" data-path="week-2-class.html"><a href="week-2-class.html#question-9"><i class="fa fa-check"></i><b>17.0.11</b> Question 9</a></li>
-<li class="chapter" data-level="17.0.12" data-path="week-2-class.html"><a href="week-2-class.html#question-10"><i class="fa fa-check"></i><b>17.0.12</b> Question 10</a></li>
-<li class="chapter" data-level="17.0.13" data-path="week-6-class.html"><a href="week-6-class.html#question-12"><i class="fa fa-check"></i><b>17.0.13</b> Question 12</a></li>
-<li class="chapter" data-level="17.0.14" data-path="week-6-class.html"><a href="week-6-class.html#question-13"><i class="fa fa-check"></i><b>17.0.14</b> Question 13</a></li>
+<li class="chapter" data-level="18" data-path="week-6-home.html"><a href="week-6-home.html"><i class="fa fa-check"></i><b>18</b> Week 6 - Home</a><ul>
+<li class="chapter" data-level="18.0.1" data-path="week-2-class.html"><a href="week-2-class.html#question-1"><i class="fa fa-check"></i><b>18.0.1</b> Question 1</a></li>
+<li class="chapter" data-level="18.0.2" data-path="week-2-class.html"><a href="week-2-class.html#question-2"><i class="fa fa-check"></i><b>18.0.2</b> Question 2</a></li>
+<li class="chapter" data-level="18.0.3" data-path="week-2-class.html"><a href="week-2-class.html#question-3"><i class="fa fa-check"></i><b>18.0.3</b> Question 3</a></li>
+<li class="chapter" data-level="18.0.4" data-path="week-2-class.html"><a href="week-2-class.html#question-4"><i class="fa fa-check"></i><b>18.0.4</b> Question 4</a></li>
+<li class="chapter" data-level="18.0.5" data-path="week-2-class.html"><a href="week-2-class.html#question-5"><i class="fa fa-check"></i><b>18.0.5</b> Question 5</a></li>
+<li class="chapter" data-level="18.0.6" data-path="week-2-class.html"><a href="week-2-class.html#question-6"><i class="fa fa-check"></i><b>18.0.6</b> Question 6</a></li>
+<li class="chapter" data-level="18.0.7" data-path="week-2-class.html"><a href="week-2-class.html#question-7"><i class="fa fa-check"></i><b>18.0.7</b> Question 7</a></li>
+<li class="chapter" data-level="18.0.8" data-path="week-2-class.html"><a href="week-2-class.html#question-8"><i class="fa fa-check"></i><b>18.0.8</b> Question 8</a></li>
+<li class="chapter" data-level="18.0.9" data-path="week-2-class.html"><a href="week-2-class.html#question-9"><i class="fa fa-check"></i><b>18.0.9</b> Question 9</a></li>
+<li class="chapter" data-level="18.0.10" data-path="week-2-class.html"><a href="week-2-class.html#question-10"><i class="fa fa-check"></i><b>18.0.10</b> Question 10</a></li>
+<li class="chapter" data-level="18.0.11" data-path="week-2-class.html"><a href="week-2-class.html#question-11"><i class="fa fa-check"></i><b>18.0.11</b> Question 11</a></li>
 </ul></li>
-<li class="chapter" data-level="18" data-path="week-7-putting-it-all-together.html"><a href="week-7-putting-it-all-together.html"><i class="fa fa-check"></i><b>18</b> Week 7 - Putting it all together</a><ul>
-<li class="chapter" data-level="18.0.1" data-path="week-2-class.html"><a href="week-2-class.html#loading-the-data"><i class="fa fa-check"></i><b>18.0.1</b> Loading the data</a></li>
-<li class="chapter" data-level="18.0.2" data-path="week-2-class.html"><a href="week-2-class.html#question-1"><i class="fa fa-check"></i><b>18.0.2</b> Question 1</a></li>
-<li class="chapter" data-level="18.0.3" data-path="week-2-class.html"><a href="week-2-class.html#question-2"><i class="fa fa-check"></i><b>18.0.3</b> Question 2</a></li>
-<li class="chapter" data-level="18.0.4" data-path="week-2-class.html"><a href="week-2-class.html#question-3"><i class="fa fa-check"></i><b>18.0.4</b> Question 3</a></li>
-<li class="chapter" data-level="18.0.5" data-path="week-2-class.html"><a href="week-2-class.html#question-4"><i class="fa fa-check"></i><b>18.0.5</b> Question 4</a></li>
-<li class="chapter" data-level="18.0.6" data-path="week-2-class.html"><a href="week-2-class.html#question-5"><i class="fa fa-check"></i><b>18.0.6</b> Question 5</a></li>
-<li class="chapter" data-level="18.0.7" data-path="week-2-class.html"><a href="week-2-class.html#question-6"><i class="fa fa-check"></i><b>18.0.7</b> Question 6</a></li>
-<li class="chapter" data-level="18.0.8" data-path="week-7-putting-it-all-together.html"><a href="week-7-putting-it-all-together.html#moderated-mediation"><i class="fa fa-check"></i><b>18.0.8</b> Moderated mediation</a></li>
-<li class="chapter" data-level="18.0.9" data-path="week-2-class.html"><a href="week-2-class.html#question-7"><i class="fa fa-check"></i><b>18.0.9</b> Question 7</a></li>
-<li class="chapter" data-level="18.0.10" data-path="week-7-putting-it-all-together.html"><a href="week-7-putting-it-all-together.html#measurement-invariance"><i class="fa fa-check"></i><b>18.0.10</b> Measurement invariance</a></li>
-<li class="chapter" data-level="18.0.11" data-path="week-2-class.html"><a href="week-2-class.html#question-8"><i class="fa fa-check"></i><b>18.0.11</b> Question 8</a></li>
-<li class="chapter" data-level="18.0.12" data-path="week-2-class.html"><a href="week-2-class.html#question-9"><i class="fa fa-check"></i><b>18.0.12</b> Question 9</a></li>
+<li class="chapter" data-level="19" data-path="week-6-class.html"><a href="week-6-class.html"><i class="fa fa-check"></i><b>19</b> Week 6 - Class</a><ul>
+<li class="chapter" data-level="19.0.1" data-path="week-2-class.html"><a href="week-2-class.html#question-1"><i class="fa fa-check"></i><b>19.0.1</b> Question 1</a></li>
+<li class="chapter" data-level="19.0.2" data-path="week-2-class.html"><a href="week-2-class.html#question-2"><i class="fa fa-check"></i><b>19.0.2</b> Question 2</a></li>
+<li class="chapter" data-level="19.0.3" data-path="week-2-class.html"><a href="week-2-class.html#question-3"><i class="fa fa-check"></i><b>19.0.3</b> Question 3</a></li>
+<li class="chapter" data-level="19.0.4" data-path="week-2-class.html"><a href="week-2-class.html#question-4"><i class="fa fa-check"></i><b>19.0.4</b> Question 4</a></li>
+<li class="chapter" data-level="19.0.5" data-path="week-2-class.html"><a href="week-2-class.html#question-5"><i class="fa fa-check"></i><b>19.0.5</b> Question 5</a></li>
+<li class="chapter" data-level="19.0.6" data-path="week-2-class.html"><a href="week-2-class.html#question-6"><i class="fa fa-check"></i><b>19.0.6</b> Question 6</a></li>
+<li class="chapter" data-level="19.0.7" data-path="week-6-class.html"><a href="week-6-class.html#specific-differences"><i class="fa fa-check"></i><b>19.0.7</b> Specific differences</a></li>
+<li class="chapter" data-level="19.0.8" data-path="week-2-class.html"><a href="week-2-class.html#question-7"><i class="fa fa-check"></i><b>19.0.8</b> Question 7</a></li>
+<li class="chapter" data-level="19.0.9" data-path="week-2-class.html"><a href="week-2-class.html#question-8"><i class="fa fa-check"></i><b>19.0.9</b> Question 8</a></li>
+<li class="chapter" data-level="19.0.10" data-path="week-6-class.html"><a href="week-6-class.html#results-table"><i class="fa fa-check"></i><b>19.0.10</b> Results table</a></li>
+<li class="chapter" data-level="19.0.11" data-path="week-2-class.html"><a href="week-2-class.html#question-9"><i class="fa fa-check"></i><b>19.0.11</b> Question 9</a></li>
+<li class="chapter" data-level="19.0.12" data-path="week-2-class.html"><a href="week-2-class.html#question-10"><i class="fa fa-check"></i><b>19.0.12</b> Question 10</a></li>
+<li class="chapter" data-level="19.0.13" data-path="week-6-class.html"><a href="week-6-class.html#question-12"><i class="fa fa-check"></i><b>19.0.13</b> Question 12</a></li>
+<li class="chapter" data-level="19.0.14" data-path="week-6-class.html"><a href="week-6-class.html#question-13"><i class="fa fa-check"></i><b>19.0.14</b> Question 13</a></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="week-7-putting-it-all-together.html"><a href="week-7-putting-it-all-together.html"><i class="fa fa-check"></i><b>20</b> Week 7 - Putting it all together</a><ul>
+<li class="chapter" data-level="20.0.1" data-path="week-2-class.html"><a href="week-2-class.html#loading-the-data"><i class="fa fa-check"></i><b>20.0.1</b> Loading the data</a></li>
+<li class="chapter" data-level="20.0.2" data-path="week-2-class.html"><a href="week-2-class.html#question-1"><i class="fa fa-check"></i><b>20.0.2</b> Question 1</a></li>
+<li class="chapter" data-level="20.0.3" data-path="week-2-class.html"><a href="week-2-class.html#question-2"><i class="fa fa-check"></i><b>20.0.3</b> Question 2</a></li>
+<li class="chapter" data-level="20.0.4" data-path="week-2-class.html"><a href="week-2-class.html#question-3"><i class="fa fa-check"></i><b>20.0.4</b> Question 3</a></li>
+<li class="chapter" data-level="20.0.5" data-path="week-2-class.html"><a href="week-2-class.html#question-4"><i class="fa fa-check"></i><b>20.0.5</b> Question 4</a></li>
+<li class="chapter" data-level="20.0.6" data-path="week-2-class.html"><a href="week-2-class.html#question-5"><i class="fa fa-check"></i><b>20.0.6</b> Question 5</a></li>
+<li class="chapter" data-level="20.0.7" data-path="week-2-class.html"><a href="week-2-class.html#question-6"><i class="fa fa-check"></i><b>20.0.7</b> Question 6</a></li>
+<li class="chapter" data-level="20.0.8" data-path="week-7-putting-it-all-together.html"><a href="week-7-putting-it-all-together.html#moderated-mediation"><i class="fa fa-check"></i><b>20.0.8</b> Moderated mediation</a></li>
+<li class="chapter" data-level="20.0.9" data-path="week-2-class.html"><a href="week-2-class.html#question-7"><i class="fa fa-check"></i><b>20.0.9</b> Question 7</a></li>
+<li class="chapter" data-level="20.0.10" data-path="week-7-putting-it-all-together.html"><a href="week-7-putting-it-all-together.html#measurement-invariance"><i class="fa fa-check"></i><b>20.0.10</b> Measurement invariance</a></li>
+<li class="chapter" data-level="20.0.11" data-path="week-2-class.html"><a href="week-2-class.html#question-8"><i class="fa fa-check"></i><b>20.0.11</b> Question 8</a></li>
+<li class="chapter" data-level="20.0.12" data-path="week-2-class.html"><a href="week-2-class.html#question-9"><i class="fa fa-check"></i><b>20.0.12</b> Question 9</a></li>
 </ul></li>
 </ul>
 
@@ -387,15 +388,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">2.3</span> Importing SPSS Files</h2>
 <p>SPSS files can be loaded using the <code>foreign</code> package. All SPSS files for this course are available for download <a href="https://github.com/cjvanlissa/TCSM_student">here</a>.</p>
 <!--[here](https://github.com/cjvanlissa/Doing-Meta-Analysis-in-R/blob/master/Problem2.sav?raw=true).-->
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="importing-spss-files.html#cb3-1"></a><span class="co"># Install the package, run this only once</span></span>
-<span id="cb3-2"><a href="importing-spss-files.html#cb3-2"></a><span class="kw">install.packages</span>(<span class="st">&quot;foreign&quot;</span>)</span>
-<span id="cb3-3"><a href="importing-spss-files.html#cb3-3"></a></span>
-<span id="cb3-4"><a href="importing-spss-files.html#cb3-4"></a><span class="co"># Load the `foreign` library</span></span>
-<span id="cb3-5"><a href="importing-spss-files.html#cb3-5"></a><span class="kw">library</span>(foreign)</span>
-<span id="cb3-6"><a href="importing-spss-files.html#cb3-6"></a></span>
-<span id="cb3-7"><a href="importing-spss-files.html#cb3-7"></a><span class="co"># Read the SPSS data</span></span>
-<span id="cb3-8"><a href="importing-spss-files.html#cb3-8"></a>df &lt;-<span class="st"> </span><span class="kw">read.spss</span>(<span class="st">&quot;sesam2.sav&quot;</span>,</span>
-<span id="cb3-9"><a href="importing-spss-files.html#cb3-9"></a>                     <span class="dt">to.data.frame =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" title="1"><span class="co"># Install the package, run this only once</span></a>
+<a class="sourceLine" id="cb19-2" title="2"><span class="kw">install.packages</span>(<span class="st">&quot;foreign&quot;</span>)</a>
+<a class="sourceLine" id="cb19-3" title="3"></a>
+<a class="sourceLine" id="cb19-4" title="4"><span class="co"># Load the `foreign` library</span></a>
+<a class="sourceLine" id="cb19-5" title="5"><span class="kw">library</span>(foreign)</a>
+<a class="sourceLine" id="cb19-6" title="6"></a>
+<a class="sourceLine" id="cb19-7" title="7"><span class="co"># Read the SPSS data</span></a>
+<a class="sourceLine" id="cb19-8" title="8">df &lt;-<span class="st"> </span><span class="kw">read.spss</span>(<span class="st">&quot;sesam2.sav&quot;</span>,</a>
+<a class="sourceLine" id="cb19-9" title="9">                     <span class="dt">to.data.frame =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 </div>
             </section>
 
@@ -454,6 +455,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>
