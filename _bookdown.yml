@@ -17,6 +17,7 @@ rmd_files: ["index.Rmd",
 "RQ-Week5.Rmd",
 "11-Week5_home.Rmd",
 "12-Week5_class.Rmd",
+"RQ-Week6.Rmd",
 "13-Week6_home.Rmd",
 "14-Week6_class.Rmd",
 "15-Week7_home.Rmd"]
