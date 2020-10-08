@@ -387,7 +387,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="week-5---class" class="section level1">
 <h1><span class="header-section-number">Chapter 17</span> Week 5 - Class</h1>
 <p>The effect of professional child care on the cognitive, emotional, and social development of children is a much debated toping among policy makers as well as parents with young children. In particular the effect of child care during the first year of life has been of interest.</p>
-<p>In the current study the researchers are interested in the relationship between mothers’ work status during the first year of life and their children’s cognitive development by age 4.5 years, measured with the Woodcock Johnson Achievement and Cognitive Batteries (WCJ). Other variables that are considered of interest and which were included are: Mother’s earnings at age 4.5; Home environment quality; Mother’s sensitivity; and Mother’s depression.</p>
+<p>The dataset <code>WorkingMom_2014.sav</code> describes a study in which the researchers are interested in the relationship between mothers’ work status during the first year of life and their children’s cognitive development by age 4.5 years, measured with the Woodcock Johnson Achievement and Cognitive Batteries (WCJ). Other variables that are considered of interest and which were included are: Mother’s earnings at age 4.5; Home environment quality; Mother’s sensitivity; and Mother’s depression.</p>
 <p>Mother’s work status has three levels:</p>
 <ol style="list-style-type: decimal">
 <li>full time working moms</li>
@@ -569,7 +569,7 @@ First, run the requested regression:</p>
 ## Multiple R-squared:  0.05611,	Adjusted R-squared:  0.04961 
 ## F-statistic: 8.639 on 6 and 872 DF,  p-value: 3.789e-09</code></pre>
 <p>These coefficients are all identical to the direct effects on WCJ from your lavaan model.</p>
-<p>The only difference is that your lavaan model ADDITIONALLY estimates the effects of the dummies on the mediators, AND computes the indirect effects.
+<p>Differences are that your lavaan model ADDITIONALLY estimates the effects of the dummies on the mediators, AND computes the indirect effects. The lavaan model also uses bootstrapped standard errors. As a result, some of the conclusions about significance may differ, and our confidence intervals for the parameters differ.
 </p>
 </div>
 <div id="question-7" class="section level3">
