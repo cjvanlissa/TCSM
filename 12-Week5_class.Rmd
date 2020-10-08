@@ -178,7 +178,7 @@ summary(fit_reg)
 
 These coefficients are all identical to the direct effects on WCJ from your lavaan model.
 
-The only difference is that your lavaan model ADDITIONALLY estimates the effects of the dummies on the mediators, AND computes the indirect effects.
+Differences are that your lavaan model ADDITIONALLY estimates the effects of the dummies on the mediators, AND computes the indirect effects. The lavaan model also uses bootstrapped standard errors. As a result, some of the conclusions about significance may differ, and our confidence intervals for the parameters differ.
 \details
 
 
