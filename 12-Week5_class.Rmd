@@ -11,7 +11,7 @@ data <- read.spss("WorkingMom_2014.sav", to.data.frame = TRUE)
 
 The effect of professional child care on the cognitive, emotional, and social development of children is a much debated toping among policy makers as well as parents with young children. In particular the effect of child care during the first year of life has been of interest.
 
-In the current study the researchers are interested in the relationship between mothers' work status during the first year of life and their children's cognitive development by age 4.5 years, measured with the Woodcock Johnson Achievement and Cognitive Batteries (WCJ). Other variables that are considered of interest and which were included are: Mother’s earnings at age 4.5; Home environment quality; Mother’s sensitivity; and Mother’s depression.
+The dataset `WorkingMom_2014.sav` describes a study in which the researchers are interested in the relationship between mothers' work status during the first year of life and their children's cognitive development by age 4.5 years, measured with the Woodcock Johnson Achievement and Cognitive Batteries (WCJ). Other variables that are considered of interest and which were included are: Mother’s earnings at age 4.5; Home environment quality; Mother’s sensitivity; and Mother’s depression.
 
 Mother's work status has three levels: 
 
