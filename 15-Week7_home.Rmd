@@ -37,7 +37,7 @@ summary(fit, fit.measures=TRUE)
 
 ### Question 2
 
-Set up a TORA model with attitude and norms as latent variables, both predicting behavorial intention and behavior. Analyze it. Interpret the model fit. If you find the model to fit, look at the results. How much variance does the model explain?
+Set up a TORA model with attitude and norms as latent variables both predicting behavorial intention, and intention predicting behavior. Analyze it. Interpret the model fit. If you find the model to fit, look at the results. How much variance does the model explain?
 
 <details>
   <summary>Click for explanation</summary>
@@ -91,14 +91,14 @@ TORA_dir <- 'attit =~ attit_1 + attit_2 + attit_3
              control =~ control_1 + control_2 + control_3
              
              intent ~ attit + norm + control
-             behavior ~ intent'
+             behavior ~ intent + control'
 
 TORA_ind <- 'attit =~ attit_1 + attit_2 + attit_3
              norm =~ norm_1 + norm_2 + norm_3
              control =~ control_1 + control_2 + control_3
              
              intent ~ attit + norm + control
-             behavior ~ intent + control'
+             behavior ~ intent'
 
 fit_dir <- sem(TORA_dir, data = df)
 fit_ind <- sem(TORA_ind, data = df)

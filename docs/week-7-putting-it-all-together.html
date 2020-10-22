@@ -503,7 +503,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="question-2" class="section level3">
 <h3><span class="header-section-number">21.0.3</span> Question 2</h3>
-<p>Set up a TORA model with attitude and norms as latent variables, both predicting behavorial intention and behavior. Analyze it. Interpret the model fit. If you find the model to fit, look at the results. How much variance does the model explain?</p>
+<p>Set up a TORA model with attitude and norms as latent variables both predicting behavorial intention, and intention predicting behavior. Analyze it. Interpret the model fit. If you find the model to fit, look at the results. How much variance does the model explain?</p>
 <details>
 <p><summary>Click for explanation</summary></p>
 <div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb296-1" title="1">TORA_sem &lt;-<span class="st"> &#39;attit =~ attit_1 + attit_2 + attit_3</span></a>
@@ -758,14 +758,14 @@ control can be either direct or indirect; the TORA does not specify which. Test 
 <a class="sourceLine" id="cb300-3" title="3"><span class="st">             control =~ control_1 + control_2 + control_3</span></a>
 <a class="sourceLine" id="cb300-4" title="4"><span class="st">             </span></a>
 <a class="sourceLine" id="cb300-5" title="5"><span class="st">             intent ~ attit + norm + control</span></a>
-<a class="sourceLine" id="cb300-6" title="6"><span class="st">             behavior ~ intent&#39;</span></a>
+<a class="sourceLine" id="cb300-6" title="6"><span class="st">             behavior ~ intent + control&#39;</span></a>
 <a class="sourceLine" id="cb300-7" title="7"></a>
 <a class="sourceLine" id="cb300-8" title="8">TORA_ind &lt;-<span class="st"> &#39;attit =~ attit_1 + attit_2 + attit_3</span></a>
 <a class="sourceLine" id="cb300-9" title="9"><span class="st">             norm =~ norm_1 + norm_2 + norm_3</span></a>
 <a class="sourceLine" id="cb300-10" title="10"><span class="st">             control =~ control_1 + control_2 + control_3</span></a>
 <a class="sourceLine" id="cb300-11" title="11"><span class="st">             </span></a>
 <a class="sourceLine" id="cb300-12" title="12"><span class="st">             intent ~ attit + norm + control</span></a>
-<a class="sourceLine" id="cb300-13" title="13"><span class="st">             behavior ~ intent + control&#39;</span></a>
+<a class="sourceLine" id="cb300-13" title="13"><span class="st">             behavior ~ intent&#39;</span></a>
 <a class="sourceLine" id="cb300-14" title="14"></a>
 <a class="sourceLine" id="cb300-15" title="15">fit_dir &lt;-<span class="st"> </span><span class="kw">sem</span>(TORA_dir, <span class="dt">data =</span> df)</a>
 <a class="sourceLine" id="cb300-16" title="16">fit_ind &lt;-<span class="st"> </span><span class="kw">sem</span>(TORA_ind, <span class="dt">data =</span> df)</a></code></pre></div>
@@ -773,7 +773,7 @@ control can be either direct or indirect; the TORA does not specify which. Test 
 <div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb301-1" title="1"><span class="kw">anova</span>(fit_dir, fit_ind)</a></code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Df"],"name":[1],"type":["int"],"align":["right"]},{"label":["AIC"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["BIC"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Chisq"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Chisq diff"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["Df diff"],"name":[6],"type":["int"],"align":["right"]},{"label":["Pr(>Chisq)"],"name":[7],"type":["dbl"],"align":["right"]}],"data":[{"1":"38","2":"7156.952","3":"7255.553","4":"47.38864","5":"NA","6":"NA","7":"NA","_rn_":"fit_ind"},{"1":"39","2":"7170.360","3":"7265.439","4":"62.79676","5":"15.40812","6":"1","7":"8.661552e-05","_rn_":"fit_dir"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Df"],"name":[1],"type":["int"],"align":["right"]},{"label":["AIC"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["BIC"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Chisq"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Chisq diff"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["Df diff"],"name":[6],"type":["int"],"align":["right"]},{"label":["Pr(>Chisq)"],"name":[7],"type":["dbl"],"align":["right"]}],"data":[{"1":"38","2":"7156.952","3":"7255.553","4":"47.38864","5":"NA","6":"NA","7":"NA","_rn_":"fit_dir"},{"1":"39","2":"7170.360","3":"7265.439","4":"62.79676","5":"15.40812","6":"1","7":"8.661552e-05","_rn_":"fit_ind"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 <div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb302-1" title="1"><span class="kw">library</span>(semTools)</a>
@@ -782,19 +782,19 @@ control can be either direct or indirect; the TORA does not specify which. Test 
 ## Chi-Squared Difference Test
 ## 
 ##          Df    AIC    BIC  Chisq Chisq diff Df diff Pr(&gt;Chisq)    
-## Indirect 38 7157.0 7255.6 47.389                                  
-## Direct   39 7170.4 7265.4 62.797     15.408       1  8.662e-05 ***
+## Direct   38 7157.0 7255.6 47.389                                  
+## Indirect 39 7170.4 7265.4 62.797     15.408       1  8.662e-05 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
 ## ####################### Model Fit Indices ###########################
 ##            chisq df pvalue   cfi   tli       aic       bic rmsea  srmr
-## Indirect 47.389† 38   .141 .993† .989† 7156.952† 7255.553† .031† .033†
-## Direct   62.797  39   .009 .981  .974  7170.360  7265.439  .049  .043 
+## Direct   47.389† 38   .141 .993† .989† 7156.952† 7255.553† .031† .033†
+## Indirect 62.797  39   .009 .981  .974  7170.360  7265.439  .049  .043 
 ## 
 ## ################## Differences in Fit Indices #######################
 ##                   df    cfi    tli    aic   bic rmsea  srmr
-## Direct - Indirect  1 -0.011 -0.016 13.408 9.887 0.018 0.011</code></pre>
+## Indirect - Direct  1 -0.011 -0.016 13.408 9.887 0.018 0.011</code></pre>
 
 </div>
 <div id="question-5" class="section level3">
@@ -850,26 +850,24 @@ They are estimated on different variables. We will get a warning to emphasize th
 <pre><code>## ################### Nested Model Comparison #########################
 ## Chi-Squared Difference Test
 ## 
-##          Df    AIC    BIC  Chisq Chisq diff Df diff Pr(&gt;Chisq)  
-## Observed  3 1130.6 1151.7 15.342                                
-## Latent   39 7170.4 7265.4 62.797     47.455      36    0.09588 .
-## ---
-## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+##          Df    AIC    BIC  Chisq Chisq diff Df diff Pr(&gt;Chisq)
+## Observed  3 1130.6 1151.7 15.342                              
+## Latent   38 7157.0 7255.6 47.389     32.047      35     0.6114
 ## 
 ## ####################### Model Fit Indices ###########################
 ##            chisq df pvalue   cfi   tli       aic       bic rmsea  srmr
-## Observed 15.342†  3   .002 .970  .929  1130.603† 1151.732† .128  .042†
-## Latent   62.797  39   .009 .981† .974† 7170.360  7265.439  .049† .043 
+## Observed 15.342†  3   .002 .970  .929  1130.603† 1151.732† .128  .042 
+## Latent   47.389  38   .141 .993† .989† 7156.952  7255.553  .031† .033†
 ## 
 ## ################## Differences in Fit Indices #######################
-##                   df   cfi   tli      aic      bic  rmsea  srmr
-## Latent - Observed 36 0.012 0.045 6039.757 6113.707 -0.079 0.001</code></pre>
+##                   df   cfi  tli      aic      bic  rmsea   srmr
+## Latent - Observed 35 0.023 0.06 6026.349 6103.821 -0.097 -0.009</code></pre>
 <p>We can also inspect the regression coefficients in both models:</p>
 <div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb313-1" title="1"><span class="kw">table_results</span>(fit_dir) <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb313-2" title="2"><span class="st">  </span><span class="kw">filter</span>(<span class="kw">grepl</span>(<span class="st">&quot;ON&quot;</span>, label))</a></code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["label"],"name":[1],"type":["chr"],"align":["left"]},{"label":["est_sig"],"name":[2],"type":["chr"],"align":["left"]},{"label":["se"],"name":[3],"type":["chr"],"align":["left"]},{"label":["confint"],"name":[4],"type":["chr"],"align":["left"]}],"data":[{"1":"intent.ON.attit","2":"0.35***","3":"0.10","4":"[0.16, 0.54]"},{"1":"intent.ON.norm","2":"0.64***","3":"0.09","4":"[0.47, 0.82]"},{"1":"intent.ON.control","2":"0.21","3":"0.16","4":"[-0.11, 0.53]"},{"1":"behavior.ON.intent","2":"0.75***","3":"0.05","4":"[0.66, 0.83]"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["label"],"name":[1],"type":["chr"],"align":["left"]},{"label":["est_sig"],"name":[2],"type":["chr"],"align":["left"]},{"label":["se"],"name":[3],"type":["chr"],"align":["left"]},{"label":["confint"],"name":[4],"type":["chr"],"align":["left"]}],"data":[{"1":"intent.ON.attit","2":"0.36***","3":"0.10","4":"[0.17, 0.55]"},{"1":"intent.ON.norm","2":"0.65***","3":"0.09","4":"[0.47, 0.82]"},{"1":"intent.ON.control","2":"0.20","3":"0.17","4":"[-0.13, 0.53]"},{"1":"behavior.ON.intent","2":"0.55***","3":"0.07","4":"[0.42, 0.69]"},{"1":"behavior.ON.control","2":"0.47***","3":"0.13","4":"[0.22, 0.72]"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 <div class="sourceCode" id="cb314"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb314-1" title="1"><span class="kw">table_results</span>(fit_obs) <span class="op">%&gt;%</span></a>
