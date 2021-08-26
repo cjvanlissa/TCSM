@@ -6,7 +6,7 @@ library(semTools)
 library(kableExtra)
 library(lavaan)
 library(psych)
-data <- read.spss("WorkingMom_2014.sav", to.data.frame = TRUE)
+data <- read.spss("TCSM_student/WorkingMom_2014.sav", to.data.frame = TRUE)
 ```
 
 The effect of professional child care on the cognitive, emotional, and social development of children is a much debated toping among policy makers as well as parents with young children. In particular the effect of child care during the first year of life has been of interest.
@@ -142,8 +142,17 @@ fit <- sem(model,
            bootstrap = 1000)
 ```
 ```{r, message = FALSE, echo=FALSE}
-#save(fit, file = "boot_sem5class.RData")
-load("boot_sem5class.RData")
+if(file.exists("boot_sem5class.RData")){
+  fit <- readRDS("boot_sem5class.RData")
+} else {
+  library(lavaan)
+fit <- sem(model, 
+           data, 
+           meanstructure = TRUE,
+           se = "bootstrap", 
+           bootstrap = 1000)
+saveRDS(fit, file = "boot_sem5class.RData")
+}
 ```
 
 To obtain the 95% CIs for the indirect effects, we can use the following syntax. First, I obtain the `parameterestimates()` and put them in an object called `pars`. Then, I ask for only the **rows** that contain my defined parameters (`pars$op == ":="`), and only the columns `c("label", "est", "ci.upper", "ci.lower")`:

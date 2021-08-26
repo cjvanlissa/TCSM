@@ -1,0 +1,24 @@
+# Week 6 - Program
+
+**How can I investigate mediation/moderation?**
+
+**Homework for the lecture on Moderation:**
+
+In addition to mediation, researchers often have theories about moderation. Moderation implies that the effect of X on Y depends on another variable. For instance, the effect of feedback (X) on performance (Y) may depend on age (moderator), in that children who are older can more effectively process feedback than younger children.  
+
+Read this week’s literature and finish the reading questions before coming to the lecture.
+- Baron, R.M and Kenny, D.A. (1986) The Moderator-Mediator Variable Distinction in Social Psychological Research: Conceptual, Strategic, and Statistical Considerations, Journal of Personality and Individual Differences, 51(6), p. 1173-118
+- Metha, A., Chen, E, Mulvenon, S. and Dode, I. (1998) A Theoretical Model of Suicide Risk, Archives of Suicide Research, 4, p. 115-133
+
+**Lecture Moderation:	**
+
+Introduction into hierarchical models, moderation analysis and path models.
+
+**Homework for the practical Moderation:**
+Perform take home exercise moderation, before coming to the practical.
+	
+
+**Practical Moderation: 	**
+
+During the practical, we will discuss take home exercise moderation. In the remainder of the practical an introduction into estimating moderation and path models in lavaan will be given.
+Finish the class exercise before the next meeting.

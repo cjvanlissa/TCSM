@@ -2,7 +2,7 @@
 
 ```{r echo = FALSE, warning=FALSE, message=FALSE}
 library(foreign)
-data <- read.spss("SocialRejection.sav", to.data.frame = TRUE)
+data <- read.spss("TCSM_student/SocialRejection.sav", to.data.frame = TRUE)
 ```
 Load the data file SocialRejection.sav into R. It contains three variables: Condition (IV), SelfEst (IV), and Spent (DV).
 

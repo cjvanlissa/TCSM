@@ -25,9 +25,229 @@ description: "This is a guide for the elective course TCSM."
 
 ```{r global_options, include=FALSE}
 knitr::opts_chunk$set(warning=FALSE, message=FALSE)
-```
+schedule <- list(
+lectures = data.frame(
+weeks = c(37:39, 41:44),
+days = "Tuesday",
+time = "13:15 - 14:15",
+location = "online"),
+tutorials = data.frame(
+weeks = c(37:39, 41:44),
+days = "Thursday",
+time = "10:00 - 12:45",
+location = "online"),
+qna = data.frame(
+weeks = c(37:39, 41:44),
+days = "Monday",
+time = "13:15 - 15:00",
+location = "online"),
+Exams = data.frame(
+weeks = c(40, 43, 45),
+days = "Tuesday",
+time = "18:00",
+location = "blackboard"))
+
+schedule <- do.call(rbind, lapply(names(schedule), function(x){
+  cbind(schedule[[x]], Activity = x)
+}))
+schedule$Date <- as.Date(paste(2021, schedule$weeks, 1, sep="-"), "%Y-%U-%u") + (as.numeric(
+  factor(schedule$days, levels = c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")))-1)
+schedule$Date <- format(schedule$Date, "%d-%m-%Y")
+topics <- c("Introduction","Factor Analysis (exploratory, EFA)", "Factor Analysis (confirmatory, CFA)",
+            "GLM: Means and SEM", "Mediation", "Moderation")
+schedule$Topic <- topics[match(schedule$weeks, sort(unique(schedule$weeks)))]
+schedule$Topic[schedule$Activity == "Exams"] <- c("Factor analysis, group", "Path analysis, group", "SEM, individual")
+``` 
 In this course you will learn how to translate a social scientific theory into a statistical model, how to analyze your data with these models, and how to interpret and report your results following APA standards.
+
+**Course overview**
+
+```{r, results = "asis", echo = FALSE}
+library(DT)
+# library(lubridate)
+# mdy(isoweek(4))
+# lubridate::isoweek(as.Date("13-09-2021", format = "%d-%m-%Y"))
+# lubridate::parse_date_time("37", orders = "%W")
+# lubridate::isoweek(as.Date("13-09-2021", format = "%d-%m-%Y"))
+DT::datatable(schedule[order(as.Date(schedule$Date, format = "%d-%m-%Y"), decreasing = FALSE), ], rownames = FALSE, options = list(pageLength = nrow(schedule)))
+```
+
+**You do not need a book for this course.** 
+
+Most information is contained within this GitBook and the course readings. Optionally, if you want to expand your learning, you can follow the excellent [`lavaan` tutorial](https://lavaan.ugent.be/tutorial/).
 
 The analyses will be executed using the statistical programming environment R, and in particular using the structural equation modeling package `lavaan`.
 
-**You do not need a book for this course.** Most information is contained within this GitBook and the course readings. Optionally, if you want to expand your learning, you can follow the excellent [`lavaan` tutorial](https://lavaan.ugent.be/tutorial/).
+## Staff
+
+**Coordinator:**
+
+[dr. Caspar J. van Lissa](https://www.uu.nl/staff/cjvanlissa)
+
+**Lecturers**
+
+[dr. Caspar J. van Lissa](https://www.uu.nl/staff/cjvanlissa)
+ 
+**Computer labs**
+
+[Danielle McCool](https://www.uu.nl/staff/DMMcCool)
+
+## Learning goals
+
+After completing the course, you will be able to do the following:
+
+1. Translate a verbal theory into a conceptual model, and translate a conceptual model into a statistical model
+2.	Independently analyze data using the free, open-source statistical software R (a marketable job skill)
+3. Apply the “latent variable model” to a real-life problem, where observed variables do not directly measure, but are indicators of, an unobserved social scientific construct.
+4. Use the “path model” to describe how several variables are causally related to one another, including complex relationships such as mediation and moderation
+5. Explain to a fellow student that the technique “structural equation modeling” combines latent variable models with path models, and allows you to test an entire theory in one go
+6. Reflect critically on decisions in the analysis of structural equation models, both your own, and in published research
+
+
+## Theory Construction and Statistical Modeling
+
+In order to test a theory, we must express the theory as a statistical model, and then test this model on quantitative (numeric) data. This course uses existing tutorial datasets to practice the process of translating verbal theories into testable statistical models. Those who are interested in the methods of acquiring high quality data for your own theory, we refer to the course “Conducting a Survey” which is taught from November – January.
+In this course we will use datasets from different disciplines within the social sciences (educational sciences, psychology and sociology) to explain and illustrate theories and practices that are used in all social science disciplines to statistically model social science theories.
+Most information about the course is available in this GitBook.
+Communication about the course occurs through <https://uu.blackboard.nl> (Login with your student ID and password).
+
+## Course overview
+
+The course consists of three parts, each of which are examinated with an assignment:
+
+1. Factor analysis, in which you learn different ways of capturing unobserved constructs.
+2. Path analysis, in which you learn how to model regression and ANOVA as a structural equation model with observed variables.
+3. Structural equation modeling, in which you put together the first two topics.
+
+## Adaptations related to the coronavirus measures
+
+The corona crisis is challenging all of us to rethink how we teach and learn. But aside from the challenges, it also offers opportunities. In adapting this course, we kept two goals in mind: To increase the alignment between the way of teaching and the learning goals, and second, to ensure high-quality interaction among students and between the students and teachers while still using online communication. Based on these goals, we made the following changes:
+
+1. During the course, you will be working in learning teams, to promote interaction among students and peer support
+2. The two in-person exams (4 hours each) are replaced with take-home assignments: Two group assignments, and one individual assignment.
+
+### Why not in-person meetings?
+
+When the courses were scheduled, it was not yet clear what direction the university wanted to take.
+Every teacher could make a choice: Online-only, or hybrid education.
+At that time, I chose the online format, because:
+
+1. Last year, the online version of this course was very successful
+2. This elective course attracts diverse students with complex schedules; many expressed a preference for the flexibility of an online course
+3. Due to the 75 student maximum on lecture halls, it is very difficult to schedule courses. Doing this course in person would mean that we have meetings on varying days at different times. That would likely create scheduling conflicts for many of you.
+
+### Why learning in groups?
+
+Contact with fellow students is a key aspect of the university experience. During this time of social distancing, it is important to find new ways to stay in touch with fellow students. There are also aspects of learning in groups that can really improve your knowledge, like peer feedback. The groups are made randomly when the course starts, but you can switch with a consenting member of another group in the first week. 
+
+### Why use take home assignments for assessment?
+
+Assignments are a suitable form of assessment for a skills-based course like TCSM. It also takes a lot of the pressure off, because you can work at your own pace. This course used to have two 4-hour exams; not exactly corona-proof. Using take-home assignments entrusts you with the responsibility to make this assignment in good faith, without instrumental assistance or plagiarism, so I kindly ask you to make good on this trust, and hand in original work to show what you’ve learned.
+
+## Grading
+
+Your grade for the course is based on your “portfolio”, composed of the three take-home assignments.
+
+The first assignment (deadline: `r schedule$Date[schedule$Activity == "Exams"][1]`) is an assignment in which ) assesses your understanding of the latent variable model. This is a group assignment, made with your learning team. The exam counts towards 25% of your grade.
+
+The second graded assignment (deadline: `r schedule$Date[schedule$Activity == "Exams"][2]`) assesses your understanding of path models. This is a group assignment, made with your learning team. The exam counts towards 25% of your grade.
+
+The final assignment (deadline: `r schedule$Date[schedule$Activity == "Exams"][3]`) assesses your ability to independently analyse data, combining the skills you learned during this course. This is an individual assignment, which counts towards 50% of your grade.
+
+## Assignments 
+
+A description of the assignments follows below. For each assignment, every element labeled with a lower case letter is graded pass (0 points), fail (1 point), or excellent (1.5 points). Grades are summed for each assignment, and rescaled from 1-10. The final grade is a weighted average across assignments of the rescaled grades (weights in %). 
+
+1. Apply the “latent variable model” to a real-life problem, where observed variables do not directly measure, but are indicators of, an unobserved social scientific construct (G, 25%)
+    a. Find a suitable dataset, for example:
+        i.	Data you have collected for a previous course
+        ii.	Open data, provided with a published paper
+        iii.	The “Coping with COVID-19” dataset (if you can’t find anything)
+    b.	Describe the dataset, and introduce the theoretical latent variable model (200 words)
+    c.	Estimate the latent variable model (PCA, EFA, CFA) and conduct reliability analysis, provide relevant output in a suitable format
+    d.	Explain your rationale for important modeling decisions (300 words)
+        i.	Motivate your choice for the type of latent variable model
+        ii.	Discuss assumptions
+        iii.	Discuss other important decisions, as discussed in the course reading materials
+    e.	Report and interpret the results in APA style
+    f.	Discuss the results in max 300 words
+        i.	Devote attention to strengths and limitations
+2. Use the “path model” to describe how several variables are causally related to one another (G, 25%)
+    a.	Find a suitable dataset, for example:
+        i.	Data you have collected and analyzed for a previous course
+        ii.	Open data, provided with a published paper
+        iii.	The “Coping with COVID-19” dataset (if you can’t find anything)
+    b.	Describe the dataset, and introduce the theoretical path model (200 words)
+    c.	Conduct a SEM path model to answer the theoretical questions
+        i. 	This can be a re-analysis of a question that had been tested using regression, ANOVA, or t-test analysis in the original paper
+    c.	Explain your rationale for important modeling decisions (300 words)
+        i.	Fit between theory and model
+        ii.	Model assumptions
+        iii.	Difference/similarity between the path model and the (original) regression, ANOVA, or t-test analysis
+        iv.	Why you use standardized or unstandardized coefficients
+    d.	Report and interpret the results in APA style
+        i. 	Include measures of explained variance for the dependent variables.
+    e.	Discuss the results (max 300 words)
+        i.	Devote attention to strengths and limitations
+3. Independently analyze data using the free, open-source statistical software R (I, 50%) 
+    a.	Find a suitable dataset, for example:
+        i.	Data you have collected for a previous course
+        ii.	Open data, provided with a published paper
+        iii.	The “Coping with COVID-19” dataset (if you can’t find anything)
+    b.	Describe the dataset, and introduce a theory involving at least 3 variables that can be tested using these data (300 words)
+    c.	Translate the theory to lavaan syntax and estimate the model (could be multiple models if you think it’s necessary)
+    d.	Use at least:
+        i.	One latent variable
+        ii.	Moderation (continuous or multi-group)
+        iii.	Mediation
+    e. 	Explain your rationale for important modeling decisions (300 words)
+        i.	Fit between theory and model
+        ii.	Model assumptions
+        iii.	Difference/similarity between the path model and the (original) regression, ANOVA, or t-test analysis
+        iv.	Why you use standardized or unstandardized coefficients
+    f.	Report and interpret your results in APA style
+    g.	Discuss your results in maximum 500 words
+
+## Rules for the take-home assignments
+
+•	For all three graded assignments, you are allowed to use all course materials, including the GitBook, and search engines
+•	The first two assignments are made in groups.
+    o	For these assignments, it is not allowed to work together with other groups.
+•	The final assignment is made individually. 
+    o	For this assignment, it is not allowed to recruit outside help
+•	In all cases, you are obligated to hand in original work conducted by you or your group. Failure to do so constitutes fraud.
+•	You also have a moral obligation to obey the rules. For this course, I have chosen a form of examination that allows you to showcase what you have learned flexibly. This spares you the stress of long exams (the two exams for this course used to be 4 hours each) and cramming all course material. It also assumes that you make the assignment in good faith, so I simply ask that you hold up your end of the bargain, and hand in your original work to show what you’ve learned.
+•	The final assignment also helps you assess of your ability to independently analyse data, which is important to know for your future courses and/or career.
+
+## Statement on fair grading during corona
+
+We, the lecturers, are committed to offering distance learning and assessment to ensure that you can continue your studies. The final assignment is therefore a check at the end of the course, for both you and your lecturers, of whether you are ready for subsequent courses in your study programme.
+You will be completing this assignment remotely, instead of making a test at the university under the supervision of lecturers. For most students this will make no difference, but of course remote assessment is more susceptible to fraud. 
+By handing in your final assignment, you therefore explicitly confirm that you have made this assignment by yourself and are submitting work you have written yourself, that you will be using your own login details, and that you have not had instrumental help in making the assignment.
+
+All assignments are submitted via SafeAssign in Blackboard and are checked for plagiarism. If fraud or plagiarism is detected or suspected, the Board of Examiners will be informed in the usual manner, and in the event of fraud, the sanctions referred to in Article 5.14 of the Education and Examination Regulations (EER) will apply (download from https://students.uu.nl/files/fsw-ba-oer-engelstalig-2019-2020pdf). Note that the sanctions may apply to the person committing fraud, to the person(s) making fraud possible, and to the test as a whole.  
+Lecturers also have the option of administering additional oral tests if they have reasons to do so.
+Thank you for your cooperation, we will only be able to get through this period together!
+
+## Attendance
+
+Attendance is not mandatory, but we highly recommend everyone to attend all lectures and the Thursday practicals. In our experience, students who actively participate tend to pass the course, whereas those who do not tend to drop out or fail. The lectures and practicals ‘build’ on each other, so in the unfortunate event that you have to miss either one, please make sure you have caught up with the materials before the next session. The practicals on Monday are for troubleshooting, to be sure that everyone can keeps up with the course, and they are no substitute for the Thursday practicals. 
+
+## Literature
+All literature is available on the Internet, as long as you are within the UU-domain. See the course site on Blackboard for direct links to all following articles. For some articles, we are not allowed to post direct URL’s. Searching through either www.scholar.google.com or the University Library (www.ubu.uu.nl) will work wonders.
+
+## Reading questions
+
+Along with every article, we will provide reading questions. You will not be graded on the reading questions, but it is important to prepare the reading questions before every lecture. The purpose of the reading questions is as follows:
+
+-	to provide relevant background knowledge for the lecture;
+-	to explain the key terms and concepts;
+-	to be aware of important publications that shaped the field;
+-	to help you to prepare for the exam; it is not necessary to learn the answers to the reading questions by heart, but the reading questions will help you extract the relevant insights from the literature.
+-	We will post standard answers to the reading questions online before the exam, but their most valuable role is to guide your understanding during the course, not while preparing the exam.
+
+## Preparations
+
+Before every meeting you need to do the assigned homework (see detailed program).
+We assume you have basic knowledge about multivariate statistics before entering this course. You do not need any prior experience working with R. If you feel unsure about your knowledge about statistics, and in particular ANOVA and multiple regression analysis, please e-mail the course coordinator. If you wish to refresh your knowledge, we recommend the chapters on ANOVA, multiple regression and Exploratory Factor Analysis from Field’s Discovering Statistics using R. London; Sage. Read the chapters on ‘multiple regression’ and ‘exploratory factor analysis’ if you want to prepare for the first meeting. If you do not have this book, many other statistics textbooks usually discuss these topics equally well. You do not need to buy any book for this course.
+

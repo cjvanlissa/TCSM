@@ -1,0 +1,24 @@
+# Week 3 - Program
+
+**How do I test whether I measure what I intend to measure?**
+
+**Homework for the lecture Confirmatory Factor Analysis:**
+
+Often researchers use scales that have been used and tested before. Because of this, they have clear ideas of the number of factors to expect and they can also indicate which specific questions belong to which factor. Instead of doing Exploratory Factor Analysis (EFA), methods have been developed that allow us to test whether a presupposed factor structure is there (Confirmatory Factor Analysis or CFA).
+	
+Read this week’s literature and finish the reading questions before coming to the lecture.
+
+- Byrne, Barbara (2005) Factor Analytic Models: Viewing the Structure of an Assessment Instrument From Three Perspectives, Journal of Personality Assessment 85(1), 17-32
+	
+**Lecture Confirmatory Factor Analysis:**
+
+Introduction into Confirmatory Factor Analysis (CFA), and differences with exploratory Factor Analysis Methods. Furthermore, the general idea of model fit is discussed and an introduction into the R-package ‘lavaan’ is given. 
+
+**Homework for the practical Confirmatory Factor Analysis **
+
+-	Complete the tutorial for the lavaan package.
+-	Perform the take home exercise before coming to the practical.
+
+**Practical Confirmatory Factor Analysis:**
+
+During the practical, the take home exercise CFA will be discussed briefly. In the remainder of the practical, students can work on class exercise CFA (measurement and scaling)

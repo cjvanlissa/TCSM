@@ -62,19 +62,19 @@ What is the average age in the sample? And the range (youngest and oldest child)
 
 <details>
   <summary>Click for explanation</summary>
-The package `psych` contains many functions for exploring data. If you have not yet done so, install the package, then load it and use the `describe()` function to describe the data:
+As in the take home exercises, use the function `descriptives()` from the `tidySEM` package to describe the data:
 
 ```{r}
 library(tidySEM)
 descriptives(data)
 ```
-<\details>
+`r if(knitr::is_html_output()){"\\details"}`
 
 ### Question 1.c
 
 What is the average gain in knowledge of numbers? Provide both the mean and the standard deviation. 
 
-*Hint: Use the <- operator to assign to a new variable in data. Functions mean() and sd().*
+*Hint: Use the <- operator to assign to a new variable in data. You can use descriptives(), or the functions mean() and sd().*
 
 <details>
   <summary>Click for explanation</summary>
@@ -90,7 +90,7 @@ There are specialized functions to obtain the mean and sd:
 mean(data$dif)
 sd(data$dif)
 ```
-<\details>
+`r if(knitr::is_html_output()){"\\details"}`
 
 ### Question 1.d
 
@@ -107,7 +107,7 @@ p + geom_histogram()
 p + geom_density()
 p + geom_boxplot()
 ```
-<\details>
+`r if(knitr::is_html_output()){"\\details"}`
 
 ### Question 1.e
 
@@ -121,23 +121,24 @@ Can you think of a graph based on two variables that is informative? What is it 
 #Possible variables would be the pre- and post measurement
 ggplot(data, aes(x = prenumb, y = postnumb)) + geom_point()
 ```
-<\details>
+`r if(knitr::is_html_output()){"\\details"}`
 
 
 ### Question 1.f
 
 Which of the variables age, prelet, prenumb, prerelat and peabody are related to postnumb? Use Pearson’s correlations (`cor()`). You don’t need to check assumptions. If you want p-values for the correlations, use the function `corr.test()` from the `psych` package instead.
 
-*Hint: The function* `cor()` *provides Pearson's correlations. Select variables by name from a data.frame object (like* `data`*) using the following syntax*: `data[, c("each", "variable", "name")]`*.*
+*Hint: The function* `corr.test()` *from the psych package provides Pearson's correlationsand p-values (the base R function cor() does not provide p-values). Select variables by name from a data.frame object (like* `data`*) using the following syntax*: `data[, c("each", "variable", "name")]`*.*
 
 <details>
   <summary>Click for explanation</summary>
 ```{r}
-cor(data[, c("age", "prelet", "prenumb", "prerelat", "peabody", "postnumb")])
+library(psych)
+corr.test(data[, c("age", "prelet", "prenumb", "prerelat", "peabody", "postnumb")])
 ```
 
 The use of `data[,]` follows the conventions of matrix indexation: You can select rows (the horizontal lines) like this, `data[i, ]`, and columns (the vertical lines) like this, `data[ ,j]`, where i are the rows and j are the columns you want to select. As you can see in the example, you can select multiple columns using c( ... , ... ).
-<\details>
+`r if(knitr::is_html_output()){"\\details"}`
 
 ### Question 1.g
 
@@ -152,7 +153,7 @@ results <- lm(formula = postnumb ~ age + prenumb,
               data = data)
 summary(results)
 ```
-<\details>
+`r if(knitr::is_html_output()){"\\details"}`
 
 ### Question 1.h
 
@@ -165,7 +166,7 @@ The null-hypotheses of the **model** pertain to the variance explained: $\rho^2$
 $H_0: \rho^2 = 0$
 
 $H_a: \rho^2 > 0$
-<\details>
+`r if(knitr::is_html_output()){"\\details"}`
 
 ### Question 1.i
 
@@ -194,17 +195,7 @@ How many covariances could you estimate? How many degrees of freedom does this m
 
 ## Section 2
 
-Open the file Drivers.sav.
-
-### Research question 1 (ANOVA): Does talking on the phone interfere with people’s driving skills?
-
-IV: condition
-
-* hand-held phone
-* hands-free phone 
-* control
-
-DV: reaction time in milliseconds in a driver simulation test.
+Open the file `Drivers.sav`:
 
 ```{r, eval=FALSE}
 # Load the data and put them in the object called "data"
@@ -215,19 +206,38 @@ data <- read.spss("Drivers.sav", to.data.frame = TRUE)
 data <- read.spss("TCSM_student/Drivers.sav", to.data.frame = TRUE)
 ```
 
+### Research question 1 (ANOVA): Does talking on the phone interfere with people’s driving skills?
+
+The IV for this reseach question is `condition`, with conditions:
+
+* hand-held phone
+* hands-free phone 
+* control
+
+The DV is reaction time in milliseconds in a driver simulation test, in variable `RT`.
+
 ### Question 2.a
 
-Perform the ANOVA. 
-
-*Hint: The function* `aov()` *is an alternate interface to the linear model (lm), which reports results in line with the convention of ANOVA analyses.*
+Perform the ANOVA. You can use `lm(y ~ -1 + x)` to remove the intercept from a regression with dummies, and get a separate mean for each group. The function `aov()` is an alternate interface for `lm()` that reports results in a way that matches the conventions for ANOVA analyses more closely.
 
 <details>
   <summary>Click for explanation</summary>
+You can use `summary(lm(y ~ -1 + x))` to get the means for each group:
+
+```{r, message=FALSE}
+results <- lm(formula = RT ~ -1 + condition, data = data)
+summary(results)
+```
+
+And you can use `aov()` to get the sum of squares for the factor:
+
 ```{r, message=FALSE}
 results <- aov(formula = RT ~ condition, data = data)
 summary(results)
 ```
-<\details>
+
+
+`r if(knitr::is_html_output()){"\\details"}`
 
 ### Question 2.b
 
@@ -288,7 +298,7 @@ ggplot(data, aes(y = RT, group = condition)) +
   geom_boxplot() +
   theme_bw()
 ```
-<\details>
+`r if(knitr::is_html_output()){"\\details"}`
 
 ### Question 2.c
 
@@ -299,7 +309,7 @@ Explain for each of the assumptions why they are important to check.
 What are your conclusions regarding the assumption checks?
 
 <details>
-  <summary>Klik voor meer uitleg</summary>
+  <summary>Click for explanation</summary>
     There are no outliers in X-space, no evidence for (severe) deviations from normality of residuals, and no evidence for (severe) heteroscedasticity.
 </details> 
 
@@ -334,7 +344,7 @@ results <- aov(RT ~ condition, data)
 # Ask for the lm summary, which gives you t-tests for the planned contrasts:
 summary.lm(results)
 ```
-<\details>
+`r if(knitr::is_html_output()){"\\details"}`
 
 ### Research question 2 (ANCOVA): Are there differences in reaction time between the conditions when controlling for age? 
 
@@ -350,7 +360,7 @@ What are the assumptions you need to check?
 * Homogeneity of regression slopes for the covariate (no interaction between factor variable and covariate)
 * The covariate is independent of the treatment effects. I.e. there is no difference in the covariate between the groups of the independent variable.
 
-<\details>
+`r if(knitr::is_html_output()){"\\details"}`
 
 
 ### Question 2.g
@@ -385,7 +395,7 @@ What would your conclusion be about this assumption?
 <details>
   <summary>Click for explanation</summary>
 The interaction is NOT significant; no evidence for violation of the assumption.
-<\details>
+`r if(knitr::is_html_output()){"\\details"}`
 
 #### The covariate is independent of the treatment effects
 
@@ -398,7 +408,7 @@ What would your conclusion be about this assumption?
 <details>
   <summary>Click for explanation</summary>
 The covariate is not significantly related to treatment effect. The assumption is met.
-<\details>
+`r if(knitr::is_html_output()){"\\details"}`
 
 <!--#### Outliers in X-space
 
@@ -410,7 +420,7 @@ mahal <- sqrt(mahalanobis(data[ , "age", drop = FALSE],
                           cov = cov(data[, "age", drop = FALSE])))
 range(mahal)
 ```
-<\details>
+`r if(knitr::is_html_output()){"\\details"}`
 -->
 
 ### Question 2.i
@@ -427,7 +437,7 @@ TukeyHSD(results)
 
 The handheld-condition has a significant **higher** reaction time than the control condition
 
-<\details>
+`r if(knitr::is_html_output()){"\\details"}`
 
 
 ## Section 3
@@ -459,7 +469,7 @@ data$VIEWCAT <- factor(data$VIEWCAT)
 contrasts(data$VIEWCAT)
 ```
 
-<\details>
+`r if(knitr::is_html_output()){"\\details"}`
 
 ### Question 3.b
 
@@ -472,7 +482,7 @@ Perform a multiple regression analysis with just the viewcat dummies as predicto
 results <- lm(POSTNUMB ~ VIEWCAT, data)
 summary(results)
 ```
-<\details>
+`r if(knitr::is_html_output()){"\\details"}`
 
 ### Question 3.c
 
@@ -494,7 +504,7 @@ ggplot(data, aes(x = AGE, y = POSTNUMB, colour = VIEWCAT)) +
   geom_smooth(method = "lm", se = FALSE) + # For regression lines
   theme_bw() # For a pretty theme
 ```
-<\details>
+`r if(knitr::is_html_output()){"\\details"}`
 
 ### Question 3.e
 
@@ -508,7 +518,7 @@ Add an interaction between age and viewcat to the regression analysis.
 results_interaction <- lm(POSTNUMB ~ VIEWCAT*AGE, data)
 summary(results_interaction)
 ```
-<\details>
+`r if(knitr::is_html_output()){"\\details"}`
 
 ### Question 3.f
 
@@ -522,7 +532,7 @@ Perform a sequential multiple regression. Include age and viewcat as the predict
 results_main <- lm(POSTNUMB ~ VIEWCAT + AGE, data)
 anova(results_main, results_interaction)
 ```
-<\details>
+`r if(knitr::is_html_output()){"\\details"}`
 
 ### Question 3.g
 
@@ -556,7 +566,7 @@ Step 2:
 
 ![](3_g2.png)
 
-<\details>
+`r if(knitr::is_html_output()){"\\details"}`
 
 ### Question 3.h
 
@@ -575,9 +585,7 @@ Postnumb_i = b_0 + &b_1D_{view2i} + b_2D_{view3i} + b_3D_{view4i} + b_4Age_i +\\
 \end{aligned}
 $$
 
-
-
-<\details>
+`r if(knitr::is_html_output()){"\\details"}`
 
 ### Question 3.i
 
@@ -586,7 +594,7 @@ Write down the null hypothesis that is tested to determine whether there is an i
 <details>
   <summary>Click for explanation</summary>
 $H_0: b_5 = b_6 = b_7 = 0$
-<\details>
+`r if(knitr::is_html_output()){"\\details"}`
 
 ### Question 3.j
 
@@ -614,7 +622,7 @@ $Postnumb_i = b_0 + b_4Age_i + b_1D_{view2i} + b_4Age_i + b_5D_{view2i}Age_i + \
 
 Etc.
 
-<\details>
+`r if(knitr::is_html_output()){"\\details"}`
 
 ### Question 3.k
 
@@ -630,7 +638,7 @@ RQ: Is there a significant difference between the marginal means of postnumb by 
 
 $H_0:$ After controling for age, the mans of postnumb are equal in all groups.
 
-<\details>
+`r if(knitr::is_html_output()){"\\details"}`
 
 ### Question 3.m
 
@@ -644,7 +652,7 @@ Perform this analysis as an ANCOVA.
 ```{r}
 results_ancov <- aov(POSTNUMB~AGE+VIEWCAT-1, data)
 ```
-<\details>
+`r if(knitr::is_html_output()){"\\details"}`
 
 Examine the parameter estimates of the ANCOVA. What do the parameter estimates represent?
 
@@ -657,4 +665,4 @@ summary.lm(results_ancov)
 ```
 The parameter estimates are the means of each VIEWCAT category when age = 0.
 
-<\details>
+`r if(knitr::is_html_output()){"\\details"}`

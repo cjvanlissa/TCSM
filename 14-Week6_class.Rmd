@@ -6,7 +6,7 @@ library(semTools)
 library(kableExtra)
 library(lavaan)
 library(psych)
-data <- read.spss("suiciderisk.sav", to.data.frame = TRUE)
+data <- read.spss("TCSM_student/suiciderisk.sav", to.data.frame = TRUE)
 ```
 
 Start with your last model from Question 11 of the THE. Note that ‘Depression’ and ‘use of narcotic substances’ are completely independent in the model, i.e. they are not predicted by anything. Usually we would estimate a covariance between them, otherwise the model restricts the covariance to be zero. However, to replicate the original results, it is important to NOT estimate this covariance (fix it to zero). 

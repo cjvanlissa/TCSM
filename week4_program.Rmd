@@ -1,0 +1,28 @@
+# Week 4 - Program
+
+**General Linear Model**
+
+**Homework for the lecture General Linear Model:**
+
+Often, the analyses in lavaan are focused on the analysis of relations between variables, or in statistical terms: covariances.
+
+Sometimes, we are interested in testing for differences in means between groups. This is also possible in lavaan. As an example, we will revisit the ANCOVA-model as being an example of moderation.
+When using ANCOVA and regression analysis, researchers often indicate that they are controlling for certain variables. Controlling for variables (by including them as covariates or predictors) may change your results. There is some controversy about when one is allowed to control for variables and what this actually means. A thorough understanding of the General Linear Model is helpful for appreciating the discussion. 
+
+Read this week’s literature and finish the reading questions before coming to the lecture.
+- Miller, G. A., & Chapman, J. P. (2001). Misunderstanding analysis of covariance. Journal of Abnormal Psychology, 110(1), 40-48.
+	
+**Lecture General Linear Model (GLM):	**
+
+In this lecture we focus on the General Linear Model and discuss specific cases such as ANOVA, ANCOVA and regression models (with or without dummies).
+
+**Homework for the practical General Linear Model & SEM:**
+
+Perform the take home exercise GLM & SEM before coming to the practical.
+	
+**Practical General Linear Model:**
+
+During the practical, we will discuss the take home exercise. In the remainder of the practical, students can work on class exercise GLM & SEM.
+
+
+

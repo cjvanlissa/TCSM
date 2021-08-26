@@ -14,7 +14,7 @@ data <- read.spss("LifeSat.sav", to.data.frame = TRUE)
 
 ### Question 1.a
 
-Make a descriptives table for the variables: LifSat, educ, ChildSup, SpouSup, and age. 
+Make a table with descriptive statistics for the variables: LifSat, educ, ChildSup, SpouSup, and age. 
 
 What is the average age in the sample? And the range (youngest and oldest child)? 
 

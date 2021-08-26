@@ -3,8 +3,10 @@
 ```{r include=FALSE}
 knitr::opts_chunk$set(warning=FALSE, message=FALSE)
 ```
-This exercise is based on Kestilä, Elina (2006) Is There Demand for Radical Right 
-Populism in the Finnish Electorate? Scandinavian Political Studies 29(3),169-191 
+This exercise is based on:
+
+Kestilä, Elina (2006). Is There Demand for Radical Right
+Populism in the Finnish Electorate? *Scandinavian Political Studies 29*(3),169-191 
  
 You have read and answered questions about the article in the reading questions. In this 
 exercise, as well as in the second class practical, we will analyze these data ourselves. 
@@ -91,12 +93,12 @@ kable(data.frame(Variable = names(data), Description = desc)) %>%
   kable_styling(bootstrap_options = c("striped", "hover"))
 
 ```
+`r if(knitr::is_html_output()){"\\details"}`
 
 ### Question 1.b
 
 The ESS-file contains much more information than we need to re-analyze the paper by 
-Kestilä. We need to reduce the number of cases, in order to make the file more 
-manageable, and make sure our results pertain to our target population.  
+Kestilä. We need to reduce the number of cases to make sure our results pertain to the relevant target population.  
 
 Kestilä only uses data from ten countries: `c("Austria", "Belgium", "Denmark", "Finland", "France", "Germany", "Italy", "Netherlands", "Norway", "Sweden")`.
 
@@ -109,7 +111,7 @@ As explained in the tutorial chapters at the beginning of this GitBook, it is po
 ```{r}
 df <- data[data$cntry %in% c("Austria", "Belgium", "Denmark", "Finland", "France", "Germany", "Italy", "Netherlands", "Norway", "Sweden"), ]
 ```
-\details
+`r if(knitr::is_html_output()){"\\details"}`
 
 
 ### Question 1.c
@@ -156,7 +158,7 @@ data <- read.spss("ESSround1-a.sav", to.data.frame = TRUE, use.value.labels = FA
 df <- data[data$cntry %in% c(21,18,17,15,9,8,6,5,2,1), ]
 ```
 
-\details
+`r if(knitr::is_html_output()){"\\details"}`
 
 ### Question 1.e
 
@@ -192,7 +194,7 @@ ggplot(df_plot, aes(x = value)) + geom_histogram() + facet_wrap(~name, scales = 
 ```
 
 Notice the fact that you can see that the scales are actually categorical (because of the gaps between bars), and that most variables look relatively normally distributed despite being categorical. It's probably fine to treat them as continuous.
-\details
+`r if(knitr::is_html_output()){"\\details"}`
 
 ### Question 1.f
 
@@ -228,7 +230,7 @@ library(psych)
 pca_att <- principal(df[, 20:44], nfactors = 5, rotate = "varimax")
 print(pca_att, cut = .3)
 ```
-</details>
+`r if(knitr::is_html_output()){"\\details"}`
 
 ### Question 1.h
 
@@ -259,7 +261,7 @@ colnames(pca_trust$scores) <- c("Trust1", "Trust2", "Trust3")
 df <- cbind(df, pca_trust$scores, pca_att$scores)
 ```
 
-\details
+`r if(knitr::is_html_output()){"\\details"}`
 
 
 ### Question 1.i
@@ -270,7 +272,7 @@ Are you able to replicate her results?
   <summary>Click for explanation</summary>
   No, probably not. The team of teachers was unable to reproduce this analysis, even though it should be pretty easy to do so...
 
-\details
+`r if(knitr::is_html_output()){"\\details"}`
 
 
 ### Question 1.j

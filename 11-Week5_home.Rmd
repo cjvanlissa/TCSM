@@ -4,7 +4,7 @@
 library(foreign)
 library(semTools)
 library(lavaan)
-data <- read.spss("SelfEsteem.sav", to.data.frame = TRUE)
+data <- read.spss("TCSM_student/SelfEsteem.sav", to.data.frame = TRUE)
 ```
 
 The data file SelfEsteem.sav contains the following variables: 

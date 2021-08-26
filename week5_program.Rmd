@@ -1,0 +1,25 @@
+# Week 5 - Program
+
+**Introducing means into statistical models/How can I investigate mediation?**
+
+**Homework for the lecture Mediation:**
+
+Researchers often have theories about possible causal relationships between variables. A particularly important topic in this respect is mediation, in which variable X influences variable Y through a third variable, the mediator. For instance, psychotherapy (X), may affect thoughts (mediator), which in turn affects mood (Y). 
+
+Read this week’s literature and finish the reading questions before coming to the lecture.
+- MacKinnen, D. P., Krull, J. L., Lockwood, C. M. (2000). Equivalence of the mediation, confounding, and suppression effect. Prevention Science, 1, 173-181.
+- Holbert, R. L. & Stephenson, M. T. (2003). The importance of indirect effects in media effects research: Testing for mediation in structural equation modeling. Journal of Broadcasting & Electronic Media, 47, 556-572.
+
+**Lecture Mediation:**
+
+There are two approaches to investigating mediation. The first approach is within the context of multiple linear regression analysis. The second approach is based on path models, which form a special case of Structural Equation Modeling. We consider both and discuss their advantages and weaknesses.
+
+**Homework for the practical Mediation:**
+
+Perform take home exercise mediation before coming to the practical.
+	
+**Practical Mediation:**
+
+During the practical we will discuss take home exercise mediation. In the remainder of the practical an introduction into estimating mediation and path models in lavaan will be given.
+
+

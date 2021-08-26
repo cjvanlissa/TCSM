@@ -17,7 +17,7 @@ df <- read.csv("ESSround1-b.csv", stringsAsFactors = FALSE)
 ``` {r, echo = FALSE, message = FALSE, warning = FALSE}
 df <- read.csv("TCSM_student/ESSround1-b.csv", stringsAsFactors = FALSE)
 ```
-\details
+`r if(knitr::is_html_output()){"\\details"}`
 
 
 
@@ -39,7 +39,7 @@ Key factors include:
 * Estimation method
 * Rotation method
 * Method to establish how many factors are needed
-\details
+`r if(knitr::is_html_output()){"\\details"}`
 
 ### Question 3
 
@@ -88,7 +88,7 @@ fa.parallel(df[, 7:19])
 
 Note that, in this case, parallel analysis recommends as many as 6 factors. However, in order to be able to compare our results with those from Kestilä, we might consider aligning ourselves with the literature and choosing the same number of factors for our analyses as components in the article.
 
-\details
+`r if(knitr::is_html_output()){"\\details"}`
 
 
 ### Question 4
@@ -123,7 +123,7 @@ Furthermore, if you want to perform a factor analysis without, say, `stfedu`, wh
 ```{r, eval = FALSE}
 efa_trust_without_stfedu <- fa(df[, c(7:12, 14:19)], nfactors = 3, rotate = "promax", fm = "ml")
 ```
-\details
+`r if(knitr::is_html_output()){"\\details"}`
 
 
 ### Question 5
@@ -167,7 +167,7 @@ reli_1
 
 Sometimes, the table "Reliability if an item is dropped" will indicate that Cronbach's alpha increases when you drop a variable out of the analysis. Note, however, that doing so is an exploratory approach to analysis, and it may make your work incomparable to other publications using the same scale.
 
-\details
+`r if(knitr::is_html_output()){"\\details"}`
 
 ### Question 7
 
@@ -196,7 +196,7 @@ ggplot(data = df_with_scores) +
        y = "PCA_Trust1")
 ```
 
-\details
+`r if(knitr::is_html_output()){"\\details"}`
 
 ### Question 8
 
@@ -210,13 +210,15 @@ Examine the correlations between the PCA and EFA scales for the 'trust in politi
 Example for trust in politics:
 
 ```{r, eval = FALSE}
-cor(df_with_scores$EFA_Trust1, df_with_scores$PCA_Trust1, use = "complete.obs")
+library(psych)
+corr.test(df_with_scores$EFA_Trust1, df_with_scores$PCA_Trust1, use = "complete.obs")
 ```
 ```{r, echo = FALSE, warning = FALSE}
-cor(df_with_scores$trustinstEFA, df_with_scores$trustinst, use = "complete.obs") 
+library(psych)
+corr.test(df_with_scores$trustinstEFA, df_with_scores$trustinst, use = "complete.obs") 
 ```
 
-\details
+`r if(knitr::is_html_output()){"\\details"}`
 
 
 ### Question 9
@@ -240,7 +242,7 @@ pair_comparison <- pairwise.t.test(df_with_scores$trustinstEFA, df_with_scores$c
 round(pair_comparison$p.value, digits = 3)
 ```
 
-\details
+`r if(knitr::is_html_output()){"\\details"}`
 
 ### Question 10
 
@@ -254,7 +256,7 @@ To select the Finnish cases only, select rows for which `$cntry` is equal to (`=
 df_finland <- df_with_scores[df_with_scores$cntry == "Finland", ]
 ```
 
-\details
+`r if(knitr::is_html_output()){"\\details"}`
 
 After selecting the Finnish cases, we have to prepare our variables for analysis.
 Thanks to the factor analyses above, our dependent variables are taken care of.
@@ -314,7 +316,7 @@ Compare your results with the results from Kestilä. How do your results differ 
 fit_trust1 <- lm(trustinstEFA ~ gndr + age + eduyrs + polintr_dummy + lrscale, data = df_finland, na.action = na.omit)
 summary(fit_trust1)
 ```
-\details
+`r if(knitr::is_html_output()){"\\details"}`
 
 
 ### Question 11

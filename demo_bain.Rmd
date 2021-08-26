@@ -14,9 +14,13 @@ A popular theory in psychology to explain social behavior is the Theory of Reaso
 
 We examine a synthetic data set based on results found by Reinecke (1998). The behavior under investigation is condom use by 16-24 year adolescents. The dependent variable ‘condom use’ is measured on a 5-point Likert-type scale (How often do you...), and the behavioral intention on a similar 5-point scale (In general do you intend to...). There are three attitude items about condom use (e.g., using a condom is awkward), three normative items (e.g., I think most of my friends would use...), all measured on a 5-point Likert-type scale.
 
-```{r, message = FALSE}
+```{r, message = FALSE, eval = FALSE}
 library(foreign)
 df <- read.spss("toradata.sav", to.data.frame = TRUE, use.value.labels = FALSE)
+```
+```{r, echo = FALSE}
+library(foreign)
+df <- read.spss("TCSM_student/toradata.sav", to.data.frame = TRUE, use.value.labels = FALSE)
 ```
 
 ## Specifying the model

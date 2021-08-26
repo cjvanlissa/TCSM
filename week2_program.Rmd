@@ -1,0 +1,28 @@
+# Week 2 - Program
+
+**How do I test whether I measure what I intend to measure?**
+
+In the social sciences we often try to measure things indirectly. For example, someone’s IQ or socio-economic status cannot be measured with just one question; we need more questions that each measure different aspects of these constructs. The method that is used in the social sciences to evaluate the quality of our measurements, and combine different questions or items to form the variables we’re interested in, are factor analysis and reliability analysis. 
+
+**Homework for the lecture Exploratory Factor Analysis: **
+
+Read this week’s literature and finish the reading questions before coming to the lecture (see Blackboard for direct URLs)
+Make sure to also answer the reading questions (on Blackboard).
+
+- Preacher, Kristopher J. and MacCullum, Robert C. (2003) Repairing Tom Swift’s Electric Factor Analysis Machine, Understanding Statistics 2(1) 13-43.
+- Kestilä, Elina (2006) Is There Demand for Radical Right Populism in the Finnish Electorate? Scandinavian Political Studies 29(3),169-191
+
+**Lecture Exploratory Factor Analysis: **
+
+This lecture forms an introduction to latent variables and scaling procedures. Different aspects of exploratory factor analysis will be discussed. Most notably we focus on the differences between Principal Component Analyses (PCA) and Factor Analysis, estimation and extraction methods, and factor axes rotations. The researcher has to take decisions on all these aspects when (s)he wants to analyse whether questions form a scale or not. Furthermore, reliability and factor scores are discussed as methods to construct and evaluate the properties of a scale.
+
+
+**Homework for the practical Exploratory Factor Analysis:	**
+
+Perform the take home exercise Exploratory Factor Analysis (EFA) before coming to the practical.
+
+
+**Practical Exploratory Factor Analysis:**
+
+During the practical, the take home exercise EFA is shortly discussed. After this, students can work on the class exercise EFA.
+

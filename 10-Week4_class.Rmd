@@ -4,7 +4,7 @@
 library(foreign)
 library(semTools)
 library(lavaan)
-data <- read.spss("SocialRejection.sav", to.data.frame = TRUE)
+data <- read.spss("TCSM_student/SocialRejection.sav", to.data.frame = TRUE)
 ```
 
 You will continue with the analysis of the Social Rejection data from the Take Home exercise. Instead of running the model as a regression model with dummy variables (as in the Take Home exercise), in lavaan you can also run the model as a regression model with multiple groups. So, when you have data with categorical and continuous independent variables, as in the data file SocialRejection.sav, you could either perform:

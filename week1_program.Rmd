@@ -1,0 +1,27 @@
+# Week 1 - Program
+
+**Introduction**
+
+The first lecture will be used to introduce the concept of fitting models to data and explain some important concepts and notation that will be used during this course.
+
+**Homework for the lecture Introduction on Tuesday:**
+
+Work your way through the first two chapters of the GitBook online: https://cjvanlissa.github.io/TCSM/index.html. This will help you install the software required for the course, and get the data into R. You can skip the optional sections if you are already familiar with R.
+
+Read the article by Smaldino (skip the red sections; the yellow section is optional). Answer the reading questions (on Blackboard). Plan a call with your learning team to discuss the second question. Reference:
+
+Smaldino, P. E. (2017). Models are stupid, and we need more of 
+them. Computational social psychology, 311-331.
+
+
+**Lecture Introduction:**
+
+We start with a brief introduction to the course, its goals and rules and the idea of statistical modelling. In this lecture we will introduce the type of models that will come across in this course. We will shortly discuss the concepts of model simplicity/complexity, model fit, the graphical display and the interpretation of different model parameters.  
+
+**Homework for the practical Introduction on Thursday:**
+
+Perform the take-home exercise Regression (Chapter 3, Week 1 Home) before coming to the practical. 
+
+**Practical Introduction: **
+
+During the practical you will work on the class exercise about regression and SEM models.
