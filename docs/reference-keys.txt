@@ -106,6 +106,7 @@ question-3.j
 question-3.k
 question-3.l
 question-3.m
+week-1---formative-test
 week-2---program
 week-2---reading-questions
 week-2---home

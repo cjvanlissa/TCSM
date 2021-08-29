@@ -1,0 +1,28 @@
+# Week 1 - Formative test
+
+```{r include=FALSE}
+knitr::opts_chunk$set(warning=FALSE, message=FALSE, echo = FALSE)
+if(!file.exists("formative1.png")){
+  library(tidySEM)
+library(lavaan)
+library(ggplot2)
+df <- iris[ , 1:4]
+names(df) <- c("y_1", "x", "y_2", "y_3")
+set.seed(58)
+tidy_sem(df) |>
+  measurement() |>
+  estimate_lavaan() |>
+  graph_sem(fix_coord = TRUE) -> p
+ggsave("formative1.png", p, "png")
+}
+```
+
+A formative test helps you assess your progress in the course, and helps you address any blind spots in your understanding of the material.
+
+Complete the formative test ideally *after* you've seen the lecture, but *before* the lecture meeting in which we can discuss any topics that need more attention.
+
+```{r results = "asis", echo = FALSE}
+source("formative.R")
+questionnaire("formative1.csv")
+```
+
