@@ -1,6 +1,12 @@
-# Week 5 - Program
+# Week 5 - Overview
 
-**Introducing means into statistical models/How can I investigate mediation?**
+**Lecture**
+
+```{r}
+knitr::include_url("https://www.youtube.com/embed/xg84x9BVHAI")
+```
+
+Introducing means into statistical models/How can I investigate mediation?
 
 **Homework for the lecture Mediation:**
 

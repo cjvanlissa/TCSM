@@ -1,6 +1,10 @@
-# Week 4 - Program
+# Week 4 - Overview
 
-**General Linear Model**
+**Lecture**
+
+```{r}
+knitr::include_url("https://www.youtube.com/embed/iTzKl8XsKTQ")
+```
 
 **Homework for the lecture General Linear Model:**
 

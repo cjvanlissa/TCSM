@@ -1,6 +1,12 @@
-# Week 6 - Program
+# Week 6 - Overview
 
-**How can I investigate mediation/moderation?**
+**Lecture**
+
+```{r}
+knitr::include_url("https://www.youtube.com/embed/Oyqxchbci6o")
+```
+
+How can I investigate mediation/moderation?
 
 **Homework for the lecture on Moderation:**
 

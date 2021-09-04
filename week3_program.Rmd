@@ -1,8 +1,10 @@
-# Week 3 - Program
+# Week 3 - Overview
 
-**How do I test whether I measure what I intend to measure?**
+**Lecture**
 
-**Homework for the lecture Confirmatory Factor Analysis:**
+```{r}
+knitr::include_url("https://www.youtube.com/embed/GTEmuveyJ1k")
+```
 
 Often researchers use scales that have been used and tested before. Because of this, they have clear ideas of the number of factors to expect and they can also indicate which specific questions belong to which factor. Instead of doing Exploratory Factor Analysis (EFA), methods have been developed that allow us to test whether a presupposed factor structure is there (Confirmatory Factor Analysis or CFA).
 	

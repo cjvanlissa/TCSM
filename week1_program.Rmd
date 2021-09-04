@@ -1,6 +1,10 @@
-# Week 1 - Program
+# Week 1 - Overview
 
-**Introduction**
+**Lecture**
+
+```{r, echo = FALSE}
+knitr::include_url("https://www.youtube.com/embed/DqllMJ38M5s")
+```
 
 The first lecture will be used to introduce the concept of fitting models to data and explain some important concepts and notation that will be used during this course.
 
