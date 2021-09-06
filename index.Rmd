@@ -234,7 +234,7 @@ Thank you for your cooperation, we will only be able to get through this period 
 Attendance is not mandatory, but we highly recommend everyone to attend all lectures and the Thursday practicals. In our experience, students who actively participate tend to pass the course, whereas those who do not tend to drop out or fail. The lectures and practicals ‘build’ on each other, so in the unfortunate event that you have to miss either one, please make sure you have caught up with the materials before the next session. The practicals on Monday are for troubleshooting -- to be sure that everyone can keeps up with the course -- and they are no substitute for the Thursday practicals. 
 
 ## Literature
-All literature is available on the Internet, as long as you are within the UU-domain. See the course site on Blackboard for direct links to all following articles. For some articles, we are not allowed to post direct URLs. Searching through either www.scholar.google.com or the University Library (www.ubu.uu.nl) will work wonders.
+All literature is available on the Internet, as long as you are within the UU-domain. See the course site on Blackboard for direct links to all following articles. For some articles, we are not allowed to post direct URLs. Searching through either [Google Scholar](www.scholar.google.com) or the [University Library](www.ubu.uu.nl) will work wonders.
 
 ## Reading questions
 
