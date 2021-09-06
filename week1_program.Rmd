@@ -6,6 +6,8 @@
 knitr::include_url("https://www.youtube.com/embed/DqllMJ38M5s")
 ```
 
+[Download slides](pdfs/tcsm_week_1.pdf)
+
 The first lecture will be used to introduce the concept of fitting models to data and explain some important concepts and notation that will be used during this course.
 
 **Homework for the lecture Introduction on Tuesday:**
