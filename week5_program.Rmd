@@ -6,6 +6,8 @@
 knitr::include_url("https://www.youtube.com/embed/xg84x9BVHAI")
 ```
 
+[Download slides](pdfs/tcsm_week_5.pdf)
+
 Introducing means into statistical models/How can I investigate mediation?
 
 **Homework for the lecture Mediation:**

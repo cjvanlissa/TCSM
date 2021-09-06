@@ -6,6 +6,8 @@
 knitr::include_url("https://www.youtube.com/embed/LGJap7ZRMSU")
 ```
 
+[Download slides](pdfs/tcsm_week_2.pdf)
+
 How do I test whether I measure what I intend to measure?
 In the social sciences we often try to measure things indirectly. For example, someone’s IQ or socio-economic status cannot be measured with just one question; we need more questions that each measure different aspects of these constructs. The method that is used in the social sciences to evaluate the quality of our measurements, and combine different questions or items to form the variables we’re interested in, are factor analysis and reliability analysis. 
 

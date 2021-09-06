@@ -6,6 +6,8 @@
 knitr::include_url("https://www.youtube.com/embed/Oyqxchbci6o")
 ```
 
+[Download slides](pdfs/tcsm_week_6.pdf)
+
 How can I investigate mediation/moderation?
 
 **Homework for the lecture on Moderation:**

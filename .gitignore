@@ -12,3 +12,5 @@ rsconnect
 *.pdf
 *.RData
 TCSM_student/
+!pdfs/*.pdf
+!docs/pdfs/*.pdf

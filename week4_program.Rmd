@@ -6,6 +6,8 @@
 knitr::include_url("https://www.youtube.com/embed/iTzKl8XsKTQ")
 ```
 
+[Download slides](pdfs/tcsm_week_4.pdf)
+
 **Homework for the lecture General Linear Model:**
 
 Often, the analyses in lavaan are focused on the analysis of relations between variables, or in statistical terms: covariances.

@@ -6,6 +6,8 @@
 knitr::include_url("https://www.youtube.com/embed/GTEmuveyJ1k")
 ```
 
+[Download slides](pdfs/tcsm_week_3.pdf)
+
 Often researchers use scales that have been used and tested before. Because of this, they have clear ideas of the number of factors to expect and they can also indicate which specific questions belong to which factor. Instead of doing Exploratory Factor Analysis (EFA), methods have been developed that allow us to test whether a presupposed factor structure is there (Confirmatory Factor Analysis or CFA).
 	
 Read this week’s literature and finish the reading questions before coming to the lecture.
