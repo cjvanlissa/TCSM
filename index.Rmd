@@ -148,7 +148,7 @@ Assignments are a suitable form of assessment for a skills-based course like TCS
 
 Your grade for the course is based on your “portfolio”, composed of the three take-home assignments.
 
-The first assignment (deadline: `r schedule$Date[schedule$Activity == "Exams"][1]`) is an assignment which assesses your understanding of the latent variable model. This is a group assignment, made with your learning team. The exam counts towards 25% of your grade.
+The first assignment (deadline: `r schedule$Date[schedule$Activity == "Exams"][1]`) assesses your understanding of the latent variable model. This is a group assignment, made with your learning team. The exam counts towards 25% of your grade.
 
 The second graded assignment (deadline: `r schedule$Date[schedule$Activity == "Exams"][2]`) assesses your understanding of path models. This is a group assignment, made with your learning team. The exam counts towards 25% of your grade.
 
