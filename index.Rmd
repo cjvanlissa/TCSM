@@ -106,14 +106,14 @@ After completing the course, you will be able to do the following:
 
 ## Theory Construction and Statistical Modeling
 
-In order to test a theory, we must express the theory as a statistical model, and then test this model on quantitative (numeric) data. This course uses existing tutorial datasets to practice the process of translating verbal theories into testable statistical models. Those who are interested in the methods of acquiring high quality data for your own theory, we refer to the course “Conducting a Survey” which is taught from November – January.
+In order to test a theory, we must express the theory as a statistical model and then test this model on quantitative (numeric) data. This course uses existing tutorial datasets to practice the process of translating verbal theories into testable statistical models. Those who are interested in the methods of acquiring high quality data for your own theory, we refer to the course “Conducting a Survey” which is taught from November – January.
 In this course we will use datasets from different disciplines within the social sciences (educational sciences, psychology and sociology) to explain and illustrate theories and practices that are used in all social science disciplines to statistically model social science theories.
 Most information about the course is available in this GitBook.
 Communication about the course occurs through <https://uu.blackboard.nl> (Login with your student ID and password).
 
 ## Course overview
 
-The course consists of three parts, each of which are examinated with an assignment:
+The course consists of three parts, each of which is assessed with an assignment:
 
 1. Factor analysis, in which you learn different ways of capturing unobserved constructs.
 2. Path analysis, in which you learn how to model regression and ANOVA as a structural equation model with observed variables.
@@ -121,9 +121,9 @@ The course consists of three parts, each of which are examinated with an assignm
 
 ## Adaptations related to the coronavirus measures
 
-The corona crisis is challenging all of us to rethink how we teach and learn. But aside from the challenges, it also offers opportunities. In adapting this course, we kept two goals in mind: To increase the alignment between the way of teaching and the learning goals, and second, to ensure high-quality interaction among students and between the students and teachers while still using online communication. Based on these goals, we made the following changes:
+The corona crisis is challenging all of us to rethink how we teach and learn. But aside from the challenges, it also offers opportunities. In adapting this course, we kept two goals in mind: increasing the alignment between the way of teaching and the learning goals, and insuring high-quality interaction among students and between the students and teachers while still using online communication. Based on these goals, we made the following changes:
 
-1. During the course, you will be working in learning teams, to promote interaction among students and peer support
+1. During the course, you will be working in learning teams to promote interaction among students and peer support
 2. The two in-person exams (4 hours each) are replaced with take-home assignments: Two group assignments, and one individual assignment.
 
 ### Why not in-person meetings?
@@ -142,13 +142,13 @@ Contact with fellow students is a key aspect of the university experience. Durin
 
 ### Why use take home assignments for assessment?
 
-Assignments are a suitable form of assessment for a skills-based course like TCSM. It also takes a lot of the pressure off, because you can work at your own pace. This course used to have two 4-hour exams; not exactly corona-proof. Using take-home assignments entrusts you with the responsibility to make this assignment in good faith, without instrumental assistance or plagiarism, so I kindly ask you to make good on this trust, and hand in original work to show what you’ve learned.
+Assignments are a suitable form of assessment for a skills-based course like TCSM. It also takes a lot of the pressure off because you can work at your own pace. This course used to have two 4-hour exams; not exactly corona-proof. Using take-home assignments entrusts you with the responsibility to make this assignment in good faith, without instrumental assistance or plagiarism, so I kindly ask you to make good on this trust, and hand in original work to show what you’ve learned.
 
 ## Grading
 
-Your grade for the course is based on your “portfolio”, composed of the three take-home assignments.
+Your grade for the course is based on your “portfolio” composed of the three take-home assignments.
 
-The first assignment (deadline: `r schedule$Date[schedule$Activity == "Exams"][1]`) is an assignment which assesses your understanding of the latent variable model. This is a group assignment, made with your learning team. The exam counts towards 25% of your grade.
+The first assignment (deadline: `r schedule$Date[schedule$Activity == "Exams"][1]`) assesses your understanding of the latent variable model. This is a group assignment, made with your learning team. The exam counts towards 25% of your grade.
 
 The second graded assignment (deadline: `r schedule$Date[schedule$Activity == "Exams"][2]`) assesses your understanding of path models. This is a group assignment, made with your learning team. The exam counts towards 25% of your grade.
 
@@ -217,7 +217,7 @@ A description of the assignments follows below. For each assignment, every eleme
     o	For this assignment, it is not allowed to recruit outside help
 •	In all cases, you are obligated to hand in original work conducted by you or your group. Failure to do so constitutes fraud.
 •	You also have a moral obligation to obey the rules. For this course, I have chosen a form of examination that allows you to showcase what you have learned flexibly. This spares you the stress of long exams (the two exams for this course used to be 4 hours each) and cramming all course material. It also assumes that you make the assignment in good faith, so I simply ask that you hold up your end of the bargain, and hand in your original work to show what you’ve learned.
-•	The final assignment also helps you assess of your ability to independently analyse data, which is important to know for your future courses and/or career.
+•	The final assignment also helps you assess your ability to independently analyse data, which is important to know for your future courses and/or career.
 
 ## Statement on fair grading during corona
 
@@ -231,10 +231,10 @@ Thank you for your cooperation, we will only be able to get through this period 
 
 ## Attendance
 
-Attendance is not mandatory, but we highly recommend everyone to attend all lectures and the Thursday practicals. In our experience, students who actively participate tend to pass the course, whereas those who do not tend to drop out or fail. The lectures and practicals ‘build’ on each other, so in the unfortunate event that you have to miss either one, please make sure you have caught up with the materials before the next session. The practicals on Monday are for troubleshooting, to be sure that everyone can keeps up with the course, and they are no substitute for the Thursday practicals. 
+Attendance is not mandatory, but we highly recommend everyone to attend all lectures and the Thursday practicals. In our experience, students who actively participate tend to pass the course, whereas those who do not tend to drop out or fail. The lectures and practicals ‘build’ on each other, so in the unfortunate event that you have to miss either one, please make sure you have caught up with the materials before the next session. The practicals on Monday are for troubleshooting -- to be sure that everyone can keeps up with the course -- and they are no substitute for the Thursday practicals. 
 
 ## Literature
-All literature is available on the Internet, as long as you are within the UU-domain. See the course site on Blackboard for direct links to all following articles. For some articles, we are not allowed to post direct URL’s. Searching through either www.scholar.google.com or the University Library (www.ubu.uu.nl) will work wonders.
+All literature is available on the Internet, as long as you are within the UU-domain. See the course site on Blackboard for direct links to all following articles. For some articles, we are not allowed to post direct URLs. Searching through either www.scholar.google.com or the University Library (www.ubu.uu.nl) will work wonders.
 
 ## Reading questions
 
