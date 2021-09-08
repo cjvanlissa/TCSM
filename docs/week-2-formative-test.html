@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>1.1 Installing software | Theory Construction and Statistical Modeling</title>
+  <title>Chapter 12 Week 2 - Formative test | Theory Construction and Statistical Modeling</title>
   <meta name="description" content="This is a guide for the elective course TCSM." />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="1.1 Installing software | Theory Construction and Statistical Modeling" />
+  <meta property="og:title" content="Chapter 12 Week 2 - Formative test | Theory Construction and Statistical Modeling" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1.1 Installing software | Theory Construction and Statistical Modeling" />
+  <meta name="twitter:title" content="Chapter 12 Week 2 - Formative test | Theory Construction and Statistical Modeling" />
   
   <meta name="twitter:description" content="This is a guide for the elective course TCSM." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="preparing-for-the-course.html"/>
-<link rel="next" href="getting-the-course-data.html"/>
+<link rel="prev" href="week-2-class.html"/>
+<link rel="next" href="week-3-overview.html"/>
 <script src="libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="libs/jquery-3.5.1/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -473,170 +473,222 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="installing-software" class="section level2" number="1.1">
-<h2><span class="header-section-number">1.1</span> Installing software</h2>
-<p>Before we start the course, we have to install three things:</p>
-<ul>
-<li><strong>R</strong>, a free program for statistical programming</li>
-<li><strong>RStudio</strong>, a user interface which makes it easier to work with R; overlook our data, packages and output.</li>
-<li>Several <strong>packages</strong>, which are ‘add-ons’ for R with functions to do specific analyses. They also include the documentation (help files) that describes how to use them, and sample data.</li>
-</ul>
-<p><br><br></p>
-<hr />
-<div id="installing-r" class="section level3" number="1.1.1">
-<h3><span class="header-section-number">1.1.1</span> 1. Installing R</h3>
-<ul>
-<li>The latest R Version is available <a href="https://cran.r-project.org">here</a></li>
-<li>Based on your operating system (Linux, Mac, Windows), click Download.
-<ul>
-<li>If you use <strong>Windows</strong>, click Download R for Windows: Find ‘base’ under subdirectories -&gt; Click ‘install R for the first time’ -&gt; Click Download R 3.6.3 (or another version) for Windows</li>
-<li>If you use <strong>Mac</strong>, click Download R for (Mac) OS X: Find the header ‘Latest release’ -&gt; Click R-3.6.3.pkg (or another version)</li>
-<li>If you use <strong>Linux</strong>, click Download R for Linux: Choose your Linux distribution (debian/, redhat/, suse/, ubuntu/) -&gt; Open the terminal -&gt; Run the installation command</li>
-</ul></li>
-</ul>
+<div id="week-2---formative-test" class="section level1" number="12">
+<h1><span class="header-section-number">Chapter 12</span> Week 2 - Formative test</h1>
+<p>A formative test helps you assess your progress in the course, and helps you address any blind spots in your understanding of the material.
+If you get a question wrong, you will receive a hint on how to improve your understanding of the material.</p>
+<p>Complete the formative test ideally <em>after</em> you’ve seen the lecture, but <em>before</em> the lecture meeting in which we can discuss any topics that need more attention.</p>
+<p><strong>Question 1:</strong>
+With PCA, you must indicate the number of factors to extract a-priori.</p>
+<div class="radio">
+<p><label>
+<input type="radio" name="question1" id="opt1" value="1" onchange="check_answer1()">
+TRUE
+</label></p>
 </div>
-<div id="installing-rstudio" class="section level3" number="1.1.2">
-<h3><span class="header-section-number">1.1.2</span> 2. Installing RStudio</h3>
-<p><img src="TCSM_files/figure-html/unnamed-chunk-3-1.png" width="288" /></p>
-<p>Download RStudio on the <strong>RStudio</strong> Website (<a href="https://www.rstudio.com/products/rstudio/download/">Link</a>). It’s free!</p>
+<div class="radio">
+<p><label>
+<input type="radio" name="question1" id="opt2" value="2" onchange="check_answer1()">
+FALSE
+</label></p>
 </div>
-<div id="installpackages" class="section level3" number="1.1.3">
-<h3><span class="header-section-number">1.1.3</span> 3. Installing packages</h3>
-<p>As a prerequisite for this guide, you need to have a few essential <strong>R packages</strong> installed.</p>
-<ol style="list-style-type: decimal">
-<li>Open RStudio</li>
-<li>Inside RStudio, find the window named <strong>Console</strong> on the bottom left corner of your screen (it might fill the entire left side of the screen).</li>
-<li>We will now install a few packages using R Code. Here’s an overview of the packages, and why we need them:</li>
-</ol>
-<table>
-<thead>
-<tr>
-<th style="text-align:left;">
-Package
-</th>
-<th style="text-align:left;">
-Description
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-lavaan
-</td>
-<td style="text-align:left;">
-A sophisticated and user-friendly package for structural equation modeling
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ggplot2
-</td>
-<td style="text-align:left;">
-A flexible and user-friendly package for making graphs
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-tidySEM
-</td>
-<td style="text-align:left;">
-Plotting and tabulating the output of SEM-models
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-semTools
-</td>
-<td style="text-align:left;">
-Comparing models, establishing measurement invariance across groups
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-psych
-</td>
-<td style="text-align:left;">
-Descriptive statistics
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-foreign
-</td>
-<td style="text-align:left;">
-Loading data from SPSS ‘.sav’ files
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-readxl
-</td>
-<td style="text-align:left;">
-Loading data from Excel ‘.xslx’ files
-</td>
-</tr>
-</tbody>
-</table>
-<p><br><br>
-4. To install these packages, we use the <code>install.packages()</code> function in R. One package after another, our code should look like this:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="installing-software.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;tidySEM&quot;</span>, <span class="at">dependencies =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<div class="rmdachtung">
-<p>
-Don’t forget to put the package names in <code>""</code>. Otherwise, you will get an error message.
-</p>
-</div>
-<p><br><br></p>
-</div>
-<div id="get-started" class="section level3" number="1.1.4">
-<h3><span class="header-section-number">1.1.4</span> Get started</h3>
-</div>
-<div id="starting-a-new-project-in-rstudio" class="section level3" number="1.1.5">
-<h3><span class="header-section-number">1.1.5</span> Starting a new project in Rstudio</h3>
-<p>To keep all your work organized, you should use a <strong>project</strong>. In Rstudio, click on the <em>New project</em> button:</p>
-<p><img src="tut_new_proj.png" /></p>
-<p>In the pop-up dialog, click <em>New directory</em>, and again <em>New project</em>.</p>
-<p>type the desired directory name in the dialog (give it a meaningful name, e.g. “TCSM_course”), and use ‘Browse’ if you need to change the directory where you store your projects. Now, in your project, click <em>File &gt; New file &gt; R script</em>. This script file works just like notepad, or the syntax editor in SPSS: You type plain text, but you can run it any time you want. Conduct all of the exercises in this script file.</p>
-</div>
-<div id="code-conventions" class="section level3" number="1.1.6">
-<h3><span class="header-section-number">1.1.6</span> Code conventions</h3>
-<p>Throughout the guide, a consistent set of conventions is used to refer to code:</p>
-<ul>
-<li>Functions are in a code font and followed by parentheses, like
-<code>sum()</code> or <code>mean()</code>.</li>
-<li>Other R objects (like data or function arguments) are in a code
-font, without parentheses, like <code>seTE</code> or <code>method.tau</code>.</li>
-<li>Sometimes, we’ll use the package name followed by two colons, like
-<code>lavaan::sem()</code>. This is valid R code and will run. The <code>lavaan::</code> part indicates that the function <code>sem()</code> comes from the package <code>lavaan</code>.</li>
-</ul>
-</div>
-<div id="getting-help" class="section level3" number="1.1.7">
-<h3><span class="header-section-number">1.1.7</span> Getting Help</h3>
-<p>As you start to apply the techniques described in this guide to your data you will soon find questions that the guide does not answer. This section describes a few tips on how to get help.</p>
-<ol style="list-style-type: decimal">
-<li>Every function in R has documentation (a help file). To see it, select the name of the function and press F1, or run the command <code>?</code> followed by the name of the function, e.g.: <code>?aov</code>. I have been using R for 10 years, and I still press F1 all the time to see how a function works.</li>
-<li>Andy Field, the book used for our undergraduate statistics courses <span class="citation">(<a href="#ref-field2012discovering" role="doc-biblioref">Field, Miles, and Field 2012</a>)</span>, is also available for R. Many basic analyses are explained for R in this book.</li>
-<li>If you get stuck, start with <strong>Google</strong>. Typically, adding “R” to a search is enough to restrict it to relevant results, e.g.: “exploratory factor analysis R.” Google is particularly useful for error messages. If you get an error message and you have no idea what it means, try googling it. Chances are that someone else has been confused by it in the past, and there will be help somewhere on the web. (If the error message isn’t in English,
-run <code>Sys.setenv(LANGUAGE = "en")</code> and re-run the code; you’re
-more likely to find help for English error messages.)</li>
-<li>If Google doesn’t help, try <a href="https://stackoverflow.com">stackoverflow</a>. Start by spending a little time searching for an existing answer; including [R] restricts your search to questions and answers that use R.</li>
-<li>Lastly, if you stumble upon an error (or typos!) in this guide’s text or R syntax, feel free to contact <strong>Caspar van Lissa</strong> at <strong><a href="mailto:c.j.vanlissa@uu.nl" class="email">c.j.vanlissa@uu.nl</a></strong>.</li>
-</ol>
+<div id="collapseExample1" class="collapse">
+<div id="answerFeedback1" class="card card-body">
+
 </div>
 </div>
-<h3>References</h3>
-<div id="refs" class="references csl-bib-body hanging-indent">
-<div id="ref-field2012discovering" class="csl-entry">
-Field, Andy, Jeremy Miles, and Zoë Field. 2012. <em>Discovering Statistics Using r</em>. Sage publications.
+<script type="text/javascript">
+function check_answer1()
+{
+    var radioButtons1 = document.getElementsByName("question1");
+    document.getElementById("answerFeedback1").innerHTML = "Try selecting an answer!!";
+    for(var i = 0; i < radioButtons1.length; i++)
+    {
+        if(radioButtons1[i].checked == true)
+        {
+            var feedback1 = "<p style='color:red'>Wrong; PCA merely rotates the data in space. Every item adds a dimension to that space (so 3 indicators = 3-dimensional space). Software may allow you to specify the number of components (not factors) you are interested in - but that does not change the analysis, it just means the remaining components are omitted from the output. See Lecture, slide 16.</p>";
+            if(radioButtons1[i].value == "2") {
+              feedback1 = "<p style='color:green'>Correct!</p>"
+            }
+            document.getElementById("answerFeedback1").innerHTML = feedback1;
+            return true;
+        }
+    }
+}
+</script>
+<p><strong>Question 2:</strong>
+When conducting an exploratory factor analysis, cross-loadings are assumed to be zero.</p>
+<div class="radio">
+<p><label>
+<input type="radio" name="question2" id="opt1" value="1" onchange="check_answer2()">
+FALSE
+</label></p>
 </div>
+<div class="radio">
+<p><label>
+<input type="radio" name="question2" id="opt2" value="2" onchange="check_answer2()">
+TRUE
+</label></p>
+</div>
+<div id="collapseExample2" class="collapse">
+<div id="answerFeedback2" class="card card-body">
+
+</div>
+</div>
+<script type="text/javascript">
+function check_answer2()
+{
+    var radioButtons2 = document.getElementsByName("question2");
+    document.getElementById("answerFeedback2").innerHTML = "Try selecting an answer!!";
+    for(var i = 0; i < radioButtons2.length; i++)
+    {
+        if(radioButtons2[i].checked == true)
+        {
+            var feedback2 = "<p style='color:red'>Wrong; In exploratory factor analysis, all items load on all factors. Thus, all possible cross-loadings are estimated (even if we sometimes suppress small ones in the output). See Lecture, slide 38 (EFA).</p>";
+            if(radioButtons2[i].value == "1") {
+              feedback2 = "<p style='color:green'>Correct!</p>"
+            }
+            document.getElementById("answerFeedback2").innerHTML = feedback2;
+            return true;
+        }
+    }
+}
+</script>
+<p><strong>Question 3:</strong>
+EFA models the covariances among items; PCA describes the total variance of items.</p>
+<div class="radio">
+<p><label>
+<input type="radio" name="question3" id="opt1" value="1" onchange="check_answer3()">
+TRUE
+</label></p>
+</div>
+<div class="radio">
+<p><label>
+<input type="radio" name="question3" id="opt2" value="2" onchange="check_answer3()">
+FALSE
+</label></p>
+</div>
+<div id="collapseExample3" class="collapse">
+<div id="answerFeedback3" class="card card-body">
+
+</div>
+</div>
+<script type="text/javascript">
+function check_answer3()
+{
+    var radioButtons3 = document.getElementsByName("question3");
+    document.getElementById("answerFeedback3").innerHTML = "Try selecting an answer!!";
+    for(var i = 0; i < radioButtons3.length; i++)
+    {
+        if(radioButtons3[i].checked == true)
+        {
+            var feedback3 = "<p style='color:red'>Wrong; EFA estimates a measurement model on the covariance matrix of the items; in this model, all cross-loadings are estimated, and certain constraints are imposed to make the model identified. PCA is just a rotation of the data in space. It thus explains the total variance of the data. See Lecture, slide 15.</p>";
+            if(radioButtons3[i].value == "1") {
+              feedback3 = "<p style='color:green'>Correct!</p>"
+            }
+            document.getElementById("answerFeedback3").innerHTML = feedback3;
+            return true;
+        }
+    }
+}
+</script>
+<p><strong>Question 4:</strong>
+What is the maximum number of latent variables when conducting Exploratory Factor Analysis with 5 items?</p>
+<div class="radio">
+<p><label>
+<input type="radio" name="question4" id="opt1" value="1" onchange="check_answer4()">
+“Five; the same as the number of indicators.”
+</label></p>
+</div>
+<div class="radio">
+<p><label>
+<input type="radio" name="question4" id="opt2" value="2" onchange="check_answer4()">
+No limit; you can keep adding latent variables, but they will explain ever decreasing amounts of variance.
+</label></p>
+</div>
+<div class="radio">
+<p><label>
+<input type="radio" name="question4" id="opt3" value="3" onchange="check_answer4()">
+Two; you need 3 indicators for one latent variable, but the model is still identified due to the covariance between latent variables.
+</label></p>
+</div>
+<div class="radio">
+<p><label>
+<input type="radio" name="question4" id="opt4" value="4" onchange="check_answer4()">
+Only one; you need at least 3 indicators per latent variable.
+</label></p>
+</div>
+<div id="collapseExample4" class="collapse">
+<div id="answerFeedback4" class="card card-body">
+
+</div>
+</div>
+<script type="text/javascript">
+function check_answer4()
+{
+    var radioButtons4 = document.getElementsByName("question4");
+    document.getElementById("answerFeedback4").innerHTML = "Try selecting an answer!!";
+    for(var i = 0; i < radioButtons4.length; i++)
+    {
+        if(radioButtons4[i].checked == true)
+        {
+            var feedback4 = "<p style='color:red'>Wrong; You can perform exploratory factor analysis with at most as many factors as indicators (but typically a theoretical maximum is set). See: Lecture, e.g. parallel analysis goes up to the number of indicators.</p>";
+            if(radioButtons4[i].value == "1") {
+              feedback4 = "<p style='color:green'>Correct!</p>"
+            }
+            document.getElementById("answerFeedback4").innerHTML = feedback4;
+            return true;
+        }
+    }
+}
+</script>
+<p><strong>Question 5:</strong>
+Promax rotation in factor analysis is a specific form of orthogonal rotation.</p>
+<div class="radio">
+<p><label>
+<input type="radio" name="question5" id="opt1" value="1" onchange="check_answer5()">
+TRUE
+</label></p>
+</div>
+<div class="radio">
+<p><label>
+<input type="radio" name="question5" id="opt2" value="2" onchange="check_answer5()">
+FALSE
+</label></p>
+</div>
+<div id="collapseExample5" class="collapse">
+<div id="answerFeedback5" class="card card-body">
+
+</div>
+</div>
+<script type="text/javascript">
+function check_answer5()
+{
+    var radioButtons5 = document.getElementsByName("question5");
+    document.getElementById("answerFeedback5").innerHTML = "Try selecting an answer!!";
+    for(var i = 0; i < radioButtons5.length; i++)
+    {
+        if(radioButtons5[i].checked == true)
+        {
+            var feedback5 = "<p style='color:red'>Wrong; Promax rotation is an oblique rotation which is computationally faster than oblimin. See Lecture, slide 52 (Factor Rotation).</p>";
+            if(radioButtons5[i].value == "2") {
+              feedback5 = "<p style='color:green'>Correct!</p>"
+            }
+            document.getElementById("answerFeedback5").innerHTML = feedback5;
+            return true;
+        }
+    }
+}
+</script>
+
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="preparing-for-the-course.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="getting-the-course-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="week-2-class.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="week-3-overview.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

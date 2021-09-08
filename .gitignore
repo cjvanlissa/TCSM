@@ -14,3 +14,4 @@ rsconnect
 TCSM_student/
 !pdfs/*.pdf
 !docs/pdfs/*.pdf
+students_2021.csv
