@@ -13,8 +13,8 @@ config <- yaml::yaml.load_file("config.yml")
 
 #### Questions {-}
 
-1. What are the differences between a “verbal model” and a “formal model”.
-1. As explained in the paragraph “A Brief Note on Statistical Models”, formal models are not the same as statistical models. Still, we can learn a lot from Smaldino’s approach. Write down three insights from this paper that you would like to apply to your statistical modelling during this course, and discuss with your learning group.
+1. What are the differences between a “verbal model” and a “formal model”?
+2. As explained in the paragraph “A Brief Note on Statistical Models”, formal models are not the same as statistical models. Still, we can learn a lot from Smaldino’s approach. Write down three insights from this paper that you would like to apply to your statistical modelling during this course, and discuss with your learning group.
 
 
 ```{r echo=FALSE, results = 'asis', eval = config$show_text}
