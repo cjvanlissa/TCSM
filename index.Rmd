@@ -156,7 +156,13 @@ The final assignment (deadline: `r schedule$Date[schedule$Activity == "Exams"][3
 
 ## Assignments 
 
-A description of the assignments follows below. For each assignment, every element labeled with a lower case letter is graded pass (0 points), fail (1 point), or excellent (1.5 points). Grades are summed for each assignment, and rescaled from 1-10. The final grade is a weighted average across assignments of the rescaled grades (weights in %). 
+A description of the assignments follows below.
+For each assignment, every element labeled with a lower case letter is graded pass (0 points), fail (1 point), or excellent (1.5 points).
+Grades are summed for each assignment, and rescaled from 1-10.
+The final grade is a weighted average across assignments of the rescaled grades (weights in %).
+Note that the assignments are **not** intended to be full-blown papers!
+You only get 200 words to justify your theoretical model, and 300 words to discuss the results.
+The focus should be on your analysis; how it relates to theory (introduction), and what you have learned from it and how you might improve it (discussion).
 
 1. Apply the “latent variable model” to a real-life problem, where observed variables do not directly measure, but are indicators of, an unobserved social scientific construct (G, 25%)
     a. Find a suitable dataset, for example:

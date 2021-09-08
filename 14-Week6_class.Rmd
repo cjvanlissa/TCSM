@@ -134,7 +134,7 @@ model_diff <- "
 suirisk ~ c(m1, f1)*hopeless + c(m2, f2)*depression + c(m3, f3)*subabuse
 hopeless ~ c(m4, f4)*depression + c(m5, f5)*selfesteem
 selfesteem ~ c(m6, f6)*depression
-subabuse ~~ depression
+subabuse ~~ 0*depression
 
 D1 := m1-f1
 D2 := m2-f2
@@ -205,7 +205,7 @@ Evaluate R-square for suicide risk for males and females. What do you find?
 ```{r}
 summary(fit, rsquare = TRUE)
 ```
-The R-square for suicide risk is .32 for females, and .15 for males. The model predicts suicide risk better for females.
+The R-square for suicide risk is .29 for males, and .12 for females. The model predicts suicide risk better for females.
 
 \details
 
