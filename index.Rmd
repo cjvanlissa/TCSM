@@ -91,6 +91,7 @@ The analyses will be executed using the statistical programming environment R, a
 **Computer labs**
 
 [Danielle McCool](https://www.uu.nl/staff/DMMcCool)
+[Laura Hofstee](https://www.uu.nl/staff/LHofstee)
 
 ## Learning goals
 
