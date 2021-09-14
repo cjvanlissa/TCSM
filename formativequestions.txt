@@ -1,0 +1,57 @@
+11. When interested in causal relationships, experimental research is preferred
+over correlational research.
+True False
+
+
+In regression, R-square indicated the fit of your model to the data.
+ True False
+ 
+15. In structural equation modeling, fit is based on differences between the observed
+covariance matrix and the model-implied covariance matrix.
+True False 
+
+ 8. In a well fitting structural equation model, most of the variance in the
+dependent variable can be explained.
+True False
+
+
+1. Varimax is a form of orthogonal rotation in factor analysis
+True False
+3. Factor analysis is a statistical technique aimed at data reduction
+ True False
+ 4. The errors assigned to each observed variable in a confirmatory factor
+analysis, are also called unique variances.
+ True False
+ 
+12.When comparing males and females using a regression model, the correct
+equation is: yi = b0 + b1 Malei + b2 Femalei + ei
+True False
+10. If the groups differ on the covariate in an ANCOVA, we say there is an
+interaction.
+True False
+
+
+5. In comparing nested models in SEM, one chooses the model with the
+largest p-value for the Chi-square test of model fit
+ True False
+
+6. In moderation analysis, the relationships between the independent variable,
+dependent variable and moderator, always have to be linear.
+ True False 
+
+7. In a fully-mediated model, the direct effect between the independent and
+dependent variable has to be insignificant
+True False
+9. A confounder is a special case of a mediator.
+True False
+14.An advantage of investigating mediation using structural equation modeling
+rather than the three steps of Baron and Kenny is that it allows you to
+investigate more complicated models.
+True False
+
+
+
+
+13. Modification indices indicate how much the Chi-square will increase when
+you fix this parameter to zero.
+True False
