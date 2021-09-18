@@ -483,13 +483,13 @@ With PCA, you must indicate the number of factors to extract a-priori.</p>
 <div class="radio">
 <p><label>
 <input type="radio" name="question1" id="opt1" value="1" onchange="check_answer1()">
-TRUE
+FALSE
 </label></p>
 </div>
 <div class="radio">
 <p><label>
 <input type="radio" name="question1" id="opt2" value="2" onchange="check_answer1()">
-FALSE
+TRUE
 </label></p>
 </div>
 <div id="collapseExample1" class="collapse">
@@ -507,7 +507,7 @@ function check_answer1()
         if(radioButtons1[i].checked == true)
         {
             var feedback1 = "<p style='color:red'>Wrong; PCA merely rotates the data in space. Every item adds a dimension to that space (so 3 indicators = 3-dimensional space). Software may allow you to specify the number of components (not factors) you are interested in - but that does not change the analysis, it just means the remaining components are omitted from the output. See Lecture, slide 16.</p>";
-            if(radioButtons1[i].value == "2") {
+            if(radioButtons1[i].value == "1") {
               feedback1 = "<p style='color:green'>Correct!</p>"
             }
             document.getElementById("answerFeedback1").innerHTML = feedback1;
@@ -521,13 +521,13 @@ When conducting an exploratory factor analysis, cross-loadings are assumed to be
 <div class="radio">
 <p><label>
 <input type="radio" name="question2" id="opt1" value="1" onchange="check_answer2()">
-FALSE
+TRUE
 </label></p>
 </div>
 <div class="radio">
 <p><label>
 <input type="radio" name="question2" id="opt2" value="2" onchange="check_answer2()">
-TRUE
+FALSE
 </label></p>
 </div>
 <div id="collapseExample2" class="collapse">
@@ -545,7 +545,7 @@ function check_answer2()
         if(radioButtons2[i].checked == true)
         {
             var feedback2 = "<p style='color:red'>Wrong; In exploratory factor analysis, all items load on all factors. Thus, all possible cross-loadings are estimated (even if we sometimes suppress small ones in the output). See Lecture, slide 38 (EFA).</p>";
-            if(radioButtons2[i].value == "1") {
+            if(radioButtons2[i].value == "2") {
               feedback2 = "<p style='color:green'>Correct!</p>"
             }
             document.getElementById("answerFeedback2").innerHTML = feedback2;
@@ -555,17 +555,29 @@ function check_answer2()
 }
 </script>
 <p><strong>Question 3:</strong>
-EFA models the covariances among items; PCA describes the total variance of items.</p>
+Order these methods for determining the number of factors from least subjective to most subjective: 1) Kaiser’s criterion, 2) Scree plot, 3) Parallel analysis.</p>
 <div class="radio">
 <p><label>
 <input type="radio" name="question3" id="opt1" value="1" onchange="check_answer3()">
-TRUE
+3, 2, 1
 </label></p>
 </div>
 <div class="radio">
 <p><label>
 <input type="radio" name="question3" id="opt2" value="2" onchange="check_answer3()">
-FALSE
+1, 2, 3
+</label></p>
+</div>
+<div class="radio">
+<p><label>
+<input type="radio" name="question3" id="opt3" value="3" onchange="check_answer3()">
+3, 1, 2
+</label></p>
+</div>
+<div class="radio">
+<p><label>
+<input type="radio" name="question3" id="opt4" value="4" onchange="check_answer3()">
+2, 1, 3
 </label></p>
 </div>
 <div id="collapseExample3" class="collapse">
@@ -582,8 +594,8 @@ function check_answer3()
     {
         if(radioButtons3[i].checked == true)
         {
-            var feedback3 = "<p style='color:red'>Wrong; EFA estimates a measurement model on the covariance matrix of the items; in this model, all cross-loadings are estimated, and certain constraints are imposed to make the model identified. PCA is just a rotation of the data in space. It thus explains the total variance of the data. See Lecture, slide 15.</p>";
-            if(radioButtons3[i].value == "1") {
+            var feedback3 = "<p style='color:red'>Wrong; Parallel analysis is an objective method for determining the correct number of factors, based on a permutation test. Kaiser's criterion (retain factors with Eigenvalue > 1) may be a bit arbitrary, but at least it has an objective threshold. Interpreting scree plots is fully subjective. See Lecture, slide 46.</p>";
+            if(radioButtons3[i].value == "3") {
               feedback3 = "<p style='color:green'>Correct!</p>"
             }
             document.getElementById("answerFeedback3").innerHTML = feedback3;
@@ -592,30 +604,33 @@ function check_answer3()
     }
 }
 </script>
-<p><strong>Question 4:</strong>
-What is the maximum number of latent variables when conducting Exploratory Factor Analysis with 5 items?</p>
+<strong>Question 4:</strong>
+<p>
+<img src="formative2.png" style="width:50.0%" />
+</p>
+<p>What kind of model is displayed above?</p>
 <div class="radio">
 <p><label>
 <input type="radio" name="question4" id="opt1" value="1" onchange="check_answer4()">
-“Five; the same as the number of indicators.”
+“Exploratory Factor Analysis”
 </label></p>
 </div>
 <div class="radio">
 <p><label>
 <input type="radio" name="question4" id="opt2" value="2" onchange="check_answer4()">
-No limit; you can keep adding latent variables, but they will explain ever decreasing amounts of variance.
+Confirmatory Factor Analysis
 </label></p>
 </div>
 <div class="radio">
 <p><label>
 <input type="radio" name="question4" id="opt3" value="3" onchange="check_answer4()">
-Two; you need 3 indicators for one latent variable, but the model is still identified due to the covariance between latent variables.
+An Item Response Theory Analysis
 </label></p>
 </div>
 <div class="radio">
 <p><label>
 <input type="radio" name="question4" id="opt4" value="4" onchange="check_answer4()">
-Only one; you need at least 3 indicators per latent variable.
+Principal Components Analysis
 </label></p>
 </div>
 <div id="collapseExample4" class="collapse">
@@ -632,7 +647,7 @@ function check_answer4()
     {
         if(radioButtons4[i].checked == true)
         {
-            var feedback4 = "<p style='color:red'>Wrong; You can perform exploratory factor analysis with at most as many factors as indicators (but typically a theoretical maximum is set). See: Lecture, e.g. parallel analysis goes up to the number of indicators.</p>";
+            var feedback4 = "<p style='color:red'>Wrong; You can tell this is exploratory factor analysis because 1) all items load on all factors, and 2) the arrows point from the factor to the items, meaning we assume a latent variable causes the item responses, and 3) the items have residual variances. See lecture, slides 36-39.</p>";
             if(radioButtons4[i].value == "1") {
               feedback4 = "<p style='color:green'>Correct!</p>"
             }
@@ -643,17 +658,17 @@ function check_answer4()
 }
 </script>
 <p><strong>Question 5:</strong>
-Promax rotation in factor analysis is a specific form of orthogonal rotation.</p>
+EFA models the covariances among items; PCA describes the total variance of items.</p>
 <div class="radio">
 <p><label>
 <input type="radio" name="question5" id="opt1" value="1" onchange="check_answer5()">
-TRUE
+FALSE
 </label></p>
 </div>
 <div class="radio">
 <p><label>
 <input type="radio" name="question5" id="opt2" value="2" onchange="check_answer5()">
-FALSE
+TRUE
 </label></p>
 </div>
 <div id="collapseExample5" class="collapse">
@@ -670,11 +685,231 @@ function check_answer5()
     {
         if(radioButtons5[i].checked == true)
         {
-            var feedback5 = "<p style='color:red'>Wrong; Promax rotation is an oblique rotation which is computationally faster than oblimin. See Lecture, slide 52 (Factor Rotation).</p>";
+            var feedback5 = "<p style='color:red'>Wrong; EFA estimates a measurement model on the covariance matrix of the items; in this model, all cross-loadings are estimated, and certain constraints are imposed to make the model identified. PCA is just a rotation of the data in space. It thus explains the total variance of the data. See Lecture, slide 15.</p>";
             if(radioButtons5[i].value == "2") {
               feedback5 = "<p style='color:green'>Correct!</p>"
             }
             document.getElementById("answerFeedback5").innerHTML = feedback5;
+            return true;
+        }
+    }
+}
+</script>
+<p><strong>Question 6:</strong>
+Factor analysis is a statistical technique aimed at data reduction.</p>
+<div class="radio">
+<p><label>
+<input type="radio" name="question6" id="opt1" value="1" onchange="check_answer6()">
+TRUE
+</label></p>
+</div>
+<div class="radio">
+<p><label>
+<input type="radio" name="question6" id="opt2" value="2" onchange="check_answer6()">
+FALSE
+</label></p>
+</div>
+<div id="collapseExample6" class="collapse">
+<div id="answerFeedback6" class="card card-body">
+
+</div>
+</div>
+<script type="text/javascript">
+function check_answer6()
+{
+    var radioButtons6 = document.getElementsByName("question6");
+    document.getElementById("answerFeedback6").innerHTML = "Try selecting an answer!!";
+    for(var i = 0; i < radioButtons6.length; i++)
+    {
+        if(radioButtons6[i].checked == true)
+        {
+            var feedback6 = "<p style='color:red'>Wrong; Factor analysis fits a theoretical (causal) measurement model to the data. It assumes that your observed variables are indicators of unobserved latent constructs. The term 'data reduction' implies that you are only interested in reducing the dimensions of potentially redundant/multicolinear items, without having a theoretical model. In that case, principal components analysis is more suitable. It merely rotates your data so that the first components explain most of the variance in all items. See Lecture, slide 7.</p>";
+            if(radioButtons6[i].value == "2") {
+              feedback6 = "<p style='color:green'>Correct!</p>"
+            }
+            document.getElementById("answerFeedback6").innerHTML = feedback6;
+            return true;
+        }
+    }
+}
+</script>
+<p><strong>Question 7:</strong>
+What is the maximum number of latent variables when conducting Exploratory Factor Analysis with 5 items?</p>
+<div class="radio">
+<p><label>
+<input type="radio" name="question7" id="opt1" value="1" onchange="check_answer7()">
+No limit; you can keep adding latent variables, but they will explain ever decreasing amounts of variance.
+</label></p>
+</div>
+<div class="radio">
+<p><label>
+<input type="radio" name="question7" id="opt2" value="2" onchange="check_answer7()">
+Two; you need 3 indicators for one latent variable, but the model is still identified due to the covariance between latent variables.
+</label></p>
+</div>
+<div class="radio">
+<p><label>
+<input type="radio" name="question7" id="opt3" value="3" onchange="check_answer7()">
+“Five; the same as the number of indicators.”
+</label></p>
+</div>
+<div class="radio">
+<p><label>
+<input type="radio" name="question7" id="opt4" value="4" onchange="check_answer7()">
+Only one; you need at least 3 indicators per latent variable.
+</label></p>
+</div>
+<div id="collapseExample7" class="collapse">
+<div id="answerFeedback7" class="card card-body">
+
+</div>
+</div>
+<script type="text/javascript">
+function check_answer7()
+{
+    var radioButtons7 = document.getElementsByName("question7");
+    document.getElementById("answerFeedback7").innerHTML = "Try selecting an answer!!";
+    for(var i = 0; i < radioButtons7.length; i++)
+    {
+        if(radioButtons7[i].checked == true)
+        {
+            var feedback7 = "<p style='color:red'>Wrong; You can perform exploratory factor analysis with at most as many factors as indicators (but typically a theoretical maximum is set). See: Lecture, e.g. parallel analysis goes up to the number of indicators.</p>";
+            if(radioButtons7[i].value == "3") {
+              feedback7 = "<p style='color:green'>Correct!</p>"
+            }
+            document.getElementById("answerFeedback7").innerHTML = feedback7;
+            return true;
+        }
+    }
+}
+</script>
+<p><strong>Question 8:</strong>
+Promax rotation in factor analysis is a specific form of orthogonal rotation.</p>
+<div class="radio">
+<p><label>
+<input type="radio" name="question8" id="opt1" value="1" onchange="check_answer8()">
+TRUE
+</label></p>
+</div>
+<div class="radio">
+<p><label>
+<input type="radio" name="question8" id="opt2" value="2" onchange="check_answer8()">
+FALSE
+</label></p>
+</div>
+<div id="collapseExample8" class="collapse">
+<div id="answerFeedback8" class="card card-body">
+
+</div>
+</div>
+<script type="text/javascript">
+function check_answer8()
+{
+    var radioButtons8 = document.getElementsByName("question8");
+    document.getElementById("answerFeedback8").innerHTML = "Try selecting an answer!!";
+    for(var i = 0; i < radioButtons8.length; i++)
+    {
+        if(radioButtons8[i].checked == true)
+        {
+            var feedback8 = "<p style='color:red'>Wrong; Promax rotation is an oblique rotation which is computationally faster than oblimin. See Lecture, slide 52 (Factor Rotation).</p>";
+            if(radioButtons8[i].value == "2") {
+              feedback8 = "<p style='color:green'>Correct!</p>"
+            }
+            document.getElementById("answerFeedback8").innerHTML = feedback8;
+            return true;
+        }
+    }
+}
+</script>
+<p><strong>Question 9:</strong>
+Which of these is not a valid method for choosing the correct number of factors?</p>
+<div class="radio">
+<p><label>
+<input type="radio" name="question9" id="opt1" value="1" onchange="check_answer9()">
+Kaiser’s criterion
+</label></p>
+</div>
+<div class="radio">
+<p><label>
+<input type="radio" name="question9" id="opt2" value="2" onchange="check_answer9()">
+Ability to predict a criterion scale.
+</label></p>
+</div>
+<div class="radio">
+<p><label>
+<input type="radio" name="question9" id="opt3" value="3" onchange="check_answer9()">
+Scree plot
+</label></p>
+</div>
+<div class="radio">
+<p><label>
+<input type="radio" name="question9" id="opt4" value="4" onchange="check_answer9()">
+Parallel analysis
+</label></p>
+</div>
+<div class="radio">
+<p><label>
+<input type="radio" name="question9" id="opt5" value="5" onchange="check_answer9()">
+Theory
+</label></p>
+</div>
+<div id="collapseExample9" class="collapse">
+<div id="answerFeedback9" class="card card-body">
+
+</div>
+</div>
+<script type="text/javascript">
+function check_answer9()
+{
+    var radioButtons9 = document.getElementsByName("question9");
+    document.getElementById("answerFeedback9").innerHTML = "Try selecting an answer!!";
+    for(var i = 0; i < radioButtons9.length; i++)
+    {
+        if(radioButtons9[i].checked == true)
+        {
+            var feedback9 = "<p style='color:red'>Wrong; The only method not suitable for determining the correct number of factors is ability to predict a criterion scale. Factor analysis and PCA are about understanding the structure of a scale. This is related to internal validity and reliability. Ability to predict an a criterion scale is used to verify the external validity of a scale. See Lecture, slide 46.</p>";
+            if(radioButtons9[i].value == "2") {
+              feedback9 = "<p style='color:green'>Correct!</p>"
+            }
+            document.getElementById("answerFeedback9").innerHTML = feedback9;
+            return true;
+        }
+    }
+}
+</script>
+<p><strong>Question 10:</strong>
+Varimax is a form of orthogonal rotation in factor analysis</p>
+<div class="radio">
+<p><label>
+<input type="radio" name="question10" id="opt1" value="1" onchange="check_answer10()">
+TRUE
+</label></p>
+</div>
+<div class="radio">
+<p><label>
+<input type="radio" name="question10" id="opt2" value="2" onchange="check_answer10()">
+FALSE
+</label></p>
+</div>
+<div id="collapseExample10" class="collapse">
+<div id="answerFeedback10" class="card card-body">
+
+</div>
+</div>
+<script type="text/javascript">
+function check_answer10()
+{
+    var radioButtons10 = document.getElementsByName("question10");
+    document.getElementById("answerFeedback10").innerHTML = "Try selecting an answer!!";
+    for(var i = 0; i < radioButtons10.length; i++)
+    {
+        if(radioButtons10[i].checked == true)
+        {
+            var feedback10 = "<p style='color:red'>Wrong; Varimax is an orthogonal rotation; that means that it results in uncorrelated factors. See Lecture, slide 52 (Factor Rotation).</p>";
+            if(radioButtons10[i].value == "1") {
+              feedback10 = "<p style='color:green'>Correct!</p>"
+            }
+            document.getElementById("answerFeedback10").innerHTML = feedback10;
             return true;
         }
     }
