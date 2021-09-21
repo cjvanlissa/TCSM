@@ -108,9 +108,13 @@ As explained in the tutorial chapters at the beginning of this GitBook, it is po
 
 <details>
   <summary>Click for explanation</summary>
-```{r}
+
+Use the following code:
+  
+```{r, echo = TRUE}
 df <- data[data$cntry %in% c("Austria", "Belgium", "Denmark", "Finland", "France", "Germany", "Italy", "Netherlands", "Norway", "Sweden"), ]
 ```
+
 `r if(knitr::is_html_output()){"\\details"}`
 
 
@@ -128,7 +132,7 @@ statistics-courses)?
   <summary>Click for explanation</summary>
   This question is open to interpretation. One thing you might notice is that all variables the authors used are currently coded as factor variables (e.g., "Factor w/ 11 levels"):
 
-```{r}
+```{r, echo = TRUE}
 library(tidySEM)
 descriptives(df)
 levels(df$trstlgl)
@@ -142,7 +146,7 @@ We can convert a factor to numeric using the function `as.numeric()`. However, i
 
 Thankfully, there is a function to apply this transformation to each column of the data: `lapply()`, short for list apply. This function takes each list element (column of the `data.frame`), and applies the function `as.numeric()` to it:
 
-```{r}
+```{r, echo = TRUE}
 df[7:44] <- lapply(df[7:44], as.numeric)
 ```
 
@@ -150,7 +154,7 @@ df[7:44] <- lapply(df[7:44], as.numeric)
 
 An alternative solution is to prevent the function `read.spss()` from using value labels to code variables as factors when the data are loaded. However, we're not going to use this right now, so the information below is merely illustrative:
 
-```{r, eval = FALSE}
+```{r, eval = FALSE, echo = TRUE}
 # The option use.value.labels = FALSE stops the function from coding factors:
 data <- read.spss("ESSround1-a.sav", to.data.frame = TRUE, use.value.labels = FALSE)
 # Then, re-select the subset of data. The countries are now also unlabeled, so
@@ -171,7 +175,7 @@ The package `tidyr` has a convenient function to reshape data to long format:
 
 First, make a long data.frame containing variables 7:44.
 
-```{r, eval = FALSE}
+```{r, eval = FALSE, echo = TRUE}
 install.packages("tidyr")
 library(tidyr)
 df_plot <- df[7:44]
@@ -188,7 +192,7 @@ Next, we can plot the data - using `geom_histogram()`, `geom_density()` or `geom
 <details>
   <summary>Click for explanation</summary>
 
-```{r}
+```{r, echo = TRUE}
 library(ggplot2)
 ggplot(df_plot, aes(x = value)) + geom_histogram() + facet_wrap(~name, scales = "free_x")
 ```
@@ -217,7 +221,7 @@ rotation etc. Do two analyses: one for trust in politics, and one for attitudes 
 
 Kestilä extracted three components, with VARIMAX rotation. When we print the results, we can hide all factor loadings smaller than the smallest one in their table, to make it easier to read:
   
-```{r}
+```{r, echo = TRUE}
 library(psych)
 pca_trust <- principal(df[, 7:19], nfactors = 3, rotate = "varimax")
 print(pca_trust, cut = .3, digits =3)
@@ -225,7 +229,7 @@ print(pca_trust, cut = .3, digits =3)
 
 For attitude towards immigration, Kestilä extracted five components, with VARIMAX rotation:
   
-```{r}
+```{r, echo = TRUE}
 library(psych)
 pca_att <- principal(df[, 20:44], nfactors = 5, rotate = "varimax")
 print(pca_att, cut = .3)
@@ -245,13 +249,13 @@ Extracting factor scores
 
 The factor scores are inside of the results objects. Use the `$` operator to access them:
 
-```{r}
+```{r, echo = TRUE}
 head(pca_att$scores)
 ```
 
 We're going to give these factor scores some informative names, and add them to our data.frame. **You should give them different, informative names based on the meaning of the factors!**
 
-```{r}
+```{r, echo = TRUE}
 # Print names
 colnames(pca_att$scores)
 # Change names
