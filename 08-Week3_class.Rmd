@@ -1,5 +1,9 @@
 # Week 3 - Class
 
+```{r include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+show_answers <- TRUE
+```
 This week, we will analyze the data from the European social survey, and the paper by Kestilä for the last time. Last week, you first replicated the results by Kestilä, and then ran your own set of factor analyses. Hopefully you experienced yourself that it matters quite a bit what type of factor analysis method you choose; both for the interpretation of your factors, and analyses that incorporate factor scores. 
 
 Instead of doing Exploratory Factor Analysis, another way of analyzing the data from the European Social Survey would be to use Confirmatory Factor Analysis. During this practical, you will conduct a CFA and compare your results to earlier EFA and PCA results and the article by Kestilä.

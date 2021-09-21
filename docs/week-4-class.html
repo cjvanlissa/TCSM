@@ -495,15 +495,21 @@ div.csl-indent {
 <summary>
 Click for explanation
 </summary>
+<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="week-4-class.html#cb210-1" aria-hidden="true" tabindex="-1"></a>reg_model <span class="ot">&lt;-</span> <span class="st">&quot;Spent ~ SelfEst&quot;</span></span></code></pre></div>
 </div>
 <div id="how-to-run-multi-group-model" class="section level3" number="20.0.2">
 <h3><span class="header-section-number">20.0.2</span> How to run multi-group model</h3>
 <p>To run this model as a multi-group model, you can specify the argument <code>group =</code> when running the analysis:</p>
+<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="week-4-class.html#cb211-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lavaan)</span>
+<span id="cb211-2"><a href="week-4-class.html#cb211-2" aria-hidden="true" tabindex="-1"></a>multi_group <span class="ot">&lt;-</span> <span class="fu">sem</span>(reg_model,</span>
+<span id="cb211-3"><a href="week-4-class.html#cb211-3" aria-hidden="true" tabindex="-1"></a>                   <span class="at">data =</span> data, </span>
+<span id="cb211-4"><a href="week-4-class.html#cb211-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">group =</span> <span class="st">&quot;Condition&quot;</span>)</span></code></pre></div>
 <p>Now, obtain the standardized estimates and the squared multiple correlations (r square) for this model.</p>
 <details>
 <summary>
 Click for explanation
 </summary>
+<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="week-4-class.html#cb212-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(multi_group, <span class="at">standardize =</span> <span class="cn">TRUE</span>, <span class="at">rsquare =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## lavaan 0.6-9 ended normally after 53 iterations
 ## 
 ##   Estimator                                         ML
@@ -594,6 +600,7 @@ Click for explanation
 <h3><span class="header-section-number">20.0.3</span> Question 1</h3>
 <p>Report on the parameter estimates for the three groups; i.e., the regression coefficients, the intercepts (marginal means of Spent), and the residual variances (i.e., the variances of the residuals of Spent).</p>
 <p><strong>Note:</strong> What’s missing from the model are the means and variances of SelfEst. That’s because any variable that is <strong>purely independent</strong> is not strictly considered to be part of the model. We can manually incorporate it into the model by estimating the intercept of SelfEst. This will make SelfEst part of the model, so we will also get its variance. You estimate the intercept of a variable by adding this code to your model:</p>
+<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="week-4-class.html#cb214-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;SelfEst ~1&quot;</span></span></code></pre></div>
 </div>
 <div id="question-2-3" class="section level3" number="20.0.4">
 <h3><span class="header-section-number">20.0.4</span> Question 2</h3>
@@ -632,8 +639,11 @@ Click for explanation
 <div id="imposing-constraints" class="section level3" number="20.0.7">
 <h3><span class="header-section-number">20.0.7</span> Imposing constraints</h3>
 <p>So, by putting constraints to these models, we can make the same model as an ANCOVA. In lavaan, we impose constraints by <strong>giving labels</strong> to parameters. You use <code>c()</code> to make a vector of labels that is equally long as the number of groups, and you can give any name to the labels. You then use the <code>*</code> symbol to assign it to a parameter. The syntax looks like this:</p>
+<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb215-1"><a href="week-4-class.html#cb215-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;Spent ~ c(labelgroup1, labelgroup2, labelgroup3) * SelfEst&quot;</span></span></code></pre></div>
 <p>If you use the same name multiple times, these parameters will be constrained to be equal:</p>
+<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="week-4-class.html#cb216-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;Spent ~ c(label, label, label) * SelfEst&quot;</span></span></code></pre></div>
 <p>Constraints for variances are specified similarly:</p>
+<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="week-4-class.html#cb217-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;Spent ~~ c(label, label, label) * Spent&quot;</span></span></code></pre></div>
 </div>
 <div id="stepwise-approach" class="section level3" number="20.0.8">
 <h3><span class="header-section-number">20.0.8</span> Stepwise approach</h3>
@@ -646,7 +656,12 @@ Click for explanation
 <p><em>Model 2.</em> Structural residuals: constrain the variances and covariances of the residuals of the endogenous variables (here: Spent)</p>
 <p><em>Model 3.</em> Structural intercepts: constrain the intercepts of the endogenous variables across groups</p>
 <p>We can compare two of these models using the <code>anova()</code> function:</p>
+<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="week-4-class.html#cb218-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(m1, m2)</span></code></pre></div>
 <p>However, with more than two models, it is convenient to compare all of them at once. For this, we can use the function <code>compareFit()</code> from the <code>semTools</code> package (which you have to install):</p>
+<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="week-4-class.html#cb219-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(semTools)</span>
+<span id="cb219-2"><a href="week-4-class.html#cb219-2" aria-hidden="true" tabindex="-1"></a><span class="fu">compareFit</span>(<span class="at">weights =</span> m1,</span>
+<span id="cb219-3"><a href="week-4-class.html#cb219-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">residuals =</span> m2,</span>
+<span id="cb219-4"><a href="week-4-class.html#cb219-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">intercepts =</span> m3)</span></code></pre></div>
 </div>
 <div id="question-5-3" class="section level3" number="20.0.9">
 <h3><span class="header-section-number">20.0.9</span> Question 5</h3>
@@ -655,6 +670,27 @@ Click for explanation
 <summary>
 Click for explanation
 </summary>
+<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="week-4-class.html#cb220-1" aria-hidden="true" tabindex="-1"></a>mu <span class="ot">&lt;-</span> <span class="fu">sem</span>(<span class="st">&quot;Spent ~ SelfEst&quot;</span>,</span>
+<span id="cb220-2"><a href="week-4-class.html#cb220-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">data =</span> data, </span>
+<span id="cb220-3"><a href="week-4-class.html#cb220-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">group =</span> <span class="st">&quot;Condition&quot;</span>)</span>
+<span id="cb220-4"><a href="week-4-class.html#cb220-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb220-5"><a href="week-4-class.html#cb220-5" aria-hidden="true" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> <span class="fu">sem</span>(<span class="st">&quot;Spent ~ c(a, a, a) * SelfEst&quot;</span>,</span>
+<span id="cb220-6"><a href="week-4-class.html#cb220-6" aria-hidden="true" tabindex="-1"></a>          <span class="at">data =</span> data, </span>
+<span id="cb220-7"><a href="week-4-class.html#cb220-7" aria-hidden="true" tabindex="-1"></a>          <span class="at">group =</span> <span class="st">&quot;Condition&quot;</span>)</span>
+<span id="cb220-8"><a href="week-4-class.html#cb220-8" aria-hidden="true" tabindex="-1"></a>m2 <span class="ot">&lt;-</span> <span class="fu">sem</span>(<span class="st">&quot;Spent ~ c(a, a, a) * SelfEst</span></span>
+<span id="cb220-9"><a href="week-4-class.html#cb220-9" aria-hidden="true" tabindex="-1"></a><span class="st">          Spent ~~ c(b, b, b) * Spent&quot;</span>,</span>
+<span id="cb220-10"><a href="week-4-class.html#cb220-10" aria-hidden="true" tabindex="-1"></a>          <span class="at">data =</span> data, </span>
+<span id="cb220-11"><a href="week-4-class.html#cb220-11" aria-hidden="true" tabindex="-1"></a>          <span class="at">group =</span> <span class="st">&quot;Condition&quot;</span>)</span>
+<span id="cb220-12"><a href="week-4-class.html#cb220-12" aria-hidden="true" tabindex="-1"></a>m3 <span class="ot">&lt;-</span> <span class="fu">sem</span>(<span class="st">&quot;Spent ~ c(a, a, a) * SelfEst</span></span>
+<span id="cb220-13"><a href="week-4-class.html#cb220-13" aria-hidden="true" tabindex="-1"></a><span class="st">          Spent ~~ c(b, b, b) * Spent</span></span>
+<span id="cb220-14"><a href="week-4-class.html#cb220-14" aria-hidden="true" tabindex="-1"></a><span class="st">          Spent ~ c(c, c, c) * 1 &quot;</span>,</span>
+<span id="cb220-15"><a href="week-4-class.html#cb220-15" aria-hidden="true" tabindex="-1"></a>          <span class="at">data =</span> data, </span>
+<span id="cb220-16"><a href="week-4-class.html#cb220-16" aria-hidden="true" tabindex="-1"></a>          <span class="at">group =</span> <span class="st">&quot;Condition&quot;</span>)</span>
+<span id="cb220-17"><a href="week-4-class.html#cb220-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb220-18"><a href="week-4-class.html#cb220-18" aria-hidden="true" tabindex="-1"></a><span class="fu">compareFit</span>(<span class="at">unconstrained =</span> mu,</span>
+<span id="cb220-19"><a href="week-4-class.html#cb220-19" aria-hidden="true" tabindex="-1"></a>           <span class="at">regression =</span> m1,</span>
+<span id="cb220-20"><a href="week-4-class.html#cb220-20" aria-hidden="true" tabindex="-1"></a>           <span class="at">residuals =</span> m2, </span>
+<span id="cb220-21"><a href="week-4-class.html#cb220-21" aria-hidden="true" tabindex="-1"></a>           <span class="at">intercepts =</span> m3)</span></code></pre></div>
 <pre><code>## The following lavaan models were compared:
 ##     unconstrained
 ##     regression

@@ -480,11 +480,13 @@ div.csl-indent {
 <div id="question-1-1" class="section level3" number="16.0.1">
 <h3><span class="header-section-number">16.0.1</span> Question 1</h3>
 <p>Load the ESS data into R, into an object called <code>df</code>. The data are in the file <code>"week3_class.csv"</code>. You can load it into R using the syntax:</p>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="week-3-class.html#cb162-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;week3_class.csv&quot;</span>, <span class="at">stringsAsFactors =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <p>Furthermore, you will have to load the package <code>lavaan</code> before starting with the exercises.</p>
 <details>
 <summary>
 Click for explanation
 </summary>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="week-3-class.html#cb163-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lavaan)</span></code></pre></div>
 <p>Furthermore, we want to work with numeric variables instead of factors once again, and with the countries of interest only.</p>
 <details>
 <summary>
@@ -503,6 +505,12 @@ Click for explanation
 <summary>
 Click for explanation
 </summary>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="week-3-class.html#cb164-1" aria-hidden="true" tabindex="-1"></a>trust_model_3f <span class="ot">&lt;-</span> <span class="st">&#39;trustpol  =~ pltcare + pltinvt + trstplt</span></span>
+<span id="cb164-2"><a href="week-3-class.html#cb164-2" aria-hidden="true" tabindex="-1"></a><span class="st">                   satcntry  =~ stfeco + stfgov + stfdem + stfedu + stfhlth</span></span>
+<span id="cb164-3"><a href="week-3-class.html#cb164-3" aria-hidden="true" tabindex="-1"></a><span class="st">                   trustinst =~ trstlgl + trstplc + trstun + trstprl&#39;</span></span>
+<span id="cb164-4"><a href="week-3-class.html#cb164-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb164-5"><a href="week-3-class.html#cb164-5" aria-hidden="true" tabindex="-1"></a>fit_trust_model_3f <span class="ot">&lt;-</span> <span class="fu">cfa</span>(trust_model_3f, <span class="at">data =</span> df)</span>
+<span id="cb164-6"><a href="week-3-class.html#cb164-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit_trust_model_3f, <span class="at">fit.measures =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## lavaan 0.6-9 ended normally after 45 iterations
 ## 
 ##   Estimator                                         ML
@@ -607,6 +615,10 @@ Click for explanation
 <summary>
 Click for explanation
 </summary>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="week-3-class.html#cb166-1" aria-hidden="true" tabindex="-1"></a>trust_model_1f <span class="ot">&lt;-</span> <span class="st">&#39;political_trust =~ pltcare + pltinvt + trstprl + trstplt + stfeco + stfgov + stfdem + stfedu + stfhlth + trstlgl + trstplc + trstun + trstep&#39;</span></span>
+<span id="cb166-2"><a href="week-3-class.html#cb166-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb166-3"><a href="week-3-class.html#cb166-3" aria-hidden="true" tabindex="-1"></a>fit_trust_model_1f <span class="ot">&lt;-</span> <span class="fu">sem</span>(trust_model_1f, <span class="at">data =</span> df)</span>
+<span id="cb166-4"><a href="week-3-class.html#cb166-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit_trust_model_1f, <span class="at">fit.measures =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## lavaan 0.6-9 ended normally after 38 iterations
 ## 
 ##   Estimator                                         ML
@@ -706,6 +718,7 @@ Click for explanation
 <summary>
 Click for explanation
 </summary>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="week-3-class.html#cb168-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit_trust_model_3f, <span class="at">fit.measures =</span> <span class="cn">TRUE</span>, <span class="at">standardized =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## lavaan 0.6-9 ended normally after 45 iterations
 ## 
 ##   Estimator                                         ML
@@ -801,6 +814,7 @@ Click for explanation
 ##     trustpol          0.450    0.011   41.572    0.000    1.000    1.000
 ##     satcntry          2.751    0.058   47.286    0.000    1.000    1.000
 ##     trustinst         2.690    0.059   45.613    0.000    1.000    1.000</code></pre>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="week-3-class.html#cb170-1" aria-hidden="true" tabindex="-1"></a><span class="fu">standardizedsolution</span>(fit_trust_model_3f)</span></code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":["lhs"],"name":[1],"type":["chr"],"align":["left"]},{"label":["op"],"name":[2],"type":["chr"],"align":["left"]},{"label":["rhs"],"name":[3],"type":["chr"],"align":["left"]},{"label":["est.std"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["se"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["z"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["pvalue"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["ci.lower"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["ci.upper"],"name":[9],"type":["dbl"],"align":["right"]}],"data":[{"1":"trustpol","2":"=~","3":"pltcare","4":"0.6393603","5":"0.005500765","6":"116.23116","7":"0","8":"0.6285790","9":"0.6501416"},{"1":"trustpol","2":"=~","3":"pltinvt","4":"0.6237608","5":"0.005645631","6":"110.48557","7":"0","8":"0.6126955","9":"0.6348260"},{"1":"trustpol","2":"=~","3":"trstplt","4":"0.8764316","5":"0.003615576","6":"242.40443","7":"0","8":"0.8693452","9":"0.8835180"},{"1":"satcntry","2":"=~","3":"stfeco","4":"0.7123372","5":"0.004912208","6":"145.01363","7":"0","8":"0.7027094","9":"0.7219649"},{"1":"satcntry","2":"=~","3":"stfgov","4":"0.7516990","5":"0.004530465","6":"165.92095","7":"0","8":"0.7428195","9":"0.7605786"},{"1":"satcntry","2":"=~","3":"stfdem","4":"0.7334722","5":"0.004706435","6":"155.84454","7":"0","8":"0.7242478","9":"0.7426966"},{"1":"satcntry","2":"=~","3":"stfedu","4":"0.5758271","5":"0.006189362","6":"93.03497","7":"0","8":"0.5636961","9":"0.5879580"},{"1":"satcntry","2":"=~","3":"stfhlth","4":"0.5188157","5":"0.006663599","6":"77.85818","7":"0","8":"0.5057553","9":"0.5318761"},{"1":"trustinst","2":"=~","3":"trstlgl","4":"0.6877377","5":"0.005038743","6":"136.48993","7":"0","8":"0.6778619","9":"0.6976134"},{"1":"trustinst","2":"=~","3":"trstplc","4":"0.5817029","5":"0.006040212","6":"96.30505","7":"0","8":"0.5698643","9":"0.5935415"},{"1":"trustinst","2":"=~","3":"trstun","4":"0.6054279","5":"0.005826611","6":"103.90738","7":"0","8":"0.5940079","9":"0.6168478"},{"1":"trustinst","2":"=~","3":"trstprl","4":"0.8124493","5":"0.003859351","6":"210.51447","7":"0","8":"0.8048851","9":"0.8200134"},{"1":"pltcare","2":"~~","3":"pltcare","4":"0.5912184","5":"0.007033941","6":"84.05222","7":"0","8":"0.5774321","9":"0.6050047"},{"1":"pltinvt","2":"~~","3":"pltinvt","4":"0.6109225","5":"0.007043046","6":"86.74123","7":"0","8":"0.5971184","9":"0.6247266"},{"1":"trstplt","2":"~~","3":"trstplt","4":"0.2318676","5":"0.006337610","6":"36.58597","7":"0","8":"0.2194461","9":"0.2442891"},{"1":"stfeco","2":"~~","3":"stfeco","4":"0.4925758","5":"0.006998297","6":"70.38509","7":"0","8":"0.4788594","9":"0.5062922"},{"1":"stfgov","2":"~~","3":"stfgov","4":"0.4349486","5":"0.006811092","6":"63.85887","7":"0","8":"0.4215991","9":"0.4482981"},{"1":"stfdem","2":"~~","3":"stfdem","4":"0.4620185","5":"0.006904079","6":"66.91965","7":"0","8":"0.4484868","9":"0.4755503"},{"1":"stfedu","2":"~~","3":"stfedu","4":"0.6684232","5":"0.007128004","6":"93.77425","7":"0","8":"0.6544526","9":"0.6823938"},{"1":"stfhlth","2":"~~","3":"stfhlth","4":"0.7308302","5":"0.006914360","6":"105.69745","7":"0","8":"0.7172783","9":"0.7443821"},{"1":"trstlgl","2":"~~","3":"trstlgl","4":"0.5270169","5":"0.006930667","6":"76.04130","7":"0","8":"0.5134330","9":"0.5406007"},{"1":"trstplc","2":"~~","3":"trstplc","4":"0.6616217","5":"0.007027218","6":"94.15131","7":"0","8":"0.6478486","9":"0.6753948"},{"1":"trstun","2":"~~","3":"trstun","4":"0.6334571","5":"0.007055185","6":"89.78603","7":"0","8":"0.6196292","9":"0.6472850"},{"1":"trstprl","2":"~~","3":"trstprl","4":"0.3399262","5":"0.006271054","6":"54.20560","7":"0","8":"0.3276352","9":"0.3522172"},{"1":"trustpol","2":"~~","3":"trustpol","4":"1.0000000","5":"0.000000000","6":"NA","7":"NA","8":"1.0000000","9":"1.0000000"},{"1":"satcntry","2":"~~","3":"satcntry","4":"1.0000000","5":"0.000000000","6":"NA","7":"NA","8":"1.0000000","9":"1.0000000"},{"1":"trustinst","2":"~~","3":"trustinst","4":"1.0000000","5":"0.000000000","6":"NA","7":"NA","8":"1.0000000","9":"1.0000000"},{"1":"trustpol","2":"~~","3":"satcntry","4":"0.7123621","5":"0.006081456","6":"117.13678","7":"0","8":"0.7004427","9":"0.7242816"},{"1":"trustpol","2":"~~","3":"trustinst","4":"0.8632598","5":"0.004701304","6":"183.62136","7":"0","8":"0.8540454","9":"0.8724742"},{"1":"satcntry","2":"~~","3":"trustinst","4":"0.7520966","5":"0.005729763","6":"131.26138","7":"0","8":"0.7408664","9":"0.7633267"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -819,6 +833,13 @@ Click for explanation
 Click for explanation
 </summary>
 <p>To run a second-order factor model, you can simply add an additional line within the single quotes containing the factors that you want in the second-order factor model, like in the example below.</p>
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="week-3-class.html#cb171-1" aria-hidden="true" tabindex="-1"></a>trust_model_3f2o <span class="ot">&lt;-</span> <span class="st">&#39;trustpol  =~ pltcare + pltinvt + trstprl + trstplt</span></span>
+<span id="cb171-2"><a href="week-3-class.html#cb171-2" aria-hidden="true" tabindex="-1"></a><span class="st">                     satcntry  =~ stfeco + stfgov + stfdem + stfedu + stfhlth</span></span>
+<span id="cb171-3"><a href="week-3-class.html#cb171-3" aria-hidden="true" tabindex="-1"></a><span class="st">                     trustinst =~ trstlgl + trstplc + trstun + trstep</span></span>
+<span id="cb171-4"><a href="week-3-class.html#cb171-4" aria-hidden="true" tabindex="-1"></a><span class="st">                     trust     =~ trustpol + trustinst&#39;</span></span>
+<span id="cb171-5"><a href="week-3-class.html#cb171-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb171-6"><a href="week-3-class.html#cb171-6" aria-hidden="true" tabindex="-1"></a>fit_trust_model_3f2o <span class="ot">&lt;-</span> <span class="fu">sem</span>(trust_model_3f2o, <span class="at">data =</span> df)</span>
+<span id="cb171-7"><a href="week-3-class.html#cb171-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit_trust_model_3f2o, <span class="at">fit.measures =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## lavaan 0.6-9 ended normally after 46 iterations
 ## 
 ##   Estimator                                         ML
@@ -930,6 +951,13 @@ Click for explanation
 Click for explanation
 </summary>
 <p>We will first have to do some recoding again. You might want to make an age variable instead of a yearborn variable, which eases the interpretation. Furthermore, a dummy for gender is more informative than just the variable <code>gndr</code>, although this will be treated as a dummy. You will also have to recode the variables <code>eduyrs</code> and <code>lrscale</code> to numerical variables, and you will have to make a two-category dummy for the variable <code>polintr</code>.</p>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="week-3-class.html#cb173-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>age <span class="ot">&lt;-</span> <span class="dv">2002</span> <span class="sc">-</span> df<span class="sc">$</span>yrbrn</span>
+<span id="cb173-2"><a href="week-3-class.html#cb173-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb173-3"><a href="week-3-class.html#cb173-3" aria-hidden="true" tabindex="-1"></a>model_q9 <span class="ot">&lt;-</span> <span class="st">&#39;trustinst =~ trstlgl + trstplc + trstun</span></span>
+<span id="cb173-4"><a href="week-3-class.html#cb173-4" aria-hidden="true" tabindex="-1"></a><span class="st">             trustinst ~ gndr + age + eduyrs + polintr + lrscale&#39;</span></span>
+<span id="cb173-5"><a href="week-3-class.html#cb173-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb173-6"><a href="week-3-class.html#cb173-6" aria-hidden="true" tabindex="-1"></a>fit_model_q9 <span class="ot">&lt;-</span> <span class="fu">sem</span>(model_q9, <span class="at">data =</span> df)</span>
+<span id="cb173-7"><a href="week-3-class.html#cb173-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit_model_q9, <span class="at">fit.measures =</span> <span class="cn">TRUE</span>, <span class="at">standardized =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## lavaan 0.6-9 ended normally after 41 iterations
 ## 
 ##   Estimator                                         ML
@@ -1008,7 +1036,9 @@ Click for explanation
 <div id="optional" class="section level3" number="16.0.10">
 <h3><span class="header-section-number">16.0.10</span> Optional</h3>
 <p>You can plot the resulting model using <code>semPaths()</code>:</p>
-<p><img src="TCSM_files/figure-html/unnamed-chunk-160-1.png" width="672" /></p>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="week-3-class.html#cb175-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(semPlot)</span>
+<span id="cb175-2"><a href="week-3-class.html#cb175-2" aria-hidden="true" tabindex="-1"></a><span class="fu">semPaths</span>(fit_model_q9, <span class="at">whatLabels =</span> <span class="st">&quot;est&quot;</span>, <span class="at">rotation =</span> <span class="dv">4</span>)</span></code></pre></div>
+<p><img src="TCSM_files/figure-html/unnamed-chunk-162-1.png" width="672" /></p>
 </div>
 <div id="question-10-1" class="section level3" number="16.0.11">
 <h3><span class="header-section-number">16.0.11</span> Question 10</h3>
@@ -1018,6 +1048,10 @@ Click for explanation
 <summary>
 Click for explanation
 </summary>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="week-3-class.html#cb176-1" aria-hidden="true" tabindex="-1"></a>model_q10 <span class="ot">&lt;-</span> <span class="st">&#39;trustinstEFA ~ gndr + age + eduyrs + polintr + lrscale&#39;</span></span>
+<span id="cb176-2"><a href="week-3-class.html#cb176-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb176-3"><a href="week-3-class.html#cb176-3" aria-hidden="true" tabindex="-1"></a>fit_model_q10 <span class="ot">&lt;-</span> <span class="fu">sem</span>(model_q10, <span class="at">data =</span> df)</span>
+<span id="cb176-4"><a href="week-3-class.html#cb176-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit_model_q10, <span class="at">fit.measures =</span> <span class="cn">TRUE</span>, <span class="at">standardized =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## lavaan 0.6-9 ended normally after 20 iterations
 ## 
 ##   Estimator                                         ML

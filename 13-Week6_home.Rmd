@@ -1,5 +1,9 @@
 # Week 6 - Home
 
+```{r include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+show_answers <- TRUE
+```
 ```{r echo = FALSE, warning=FALSE, message=FALSE, eval=FALSE}
 library(haven)
 library(labelled)

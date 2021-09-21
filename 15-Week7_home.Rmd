@@ -1,5 +1,9 @@
 # Week 7 - Putting it all together
 
+```{r include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+show_answers <- TRUE
+```
 **Path analysis on Theory of Reasoned Action data (file: toradata.sav)**
 
 A popular theory in psychology to explain social behavior is the Theory of Reasoned Action (TORA) of Ajzen and Fishbein (sometimes called the Ajzen-Fishbein model). This states that behavior is predicted by behavioral intention, which is in turn predicted by the attitude toward the behavior and the subjective norm about the behavior. Ajzen and Fisbein originally proposed a complex way to measure attitude and norm, but in practice researchers usually measure the attitude by including a number of attitude questions, and the norm by including a number of questions about the perceived social norms (e.g., how many of your friends would do...). The intention is usually measured by a single question on a 7 or 9-point scale and the behavior is either a dichotomous outcome (yes/no) or a frequency (how often do you...). Later, a third determinant was added, perceived behavioral control. If people feel they have little control over their behavior, this will also influence their behavior.

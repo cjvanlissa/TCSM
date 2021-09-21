@@ -1,5 +1,9 @@
 # Week 5 - Class
 
+```{r include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+show_answers <- TRUE
+```
 ```{r echo = FALSE, warning=FALSE, message=FALSE}
 library(foreign)
 library(semTools)

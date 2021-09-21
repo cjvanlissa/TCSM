@@ -24,7 +24,7 @@ What is the average age in the sample? And the range (youngest and oldest child)
   <summary>Click for explanation</summary>
 The package `tidySEM` contains a function to describe data. Install and load the package, then use the `descriptives()` function. Alternatively, you can also use the `describe()` function in the `psych` package.
 
-```{r}
+```{r, echo = TRUE}
 library(tidySEM)
 descriptives(data[, c("LifSat", "educ", "ChildSup", "SpouSup", "age")])
 ```
@@ -40,7 +40,7 @@ Perform a simple regression with LifSat as the dependent variable and educ as th
 <details>
   <summary>Click for explanation</summary>
 
-```{r}
+```{r, echo = TRUE}
 results <- lm(LifSat ~ educ, data)
 summary(results)
 ```
@@ -53,7 +53,7 @@ Do the same with age as the independent variable.
 <details>
   <summary>Click for explanation</summary>
 
-```{r}
+```{r, echo = TRUE}
 results <- lm(LifSat ~ age, data)
 summary(results)
 ```
@@ -67,7 +67,7 @@ Again with ChildSup as the independent variable.
 <details>
   <summary>Click for explanation</summary>
 
-```{r}
+```{r, echo = TRUE}
 results <- lm(LifSat ~ ChildSup, data)
 summary(results)
 ```
@@ -83,7 +83,7 @@ Perform a multiple regression with LifSat as the dependent variable and educ, ag
 <details>
   <summary>Click for explanation</summary>
 
-```{r}
+```{r, echo = TRUE}
 results <- lm(LifSat ~ educ + age + ChildSup, data)
 summary(results)
 ```

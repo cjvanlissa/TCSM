@@ -494,6 +494,16 @@ Click for explanation
 <summary>
 Click for explanation
 </summary>
+<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb280-1"><a href="week-6-class.html#cb280-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="st">&quot;</span></span>
+<span id="cb280-2"><a href="week-6-class.html#cb280-2" aria-hidden="true" tabindex="-1"></a><span class="st">suirisk ~ hopeless + depression + subabuse</span></span>
+<span id="cb280-3"><a href="week-6-class.html#cb280-3" aria-hidden="true" tabindex="-1"></a><span class="st">hopeless ~ depression + selfesteem</span></span>
+<span id="cb280-4"><a href="week-6-class.html#cb280-4" aria-hidden="true" tabindex="-1"></a><span class="st">selfesteem ~ depression</span></span>
+<span id="cb280-5"><a href="week-6-class.html#cb280-5" aria-hidden="true" tabindex="-1"></a><span class="st">subabuse ~~ 0*depression</span></span>
+<span id="cb280-6"><a href="week-6-class.html#cb280-6" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;</span></span>
+<span id="cb280-7"><a href="week-6-class.html#cb280-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb280-8"><a href="week-6-class.html#cb280-8" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">sem</span>(model, data, </span>
+<span id="cb280-9"><a href="week-6-class.html#cb280-9" aria-hidden="true" tabindex="-1"></a>                   <span class="at">group =</span> <span class="st">&quot;gender&quot;</span>)</span>
+<span id="cb280-10"><a href="week-6-class.html#cb280-10" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit, <span class="at">fit.measures =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## lavaan 0.6-9 ended normally after 71 iterations
 ## 
 ##   Estimator                                         ML
@@ -629,6 +639,17 @@ Click for explanation
 <summary>
 Click for explanation
 </summary>
+<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb282-1"><a href="week-6-class.html#cb282-1" aria-hidden="true" tabindex="-1"></a>model_exploratory <span class="ot">&lt;-</span> <span class="st">&quot;</span></span>
+<span id="cb282-2"><a href="week-6-class.html#cb282-2" aria-hidden="true" tabindex="-1"></a><span class="st">suirisk ~ depression + subabuse</span></span>
+<span id="cb282-3"><a href="week-6-class.html#cb282-3" aria-hidden="true" tabindex="-1"></a><span class="st">hopeless ~ depression + selfesteem</span></span>
+<span id="cb282-4"><a href="week-6-class.html#cb282-4" aria-hidden="true" tabindex="-1"></a><span class="st">selfesteem ~ depression</span></span>
+<span id="cb282-5"><a href="week-6-class.html#cb282-5" aria-hidden="true" tabindex="-1"></a><span class="st">subabuse ~ hopeless</span></span>
+<span id="cb282-6"><a href="week-6-class.html#cb282-6" aria-hidden="true" tabindex="-1"></a><span class="st">subabuse ~~ 0*depression</span></span>
+<span id="cb282-7"><a href="week-6-class.html#cb282-7" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;</span></span>
+<span id="cb282-8"><a href="week-6-class.html#cb282-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb282-9"><a href="week-6-class.html#cb282-9" aria-hidden="true" tabindex="-1"></a>fit_exploratory <span class="ot">&lt;-</span> <span class="fu">sem</span>(model_exploratory, data, </span>
+<span id="cb282-10"><a href="week-6-class.html#cb282-10" aria-hidden="true" tabindex="-1"></a>                   <span class="at">group =</span> <span class="st">&quot;gender&quot;</span>)</span>
+<span id="cb282-11"><a href="week-6-class.html#cb282-11" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit_exploratory, <span class="at">fit.measures =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## lavaan 0.6-9 ended normally after 89 iterations
 ## 
 ##   Estimator                                         ML
@@ -766,6 +787,7 @@ Click for explanation
 <summary>
 Click for explanation
 </summary>
+<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb284-1"><a href="week-6-class.html#cb284-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit, <span class="at">fit.measures =</span> <span class="cn">FALSE</span>, <span class="at">standardized =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## lavaan 0.6-9 ended normally after 71 iterations
 ## 
 ##   Estimator                                         ML
@@ -886,6 +908,10 @@ Click for explanation
 Click for explanation
 </summary>
 <p>First, estimate the constrained model. We can use the <code>model</code> from the first exercise:</p>
+<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb286-1"><a href="week-6-class.html#cb286-1" aria-hidden="true" tabindex="-1"></a>fit_fix_reg <span class="ot">&lt;-</span> <span class="fu">sem</span>(model, data,</span>
+<span id="cb286-2"><a href="week-6-class.html#cb286-2" aria-hidden="true" tabindex="-1"></a>                   <span class="at">group =</span> <span class="st">&quot;gender&quot;</span>,</span>
+<span id="cb286-3"><a href="week-6-class.html#cb286-3" aria-hidden="true" tabindex="-1"></a>                   <span class="at">group.equal =</span> <span class="st">&quot;regressions&quot;</span>)</span>
+<span id="cb286-4"><a href="week-6-class.html#cb286-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit_fix_reg, <span class="at">fit.measures =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## lavaan 0.6-9 ended normally after 49 iterations
 ## 
 ##   Estimator                                         ML
@@ -1015,6 +1041,9 @@ Click for explanation
 ##     depression       57.515    4.484   12.826    0.000
 ##     subabuse         41.461    3.233   12.826    0.000</code></pre>
 <p>Then, compare the two models. I like to use <code>semTools::compareFit()</code>:</p>
+<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb288-1"><a href="week-6-class.html#cb288-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(semTools)</span>
+<span id="cb288-2"><a href="week-6-class.html#cb288-2" aria-hidden="true" tabindex="-1"></a><span class="fu">compareFit</span>(<span class="at">Free =</span> fit,</span>
+<span id="cb288-3"><a href="week-6-class.html#cb288-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">Constrained =</span> fit_fix_reg)</span></code></pre></div>
 <pre><code>## The following lavaan models were compared:
 ##     Free
 ##     Constrained
@@ -1031,6 +1060,19 @@ Click for explanation
 <li>Label every path in your model</li>
 <li>Define new parameters as the difference between corresponding parameters for men and women</li>
 </ol>
+<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb290-1"><a href="week-6-class.html#cb290-1" aria-hidden="true" tabindex="-1"></a>model_diff <span class="ot">&lt;-</span> <span class="st">&quot;</span></span>
+<span id="cb290-2"><a href="week-6-class.html#cb290-2" aria-hidden="true" tabindex="-1"></a><span class="st">suirisk ~ c(m1, f1)*hopeless + c(m2, f2)*depression + c(m3, f3)*subabuse</span></span>
+<span id="cb290-3"><a href="week-6-class.html#cb290-3" aria-hidden="true" tabindex="-1"></a><span class="st">hopeless ~ c(m4, f4)*depression + c(m5, f5)*selfesteem</span></span>
+<span id="cb290-4"><a href="week-6-class.html#cb290-4" aria-hidden="true" tabindex="-1"></a><span class="st">selfesteem ~ c(m6, f6)*depression</span></span>
+<span id="cb290-5"><a href="week-6-class.html#cb290-5" aria-hidden="true" tabindex="-1"></a><span class="st">subabuse ~~ 0*depression</span></span>
+<span id="cb290-6"><a href="week-6-class.html#cb290-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb290-7"><a href="week-6-class.html#cb290-7" aria-hidden="true" tabindex="-1"></a><span class="st">D1 := m1-f1</span></span>
+<span id="cb290-8"><a href="week-6-class.html#cb290-8" aria-hidden="true" tabindex="-1"></a><span class="st">D2 := m2-f2</span></span>
+<span id="cb290-9"><a href="week-6-class.html#cb290-9" aria-hidden="true" tabindex="-1"></a><span class="st">D3 := m3-f3</span></span>
+<span id="cb290-10"><a href="week-6-class.html#cb290-10" aria-hidden="true" tabindex="-1"></a><span class="st">D4 := m4-f4</span></span>
+<span id="cb290-11"><a href="week-6-class.html#cb290-11" aria-hidden="true" tabindex="-1"></a><span class="st">D5 := m5-f5</span></span>
+<span id="cb290-12"><a href="week-6-class.html#cb290-12" aria-hidden="true" tabindex="-1"></a><span class="st">D6 := m6-f6</span></span>
+<span id="cb290-13"><a href="week-6-class.html#cb290-13" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;</span></span></code></pre></div>
 </div>
 <div id="question-7-6" class="section level3" number="28.0.8">
 <h3><span class="header-section-number">28.0.8</span> Question 7</h3>
@@ -1039,6 +1081,9 @@ Click for explanation
 <summary>
 Click for explanation
 </summary>
+<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb291-1"><a href="week-6-class.html#cb291-1" aria-hidden="true" tabindex="-1"></a>fit_dif <span class="ot">&lt;-</span> <span class="fu">sem</span>(model_diff, data, </span>
+<span id="cb291-2"><a href="week-6-class.html#cb291-2" aria-hidden="true" tabindex="-1"></a>                   <span class="at">group =</span> <span class="st">&quot;gender&quot;</span>)</span>
+<span id="cb291-3"><a href="week-6-class.html#cb291-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit_dif)</span></code></pre></div>
 <pre><code>## lavaan 0.6-9 ended normally after 71 iterations
 ## 
 ##   Estimator                                         ML
@@ -1160,12 +1205,20 @@ Click for explanation
 <div id="results-table" class="section level3" number="28.0.10">
 <h3><span class="header-section-number">28.0.10</span> Results table</h3>
 <p>When you want to include your results in a paper, it’s a lot of work to copy-paste everything. There are many ways to get R results directly into a paper, including writing the entire paper in R and automatically updating the results. I will show you a very basic way to make a table and export it to a spreadsheet. We will use the functions <code>parameterEstimates(fit, standardized = TRUE)</code> to get the unstandardized and standardized estimates, and then put them into a nice table:</p>
+<div class="sourceCode" id="cb293"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb293-1"><a href="week-6-class.html#cb293-1" aria-hidden="true" tabindex="-1"></a>table_results <span class="ot">&lt;-</span> <span class="fu">parameterEstimates</span>(fit, <span class="at">standardized =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb293-2"><a href="week-6-class.html#cb293-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(table_results)</span></code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["lhs"],"name":[1],"type":["chr"],"align":["left"]},{"label":["op"],"name":[2],"type":["chr"],"align":["left"]},{"label":["rhs"],"name":[3],"type":["chr"],"align":["left"]},{"label":["block"],"name":[4],"type":["int"],"align":["right"]},{"label":["group"],"name":[5],"type":["int"],"align":["right"]},{"label":["est"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["se"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["z"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["pvalue"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["ci.lower"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["ci.upper"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["std.lv"],"name":[12],"type":["dbl"],"align":["right"]},{"label":["std.all"],"name":[13],"type":["dbl"],"align":["right"]},{"label":["std.nox"],"name":[14],"type":["dbl"],"align":["right"]}],"data":[{"1":"suirisk","2":"~","3":"hopeless","4":"1","5":"1","6":"0.02522036","7":"0.05559944","8":"0.4536081","9":"6.501109e-01","10":"-0.08375254","11":"0.1341933","12":"0.02522036","13":"0.03850758","14":"0.03850758","_rn_":"1"},{"1":"suirisk","2":"~","3":"depression","4":"1","5":"1","6":"0.11102741","7":"0.01967101","8":"5.6442144","9":"1.659372e-08","10":"0.07247294","11":"0.1495819","12":"0.11102741","13":"0.47914712","14":"0.47914712","_rn_":"2"},{"1":"suirisk","2":"~","3":"subabuse","4":"1","5":"1","6":"0.12079071","7":"0.04057289","8":"2.9771284","9":"2.909621e-03","10":"0.04126930","11":"0.2003121","12":"0.12079071","13":"0.18109167","14":"0.18109167","_rn_":"3"},{"1":"hopeless","2":"~","3":"depression","4":"1","5":"1","6":"0.16144616","7":"0.02431305","8":"6.6403098","9":"3.130252e-11","10":"0.11379346","11":"0.2090989","12":"0.16144616","13":"0.45632199","14":"0.45632199","_rn_":"4"},{"1":"hopeless","2":"~","3":"selfesteem","4":"1","5":"1","6":"-0.16614129","7":"0.03341152","8":"-4.9725745","9":"6.606956e-07","10":"-0.23162667","11":"-0.1006559","12":"-0.16614129","13":"-0.34171524","14":"-0.34171524","_rn_":"5"},{"1":"selfesteem","2":"~","3":"depression","4":"1","5":"1","6":"-0.51370560","7":"0.03719538","8":"-13.8110074","9":"0.000000e+00","10":"-0.58660719","11":"-0.4408040","12":"-0.51370560","13":"-0.70594555","14":"-0.70594555","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 <p>Then, we take only the labeled parameters (which are the regression coefficients and difference parameters):</p>
+<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb294-1"><a href="week-6-class.html#cb294-1" aria-hidden="true" tabindex="-1"></a>table_results <span class="ot">&lt;-</span> table_results[table_results<span class="sc">$</span>label <span class="sc">!=</span> <span class="st">&quot;&quot;</span>, ]</span>
+<span id="cb294-2"><a href="week-6-class.html#cb294-2" aria-hidden="true" tabindex="-1"></a>table_results <span class="ot">&lt;-</span> <span class="fu">cbind</span>(table_results[<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>],</span>
+<span id="cb294-3"><a href="week-6-class.html#cb294-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">Est_men =</span> table_results[<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="st">&quot;std.all&quot;</span>],</span>
+<span id="cb294-4"><a href="week-6-class.html#cb294-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">Est_women =</span> table_results[<span class="dv">7</span><span class="sc">:</span><span class="dv">12</span>, <span class="st">&quot;std.all&quot;</span>],</span>
+<span id="cb294-5"><a href="week-6-class.html#cb294-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">p_diff =</span> table_results[<span class="dv">13</span><span class="sc">:</span><span class="dv">18</span>, <span class="st">&quot;pvalue&quot;</span>])</span>
+<span id="cb294-6"><a href="week-6-class.html#cb294-6" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(table_results, <span class="st">&quot;table_results.csv&quot;</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 </div>
 <div id="question-9-4" class="section level3" number="28.0.11">
 <h3><span class="header-section-number">28.0.11</span> Question 9</h3>
@@ -1178,6 +1231,7 @@ Click for explanation
 <summary>
 Click for explanation
 </summary>
+<div class="sourceCode" id="cb295"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb295-1"><a href="week-6-class.html#cb295-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit, <span class="at">rsquare =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## lavaan 0.6-9 ended normally after 71 iterations
 ## 
 ##   Estimator                                         ML

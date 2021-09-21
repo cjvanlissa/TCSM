@@ -1,5 +1,9 @@
 # Week 3 - Home
 
+```{r include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+show_answers <- TRUE
+```
 Last week, you have worked on the data used by Kestilä in a paper that discussed two possible 
 reasons why there is no Radical Right party in Finland. You have attempted to 1) replicate her 
 study by doing a Principal Component Analysis and 2) a factor analysis (exploratory) of the same 

@@ -499,6 +499,7 @@ Click for explanation
 Click for explanation
 </summary>
 <p>A basic correlation matrix for the first 5 variables:</p>
+<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="week-6-home.html#cb251-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(data[, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>])</span></code></pre></div>
 <pre><code>##               suirisk   subabuse   hopeless selfesteem depression
 ## suirisk     1.0000000  0.2931462  0.3231625 -0.2751558  0.4071431
 ## subabuse    0.2931462  1.0000000  0.2854853 -0.2478123  0.2991709
@@ -506,6 +507,8 @@ Click for explanation
 ## selfesteem -0.2751558 -0.2478123 -0.6266401  1.0000000 -0.6003697
 ## depression  0.4071431  0.2991709  0.6464750 -0.6003697  1.0000000</code></pre>
 <p>A correlation table with p-values can be obtained using the <code>psych::corr.test()</code> function:</p>
+<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="week-6-home.html#cb253-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psych)</span>
+<span id="cb253-2"><a href="week-6-home.html#cb253-2" aria-hidden="true" tabindex="-1"></a><span class="fu">corr.test</span>(data[, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>])</span></code></pre></div>
 <pre><code>## Call:corr.test(x = data[, 1:5])
 ## Correlation matrix 
 ##            suirisk subabuse hopeless selfesteem depression
@@ -538,14 +541,29 @@ Click for explanation
 <div id="a-psych-solution" class="section level4" number="27.0.3.1">
 <h4><span class="header-section-number">27.0.3.1</span> A psych solution</h4>
 <p>The package `psych’ contains a function to help us visually check assumptions, such as linearity:</p>
-<p><img src="TCSM_files/figure-html/unnamed-chunk-229-1.png" width="672" /></p>
+<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="week-6-home.html#cb255-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pairs.panels</span>(data[, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>], </span>
+<span id="cb255-2"><a href="week-6-home.html#cb255-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">density =</span> <span class="cn">TRUE</span>, <span class="co"># show density plots</span></span>
+<span id="cb255-3"><a href="week-6-home.html#cb255-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">ellipses =</span> <span class="cn">TRUE</span> <span class="co"># show correlation ellipses</span></span>
+<span id="cb255-4"><a href="week-6-home.html#cb255-4" aria-hidden="true" tabindex="-1"></a>             )</span></code></pre></div>
+<p><img src="TCSM_files/figure-html/unnamed-chunk-236-1.png" width="672" /></p>
 </div>
 <div id="ggplot-to-build-plots" class="section level4" number="27.0.3.2">
 <h4><span class="header-section-number">27.0.3.2</span> Ggplot to build plots</h4>
 <p>In this case, psych is easier. But generally, we can make any plot we want using <code>ggplot2</code>. In ggplot, we add one plot element at a time. Here is an example for one variable:</p>
-<p><img src="TCSM_files/figure-html/unnamed-chunk-230-1.png" width="672" /></p>
+<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="week-6-home.html#cb256-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb256-2"><a href="week-6-home.html#cb256-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> subabuse, <span class="at">y =</span> suirisk)) <span class="sc">+</span></span>
+<span id="cb256-3"><a href="week-6-home.html#cb256-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span>  <span class="co"># Add scatter</span></span>
+<span id="cb256-4"><a href="week-6-home.html#cb256-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>() <span class="sc">+</span> <span class="co"># Add smooth trend</span></span>
+<span id="cb256-5"><a href="week-6-home.html#cb256-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()      <span class="co"># Add black/white theme</span></span></code></pre></div>
+<p><img src="TCSM_files/figure-html/unnamed-chunk-237-1.png" width="672" /></p>
 <p>You could also add a linear trend line:</p>
-<p><img src="TCSM_files/figure-html/unnamed-chunk-231-1.png" width="672" /></p>
+<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="week-6-home.html#cb257-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> subabuse, <span class="at">y =</span> suirisk)) <span class="sc">+</span></span>
+<span id="cb257-2"><a href="week-6-home.html#cb257-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span>  <span class="co"># Add scatter</span></span>
+<span id="cb257-3"><a href="week-6-home.html#cb257-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>() <span class="sc">+</span> <span class="co"># Add smooth trend</span></span>
+<span id="cb257-4"><a href="week-6-home.html#cb257-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span>    <span class="co"># Add black/white theme</span></span>
+<span id="cb257-5"><a href="week-6-home.html#cb257-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Add linear trend line (without confidence bound and red in color)</span></span>
+<span id="cb257-6"><a href="week-6-home.html#cb257-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">color =</span> <span class="st">&quot;red&quot;</span>, <span class="at">se =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<p><img src="TCSM_files/figure-html/unnamed-chunk-238-1.png" width="672" /></p>
 <p>This seems linear; you can check the other variables!
 </p>
 </div>
@@ -560,9 +578,14 @@ Click for explanation
 <div id="a-psych-solution-1" class="section level4" number="27.0.4.1">
 <h4><span class="header-section-number">27.0.4.1</span> A psych solution</h4>
 <p>Again, <code>psych</code> has a standard solution for this situation:</p>
-<p><img src="TCSM_files/figure-html/unnamed-chunk-232-1.png" width="672" /></p>
+<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="week-6-home.html#cb258-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pairs.panels</span>(data[, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>], <span class="at">bg =</span> <span class="fu">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;blue&quot;</span>)[data<span class="sc">$</span>gender], <span class="at">pch =</span> <span class="dv">21</span>)</span></code></pre></div>
+<p><img src="TCSM_files/figure-html/unnamed-chunk-239-1.png" width="672" /></p>
 <p>In ggplot, we can make the plots more detailed. We can map gender to the color of the dots and smooth line using <code>aes(colour = gender)</code>:</p>
-<p><img src="TCSM_files/figure-html/unnamed-chunk-233-1.png" width="672" /></p>
+<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb259-1"><a href="week-6-home.html#cb259-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> subabuse, <span class="at">y =</span> suirisk, <span class="at">colour =</span> gender)) <span class="sc">+</span></span>
+<span id="cb259-2"><a href="week-6-home.html#cb259-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span>  <span class="co"># Add scatter</span></span>
+<span id="cb259-3"><a href="week-6-home.html#cb259-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>() <span class="sc">+</span> <span class="co"># Add smooth trend</span></span>
+<span id="cb259-4"><a href="week-6-home.html#cb259-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()      <span class="co"># Add black/white theme</span></span></code></pre></div>
+<p><img src="TCSM_files/figure-html/unnamed-chunk-240-1.png" width="672" /></p>
 <p>This seems linear; you can check the other variables! There are also some differences by gender, in range and steepness.
 </p>
 </div>
@@ -576,6 +599,8 @@ Click for explanation
 Click for explanation
 </summary>
 <p>The variances might not be equal for all levels of gender. We can do a preliminary investigation using <code>describeBy</code>; a version of the <code>describe</code> that splits the data by group.</p>
+<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="week-6-home.html#cb260-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psych)</span>
+<span id="cb260-2"><a href="week-6-home.html#cb260-2" aria-hidden="true" tabindex="-1"></a><span class="fu">describeBy</span>(data[, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>], <span class="at">group =</span> data<span class="sc">$</span>gender)</span></code></pre></div>
 <pre><code>## 
 ##  Descriptive statistics by group 
 ## group: females
@@ -606,12 +631,15 @@ Click for explanation
 ## selfesteem 0.41
 ## depression 0.56</code></pre>
 <p>The variances turn out to be roughly the same for most variables, but there is a large difference in the variance of nartotic substance use. Let’s apply Levene’s test, which lives in the <code>car</code> package:</p>
+<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="week-6-home.html#cb262-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span>
+<span id="cb262-2"><a href="week-6-home.html#cb262-2" aria-hidden="true" tabindex="-1"></a><span class="fu">leveneTest</span>(<span class="at">y =</span> data<span class="sc">$</span>subabuse, <span class="at">group =</span> data<span class="sc">$</span>gender)</span></code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Df"],"name":[1],"type":["int"],"align":["right"]},{"label":["F value"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Pr(>F)"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"114.5052","3":"2.77758e-24","_rn_":"group"},{"1":"519","2":"NA","3":"NA","_rn_":""}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 <p>If we want a Levene’s test for all five continuous variables, it can be helpful to <strong>apply</strong> the function to the 5 columns of data. The function <code>lapply()</code> applies a second function (<code>leveneTest()</code>) to every element of a list; in this case - the five columns. The argument <code>group</code> stays the same for each variable:</p>
+<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb263-1"><a href="week-6-home.html#cb263-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(data[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>], leveneTest, <span class="at">group =</span> data<span class="sc">$</span>gender)</span></code></pre></div>
 <pre><code>## $suirisk
 ## Levene&#39;s Test for Homogeneity of Variance (center = median)
 ##        Df F value Pr(&gt;F)
@@ -651,6 +679,8 @@ Click for explanation
 <summary>
 Click for explanation
 </summary>
+<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb265-1"><a href="week-6-home.html#cb265-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># In the lm() function, ~ . means: use all predictors</span></span>
+<span id="cb265-2"><a href="week-6-home.html#cb265-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(suirisk <span class="sc">~</span> ., <span class="at">data =</span> data[data<span class="sc">$</span>gender <span class="sc">==</span> <span class="st">&quot;females&quot;</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]))</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = suirisk ~ ., data = data[data$gender == &quot;females&quot;, 
@@ -673,6 +703,7 @@ Click for explanation
 ## Residual standard error: 1.671 on 324 degrees of freedom
 ## Multiple R-squared:  0.1515, Adjusted R-squared:  0.141 
 ## F-statistic: 14.46 on 4 and 324 DF,  p-value: 7.1e-11</code></pre>
+<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb267-1"><a href="week-6-home.html#cb267-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(suirisk <span class="sc">~</span> ., <span class="at">data =</span> data[data<span class="sc">$</span>gender <span class="sc">==</span> <span class="st">&quot;males&quot;</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]))</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = suirisk ~ ., data = data[data$gender == &quot;males&quot;, 
@@ -715,6 +746,8 @@ Click for explanation
 <summary>
 Click for explanation
 </summary>
+<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="week-6-home.html#cb269-1" aria-hidden="true" tabindex="-1"></a>reg_1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(suirisk <span class="sc">~</span> ., data)</span>
+<span id="cb269-2"><a href="week-6-home.html#cb269-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(reg_1)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = suirisk ~ ., data = data)
@@ -737,6 +770,8 @@ Click for explanation
 ## Residual standard error: 1.633 on 515 degrees of freedom
 ## Multiple R-squared:  0.2023, Adjusted R-squared:  0.1946 
 ## F-statistic: 26.12 on 5 and 515 DF,  p-value: &lt; 2.2e-16</code></pre>
+<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb271-1"><a href="week-6-home.html#cb271-1" aria-hidden="true" tabindex="-1"></a>reg_2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(suirisk <span class="sc">~</span> gender <span class="sc">*</span> subabuse <span class="sc">+</span> gender <span class="sc">*</span> hopeless <span class="sc">+</span> gender <span class="sc">*</span> selfesteem <span class="sc">+</span> gender <span class="sc">*</span> depression, data)</span>
+<span id="cb271-2"><a href="week-6-home.html#cb271-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(reg_2)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = suirisk ~ gender * subabuse + gender * hopeless + 
@@ -764,6 +799,7 @@ Click for explanation
 ## Residual standard error: 1.62 on 511 degrees of freedom
 ## Multiple R-squared:  0.2208, Adjusted R-squared:  0.2071 
 ## F-statistic: 16.09 on 9 and 511 DF,  p-value: &lt; 2.2e-16</code></pre>
+<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="week-6-home.html#cb273-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(reg_1, reg_2)</span></code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Res.Df"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["RSS"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Df"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Sum of Sq"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["F"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["Pr(>F)"],"name":[6],"type":["dbl"],"align":["right"]}],"data":[{"1":"515","2":"1373.131","3":"NA","4":"NA","5":"NA","6":"NA","_rn_":"1"},{"1":"511","2":"1341.348","3":"4","4":"31.78305","5":"3.027018","6":"0.0174243","_rn_":"2"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -779,6 +815,10 @@ Click for explanation
 <summary>
 Click for explanation
 </summary>
+<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb274-1"><a href="week-6-home.html#cb274-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lavaan)</span>
+<span id="cb274-2"><a href="week-6-home.html#cb274-2" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="st">&quot;suirisk ~ subabuse + hopeless + selfesteem + depression + gender&quot;</span></span>
+<span id="cb274-3"><a href="week-6-home.html#cb274-3" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">sem</span>(model, data)</span>
+<span id="cb274-4"><a href="week-6-home.html#cb274-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit)</span></code></pre></div>
 <pre><code>## lavaan 0.6-9 ended normally after 18 iterations
 ## 
 ##   Estimator                                         ML
@@ -810,7 +850,9 @@ Click for explanation
 ## Variances:
 ##                    Estimate  Std.Err  z-value  P(&gt;|z|)
 ##    .suirisk           2.636    0.163   16.140    0.000</code></pre>
-<p><img src="TCSM_files/figure-html/unnamed-chunk-240-1.png" width="672" /></p>
+<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="week-6-home.html#cb276-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(semPlot)</span>
+<span id="cb276-2"><a href="week-6-home.html#cb276-2" aria-hidden="true" tabindex="-1"></a><span class="fu">semPaths</span>(fit, <span class="at">whatLabels =</span> <span class="st">&quot;est&quot;</span>, <span class="at">rotation =</span> <span class="dv">2</span>)</span></code></pre></div>
+<p><img src="TCSM_files/figure-html/unnamed-chunk-247-1.png" width="672" /></p>
 <p>Same results, except for a small difference in the standard errors, that results from the fact we use Ordinary Least Squares (OLS)-estimation in R and Maximum Likelihood (ML) in lavaan. Apart from that, we can also estimate the correlations/covariances between the independent variables in lavaan, that we cannot estimate in R.
 </p>
 </div>
@@ -833,6 +875,15 @@ Click for explanation
 Click for explanation
 </summary>
 <p>The model fits when a covariance is added between substance use and depression (see figure 1 in the article). Then, Chi-square(3) =9.4, p=.025 CFI=.992, RMSEA=.064. This is probably what Mehta et al. (1998) did as well, without showing us.</p>
+<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb277-1"><a href="week-6-home.html#cb277-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="st">&quot;</span></span>
+<span id="cb277-2"><a href="week-6-home.html#cb277-2" aria-hidden="true" tabindex="-1"></a><span class="st">suirisk ~ hopeless + depression + subabuse</span></span>
+<span id="cb277-3"><a href="week-6-home.html#cb277-3" aria-hidden="true" tabindex="-1"></a><span class="st">hopeless ~ depression + selfesteem</span></span>
+<span id="cb277-4"><a href="week-6-home.html#cb277-4" aria-hidden="true" tabindex="-1"></a><span class="st">selfesteem ~ depression</span></span>
+<span id="cb277-5"><a href="week-6-home.html#cb277-5" aria-hidden="true" tabindex="-1"></a><span class="st">subabuse ~~ depression</span></span>
+<span id="cb277-6"><a href="week-6-home.html#cb277-6" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;</span></span>
+<span id="cb277-7"><a href="week-6-home.html#cb277-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb277-8"><a href="week-6-home.html#cb277-8" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">sem</span>(model, data)</span>
+<span id="cb277-9"><a href="week-6-home.html#cb277-9" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit, <span class="at">fit.measures =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## lavaan 0.6-9 ended normally after 35 iterations
 ## 
 ##   Estimator                                         ML
@@ -908,7 +959,8 @@ Click for explanation
 ##    .selfesteem       18.561    1.150   16.140    0.000
 ##     depression       58.346    3.615   16.140    0.000
 ##     subabuse         29.912    1.853   16.140    0.000</code></pre>
-<p><img src="TCSM_files/figure-html/unnamed-chunk-241-1.png" width="672" />
+<div class="sourceCode" id="cb279"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb279-1"><a href="week-6-home.html#cb279-1" aria-hidden="true" tabindex="-1"></a><span class="fu">semPaths</span>(fit, <span class="at">whatLabels =</span> <span class="st">&quot;est&quot;</span>, <span class="at">rotation =</span> <span class="dv">2</span>)</span></code></pre></div>
+<p><img src="TCSM_files/figure-html/unnamed-chunk-248-1.png" width="672" />
 </p>
 
 </div>

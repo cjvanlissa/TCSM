@@ -532,6 +532,8 @@ div.csl-indent {
 <h3><span class="header-section-number">24.0.3</span> Dummy coding</h3>
 <p>Consider the other variables that were included. We may expect that these are actually influenced by mother’s work status. For instance, mother’s earnings by age 4.5 may depend on whether or not the mother was working during the first year, and also on whether she was working full time or part time. This implies there may be <em>mediated</em> or indirect effects of work status on the outcome variable.</p>
 <p>To investigate this, we can specify a SEM model in which the effects of work status are mediated through the four other variables. Note that work status is a categorical (ordinal) variable, with three categories. To include this variable as a predictor, we need to dummy-code it. <code>lm()</code> does this automatically; <code>lavaan</code> doesn’t. The function <code>dummy.code</code> in <code>library(psych)</code> can help us:</p>
+<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="week-5-class.html#cb237-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psych)</span>
+<span id="cb237-2"><a href="week-5-class.html#cb237-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dummy.code</span>(data<span class="sc">$</span>Work)</span></code></pre></div>
 <pre><code>##      Full time Part time no work
 ## [1,]         1         0       0
 ## [2,]         1         0       0
@@ -540,7 +542,10 @@ div.csl-indent {
 ## [5,]         1         0       0
 ## [6,]         1         0       0</code></pre>
 <p>We need to add these variables to our <code>data</code>. Also, the names of the dummies include spaces, so we should rename them. One easy way to do this is to change the levels of the original variable. Then, we add the dummies to <code>data</code>:</p>
+<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="week-5-class.html#cb239-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(data<span class="sc">$</span>Work)</span></code></pre></div>
 <pre><code>## [1] &quot;Full time&quot; &quot;Part time&quot; &quot;no work&quot;</code></pre>
+<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="week-5-class.html#cb241-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(data<span class="sc">$</span>Work) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;workfull&quot;</span>, <span class="st">&quot;workpart&quot;</span>, <span class="st">&quot;workno&quot;</span>)</span>
+<span id="cb241-2"><a href="week-5-class.html#cb241-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(data, <span class="fu">dummy.code</span>(data<span class="sc">$</span>Work))</span></code></pre></div>
 <p>If we want to use the stay-at-home moms as the reference group, we just use the other two dummies as predictors. Additionally, if we want to know the intercept of <code>WCJ</code> for the reference category, we need to add the argument <code>meanstructure = TRUE</code> to the <code>sem()</code> function call.</p>
 </div>
 <div id="question-2-5" class="section level3" number="24.0.4">
@@ -551,6 +556,13 @@ div.csl-indent {
 <summary>
 Click for explanation
 </summary>
+<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="week-5-class.html#cb242-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="st">&#39;</span></span>
+<span id="cb242-2"><a href="week-5-class.html#cb242-2" aria-hidden="true" tabindex="-1"></a><span class="st">WCJ ~ MothEar + HomeEnv + MothSen + MothDep + workfull + workpart</span></span>
+<span id="cb242-3"><a href="week-5-class.html#cb242-3" aria-hidden="true" tabindex="-1"></a><span class="st">MothEar ~ workfull + workpart</span></span>
+<span id="cb242-4"><a href="week-5-class.html#cb242-4" aria-hidden="true" tabindex="-1"></a><span class="st">HomeEnv  ~ workfull + workpart</span></span>
+<span id="cb242-5"><a href="week-5-class.html#cb242-5" aria-hidden="true" tabindex="-1"></a><span class="st">MothSen  ~ workfull + workpart</span></span>
+<span id="cb242-6"><a href="week-5-class.html#cb242-6" aria-hidden="true" tabindex="-1"></a><span class="st">MothDep  ~ workfull + workpart </span></span>
+<span id="cb242-7"><a href="week-5-class.html#cb242-7" aria-hidden="true" tabindex="-1"></a><span class="st">&#39;</span></span></code></pre></div>
 </div>
 <div id="question-3-5" class="section level3" number="24.0.5">
 <h3><span class="header-section-number">24.0.5</span> Question 3</h3>
@@ -560,6 +572,11 @@ Click for explanation
 Click for explanation
 </summary>
 <p>You would estimate these regression analyses:</p>
+<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="week-5-class.html#cb243-1" aria-hidden="true" tabindex="-1"></a>fit_y <span class="ot">&lt;-</span> <span class="fu">lm</span>(WCJ <span class="sc">~</span> MothEar <span class="sc">+</span> HomeEnv <span class="sc">+</span> MothSen <span class="sc">+</span> MothDep <span class="sc">+</span> workfull <span class="sc">+</span> workpart, data)</span>
+<span id="cb243-2"><a href="week-5-class.html#cb243-2" aria-hidden="true" tabindex="-1"></a>fit_m1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(MothEar <span class="sc">~</span> workfull <span class="sc">+</span> workpart, data)</span>
+<span id="cb243-3"><a href="week-5-class.html#cb243-3" aria-hidden="true" tabindex="-1"></a>fit_m2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(HomeEnv  <span class="sc">~</span> workfull <span class="sc">+</span> workpart, data)</span>
+<span id="cb243-4"><a href="week-5-class.html#cb243-4" aria-hidden="true" tabindex="-1"></a>fit_m3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(MothSen  <span class="sc">~</span> workfull <span class="sc">+</span> workpart, data)</span>
+<span id="cb243-5"><a href="week-5-class.html#cb243-5" aria-hidden="true" tabindex="-1"></a>fit_m4 <span class="ot">&lt;-</span> <span class="fu">lm</span>(MothDep  <span class="sc">~</span> workfull <span class="sc">+</span> workpart, data)</span></code></pre></div>
 <p>Additionally, we would have to multiply the effects of the dummies on the mediators, with the effects of the mediators on WCJ, in order to calculate the indirect effects.
 </p>
 </div>
@@ -571,8 +588,33 @@ Click for explanation
 Click for explanation
 </summary>
 <p>First, label all regressions, and add syntax for the indirect effects:</p>
+<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb244-1"><a href="week-5-class.html#cb244-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="st">&#39;</span></span>
+<span id="cb244-2"><a href="week-5-class.html#cb244-2" aria-hidden="true" tabindex="-1"></a><span class="st">WCJ ~ ear * MothEar + env * HomeEnv + sen * MothSen + dep * MothDep + workfull + workpart</span></span>
+<span id="cb244-3"><a href="week-5-class.html#cb244-3" aria-hidden="true" tabindex="-1"></a><span class="st">MothEar ~ earfull * workfull + earpart * workpart</span></span>
+<span id="cb244-4"><a href="week-5-class.html#cb244-4" aria-hidden="true" tabindex="-1"></a><span class="st">HomeEnv  ~ envfull * workfull + envpart * workpart</span></span>
+<span id="cb244-5"><a href="week-5-class.html#cb244-5" aria-hidden="true" tabindex="-1"></a><span class="st">MothSen  ~ senfull * workfull + senpart * workpart</span></span>
+<span id="cb244-6"><a href="week-5-class.html#cb244-6" aria-hidden="true" tabindex="-1"></a><span class="st">MothDep  ~ depfull * workfull + deppart * workpart</span></span>
+<span id="cb244-7"><a href="week-5-class.html#cb244-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb244-8"><a href="week-5-class.html#cb244-8" aria-hidden="true" tabindex="-1"></a><span class="st">i_earfull := ear * earfull</span></span>
+<span id="cb244-9"><a href="week-5-class.html#cb244-9" aria-hidden="true" tabindex="-1"></a><span class="st">i_envfull := env * envfull</span></span>
+<span id="cb244-10"><a href="week-5-class.html#cb244-10" aria-hidden="true" tabindex="-1"></a><span class="st">i_senfull := sen * senfull</span></span>
+<span id="cb244-11"><a href="week-5-class.html#cb244-11" aria-hidden="true" tabindex="-1"></a><span class="st">i_depfull := dep * depfull</span></span>
+<span id="cb244-12"><a href="week-5-class.html#cb244-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb244-13"><a href="week-5-class.html#cb244-13" aria-hidden="true" tabindex="-1"></a><span class="st">i_earpart := ear * earpart</span></span>
+<span id="cb244-14"><a href="week-5-class.html#cb244-14" aria-hidden="true" tabindex="-1"></a><span class="st">i_envpart := env * envpart</span></span>
+<span id="cb244-15"><a href="week-5-class.html#cb244-15" aria-hidden="true" tabindex="-1"></a><span class="st">i_senpart := sen * senpart</span></span>
+<span id="cb244-16"><a href="week-5-class.html#cb244-16" aria-hidden="true" tabindex="-1"></a><span class="st">i_deppart := dep * deppart</span></span>
+<span id="cb244-17"><a href="week-5-class.html#cb244-17" aria-hidden="true" tabindex="-1"></a><span class="st">&#39;</span></span></code></pre></div>
 <p>Then, estimate the model. Specify bootstrapped SEs and 1000 bootstrap samples. Remember that, to get the intercepts of dependent variables for the reference category, we should specify <code>meanstructure = TRUE</code>:</p>
+<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="week-5-class.html#cb245-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lavaan)</span>
+<span id="cb245-2"><a href="week-5-class.html#cb245-2" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">sem</span>(model, </span>
+<span id="cb245-3"><a href="week-5-class.html#cb245-3" aria-hidden="true" tabindex="-1"></a>           data, </span>
+<span id="cb245-4"><a href="week-5-class.html#cb245-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">meanstructure =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb245-5"><a href="week-5-class.html#cb245-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">se =</span> <span class="st">&quot;bootstrap&quot;</span>, </span>
+<span id="cb245-6"><a href="week-5-class.html#cb245-6" aria-hidden="true" tabindex="-1"></a>           <span class="at">bootstrap =</span> <span class="dv">1000</span>)</span></code></pre></div>
 <p>To obtain the 95% CIs for the indirect effects, we can use the following syntax. First, I obtain the <code>parameterestimates()</code> and put them in an object called <code>pars</code>. Then, I ask for only the <strong>rows</strong> that contain my defined parameters (<code>pars$op == ":="</code>), and only the columns <code>c("label", "est", "ci.upper", "ci.lower")</code>:</p>
+<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="week-5-class.html#cb246-1" aria-hidden="true" tabindex="-1"></a>pars <span class="ot">&lt;-</span> <span class="fu">parameterestimates</span>(fit, <span class="at">boot.ci.type =</span> <span class="st">&quot;bca.simple&quot;</span>)</span>
+<span id="cb246-2"><a href="week-5-class.html#cb246-2" aria-hidden="true" tabindex="-1"></a>pars[pars<span class="sc">$</span>op <span class="sc">==</span> <span class="st">&quot;:=&quot;</span>, <span class="fu">c</span>(<span class="st">&quot;label&quot;</span>, <span class="st">&quot;est&quot;</span>, <span class="st">&quot;ci.upper&quot;</span>, <span class="st">&quot;ci.lower&quot;</span>)]</span></code></pre></div>
 <pre><code>##      label    est ci.upper ci.lower
 ##  i_earfull -0.323    0.267   -0.972
 ##  i_envfull  0.290    0.782   -0.086
@@ -595,6 +637,8 @@ Click for explanation
 Click for explanation
 </summary>
 <p>First, run the requested regression:</p>
+<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="week-5-class.html#cb248-1" aria-hidden="true" tabindex="-1"></a>fit_reg <span class="ot">&lt;-</span> <span class="fu">lm</span>(WCJ <span class="sc">~</span> workfull <span class="sc">+</span> workpart <span class="sc">+</span> MothEar <span class="sc">+</span> HomeEnv <span class="sc">+</span> MothSen <span class="sc">+</span> MothDep, data)</span>
+<span id="cb248-2"><a href="week-5-class.html#cb248-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit_reg)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = WCJ ~ workfull + workpart + MothEar + HomeEnv + 

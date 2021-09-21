@@ -1,7 +1,7 @@
 # Week 2 - Class
 
 ```{r include=FALSE}
-knitr::opts_chunk$set(warning=FALSE, message=FALSE)
+knitr::opts_chunk$set(warning=FALSE, message=FALSE, echo = TRUE)
 ```
 In the unlikely event that you were able to replicate the results of Kestilä in the take-home exercise, rerun your analysis script. If you did not manage to replicate the results, load the dataset `ESSround1-b.csv` into RStudio. 
 

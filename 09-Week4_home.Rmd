@@ -1,5 +1,9 @@
 # Week 4 - Home
 
+```{r include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+show_answers <- TRUE
+```
 ```{r echo = FALSE, warning=FALSE, message=FALSE}
 library(foreign)
 data <- read.spss("TCSM_student/SocialRejection.sav", to.data.frame = TRUE)
