@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>6.4 Section 3 | Theory Construction and Statistical Modeling</title>
+  <title>Chapter 22 Week 3 - Formative test | Theory Construction and Statistical Modeling</title>
   <meta name="description" content="This is a guide for the elective course TCSM." />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="6.4 Section 3 | Theory Construction and Statistical Modeling" />
+  <meta property="og:title" content="Chapter 22 Week 3 - Formative test | Theory Construction and Statistical Modeling" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="6.4 Section 3 | Theory Construction and Statistical Modeling" />
+  <meta name="twitter:title" content="Chapter 22 Week 3 - Formative test | Theory Construction and Statistical Modeling" />
   
   <meta name="twitter:description" content="This is a guide for the elective course TCSM." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="section-2.html"/>
-<link rel="next" href="week-1-formative-test.html"/>
+<link rel="prev" href="week-4-class.html"/>
+<link rel="next" href="week-5-overview.html"/>
 <script src="libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="libs/jquery-3.5.1/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -380,7 +380,7 @@ div.csl-indent {
 <li class="chapter" data-level="21.0.9" data-path="week-4-class.html"><a href="week-4-class.html#question-5-3"><i class="fa fa-check"></i><b>21.0.9</b> Question 5</a></li>
 <li class="chapter" data-level="21.0.10" data-path="week-4-class.html"><a href="week-4-class.html#question-6-3"><i class="fa fa-check"></i><b>21.0.10</b> Question 6</a></li>
 </ul></li>
-<li class="chapter" data-level="22" data-path="week-4-formative-test.html"><a href="week-4-formative-test.html"><i class="fa fa-check"></i><b>22</b> Week 4 - Formative test</a></li>
+<li class="chapter" data-level="22" data-path="week-3-formative-test-1.html"><a href="week-3-formative-test-1.html"><i class="fa fa-check"></i><b>22</b> Week 3 - Formative test</a></li>
 <li class="chapter" data-level="23" data-path="week-5-overview.html"><a href="week-5-overview.html"><i class="fa fa-check"></i><b>23</b> Week 5 - Overview</a></li>
 <li class="chapter" data-level="24" data-path="week-5-reading-questions.html"><a href="week-5-reading-questions.html"><i class="fa fa-check"></i><b>24</b> Week 5 - Reading questions</a></li>
 <li class="chapter" data-level="25" data-path="week-5-home.html"><a href="week-5-home.html"><i class="fa fa-check"></i><b>25</b> Week 5 - Home</a>
@@ -475,277 +475,322 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="section-3" class="section level2" number="6.4">
-<h2><span class="header-section-number">6.4</span> Section 3</h2>
-<p>Open the file Sesam2.sav.</p>
-<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="section-3.html#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the data and put them in the object called &quot;data&quot;</span></span>
-<span id="cb83-2"><a href="section-3.html#cb83-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.spss</span>(<span class="st">&quot;Sesam2.sav&quot;</span>, <span class="at">to.data.frame =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<p>Use postnumb as the dependent variable in all the following analyses.</p>
-<div id="question-3.a" class="section level3" number="6.4.1">
-<h3><span class="header-section-number">6.4.1</span> Question 3.a</h3>
-<p>Viewcat is a factor variable, but is not coded as such in the data. Turn it into a factor. Afterwards, make sure that viewcat=1 is the reference group in the contrasts, i.e., the group that is identified by zero scores on all the associated dummy variables.</p>
-<p><em>Hint: Use</em> <code>&lt;- factor()</code> <em>and</em> <code>contrasts()</code>.</p>
-<details>
-<summary>
-Click for explanation
-</summary>
-<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="section-3.html#cb84-1" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>VIEWCAT <span class="ot">&lt;-</span> <span class="fu">factor</span>(data<span class="sc">$</span>VIEWCAT)</span>
-<span id="cb84-2"><a href="section-3.html#cb84-2" aria-hidden="true" tabindex="-1"></a><span class="fu">contrasts</span>(data<span class="sc">$</span>VIEWCAT)</span></code></pre></div>
-<pre><code>##   2 3 4
-## 1 0 0 0
-## 2 1 0 0
-## 3 0 1 0
-## 4 0 0 1</code></pre>
+<div id="week-3---formative-test-1" class="section level1" number="22">
+<h1><span class="header-section-number">Chapter 22</span> Week 3 - Formative test</h1>
+<p>A formative test helps you assess your progress in the course, and helps you address any blind spots in your understanding of the material.
+If you get a question wrong, you will receive a hint on how to improve your understanding of the material.</p>
+<p>Complete the formative test ideally <em>after</em> you’ve seen the lecture, but <em>before</em> the lecture meeting in which we can discuss any topics that need more attention.</p>
+<p><strong>Question 1:</strong>
+When interested in causal relationships, experimental research is preferred over correlational research.</p>
+<div class="radio">
+<p><label>
+<input type="radio" name="question1" id="opt1" value="1" onchange="check_answer1()">
+FALSE
+</label></p>
 </div>
-<div id="question-3.b" class="section level3" number="6.4.2">
-<h3><span class="header-section-number">6.4.2</span> Question 3.b</h3>
-<p>Perform a multiple regression analysis with just the viewcat dummies as predictors.</p>
-<details>
-<summary>
-Click for explanation
-</summary>
-<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="section-3.html#cb86-1" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> <span class="fu">lm</span>(POSTNUMB <span class="sc">~</span> VIEWCAT, data)</span>
-<span id="cb86-2"><a href="section-3.html#cb86-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(results)</span></code></pre></div>
-<pre><code>## 
-## Call:
-## lm(formula = POSTNUMB ~ VIEWCAT, data = data)
-## 
-## Residuals:
-##     Min      1Q  Median      3Q     Max 
-## -25.474  -7.942   0.240   8.526  25.240 
-## 
-## Coefficients:
-##             Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept)   18.760      2.316   8.102 8.95e-14 ***
-## VIEWCAT2       9.331      2.900   3.218  0.00154 ** 
-## VIEWCAT3      14.714      2.777   5.298 3.49e-07 ***
-## VIEWCAT4      18.032      2.809   6.419 1.24e-09 ***
-## ---
-## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
-## 
-## Residual standard error: 11.58 on 175 degrees of freedom
-## Multiple R-squared:  0.2102, Adjusted R-squared:  0.1967 
-## F-statistic: 15.53 on 3 and 175 DF,  p-value: 5.337e-09</code></pre>
+<div class="radio">
+<p><label>
+<input type="radio" name="question1" id="opt2" value="2" onchange="check_answer1()">
+TRUE
+</label></p>
 </div>
-<div id="question-3.c" class="section level3" number="6.4.3">
-<h3><span class="header-section-number">6.4.3</span> Question 3.c</h3>
-<p>What do the regression coefficients represent? How can you determine the average postnumb score for each of the viewcat categories, based on the regression parameters?</p>
-</div>
-<div id="question-3.d" class="section level3" number="6.4.4">
-<h3><span class="header-section-number">6.4.4</span> Question 3.d</h3>
-<p>Make a coloured scatter plot with age on the x-axis and postnumb on the y-axis. Colour the dots according to the their <code>viewcat</code> category. How do you interpret the differences in slopes of these four fit lines?</p>
-<p><em>Hint: Use</em> <code>ggplot()</code> and <code>geom_point()</code>; <em>use the argument aes(colour = ‘…’) to map colour to a certain variable. A new command is</em> <code>geom_smooth()</code> <em>: This plots a smooth line (like a regression line).</em></p>
-<details>
-<summary>
-Click for explanation
-</summary>
-<p>We will use ggplot again:</p>
-<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="section-3.html#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> AGE, <span class="at">y =</span> POSTNUMB, <span class="at">colour =</span> VIEWCAT)) <span class="sc">+</span> </span>
-<span id="cb88-2"><a href="section-3.html#cb88-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="co"># For scatterplot</span></span>
-<span id="cb88-3"><a href="section-3.html#cb88-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span> <span class="co"># For regression lines</span></span>
-<span id="cb88-4"><a href="section-3.html#cb88-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="co"># For a pretty theme</span></span></code></pre></div>
-<p><img src="TCSM_files/figure-html/unnamed-chunk-81-1.png" width="672" />
-</p>
-</div>
-<div id="question-3.e" class="section level3" number="6.4.5">
-<h3><span class="header-section-number">6.4.5</span> Question 3.e</h3>
-<p>Add an interaction between age and viewcat to the regression analysis.</p>
-<p><em>Hint: An interaction is created by multiplying two variables. You can multiply with * in the formula of</em> <code>lm()</code>.</p>
-<details>
-<summary>
-Click for explanation
-</summary>
-<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="section-3.html#cb89-1" aria-hidden="true" tabindex="-1"></a>results_interaction <span class="ot">&lt;-</span> <span class="fu">lm</span>(POSTNUMB <span class="sc">~</span> VIEWCAT<span class="sc">*</span>AGE, data)</span>
-<span id="cb89-2"><a href="section-3.html#cb89-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(results_interaction)</span></code></pre></div>
-<pre><code>## 
-## Call:
-## lm(formula = POSTNUMB ~ VIEWCAT * AGE, data = data)
-## 
-## Residuals:
-##      Min       1Q   Median       3Q      Max 
-## -23.8371  -8.2387   0.6158   8.7988  22.5611 
-## 
-## Coefficients:
-##              Estimate Std. Error t value Pr(&gt;|t|)  
-## (Intercept)  -18.7211    15.5883  -1.201   0.2314  
-## VIEWCAT2       9.9741    20.6227   0.484   0.6293  
-## VIEWCAT3      23.5825    19.3591   1.218   0.2248  
-## VIEWCAT4      34.3969    19.3600   1.777   0.0774 .
-## AGE            0.7466     0.3074   2.429   0.0162 *
-## VIEWCAT2:AGE  -0.0175     0.4060  -0.043   0.9657  
-## VIEWCAT3:AGE  -0.1930     0.3782  -0.510   0.6104  
-## VIEWCAT4:AGE  -0.3416     0.3770  -0.906   0.3663  
-## ---
-## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
-## 
-## Residual standard error: 10.99 on 171 degrees of freedom
-## Multiple R-squared:  0.3046, Adjusted R-squared:  0.2762 
-## F-statistic:  10.7 on 7 and 171 DF,  p-value: 3.79e-11</code></pre>
-</div>
-<div id="question-3.f" class="section level3" number="6.4.6">
-<h3><span class="header-section-number">6.4.6</span> Question 3.f</h3>
-<p>Perform a sequential multiple regression. Include age and viewcat as the predictors in the first analysis. Add the interaction term in the second analysis. Make sure to obtain information about the change in R-square!</p>
-<p><em>Hint: Use</em> <code>anova()</code> <em>to compare two regression models.</em></p>
-<details>
-<summary>
-Click for explanation
-</summary>
-<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="section-3.html#cb91-1" aria-hidden="true" tabindex="-1"></a>results_main <span class="ot">&lt;-</span> <span class="fu">lm</span>(POSTNUMB <span class="sc">~</span> VIEWCAT <span class="sc">+</span> AGE, data)</span>
-<span id="cb91-2"><a href="section-3.html#cb91-2" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(results_main, results_interaction)</span></code></pre></div>
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Res.Df"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["RSS"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Df"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Sum of Sq"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["F"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["Pr(>F)"],"name":[6],"type":["dbl"],"align":["right"]}],"data":[{"1":"174","2":"20806.26","3":"NA","4":"NA","5":"NA","6":"NA","_rn_":"1"},{"1":"171","2":"20653.50","3":"3","4":"152.7625","5":"0.4215975","6":"0.7377438","_rn_":"2"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
-</div>
-</div>
-<div id="question-3.g" class="section level3" number="6.4.7">
-<h3><span class="header-section-number">6.4.7</span> Question 3.g</h3>
-<p>Sketch path models of both steps of the regression analysis (on paper).</p>
-<details>
-<summary>
-Click for explanation
-</summary>
-<p>Step 1:</p>
-<p><img src="3_g1.png" /></p>
-<p>Step 2:</p>
-<p><img src="3_g2.png" /></p>
-</div>
-<div id="question-3.h" class="section level3" number="6.4.8">
-<h3><span class="header-section-number">6.4.8</span> Question 3.h</h3>
-<p>Write down the regression equations of both steps of the sequential analysis.</p>
-<details>
-<summary>
-Click for explanation
-</summary>
-<p><span class="math inline">\(Postnumb_i = b_0 + b_1D_{view2i} + b_2D_{view3i} + b_3D_{view4i} + b_4Age_i + \epsilon_i\)</span></p>
-<p><span class="math display">\[
-\begin{aligned}
-Postnumb_i = b_0 + &amp;b_1D_{view2i} + b_2D_{view3i} + b_3D_{view4i} + b_4Age_i +\\
-&amp;b_5D_{view2i}Age_i + b_6D_{view3i}Age_i + b_7D_{view4i}Age_i + \epsilon_i
-\end{aligned}
-\]</span></p>
-</div>
-<div id="question-3.i" class="section level3" number="6.4.9">
-<h3><span class="header-section-number">6.4.9</span> Question 3.i</h3>
-<p>Write down the null hypothesis that is tested to determine whether there is an interaction between age and viewcat.</p>
-<details>
-<summary>
-Click for explanation
-</summary>
-<p><span class="math inline">\(H_0: b_5 = b_6 = b_7 = 0\)</span>
-</p>
-</div>
-<div id="question-3.j" class="section level3" number="6.4.10">
-<h3><span class="header-section-number">6.4.10</span> Question 3.j</h3>
-<p>Indicate for each parameter in the second regression model what it means. Also write down the regression equation for each of the four categories of viewcat separately.</p>
-<details>
-<summary>
-Click for explanation
-</summary>
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Meaning</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>b_0</td>
-<td>Intercept; the predicted value of postnumb for someone of age 0 in viewcat 1</td>
-</tr>
-<tr class="even">
-<td>b_1</td>
-<td>Slope of the dummy for viewcat 2; difference in the predicted value of postnumb for someone aged 0 in category 2, compared to category 1</td>
-</tr>
-<tr class="odd">
-<td>b_4</td>
-<td>The effect of age for someone in viewcat 1</td>
-</tr>
-<tr class="even">
-<td>b_5</td>
-<td>Difference in the effect of age for someone in viewcat 2, compared to viewcat 1</td>
-</tr>
-<tr class="odd">
-<td>b_7</td>
-<td>Difference in the effect of age for someone in viewcat 4, compared to viewcat 1</td>
-</tr>
-</tbody>
-</table>
-<p>For viewcat 1:</p>
-<p><span class="math inline">\(Postnumb_i = b_0 + b_4Age_i + \epsilon_i\)</span></p>
-<p>For viewcat 2:</p>
-<p><span class="math inline">\(Postnumb_i = b_0 + b_4Age_i + b_1D_{view2i} + b_4Age_i + b_5D_{view2i}Age_i + \epsilon_i\)</span></p>
-<p>Etc.</p>
-</div>
-<div id="question-3.k" class="section level3" number="6.4.11">
-<h3><span class="header-section-number">6.4.11</span> Question 3.k</h3>
-<p>What do you conclude about the interaction between age and viewcat?</p>
-</div>
-<div id="question-3.l" class="section level3" number="6.4.12">
-<h3><span class="header-section-number">6.4.12</span> Question 3.l</h3>
-<p>Note that you can also look at this problem as an ANCOVA. What are the research question and null hypothesis in this case?</p>
-<details>
-<summary>
-Click for explanation
-</summary>
-<p>RQ: Is there a significant difference between the marginal means of postnumb by viewcat, after controlling for age?</p>
-<p><span class="math inline">\(H_0:\)</span> After controling for age, the mans of postnumb are equal in all groups.</p>
-</div>
-<div id="question-3.m" class="section level3" number="6.4.13">
-<h3><span class="header-section-number">6.4.13</span> Question 3.m</h3>
-<p>Perform this analysis as an ANCOVA.</p>
-<em>Hint: Add</em> <code>-1</code> <em>to a formula to drop the intercept.</em>
-<details>
-<summary>
-Click for explanation
-</summary>
-<p>To drop the intercept from the analysis, and estimate the marginal means for all viewcat categories, we can add <code>-1</code> (minus the intercept) to the formula:</p>
-<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="section-3.html#cb92-1" aria-hidden="true" tabindex="-1"></a>results_ancov <span class="ot">&lt;-</span> <span class="fu">aov</span>(POSTNUMB<span class="sc">~</span>AGE<span class="sc">+</span>VIEWCAT<span class="dv">-1</span>, data)</span></code></pre></div>
-<p>Examine the parameter estimates of the ANCOVA. What do the parameter estimates represent?</p>
-<details>
-<summary>
-Click for explanation
-</summary>
-<p>We use summary.lm() again to obtain the parameter estimates:</p>
-<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="section-3.html#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary.lm</span>(results_ancov)</span></code></pre></div>
-<pre><code>## 
-## Call:
-## aov(formula = POSTNUMB ~ AGE + VIEWCAT - 1, data = data)
-## 
-## Residuals:
-##     Min      1Q  Median      3Q     Max 
-## -23.680  -8.003  -0.070   8.464  22.635 
-## 
-## Coefficients:
-##          Estimate Std. Error t value Pr(&gt;|t|)    
-## AGE        0.5750     0.1221   4.708 5.08e-06 ***
-## VIEWCAT1 -10.1056     6.5091  -1.553    0.122    
-## VIEWCAT2  -0.9603     6.3865  -0.150    0.881    
-## VIEWCAT3   3.7546     6.4760   0.580    0.563    
-## VIEWCAT4   6.8159     6.5414   1.042    0.299    
-## ---
-## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
-## 
-## Residual standard error: 10.94 on 174 degrees of freedom
-## Multiple R-squared:  0.8973, Adjusted R-squared:  0.8943 
-## F-statistic:   304 on 5 and 174 DF,  p-value: &lt; 2.2e-16</code></pre>
-<p>The parameter estimates are the means of each VIEWCAT category when age = 0.</p>
+<div id="collapseExample1" class="collapse">
+<div id="answerFeedback1" class="card card-body">
 
 </div>
 </div>
-<!-- </div> -->
+<script type="text/javascript">
+function check_answer1()
+{
+    var radioButtons1 = document.getElementsByName("question1");
+    document.getElementById("answerFeedback1").innerHTML = "Try selecting an answer!!";
+    for(var i = 0; i < radioButtons1.length; i++)
+    {
+        if(radioButtons1[i].checked == true)
+        {
+            var feedback1 = "<p style='color:red'>Wrong; Experimental research ensures precedence in time and exclusion of all alternative explanations thanks to random assignment. If you also find an association, all requirements for causality are met.</p>";
+            if(radioButtons1[i].value == "2") {
+              feedback1 = "<p style='color:green'>Correct!</p>"
+            }
+            document.getElementById("answerFeedback1").innerHTML = feedback1;
+            return true;
+        }
+    }
+}
+</script>
+<p><strong>Question 2:</strong>
+Random assignment in an experimental design ensures that two groups will be equal on all covariates</p>
+<div class="radio">
+<p><label>
+<input type="radio" name="question2" id="opt1" value="1" onchange="check_answer2()">
+FALSE
+</label></p>
+</div>
+<div class="radio">
+<p><label>
+<input type="radio" name="question2" id="opt2" value="2" onchange="check_answer2()">
+TRUE
+</label></p>
+</div>
+<div id="collapseExample2" class="collapse">
+<div id="answerFeedback2" class="card card-body">
+
+</div>
+</div>
+<script type="text/javascript">
+function check_answer2()
+{
+    var radioButtons2 = document.getElementsByName("question2");
+    document.getElementById("answerFeedback2").innerHTML = "Try selecting an answer!!";
+    for(var i = 0; i < radioButtons2.length; i++)
+    {
+        if(radioButtons2[i].checked == true)
+        {
+            var feedback2 = "<p style='color:red'>Wrong; Random assignment gives you the highest *probability* that two groups will be equal on any observed or non-observed covariates, and it ensures that any remaining differences are due to chance - but there can still be observed differences between the groups due to chance.</p>";
+            if(radioButtons2[i].value == "1") {
+              feedback2 = "<p style='color:green'>Correct!</p>"
+            }
+            document.getElementById("answerFeedback2").innerHTML = feedback2;
+            return true;
+        }
+    }
+}
+</script>
+<p><strong>Question 3:</strong>
+If the regression lines between a covariate and the outcome are not parallel for two groups in ANCOVA then…</p>
+<div class="radio">
+<p><label>
+<input type="radio" name="question3" id="opt1" value="1" onchange="check_answer3()">
+…there must be an interaction between the grouping variable and covariate
+</label></p>
+</div>
+<div class="radio">
+<p><label>
+<input type="radio" name="question3" id="opt2" value="2" onchange="check_answer3()">
+…the data cannot have come from a random sample.
+</label></p>
+</div>
+<div class="radio">
+<p><label>
+<input type="radio" name="question3" id="opt3" value="3" onchange="check_answer3()">
+…the grouping variable and covariate must be correlated.
+</label></p>
+</div>
+<div class="radio">
+<p><label>
+<input type="radio" name="question3" id="opt4" value="4" onchange="check_answer3()">
+…the effect must be nonlinear.
+</label></p>
+</div>
+<div id="collapseExample3" class="collapse">
+<div id="answerFeedback3" class="card card-body">
+
+</div>
+</div>
+<script type="text/javascript">
+function check_answer3()
+{
+    var radioButtons3 = document.getElementsByName("question3");
+    document.getElementById("answerFeedback3").innerHTML = "Try selecting an answer!!";
+    for(var i = 0; i < radioButtons3.length; i++)
+    {
+        if(radioButtons3[i].checked == true)
+        {
+            var feedback3 = "<p style='color:red'>Wrong; If the lines are not parallel, then the regression effect is different between the groups. This is called an interaction: the effect of the covariate is contingent on group membership. See Lecture, slide 41.</p>";
+            if(radioButtons3[i].value == "1") {
+              feedback3 = "<p style='color:green'>Correct!</p>"
+            }
+            document.getElementById("answerFeedback3").innerHTML = feedback3;
+            return true;
+        }
+    }
+}
+</script>
+<p><strong>Question 4:</strong>
+Nonspuriousness means that…</p>
+<div class="radio">
+<p><label>
+<input type="radio" name="question4" id="opt1" value="1" onchange="check_answer4()">
+a relationship is not due to random chance
+</label></p>
+</div>
+<div class="radio">
+<p><label>
+<input type="radio" name="question4" id="opt2" value="2" onchange="check_answer4()">
+a relationship generalizes to new samples
+</label></p>
+</div>
+<div class="radio">
+<p><label>
+<input type="radio" name="question4" id="opt3" value="3" onchange="check_answer4()">
+a relationship holds even if the influences of other variables are eliminated
+</label></p>
+</div>
+<div class="radio">
+<p><label>
+<input type="radio" name="question4" id="opt4" value="4" onchange="check_answer4()">
+a relationship is causal in nature
+</label></p>
+</div>
+<div id="collapseExample4" class="collapse">
+<div id="answerFeedback4" class="card card-body">
+
+</div>
+</div>
+<script type="text/javascript">
+function check_answer4()
+{
+    var radioButtons4 = document.getElementsByName("question4");
+    document.getElementById("answerFeedback4").innerHTML = "Try selecting an answer!!";
+    for(var i = 0; i < radioButtons4.length; i++)
+    {
+        if(radioButtons4[i].checked == true)
+        {
+            var feedback4 = "<p style='color:red'>Wrong; A spurious relationship means that two variables are associated but not causally related, due to either coincidence or the presence of a certain third, unseen variable. Nonspuriousness thus means that the reationship persists if such third variables are eliminated.</p>";
+            if(radioButtons4[i].value == "3") {
+              feedback4 = "<p style='color:green'>Correct!</p>"
+            }
+            document.getElementById("answerFeedback4").innerHTML = feedback4;
+            return true;
+        }
+    }
+}
+</script>
+<p><strong>Question 5:</strong>
+When comparing males and females using a regression model, the correct equation is: <span class="math inline">\(y_i = b_0 + b_1*Male_i + b_2*Female_i + e_i\)</span></p>
+<div class="radio">
+<p><label>
+<input type="radio" name="question5" id="opt1" value="1" onchange="check_answer5()">
+TRUE
+</label></p>
+</div>
+<div class="radio">
+<p><label>
+<input type="radio" name="question5" id="opt2" value="2" onchange="check_answer5()">
+FALSE
+</label></p>
+</div>
+<div id="collapseExample5" class="collapse">
+<div id="answerFeedback5" class="card card-body">
+
+</div>
+</div>
+<script type="text/javascript">
+function check_answer5()
+{
+    var radioButtons5 = document.getElementsByName("question5");
+    document.getElementById("answerFeedback5").innerHTML = "Try selecting an answer!!";
+    for(var i = 0; i < radioButtons5.length; i++)
+    {
+        if(radioButtons5[i].checked == true)
+        {
+            var feedback5 = "<p style='color:red'>Wrong; In the regression specification, you would use the intercept and one dummy, not two dummies. In the ANOVA specification, you would use no intercept and two dummies. You would never use and intercept AND two dummies; that model is not identified.</p>";
+            if(radioButtons5[i].value == "2") {
+              feedback5 = "<p style='color:green'>Correct!</p>"
+            }
+            document.getElementById("answerFeedback5").innerHTML = feedback5;
+            return true;
+        }
+    }
+}
+</script>
+<p><strong>Question 6:</strong>
+Adding covariates in ANCOVA can…</p>
+<div class="radio">
+<p><label>
+<input type="radio" name="question6" id="opt1" value="1" onchange="check_answer6()">
+…decrease power to detect an effect by increasing the total sum of squares
+</label></p>
+</div>
+<div class="radio">
+<p><label>
+<input type="radio" name="question6" id="opt2" value="2" onchange="check_answer6()">
+…increase power to detect an effect by reducing the residual sum of squares
+</label></p>
+</div>
+<div class="radio">
+<p><label>
+<input type="radio" name="question6" id="opt3" value="3" onchange="check_answer6()">
+…increase power to detect an effect by increasing the model sum of squares
+</label></p>
+</div>
+<div class="radio">
+<p><label>
+<input type="radio" name="question6" id="opt4" value="4" onchange="check_answer6()">
+…decrease power to detect an effect by increasing the residual sum of squares
+</label></p>
+</div>
+<div id="collapseExample6" class="collapse">
+<div id="answerFeedback6" class="card card-body">
+
+</div>
+</div>
+<script type="text/javascript">
+function check_answer6()
+{
+    var radioButtons6 = document.getElementsByName("question6");
+    document.getElementById("answerFeedback6").innerHTML = "Try selecting an answer!!";
+    for(var i = 0; i < radioButtons6.length; i++)
+    {
+        if(radioButtons6[i].checked == true)
+        {
+            var feedback6 = "<p style='color:red'>Wrong; The F value for each effect is computed based on a sum of squares (or mean square) for that effect, divided by the residual sum of squares (or mean squared residual). Including covariates explains some variance, and thus reduces the residual sum of squares. The F value for each effect thus increases. See Lecture, slide 36.</p>";
+            if(radioButtons6[i].value == "2") {
+              feedback6 = "<p style='color:green'>Correct!</p>"
+            }
+            document.getElementById("answerFeedback6").innerHTML = feedback6;
+            return true;
+        }
+    }
+}
+</script>
+<p><strong>Question 7:</strong>
+If two groups differ on the covariate in an ANCOVA, we say there is an interaction.</p>
+<div class="radio">
+<p><label>
+<input type="radio" name="question7" id="opt1" value="1" onchange="check_answer7()">
+FALSE
+</label></p>
+</div>
+<div class="radio">
+<p><label>
+<input type="radio" name="question7" id="opt2" value="2" onchange="check_answer7()">
+TRUE
+</label></p>
+</div>
+<div id="collapseExample7" class="collapse">
+<div id="answerFeedback7" class="card card-body">
+
+</div>
+</div>
+<script type="text/javascript">
+function check_answer7()
+{
+    var radioButtons7 = document.getElementsByName("question7");
+    document.getElementById("answerFeedback7").innerHTML = "Try selecting an answer!!";
+    for(var i = 0; i < radioButtons7.length; i++)
+    {
+        if(radioButtons7[i].checked == true)
+        {
+            var feedback7 = "<p style='color:red'>Wrong; This situation merely implies that the covariate is correlated with the grouping variable.</p>";
+            if(radioButtons7[i].value == "1") {
+              feedback7 = "<p style='color:green'>Correct!</p>"
+            }
+            document.getElementById("answerFeedback7").innerHTML = feedback7;
+            return true;
+        }
+    }
+}
+</script>
+
+</div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="section-2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="week-1-formative-test.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="week-4-class.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="week-5-overview.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

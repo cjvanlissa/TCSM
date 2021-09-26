@@ -1,6 +1,4 @@
-11. When interested in causal relationships, experimental research is preferred
-over correlational research.
-True False
+
 
 
 In regression, R-square indicated the fit of your model to the data.
@@ -15,20 +13,6 @@ dependent variable can be explained.
 True False
 
 
-1. Varimax is a form of orthogonal rotation in factor analysis
-True False
-3. Factor analysis is a statistical technique aimed at data reduction
- True False
- 4. The errors assigned to each observed variable in a confirmatory factor
-analysis, are also called unique variances.
- True False
- 
-12.When comparing males and females using a regression model, the correct
-equation is: yi = b0 + b1 Malei + b2 Femalei + ei
-True False
-10. If the groups differ on the covariate in an ANCOVA, we say there is an
-interaction.
-True False
 
 
 5. In comparing nested models in SEM, one chooses the model with the

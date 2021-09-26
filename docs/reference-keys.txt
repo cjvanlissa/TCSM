@@ -188,6 +188,7 @@ imposing-constraints
 stepwise-approach
 question-5-3
 question-6-3
+week-4---formative-test
 week-5---overview
 week-5---reading-questions
 week-5---home
