@@ -159,6 +159,7 @@ question-8-1
 question-9-1
 optional
 question-10-1
+week-3---formative-test
 week-4---overview
 week-4---reading-questions
 week-4---home
