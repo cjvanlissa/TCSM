@@ -6,6 +6,8 @@
 knitr::include_url("https://www.youtube.com/embed/xg84x9BVHAI")
 ```
 
+**Note that this is a more recent version of the slides than used in the video. The material in the video is sufficient to pass the course.**
+
 [Download slides](pdfs/tcsm_week_5.pdf)
 
 Introducing means into statistical models/How can I investigate mediation?

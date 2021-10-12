@@ -60,7 +60,12 @@ schedule$Date <- as.Date(paste(2021, schedule$weeks, 1, sep="-"), "%Y-%U-%u") + 
 schedule$Date <- format(schedule$Date, "%d-%m-%Y")
 topics <- c("Introduction","Factor Analysis (exploratory, EFA)", "Factor Analysis (confirmatory, CFA)",
             "GLM: Means and SEM", "Mediation", "Moderation")
-schedule$Topic <- topics[match(schedule$weeks, sort(unique(schedule$weeks)))]
+names(topics) <- sort(unique(schedule$weeks))[c(1:3,5:7)]
+schedule$Topic <- topics[as.character(schedule$weeks)]
+  #topics[match(schedule$weeks, sort(unique(schedule$weeks)))]
+#   NA
+# schedule$Topic[which(schedule$weeks %in% as.integer(names(topics)))] <- 
+
 schedule$Topic[schedule$Activity == "Exams"] <- c("Factor analysis, group", "Path analysis, group", "SEM, individual")
 ``` 
 In this course you will learn how to translate a social scientific theory into a statistical model, how to analyze your data with these models, and how to interpret and report your results following APA standards.
