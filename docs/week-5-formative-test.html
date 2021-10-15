@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 17 Week 3 - Formative test | Theory Construction and Statistical Modeling</title>
+  <title>Chapter 27 Week 5 - Formative test | Theory Construction and Statistical Modeling</title>
   <meta name="description" content="This is a guide for the elective course TCSM." />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 17 Week 3 - Formative test | Theory Construction and Statistical Modeling" />
+  <meta property="og:title" content="Chapter 27 Week 5 - Formative test | Theory Construction and Statistical Modeling" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 17 Week 3 - Formative test | Theory Construction and Statistical Modeling" />
+  <meta name="twitter:title" content="Chapter 27 Week 5 - Formative test | Theory Construction and Statistical Modeling" />
   
   <meta name="twitter:description" content="This is a guide for the elective course TCSM." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="week-3-class.html"/>
-<link rel="next" href="week-4-overview.html"/>
+<link rel="prev" href="week-5-class.html"/>
+<link rel="next" href="week-6-overview.html"/>
 <script src="libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="libs/jquery-3.5.1/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -476,13 +476,13 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="week-3---formative-test" class="section level1" number="17">
-<h1><span class="header-section-number">Chapter 17</span> Week 3 - Formative test</h1>
+<div id="week-5---formative-test" class="section level1" number="27">
+<h1><span class="header-section-number">Chapter 27</span> Week 5 - Formative test</h1>
 <p>A formative test helps you assess your progress in the course, and helps you address any blind spots in your understanding of the material.
 If you get a question wrong, you will receive a hint on how to improve your understanding of the material.</p>
 <p>Complete the formative test ideally <em>after</em> you’ve seen the lecture, but <em>before</em> the lecture meeting in which we can discuss any topics that need more attention.</p>
 <p><strong>Question 1:</strong>
-Generally, more factor loadings are estimated in a EFA model than in a CFA model</p>
+A model is called “fully mediated” when the direct effect between the independent and dependent variable is non-significant.</p>
 <div class="radio">
 <p><label>
 <input type="radio" name="question1" id="opt1" value="1" onchange="check_answer1()">
@@ -509,7 +509,7 @@ function check_answer1()
     {
         if(radioButtons1[i].checked == true)
         {
-            var feedback1 = "<p style='color:red'>Wrong; The EFA model estimates all possible cross-loadings; the CFA model does not.</p>";
+            var feedback1 = "<p style='color:red'>Wrong; A fully mediated model has a significant total effect from X on Y, which becomes non-significant when accounting for the indirect effect through M. See: Lecture, slide 20.</p>";
             if(radioButtons1[i].value == "1") {
               feedback1 = "<p style='color:green'>Correct!</p>"
             }
@@ -520,29 +520,17 @@ function check_answer1()
 }
 </script>
 <p><strong>Question 2:</strong>
-The minimum number of items for a CFA is…</p>
+In comparing nested models in SEM, one chooses the model with the largest p-value for the Chi-square test of model fit.</p>
 <div class="radio">
 <p><label>
 <input type="radio" name="question2" id="opt1" value="1" onchange="check_answer2()">
-5
+TRUE
 </label></p>
 </div>
 <div class="radio">
 <p><label>
 <input type="radio" name="question2" id="opt2" value="2" onchange="check_answer2()">
-2
-</label></p>
-</div>
-<div class="radio">
-<p><label>
-<input type="radio" name="question2" id="opt3" value="3" onchange="check_answer2()">
-3
-</label></p>
-</div>
-<div class="radio">
-<p><label>
-<input type="radio" name="question2" id="opt4" value="4" onchange="check_answer2()">
-1
+FALSE
 </label></p>
 </div>
 <div id="collapseExample2" class="collapse">
@@ -559,8 +547,8 @@ function check_answer2()
     {
         if(radioButtons2[i].checked == true)
         {
-            var feedback2 = "<p style='color:red'>Wrong; You must have three items, which gives you 6 pieces of information, in order to have a just-identified CFA.</p>";
-            if(radioButtons2[i].value == "3") {
+            var feedback2 = "<p style='color:red'>Wrong; The chi-square test of model fit is not used for model comparison. When comparing two specific nested models, you can conduct a chi-square *difference* test. If this is not significant, the simpler model is preferred. When comparing a set of nested models, use any of the fit indices to determine which one fits best. See: Recurring topic, lecture 1 and others.</p>";
+            if(radioButtons2[i].value == "2") {
               feedback2 = "<p style='color:green'>Correct!</p>"
             }
             document.getElementById("answerFeedback2").innerHTML = feedback2;
@@ -570,23 +558,17 @@ function check_answer2()
 }
 </script>
 <p><strong>Question 3:</strong>
-A researcher has developed a new questionnaire that should measure depression, and wants to know how many factors there are. Which technique would you use?</p>
+A confounder is a special case of a mediator.</p>
 <div class="radio">
 <p><label>
 <input type="radio" name="question3" id="opt1" value="1" onchange="check_answer3()">
-CFA
+FALSE
 </label></p>
 </div>
 <div class="radio">
 <p><label>
 <input type="radio" name="question3" id="opt2" value="2" onchange="check_answer3()">
-EFA
-</label></p>
-</div>
-<div class="radio">
-<p><label>
-<input type="radio" name="question3" id="opt3" value="3" onchange="check_answer3()">
-PCA
+TRUE
 </label></p>
 </div>
 <div id="collapseExample3" class="collapse">
@@ -603,8 +585,8 @@ function check_answer3()
     {
         if(radioButtons3[i].checked == true)
         {
-            var feedback3 = "<p style='color:red'>Wrong; EFA would be a good choice, because there is a theory about a latent construct, but that construct might be multidimensional. This is yet to be established - and EFA is a good technique for establishing that. Remember:  PCA – summary of variance of items; EFA – given the data, how many factors are there?; CFA – is my theoretical model supported by my data?</p>";
-            if(radioButtons3[i].value == "2") {
+            var feedback3 = "<p style='color:red'>Wrong; We speak of confounding when a third variable causes both X and Y, thus making them appear to be associated. Mediation is a different model for three variables: in mediation, we assume that the third variable M is a process variable that explains why X and Y are associated. Note that we cannot distinguish between these two situations based on statistical criteria; we must use theory or the experimental method to determing whether a third variable is a confounder or mediator. See: Lecture, slide 10.</p>";
+            if(radioButtons3[i].value == "1") {
               feedback3 = "<p style='color:green'>Correct!</p>"
             }
             document.getElementById("answerFeedback3").innerHTML = feedback3;
@@ -614,35 +596,23 @@ function check_answer3()
 }
 </script>
 <p><strong>Question 4:</strong>
-Which of these methods is valid for choosing the correct number of factors in CFA?</p>
+Match the name to the definition: 1) total effect, 2) direct effect, 3) indirect effect.</p>
 <div class="radio">
 <p><label>
 <input type="radio" name="question4" id="opt1" value="1" onchange="check_answer4()">
-Kaiser’s criterion
+1) The partial bivariate regression coefficient between X and Y<br>2) The sum of the direct effect and any indirect effects linking X and Y<br>3) The product of any regression coefficients between variables mediating the link between X and Y
 </label></p>
 </div>
 <div class="radio">
 <p><label>
 <input type="radio" name="question4" id="opt2" value="2" onchange="check_answer4()">
-Ability to predict a criterion scale.
+1) The sum of the direct effect and any indirect effects linking X and Y<br>2) The product of any regression coefficients between variables mediating the link between X and Y<br>3) The partial bivariate regression coefficient between X and Y
 </label></p>
 </div>
 <div class="radio">
 <p><label>
 <input type="radio" name="question4" id="opt3" value="3" onchange="check_answer4()">
-Scree plot
-</label></p>
-</div>
-<div class="radio">
-<p><label>
-<input type="radio" name="question4" id="opt4" value="4" onchange="check_answer4()">
-Theory
-</label></p>
-</div>
-<div class="radio">
-<p><label>
-<input type="radio" name="question4" id="opt5" value="5" onchange="check_answer4()">
-Parallel analysis
+1) The sum of the direct effect and any indirect effects linking X and Y<br>2) The partial bivariate regression coefficient between X and Y<br>3) The product of any regression coefficients between variables mediating the link between X and Y
 </label></p>
 </div>
 <div id="collapseExample4" class="collapse">
@@ -659,8 +629,8 @@ function check_answer4()
     {
         if(radioButtons4[i].checked == true)
         {
-            var feedback4 = "<p style='color:red'>Wrong; The only method suitable for determining the correct number of factors in CFA is theory; you are fitting a theoretical model to the data. Of course, that theory may be inspired by prior exploratory work - but you should not use exploration and confirmation on the same dataset.</p>";
-            if(radioButtons4[i].value == "4") {
+            var feedback4 = "<p style='color:red'>Wrong; See Lecture, slide 7.</p>";
+            if(radioButtons4[i].value == "3") {
               feedback4 = "<p style='color:green'>Correct!</p>"
             }
             document.getElementById("answerFeedback4").innerHTML = feedback4;
@@ -670,17 +640,17 @@ function check_answer4()
 }
 </script>
 <p><strong>Question 5:</strong>
-In CFA, some parameters must be constrained in order to make the model identified.</p>
+In order to for mediation to exist, there must also exist a total effect between X and Y.</p>
 <div class="radio">
 <p><label>
 <input type="radio" name="question5" id="opt1" value="1" onchange="check_answer5()">
-FALSE
+TRUE
 </label></p>
 </div>
 <div class="radio">
 <p><label>
 <input type="radio" name="question5" id="opt2" value="2" onchange="check_answer5()">
-TRUE
+FALSE
 </label></p>
 </div>
 <div id="collapseExample5" class="collapse">
@@ -697,7 +667,7 @@ function check_answer5()
     {
         if(radioButtons5[i].checked == true)
         {
-            var feedback5 = "<p style='color:red'>Wrong; Your latent variable does not have a scale; you must give it one by either fixing the variance to 1, or fixing one loading to 1, which makes the scale equal to the scale of that item. See Lecture, slide 8.</p>";
+            var feedback5 = "<p style='color:red'>Wrong; It is possible that the total effect is near-zero and non-significant if, for example, the direct effect and the indirect effect are of opposite signs and cancel each other out. This is called suppression. See Lecture, slide 18.</p>";
             if(radioButtons5[i].value == "2") {
               feedback5 = "<p style='color:green'>Correct!</p>"
             }
@@ -708,17 +678,29 @@ function check_answer5()
 }
 </script>
 <p><strong>Question 6:</strong>
-PCA and EFA both assume that indicator variables do not have measurement error</p>
+When are model A and B nested?</p>
 <div class="radio">
 <p><label>
 <input type="radio" name="question6" id="opt1" value="1" onchange="check_answer6()">
-TRUE
+If one model is obtained by constraining some parameters of the other model
 </label></p>
 </div>
 <div class="radio">
 <p><label>
 <input type="radio" name="question6" id="opt2" value="2" onchange="check_answer6()">
-FALSE
+If both model use the same dependent variables
+</label></p>
+</div>
+<div class="radio">
+<p><label>
+<input type="radio" name="question6" id="opt3" value="3" onchange="check_answer6()">
+If both models have an equal number of DF
+</label></p>
+</div>
+<div class="radio">
+<p><label>
+<input type="radio" name="question6" id="opt4" value="4" onchange="check_answer6()">
+If both models use exactly the same covariance matrix
 </label></p>
 </div>
 <div id="collapseExample6" class="collapse">
@@ -735,8 +717,8 @@ function check_answer6()
     {
         if(radioButtons6[i].checked == true)
         {
-            var feedback6 = "<p style='color:red'>Wrong; False; PCA is simply a rotation of the data; it does not fit a model and therefore does not split up the variance into explained- and unexplained (error) variance. EFA does fit a model, and thus leaves unexplained error variance.</p>";
-            if(radioButtons6[i].value == "2") {
+            var feedback6 = "<p style='color:red'>Wrong; Models are nested when you can derive the simpler model by constraining some parameters of the more complex model (e.g., constraining them to zero or to be equal to each other). See Lecture, slide 21.</p>";
+            if(radioButtons6[i].value == "1") {
               feedback6 = "<p style='color:green'>Correct!</p>"
             }
             document.getElementById("answerFeedback6").innerHTML = feedback6;
@@ -746,17 +728,29 @@ function check_answer6()
 }
 </script>
 <p><strong>Question 7:</strong>
-Rotation can be applied to the loadings of both EFA and CFA.</p>
+Bootstrapping…</p>
 <div class="radio">
 <p><label>
 <input type="radio" name="question7" id="opt1" value="1" onchange="check_answer7()">
-FALSE
+…empirically derives the sampling distribution by randomly shuffling the data many times, and calculating the bootstrapped parameters in each sample.
 </label></p>
 </div>
 <div class="radio">
 <p><label>
 <input type="radio" name="question7" id="opt2" value="2" onchange="check_answer7()">
-TRUE
+…better estimates the population value of parameters by randomly sampling from the data many times, and calculating the bootstrapped parameters in each sample.
+</label></p>
+</div>
+<div class="radio">
+<p><label>
+<input type="radio" name="question7" id="opt3" value="3" onchange="check_answer7()">
+…better estimates the population value of parameters by randomly sampling from the data many times, and calculating the bootstrapped parameters in each sample.
+</label></p>
+</div>
+<div class="radio">
+<p><label>
+<input type="radio" name="question7" id="opt4" value="4" onchange="check_answer7()">
+…empirically derives the sampling distribution by randomly sampling from the data many times, and calculating the bootstrapped parameters in each sample.
 </label></p>
 </div>
 <div id="collapseExample7" class="collapse">
@@ -773,8 +767,8 @@ function check_answer7()
     {
         if(radioButtons7[i].checked == true)
         {
-            var feedback7 = "<p style='color:red'>Wrong; In order to rotate the loadings, you need a matrix with loadings for all items on all factors. With CFA, the cross-loadings are fixed at zero. See Lecture, slide 3.</p>";
-            if(radioButtons7[i].value == "1") {
+            var feedback7 = "<p style='color:red'>Wrong; The sampling distribution is what you would get if you drew many samples from the population, and calculated a parameter in each of those samples. Bootstrapping simply replaces the population with your original sample, and draws many samples (with replacement) from your original sample, then calculates the parameter in each of those samples. If your sample is representative, then this approximately represents the sampling distribution. Lecture, slide 38.</p>";
+            if(radioButtons7[i].value == "4") {
               feedback7 = "<p style='color:green'>Correct!</p>"
             }
             document.getElementById("answerFeedback7").innerHTML = feedback7;
@@ -790,8 +784,8 @@ function check_answer7()
           </div>
         </div>
       </div>
-<a href="week-3-class.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="week-4-overview.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="week-5-class.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="week-6-overview.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -15,24 +15,10 @@ True False
 
 
 
-5. In comparing nested models in SEM, one chooses the model with the
-largest p-value for the Chi-square test of model fit
- True False
 
 6. In moderation analysis, the relationships between the independent variable,
 dependent variable and moderator, always have to be linear.
  True False 
-
-7. In a fully-mediated model, the direct effect between the independent and
-dependent variable has to be insignificant
-True False
-9. A confounder is a special case of a mediator.
-True False
-14.An advantage of investigating mediation using structural equation modeling
-rather than the three steps of Baron and Kenny is that it allows you to
-investigate more complicated models.
-True False
-
 
 
 
