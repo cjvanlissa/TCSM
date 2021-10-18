@@ -494,27 +494,6 @@ Analysis in the New Millennium, Communication Monographs, 76:4, 408-420.</a></p>
 <!--config$show_text--></li>
 </ol>
 </div>
-<div id="answers" class="section level4 unnumbered">
-<h4>Answers</h4>
-<ol style="list-style-type: decimal">
-<li>The indirect effect is interpreted as the part of the effect of X on Y that is explained by the
-pathway through M. It is computed by multiplying the effect of X on M (a), wich the effect of M on Y (b), so: Indirect effect = a * b.</li>
-<li>The total effect is a simple bivariate regression of X on Y. The direct effect is the effect of X on Y while controlling for M; it could be obtained by running a multiple regression with X and M as predictors of Y.</li>
-<li>These steps make decisions about the existence of mediation based on the significance of coefficients in multiple consecutive regression analyses. The repeated testing causes this method to have low power. Moreover, if no significant total effect is found between X and Y, researchers might incorrectly assume that no indirect effect exists either.</li>
-<li>Bootstrapping constructs an empirical sampling distribution for a parameter by resampling the original data (e.g., 1000 times), and conducting the same analysis on each of these 1000 samples. The distribution of the estimated parameter values is used as an empirical sampling distribution. This sampling distribution can be used to derive confidence intervals (take the 2.5 and 97.5 percentiles of the distribution), compute standard errors (the standard deviation of this distribution), etc. It is superior to Sobel’s test because Sobel’s test assumes normality and this is typically violated by the product of two regression coefficients. Bootstrapping does not assume any type of distribution for the sampling distribution.</li>
-<li>Cited from the paper: <em>That X can exert an indirect effect on Y through M in the absence of an association
-between X and Y becomes explicable once you consider that a total effect is the sum
-of many different paths of influence, direct and indirect, not all of which may be a
-part of the formal model. For example, it could be that two or more indirect paths
-carry the effect from X through Y, and those paths operate in opposite directions (cf.,
-MacKinnon, Krull, &amp; Lockwood, 2000). Much as a main effect in 2x2 ANOVA
-might be nonsignificant if the simple effects are opposite in sign (i.e., a crossover
-interaction), two or more indirect effects with opposite signs can cancel each other
-out, producing a total effect and perhaps even a total indirect effect that is not
-detectably different from zero, in spite of the existence of specific indirect effects that
-are not zero.</em></li>
-</ol>
-</div>
 <div id="reference-6" class="section level4 unnumbered">
 <h4>Reference</h4>
 <p><a href="http://www.academia.edu/download/30909266/JOBEM.pdf">Holbert, R. L. &amp; Stephenson, M. T. (2003). The
@@ -535,31 +514,6 @@ mediated?</li>
 <li>How does the Product of Coefficient approach work and why is it problematic?</li>
 <li>How many effects are there from Debate Viewing on Political Participation?
 Which effects can you easily obtain from SEM software?</li>
-</ol>
-</div>
-<div id="answers-1" class="section level4 unnumbered">
-<h4>Answers</h4>
-<ol style="list-style-type: decimal">
-<li><em>On p. 560 the four steps for complex mediation are discussed. The first
-three steps are for partial mediation. What is the difference between
-these two forms of mediation?</em><br />
-Step 1: X should predict Y<br />
-Step 2: M should be correlated with X<br />
-Step 3: M should predict Y<br />
-Step 4: X is no longer a significant predictor of Y once M is included.<br />
-Partial mediation: there is still a direct effect of X on Y.<br />
-Full mediation: the entire effect of X on Y runs through M.</li>
-<li><em>What is the advantage of the Product of Coefficient approach (p. 561-562) in comparison to the Causal Step approach (p. 560-561) and the Differences in Coefficients approach (p. 561) if you want to know whether or not an effect is mediated?</em><br />
-It leads to an actual p-value.</li>
-<li><em>How does the Product of Coefficient approach work and why is it problematic?</em><br />
-Uses the product of paths, and divides this by the estimate of the standard error.
-Resulting quantity is then compared to a z-distribution. However, the product is
-not normally distributed: hence the tests (Sobel test etc.) which are based on
-assuming a normal distribution are incorrect.</li>
-<li><em>How many effects are there from Debate Viewing on Political Participation? Which effects can you easily obtain from SEM software?</em><br />
-1 direct effect, and 2 indirect effects.<br />
-SEM will give you the direct, (total) indirect, and total (direct + all indirect)
-effects.</li>
 </ol>
 
 </div>

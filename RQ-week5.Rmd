@@ -3,6 +3,7 @@
 ```{r include=FALSE}
 knitr::opts_chunk$set(warning=FALSE, message=FALSE)
 config <- yaml::yaml.load_file("config.yml")
+showanswers = FALSE
 ```
 
 #### Reference {-}
@@ -19,7 +20,7 @@ Analysis in the New Millennium, Communication Monographs, 76:4, 408-420.](https:
 5. Explain how it is possible that "effects that don't exist can be mediated".
 <!--config$show_text-->
 
-```{r echo=FALSE, results = 'asis', eval = TRUE}
+```{r echo=FALSE, results = 'asis', eval = showanswers}
 cat("#### Answers {-}
 
 1. The indirect effect is interpreted as the part of the effect of X on Y that is explained by the
@@ -64,7 +65,7 @@ mediated?
 Which effects can you easily obtain from SEM software?
 
 
-```{r echo=FALSE, results = 'asis', eval = TRUE}
+```{r echo=FALSE, results = 'asis', eval = showanswers}
 cat("#### Answers {-}
 
 1. *On p. 560 the four steps for complex mediation are discussed. The first 

@@ -3,6 +3,7 @@
 ```{r include=FALSE}
 knitr::opts_chunk$set(warning=FALSE, message=FALSE)
 config <- yaml::yaml.load_file("config.yml")
+showanswers = FALSE
 ```
 
 #### Reference {-}
@@ -33,7 +34,7 @@ Kenny.
 5. How can you determine whether a variable is a mediator or moderator? 
 <!--config$show_text-->
 
-```{r echo=FALSE, results = 'asis', eval = TRUE}
+```{r echo=FALSE, results = 'asis', eval = showanswers}
 cat("#### Answers {-}
 
 1. What is according to Baron and Kenny the nature of a moderation effect? (and can you give an example from an article or theory you had in a previous course?
@@ -114,7 +115,7 @@ Hint: have a look at the results that are presented and those not
 presented in the paper 
 
 
-```{r echo=FALSE, results = 'asis', eval = TRUE}
+```{r echo=FALSE, results = 'asis', eval = showanswers}
 cat("#### Answers {-}
 
 1. The authors (Weston and Gore) state three similarities and two big differences between SEM and other multivariate statistical techniques (ANCOVA, regression). What are they?
