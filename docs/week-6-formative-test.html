@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 27 Week 5 - Formative test | Theory Construction and Statistical Modeling</title>
+  <title>Chapter 32 Week 6 - Formative test | Theory Construction and Statistical Modeling</title>
   <meta name="description" content="This is a guide for the elective course TCSM." />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 27 Week 5 - Formative test | Theory Construction and Statistical Modeling" />
+  <meta property="og:title" content="Chapter 32 Week 6 - Formative test | Theory Construction and Statistical Modeling" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 27 Week 5 - Formative test | Theory Construction and Statistical Modeling" />
+  <meta name="twitter:title" content="Chapter 32 Week 6 - Formative test | Theory Construction and Statistical Modeling" />
   
   <meta name="twitter:description" content="This is a guide for the elective course TCSM." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="week-5-class.html"/>
-<link rel="next" href="week-6-overview.html"/>
+<link rel="prev" href="week-6-class.html"/>
+<link rel="next" href="week-7-overview.html"/>
 <script src="libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="libs/jquery-3.5.1/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -477,23 +477,35 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="week-5---formative-test" class="section level1" number="27">
-<h1><span class="header-section-number">Chapter 27</span> Week 5 - Formative test</h1>
+<div id="week-6---formative-test" class="section level1" number="32">
+<h1><span class="header-section-number">Chapter 32</span> Week 6 - Formative test</h1>
 <p>A formative test helps you assess your progress in the course, and helps you address any blind spots in your understanding of the material.
 If you get a question wrong, you will receive a hint on how to improve your understanding of the material.</p>
 <p>Complete the formative test ideally <em>after</em> you’ve seen the lecture, but <em>before</em> the lecture meeting in which we can discuss any topics that need more attention.</p>
 <p><strong>Question 1:</strong>
-A model is called “fully mediated” when the direct effect between the independent and dependent variable is non-significant.</p>
+A moderator is…</p>
 <div class="radio">
 <p><label>
 <input type="radio" name="question1" id="opt1" value="1" onchange="check_answer1()">
-TRUE
+A third variable that changes the relationship between X and Y.
 </label></p>
 </div>
 <div class="radio">
 <p><label>
 <input type="radio" name="question1" id="opt2" value="2" onchange="check_answer1()">
-FALSE
+A third variable that explains unique variance in Y relative to X.
+</label></p>
+</div>
+<div class="radio">
+<p><label>
+<input type="radio" name="question1" id="opt3" value="3" onchange="check_answer1()">
+A third variable that causes both X and Y.
+</label></p>
+</div>
+<div class="radio">
+<p><label>
+<input type="radio" name="question1" id="opt4" value="4" onchange="check_answer1()">
+A third variable that explains why X and Y are related.
 </label></p>
 </div>
 <div id="collapseExample1" class="collapse">
@@ -510,7 +522,7 @@ function check_answer1()
     {
         if(radioButtons1[i].checked == true)
         {
-            var feedback1 = "<p style='color:red'>Wrong; A fully mediated model has a significant total effect from X on Y, which becomes non-significant when accounting for the indirect effect through M. See: Lecture, slide 20.</p>";
+            var feedback1 = "<p style='color:red'>Wrong; Moderation means that one variable attenuates (influences) the strength (and sometimes sign) of the relationship between two other variables. See Lecture, slide 4.</p>";
             if(radioButtons1[i].value == "1") {
               feedback1 = "<p style='color:green'>Correct!</p>"
             }
@@ -521,17 +533,29 @@ function check_answer1()
 }
 </script>
 <p><strong>Question 2:</strong>
-In comparing nested models in SEM, one chooses the model with the largest p-value for the Chi-square test of model fit.</p>
+When comparing two groups (e.g., experimental vs control group), which one of these is not an advantage of multi-group modeling (MGM) over single-group analysis with a dummy for group membership (dummy)?</p>
 <div class="radio">
 <p><label>
 <input type="radio" name="question2" id="opt1" value="1" onchange="check_answer2()">
-TRUE
+With MGM, you can have different dependent variables across groups; with dummy analysis, you have only one dependent variable.
 </label></p>
 </div>
 <div class="radio">
 <p><label>
 <input type="radio" name="question2" id="opt2" value="2" onchange="check_answer2()">
-FALSE
+With MGM, you can have group-specific predictors; dummy analysis assumes predictors are equal.
+</label></p>
+</div>
+<div class="radio">
+<p><label>
+<input type="radio" name="question2" id="opt3" value="3" onchange="check_answer2()">
+With MGM, both groups can have unique residual variances; dummy analysis assumes homogeneity of variance.
+</label></p>
+</div>
+<div class="radio">
+<p><label>
+<input type="radio" name="question2" id="opt4" value="4" onchange="check_answer2()">
+MGM can account for measurement variance (latent variables do not measure the exact same thing across both groups); dummy analysis assumes measurement invariance.
 </label></p>
 </div>
 <div id="collapseExample2" class="collapse">
@@ -548,8 +572,8 @@ function check_answer2()
     {
         if(radioButtons2[i].checked == true)
         {
-            var feedback2 = "<p style='color:red'>Wrong; The chi-square test of model fit is not used for model comparison. When comparing two specific nested models, you can conduct a chi-square *difference* test. If this is not significant, the simpler model is preferred. When comparing a set of nested models, use any of the fit indices to determine which one fits best. See: Recurring topic, lecture 1 and others.</p>";
-            if(radioButtons2[i].value == "2") {
+            var feedback2 = "<p style='color:red'>Wrong; If you used different dependent variables across two groups in a multi-group analysis, the models in the two groups are not nested and thus incomparable. It is possible, however, to have different independent variables across the two groups: This simply means that the regression coefficient for some of the independent variables are constrained to zero in one of the groups. This is a general insight question; there are no specific slides explaining this - but look at sections on nested models (week 2) and multi-group analysis (week 6).</p>";
+            if(radioButtons2[i].value == "1") {
               feedback2 = "<p style='color:green'>Correct!</p>"
             }
             document.getElementById("answerFeedback2").innerHTML = feedback2;
@@ -559,17 +583,29 @@ function check_answer2()
 }
 </script>
 <p><strong>Question 3:</strong>
-A confounder is a special case of a mediator.</p>
+Which of these is not a risk of using modification indices?</p>
 <div class="radio">
 <p><label>
 <input type="radio" name="question3" id="opt1" value="1" onchange="check_answer3()">
-FALSE
+Making modifications that reduce fit to the data.
 </label></p>
 </div>
 <div class="radio">
 <p><label>
 <input type="radio" name="question3" id="opt2" value="2" onchange="check_answer3()">
-TRUE
+Conducting exploratory analyses, but still presenting the findings as hypothesis-testing (confirmatory) research.
+</label></p>
+</div>
+<div class="radio">
+<p><label>
+<input type="radio" name="question3" id="opt3" value="3" onchange="check_answer3()">
+Overfitting the model; which means: modeling noise unique to the current dataset, thus improving the fit of the model to the current data, but reducing its generalizability and fit to future datasets.
+</label></p>
+</div>
+<div class="radio">
+<p><label>
+<input type="radio" name="question3" id="opt4" value="4" onchange="check_answer3()">
+Specifying paths that improve fit, but do not make theoretical sense.
 </label></p>
 </div>
 <div id="collapseExample3" class="collapse">
@@ -586,7 +622,7 @@ function check_answer3()
     {
         if(radioButtons3[i].checked == true)
         {
-            var feedback3 = "<p style='color:red'>Wrong; We speak of confounding when a third variable causes both X and Y, thus making them appear to be associated. Mediation is a different model for three variables: in mediation, we assume that the third variable M is a process variable that explains why X and Y are associated. Note that we cannot distinguish between these two situations based on statistical criteria; we must use theory or the experimental method to determing whether a third variable is a confounder or mediator. See: Lecture, slide 10.</p>";
+            var feedback3 = "<p style='color:red'>Wrong; Using modification indices has many risks, but one thing is certain: by freeing more parameters, you cannot reduce model fit. Model fit will always be better (although sometimes not very much) when you free more parameters. See Lecture, slide 64.</p>";
             if(radioButtons3[i].value == "1") {
               feedback3 = "<p style='color:green'>Correct!</p>"
             }
@@ -597,23 +633,17 @@ function check_answer3()
 }
 </script>
 <p><strong>Question 4:</strong>
-Match the name to the definition: 1) total effect, 2) direct effect, 3) indirect effect.</p>
+It is not possible to use multi-group analysis to investigate moderation with a continuous moderator.</p>
 <div class="radio">
 <p><label>
 <input type="radio" name="question4" id="opt1" value="1" onchange="check_answer4()">
-1) The partial bivariate regression coefficient between X and Y<br>2) The sum of the direct effect and any indirect effects linking X and Y<br>3) The product of any regression coefficients between variables mediating the link between X and Y
+FALSE
 </label></p>
 </div>
 <div class="radio">
 <p><label>
 <input type="radio" name="question4" id="opt2" value="2" onchange="check_answer4()">
-1) The sum of the direct effect and any indirect effects linking X and Y<br>2) The product of any regression coefficients between variables mediating the link between X and Y<br>3) The partial bivariate regression coefficient between X and Y
-</label></p>
-</div>
-<div class="radio">
-<p><label>
-<input type="radio" name="question4" id="opt3" value="3" onchange="check_answer4()">
-1) The sum of the direct effect and any indirect effects linking X and Y<br>2) The partial bivariate regression coefficient between X and Y<br>3) The product of any regression coefficients between variables mediating the link between X and Y
+TRUE
 </label></p>
 </div>
 <div id="collapseExample4" class="collapse">
@@ -630,8 +660,8 @@ function check_answer4()
     {
         if(radioButtons4[i].checked == true)
         {
-            var feedback4 = "<p style='color:red'>Wrong; See Lecture, slide 7.</p>";
-            if(radioButtons4[i].value == "3") {
+            var feedback4 = "<p style='color:red'>Wrong; True; with categorical moderators, you can run a multi-group model with separate groups for each category of the moderator. Continuous moderators cannot be split like that. You must compute an interaction term by multiplying the moderator with the predictor it moderates. See Lecture, slide 33.</p>";
+            if(radioButtons4[i].value == "2") {
               feedback4 = "<p style='color:green'>Correct!</p>"
             }
             document.getElementById("answerFeedback4").innerHTML = feedback4;
@@ -641,7 +671,7 @@ function check_answer4()
 }
 </script>
 <p><strong>Question 5:</strong>
-In order to for mediation to exist, there must also exist a total effect between X and Y.</p>
+Modification indices indicate how much the Chi-square will increase when you fix this parameter to zero.</p>
 <div class="radio">
 <p><label>
 <input type="radio" name="question5" id="opt1" value="1" onchange="check_answer5()">
@@ -668,7 +698,7 @@ function check_answer5()
     {
         if(radioButtons5[i].checked == true)
         {
-            var feedback5 = "<p style='color:red'>Wrong; It is possible that the total effect is near-zero and non-significant if, for example, the direct effect and the indirect effect are of opposite signs and cancel each other out. This is called suppression. See Lecture, slide 18.</p>";
+            var feedback5 = "<p style='color:red'>Wrong; False; the modification index estimates how much chi square will decrease (how much misfit is reduced) by freeing a specific parameter. See Lecture, slide 62.</p>";
             if(radioButtons5[i].value == "2") {
               feedback5 = "<p style='color:green'>Correct!</p>"
             }
@@ -679,29 +709,17 @@ function check_answer5()
 }
 </script>
 <p><strong>Question 6:</strong>
-When are model A and B nested?</p>
+Centering predictors in moderation analysis affects both model fit and model interpretation.</p>
 <div class="radio">
 <p><label>
 <input type="radio" name="question6" id="opt1" value="1" onchange="check_answer6()">
-If one model is obtained by constraining some parameters of the other model
+FALSE
 </label></p>
 </div>
 <div class="radio">
 <p><label>
 <input type="radio" name="question6" id="opt2" value="2" onchange="check_answer6()">
-If both model use the same dependent variables
-</label></p>
-</div>
-<div class="radio">
-<p><label>
-<input type="radio" name="question6" id="opt3" value="3" onchange="check_answer6()">
-If both models have an equal number of DF
-</label></p>
-</div>
-<div class="radio">
-<p><label>
-<input type="radio" name="question6" id="opt4" value="4" onchange="check_answer6()">
-If both models use exactly the same covariance matrix
+TRUE
 </label></p>
 </div>
 <div id="collapseExample6" class="collapse">
@@ -718,7 +736,7 @@ function check_answer6()
     {
         if(radioButtons6[i].checked == true)
         {
-            var feedback6 = "<p style='color:red'>Wrong; Models are nested when you can derive the simpler model by constraining some parameters of the more complex model (e.g., constraining them to zero or to be equal to each other). See Lecture, slide 21.</p>";
+            var feedback6 = "<p style='color:red'>Wrong; Centering does not affect model fit; imagine you move a scatterplot along the X or Y axis. This does not change the relationship between X and Y. Centering does influence interpretation, however. Before you center, the effect of each variable can be interpreted as the expected effect for that variable for people who score zero on all other variables. After you center predictors, the effect of each variable can be interpreted as the expected effect for that variable for people with the average value on all other variables. See Lecture, slide 9.</p>";
             if(radioButtons6[i].value == "1") {
               feedback6 = "<p style='color:green'>Correct!</p>"
             }
@@ -729,29 +747,17 @@ function check_answer6()
 }
 </script>
 <p><strong>Question 7:</strong>
-Bootstrapping…</p>
+According to Barron and Kenny, there are many ways to investigate moderation - but all of them can be specified as a structural equation model.</p>
 <div class="radio">
 <p><label>
 <input type="radio" name="question7" id="opt1" value="1" onchange="check_answer7()">
-…empirically derives the sampling distribution by randomly shuffling the data many times, and calculating the bootstrapped parameters in each sample.
+FALSE
 </label></p>
 </div>
 <div class="radio">
 <p><label>
 <input type="radio" name="question7" id="opt2" value="2" onchange="check_answer7()">
-…better estimates the population value of parameters by randomly sampling from the data many times, and calculating the bootstrapped parameters in each sample.
-</label></p>
-</div>
-<div class="radio">
-<p><label>
-<input type="radio" name="question7" id="opt3" value="3" onchange="check_answer7()">
-…better estimates the population value of parameters by randomly sampling from the data many times, and calculating the bootstrapped parameters in each sample.
-</label></p>
-</div>
-<div class="radio">
-<p><label>
-<input type="radio" name="question7" id="opt4" value="4" onchange="check_answer7()">
-…empirically derives the sampling distribution by randomly sampling from the data many times, and calculating the bootstrapped parameters in each sample.
+TRUE
 </label></p>
 </div>
 <div id="collapseExample7" class="collapse">
@@ -768,8 +774,8 @@ function check_answer7()
     {
         if(radioButtons7[i].checked == true)
         {
-            var feedback7 = "<p style='color:red'>Wrong; The sampling distribution is what you would get if you drew many samples from the population, and calculated a parameter in each of those samples. Bootstrapping simply replaces the population with your original sample, and draws many samples (with replacement) from your original sample, then calculates the parameter in each of those samples. If your sample is representative, then this approximately represents the sampling distribution. Lecture, slide 38.</p>";
-            if(radioButtons7[i].value == "4") {
+            var feedback7 = "<p style='color:red'>Wrong; True; SEM is a more general modeling framework that incorporates many specific types of analysis, including AN(C)OVA, regression, correlation analysis, etc. See Lecture, slide 5.</p>";
+            if(radioButtons7[i].value == "2") {
               feedback7 = "<p style='color:green'>Correct!</p>"
             }
             document.getElementById("answerFeedback7").innerHTML = feedback7;
@@ -785,8 +791,8 @@ function check_answer7()
           </div>
         </div>
       </div>
-<a href="week-5-class.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="week-6-overview.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="week-6-class.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="week-7-overview.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

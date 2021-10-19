@@ -246,6 +246,7 @@ question-9-4
 question-10-4
 question-12
 question-13
+week-6---formative-test
 week-7---overview
 week-7---putting-it-all-together
 loading-the-data-1

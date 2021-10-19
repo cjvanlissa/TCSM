@@ -31,6 +31,7 @@ rmd_files: ["index.Rmd",
 "RQ-Week6.Rmd",
 "13-Week6_home.Rmd",
 "14-Week6_class.Rmd",
+"formative6.Rmd",
 "Week7_program.Rmd",
 "15-Week7_home.Rmd"]
 language:

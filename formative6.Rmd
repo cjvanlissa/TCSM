@@ -1,0 +1,38 @@
+# Week 6 - Formative test
+
+```{r include=FALSE}
+knitr::opts_chunk$set(warning=FALSE, message=FALSE, echo = FALSE)
+# fnam = "formative2.png"
+# if(!file.exists(fnam)){
+#   library(tidySEM)
+# library(lavaan)
+# library(ggplot2)
+# df <- cbind(iris[1:75, 1:3], iris[76:150, 2:4])
+# 
+# lo <- get_layout("x1", "x2", "x3", "x4", "x5", "x6",
+#                  "",   "f1", "",   "",   "f2", "", rows = 2)
+# #dat <- expand.grid(c("f1", "f2"), paste0("x", 1:6))
+# dat <- cbind(unname(expand.grid(c("f1", "f2"), paste0("x", 1:6), stringsAsFactors = FALSE)), arrow = "last")
+# names(dat) <- c("from", "to", "arrow")
+# dat2 <- data.frame(cbind(c("f1", "f2"), c("f1", "f2")), arrow = "last")
+# names(dat2) <- c("from", "to", "arrow")
+# dat3 <- data.frame(cbind(paste0("x", 1:6), paste0("x", 1:6)), arrow = "both")
+# names(dat3) <- c("from", "to", "arrow")
+# dat <- rbind(dat, dat2, dat3)
+# 
+# set.seed(58)
+# graph_sem(layout = lo, edges = dat, angle = 179, fix_coord = TRUE) -> p
+# ggsave(fnam, p, "png")
+# }
+```
+
+A formative test helps you assess your progress in the course, and helps you address any blind spots in your understanding of the material.
+If you get a question wrong, you will receive a hint on how to improve your understanding of the material.
+
+Complete the formative test ideally *after* you've seen the lecture, but *before* the lecture meeting in which we can discuss any topics that need more attention.
+
+```{r results = "asis", echo = FALSE}
+source("formative.R")
+questionnaire("formative6.csv")
+```
+

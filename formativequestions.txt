@@ -22,6 +22,4 @@ dependent variable and moderator, always have to be linear.
 
 
 
-13. Modification indices indicate how much the Chi-square will increase when
-you fix this parameter to zero.
-True False
+A quadratic relationship could be interpreted as an interaction of a predictor with itself.	"FALSE"	TRUE	This is true; to estimate an interaction effect, you multiply predictor X1 with predictor X2 to get interaction term X1*X2. To estimate a quadratic effect, you multiply predictor X1 with itself to get quadratic term X1*X1, or X1^2. 
