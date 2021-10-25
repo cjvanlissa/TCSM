@@ -181,44 +181,44 @@ You only get 200 words to justify your theoretical model, and 300 words to discu
 The focus should be on your analysis; how it relates to theory (introduction), and what you have learned from it and how you might improve it (discussion).
 
 1. Apply the “latent variable model” to a real-life problem, where observed variables do not directly measure, but are indicators of, an unobserved social scientific construct (G, 25%)
-    a. Find a suitable dataset, for example:
+    a. Find a suitable dataset, for example: (no word limit)
         i.	Data you have collected for a previous course
         ii.	Open data, provided with a published paper
         iii.	The “Coping with COVID-19” dataset (if you can’t find anything)
     b.	Describe the dataset, and introduce the theoretical latent variable model (200 words)
-    c.	Estimate the latent variable model (PCA, EFA, CFA) and conduct reliability analysis, provide relevant output in a suitable format
+    c.	Estimate the latent variable model (PCA, EFA, CFA) and conduct reliability analysis, provide relevant output in a suitable format (no word limit; as short as possible and as long as necessary to report the relevant output)
     d.	Explain your rationale for important modeling decisions (300 words)
         i.	Motivate your choice for the type of latent variable model
         ii.	Discuss assumptions
         iii.	Discuss other important decisions, as discussed in the course reading materials
-    e.	Report and interpret the results in APA style
+    e.	Report and interpret the results in APA style  (no word limit; as short as possible and as long as necessary to report the relevant results)
     f.	Discuss the results in max 300 words
         i.	Devote attention to strengths and limitations
 2. Use the “path model” to describe how several variables are causally related to one another (G, 25%)
-    a.	Find a suitable dataset, for example:
+    a.	Find a suitable dataset, for example: (no word limit)
         i.	Data you have collected and analyzed for a previous course
         ii.	Open data, provided with a published paper
         iii.	The “Coping with COVID-19” dataset (if you can’t find anything)
     b.	Describe the dataset, and introduce the theoretical path model (200 words)
-    c.	Conduct a SEM path model to answer the theoretical questions
+    c.	Conduct a SEM path model to answer the theoretical questions  (no word limit; as short as possible and as long as necessary to report the relevant output)
         i. 	This can be a re-analysis of a question that had been tested using regression, ANOVA, or t-test analysis in the original paper
-    c.	Explain your rationale for important modeling decisions (300 words)
+    d.	Explain your rationale for important modeling decisions (300 words)
         i.	Fit between theory and model
         ii.	Model assumptions
         iii.	Difference/similarity between the path model and the (original) regression, ANOVA, or t-test analysis
         iv.	Why you use standardized or unstandardized coefficients
-    d.	Report and interpret the results in APA style
+    e.	Report and interpret the results in APA style  (no word limit; as short as possible and as long as necessary to report the relevant results)
         i. 	Include measures of explained variance for the dependent variables.
-    e.	Discuss the results (max 300 words)
+    f.	Discuss the results (max 300 words)
         i.	Devote attention to strengths and limitations
 3. Independently analyze data using the free, open-source statistical software R (I, 50%) 
-    a.	Find a suitable dataset, for example:
+    a.	Find a suitable dataset, for example: (no word limit)
         i.	Data you have collected for a previous course
         ii.	Open data, provided with a published paper
         iii.	The “Coping with COVID-19” dataset (if you can’t find anything)
     b.	Describe the dataset, and introduce a theory involving at least 3 variables that can be tested using these data (300 words)
-    c.	Translate the theory to lavaan syntax and estimate the model (could be multiple models if you think it’s necessary)
-    d.	Use at least:
+    c.	Translate the theory to lavaan syntax and estimate the model (could be multiple models if you think it’s necessary; no word limit)
+    d.	Use at least: (no word limit)
         i.	One latent variable
         ii.	Moderation (continuous or multi-group)
         iii.	Mediation
@@ -227,7 +227,7 @@ The focus should be on your analysis; how it relates to theory (introduction), a
         ii.	Model assumptions
         iii.	Difference/similarity between the path model and the (original) regression, ANOVA, or t-test analysis
         iv.	Why you use standardized or unstandardized coefficients
-    f.	Report and interpret your results in APA style
+    f.	Report and interpret your results in APA style  (no word limit; as short as possible and as long as necessary to report the relevant results)
     g.	Discuss your results in maximum 500 words
 
 ## Rules for the take-home assignments
