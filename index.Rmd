@@ -218,7 +218,7 @@ The focus should be on your analysis; how it relates to theory (introduction), a
         iii.	The “Coping with COVID-19” dataset (if you can’t find anything)
     b.	Describe the dataset, and introduce a theory involving at least 3 variables that can be tested using these data (300 words)
     c.	Translate the theory to lavaan syntax and estimate the model (could be multiple models if you think it’s necessary; no word limit)
-    d.	Use at least: (no word limit)
+    d.	Use at least all of the following: (no word limit)
         i.	One latent variable
         ii.	Moderation (continuous or multi-group)
         iii.	Mediation
